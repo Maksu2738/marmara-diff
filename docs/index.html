@@ -79,6 +79,7 @@
                             <li><a href="#alistirmalar-tip-2">Mekanik Alıştırmaları</a></li>
                             <li><a href="#bolum-3-3">B. Oran ve Radyoaktif Bozunma</a></li>
                             <li><a href="#alistirmalar-tip-3">Oran / Karışım Alıştırmaları</a></li>
+                            <li><a href="#ozet-birinci-mertebe">★ Özet: Beş Denklem Tipi</a></li>
                             <li><a href="#bolum-2-4">2.5 Özel İntegral Çarpanları</a></li>
                             <li><a href="#alistirmalar-2-4">2.5 Alıştırmalar</a></li>
                             <li><a href="#alistirmalar-genel-tekrar">Bölüm 2 Genel Tekrar</a></li>
@@ -133,7 +134,6 @@
                             <li><a href="#bolum-3-1">Dik ve Eğik Yörüngeler (kitapta 3.1)</a></li>
                             <li><a href="#alistirmalar-tip-1">Dik Yörünge Alıştırmaları</a></li>
                             <li><a href="#ornek-3-9">Örnek: Soğuma Problemi</a></li>
-                            <li><a href="#ornek-3-10">Örnek: Lojistik Nüfus Büyümesi</a></li>
                             <li><a href="#ornek-3-12">Örnek: Karışım Problemi</a></li>
                             <li><a href="#bolum-2-4-b">Özel Bir Dönüşüm (kitapta 2.4-B)</a></li>
                             <li><a href="#bolum-2-4-c">Diğer Özel Tipler (kitapta 2.4-C)</a></li>
@@ -2127,6 +2127,47 @@
                         </div>
                     </div>
 
+                    <div id="ornek-yay-elastik" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Elastik Hareket &mdash; Yay Üzerindeki Kütle
+                        </div>
+                        <p style="margin-bottom: 1rem;">Bu örnek derste işlendi. Yay problemine burada ==birinci mertebeden== bir yaklaşım uygulanır: zaman değil, konum bağımsız değişken alınır ve denklem ayrılabilir hâle gelir. Sonuçta enerjinin korunumu ifadesi elde edilir.</p>
+                        <div class="question-block">
+                            <p class="question-text">Bir yayın ucuna bağlı $m$ kütleli bir cisme, denge konumundan olan $x$ uzaklığıyla orantılı bir geri çağırıcı kuvvet etki etmektedir: $F=-kx$ (Hooke yasası, $k>0$). Cisim $x=d$ noktasından durgun hâlde bırakılıyor. Hızın konuma bağlı ifadesini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Newton'un ikinci yasasını konuma göre yaz.</strong></p>
+                                $$F=ma=m\frac{dv}{dt}$$
+                                <p>Burada $v$ zamanın fonksiyonudur, ama biz hızı <span class="vurgu">konumun</span> fonksiyonu olarak istiyoruz. Zincir kuralıyla türevi dönüştürelim:</p>
+                                $$\frac{dv}{dt}=\frac{dv}{dx}\cdot\frac{dx}{dt}=v\,\frac{dv}{dx}$$
+                                <p>Bu, birinci mertebeden uygulamalarda sürekli kullanılan anahtar adımdır: $t$ değişkeni denklemden düşer.</p>
+                                $$v\,\frac{dv}{dx}=\frac{F}{m}\;\Longrightarrow\;v\,dv-\frac{F}{m}\,dx=0$$
+                                <p><strong>Adım 2 — Kuvveti yerine koy.</strong></p>
+                                <p>$F=-kx$ olduğundan:</p>
+                                $$v\,dv-\frac{(-kx)}{m}\,dx=0\;\Longrightarrow\;v\,dv+\frac{k}{m}\,x\,dx=0$$
+                                <p>Bu <span class="vurgu">ayrılabilir</span> bir denklemdir; $v$ terimleri solda, $x$ terimleri sağda zaten ayrışmış durumda.</p>
+                                <p><strong>Adım 3 — İntegre et.</strong></p>
+                                $$\int v\,dv+\frac{k}{m}\int x\,dx=0$$
+                                $$\frac{v^{2}}{2}+\frac{k}{m}\cdot\frac{x^{2}}{2}+c=0$$
+                                <p>Her iki tarafı $m$ ile çarpalım:</p>
+                                $$\boxed{\;\frac{1}{2}mv^{2}+\frac{1}{2}kx^{2}=C\;}$$
+                                <p>Bu tanıdık bir ifadedir: soldaki ilk terim <span class="vurgu">kinetik enerji</span>, ikinci terim yaydaki <span class="vurgu">potansiyel enerji</span>. Yani diferansiyel denklemi çözerek enerjinin korunumu yasasını türetmiş olduk.</p>
+                                <p><strong>Adım 4 — Başlangıç koşulunu uygula.</strong></p>
+                                <p>Cisim $x=d$ noktasında durgun bırakıldığı için $v(d)=0$:</p>
+                                $$\frac{1}{2}m\cdot 0^{2}+\frac{1}{2}kd^{2}=C\;\Longrightarrow\;C=\frac{1}{2}kd^{2}$$
+                                <p>Böylece:</p>
+                                $$\frac{1}{2}mv^{2}+\frac{1}{2}kx^{2}=\frac{1}{2}kd^{2}$$
+                                <p><strong>Adım 5 — Hızı yalnız bırak.</strong></p>
+                                $$mv^{2}=k\left(d^{2}-x^{2}\right)\;\Longrightarrow\;\boxed{\;v=\pm\sqrt{\frac{k}{m}}\,\sqrt{d^{2}-x^{2}}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Yorum:</strong> Hız $x=0$'da (denge konumu) en büyük değerini alır: $v_{\max}=d\sqrt{k/m}$. Uç noktalarda $x=\pm d$ için $v=0$ olur; cisim orada anlık olarak durur ve yön değiştirir. $\pm$ işareti hareketin iki yönünü temsil eder.</p>
+                                    <p>Dikkat: bu yöntem hızı <span class="vurgu">konuma</span> bağlı verir. Konumun <span class="vurgu">zamana</span> bağlı ifadesi $x(t)=d\cos\!\left(\sqrt{k/m}\,t\right)$ için ikinci mertebeden denklem çözmek gerekir ki bu ders kapsamı dışındadır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="alistirmalar-tip-2" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -2212,6 +2253,79 @@
                         </div>
                     </div>
 
+                    <div id="ornek-radyoaktif-bernoulli" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Daha Gerçekçi Bozunma Modeli &mdash; Bernoulli Denklemi
+                        </div>
+                        <p style="margin-bottom: 1rem;">Bu örnek derste işlendi. Bir önceki örnekteki basit üstel bozunma modeline ikinci dereceden bir düzeltme terimi eklenirse denklem ==Bernoulli== tipine dönüşür; böylece iki konu birleşir.</p>
+                        <div class="question-block">
+                            <p class="question-text">Bozunma sürecine, örneğin ürünlerin birikmesinden kaynaklanan ikinci dereceden bir düzeltme terimi eklendiğinde model $\displaystyle\frac{dx}{dt}=kx-\lambda x^{2}$ hâlini alır ($k,\lambda>0$). Bu denklemi çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklemi tanı.</strong></p>
+                                <p>Terimleri düzenleyelim:</p>
+                                $$\frac{dx}{dt}-kx=-\lambda x^{2}$$
+                                <p>Bu, $x'+P(t)x=Q(t)x^{n}$ biçimindedir:</p>
+                                $$P(t)=-k,\qquad Q(t)=-\lambda,\qquad n=2$$
+                                <p>Yani <span class="vurgu">Bernoulli</span> denklemidir. $n=2\neq 0,1$ olduğu için doğrusal değildir; dönüşüm gerekir.</p>
+                                <p><strong>Adım 2 — Dönüşümü uygula.</strong></p>
+                                $$v=x^{1-n}=x^{1-2}=x^{-1}$$
+                                <p>Türevini alalım:</p>
+                                $$\frac{dv}{dt}=-x^{-2}\frac{dx}{dt}\;\Longrightarrow\;\frac{dx}{dt}=-x^{2}\frac{dv}{dt}$$
+                                <p>Denklemde yerine koyalım:</p>
+                                $$-x^{2}\frac{dv}{dt}-kx=-\lambda x^{2}$$
+                                <p>Her iki tarafı $-x^{2}$ ile bölelim:</p>
+                                $$\frac{dv}{dt}+k\,x^{-1}=\lambda\;\Longrightarrow\;\frac{dv}{dt}+kv=\lambda$$
+                                <p>Denklem artık $v$'ye göre <span class="vurgu">doğrusaldır</span>.</p>
+                                <p><strong>Adım 3 — İntegral çarpanıyla çöz.</strong></p>
+                                $$\mu(t)=e^{\int k\,dt}=e^{kt}$$
+                                $$\frac{d}{dt}\left(e^{kt}v\right)=\lambda e^{kt}$$
+                                <p>İntegre edersek:</p>
+                                $$e^{kt}v=\frac{\lambda}{k}e^{kt}+c\;\Longrightarrow\;v=\frac{\lambda}{k}+ce^{-kt}$$
+                                <p><strong>Adım 4 — $x$'e geri dön.</strong></p>
+                                <p>$v=x^{-1}$ olduğundan:</p>
+                                $$\boxed{\;x(t)=\left[\frac{\lambda}{k}+ce^{-kt}\right]^{-1}\;}$$
+                                <p><strong>Doğrulama.</strong> $v=\dfrac{\lambda}{k}+ce^{-kt}$ ise $v'=-kce^{-kt}$ olur ve</p>
+                                $$v'+kv=-kce^{-kt}+k\left(\frac{\lambda}{k}+ce^{-kt}\right)=-kce^{-kt}+\lambda+kce^{-kt}=\lambda$$
+                                <ol>
+                                    <li>adımdaki denklemle aynı; çözüm doğrudur.</li>
+                                </ol>
+                                <div class="highlight">
+                                    <p><strong>Uzun vadeli davranış:</strong> $t\to\infty$ iken $e^{-kt}\to 0$ olur, dolayısıyla</p>
+                                    $$x(t)\;\longrightarrow\;\frac{k}{\lambda}$$
+                                    <p>Yani miktar sıfıra gitmez, $k/\lambda$ değerinde bir <span class="vurgu">denge seviyesine</span> yerleşir. Basit üstel modelde ($\lambda=0$) miktar sürekli azalırken, düzeltme terimi eklendiğinde sistem bir dengeye oturur.</p>
+                                    <p>Bu denklem matematiksel olarak <span class="vurgu">lojistik denklemle</span> aynıdır; nüfus artışında da tıpatıp bu form karşımıza çıkar ve $k/\lambda$ oranı ortamın taşıma kapasitesine karşılık gelir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-3-10" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 3.10: Lojistik Nüfus Büyümesi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 3.10 — Lojistik Nüfus Büyümesi</p>
+                            <p>Bir şehrin nüfusu $\displaystyle \frac{dx}{dt} = \frac{1}{100}x - \frac{1}{10^8}x^2$ ile modellenmektedir. $x(1980) = 100,000$ ise 2000 yılındaki nüfus nedir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p>Ayrılabilir bu denklem kısmi kesirlerle entegre edilir:</p>
+                                $$100\left[\frac{1}{x} + \frac{10^{-6}}{1-10^{-6}x}\right]dx = dt$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegrali:</p>
+                                $$\ln\left[\frac{x}{1-10^{-6}x}\right] = \frac{1}{100}t + c_2 \implies x = \frac{ce^{t/100}}{1+10^{-6}ce^{t/100}}$$
+                                <p>$x(1980) = 100,000$ konduğunda $\displaystyle c = \frac{10^6}{9e^{19.8}}$ bulunur.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Nihai denklem:</p>
+                                $$x = \frac{10^6}{1 + 9e^{19.8-t/100}}$$
+                                <p>$t=2000$ için nüfus hesaplanırsa $x \approx 119,495$ olur.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="alistirmalar-tip-3" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -2239,6 +2353,66 @@
                     <!-- ############################################################
                          BÖLÜM 4  —  İÇERİK EKLENECEK
                          ############################################################ -->
+
+                    <div id="ozet-birinci-mertebe" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Özet</span>
+                            Birinci Mertebeden Denklemlerin Beş Tipi
+                        </div>
+                        <p>Buraya kadar birinci mertebeden denklemlerin <span class="vurgu">beş temel tipini</span> gördük: tam, ayrılabilir, homojen, doğrusal ve Bernoulli. Bir soruyla karşılaştığında ilk iş <strong>hangi tip olduğunu tanımaktır</strong> — yöntem ondan sonra kendiliğinden gelir.</p>
+                        <p>Aşağıdaki tablo tanıma ölçütünü ve uygulanacak yöntemi bir arada verir.</p>
+                        <div class="tablo-sar">
+                        <table>
+                        <thead>
+                        <tr>
+                        <th>Tip</th>
+                        <th>Nasıl tanınır</th>
+                        <th>Yöntem</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td><strong>Ayrılabilir</strong></td>
+                        <td>$F(x)G(y)\,dx+f(x)g(y)\,dy=0$ &mdash; $x$'li ve $y$'li çarpanlar ayrışabiliyor</td>
+                        <td>$\dfrac{1}{f(x)G(y)}$ ile böl, iki tarafı ayrı ayrı integre et</td>
+                        </tr>
+                        <tr>
+                        <td><strong>Tam</strong></td>
+                        <td>$M\,dx+N\,dy=0$ ve $\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}$</td>
+                        <td>$F=\displaystyle\int M\,dx+g(y)$ kur, $F_y=N$'den $g(y)$'yi bul, $F=c$</td>
+                        </tr>
+                        <tr>
+                        <td><strong>Homojen</strong></td>
+                        <td>$\dfrac{dy}{dx}=f(x,y)$ ve $f$ yalnızca $y/x$ cinsinden yazılabiliyor</td>
+                        <td>$v=\dfrac{y}{x}$ &rarr; ayrılabilir denkleme dönüşür</td>
+                        </tr>
+                        <tr>
+                        <td><strong>Doğrusal</strong></td>
+                        <td>$y'+P(x)y=Q(x)$ &mdash; $y$ ve $y'$ birinci derecede, çarpımları yok</td>
+                        <td>$\mu=e^{\int P\,dx}$ ile çarp, $\left(\mu y\right)'=\mu Q$ olur</td>
+                        </tr>
+                        <tr>
+                        <td><strong>Bernoulli</strong></td>
+                        <td>$y'+P(x)y=Q(x)y^{n}$, &nbsp; $n\neq 0,1$</td>
+                        <td>$v=y^{1-n}$ &rarr; $v$'ye göre doğrusal denkleme dönüşür</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tanıma sırası</h3>
+                        <p>Pratikte şu sırayla bakmak en hızlısıdır:</p>
+                        <ol>
+                            <li><strong>Değişkenler ayrışıyor mu?</strong> Ayrışıyorsa en kolay yol budur, başka bir şey deneme.</li>
+                            <li><strong>$y'+P y=Q$ biçiminde mi?</strong> Doğrusalsa integral çarpanı formülü doğrudan sonuç verir.</li>
+                            <li><strong>Sağ tarafta $y^{n}$ var mı?</strong> Varsa Bernoulli'dir; $v=y^{1-n}$ dönüşümü uygula.</li>
+                            <li><strong>$M_y=N_x$ mi?</strong> Eşitse tamdır.</li>
+                            <li><strong>Hiçbiri değilse:</strong> $f$ yalnızca $y/x$ cinsinden yazılabiliyor mu diye bak (homojen), yoksa <span class="vurgu">integral çarpanı</span> aramaya geç.</li>
+                        </ol>
+                        <div class="highlight">
+                            <p><strong>Tipler birbirini dışlamaz.</strong> Bir denklem aynı anda birden fazla sınıfa girebilir; örneğin her ayrılabilir denklem uygun bir integral çarpanıyla tam yapılabilir, doğrusal bir denklem $n=0$ alınmış Bernoulli denklemidir. Böyle durumlarda en az işlem gerektiren yolu seç &mdash; sınavda zaman kazandırır.</p>
+                        </div>
+                        <p>Bir denklem bu beş kalıptan hiçbirine uymuyorsa, sıradaki adım onu <span class="vurgu">tam</span> hâle getirecek bir integral çarpanı aramaktır. Bir sonraki bölüm tam olarak bunu ele alıyor.</p>
+                    </div>
 
                     <div id="bolum-2-4"></div>
 
@@ -3820,31 +3994,6 @@
                                 <p>Sıcaklık denklemi:</p>
                                 $$x = 50 + 30\left(\frac{2}{3}\right)^{t/5}$$
                                 <p>$t=10$ konulursa $\displaystyle x = 50 + 30(4/9) \approx 63.33^{\circ}F$.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="ornek-3-10" class="section ornek">
-                        <div class="section-title">
-                            <span class="badge">Örnek</span>
-                            Örnek 3.10: Lojistik Nüfus Büyümesi
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">Örnek 3.10 — Lojistik Nüfus Büyümesi</p>
-                            <p>Bir şehrin nüfusu $\displaystyle \frac{dx}{dt} = \frac{1}{100}x - \frac{1}{10^8}x^2$ ile modellenmektedir. $x(1980) = 100,000$ ise 2000 yılındaki nüfus nedir?</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p><strong>Çözüm:</strong></p>
-                                <p>Ayrılabilir bu denklem kısmi kesirlerle entegre edilir:</p>
-                                $$100\left[\frac{1}{x} + \frac{10^{-6}}{1-10^{-6}x}\right]dx = dt$$
-                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
-                                <p>İntegrali:</p>
-                                $$\ln\left[\frac{x}{1-10^{-6}x}\right] = \frac{1}{100}t + c_2 \implies x = \frac{ce^{t/100}}{1+10^{-6}ce^{t/100}}$$
-                                <p>$x(1980) = 100,000$ konduğunda $\displaystyle c = \frac{10^6}{9e^{19.8}}$ bulunur.</p>
-                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
-                                <p>Nihai denklem:</p>
-                                $$x = \frac{10^6}{1 + 9e^{19.8-t/100}}$$
-                                <p>$t=2000$ için nüfus hesaplanırsa $x \approx 119,495$ olur.</p>
                             </div>
                         </div>
                     </div>

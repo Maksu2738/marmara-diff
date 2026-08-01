@@ -70,6 +70,9 @@ Gövde:
 | `---` | `<hr>` |
 | `**kalın**` `*eğik*` `==vurgulu==` `__altı çizili__` | `<strong>` `<em>` `<span class="vurgu">` `<u>` |
 | `[KUTU]` … `[/KUTU]` | `<div class="highlight">` — "Not:", tanım vb. için kutu |
+
+Tablo yazımı yok; ham `<table>` kullan ve **mutlaka** `<div class="tablo-sar">` içine al
+(dar ekranda yatay kaydırma sağlar). `th`/`td` stilleri hazır, satır içi stil yazma.
 | `$...$` ve `$$...$$` | **hiç dokunulmaz**, KaTeX'e gider |
 | `<` ile başlayan satır | ham HTML, aynen geçer (kaçış kapısı) |
 

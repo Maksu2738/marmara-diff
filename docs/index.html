@@ -18,546 +18,8 @@
             ]
         });"></script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #f5f3ff;
-            color: #2d3748;
-            line-height: 1.7;
-        }
-
-        /* ================= LAYOUT ================= */
-        .layout {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* ================= SIDEBAR ================= */
-        .sidebar {
-            width: 290px;
-            min-width: 290px;
-            background: linear-gradient(180deg, #1e1640, #2d2248);
-            color: #e2ddf5;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 4px 0 20px rgba(30, 22, 64, 0.15);
-        }
-
-        .sidebar-header {
-            padding: 1.5rem 1.5rem 1.15rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            flex-shrink: 0;
-        }
-
-        .sidebar-header h2 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.3px;
-        }
-
-        .sidebar-header p {
-            font-size: 0.75rem;
-            color: #a99ed4;
-            margin-top: 0.2rem;
-        }
-
-        .sidebar-nav {
-            flex: 1;
-            padding: 0.75rem 0 2rem;
-            overflow-y: auto;
-        }
-
-        .sidebar-nav::-webkit-scrollbar { width: 8px; }
-        .sidebar-nav::-webkit-scrollbar-track { background: transparent; }
-        .sidebar-nav::-webkit-scrollbar-thumb {
-            background: rgba(139, 92, 246, 0.3);
-            border-radius: 4px;
-        }
-        .sidebar-nav::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.5); }
-
-        .sidebar-nav ul { list-style: none; }
-
-        /* ---- Bölüm (açılır/kapanır başlık) ---- */
-        .chapter-toggle {
-            width: 100%;
-            background: none;
-            border: none;
-            color: #d8d2ee;
-            font-family: inherit;
-            font-size: 0.82rem;
-            font-weight: 700;
-            text-align: left;
-            padding: 0.7rem 1.1rem 0.7rem 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.55rem;
-            line-height: 1.35;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .chapter-toggle:hover {
-            background: rgba(124, 58, 237, 0.12);
-            color: #fff;
-        }
-
-        .chapter-num {
-            background: rgba(139, 92, 246, 0.22);
-            color: #c4b5fd;
-            min-width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.72rem;
-            flex-shrink: 0;
-            margin-top: 1px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .chapter-toggle.open .chapter-num {
-            background: #8b5cf6;
-            color: #fff;
-        }
-
-        .chapter-name { flex: 1; }
-
-        .chevron {
-            font-size: 0.62rem;
-            color: #8b7fc0;
-            flex-shrink: 0;
-            margin-top: 4px;
-            transition: transform 0.25s ease;
-        }
-
-        .chapter-toggle.open .chevron { transform: rotate(90deg); }
-
-        .chapter-links {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .chapter-links.open { max-height: 500px; }
-
-        .sidebar-nav a {
-            display: block;
-            padding: 0.42rem 1.25rem 0.42rem 2.4rem;
-            color: #b8b0d8;
-            text-decoration: none;
-            font-size: 0.82rem;
-            border-left: 3px solid transparent;
-            transition: all 0.18s ease;
-        }
-
-        .sidebar-nav a:hover {
-            background: rgba(124, 58, 237, 0.12);
-            color: #fff;
-            border-left-color: rgba(139, 92, 246, 0.4);
-        }
-
-        .sidebar-nav a.active {
-            background: rgba(124, 58, 237, 0.22);
-            color: #fff;
-            border-left-color: #8b5cf6;
-            font-weight: 600;
-        }
-
-        .sidebar-nav a.pending { color: #7d739e; }
-        .sidebar-nav a.pending:hover { color: #c4bde0; }
-
-        /* ---- Hamburger (mobil) ---- */
-        .hamburger {
-            display: none;
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 200;
-            background: #2d2248;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            width: 44px;
-            height: 44px;
-            font-size: 1.4rem;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(45, 34, 72, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .hamburger:hover { transform: scale(1.05); }
-
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 99;
-        }
-
-        /* ================= ANA İÇERİK ================= */
-        .main-wrapper {
-            flex: 1;
-            margin-left: 290px;
-            min-width: 0;
-        }
-
-        header {
-            background: linear-gradient(135deg, #6d5ace, #8b5cf6);
-            color: #fff;
-            text-align: center;
-            padding: 2.5rem 1rem;
-            box-shadow: 0 4px 16px rgba(109, 90, 206, 0.3);
-        }
-
-        header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        main {
-            max-width: 880px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        /* ---- Bölüm Kartları ---- */
-        .section {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 2rem 2.25rem;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 2px 10px rgba(109, 90, 206, 0.06);
-            border-left: 5px solid transparent;
-        }
-
-        .section.konu    { border-left-color: #7c3aed; }
-        .section.ornek   { border-left-color: #10b981; }
-        .section.sorular { border-left-color: #f59e0b; }
-
-        /* Bölüm giriş kartı (Bölüm 1, Bölüm 2 ... başlıkları) */
-        .section.chapter-head {
-            border-left-color: #5b21b6;
-            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
-        }
-
-        .section.chapter-head .section-title {
-            color: #5b21b6;
-            font-size: 1.5rem;
-        }
-
-        /* İçeriği henüz eklenmemiş bölümler */
-        .section.placeholder {
-            background: #fdfcff;
-            border: 2px dashed #e4dcfa;
-            border-left: 5px solid #cbc4e8;
-            box-shadow: none;
-        }
-
-        .section.placeholder .section-title {
-            color: #8b7fc0;
-            font-size: 1.15rem;
-        }
-
-        .placeholder-note {
-            color: #a89cc8;
-            font-size: 0.88rem;
-            font-style: italic;
-        }
-
-        .section-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .section.konu .section-title    { color: #6d28d9; }
-        .section.ornek .section-title   { color: #059669; }
-        .section.sorular .section-title { color: #d97706; }
-
-        .badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            color: #fff;
-        }
-
-        .section.konu .badge    { background: #7c3aed; }
-        .section.ornek .badge   { background: #10b981; }
-        .section.sorular .badge { background: #f59e0b; }
-
-        /* ---- Soru / Cevap ---- */
-        .question-block {
-            background: #faf8ff;
-            border: 1px solid #e9e5f5;
-            border-radius: 10px;
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .question-block p.question-text {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .answer {
-            display: none;
-            background: #f3f0ff;
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            margin-top: 0.5rem;
-            border-left: 3px solid #7c3aed;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .answer.visible { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-4px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .toggle-btn {
-            background: linear-gradient(135deg, #6d5ace, #8b5cf6);
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 600;
-            transition: opacity 0.2s, transform 0.15s;
-        }
-
-        .toggle-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        .toggle-btn:active { transform: translateY(0); }
-
-        /* ---- İçerik Alanı ---- */
-        #content-area { min-height: 60px; }
-
-        /* ---- Genel Yardımcılar ---- */
-        .highlight {
-            background: #ede9fe;
-            border-left: 4px solid #7c3aed;
-            padding: 1rem 1.25rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1rem 0;
-        }
-
-        code {
-            background: #ede9fe;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.85rem;
-            color: #a0aec0;
-        }
-
-        /* Sidebar linkiyle atlanan hedeflerin üst boşluğu */
-        [id] { scroll-margin-top: 1.5rem; }
-
-        /* Uzun formüller taşmasın */
-        .katex-display {
-            overflow-x: auto;
-            overflow-y: hidden;
-            padding: 0.25rem 0;
-        }
-
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 768px) {
-            .hamburger { display: flex; align-items: center; justify-content: center; }
-
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-
-            .sidebar.open { transform: translateX(0); }
-            .sidebar-overlay.open { display: block; }
-
-            .main-wrapper { margin-left: 0; }
-
-            header { padding-top: 4rem; }
-            header h1 { font-size: 1.5rem; }
-            .section { padding: 1.25rem 1rem; }
-            .header-inner { flex-direction: column; gap: 1rem; text-align: center !important; }
-        }
-
-        /* ================= DARK MODE ================= */
-        body.dark-mode {
-            background-color: #13111c !important;
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode .section {
-            background: #1e1b2e !important;
-            background-color: #1e1b2e !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-            border: 1px solid #2d2845 !important;
-        }
-
-        body.dark-mode .section.chapter-head {
-            background: linear-gradient(135deg, #281e4b, #1d1637) !important;
-            border-left-color: #8b5cf6 !important;
-        }
-
-        body.dark-mode .section.chapter-head .section-title {
-            color: #ddd6fe !important;
-        }
-
-        body.dark-mode .section.chapter-head p {
-            color: #cbd5e1 !important;
-        }
-
-        body.dark-mode .section.placeholder {
-            background: #171424 !important;
-            border-color: #3b335c !important;
-            border-left-color: #6d5ace !important;
-        }
-
-        body.dark-mode .section.placeholder .section-title {
-            color: #c4b5fd !important;
-        }
-
-        body.dark-mode .placeholder-note {
-            color: #94a3b8 !important;
-        }
-
-        body.dark-mode .section-title {
-            color: #f1f5f9 !important;
-        }
-
-        body.dark-mode .section.konu .section-title    { color: #c4b5fd !important; }
-        body.dark-mode .section.ornek .section-title   { color: #6ee7b7 !important; }
-        body.dark-mode .section.sorular .section-title { color: #fcd34d !important; }
-
-        body.dark-mode h3, 
-        body.dark-mode h4, 
-        body.dark-mode strong {
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode p, 
-        body.dark-mode li {
-            color: #cbd5e1 !important;
-        }
-
-        body.dark-mode .question-block {
-            background-color: #171424 !important;
-            border-color: #2e2846 !important;
-        }
-
-        body.dark-mode .question-block p.question-text {
-            color: #f1f5f9 !important;
-        }
-
-        body.dark-mode .answer {
-            background-color: #25203b !important;
-            border-left-color: #a78bfa !important;
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode .highlight {
-            background-color: #272042 !important;
-            border-left-color: #a78bfa !important;
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode div[style*="background"] {
-            background: #25203b !important;
-            background-color: #25203b !important;
-            border-color: #3b335c !important;
-            color: #e2e8f0 !important;
-        }
-
-        body.dark-mode strong[style*="color"],
-        body.dark-mode h3[style*="color"],
-        body.dark-mode p[style*="color"] {
-            color: #c4b5fd !important;
-        }
-
-        body.dark-mode header {
-            background: linear-gradient(135deg, #1e1640, #3b286b) !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
-        }
-
-        body.dark-mode footer {
-            color: #64748b !important;
-        }
-
-        body.dark-mode code {
-            background-color: #2d264a !important;
-            color: #c4b5fd !important;
-        }
-
-        body.dark-mode .katex {
-            color: #f1f5f9 !important;
-        }
-
-        /* Dark mode toggle button */
-        .theme-toggle-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: #fff;
-            padding: 0.45rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .theme-toggle-btn:hover {
-            background: rgba(255, 255, 255, 0.28);
-            transform: translateY(-1px);
-        }
-
-        body.dark-mode .theme-toggle-btn {
-            background: rgba(167, 139, 250, 0.2) !important;
-            border-color: rgba(167, 139, 250, 0.4) !important;
-            color: #ddd6fe !important;
-        }
-    </style>
 </head>
 <body>
 
@@ -567,11 +29,6 @@
 
     <div class="layout">
 
-        <!-- ================================================================
-             SIDEBAR — KONU BAŞLIKLARI
-             Yeni alt başlık eklemek için ilgili <ul class="chapter-links">
-             içine <li><a href="#id">Başlık</a></li> satırı ekleyin.
-             ================================================================ -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <h2>Ders Notları</h2>
@@ -643,12 +100,24 @@
                         </button>
                         <ul class="chapter-links">
                             <li><a href="#bolum-4" class="pending">Giriş</a></li>
-                            <li><a href="#bolum-4-1" class="pending">4.1 Temel Teori</a></li>
-                            <li><a href="#bolum-4-2" class="pending">4.2 Sabit Katsayılı Homojen Denklem</a></li>
-                            <li><a href="#bolum-4-3" class="pending">4.3 Belirsiz Katsayılar Yöntemi</a></li>
-                            <li><a href="#bolum-4-4" class="pending">4.4 Parametrelerin Değişimi</a></li>
-                            <li><a href="#bolum-4-5" class="pending">4.5 Cauchy-Euler Denklemi</a></li>
-                            <li><a href="#bolum-4-6" class="pending">4.6 Teoremler ve İspatları</a></li>
+                            <li><a href="#bolum-4-1">4.1 Temel Teori</a></li>
+                            <li><a href="#ornekler-4-1">Örnekler 4.1 &ndash; 4.19</a></li>
+                            <li><a href="#alistirma-4-1">Alıştırmalar 4.1</a></li>
+                            <li><a href="#bolum-4-2">4.2 Sabit Katsayılı Homojen Denklem</a></li>
+                            <li><a href="#ornekler-4-2">Örnekler 4.20 &ndash; 4.28</a></li>
+                            <li><a href="#alistirma-4-2">Alıştırmalar 4.2</a></li>
+                            <li><a href="#bolum-4-3">4.3 Belirsiz Katsayılar Yöntemi</a></li>
+                            <li><a href="#ornekler-4-3">Örnekler 4.29 &ndash; 4.39</a></li>
+                            <li><a href="#alistirma-4-3">Alıştırmalar 4.3</a></li>
+                            <li><a href="#bolum-4-4">4.4 Parametrelerin Değişimi</a></li>
+                            <li><a href="#ornekler-4-4">Örnekler 4.40 &ndash; 4.42</a></li>
+                            <li><a href="#alistirma-4-4">Alıştırmalar 4.4</a></li>
+                            <li><a href="#bolum-4-5">4.5 Cauchy-Euler Denklemi</a></li>
+                            <li><a href="#ornekler-4-5">Örnekler 4.43 &ndash; 4.44</a></li>
+                            <li><a href="#alistirma-4-5">Alıştırmalar 4.5</a></li>
+                            <li><a href="#bolum-4-6">4.6 Teoremler ve İspatları</a></li>
+                            <li><a href="#alistirma-4-6">Alıştırmalar 4.6</a></li>
+                            <li><a href="#alistirma-4-tekrar">Bölüm 4 Genel Tekrar</a></li>
                         </ul>
                     </li>
 
@@ -674,9 +143,6 @@
             </div>
         </nav>
 
-        <!-- ================================================================
-             ANA İÇERİK
-             ================================================================ -->
         <div class="main-wrapper">
             <header>
                 <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; width: 100%;">
@@ -693,6 +159,10 @@
             <main>
                 <div id="content-area">
 
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 1 — Diferansiyel Denklemler ve Çözümleri -->
+                    <!-- ######################################################## -->
+
                     <!-- ############################################################
                          BÖLÜM 1
                          ############################################################ -->
@@ -705,6 +175,7 @@
                     </div>
 
                     <!-- ===== 1.1 ===== -->
+
                     <div id="bolum-1-1" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -764,6 +235,7 @@
                     </div>
 
                     <!-- ===== 1.2 ===== -->
+
                     <div id="bolum-1-2" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -805,6 +277,7 @@
                     </div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER (1.1 – 1.10) ===== -->
+
                     <div id="ornekler-1" class="section ornek">
                         <div class="section-title">
                             <span class="badge">Örnek</span>
@@ -907,6 +380,7 @@
                     </div>
 
                     <!-- ===== ALIŞTIRMALAR 1.1 ===== -->
+
                     <div id="alistirma-1-1" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -1037,6 +511,7 @@
                     </div>
 
                     <!-- ===== ALIŞTIRMALAR 1.2 ===== -->
+
                     <div id="alistirma-1-2" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -1166,6 +641,7 @@
                     </div>
 
                     <!-- ===== 1.3 ===== -->
+
                     <div id="bolum-1-3" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -1223,6 +699,7 @@
                     </div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER (1.11 – 1.16) ===== -->
+
                     <div id="ornekler-1-3" class="section ornek">
                         <div class="section-title">
                             <span class="badge">Örnek</span>
@@ -1304,6 +781,7 @@
                     </div>
 
                     <!-- ===== ALIŞTIRMALAR 1.3 ===== -->
+
                     <div id="alistirma-1-3" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -1447,6 +925,11 @@
                          yoksa sidebar linkleri çalışmaz.
                          ############################################################ -->
 
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 2 — Tam Çözümü Bulunabilen Birinci Mertebeden Denklemler -->
+                    <!-- ######################################################## -->
+
                     <div id="bolum-2" class="section chapter-head">
                         <div class="section-title">
                             BÖLÜM 2: Tam Çözümü Bulunabilen Birinci Mertebeden Denklemler
@@ -1455,6 +938,7 @@
                     </div>
 
                     <!-- ===== 2.1 ===== -->
+
                     <div id="bolum-2-1" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -1559,6 +1043,7 @@
                     </div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 2.1 – 2.7 ===== -->
+
                     <div id="ornekler-2-1" class="section ornek">
                         <div class="section-title">
                             <span class="badge">Örnek</span>
@@ -1677,6 +1162,7 @@
                     </div>
 
                     <!-- ===== ALIŞTIRMALAR 2.1 ===== -->
+
                     <div id="alistirma-2-1" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -2011,7 +1497,9 @@
                     </div>
 
                     <!-- ===== 2.2 DEĞİŞKENLERİNE AYRILABİLİR DENKLEMLER ===== -->
+
                     <div id="bolum-2-2"></div>
+
                     <div id="bolum-2-2-a" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -2277,7 +1765,9 @@
                     </div>
 
                     <!-- ===== 2.3 DOĞRUSAL DENKLEMLER VE BERNOULLI DENKLEMLERİ ===== -->
+
                     <div id="bolum-2-3"></div>
+
                     <div id="bolum-2-3-a" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -2528,7 +2018,9 @@
                     </div>
 
                     <!-- ===== 2.4 ÖZEL İNTEGRASYON ÇARPANLARI VE DÖNÜŞÜMLER ===== -->
+
                     <div id="bolum-2-4"></div>
+
                     <div id="bolum-2-4-giris" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -2819,7 +2311,13 @@
                          BÖLÜM 3 — BİRİNCİ MERTEBEDEN DENKLEMLERİN UYGULAMALARI
                          ############################################################ -->
 
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 3 — Birinci Mertebeden Denklemlerin Uygulamaları -->
+                    <!-- ######################################################## -->
+
                     <div id="bolum-3"></div>
+
                     <div id="bolum-3-giris" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -2913,29 +2411,6 @@
                         </div>
                     </div>
 
-                    <div id="alistirmalar-tip-1" class="section sorular">
-                        <div class="section-title">
-                            <span class="badge">Sorular</span>
-                            Bölüm Sonu Egzersizleri: Tip 1 - Dik Yörüngeler
-                        </div>
-                        
-                        <div class="question-block">
-                            <p class="question-text">1. $y=cx^3$ eğri ailesinin dik yörüngelerini bulunuz ve aynı koordinat sisteminde birkaç örneğini çiziniz.</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p>Çözüm adımlarını "Dik Yörüngeleri Bulma Adımları" (3.1 A) başlığındaki sırayla uygulayarak çözebilirsiniz.</p>
-                            </div>
-                        </div>
-
-                        <div class="question-block">
-                            <p class="question-text">4. $y=e^{cx}$ eğri ailesinin dik yörüngelerini bulunuz.</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p>Çözüm adımlarını "Dik Yörüngeleri Bulma Adımları" (3.1 A) başlığındaki sırayla uygulayarak çözebilirsiniz.</p>
-                            </div>
-                        </div>
-                    </div>
-
                     <div id="bolum-3-2" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -3022,29 +2497,6 @@
                                 <p>$v(0)=0 \implies c_1 = 48 - 12\sqrt{3}$. Hız denklemi:</p>
                                 $$v = (48-12\sqrt{3})(1-e^{-t/3})$$
                                 <p>$t=2$ için sonuç $v \approx 13.2$ ft/sec olarak hesaplanır.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="alistirmalar-tip-2" class="section sorular">
-                        <div class="section-title">
-                            <span class="badge">Sorular</span>
-                            Bölüm Sonu Egzersizleri: Tip 2 - Mekanik Problemleri
-                        </div>
-                        
-                        <div class="question-block">
-                            <p class="question-text">1. 4 lb ağırlığında bir taş yüksekten düşmeye bırakılıyor. Hava direnci $v/2$ (lb) kadardır.<br>a) $t$ anındaki hızını ve düştüğü mesafeyi bulunuz.<br>b) 5 saniye sonundaki hızını bulunuz.</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p>Newton'un İkinci Yasası $F=ma$ bağıntısından yola çıkarak, $w=4$ ve hava direncini negatif ivme olarak denkleme dahil edin. (Bkz. Örnek 3.5)</p>
-                            </div>
-                        </div>
-
-                        <div class="question-block">
-                            <p class="question-text">13. Bir adam buzlu bir yüzeyde yüklü bir kızağı $10\text{ ft/sec}$ hızla itmektedir. İtmeyi bıraktığında, kızak ve yükün toplam ağırlığı 80 lb'dir. Hava direnci $\frac{3}{4}v$ ve buzun sürtünme katsayısı $0.04$'tür. Adam itmeyi bıraktıktan sonra kızak ne kadar daha ilerler?</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p>Yatay düzlemde hareket söz konusu olduğu için sürtünme kuvveti $F_{surtunme} = -\mu N$ ve hava direnci ile birlikte yavaşlama ivmesini oluşturur. $v=0$ olduğu anı ve o ana kadar alınan yolu hesaplayın. (Bkz. Örnek 3.7)</p>
                             </div>
                         </div>
                     </div>
@@ -3264,6 +2716,11 @@
                          BÖLÜM 4  —  İÇERİK EKLENECEK
                          ############################################################ -->
 
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 4 — Yüksek Mertebeden Doğrusal Denklemlerin Açık Çözüm Yöntemleri -->
+                    <!-- ######################################################## -->
+
                     <div id="bolum-4" class="section chapter-head">
                         <div class="section-title">
                             BÖLÜM 4: Yüksek Mertebeden Doğrusal Diferansiyel Denklemlerin Açık Çözüm Yöntemleri
@@ -3271,46 +2728,1603 @@
                         <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
                     </div>
 
-                    <!-- >>> 4.1 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
-                    <div id="bolum-4-1" class="section placeholder">
-                        <div class="section-title">4.1 &nbsp;Doğrusal Diferansiyel Denklemlerin Temel Teorisi</div>
-                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    <!-- ===== 4.1 KONU ===== -->
+
+                    <div id="bolum-4-1" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.1 &nbsp;Doğrusal Diferansiyel Denklemlerin Temel Teorisi
+                        </div>
+
+                        <p>Adi doğrusal diferansiyel denklemler (<em>ordinary linear differential equations</em>) teorik olarak basit ve zarif olmalarının yanı sıra, bilim ve mühendislikteki birçok pratik uygulamada sıklıkla karşılaşıldıkları için büyük bir öneme sahiptir. İlerleyen bölümlerde denklemleri çözmek için çeşitli yöntemler geliştirilecektir ancak öncelikle tüm bölüm boyunca kullanılacak olan temel teoremlerin incelenmesi gerekir.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Notasyon:</strong> Bu bölümde daha önce kullanılan $\dfrac{dy}{dx}$ notasyonu yerine, türevleri belirtmek için genellikle üssü notasyonu ($y^{\prime}$, $y^{\prime\prime}$) kullanılacaktır.
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Tanım ve Temel Varlık Teoremi</h3>
+
+                        <p><strong>Tanım.</strong> $y$ bağımlı değişkenine ve $x$ bağımsız değişkenine sahip <strong>$n$. mertebeden bir doğrusal adi diferansiyel denklem</strong> (<em>linear ordinary differential equation</em>), şu formda olan veya bu forma dönüştürülebilen bir denklemdir:</p>
+                        $$a_{0}(x)y^{(n)}+a_{1}(x)y^{(n-1)}+\cdots+a_{n-1}(x)y^{\prime}+a_{n}(x)y=F(x) \qquad (4.1)$$
+                        <p>Burada $a_{0}$ özdeş olarak sıfır değildir. Katsayılar $a_{0},a_{1},\ldots,a_{n}$ ile $F$ fonksiyonlarının $a \le x \le b$ reel aralığında sürekli reel fonksiyonlar olduğu ve bu aralıktaki hiçbir $x$ için $a_{0}(x)\neq 0$ olduğu varsayılır. Eşitliğin sağ tarafındaki $F(x)$ fonksiyonuna <strong>homojen olmayan terim</strong> (<em>nonhomogeneous term</em>) denir.</p>
+
+                        <p>Eğer $F$ özdeş olarak sıfır ise denklem</p>
+                        $$a_{0}(x)y^{(n)}+a_{1}(x)y^{(n-1)}+\cdots+a_{n-1}(x)y^{\prime}+a_{n}(x)y=0 \qquad (4.2)$$
+                        <p>halini alır; bu durumda denkleme <strong>homojen</strong> (<em>homogeneous</em>) denir.</p>
+
+                        <p>Özel olarak $n=2$ için ikinci mertebeden homojen olmayan denklem:</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=F(x)$$
+                        <p>ve buna karşılık gelen ikinci mertebeden homojen denklem:</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.1 &mdash; Başlangıç Değer Problemleri İçin Temel Varlık Teoremi.</strong>
+                            <p style="margin-top: 0.5rem;"><em>Hipotez:</em></p>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>(4.1) doğrusal denkleminde $a_{0},a_{1},\ldots,a_{n}$ ve $F$ fonksiyonları $a \le x \le b$ aralığında sürekli olsun ve bu aralıkta $a_{0}(x)\neq 0$ olsun.</li>
+                                <li>$x_{0}\in[a,b]$ herhangi bir nokta ve $c_{0},c_{1},\ldots,c_{n-1}$ herhangi $n$ reel sabit olsun.</li>
+                            </ol>
+                            <p style="margin-top: 0.5rem;"><em>Sonuç:</em> Denklemin</p>
+                            $$f(x_{0})=c_{0},\quad f^{\prime}(x_{0})=c_{1},\quad \ldots,\quad f^{(n-1)}(x_{0})=c_{n-1}$$
+                            <p>şartlarını sağlayan <strong>benzersiz (tek)</strong> bir $f$ çözümü vardır ve bu çözüm tüm $[a,b]$ aralığında tanımlıdır.</p>
+                        </div>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Sonuç (Corollary).</strong> Eğer $f$, $n$. mertebeden bir homojen denklemin bir çözümü ise ve bir $x_{0}$ noktasında $f(x_{0})=f^{\prime}(x_{0})=\cdots=f^{(n-1)}(x_{0})=0$ şartlarını sağlıyorsa, o zaman $[a,b]$ üzerinde tüm $x$ için $f(x)=0$'dır. Buna <strong>aşikar çözüm</strong> (<em>trivial solution</em>) denir.
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Homojen Denklem</h3>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.2 &mdash; Doğrusal Homojen Denklemler Üzerine Temel Teorem.</strong>
+                            <p style="margin-top: 0.5rem;"><em>Hipotez:</em> $f_{1},f_{2},\ldots,f_{m}$, (4.2) homojen denkleminin herhangi $m$ çözümü olsun.</p>
+                            <p><em>Sonuç:</em> $c_{1},c_{2},\ldots,c_{m}$ keyfi sabitler olmak üzere</p>
+                            $$c_{1}f_{1}+c_{2}f_{2}+\cdots+c_{m}f_{m}$$
+                            <p>doğrusal kombinasyonu da denklemin bir çözümüdür.</p>
+                        </div>
+
+                        <p><strong>Tanım (Doğrusal Bağımlılık).</strong> $[a,b]$ üzerindeki tüm $x$'ler için, hepsi birden sıfır olmayan $c_{1},c_{2},\ldots,c_{n}$ sabitleri</p>
+                        $$c_{1}f_{1}(x)+c_{2}f_{2}(x)+\cdots+c_{n}f_{n}(x)=0$$
+                        <p>eşitliğini sağlayacak şekilde bulunabiliyorsa, $f_{1},f_{2},\ldots,f_{n}$ fonksiyonlarına bu aralıkta <strong>doğrusal bağımlı</strong> (<em>linearly dependent</em>) denir.</p>
+
+                        <p><strong>Tanım (Doğrusal Bağımsızlık).</strong> Fonksiyonlar doğrusal bağımlı değillerse &mdash; yani yukarıdaki eşitlik yalnızca $c_{1}=c_{2}=\cdots=c_{n}=0$ olduğunda sağlanıyorsa &mdash; <strong>doğrusal bağımsız</strong> (<em>linearly independent</em>) denir.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.3.</strong> $n$. mertebeden homojen doğrusal denklemin her zaman $n$ tane doğrusal bağımsız çözümü vardır. Ayrıca, $f_{1},f_{2},\ldots,f_{n}$ bu denklemin $n$ tane doğrusal bağımsız çözümü ise, denklemin herhangi bir $f$ çözümü uygun $c_{1},c_{2},\ldots,c_{n}$ sabitleri seçilerek
+                            $$f = c_{1}f_{1}+c_{2}f_{2}+\cdots+c_{n}f_{n}$$
+                            şeklinde ifade edilebilir.
+                        </div>
+
+                        <p><strong>Tanım.</strong> $n$. mertebeden homojen denklemin $n$ doğrusal bağımsız çözümünden oluşan $\{f_{1},f_{2},\ldots,f_{n}\}$ kümesine denklemin <strong>temel çözüm kümesi</strong> (<em>fundamental set of solutions</em>) denir. Bu durumda</p>
+                        $$f(x)=c_{1}f_{1}(x)+c_{2}f_{2}(x)+\cdots+c_{n}f_{n}(x)$$
+                        <p>ifadesine denklemin <strong>genel çözümü</strong> (<em>general solution</em>) adı verilir.</p>
+
+                        <p><strong>Wronski Determinantı.</strong> $n-1$ kez türevlenebilen $n$ fonksiyonun Wronskian'ı:</p>
+                        $$W(f_{1},f_{2},\ldots,f_{n})=\begin{vmatrix}f_{1}&f_{2}&\cdots&f_{n}\\ f_{1}^{\prime}&f_{2}^{\prime}&\cdots&f_{n}^{\prime}\\ \vdots&\vdots& &\vdots\\ f_{1}^{(n-1)}&f_{2}^{(n-1)}&\cdots&f_{n}^{(n-1)}\end{vmatrix}$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.4 &amp; Teorem 4.5.</strong> $f_{1},f_{2},\ldots,f_{n}$ çözümlerinin doğrusal bağımsız olması için <strong>gerek ve yeter şart</strong>, Wronski determinantının aralıktaki en az bir $x$ için sıfırdan farklı olmasıdır. Üstelik bu determinant ya aralığın her yerinde sıfırdır ya da hiçbir yerinde sıfır değildir.
+                        </div>
+
+                        <p>İkinci mertebeden bir denklem için:</p>
+                        $$W(f_{1},f_{2})=\begin{vmatrix}f_{1}&f_{2}\\ f_{1}^{\prime}&f_{2}^{\prime}\end{vmatrix}=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$$
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">C. Mertebe Düşürme</h3>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.6.</strong> Eğer $f$, $n$. mertebeden homojen doğrusal denklemin aşikar olmayan bir çözümü ise, $y=f(x)v$ dönüşümü orijinal denklemi $w=\dfrac{dv}{dx}$ bağımlı değişkenine göre $(n-1)$. mertebeden yeni bir homojen doğrusal denkleme indirger.
+                        </div>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.7 &mdash; İkinci Mertebeden Durum.</strong> $f$, $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ denkleminin bilinen bir çözümü ise, $y=f(x)v$ dönüşümü ($w=v^{\prime}$ ile) denklemi birinci mertebeden şu forma indirger:
+                            $$a_{0}(x)f(x)\frac{dw}{dx}+\bigl[2a_{0}(x)f^{\prime}(x)+a_{1}(x)f(x)\bigr]w=0$$
+                            Bu ayrılabilir denklemin çözülmesiyle $w$ ve ardından $v$ elde edilir:
+                            $$w=\frac{\exp\!\left[-\displaystyle\int\dfrac{a_{1}(x)}{a_{0}(x)}\,dx\right]}{[f(x)]^{2}}$$
+                            $$v(x)=\int\frac{\exp\!\left[-\displaystyle\int\dfrac{a_{1}(x)}{a_{0}(x)}\,dx\right]}{[f(x)]^{2}}\,dx$$
+                            Elde edilen $g(x)=f(x)v(x)$ fonksiyonu orijinal denklemin $f$ ile <strong>doğrusal bağımsız</strong> yeni bir çözümüdür. Genel çözüm $y=c_{1}f+c_{2}g$ olarak yazılır.
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">D. Homojen Olmayan Denklem</h3>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.8.</strong> $v$, homojen olmayan (4.1) denkleminin herhangi bir çözümü ve $u$, buna karşılık gelen homojen (4.2) denkleminin herhangi bir çözümü ise, $u+v$ toplamı da (4.1)'in bir çözümüdür.
+                        </div>
+
+                        <p><strong>Tanım ve Teorem 4.9.</strong> Homojen (4.2) denkleminin genel çözümüne (4.1) denkleminin <strong>tamamlayıcı fonksiyonu</strong> (<em>complementary function</em>) denir ve $y_{c}$ ile gösterilir. (4.1) denkleminin, içinde hiçbir keyfi sabit barındırmayan herhangi bir özel çözümüne <strong>özel integral</strong> (<em>particular integral</em>) denir ve $y_{p}$ ile gösterilir. Homojen olmayan denklemin tüm çözümlerini kapsayan genel çözümü, bu iki parçanın toplamıdır:</p>
+                        $$y = y_{c} + y_{p}$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.10 &mdash; Süperpozisyon Prensibi.</strong> $f_{1}$ fonksiyonu sağ tarafı $F_{1}(x)$ olan denklemin bir özel integrali ve $f_{2}$ fonksiyonu sağ tarafı $F_{2}(x)$ olan denklemin bir özel integrali ise; $k_{1}f_{1}+k_{2}f_{2}$ doğrusal kombinasyonu da sağ tarafı $k_{1}F_{1}(x)+k_{2}F_{2}(x)$ olan denklemin bir özel integralidir.
+                        </div>
                     </div>
 
-                    <!-- >>> 4.2 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
-                    <div id="bolum-4-2" class="section placeholder">
-                        <div class="section-title">4.2 &nbsp;Sabit Katsayılı Homojen Doğrusal Denklem</div>
-                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.1 – 4.19 ===== -->
+
+                    <div id="ornekler-4-1" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.1 &ndash; 4.19
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.1 &amp; 4.2 &mdash; Mertebelerin Belirlenmesi</p>
+                            <p>$y^{\prime\prime}+3xy^{\prime}+x^{3}y=e^{x}$ ve $y^{\prime\prime\prime}+xy^{\prime\prime}+3x^{2}y^{\prime}-5y=\sin x$ denklemlerinin mertebelerini ve tipini belirleyiniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li>Birincisi <strong>ikinci mertebeden</strong> doğrusal adi diferansiyel denklemdir.</li>
+                                    <li>İkincisi <strong>üçüncü mertebeden</strong> doğrusal adi diferansiyel denklemdir.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.3 &mdash; Varlık Teoreminin Uygulanması</p>
+                            <p>$y^{\prime\prime}+3xy^{\prime}+x^{3}y=e^{x}$ denklemi ve $y(1)=2,\ y^{\prime}(1)=-5$ şartlarını ele alınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Katsayılar $1,\ 3x,\ x^{3}$ ve sağ taraftaki $e^{x}$ her yerde ($-\infty<x<\infty$) süreklidir. Başlangıç noktası $x_{0}=1$ bu aralıkta olduğu için, Teorem 4.1'e göre problem <strong>tüm reel sayılar aralığında benzersiz</strong> bir çözüme sahiptir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.5 &mdash; Aşikar Çözüm</p>
+                            <p>$y^{\prime\prime\prime}+2y^{\prime\prime}+4xy^{\prime}+x^{2}y=0$ homojen denklemi $f(2)=f^{\prime}(2)=f^{\prime\prime}(2)=0$ şartlarıyla veriliyor.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Teorem 4.1'in sonucu (corollary) gereği bu şartları sağlayan <strong>benzersiz çözüm</strong>, tüm $x$'ler için $f(x)=0$ olan <strong>aşikar çözümdür</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.6 &amp; 4.7 &mdash; Doğrusal Kombinasyonların Çözüm Olması</p>
+                            <p>(a) $y^{\prime\prime}+y=0$ için $\sin x$ ve $\cos x$ birer çözümdür. (b) $y^{\prime\prime\prime}-2y^{\prime\prime}-y^{\prime}+2y=0$ için $e^{x},\ e^{-x},\ e^{2x}$ birer çözümdür. Doğrusal kombinasyonlarının da çözüm olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Teorem 4.2 gereği, herhangi $c_{1},c_{2}$ için $c_{1}\sin x+c_{2}\cos x$ ilk denklemin çözümüdür. Örneğin $5\sin x+6\cos x$ bir çözümdür.</p>
+                                <p>Aynı teoremden, $2e^{x}-3e^{-x}+\tfrac{2}{3}e^{2x}$ kombinasyonu ikinci denklemin bir çözümüdür.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.8 &amp; 4.9 &mdash; Doğrusal Bağımlılık</p>
+                            <p>(a) $\{x,\ 2x\}$ ve (b) $\{\sin x,\ 3\sin x,\ -\sin x\}$ kümelerinin doğrusal bağımlı olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $c_{1}=2,\ c_{2}=-1$ seçilirse $2x+(-1)(2x)=0$, hepsi birden sıfır olmayan katsayılarla eşitlik sağlanır &rarr; doğrusal bağımlı.</p>
+                                <p><strong>(b)</strong> $c_{1}=1,\ c_{2}=1,\ c_{3}=4$ seçilirse $1\cdot\sin x+1\cdot 3\sin x+4\cdot(-\sin x)=0$ &rarr; doğrusal bağımlı.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.10 &mdash; Doğrusal Bağımsızlık</p>
+                            <p>$0\le x\le 1$ aralığında $x$ ve $x^{2}$'nin doğrusal bağımsız olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$c_{1}x+c_{2}x^{2}=0$ eşitliğini ele alalım. $x$'e göre türev alırsak $c_{1}+2c_{2}x=0$ elde edilir. Bu iki denklem birlikte ancak $c_{1}=0$ ve $c_{2}=0$ için sağlanır &rarr; <strong>doğrusal bağımsız</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.11 &amp; 4.12 &mdash; Temel Çözüm Kümesi ve Genel Çözüm</p>
+                            <p>$y^{\prime\prime}+y=0$ için $\{\sin x,\cos x\}$ kümesinin temel çözüm kümesi olduğunu ve $f(x)=\sin\!\left(x+\tfrac{\pi}{6}\right)$ çözümünün genel çözüm biçiminde yazılabileceğini gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\sin x$ ve $\cos x$ doğrusal bağımsız çözümlerdir ve $n=2$'dir; dolayısıyla temel çözüm kümesini oluştururlar. <strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}\sin x+c_{2}\cos x$$
+                                <p>Açılım ile</p>
+                                $$\sin\!\left(x+\tfrac{\pi}{6}\right)=\tfrac{\sqrt{3}}{2}\sin x+\tfrac{1}{2}\cos x$$
+                                <p>elde edilir; bu $c_{1}=\tfrac{\sqrt{3}}{2},\ c_{2}=\tfrac{1}{2}$ seçimine karşılık gelir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.14 &mdash; İki Fonksiyonun Wronskian'ı</p>
+                            <p>$y^{\prime\prime}+y=0$ çözümleri olan $\sin x$ ve $\cos x$ için Wronskian'ı hesaplayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$W(\sin x,\cos x)=\begin{vmatrix}\sin x&\cos x\\ \cos x&-\sin x\end{vmatrix}=-\sin^{2}x-\cos^{2}x=-1\ne 0$$
+                                <p>Her $x$ için sıfırdan farklı; dolayısıyla iki fonksiyon <strong>doğrusal bağımsızdır</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.15 &mdash; Üç Fonksiyonun Wronskian'ı</p>
+                            <p>$y^{\prime\prime\prime}-2y^{\prime\prime}-y^{\prime}+2y=0$ çözümleri $e^{x},\ e^{-x},\ e^{2x}$ için Wronskian'ı hesaplayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$W(e^{x},e^{-x},e^{2x})=\begin{vmatrix}e^{x}&e^{-x}&e^{2x}\\ e^{x}&-e^{-x}&2e^{2x}\\ e^{x}&e^{-x}&4e^{2x}\end{vmatrix}=-6e^{2x}\ne 0$$
+                                <p>Her $x$ için sıfırdan farklı &rarr; üç çözüm <strong>doğrusal bağımsızdır</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.16 &mdash; Mertebe Düşürme</p>
+                            <p>$y=x$'in $(x^{2}+1)y^{\prime\prime}-2xy^{\prime}+2y=0$ denkleminin bir çözümü olduğu biliniyor. Mertebeyi düşürerek doğrusal bağımsız ikinci çözümü ve genel çözümü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $y=xv$ &rArr; $y^{\prime}=xv^{\prime}+v$, $y^{\prime\prime}=xv^{\prime\prime}+2v^{\prime}$. Denklemde yerine yazılırsa:</p>
+                                $$(x^{2}+1)(xv^{\prime\prime}+2v^{\prime})-2x(xv^{\prime}+v)+2xv=0$$
+                                $$\Longrightarrow\ x(x^{2}+1)v^{\prime\prime}+2v^{\prime}=0$$
+                                <p><strong>Adım 2 &mdash; $w=v^{\prime}$ dönüşümü:</strong></p>
+                                $$x(x^{2}+1)\frac{dw}{dx}+2w=0\ \Longrightarrow\ \frac{dw}{w}=\left(-\frac{2}{x}+\frac{2x}{x^{2}+1}\right)dx$$
+                                <p>İntegre edildiğinde:</p>
+                                $$w=\frac{c(x^{2}+1)}{x^{2}}$$
+                                <p><strong>Adım 3 &mdash; $v$'yi bul.</strong> $c=1$ alıp $v^{\prime}=w$'yi integre edersek:</p>
+                                $$v(x)=x-\frac{1}{x}$$
+                                <p><strong>Adım 4 &mdash; İkinci çözüm ve genel çözüm.</strong></p>
+                                $$g(x)=f(x)v(x)=x\left(x-\tfrac{1}{x}\right)=x^{2}-1$$
+                                $$\boxed{\ y=c_{1}x+c_{2}(x^{2}-1)\ }$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.17 &amp; 4.18 &mdash; Homojen Olmayan Denklemin Çözüm Yapısı</p>
+                            <p>$y^{\prime\prime}+y=x$ denkleminin genel çözümünü, tamamlayıcı fonksiyon ve özel integral kavramlarını kullanarak yazınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tamamlayıcı fonksiyon:</strong> $y_{c}=c_{1}\sin x+c_{2}\cos x$.</p>
+                                <p><strong>Özel integral:</strong> $y_{p}=x$ (denklemde yerine konursa sağlar).</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}\sin x+c_{2}\cos x+x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.19 &mdash; Süperpozisyon</p>
+                            <p>$y^{\prime\prime}+y=3x+5\tan x$ denkleminin bir özel integralini bulunuz. ($y^{\prime\prime}+y=x$ için $y=x$; $y^{\prime\prime}+y=\tan x$ için $y=-(\cos x)\ln|\sec x+\tan x|$ özel integralleri bilinmektedir.)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Teorem 4.10 (süperpozisyon) uygulanarak, sağ taraftaki katsayılar doğrudan aktarılır:</p>
+                                $$y_{p}=3\cdot x + 5\cdot\bigl[-(\cos x)\ln|\sec x+\tan x|\bigr]$$
+                                $$\boxed{\ y_{p}=3x-5(\cos x)\ln|\sec x+\tan x|\ }$$
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- >>> 4.3 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
-                    <div id="bolum-4-3" class="section placeholder">
-                        <div class="section-title">4.3 &nbsp;Belirsiz Katsayılar Yöntemi</div>
-                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    <!-- ===== ALIŞTIRMALAR 4.1 ===== -->
+
+                    <div id="alistirma-4-1" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.1
+                        </div>
+                        <p style="margin-bottom: 1rem;"><em>Not: Kitabın bu bölümünde egzersiz soruları adım adım çözümleriyle verilmediği için, aşağıda yalnızca soru metinleri sunulmuştur.</em></p>
+
+                        <div class="question-block">
+                            <p class="question-text">1.</p>
+                            <p>Teorem 4.1 aşağıdaki problemlerden birine uygulanabilir ancak diğerine uygulanamaz. Hangisine uygulandığını ve hangi sonucun çıkarılabileceğini belirleyiniz. Neden diğerine uygulanamadığını açıklayınız.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $y^{\prime\prime}+5y^{\prime}+6y=e^{x},\ \ y(0)=5,\ \ y^{\prime}(0)=7$</li>
+                                <li>(b) $y^{\prime\prime}+5y^{\prime}+6y=e^{x},\ \ y(0)=5,\ \ y^{\prime}(1)=7$</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. &mdash; Sözlü cevaplayınız</p>
+                            <p>Şu başlangıç değer probleminin çözümü nedir? Neden? $y^{\prime\prime}+xy^{\prime}+x^{2}y=0,\ y(1)=0,\ y^{\prime}(1)=0$.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3.</p>
+                            <p>Teorem 4.2'yi $m=n=2$ durumu için ispatlayınız. Yani $f_{1}(x)$ ve $f_{2}(x)$'in $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ için çözüm olması durumunda, $c_{1}f_{1}(x)+c_{2}f_{2}(x)$'in de bir çözüm olduğunu kanıtlayınız.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4.</p>
+                            <p>$y^{\prime\prime}-4y^{\prime}+3y=0$ denklemini (A) ele alınız.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $e^{x}$ ve $e^{3x}$'in $a<b$ olmak üzere herhangi bir $a\le x\le b$ aralığında bu denklemin çözümü olduğunu gösteriniz.</li>
+                                <li>(b) Hangi teorem bize $5e^{x}+2e^{3x}$, $6e^{x}-4e^{3x}$ ve $-7e^{x}+5e^{3x}$'in de çözüm olduğunu söyler?</li>
+                                <li>(c) Neden $3e^{x},\ -4e^{x},\ 5e^{x},\ 6e^{x}$ ifadeleri de birer çözümdür?</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5.</p>
+                            <p>Yine (A) denklemini ele alınız.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) Doğrusal bağımlılık tanımını kullanarak Soru 4(c)'deki dört fonksiyonun doğrusal bağımlı olduğunu gösteriniz.</li>
+                                <li>(b) Teorem 4.4'ü kullanarak Soru 4(c)'de listelenen çözüm çiftlerinin her birinin doğrusal bağımlı olduğunu gösteriniz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6.</p>
+                            <p>Yine (A) denklemini ele alınız.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) Doğrusal bağımsızlık tanımını kullanarak $e^{x}$ ve $e^{3x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
+                                <li>(b) Teorem 4.4'ü kullanarak bu iki çözümün doğrusal bağımsız olduğunu gösteriniz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7.</p>
+                            <p>$y^{\prime\prime}-5y^{\prime}+6y=0$ denklemini ele alınız.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $e^{2x}$ ve $e^{3x}$'in $-\infty<x<\infty$ aralığında doğrusal bağımsız çözümler olduğunu gösteriniz.</li>
+                                <li>(b) Denklemin genel çözümünü yazınız.</li>
+                                <li>(c) $y(0)=2,\ y^{\prime}(0)=3$ şartlarını sağlayan çözümü bulunuz. Benzersiz olduğunu açıklayıp tanımlı olduğu aralığı belirtiniz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8.</p>
+                            <p>$y^{\prime\prime}-2y^{\prime}+y=0$ denklemini ele alınız.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $e^{x}$ ve $xe^{x}$'in tüm reel sayılarda doğrusal bağımsız çözümler olduğunu gösteriniz.</li>
+                                <li>(b) Genel çözümü yazınız.</li>
+                                <li>(c) $y(0)=1,\ y^{\prime}(0)=4$ şartlarını sağlayan benzersiz çözümü ve tanımlı olduğu aralığı bulunuz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9.</p>
+                            <p>$x^{2}y^{\prime\prime}-2xy^{\prime}+2y=0$ denklemi için $x$ ve $x^{2}$'nin $0<x<\infty$ aralığında doğrusal bağımsız çözüm olduğunu gösteriniz, genel çözümü yazınız ve $y(1)=3,\ y^{\prime}(1)=2$ başlangıç şartını sağlayan çözümü bulunuz.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10.</p>
+                            <p>$x^{2}y^{\prime\prime}+xy^{\prime}-4y=0$ denklemi için $x^{2}$ ve $1/x^{2}$'nin $0<x<\infty$ aralığında doğrusal bağımsız çözüm olduğunu gösteriniz, genel çözümü yazınız ve $y(2)=3,\ y^{\prime}(2)=-1$ başlangıç şartını sağlayan çözümü bulunuz.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">11.</p>
+                            <p>$y^{\prime\prime}-5y^{\prime}+4y=0$ denklemi için:</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $e^{x},\ e^{4x}$ ve $2e^{x}-3e^{4x}$'in çözüm olduğunu gösteriniz.</li>
+                                <li>(b) $e^{x}$ ve $e^{4x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
+                                <li>(c) $e^{x}$ ve $2e^{x}-3e^{4x}$'in de doğrusal bağımsız olduğunu gösteriniz.</li>
+                                <li>(d) $e^{4x}$ ve $2e^{x}-3e^{4x}$ ifadeleri de bir başka doğrusal bağımsız çözüm çifti midir? Gerekçelendiriniz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12.</p>
+                            <p>$e^{-x},\ e^{3x},\ e^{4x}$'in $y^{\prime\prime\prime}-6y^{\prime\prime}+5y^{\prime}+12y=0$ denkleminin çözümleri olduğunu bildiğinize göre, doğrusal bağımsız olduklarını gösteriniz ve genel çözümü yazınız.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13.</p>
+                            <p>$x,\ x^{2},\ x^{4}$'ün $x^{3}y^{\prime\prime\prime}-4x^{2}y^{\prime\prime}+8xy^{\prime}-8y=0$ denklemini çözdüğünü bildiğinize göre, $0<x<\infty$ aralığında doğrusal bağımsız olduklarını gösteriniz ve genel çözümü yazınız.</p>
+                        </div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Aşağıdaki sorularda (14&ndash;21) verilen $y=f(x)$ çözümünü kullanarak mertebeyi düşürüp doğrusal bağımsız ikinci çözümü bulunuz ve genel çözümü yazınız.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+4y=0,\quad y=x$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $(x+1)^{2}y^{\prime\prime}-3(x+1)y^{\prime}+3y=0,\quad y=x+1$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $(x^{2}-1)y^{\prime\prime}-2xy^{\prime}+2y=0,\quad y=x$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp; $(x^{2}-x+1)y^{\prime\prime}-(x^{2}+x)y^{\prime}+(x+1)y=0,\quad y=x$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp; $(2x+1)y^{\prime\prime}-4(x+1)y^{\prime}+4y=0,\quad y=e^{2x}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp; $(x^{3}-x^{2})y^{\prime\prime}-(x^{3}+2x^{2}-2x)y^{\prime}+(2x^{2}+2x-2)y=0,\quad y=x^{2}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp; $(x^{2}-2x+2)y^{\prime\prime}-x^{2}y^{\prime}+xy=0,\quad y=x$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">21. &nbsp; $(x^{2}+x)y^{\prime\prime}-(x^{2}-2)y^{\prime}-(x+2)y=0,\quad y=e^{x}$</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">22.</p>
+                            <p>Teorem 4.8'i $n=2$ durumu için ispatlayınız. Yani $u$'nun homojen denklemi, $v$'nin ise homojen olmayan denklemi çözdüğü durumda $u+v$'nin de homojen olmayan denklemi çözdüğünü gösteriniz.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">23.</p>
+                            <p>$y^{\prime\prime}-3y^{\prime}+2y=4x^{2}$ denklemi için;</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $e^{x}$ ve $e^{2x}$'in homojen denklemin bağımsız çözümleri olduğunu gösteriniz.</li>
+                                <li>(b) Tamamlayıcı fonksiyon nedir?</li>
+                                <li>(c) $2x^{2}+6x+7$'nin bir özel integral olduğunu gösteriniz.</li>
+                                <li>(d) Genel çözüm nedir?</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">24.</p>
+                            <p>Aşağıdaki özel integraller bilinmektedir:</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>$y^{\prime\prime}-5y^{\prime}+6y=1$ için $y=\tfrac{1}{6}$</li>
+                                <li>$y^{\prime\prime}-5y^{\prime}+6y=x$ için $y=\tfrac{x}{6}+\tfrac{5}{36}$</li>
+                                <li>$y^{\prime\prime}-5y^{\prime}+6y=e^{x}$ için $y=\tfrac{e^{x}}{2}$</li>
+                            </ul>
+                            <p>Teorem 4.10'u (süperpozisyon) uygulayarak şu denklemin özel integralini bulunuz:</p>
+                            $$y^{\prime\prime}-5y^{\prime}+6y=2-12x+6e^{x}$$
+                        </div>
                     </div>
 
-                    <!-- >>> 4.4 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
-                    <div id="bolum-4-4" class="section placeholder">
-                        <div class="section-title">4.4 &nbsp;Parametrelerin Değişimi</div>
-                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    <!-- ===== 4.2 KONU ===== -->
+
+                    <div id="bolum-4-2" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.2 &nbsp;Sabit Katsayılı Homojen Doğrusal Denklem
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Giriş</h3>
+
+                        <p>Bu bölümde, katsayılarının tamamı reel sabitler olan $n$. mertebeden homojen doğrusal diferansiyel denklem (<em>homogeneous linear differential equation with constant coefficients</em>) özel durumu incelenir:</p>
+                        $$a_{0}y^{(n)}+a_{1}y^{(n-1)}+\cdots+a_{n-1}y^{\prime}+a_{n}y=0$$
+                        <p>Burada $a_{0},a_{1},\ldots,a_{n}$ reel <strong>sabit katsayılardır</strong>. Bu denklemin genel çözümünün her zaman <strong>kapalı (açıkça belirli) formda</strong> bulunabileceği gösterilecektir.</p>
+
+                        <p>Bir diferansiyel denklemi çözerken, türevleri alındığında kendisinin sabit katlarını veren fonksiyonlar aranır. Üstel fonksiyon $f(x)=e^{mx}$ ($m$ sabit) bu özelliğe sahiptir:</p>
+                        $$y^{\prime}=me^{mx},\quad y^{\prime\prime}=m^{2}e^{mx},\quad \ldots,\quad y^{(n)}=m^{n}e^{mx}$$
+                        <p>Denklemde yerine konursa:</p>
+                        $$e^{mx}\left(a_{0}m^{n}+a_{1}m^{n-1}+\cdots+a_{n-1}m+a_{n}\right)=0$$
+                        <p>$e^{mx}\neq 0$ olduğundan aşağıdaki polinom denklemi kalır:</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            $$a_{0}m^{n}+a_{1}m^{n-1}+\cdots+a_{n-1}m+a_{n}=0$$
+                            Bu denkleme, diferansiyel denklemin <strong>yardımcı denklemi</strong> (<em>auxiliary equation</em>) veya <strong>karakteristik denklemi</strong> (<em>characteristic equation</em>) denir.
+                        </div>
+
+                        <p>$y=e^{mx}$'in çözüm olabilmesi için $m$'in yardımcı denklemi sağlaması gerekir. Köklerin durumuna göre üç <strong>durum (case)</strong> ortaya çıkar: farklı reel, tekrarlı reel ve karmaşık kökler.</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Durum 1: Farklı Reel Kökler</h3>
+
+                        <p>Yardımcı denklemin $m_{1},m_{2},\ldots,m_{n}$ şeklinde $n$ tane <strong>farklı reel kökü</strong> varsa,</p>
+                        $$e^{m_{1}x},\ e^{m_{2}x},\ \ldots,\ e^{m_{n}x}$$
+                        <p>diferansiyel denklemin $n$ tane <strong>doğrusal bağımsız</strong> çözümüdür.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.11.</strong> Sabit katsayılı $n$. mertebeden homojen doğrusal denklemin yardımcı denkleminin $n$ farklı reel kökü $m_{1},m_{2},\ldots,m_{n}$ ise, genel çözüm
+                            $$y=c_{1}e^{m_{1}x}+c_{2}e^{m_{2}x}+\cdots+c_{n}e^{m_{n}x}$$
+                            biçimindedir ($c_{1},\ldots,c_{n}$ keyfi sabitler).
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">C. Durum 2: Tekrarlı Reel Kökler</h3>
+
+                        <p>Bir kök tekrarlıysa yalnızca $e^{mx}$ tek bir bağımsız çözüm üretir. Eksik olan bağımsız çözümleri bulmak için <strong>mertebe düşürme</strong> (<em>reduction of order</em>) yöntemi uygulanır. Örnek 4.22'de görüleceği gibi, $m$ çift katlı bir kökse $e^{mx}$ ile birlikte $xe^{mx}$ de yeni bir doğrusal bağımsız çözümdür.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.12.</strong>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>Sabit katsayılı denklemin yardımcı denkleminin $k$ kez tekrarlanan bir reel $m$ kökü varsa, genel çözümün bu köke karşılık gelen kısmı
+                                $$(c_{1}+c_{2}x+c_{3}x^{2}+\cdots+c_{k}x^{k-1})e^{mx}$$
+                                biçimindedir.</li>
+                                <li>Kalan kökler $m_{k+1},\ldots,m_{n}$ farklı reel sayılar ise genel çözüm
+                                $$y=(c_{1}+c_{2}x+\cdots+c_{k}x^{k-1})e^{mx}+c_{k+1}e^{m_{k+1}x}+\cdots+c_{n}e^{m_{n}x}$$
+                                olur.</li>
+                                <li>Kalan kökler arasında da tekrar varsa, o köklere karşılık gelen kısımlar da $m$ ile aynı formda yazılır.</li>
+                            </ol>
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">D. Durum 3: Eşlenik Karmaşık Kökler</h3>
+
+                        <p>Katsayılar reel olduğu için yardımcı denklemin $a+bi$ ($a,b\in\mathbb{R}$, $i^{2}=-1$, $b\neq 0$) şeklinde bir karmaşık kökü varsa, eşleniği $a-bi$ de köktür. Bu çifte karşılık gelen çözüm parçası $k_{1}e^{(a+bi)x}+k_{2}e^{(a-bi)x}$ olur. <strong>Euler formülü</strong> $e^{i\theta}=\cos\theta+i\sin\theta$ ile bu ifade reel forma dönüşür:</p>
+                        $$e^{ax}\bigl[c_{1}\sin bx+c_{2}\cos bx\bigr]$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.13.</strong>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>Yardımcı denklemin $a+bi$, $a-bi$ (tekrarlanmayan) eşlenik karmaşık kökleri varsa, genel çözümün bu çifte karşılık gelen kısmı
+                                $$y=e^{ax}(c_{1}\sin bx+c_{2}\cos bx)$$
+                                biçimindedir.</li>
+                                <li>Bu eşlenik çiftinin her biri $k$-katlı ise:
+                                $$y=e^{ax}\bigl[(c_{1}+c_{2}x+\cdots+c_{k}x^{k-1})\sin bx+(c_{k+1}+c_{k+2}x+\cdots+c_{2k}x^{k-1})\cos bx\bigr]$$
+                                </li>
+                            </ol>
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">E. Bir Başlangıç Değer Problemi</h3>
+
+                        <p>Genel çözüm bulunduktan sonra, başlangıç değer probleminde verilen şartlar yerine konularak <strong>keyfi sabitler</strong> belirlenir ve probleme özel benzersiz çözüm elde edilir. Bazen bir kosinüs ve bir sinüs teriminin doğrusal kombinasyonu, faz kaymalı tek bir sinüs fonksiyonu (<strong>alternatif form</strong>) olarak da yazılabilir:</p>
+                        $$A\sin bx+B\cos bx=\sqrt{A^{2}+B^{2}}\,\sin(bx+\phi)$$
                     </div>
 
-                    <!-- >>> 4.5 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
-                    <div id="bolum-4-5" class="section placeholder">
-                        <div class="section-title">4.5 &nbsp;Cauchy-Euler Denklemi</div>
-                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.20 – 4.28 ===== -->
+
+                    <div id="ornekler-4-2" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.20 &ndash; 4.28
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.20 &mdash; Farklı Reel Kökler</p>
+                            <p>$y^{\prime\prime}-3y^{\prime}+2y=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{2}-3m+2=0\ \Longrightarrow\ (m-1)(m-2)=0$.</p>
+                                <p>Kökler: $m_{1}=1,\ m_{2}=2$ (farklı reel).</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{x}+c_{2}e^{2x}$$
+                                <p>Wronskian $W(e^{x},e^{2x})=e^{3x}\neq 0$ olduğundan çözümler doğrusal bağımsızdır. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.21 &mdash; Farklı Reel Kökler (3. Mertebe)</p>
+                            <p>$y^{\prime\prime\prime}-4y^{\prime\prime}+y^{\prime}+6y=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{3}-4m^{2}+m+6=0$. $m=-1$ bir köktür. Sentetik bölmeyle:</p>
+                                $$(m+1)(m^{2}-5m+6)=0\ \Longrightarrow\ (m+1)(m-2)(m-3)=0$$
+                                <p>Kökler: $m_{1}=-1,\ m_{2}=2,\ m_{3}=3$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{-x}+c_{2}e^{2x}+c_{3}e^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.22 &mdash; Tekrarlı Reel Kök (Giriş)</p>
+                            <p>$y^{\prime\prime}-6y^{\prime}+9y=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{2}-6m+9=(m-3)^{2}=0$ &rArr; $m_{1}=m_{2}=3$ (çift katlı).</p>
+                                <p>İlk köke karşılık $e^{3x}$ çözümü tektir; ikinci bağımsız çözüm için $y=e^{3x}v$ dönüşümüyle <strong>mertebe düşürme</strong> uygulanır:</p>
+                                $$y^{\prime}=e^{3x}v^{\prime}+3e^{3x}v,\qquad y^{\prime\prime}=e^{3x}v^{\prime\prime}+6e^{3x}v^{\prime}+9e^{3x}v$$
+                                <p>Denklemde yerine konduğunda tüm $v$ ve $v^{\prime}$ terimleri birbirini götürür ve $e^{3x}v^{\prime\prime}=0$ kalır. $w=v^{\prime}$ dersek:</p>
+                                $$\frac{dw}{dx}=0\ \Longrightarrow\ w=c\ \Longrightarrow\ v=x+c_{0}$$
+                                <p>$c_{0}=0$ için bağımsız çözüm $xe^{3x}$'tir.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{3x}+c_{2}xe^{3x}=(c_{1}+c_{2}x)e^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.23 &mdash; Tekrarlı ve Farklı Kökler Bir Arada</p>
+                            <p>$y^{\prime\prime\prime}-4y^{\prime\prime}-3y^{\prime}+18y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{3}-4m^{2}-3m+18=0$'ın kökleri: $3,\ 3,\ -2$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=(c_{1}+c_{2}x)e^{3x}+c_{3}e^{-2x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.24 &mdash; 3-Katlı Tekrarlı Kök</p>
+                            <p>$y^{(4)}-5y^{\prime\prime\prime}+6y^{\prime\prime}+4y^{\prime}-8y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{4}-5m^{3}+6m^{2}+4m-8=0$'ın kökleri: $2,\ 2,\ 2,\ -1$.</p>
+                                <p>Üç katlı kök $m=2$: &nbsp; $(c_{1}+c_{2}x+c_{3}x^{2})e^{2x}$. &nbsp; Basit kök $m=-1$: &nbsp; $c_{4}e^{-x}$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=(c_{1}+c_{2}x+c_{3}x^{2})e^{2x}+c_{4}e^{-x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.25 &mdash; Saf Sanal Eşlenik Kökler</p>
+                            <p>$y^{\prime\prime}+y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{2}+1=0$ &rArr; $m=\pm i$ (yani $a=0,\ b=1$).</p>
+                                $$y=e^{0\cdot x}(c_{1}\sin x+c_{2}\cos x)$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}\sin x+c_{2}\cos x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.26 &mdash; Karmaşık Kökler</p>
+                            <p>$y^{\prime\prime}-6y^{\prime}+25y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{2}-6m+25=0$:</p>
+                                $$m=\frac{6\pm\sqrt{36-100}}{2}=3\pm 4i \quad (a=3,\ b=4)$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=e^{3x}(c_{1}\sin 4x+c_{2}\cos 4x)$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.27 &mdash; Tekrarlı Karmaşık Kökler</p>
+                            <p>$y^{(4)}-4y^{\prime\prime\prime}+14y^{\prime\prime}-20y^{\prime}+25y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{4}-4m^{3}+14m^{2}-20m+25=0$'ın kökleri: $1+2i,\ 1-2i,\ 1+2i,\ 1-2i$ (çifte katlı eşlenik çift).</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=e^{x}\bigl[(c_{1}+c_{2}x)\sin 2x+(c_{3}+c_{4}x)\cos 2x\bigr]$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.28 &mdash; Başlangıç Değer Problemi</p>
+                            <p>$y^{\prime\prime}-6y^{\prime}+25y=0,\quad y(0)=-3,\quad y^{\prime}(0)=-1$ problemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 4.26'dan genel çözüm: $y=e^{3x}(c_{1}\sin 4x+c_{2}\cos 4x)$.</p>
+                                <p><strong>Türev:</strong></p>
+                                $$y^{\prime}=e^{3x}\bigl[(3c_{1}-4c_{2})\sin 4x+(4c_{1}+3c_{2})\cos 4x\bigr]$$
+                                <p><strong>Başlangıç şartları:</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$y(0)=-3$: $\ c_{2}=-3$</li>
+                                    <li>$y^{\prime}(0)=-1$: $\ 4c_{1}+3c_{2}=-1\ \Longrightarrow\ 4c_{1}-9=-1\ \Longrightarrow\ c_{1}=2$</li>
+                                </ul>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=e^{3x}(2\sin 4x-3\cos 4x)$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Alternatif form (tek sinüs):</strong> $\sqrt{2^{2}+(-3)^{2}}=\sqrt{13}$ parantezine alınırsa</p>
+                                $$y=\sqrt{13}\,e^{3x}\left[\tfrac{2}{\sqrt{13}}\sin 4x-\tfrac{3}{\sqrt{13}}\cos 4x\right]=\sqrt{13}\,e^{3x}\sin(4x+\phi)$$
+                                <p>burada $\sin\phi=-\tfrac{3}{\sqrt{13}},\ \cos\phi=\tfrac{2}{\sqrt{13}}$'tür.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- >>> 4.6 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
-                    <div id="bolum-4-6" class="section placeholder">
-                        <div class="section-title">4.6 &nbsp;İkinci Mertebeden Homojen Doğrusal Denklem Teoremleri ve İspatları</div>
-                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    <!-- ===== ALIŞTIRMALAR 4.2 ===== -->
+
+                    <div id="alistirma-4-2" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.2
+                        </div>
+
+                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;36: Aşağıdaki denklemlerin <strong>genel çözümlerini</strong> bulunuz.</p>
+
+                        <div class="question-block"><p class="question-text">1. &nbsp; $y^{\prime\prime}-5y^{\prime}+6y=0$</p></div>
+                        <div class="question-block"><p class="question-text">2. &nbsp; $y^{\prime\prime}-2y^{\prime}-3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">3. &nbsp; $4y^{\prime\prime}-12y^{\prime}+5y=0$</p></div>
+                        <div class="question-block"><p class="question-text">4. &nbsp; $3y^{\prime\prime}-14y^{\prime}-5y=0$</p></div>
+                        <div class="question-block"><p class="question-text">5. &nbsp; $2y^{\prime\prime}+y^{\prime}-6y=0$</p></div>
+                        <div class="question-block"><p class="question-text">6. &nbsp; $2y^{\prime\prime}+3y^{\prime}-2y=0$</p></div>
+                        <div class="question-block"><p class="question-text">7. &nbsp; $4y^{\prime\prime}-4y^{\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}-4y^{\prime}+4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">9. &nbsp; $y^{\prime\prime}+6y^{\prime}+11y=0$</p></div>
+                        <div class="question-block"><p class="question-text">10. &nbsp; $16y^{\prime\prime}+32y^{\prime}+25y=0$</p></div>
+                        <div class="question-block"><p class="question-text">11. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}-y^{\prime}+3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">12. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+5y^{\prime}+12y=0$</p></div>
+                        <div class="question-block"><p class="question-text">13. &nbsp; $y^{\prime\prime\prime}-5y^{\prime\prime}+7y^{\prime}-3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">14. &nbsp; $4y^{\prime\prime\prime}+4y^{\prime\prime}-7y^{\prime}+2y=0$</p></div>
+                        <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime\prime}-y^{\prime\prime}+y^{\prime}-y=0$</p></div>
+                        <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime\prime}+4y^{\prime\prime}+5y^{\prime}+6y=0$</p></div>
+                        <div class="question-block"><p class="question-text">17. &nbsp; $y^{\prime\prime}-8y^{\prime}+16y=0$</p></div>
+                        <div class="question-block"><p class="question-text">18. &nbsp; $4y^{\prime\prime}+4y^{\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">19. &nbsp; $y^{\prime\prime}-4y^{\prime}+13y=0$</p></div>
+                        <div class="question-block"><p class="question-text">20. &nbsp; $y^{\prime\prime}+6y^{\prime}+25y=0$</p></div>
+                        <div class="question-block"><p class="question-text">21. &nbsp; $y^{\prime\prime}+9y=0$</p></div>
+                        <div class="question-block"><p class="question-text">22. &nbsp; $4y^{\prime\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">23. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+12y^{\prime}-8y=0$</p></div>
+                        <div class="question-block"><p class="question-text">24. &nbsp; $8y^{\prime\prime\prime}+12y^{\prime\prime}+6y^{\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">25. &nbsp; $y^{(4)}=0$</p></div>
+                        <div class="question-block"><p class="question-text">26. &nbsp; $y^{(4)}-y=0$</p></div>
+                        <div class="question-block"><p class="question-text">27. &nbsp; $y^{(4)}+8y^{\prime\prime}+16y=0$</p></div>
+                        <div class="question-block"><p class="question-text">28. &nbsp; $y^{(4)}-y^{\prime\prime\prime}-3y^{\prime\prime}+y^{\prime}+2y=0$</p></div>
+                        <div class="question-block"><p class="question-text">29. &nbsp; $y^{(4)}-3y^{\prime\prime\prime}-2y^{\prime\prime}+2y^{\prime}+12y=0$</p></div>
+                        <div class="question-block"><p class="question-text">30. &nbsp; $y^{(4)}+6y^{\prime\prime\prime}+15y^{\prime\prime}+20y^{\prime}+12y=0$</p></div>
+                        <div class="question-block"><p class="question-text">31. &nbsp; $y^{(5)}-2y^{(4)}+y^{\prime\prime\prime}=0$</p></div>
+                        <div class="question-block"><p class="question-text">32. &nbsp; $y^{(5)}+5y^{(4)}+10y^{\prime\prime\prime}+10y^{\prime\prime}+5y^{\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">33. &nbsp; $y^{(6)}+3y^{(4)}+3y^{\prime\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">34. &nbsp; $y^{(6)}-2y^{\prime\prime\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">35. &nbsp; $y^{(4)}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">36. &nbsp; $y^{(6)}+64y=0$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 37&ndash;56: <strong>Başlangıç değer problemlerini</strong> çözünüz.</p>
+
+                        <div class="question-block"><p class="question-text">37. &nbsp; $y^{\prime\prime}-y^{\prime}-12y=0,\ \ y(0)=3,\ y^{\prime}(0)=5$</p></div>
+                        <div class="question-block"><p class="question-text">38. &nbsp; $y^{\prime\prime}+7y^{\prime}+10y=0,\ \ y(0)=-4,\ y^{\prime}(0)=2$</p></div>
+                        <div class="question-block"><p class="question-text">39. &nbsp; $y^{\prime\prime}-6y^{\prime}+8y=0,\ \ y(0)=1,\ y^{\prime}(0)=6$</p></div>
+                        <div class="question-block"><p class="question-text">40. &nbsp; $3y^{\prime\prime}+4y^{\prime}-4y=0,\ \ y(0)=2,\ y^{\prime}(0)=-4$</p></div>
+                        <div class="question-block"><p class="question-text">41. &nbsp; $y^{\prime\prime}+6y^{\prime}+9y=0,\ \ y(0)=2,\ y^{\prime}(0)=-3$</p></div>
+                        <div class="question-block"><p class="question-text">42. &nbsp; $4y^{\prime\prime}-12y^{\prime}+9y=0,\ \ y(0)=4,\ y^{\prime}(0)=9$</p></div>
+                        <div class="question-block"><p class="question-text">43. &nbsp; $y^{\prime\prime}+4y^{\prime}+4y=0,\ \ y(0)=3,\ y^{\prime}(0)=7$</p></div>
+                        <div class="question-block"><p class="question-text">44. &nbsp; $9y^{\prime\prime}-6y^{\prime}+y=0,\ \ y(0)=3,\ y^{\prime}(0)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">45. &nbsp; $y^{\prime\prime}-4y^{\prime}+29y=0,\ \ y(0)=0,\ y^{\prime}(0)=5$</p></div>
+                        <div class="question-block"><p class="question-text">46. &nbsp; $y^{\prime\prime}+6y^{\prime}+58y=0,\ \ y(0)=-1,\ y^{\prime}(0)=5$</p></div>
+                        <div class="question-block"><p class="question-text">47. &nbsp; $y^{\prime\prime}+6y^{\prime}+13y=0,\ \ y(0)=3,\ y^{\prime}(0)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">48. &nbsp; $y^{\prime\prime}+2y^{\prime}+5y=0,\ \ y(0)=2,\ y^{\prime}(0)=6$</p></div>
+                        <div class="question-block"><p class="question-text">49. &nbsp; $9y^{\prime\prime}+6y^{\prime}+5y=0,\ \ y(0)=6,\ y^{\prime}(0)=0$</p></div>
+                        <div class="question-block"><p class="question-text">50. &nbsp; $4y^{\prime\prime}+4y^{\prime}+37y=0,\ \ y(0)=2,\ y^{\prime}(0)=-4$</p></div>
+                        <div class="question-block"><p class="question-text">51. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+11y^{\prime}-6y=0,\ \ y(0)=0,\ y^{\prime}(0)=0,\ y^{\prime\prime}(0)=2$</p></div>
+                        <div class="question-block"><p class="question-text">52. &nbsp; $y^{\prime\prime\prime}-2y^{\prime\prime}+4y^{\prime}-8y=0,\ \ y(0)=2,\ y^{\prime}(0)=0,\ y^{\prime\prime}(0)=0$</p></div>
+                        <div class="question-block"><p class="question-text">53. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}+4y=0,\ \ y(0)=1,\ y^{\prime}(0)=-8,\ y^{\prime\prime}(0)=-4$</p></div>
+                        <div class="question-block"><p class="question-text">54. &nbsp; $y^{\prime\prime\prime}-5y^{\prime\prime}+9y^{\prime}-5y=0,\ \ y(0)=0,\ y^{\prime}(0)=1,\ y^{\prime\prime}(0)=6$</p></div>
+                        <div class="question-block"><p class="question-text">55. &nbsp; $y^{(4)}-3y^{\prime\prime\prime}+2y^{\prime\prime}=0,\ \ y(0)=2,\ y^{\prime}(0)=0,\ y^{\prime\prime}(0)=2,\ y^{\prime\prime\prime}(0)=2$</p></div>
+                        <div class="question-block"><p class="question-text">56. &nbsp; $y^{(4)}-16y=0,\ \ y(0)=1,\ y^{\prime}(0)=-4,\ y^{\prime\prime}(0)=4,\ y^{\prime\prime\prime}(0)=0$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 57&ndash;62: Özel Sorular</p>
+
+                        <div class="question-block">
+                            <p class="question-text">57.</p>
+                            <p>$m^{4}+4m^{3}+10m^{2}+6m+9=(m^{2}+2m+3)^{2}$ eşitliği bilindiğine göre $y^{(4)}+4y^{\prime\prime\prime}+10y^{\prime\prime}+6y^{\prime}+9y=0$ denkleminin genel çözümünü bulunuz.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">58.</p>
+                            <p>$m^{4}+2m^{3}+5m^{2}+4m+4=(m^{2}+m+2)^{2}$ eşitliği bilindiğine göre $y^{(4)}+2y^{\prime\prime\prime}+5y^{\prime\prime}+4y^{\prime}+4y=0$ denkleminin genel çözümünü bulunuz.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">59.</p>
+                            <p>Sabit katsayılı 10. mertebeden bir homojen doğrusal denklemin yardımcı denkleminin kökleri şöyledir:</p>
+                            $$4,\ 4,\ 4,\ 4,\ 2+3i,\ 2-3i,\ 2+3i,\ 2-3i,\ 2+3i,\ 2-3i$$
+                            <p>Genel çözümünü yazınız.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">60.</p>
+                            <p>Sabit katsayılı 12. mertebeden bir homojen doğrusal denklemin yardımcı denkleminin kökleri şöyledir:</p>
+                            $$2,\ 2,\ 2,\ 2,\ 2,\ 2,\ 3+4i,\ 3-4i,\ 3+4i,\ 3-4i,\ 3+4i,\ 3-4i$$
+                            <p>Genel çözümünü yazınız.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">61.</p>
+                            <p>$\sin x$'in $y^{(4)}+2y^{\prime\prime\prime}+6y^{\prime\prime}+2y^{\prime}+5y=0$ denkleminin bir çözümü olduğu bilindiğine göre genel çözümünü bulunuz.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">62.</p>
+                            <p>$e^{x}\sin 2x$'in $y^{(4)}+3y^{\prime\prime\prime}+y^{\prime\prime}+13y^{\prime}+30y=0$ denkleminin bir çözümü olduğu bilindiğine göre genel çözümünü bulunuz.</p>
+                        </div>
+                    </div>
+
+                    <!-- ===== 4.3 KONU ===== -->
+
+                    <div id="bolum-4-3" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.3 &nbsp;Belirsiz Katsayılar Yöntemi
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Giriş</h3>
+
+                        <p>Sabit katsayılı, homojen olmayan denklemin genel formu:</p>
+                        $$a_{0}y^{(n)}+a_{1}y^{(n-1)}+\cdots+a_{n-1}y^{\prime}+a_{n}y=F(x)$$
+                        <p>Genel çözümü $y=y_{c}+y_{p}$'dir; burada $y_{c}$ karşılık gelen homojen denklemin genel çözümü (<strong>tamamlayıcı fonksiyon</strong>), $y_{p}$ ise içinde keyfi sabit bulunmayan bir <strong>özel integraldir</strong>. Bu bölümün amacı $y_{p}$'yi bulmak için kullanılan <strong>belirsiz katsayılar yöntemini</strong> (<em>method of undetermined coefficients</em>) sunmaktır.</p>
+
+                        <p>Yöntem, uygulanabildiği fonksiyon sınıfı sınırlı olsa da fiziksel uygulamalarda çok sık karşılaşılan fonksiyonları kapsadığı ve uygulanması basit olduğu için oldukça önemlidir.</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Yöntem</h3>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Tanım (UC Fonksiyonu).</strong> Bir fonksiyona, aşağıdaki dört temel tipten biriyle tanımlanıyorsa veya bu dört temel tipten iki ya da daha fazlasının <strong>sonlu çarpımı</strong> olarak tanımlanıyorsa <strong>UC fonksiyonu</strong> (<em>UC function</em>) denir:
+                            <ol style="margin-left: 1.25rem;">
+                                <li>$x^{n}$ &nbsp; ($n$ pozitif tam sayı veya sıfır)</li>
+                                <li>$e^{ax}$ &nbsp; ($a\neq 0$ sabit)</li>
+                                <li>$\sin(bx+c)$ &nbsp; ($b\neq 0$)</li>
+                                <li>$\cos(bx+c)$ &nbsp; ($b\neq 0$)</li>
+                            </ol>
+                            <p style="margin-top: 0.5rem;">Herhangi bir UC fonksiyonunun ardışık türevleri de daima ya bir UC fonksiyonunun sabit katı ya da UC fonksiyonlarının bir doğrusal kombinasyonudur.</p>
+                        </div>
+
+                        <p><strong>Tanım (UC Kümesi).</strong> Bir $f$ UC fonksiyonunun kendisi ve ardışık türevlerinin oluşturduğu tüm <strong>doğrusal bağımsız UC fonksiyonlarının</strong> kümesine $f$'nin <strong>UC kümesi</strong> (<em>UC set</em>) denir.</p>
+
+                        <p><strong>Temel UC kümeleri (Tablo 4.1):</strong></p>
+                        <div style="overflow-x: auto; margin: 0.75rem 0;">
+                        <table style="border-collapse: collapse; width: 100%; font-size: 0.95em;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #4a5568;">
+                                    <th style="text-align: left; padding: 0.4rem 0.6rem;">Fonksiyon $f$</th>
+                                    <th style="text-align: left; padding: 0.4rem 0.6rem;">UC Kümesi $S$</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td style="padding: 0.4rem 0.6rem;">$x^{n}$</td><td style="padding: 0.4rem 0.6rem;">$\{x^{n},\ x^{n-1},\ \ldots,\ x,\ 1\}$</td></tr>
+                                <tr><td style="padding: 0.4rem 0.6rem;">$e^{ax}$</td><td style="padding: 0.4rem 0.6rem;">$\{e^{ax}\}$</td></tr>
+                                <tr><td style="padding: 0.4rem 0.6rem;">$\sin(bx+c)$ veya $\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{\sin(bx+c),\ \cos(bx+c)\}$</td></tr>
+                                <tr><td style="padding: 0.4rem 0.6rem;">$x^{n}e^{ax}$</td><td style="padding: 0.4rem 0.6rem;">$\{x^{n}e^{ax},\ x^{n-1}e^{ax},\ \ldots,\ xe^{ax},\ e^{ax}\}$</td></tr>
+                                <tr><td style="padding: 0.4rem 0.6rem;">$x^{n}\sin(bx+c)$ veya $x^{n}\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{x^{n}\sin(bx+c),\ x^{n}\cos(bx+c),\ \ldots,\ \sin(bx+c),\ \cos(bx+c)\}$</td></tr>
+                                <tr><td style="padding: 0.4rem 0.6rem;">$e^{ax}\sin(bx+c)$ veya $e^{ax}\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{e^{ax}\sin(bx+c),\ e^{ax}\cos(bx+c)\}$</td></tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <p style="font-size: 0.9em; color: #718096;"><em>Not:</em> İki temel UC fonksiyonunun çarpımından oluşan bir UC fonksiyonunun UC kümesi, iki fonksiyonun ayrı ayrı UC kümelerinin elemanlarının birbirleriyle çarpılmasıyla elde edilen tüm çarpımların kümesidir.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Belirsiz Katsayılar Yönteminin Adımları.</strong> $F(x)$ fonksiyonu $u_{1},u_{2},\ldots,u_{m}$ UC fonksiyonlarının bir doğrusal kombinasyonuysa (ve $y_{c}$ önceden biliniyorsa):
+                            <ol style="margin-left: 1.25rem;">
+                                <li>Her $u_{i}$ için ilgili $S_{i}$ UC kümesini oluştur.</li>
+                                <li>Bir küme başka bir kümenin <strong>aynısı</strong> ise veya <strong>içinde kapsanıyorsa</strong>, küçük olanı ele.</li>
+                                <li>Kalan kümelerden bir tanesinin herhangi bir elemanı $y_{c}$ içinde de yer alıyorsa, o kümedeki her elemanı $x$'in <strong>en düşük pozitif tam sayı kuvvetiyle</strong> ($x^{k}$) çarp. Yeni kümede hiçbir eleman $y_{c}$'de olmamalıdır.</li>
+                                <li>Kalan (veya revize edilmiş) tüm kümelerin elemanlarını, belirsiz sabit katsayılar ($A,B,C,\ldots$) ile bir doğrusal kombinasyon halinde topla.</li>
+                                <li>Bu ifadeyi orijinal diferansiyel denklemde yerine yaz ve tüm $x$ için özdeşlik olacak biçimde katsayıları belirle.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.29 – 4.39 ===== -->
+
+                    <div id="ornekler-4-3" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.29 &ndash; 4.39
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.29 &mdash; Açıklayıcı Örnek (Çakışma Olmayan ve Çakışan Durumlar)</p>
+                            <p>(a) $y^{\prime\prime}-2y^{\prime}-3y=2e^{4x}$ &nbsp; (b) $y^{\prime\prime}-2y^{\prime}-3y=2e^{3x}$ &nbsp; denklemlerinin özel integrallerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Ortak homojen çözüm: yardımcı denklem $m^{2}-2m-3=0$'ın kökleri $m_{1}=3,\ m_{2}=-1$ &rArr; $y_{c}=c_{1}e^{3x}+c_{2}e^{-x}$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a) $F(x)=2e^{4x}$ &mdash; çakışma yok.</strong> $y_{p}=Ae^{4x}$ deneyelim:</p>
+                                $$16Ae^{4x}-8Ae^{4x}-3Ae^{4x}=2e^{4x}\ \Longrightarrow\ 5A=2\ \Longrightarrow\ A=\tfrac{2}{5}$$
+                                $$y_{p}=\tfrac{2}{5}e^{4x}$$
+                                <p><strong>(b) $F(x)=2e^{3x}$ &mdash; çakışma var.</strong> $e^{3x}$ zaten $y_{c}$'de. $y_{p}=Ae^{3x}$ dersek $0=2e^{3x}$ çelişkisi çıkar. Bu yüzden tahmini $x$ ile çarpıp $y_{p}=Axe^{3x}$ alalım:</p>
+                                $$y_{p}^{\prime}=Ae^{3x}+3Axe^{3x},\qquad y_{p}^{\prime\prime}=6Ae^{3x}+9Axe^{3x}$$
+                                <p>Denklemde:</p>
+                                $$(9A-6A-3A)xe^{3x}+(6A-2A)e^{3x}=2e^{3x}\ \Longrightarrow\ 4A=2\ \Longrightarrow\ A=\tfrac{1}{2}$$
+                                $$y_{p}=\tfrac{1}{2}xe^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.30 &ndash; 4.34 &mdash; UC Kümeleri</p>
+                            <p>Verilen fonksiyonların UC kümelerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li>$f(x)=x^{3}$: türevleri $3x^{2},\ 6x,\ 6$ &rArr; $S=\{x^{3},\ x^{2},\ x,\ 1\}$.</li>
+                                    <li>$f(x)=\sin 2x$: türevi $2\cos 2x$ &rArr; $S=\{\sin 2x,\ \cos 2x\}$.</li>
+                                    <li>$f(x)=x^{2}\sin x$: $\{x^{2},x,1\}\times\{\sin x,\cos x\}$ &rArr; $S=\{x^{2}\sin x,\ x^{2}\cos x,\ x\sin x,\ x\cos x,\ \sin x,\ \cos x\}$.</li>
+                                    <li>$f(x)=x^{3}\cos 2x$: $\{x^{3},x^{2},x,1\}\times\{\sin 2x,\cos 2x\}$ &rArr; 8 elemanlı küme (tüm çapraz çarpımlar).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.35 &mdash; Küme Revizyonu (Adım 3)</p>
+                            <p>(a) $y^{\prime\prime}-3y^{\prime}+2y=x^{2}e^{x}$ &nbsp; (b) $y^{\prime\prime}-2y^{\prime}+y=x^{2}e^{x}$ &nbsp; için UC kümelerini revize ediniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Her ikisinde başlangıç kümesi: $S=\{x^{2}e^{x},\ xe^{x},\ e^{x}\}$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $y_{c}=c_{1}e^{x}+c_{2}e^{2x}$. $S$'de yalnız $e^{x}$ çakışır. $S$'yi $x$ ile çarparız:</p>
+                                $$S^{\prime}=\{x^{3}e^{x},\ x^{2}e^{x},\ xe^{x}\}\quad\text{(hiçbir eleman }y_{c}\text{'de değil)}$$
+                                <p><strong>(b)</strong> $y_{c}=c_{1}e^{x}+c_{2}xe^{x}$. $S$'de hem $e^{x}$ hem $xe^{x}$ çakışır. $x$ ile çarpsak $xe^{x}$ hâlâ çakışır; $x^{2}$ ile çarparız:</p>
+                                $$S^{\prime\prime}=\{x^{4}e^{x},\ x^{3}e^{x},\ x^{2}e^{x}\}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.36 &mdash; İki UC Kümesi Birlikte</p>
+                            <p>$y^{\prime\prime}-2y^{\prime}-3y=2e^{x}-10\sin x$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{c}=c_{1}e^{3x}+c_{2}e^{-x}$. Kümeler: $S_{1}=\{e^{x}\}$, $S_{2}=\{\sin x,\cos x\}$. Çakışma yok.</p>
+                                <p>Tahmin: $y_{p}=Ae^{x}+B\sin x+C\cos x$.</p>
+                                $$y_{p}^{\prime}=Ae^{x}+B\cos x-C\sin x,\quad y_{p}^{\prime\prime}=Ae^{x}-B\sin x-C\cos x$$
+                                <p>Denklemde yerine konursa:</p>
+                                $$-4Ae^{x}+(-4B+2C)\sin x+(-4C-2B)\cos x=2e^{x}-10\sin x$$
+                                <p>Katsayı eşleme: $-4A=2\Rightarrow A=-\tfrac{1}{2}$; $-4B+2C=-10$ ve $-2B-4C=0$ sisteminden $B=2,\ C=-1$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{3x}+c_{2}e^{-x}-\tfrac{1}{2}e^{x}+2\sin x-\cos x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.37 &mdash; Elenen ve Revize Edilen Kümelerle</p>
+                            <p>$y^{\prime\prime}-3y^{\prime}+2y=2x^{2}+e^{x}+2xe^{x}+4e^{3x}$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{c}=c_{1}e^{x}+c_{2}e^{2x}$.</p>
+                                <p>Kümeler: $S_{1}=\{x^{2},x,1\}$, $S_{2}=\{e^{x}\}$, $S_{3}=\{xe^{x},e^{x}\}$, $S_{4}=\{e^{3x}\}$.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$S_{2}\subset S_{3}$ &rArr; $S_{2}$ <strong>elenir</strong>.</li>
+                                    <li>$S_{3}$'teki $e^{x}$, $y_{c}$'de olduğundan $S_{3}$'ü $x$ ile çarp: $S_{3}^{\prime}=\{x^{2}e^{x},\ xe^{x}\}$.</li>
+                                </ul>
+                                <p>Tahmin: $y_{p}=Ax^{2}+Bx+C+De^{3x}+Ex^{2}e^{x}+Fxe^{x}$.</p>
+                                <p>Denklemde yerine konup katsayılar eşitlenirse:</p>
+                                $$A=1,\ B=3,\ C=\tfrac{7}{2},\ D=2,\ E=-1,\ F=-3$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{x}+c_{2}e^{2x}+x^{2}+3x+\tfrac{7}{2}+2e^{3x}-x^{2}e^{x}-3xe^{x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.38 &mdash; 4. Mertebeden Denklem</p>
+                            <p>$y^{(4)}+y^{\prime\prime}=3x^{2}+4\sin x-2\cos x$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{4}+m^{2}=m^{2}(m^{2}+1)=0$ &rArr; kökler $0,0,\ i,-i$. Dolayısıyla:</p>
+                                $$y_{c}=c_{1}+c_{2}x+c_{3}\sin x+c_{4}\cos x$$
+                                <p>Kümeler: $S_{1}=\{x^{2},x,1\}$, $S_{2}=\{\sin x,\cos x\}$, $S_{3}=\{\cos x,\sin x\}$.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$S_{3}=S_{2}$ &rArr; $S_{3}$ <strong>elenir</strong>.</li>
+                                    <li>$S_{1}$'de $1$ ve $x$ $y_{c}$'de var &rArr; $S_{1}$'i $x^{2}$ ile çarp: $S_{1}^{\prime}=\{x^{4},x^{3},x^{2}\}$.</li>
+                                    <li>$S_{2}$'nin her iki elemanı da $y_{c}$'de &rArr; $S_{2}$'yi $x$ ile çarp: $S_{2}^{\prime}=\{x\sin x,\ x\cos x\}$.</li>
+                                </ul>
+                                <p>Tahmin: $y_{p}=Ax^{4}+Bx^{3}+Cx^{2}+Dx\sin x+Ex\cos x$.</p>
+                                <p>Denklemde çözüm sonucu: $A=\tfrac{1}{4},\ B=0,\ C=-3,\ D=1,\ E=2$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}+c_{2}x+c_{3}\sin x+c_{4}\cos x+\tfrac{1}{4}x^{4}-3x^{2}+x\sin x+2x\cos x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.39 &mdash; Başlangıç Değer Problemi</p>
+                            <p>$y^{\prime\prime}-2y^{\prime}-3y=2e^{x}-10\sin x,\ \ y(0)=2,\ y^{\prime}(0)=4$ problemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 4.36'dan:</p>
+                                $$y=c_{1}e^{3x}+c_{2}e^{-x}-\tfrac{1}{2}e^{x}+2\sin x-\cos x$$
+                                $$y^{\prime}=3c_{1}e^{3x}-c_{2}e^{-x}-\tfrac{1}{2}e^{x}+2\cos x+\sin x$$
+                                <p><strong>Başlangıç şartları ($x=0$):</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$y(0)=2$: $c_{1}+c_{2}-\tfrac{1}{2}+0-1=2\ \Rightarrow\ c_{1}+c_{2}=\tfrac{7}{2}$</li>
+                                    <li>$y^{\prime}(0)=4$: $3c_{1}-c_{2}-\tfrac{1}{2}+2+0=4\ \Rightarrow\ 3c_{1}-c_{2}=\tfrac{5}{2}$</li>
+                                </ul>
+                                <p>Sistem çözülünce $c_{1}=\tfrac{3}{2},\ c_{2}=2$.</p>
+                                <p><strong>Benzersiz çözüm:</strong></p>
+                                $$y=\tfrac{3}{2}e^{3x}+2e^{-x}-\tfrac{1}{2}e^{x}+2\sin x-\cos x$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.3 ===== -->
+
+                    <div id="alistirma-4-3" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.3
+                        </div>
+
+                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;34: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz.</p>
+
+                        <div class="question-block"><p class="question-text">1. &nbsp; $y^{\prime\prime}-3y^{\prime}+2y=4x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">2. &nbsp; $y^{\prime\prime}-2y^{\prime}-8y=4e^{2x}-21e^{-3x}$</p></div>
+                        <div class="question-block"><p class="question-text">3. &nbsp; $y^{\prime\prime}+2y^{\prime}+5y=6\sin 2x+7\cos 2x$</p></div>
+                        <div class="question-block"><p class="question-text">4. &nbsp; $y^{\prime\prime}+2y^{\prime}+2y=10\sin 4x$</p></div>
+                        <div class="question-block"><p class="question-text">5. &nbsp; $y^{\prime\prime}+2y^{\prime}+4y=13\cos 4x$</p></div>
+                        <div class="question-block"><p class="question-text">6. &nbsp; $y^{\prime\prime}-3y^{\prime}-4y=16x-12e^{2x}$</p></div>
+                        <div class="question-block"><p class="question-text">7. &nbsp; $y^{\prime\prime}+6y^{\prime}+5y=2e^{x}+10e^{5x}$</p></div>
+                        <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}+2y^{\prime}+10y=5xe^{-2x}$</p></div>
+                        <div class="question-block"><p class="question-text">9. &nbsp; $2y^{\prime\prime}+3y^{\prime}-2y=6x^{2}e^{x}-4x^{2}+12$</p></div>
+                        <div class="question-block"><p class="question-text">10. &nbsp; $y^{\prime\prime}+6y^{\prime}+8y=6xe^{2x}+8x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">11. &nbsp; $y^{\prime\prime}+4y=4\sin 2x+8\cos 2x$</p></div>
+                        <div class="question-block"><p class="question-text">12. &nbsp; $y^{\prime\prime}-4y=16xe^{2x}$</p></div>
+                        <div class="question-block"><p class="question-text">13. &nbsp; $4y^{\prime\prime}-4y^{\prime}+y=e^{x/2}+e^{-x/2}$</p></div>
+                        <div class="question-block"><p class="question-text">14. &nbsp; $y^{\prime\prime}-6y^{\prime}+9y=6e^{3x}+5xe^{4x}$</p></div>
+                        <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime\prime}+4y^{\prime\prime}+y^{\prime}-6y=-18x^{2}+1$</p></div>
+                        <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime\prime}+2y^{\prime\prime}-3y^{\prime}-10y=8xe^{-2x}$</p></div>
+                        <div class="question-block"><p class="question-text">17. &nbsp; $y^{\prime\prime\prime}+y^{\prime\prime}+3y^{\prime}-5y=5\sin 2x+10x^{2}+3x+7$</p></div>
+                        <div class="question-block"><p class="question-text">18. &nbsp; $4y^{\prime\prime\prime}-4y^{\prime\prime}-5y^{\prime}+3y=3x^{3}-8x$</p></div>
+                        <div class="question-block"><p class="question-text">19. &nbsp; $y^{\prime\prime}+y^{\prime}-6y=10e^{2x}-18e^{3x}-6x-11$</p></div>
+                        <div class="question-block"><p class="question-text">20. &nbsp; $y^{\prime\prime}+y^{\prime}-2y=6e^{-2x}+3e^{x}-4x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">21. &nbsp; $y^{\prime\prime}-6y^{\prime}+5y=24x^{2}e^{x}+8e^{5x}$</p></div>
+                        <div class="question-block"><p class="question-text">22. &nbsp; $y^{\prime\prime}-4y^{\prime}+5y=6e^{2x}\cos x$</p></div>
+                        <div class="question-block"><p class="question-text">23. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}+4y=4e^{x}-18e^{-x}$</p></div>
+                        <div class="question-block"><p class="question-text">24. &nbsp; $y^{\prime\prime\prime}-2y^{\prime\prime}-y^{\prime}+2y=9e^{2x}-8e^{3x}$</p></div>
+                        <div class="question-block"><p class="question-text">25. &nbsp; $y^{\prime\prime\prime}+y^{\prime}=2x^{2}+4\sin x$</p></div>
+                        <div class="question-block"><p class="question-text">26. &nbsp; $y^{(4)}-3y^{\prime\prime\prime}+2y^{\prime\prime}=3e^{-x}+6e^{2x}-6x$</p></div>
+                        <div class="question-block"><p class="question-text">27. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+11y^{\prime}-6y=xe^{x}-4e^{2x}+6e^{4x}$</p></div>
+                        <div class="question-block"><p class="question-text">28. &nbsp; $y^{\prime\prime\prime}-4y^{\prime\prime}+5y^{\prime}-2y=3x^{2}e^{x}-7e^{x}$</p></div>
+                        <div class="question-block"><p class="question-text">29. &nbsp; $y^{\prime\prime\prime}-4y^{\prime\prime}+4y^{\prime}=24xe^{2x}+16+9e^{3x}$</p></div>
+                        <div class="question-block"><p class="question-text">30. &nbsp; $y^{\prime\prime\prime}-4y^{\prime}=32xe^{2x}-24x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">31. &nbsp; $y^{\prime\prime}+y=x\sin x$</p></div>
+                        <div class="question-block"><p class="question-text">32. &nbsp; $y^{\prime\prime}+4y=12x^{2}-16x\cos 2x$</p></div>
+                        <div class="question-block"><p class="question-text">33. &nbsp; $y^{(4)}+2y^{\prime\prime\prime}-3y^{\prime\prime}=18x^{2}+16xe^{x}+4e^{3x}-9$</p></div>
+                        <div class="question-block"><p class="question-text">34. &nbsp; $y^{(4)}-5y^{\prime\prime\prime}+7y^{\prime\prime}-5y^{\prime}+6y=5\sin x-12\sin 2x$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 35&ndash;50: <strong>Başlangıç değer problemlerini</strong> çözünüz.</p>
+
+                        <div class="question-block"><p class="question-text">35. &nbsp; $y^{\prime\prime}-4y^{\prime}+3y=9x^{2}+4,\ \ y(0)=6,\ y^{\prime}(0)=8$</p></div>
+                        <div class="question-block"><p class="question-text">36. &nbsp; $y^{\prime\prime}+5y^{\prime}+4y=16x+20e^{x},\ \ y(0)=0,\ y^{\prime}(0)=3$</p></div>
+                        <div class="question-block"><p class="question-text">37. &nbsp; $y^{\prime\prime}-8y^{\prime}+15y=9xe^{2x},\ \ y(0)=5,\ y^{\prime}(0)=10$</p></div>
+                        <div class="question-block"><p class="question-text">38. &nbsp; $y^{\prime\prime}+7y^{\prime}+10y=4xe^{-3x},\ \ y(0)=0,\ y^{\prime}(0)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">39. &nbsp; $y^{\prime\prime}+8y^{\prime}+16y=8e^{-2x},\ \ y(0)=2,\ y^{\prime}(0)=0$</p></div>
+                        <div class="question-block"><p class="question-text">40. &nbsp; $y^{\prime\prime}+6y^{\prime}+9y=27e^{-6x},\ \ y(0)=-2,\ y^{\prime}(0)=0$</p></div>
+                        <div class="question-block"><p class="question-text">41. &nbsp; $y^{\prime\prime}+4y^{\prime}+13y=18e^{-2x},\ \ y(0)=0,\ y^{\prime}(0)=4$</p></div>
+                        <div class="question-block"><p class="question-text">42. &nbsp; $y^{\prime\prime}-10y^{\prime}+29y=8e^{5x},\ \ y(0)=0,\ y^{\prime}(0)=8$</p></div>
+                        <div class="question-block"><p class="question-text">43. &nbsp; $y^{\prime\prime}-4y^{\prime}+13y=8\sin 3x,\ \ y(0)=1,\ y^{\prime}(0)=2$</p></div>
+                        <div class="question-block"><p class="question-text">44. &nbsp; $y^{\prime\prime}-y^{\prime}-6y=8e^{2x}-5e^{3x},\ \ y(0)=3,\ y^{\prime}(0)=5$</p></div>
+                        <div class="question-block"><p class="question-text">45. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=2xe^{2x}+6e^{x},\ \ y(0)=1,\ y^{\prime}(0)=0$</p></div>
+                        <div class="question-block"><p class="question-text">46. &nbsp; $y^{\prime\prime}-y=3x^{2}e^{x},\ \ y(0)=1,\ y^{\prime}(0)=2$</p></div>
+                        <div class="question-block"><p class="question-text">47. &nbsp; $y^{\prime\prime}+y=3x^{2}-4\sin x,\ \ y(0)=0,\ y^{\prime}(0)=1$</p></div>
+                        <div class="question-block"><p class="question-text">48. &nbsp; $y^{\prime\prime}+4y=8\sin 2x,\ \ y(0)=6,\ y^{\prime}(0)=8$</p></div>
+                        <div class="question-block"><p class="question-text">49. &nbsp; $y^{\prime\prime\prime}-4y^{\prime\prime}+y^{\prime}+6y=3xe^{x}+2e^{x}-\sin x,\ \ y(0)=\tfrac{33}{40},\ y^{\prime}(0)=0,\ y^{\prime\prime}(0)=0$</p></div>
+                        <div class="question-block"><p class="question-text">50. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+9y^{\prime}-4y=8x^{2}+3-6e^{2x},\ \ y(0)=1,\ y^{\prime}(0)=7,\ y^{\prime\prime}(0)=10$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 51&ndash;64: Aşağıdaki denklemlerin her biri için, belirsiz katsayılar yöntemiyle özel integrali bulmak amacıyla kullanılacak <strong>harfli belirsiz katsayılara sahip doğrusal kombinasyonu</strong> oluşturunuz. <em>(Özel integralleri fiilen hesaplamayınız.)</em></p>
+
+                        <div class="question-block"><p class="question-text">51. &nbsp; $y^{\prime\prime}-6y^{\prime}+8y=x^{3}+x+e^{-2x}$</p></div>
+                        <div class="question-block"><p class="question-text">52. &nbsp; $y^{\prime\prime}+9y=e^{3x}+e^{-3x}+e^{3x}\sin 3x$</p></div>
+                        <div class="question-block"><p class="question-text">53. &nbsp; $y^{\prime\prime}+4y^{\prime}+5y=e^{-2x}(1+\cos x)$</p></div>
+                        <div class="question-block"><p class="question-text">54. &nbsp; $y^{\prime\prime}-6y^{\prime}+9y=x^{4}e^{x}+x^{3}e^{2x}+x^{2}e^{3x}$</p></div>
+                        <div class="question-block"><p class="question-text">55. &nbsp; $y^{\prime\prime}+6y^{\prime}+13y=xe^{-3x}\sin 2x+x^{2}e^{-2x}\sin 3x$</p></div>
+                        <div class="question-block"><p class="question-text">56. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}+2y^{\prime}=x^{2}e^{x}+3xe^{2x}+5x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">57. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+12y^{\prime}-8y=xe^{2x}+x^{2}e^{3x}$</p></div>
+                        <div class="question-block"><p class="question-text">58. &nbsp; $y^{(4)}+3y^{\prime\prime\prime}+4y^{\prime\prime}+3y^{\prime}+y=x^{2}e^{-x}+3e^{-x/2}\cos\tfrac{\sqrt{3}}{2}x$</p></div>
+                        <div class="question-block"><p class="question-text">59. &nbsp; $y^{(4)}-16y=x^{2}\sin 2x+x^{4}e^{2x}$</p></div>
+                        <div class="question-block"><p class="question-text">60. &nbsp; $y^{(6)}+2y^{(5)}+5y^{(4)}=x^{3}+x^{2}e^{-x}+e^{-x}\sin 2x$</p></div>
+                        <div class="question-block"><p class="question-text">61. &nbsp; $y^{(4)}+2y^{\prime\prime}+y=x^{2}\cos x$</p></div>
+                        <div class="question-block"><p class="question-text">62. &nbsp; $y^{(4)}+16y=xe^{\sqrt{2}x}\sin\sqrt{2}x+e^{-\sqrt{2}x}\cos\sqrt{2}x$</p></div>
+                        <div class="question-block"><p class="question-text">63. &nbsp; $y^{(4)}+3y^{\prime\prime}-4y=\cos^{2}x-\cosh x$</p></div>
+                        <div class="question-block"><p class="question-text">64. &nbsp; $y^{(4)}+10y^{\prime\prime}+9y=\sin x\sin 2x$</p></div>
+                    </div>
+
+                    <!-- ===== 4.4 KONU ===== -->
+
+                    <div id="bolum-4-4" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.4 &nbsp;Parametrelerin Değişimi
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Yöntem</h3>
+
+                        <p>Belirsiz katsayılar yöntemi kolay uygulansa da uygulama alanı sınırlıdır. Örneğin görünüşte basit olan</p>
+                        $$y^{\prime\prime}+y=\tan x$$
+                        <p>denklemine uygulanamaz (çünkü $\tan x$ bir UC fonksiyonu değildir). Tamamlayıcı fonksiyonun bilindiği <strong>her</strong> durumda (değişken katsayılı denklemler dahil) çalışan, daha genel bir özel integral yöntemine ihtiyaç vardır. Bu yönteme <strong>parametrelerin değişimi</strong> (<em>variation of parameters</em>) denir.</p>
+
+                        <p>Yöntemi genel değişken katsayılı ikinci mertebeden doğrusal denklem üzerinden inceleyelim:</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=F(x)$$
+                        <p>Karşılık gelen homojen denklem $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$'ın doğrusal bağımsız iki çözümü $y_{1},y_{2}$ ise tamamlayıcı fonksiyon $y_{c}=c_{1}y_{1}+c_{2}y_{2}$'dir.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Temel fikir:</strong> $c_{1}$ ve $c_{2}$ sabitlerini sırasıyla $v_{1}(x),v_{2}(x)$ <strong>fonksiyonlarıyla değiştirerek</strong> özel integrali
+                            $$y_{p}(x)=v_{1}(x)y_{1}(x)+v_{2}(x)y_{2}(x)$$
+                            biçiminde aramaktır.
+                        </div>
+
+                        <p><strong>Türev alma ve ilk kısıt.</strong> Birinci türev:</p>
+                        $$y_{p}^{\prime}=v_{1}y_{1}^{\prime}+v_{2}y_{2}^{\prime}+\underbrace{v_{1}^{\prime}y_{1}+v_{2}^{\prime}y_{2}}_{\text{bu parçayı }0\text{ seçelim}}$$
+                        <p>İki bilinmeyen ($v_{1},v_{2}$) için tek koşul yeterli olmadığından, işlemleri sadeleştiren bir <strong>ek kısıt</strong> koyarız:</p>
+                        $$v_{1}^{\prime}(x)y_{1}(x)+v_{2}^{\prime}(x)y_{2}(x)=0 \qquad (\star)$$
+                        <p>Bu kısıt altında $y_{p}^{\prime}=v_{1}y_{1}^{\prime}+v_{2}y_{2}^{\prime}$ olur. Tekrar türev alalım:</p>
+                        $$y_{p}^{\prime\prime}=v_{1}y_{1}^{\prime\prime}+v_{2}y_{2}^{\prime\prime}+v_{1}^{\prime}y_{1}^{\prime}+v_{2}^{\prime}y_{2}^{\prime}$$
+
+                        <p><strong>Orijinal denklemde yerine yazma.</strong> Düzenlenirse:</p>
+                        $$v_{1}\underbrace{[a_{0}y_{1}^{\prime\prime}+a_{1}y_{1}^{\prime}+a_{2}y_{1}]}_{=0}+v_{2}\underbrace{[a_{0}y_{2}^{\prime\prime}+a_{1}y_{2}^{\prime}+a_{2}y_{2}]}_{=0}+a_{0}[v_{1}^{\prime}y_{1}^{\prime}+v_{2}^{\prime}y_{2}^{\prime}]=F$$
+                        <p>$y_{1},y_{2}$ homojen çözüm olduğundan köşeli parantezler sıfırdır; geriye kalır:</p>
+                        $$v_{1}^{\prime}(x)y_{1}^{\prime}(x)+v_{2}^{\prime}(x)y_{2}^{\prime}(x)=\frac{F(x)}{a_{0}(x)} \qquad (\star\star)$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Çözülecek doğrusal sistem:</strong>
+                            $$\begin{aligned} y_{1}(x)\,v_{1}^{\prime}(x)+y_{2}(x)\,v_{2}^{\prime}(x)&=0 \\ y_{1}^{\prime}(x)\,v_{1}^{\prime}(x)+y_{2}^{\prime}(x)\,v_{2}^{\prime}(x)&=\frac{F(x)}{a_{0}(x)} \end{aligned}$$
+                            Katsayılar determinantı <strong>Wronskian</strong>'dır:
+                            $$W[y_{1},y_{2}](x)=\begin{vmatrix}y_{1}(x)&y_{2}(x)\\ y_{1}^{\prime}(x)&y_{2}^{\prime}(x)\end{vmatrix}$$
+                            $y_{1},y_{2}$ doğrusal bağımsız olduğundan $W\neq 0$'dır ve sistem <strong>benzersiz</strong> çözüme sahiptir.
+                        </div>
+
+                        <p><strong>Cramer'in kuralıyla:</strong></p>
+                        $$v_{1}^{\prime}(x)=-\frac{F(x)\,y_{2}(x)}{a_{0}(x)\,W[y_{1},y_{2}](x)},\qquad v_{2}^{\prime}(x)=\frac{F(x)\,y_{1}(x)}{a_{0}(x)\,W[y_{1},y_{2}](x)}$$
+                        <p>İntegral alarak:</p>
+                        $$v_{1}(x)=-\int^{x}\frac{F(t)\,y_{2}(t)}{a_{0}(t)\,W[y_{1},y_{2}](t)}\,dt,\qquad v_{2}(x)=\int^{x}\frac{F(t)\,y_{1}(t)}{a_{0}(t)\,W[y_{1},y_{2}](t)}\,dt$$
+                        <p>Böylece özel integral $y_{p}(x)=v_{1}(x)y_{1}(x)+v_{2}(x)y_{2}(x)$ olarak elde edilir.</p>
+                    </div>
+
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.40 – 4.42 ===== -->
+
+                    <div id="ornekler-4-4" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.40 &ndash; 4.42
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.40 &mdash; UC Fonksiyonu Olmayan Sağ Taraf</p>
+                            <p>$y^{\prime\prime}+y=\tan x$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tamamlayıcı fonksiyon:</strong> $y_{c}=c_{1}\sin x+c_{2}\cos x$; yani $y_{1}=\sin x,\ y_{2}=\cos x$.</p>
+                                <p>Özel integrali $y_{p}=v_{1}(x)\sin x+v_{2}(x)\cos x$ formunda ararız.</p>
+                                <p><strong>Sistem:</strong></p>
+                                $$\begin{aligned} v_{1}^{\prime}\sin x+v_{2}^{\prime}\cos x&=0 \\ v_{1}^{\prime}\cos x-v_{2}^{\prime}\sin x&=\tan x \end{aligned}$$
+                                <p>$W=-\sin^{2}x-\cos^{2}x=-1$. Cramer ile:</p>
+                                $$v_{1}^{\prime}=\frac{-\cos x\tan x}{-1}=\sin x$$
+                                $$v_{2}^{\prime}=\frac{\sin x\tan x}{-1}=-\frac{\sin^{2}x}{\cos x}=\frac{\cos^{2}x-1}{\cos x}=\cos x-\sec x$$
+                                <p><strong>İntegraller</strong> (sabitler sıfır):</p>
+                                $$v_{1}(x)=-\cos x,\qquad v_{2}(x)=\sin x-\ln|\sec x+\tan x|$$
+                                <p><strong>Özel integral:</strong></p>
+                                $$y_{p}=(-\cos x)\sin x+(\sin x-\ln|\sec x+\tan x|)\cos x=-(\cos x)\ln|\sec x+\tan x|$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}\sin x+c_{2}\cos x-(\cos x)\ln|\sec x+\tan x|$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.41 &mdash; Üçüncü Mertebe (Yöntemin Genellenmesi)</p>
+                            <p>$y^{\prime\prime\prime}-6y^{\prime\prime}+11y^{\prime}-6y=e^{x}$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{3}-6m^{2}+11m-6=(m-1)(m-2)(m-3)=0$. Tamamlayıcı fonksiyon:</p>
+                                $$y_{c}=c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}$$
+                                <p>Tahmin: $y_{p}=v_{1}(x)e^{x}+v_{2}(x)e^{2x}+v_{3}(x)e^{3x}$. Üç fonksiyon için iki ek kısıt konur:</p>
+                                <ol style="margin-left: 1.25rem;">
+                                    <li>$v_{1}^{\prime}e^{x}+v_{2}^{\prime}e^{2x}+v_{3}^{\prime}e^{3x}=0$</li>
+                                    <li>$v_{1}^{\prime}e^{x}+2v_{2}^{\prime}e^{2x}+3v_{3}^{\prime}e^{3x}=0$</li>
+                                    <li>$v_{1}^{\prime}e^{x}+4v_{2}^{\prime}e^{2x}+9v_{3}^{\prime}e^{3x}=e^{x}$ &nbsp;<em>(orijinal denklemden)</em></li>
+                                </ol>
+                                <p>Bu $3\times 3$ sistemi Cramer ile çözülür:</p>
+                                $$v_{1}^{\prime}=\tfrac{1}{2},\quad v_{2}^{\prime}=-e^{-x},\quad v_{3}^{\prime}=\tfrac{1}{2}e^{-2x}$$
+                                <p>İntegraller:</p>
+                                $$v_{1}=\tfrac{1}{2}x,\quad v_{2}=e^{-x},\quad v_{3}=-\tfrac{1}{4}e^{-2x}$$
+                                <p><strong>Özel integral:</strong></p>
+                                $$y_{p}=\tfrac{1}{2}xe^{x}+e^{-x}\cdot e^{2x}-\tfrac{1}{4}e^{-2x}\cdot e^{3x}=\tfrac{1}{2}xe^{x}+e^{x}-\tfrac{1}{4}e^{x}=\tfrac{1}{2}xe^{x}+\tfrac{3}{4}e^{x}$$
+                                <p>$\tfrac{3}{4}e^{x}$ terimi $c_{1}e^{x}$'e katılabilir ($c_{1}^{\prime}=c_{1}+\tfrac{3}{4}$). <strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}^{\prime}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}+\tfrac{1}{2}xe^{x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.42 &mdash; Değişken Katsayılı Denklem</p>
+                            <p>$(x^{2}+1)y^{\prime\prime}-2xy^{\prime}+2y=6(x^{2}+1)^{2}$ denkleminin genel çözümünü bulunuz. (Homojen çözümlerin $y_{1}=x,\ y_{2}=x^{2}-1$ olduğu biliniyor.)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{c}=c_{1}x+c_{2}(x^{2}-1)$. Tahmin: $y_{p}=v_{1}(x)\cdot x+v_{2}(x)(x^{2}-1)$.</p>
+                                <p>Standart forma bölmek yerine $a_{0}(x)=x^{2}+1$ ile doğrudan sistemi kurarız. Sağ tarafı $a_{0}$'a bölünce $\tfrac{F}{a_{0}}=6(x^{2}+1)$:</p>
+                                $$\begin{aligned} x\,v_{1}^{\prime}+(x^{2}-1)v_{2}^{\prime}&=0 \\ v_{1}^{\prime}+2x\,v_{2}^{\prime}&=6(x^{2}+1) \end{aligned}$$
+                                <p>Wronskian: $W=x\cdot 2x-(x^{2}-1)\cdot 1=x^{2}+1$. Cramer:</p>
+                                $$v_{1}^{\prime}=\frac{-6(x^{2}+1)(x^{2}-1)}{x^{2}+1}=-6(x^{2}-1)$$
+                                $$v_{2}^{\prime}=\frac{6x(x^{2}+1)}{x^{2}+1}=6x$$
+                                <p>İntegraller (sabitler sıfır):</p>
+                                $$v_{1}(x)=-2x^{3}+6x,\qquad v_{2}(x)=3x^{2}$$
+                                <p><strong>Özel integral:</strong></p>
+                                $$y_{p}=(-2x^{3}+6x)x+3x^{2}(x^{2}-1)=-2x^{4}+6x^{2}+3x^{4}-3x^{2}=x^{4}+3x^{2}$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}x+c_{2}(x^{2}-1)+x^{4}+3x^{2}$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.4 ===== -->
+
+                    <div id="alistirma-4-4" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.4
+                        </div>
+
+                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;18: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz.</p>
+
+                        <div class="question-block"><p class="question-text">1. &nbsp; $y^{\prime\prime}+y=\cot x$</p></div>
+                        <div class="question-block"><p class="question-text">2. &nbsp; $y^{\prime\prime}+y=\tan^{2}x$</p></div>
+                        <div class="question-block"><p class="question-text">3. &nbsp; $y^{\prime\prime}+y=\sec x$</p></div>
+                        <div class="question-block"><p class="question-text">4. &nbsp; $y^{\prime\prime}+y=\sec^{3}x$</p></div>
+                        <div class="question-block"><p class="question-text">5. &nbsp; $y^{\prime\prime}+4y=\sec^{2}2x$</p></div>
+                        <div class="question-block"><p class="question-text">6. &nbsp; $y^{\prime\prime}+y=\tan x\sec x$</p></div>
+                        <div class="question-block"><p class="question-text">7. &nbsp; $y^{\prime\prime}+4y^{\prime}+5y=e^{-2x}\sec x$</p></div>
+                        <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}-2y^{\prime}+5y=e^{x}\tan 2x$</p></div>
+                        <div class="question-block"><p class="question-text">9. &nbsp; $y^{\prime\prime}+6y^{\prime}+9y=\dfrac{e^{-3x}}{x^{3}}$</p></div>
+                        <div class="question-block"><p class="question-text">10. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=xe^{x}\ln x\ \ (x>0)$</p></div>
+                        <div class="question-block"><p class="question-text">11. &nbsp; $y^{\prime\prime}+y=\sec x\csc x$</p></div>
+                        <div class="question-block"><p class="question-text">12. &nbsp; $y^{\prime\prime}+y=\tan^{3}x$</p></div>
+                        <div class="question-block"><p class="question-text">13. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{1}{1+e^{x}}$</p></div>
+                        <div class="question-block"><p class="question-text">14. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{1}{1+e^{2x}}$</p></div>
+                        <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime}+y=\dfrac{1}{1+\sin x}$</p></div>
+                        <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=e^{x}\sin^{-1}x$</p></div>
+                        <div class="question-block"><p class="question-text">17. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{e^{-x}}{x}$</p></div>
+                        <div class="question-block"><p class="question-text">18. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=x\ln x\ \ (x>0)$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 19&ndash;26: Aşağıdaki değişken katsayılı denklemlerde ilgili homojen denklemin <strong>iki doğrusal bağımsız çözümü verilmiştir</strong>. Genel çözümü bulunuz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">19.</p>
+                            <p>$x^{2}y^{\prime\prime}-6xy^{\prime}+10y=3x^{4}+6x^{3}$, &nbsp; $y_{1}=x^{2},\ y_{2}=x^{5}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">20.</p>
+                            <p>$(x+1)^{2}y^{\prime\prime}-2(x+1)y^{\prime}+2y=1$, &nbsp; $y_{1}=x+1,\ y_{2}=(x+1)^{2}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">21.</p>
+                            <p>$(x^{2}+2x)y^{\prime\prime}-2(x+1)y^{\prime}+2y=(x+2)^{2}$, &nbsp; $y_{1}=x+1,\ y_{2}=x^{2}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">22.</p>
+                            <p>$x^{2}y^{\prime\prime}-x(x+2)y^{\prime}+(x+2)y=x^{3}$, &nbsp; $y_{1}=x,\ y_{2}=xe^{x}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">23.</p>
+                            <p>$x(x-2)y^{\prime\prime}-(x^{2}-2)y^{\prime}+2(x-1)y=3x^{2}(x-2)^{2}e^{x}$, &nbsp; $y_{1}=e^{x},\ y_{2}=x^{2}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">24.</p>
+                            <p>$(2x+1)(x+1)y^{\prime\prime}+2xy^{\prime}-2y=(2x+1)^{2}$, &nbsp; $y_{1}=x,\ y_{2}=(x+1)^{-1}$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">25.</p>
+                            <p>$(\sin^{2}x)y^{\prime\prime}-(2\sin x\cos x)y^{\prime}+(\cos^{2}x+1)y=\sin^{3}x$, &nbsp; $y_{1}=\sin x,\ y_{2}=x\sin x$</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">26.</p>
+                            <p>$xy^{\prime\prime}-(2x+1)y^{\prime}+(x+1)y=\dfrac{2e^{x}}{x^{2}}$, &nbsp; $y_{1}=e^{x},\ y_{2}=x^{2}e^{x}$</p>
+                        </div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 27&ndash;28: Genel çözümü <strong>iki farklı yöntemle</strong> bulunuz.</p>
+
+                        <div class="question-block"><p class="question-text">27. &nbsp; $y^{\prime\prime}-2y^{\prime}=8xe^{2x}$</p></div>
+                        <div class="question-block"><p class="question-text">28. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}-y^{\prime}+3y=x^{2}e^{x}$</p></div>
+                    </div>
+
+                    <!-- ===== 4.5 KONU ===== -->
+
+                    <div id="bolum-4-5" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.5 &nbsp;Cauchy-Euler Denklemi
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Denklem ve Çözüm Yöntemi</h3>
+
+                        <p>Değişken katsayılı $n$. mertebeden doğrusal denklemlerin genel çözümü kapalı formda sadece belirli özel durumlarda elde edilebilir. Bu özel durumlardan uygulamada büyük önem taşıyan biri <strong>Cauchy-Euler denklemi</strong> (veya <em>eşboyutlu denklem</em> &mdash; <em>equidimensional equation</em>) olarak adlandırılır:</p>
+                        $$a_{0}x^{n}y^{(n)}+a_{1}x^{n-1}y^{(n-1)}+\cdots+a_{n-1}xy^{\prime}+a_{n}y=F(x)$$
+                        <p>Burada $a_{0},a_{1},\ldots,a_{n}$ sabittir. Karakteristik özellik: sol taraftaki her terim $x^{k}y^{(k)}$ biçimindeki ifadelerin sabit katıdır.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem 4.14.</strong> $x=e^{t}$ dönüşümü, Cauchy-Euler denklemini <strong>sabit katsayılı doğrusal bir diferansiyel denkleme</strong> dönüştürür.
+                        </div>
+
+                        <p><strong>İspat (ikinci mertebeden durum).</strong> $x>0$ için $x=e^{t}\ \Leftrightarrow\ t=\ln x$ alalım. Zincir kuralıyla:</p>
+                        $$\frac{dy}{dx}=\frac{dy}{dt}\cdot\frac{dt}{dx}=\frac{1}{x}\frac{dy}{dt}\ \Longrightarrow\ x\frac{dy}{dx}=\frac{dy}{dt}$$
+
+                        <p>İkinci türev:</p>
+                        $$\frac{d^{2}y}{dx^{2}}=\frac{1}{x}\frac{d}{dx}\!\left(\frac{dy}{dt}\right)+\frac{dy}{dt}\cdot\frac{d}{dx}\!\left(\frac{1}{x}\right)=\frac{1}{x^{2}}\frac{d^{2}y}{dt^{2}}-\frac{1}{x^{2}}\frac{dy}{dt}$$
+                        <p>Yani:</p>
+                        $$x^{2}\frac{d^{2}y}{dx^{2}}=\frac{d^{2}y}{dt^{2}}-\frac{dy}{dt}$$
+                        <p>$a_{0}x^{2}y^{\prime\prime}+a_{1}xy^{\prime}+a_{2}y=F(x)$ denkleminde yerine konursa:</p>
+                        $$A_{0}\frac{d^{2}y}{dt^{2}}+A_{1}\frac{dy}{dt}+A_{2}y=G(t)$$
+                        <p>burada $A_{0}=a_{0},\ A_{1}=a_{1}-a_{0},\ A_{2}=a_{2}$ ve $G(t)=F(e^{t})$. Bu sabit katsayılı ikinci mertebeden doğrusal bir denklemdir. Genel $n$ için ispat benzer yolla ilerler. &#9632;</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Önemli Notlar.</strong>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>En yüksek dereceli katsayı $a_{0}x^{n}$ $x=0$'da sıfırdır; dolayısıyla <strong>Temel Varlık Teoremi'nin geçerli olduğu temel aralık $x=0$'ı içermez</strong>.</li>
+                                <li>İspatta $x>0$ varsayıldı; $x<0$ için doğru dönüşüm $x=-e^{t}$'dir. Aksi belirtilmedikçe $x>0$ kabul edilir.</li>
+                            </ol>
+                        </div>
+
+                        <p><strong>Genel $n$. mertebeden türev için resmi dönüşüm kuralı:</strong> $x=e^{t}$ altında $x^{n}\dfrac{d^{n}y}{dx^{n}}$'i bulmak için</p>
+                        <ol style="margin-left: 1.25rem;">
+                            <li>$r(r-1)(r-2)\cdots[r-(n-1)]$ ifadesini kur.</li>
+                            <li>Bu ifadeyi $r$'ye bağlı $n$. dereceden bir polinom olarak aç.</li>
+                            <li>Her $r^{k}\ (k=1,\ldots,n)$ terimini $\dfrac{d^{k}y}{dt^{k}}$ ile değiştir.</li>
+                            <li>Sonucu $x^{n}\dfrac{d^{n}y}{dx^{n}}$'e eşitle.</li>
+                        </ol>
+
+                        <p><strong>Örnek ($n=3$):</strong> $r(r-1)(r-2)=r^{3}-3r^{2}+2r$ &rArr;</p>
+                        $$x^{3}\frac{d^{3}y}{dx^{3}}=\frac{d^{3}y}{dt^{3}}-3\frac{d^{2}y}{dt^{2}}+2\frac{dy}{dt}$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Sık kullanılan dönüşüm tablosu ($x=e^{t}$, &nbsp;$D_{t}=\tfrac{d}{dt}$):</strong>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>$x\,y^{\prime}=D_{t}y$</li>
+                                <li>$x^{2}y^{\prime\prime}=D_{t}(D_{t}-1)y$</li>
+                                <li>$x^{3}y^{\prime\prime\prime}=D_{t}(D_{t}-1)(D_{t}-2)y$</li>
+                                <li>Genel olarak $x^{n}y^{(n)}=D_{t}(D_{t}-1)\cdots(D_{t}-n+1)y$</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.43 – 4.44 ===== -->
+
+                    <div id="ornekler-4-5" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.43 &ndash; 4.44
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.43 &mdash; İkinci Mertebe</p>
+                            <p>$x^{2}\dfrac{d^{2}y}{dx^{2}}-2x\dfrac{dy}{dx}+2y=x^{3}$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $x=e^{t},\ t=\ln x$ alalım:</p>
+                                $$x\frac{dy}{dx}=\frac{dy}{dt},\qquad x^{2}\frac{d^{2}y}{dx^{2}}=\frac{d^{2}y}{dt^{2}}-\frac{dy}{dt},\qquad x^{3}=e^{3t}$$
+                                <p>Yerine koyarsak:</p>
+                                $$\left(\tfrac{d^{2}y}{dt^{2}}-\tfrac{dy}{dt}\right)-2\tfrac{dy}{dt}+2y=e^{3t}\ \Longrightarrow\ \frac{d^{2}y}{dt^{2}}-3\frac{dy}{dt}+2y=e^{3t}$$
+                                <p><strong>Adım 2 &mdash; Tamamlayıcı fonksiyon.</strong> $m^{2}-3m+2=(m-1)(m-2)=0$ &rArr; $y_{c}=c_{1}e^{t}+c_{2}e^{2t}$.</p>
+                                <p><strong>Adım 3 &mdash; Özel integral (belirsiz katsayılar).</strong> $e^{3t}$, $y_{c}$'de olmadığından $y_{p}=Ae^{3t}$:</p>
+                                $$9Ae^{3t}-9Ae^{3t}+2Ae^{3t}=e^{3t}\ \Longrightarrow\ 2A=1\ \Longrightarrow\ A=\tfrac{1}{2}$$
+                                <p><strong>Adım 4 &mdash; $t$'de genel çözüm ve $x$'e dönüş.</strong></p>
+                                $$y=c_{1}e^{t}+c_{2}e^{2t}+\tfrac{1}{2}e^{3t}$$
+                                <p>$e^{t}=x$ olduğundan:</p>
+                                $$\boxed{\ y=c_{1}x+c_{2}x^{2}+\tfrac{1}{2}x^{3}\ }$$
+                                <p style="font-size: 0.92em; color: #718096;"><em>Alternatif yol:</em> Önce $y_{c}=c_{1}x+c_{2}x^{2}$'yi bulup, parametrelerin değişimini doğrudan orijinal denklemde uygulamak da olanaklıydı; ancak sağ taraf uygun bir UC fonksiyonu olduğu için bu yöntem daha basittir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.44 &mdash; Üçüncü Mertebe (Logaritmik Sağ Taraf)</p>
+                            <p>$x^{3}\dfrac{d^{3}y}{dx^{3}}-4x^{2}\dfrac{d^{2}y}{dx^{2}}+8x\dfrac{dy}{dx}-8y=4\ln x$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $x=e^{t}$, $\ln x=t$. Türev dönüşümlerini uygulayalım:</p>
+                                $$\left(\tfrac{d^{3}y}{dt^{3}}-3\tfrac{d^{2}y}{dt^{2}}+2\tfrac{dy}{dt}\right)-4\left(\tfrac{d^{2}y}{dt^{2}}-\tfrac{dy}{dt}\right)+8\left(\tfrac{dy}{dt}\right)-8y=4t$$
+                                <p>Düzenlenirse:</p>
+                                $$\frac{d^{3}y}{dt^{3}}-7\frac{d^{2}y}{dt^{2}}+14\frac{dy}{dt}-8y=4t$$
+                                <p><strong>Adım 2 &mdash; Tamamlayıcı fonksiyon.</strong> $m^{3}-7m^{2}+14m-8=(m-1)(m-2)(m-4)=0$ &rArr;</p>
+                                $$y_{c}=c_{1}e^{t}+c_{2}e^{2t}+c_{3}e^{4t}$$
+                                <p><strong>Adım 3 &mdash; Özel integral.</strong> $y_{p}=At+B$:</p>
+                                $$0-0+14A-8(At+B)=4t\ \Longrightarrow\ -8At+(14A-8B)=4t$$
+                                <p>Katsayı eşleme: $-8A=4\Rightarrow A=-\tfrac{1}{2}$; $14A-8B=0\Rightarrow B=-\tfrac{7}{8}$.</p>
+                                <p><strong>Adım 4 &mdash; $t$'de genel çözüm ve $x$'e dönüş.</strong></p>
+                                $$y=c_{1}e^{t}+c_{2}e^{2t}+c_{3}e^{4t}-\tfrac{1}{2}t-\tfrac{7}{8}$$
+                                $$\boxed{\ y=c_{1}x+c_{2}x^{2}+c_{3}x^{4}-\tfrac{1}{2}\ln x-\tfrac{7}{8}\ }$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.5 ===== -->
+
+                    <div id="alistirma-4-5" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.5
+                        </div>
+
+                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;22: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz. (Her durumda $x>0$ varsayınız.)</p>
+
+                        <div class="question-block"><p class="question-text">1. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">2. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}-4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">3. &nbsp; $4x^{2}y^{\prime\prime}-4xy^{\prime}+3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">4. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">5. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">6. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+13y=0$</p></div>
+                        <div class="question-block"><p class="question-text">7. &nbsp; $3x^{2}y^{\prime\prime}-4xy^{\prime}+2y=0$</p></div>
+                        <div class="question-block"><p class="question-text">8. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+9y=0$</p></div>
+                        <div class="question-block"><p class="question-text">9. &nbsp; $9x^{2}y^{\prime\prime}+3xy^{\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">10. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+10y=0$</p></div>
+                        <div class="question-block"><p class="question-text">11. &nbsp; $x^{3}y^{\prime\prime\prime}-3x^{2}y^{\prime\prime}+6xy^{\prime}-6y=0$</p></div>
+                        <div class="question-block"><p class="question-text">12. &nbsp; $x^{3}y^{\prime\prime\prime}+2x^{2}y^{\prime\prime}-10xy^{\prime}-8y=0$</p></div>
+                        <div class="question-block"><p class="question-text">13. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}-6xy^{\prime}+18y=0$</p></div>
+                        <div class="question-block"><p class="question-text">14. &nbsp; $x^{4}y^{(4)}-4x^{2}y^{\prime\prime}+8xy^{\prime}-8y=0$</p></div>
+                        <div class="question-block"><p class="question-text">15. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=4x-6$</p></div>
+                        <div class="question-block"><p class="question-text">16. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3}$</p></div>
+                        <div class="question-block"><p class="question-text">17. &nbsp; $x^{2}y^{\prime\prime}+4xy^{\prime}+2y=4\ln x$</p></div>
+                        <div class="question-block"><p class="question-text">18. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=2x\ln x$</p></div>
+                        <div class="question-block"><p class="question-text">19. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+y=4\sin(\ln x)$</p></div>
+                        <div class="question-block"><p class="question-text">20. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+5y=5x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">21. &nbsp; $x^{3}y^{\prime\prime\prime}-8x^{2}y^{\prime\prime}+28xy^{\prime}-40y=-\dfrac{9}{x}$</p></div>
+                        <div class="question-block"><p class="question-text">22. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}+2xy^{\prime}-2y=x^{3}$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 23&ndash;30: <strong>Başlangıç değer problemlerini</strong> çözünüz. ($x>0$ varsayınız.)</p>
+
+                        <div class="question-block"><p class="question-text">23. &nbsp; $x^{2}y^{\prime\prime}-2xy^{\prime}-10y=0,\ \ y(1)=5,\ y^{\prime}(1)=4$</p></div>
+                        <div class="question-block"><p class="question-text">24. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=0,\ \ y(2)=0,\ y^{\prime}(2)=4$</p></div>
+                        <div class="question-block"><p class="question-text">25. &nbsp; $x^{2}y^{\prime\prime}+5xy^{\prime}+3y=0,\ \ y(1)=1,\ y^{\prime}(1)=-5$</p></div>
+                        <div class="question-block"><p class="question-text">26. &nbsp; $x^{2}y^{\prime\prime}-2y=4x-8,\ \ y(1)=4,\ y^{\prime}(1)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">27. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+4y=4x^{2}-6x^{3},\ \ y(2)=4,\ y^{\prime}(2)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">28. &nbsp; $x^{2}y^{\prime\prime}+2xy^{\prime}-6y=10x^{2},\ \ y(1)=1,\ y^{\prime}(1)=-6$</p></div>
+                        <div class="question-block"><p class="question-text">29. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3},\ \ y(2)=0,\ y^{\prime}(2)=-8$</p></div>
+                        <div class="question-block"><p class="question-text">30. &nbsp; $x^{2}y^{\prime\prime}-6y=\ln x,\ \ y(1)=\tfrac{1}{6},\ y^{\prime}(1)=-\tfrac{1}{6}$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 31&ndash;32: Aşağıdaki denklemleri çözünüz. <em>(İpucu: kaydırılmış Cauchy-Euler formu &mdash; $x+2=e^{t}$ ya da $2x-3=e^{t}$ dönüşümü kullanılabilir.)</em></p>
+
+                        <div class="question-block"><p class="question-text">31. &nbsp; $(x+2)^{2}y^{\prime\prime}-(x+2)y^{\prime}-3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">32. &nbsp; $(2x-3)^{2}y^{\prime\prime}-6(2x-3)y^{\prime}+12y=0$</p></div>
+                    </div>
+
+                    <!-- ===== 4.6 KONU ===== -->
+
+                    <div id="bolum-4-6" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.6 &nbsp;İkinci Mertebeden Homojen Doğrusal Denklem: Teoremler ve İspatları
+                        </div>
+
+                        <p>Bu bölümde ikinci mertebeden homojen doğrusal denklem</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0 \qquad (4.91)$$
+                        <p>üzerine temel teoremlerin ifadeleri ve ispatları detaylı olarak verilir. $a_{0},a_{1},a_{2}$ fonksiyonlarının $[a,b]$ üzerinde sürekli ve $a_{0}(x)\neq 0$ olduğu varsayılır.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem A</strong> <em>(Teorem 4.1'in özel hâli).</em>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>Her $x_{0}\in[a,b]$ ve her $c_{0},c_{1}\in\mathbb{R}$ için (4.91)'in $f(x_{0})=c_{0},\ f^{\prime}(x_{0})=c_{1}$ şartlarını sağlayan <strong>benzersiz</strong> $f$ çözümü vardır ve tüm $[a,b]$ üzerinde tanımlıdır.</li>
+                                <li>Özel olarak $f(x_{0})=0,\ f^{\prime}(x_{0})=0$ ise benzersiz çözüm <strong>aşikar çözüm</strong> $f\equiv 0$'dır.</li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem B</strong> <em>(cebir).</em> İki bilinmeyenli iki homojen doğrusal cebirsel denklemin <strong>aşikar olmayan</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfır olmasıdır.
+                            <br>
+                            <strong>Teorem C</strong> <em>(cebir).</em> İki bilinmeyenli iki doğrusal cebirsel denklemin <strong>benzersiz</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfırdan farklı olmasıdır.
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.15 &mdash; Doğrusal Kombinasyonun Çözüm Olması</h3>
+
+                        <p><em>Hipotez:</em> $f_{1},f_{2}$, (4.91)'in iki çözümü ve $c_{1},c_{2}$ keyfi sabit.</p>
+                        <p><em>Sonuç:</em> $c_{1}f_{1}+c_{2}f_{2}$ de bir çözümdür.</p>
+
+                        <p><strong>İspat.</strong> $f=c_{1}f_{1}+c_{2}f_{2}$'nin türevleri:</p>
+                        $$f^{\prime}=c_{1}f_{1}^{\prime}+c_{2}f_{2}^{\prime},\qquad f^{\prime\prime}=c_{1}f_{1}^{\prime\prime}+c_{2}f_{2}^{\prime\prime}$$
+                        <p>(4.91)'in sol tarafına yerleştirip düzenlersek:</p>
+                        $$c_{1}\underbrace{[a_{0}f_{1}^{\prime\prime}+a_{1}f_{1}^{\prime}+a_{2}f_{1}]}_{=0}+c_{2}\underbrace{[a_{0}f_{2}^{\prime\prime}+a_{1}f_{2}^{\prime}+a_{2}f_{2}]}_{=0}=0 \qquad\blacksquare$$
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.16 &mdash; Doğrusal Bağımsız Çözüm Kümesinin Varlığı</h3>
+
+                        <p><em>Hipotez:</em> $a_{0},a_{1},a_{2}$ $[a,b]$'de sürekli ve $a_{0}(x)\neq 0$.</p>
+                        <p><em>Sonuç:</em> (4.91)'in $[a,b]$ üzerinde <strong>doğrusal bağımsız</strong> iki çözümü vardır.</p>
+
+                        <p><strong>İspat (yapıcı).</strong> $x_{0}\in[a,b]$ sabit. Teorem A ile:</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$f_{1}(x_{0})=1,\ f_{1}^{\prime}(x_{0})=0$ olan benzersiz $f_{1}$,</li>
+                            <li>$f_{2}(x_{0})=0,\ f_{2}^{\prime}(x_{0})=1$ olan benzersiz $f_{2}$ bulunur.</li>
+                        </ul>
+                        <p>Doğrusal bağımlı olsalardı, hepsi birden sıfır olmayan $c_{1},c_{2}$ için tüm $x$'te $c_{1}f_{1}(x)+c_{2}f_{2}(x)=0$ ve türevi de sıfır olurdu. $x=x_{0}$'da:</p>
+                        $$c_{1}(1)+c_{2}(0)=0,\quad c_{1}(0)+c_{2}(1)=0\ \Longrightarrow\ c_{1}=c_{2}=0$$
+                        <p>Bu bir çelişkidir; dolayısıyla $f_{1},f_{2}$ doğrusal bağımsızdır. $\blacksquare$</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.17 &amp; 4.18 &mdash; Wronskian ile Bağımsızlık Kriteri</h3>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>İfade:</strong> (4.91)'in iki çözümü $f_{1},f_{2}$'nin $[a,b]$'de <strong>doğrusal bağımsız</strong> olması için gerek ve yeter şart, Wronski determinantı $W[f_{1},f_{2}]$'nin bu aralıkta <strong>en az bir $x$ için sıfırdan farklı</strong> olmasıdır. Eşdeğer olarak (Teorem 4.18): doğrusal bağımlı olması için gerek ve yeter şart, $W$'nin her $x$ için sıfır olmasıdır.
+                        </div>
+
+                        <p><strong>İspat.</strong> $(\Rightarrow)$ Diyelim ki $W\equiv 0$. Bir $x_{0}$'ı sabitleyip cebirsel sistemi kuralım:</p>
+                        $$\begin{aligned} c_{1}f_{1}(x_{0})+c_{2}f_{2}(x_{0})&=0 \\ c_{1}f_{1}^{\prime}(x_{0})+c_{2}f_{2}^{\prime}(x_{0})&=0 \end{aligned}$$
+                        <p>Katsayılar determinantı $W(x_{0})=0$ olduğundan Teorem B'ye göre aşikar olmayan bir $(c_{1},c_{2})$ çözümü vardır. $f=c_{1}f_{1}+c_{2}f_{2}$ Teorem 4.15 ile bir çözümdür ve $f(x_{0})=f^{\prime}(x_{0})=0$. Teorem A(2)'ye göre $f\equiv 0$; yani $f_{1},f_{2}$ doğrusal bağımlıdır.</p>
+
+                        <p>$(\Leftarrow)$ Doğrusal bağımlı iseler, $c_{1}f_{1}+c_{2}f_{2}\equiv 0$ ($c_{1},c_{2}$'nin ikisi birden sıfır değil). Türev alıp iki denklemi tüm $x$'te yazınca sistemin sıfır olmayan çözümü olduğundan katsayılar determinantı $W(x)=0$ her yerde. $\blacksquare$</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.19 &mdash; Wronskian'ın "Ya Hep Ya Hiç" Özelliği (Abel Formülü)</h3>
+
+                        <p><em>İfade:</em> $f_{1},f_{2}$ (4.91)'in iki çözümü ise, $W[f_{1},f_{2}](x)$ ya $[a,b]$'de <strong>her yerde sıfırdır</strong> ya da <strong>hiçbir noktada sıfır değildir</strong>.</p>
+
+                        <p><strong>İspat.</strong> Doğrusal bağımlı iseler Teorem 4.18'e göre $W\equiv 0$. Doğrusal bağımsız iseler $W(x)=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$'nin türevini alıp $f_{1}^{\prime\prime},f_{2}^{\prime\prime}$'yi (4.91)'den çekerek yerine yazınca:</p>
+                        $$W^{\prime}(x)=-\frac{a_{1}(x)}{a_{0}(x)}\,W(x)$$
+                        <p>Bu ayrılabilir denklemin çözümü <strong>Abel formülüdür</strong>:</p>
+                        $$W(x)=W(x_{0})\exp\!\left[-\int_{x_{0}}^{x}\frac{a_{1}(t)}{a_{0}(t)}\,dt\right]$$
+                        <p>Herhangi bir $x_{0}$'da $W(x_{0})=0$ olsaydı her $x$ için $W(x)=0$ çıkardı; ama bu doğrusal bağımsızlıkla çelişir. Dolayısıyla $W$ hiçbir yerde sıfır olmaz. $\blacksquare$</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.20 &mdash; Genel Çözüm Teoremi</h3>
+
+                        <p><em>Hipotez:</em> $f_{1},f_{2}$ (4.91)'in doğrusal bağımsız iki çözümü.</p>
+                        <p><em>Sonuç:</em> (4.91)'in her $f$ çözümü uygun $c_{1},c_{2}$ sabitleriyle $f=c_{1}f_{1}+c_{2}f_{2}$ olarak yazılabilir.</p>
+
+                        <p><strong>İspat.</strong> $x_{0}\in[a,b]$ sabit. Cebirsel sistem:</p>
+                        $$\begin{aligned} k_{1}f_{1}(x_{0})+k_{2}f_{2}(x_{0})&=f(x_{0}) \\ k_{1}f_{1}^{\prime}(x_{0})+k_{2}f_{2}^{\prime}(x_{0})&=f^{\prime}(x_{0}) \end{aligned}$$
+                        <p>Doğrusal bağımsızlıktan $W(x_{0})\neq 0$; Teorem C ile sistemin benzersiz $(k_{1},k_{2})=(c_{1},c_{2})$ çözümü vardır. Şimdi $g=c_{1}f_{1}+c_{2}f_{2}$ tanımlansın; Teorem 4.15 ile bir çözümdür ve inşadan $g(x_{0})=f(x_{0}),\ g^{\prime}(x_{0})=f^{\prime}(x_{0})$. Teorem A(1)'in benzersizliğinden $g\equiv f$, yani $f=c_{1}f_{1}+c_{2}f_{2}$. $\blacksquare$</p>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.6 ===== -->
+
+                    <div id="alistirma-4-6" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.6 &mdash; Bölüm Sonu Teorik Sorular
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">1.</p>
+                            <p>$y^{\prime\prime}-3y^{\prime}+2y=0$ denklemi için:</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $f_{1}(0)=1,\ f_{1}^{\prime}(0)=0$ ve $f_{2}(0)=0,\ f_{2}^{\prime}(0)=1$ şartlarını sağlayan doğrusal bağımsız çözümleri bulunuz.</li>
+                                <li>(b) $3e^{x}+2e^{2x}$ çözümünü, $f_{1}$ ve $f_{2}$ cinsinden doğrusal kombinasyon olarak yazınız.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2.</p>
+                            <p>$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ denkleminin iki çözümü $f_{1},f_{2}$ ve $f_{2}(x)\neq 0$ olsun.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) Şunu gösteriniz: $\dfrac{d}{dx}\!\left[\dfrac{f_{1}(x)}{f_{2}(x)}\right]=-\dfrac{W[f_{1},f_{2}](x)}{[f_{2}(x)]^{2}}$.</li>
+                                <li>(b) $W\equiv 0$ ise çözümlerin doğrusal bağımlı olduğunu bu sonucu kullanarak gösteriniz.</li>
+                                <li>(c) Çözümler doğrusal bağımsız ise $\dfrac{f_{1}}{f_{2}}$'nin <strong>monoton</strong> olduğunu gösteriniz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3.</p>
+                            <p>$f_{1},f_{2}$ aynı denklemin çözümleri olsun.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) Ortak bir $x_{0}$ noktasında her ikisi de sıfır oluyorsa doğrusal bağımlı olduklarını gösteriniz.</li>
+                                <li>(b) Ortak bir $x_{0}$ noktasında göreli maksimumları varsa doğrusal bağımlı olduklarını gösteriniz.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4.</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $f_{1},f_{2}$ doğrusal bağımsız ve $A_{1}B_{2}-A_{2}B_{1}\neq 0$ ise, $A_{1}f_{1}+A_{2}f_{2}$ ile $B_{1}f_{1}+B_{2}f_{2}$'nin de doğrusal bağımsız olduğunu gösteriniz.</li>
+                                <li>(b) Aynı denkleme ait $\{f_{1},f_{2}\}$ ve $\{g_{1},g_{2}\}$ iki doğrusal bağımsız çözüm kümesi için $W[f_{1},f_{2}]=c\,W[g_{1},g_{2}]$ olacak bir $c\neq 0$ sabitinin var olduğunu kanıtlayınız.</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5.</p>
+                            <p>$f_{1},f_{2}$ doğrusal bağımsız çözümler olup bir $x_{0}$ noktasında $f_{1}^{\prime\prime}(x_{0})=f_{2}^{\prime\prime}(x_{0})=0$ ise, o noktada $a_{1}(x_{0})=a_{2}(x_{0})=0$ olmak zorunda olduğunu ispatlayınız.</p>
+                        </div>
+                    </div>
+
+                    <!-- ===== BÖLÜM 4 GENEL TEKRAR ALIŞTIRMALARI ===== -->
+
+                    <div id="alistirma-4-tekrar" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Bölüm 4 &mdash; Genel Tekrar Alıştırmaları
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">1.</p>
+                            <p>Aşağıdaki denklemlerin genel çözümlerini bulunuz:</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $y^{\prime\prime}=x$</li>
+                                <li>(b) $y^{\prime\prime}=y$</li>
+                                <li>(c) $y^{\prime\prime}=y^{\prime}$</li>
+                                <li>(d) $y^{\prime\prime}=x+y$</li>
+                                <li>(e) $y^{\prime\prime}=x+y^{\prime}$</li>
+                                <li>(f) $y^{\prime\prime}=y+y^{\prime}$</li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2.</p>
+                            <p>$(x-1)y^{\prime\prime}-xy^{\prime}+y=0$ denkleminin $y=x$ ve $y=e^{x}$ olmak üzere iki çözümü olduğu biliniyor ($1<a<b$ aralığında).</p>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>(a) $2x+3e^{x},\ x-e^{x},\ 3e^{x}-5x$'in de çözüm olduğunu garantileyen teoremi belirtiniz.</li>
+                                <li>(b) Doğrusal bağımsızlık tanımını kullanarak $x$ ve $e^{x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
+                                <li>(c) Wronskian ile aynı sonucu kanıtlayınız.</li>
+                                <li>(d) Genel çözüm nedir?</li>
+                                <li>(e) $y(2)=0,\ y^{\prime}(2)=0$ BDP'nin çözümü nedir? Neden?</li>
+                                <li>(f) $y(2)=2,\ y^{\prime}(2)=1$ probleminin çözümünü bulunuz. Çözüm benzersiz midir? Neden?</li>
+                            </ul>
+                        </div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 3&ndash;18: <strong>Genel çözümü</strong> bulunuz.</p>
+
+                        <div class="question-block"><p class="question-text">3. &nbsp; $y^{\prime\prime}+4y^{\prime}+7y=0$</p></div>
+                        <div class="question-block"><p class="question-text">4. &nbsp; $4y^{\prime\prime}-24y^{\prime}+61y=0$</p></div>
+                        <div class="question-block"><p class="question-text">5. &nbsp; $y^{\prime\prime}-4y^{\prime}+3y=9x^{2}+16e^{-x}-5$</p></div>
+                        <div class="question-block"><p class="question-text">6. &nbsp; $y^{\prime\prime}+4y^{\prime}+5y=2e^{-2x}+8\sin x$</p></div>
+                        <div class="question-block"><p class="question-text">7. &nbsp; $y^{\prime\prime}+2y^{\prime}-8y=24e^{2x}+32xe^{4x}$</p></div>
+                        <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}+4y=16x\cos 2x+12\cos 2x$</p></div>
+                        <div class="question-block"><p class="question-text">9. &nbsp; $y^{\prime\prime}+4y^{\prime}+4y=x^{-4}e^{-2x}$</p></div>
+                        <div class="question-block"><p class="question-text">10. &nbsp; $y^{\prime\prime}+y=\csc^{2}x$</p></div>
+                        <div class="question-block"><p class="question-text">11. &nbsp; $x^{2}y^{\prime\prime}-6xy^{\prime}+10y=4x^{3}$</p></div>
+                        <div class="question-block"><p class="question-text">12. &nbsp; $2x^{2}y^{\prime\prime}-xy^{\prime}-5y=6x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">13. &nbsp; $2y^{\prime\prime\prime}-11y^{\prime\prime}+12y^{\prime}+9y=0$</p></div>
+                        <div class="question-block"><p class="question-text">14. &nbsp; $y^{\prime\prime\prime}+6y^{\prime\prime}+12y^{\prime}+8y=0$</p></div>
+                        <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime\prime}+4y^{\prime}=2x+6\sin x$</p></div>
+                        <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime\prime}+3y^{\prime\prime}-4y=18e^{x}+16e^{2x}$</p></div>
+                        <div class="question-block"><p class="question-text">17. &nbsp; $y^{(4)}-2y^{\prime\prime\prime}+y^{\prime\prime}=4e^{x}+6x$</p></div>
+                        <div class="question-block"><p class="question-text">18. &nbsp; $y^{(4)}+y^{\prime\prime}=6x+4e^{x}+8\sin x$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 19&ndash;24: <strong>Başlangıç değer problemlerini</strong> çözünüz.</p>
+
+                        <div class="question-block"><p class="question-text">19. &nbsp; $4y^{\prime\prime}-12y^{\prime}+9y=0,\ \ y(0)=2,\ y^{\prime}(0)=7$</p></div>
+                        <div class="question-block"><p class="question-text">20. &nbsp; $y^{\prime\prime}+10y^{\prime}+34y=0,\ \ y(0)=1,\ y^{\prime}(0)=4$</p></div>
+                        <div class="question-block"><p class="question-text">21. &nbsp; $3y^{\prime\prime}+7y^{\prime}+2y=4x+56e^{2x},\ \ y(0)=0,\ y^{\prime}(0)=1$</p></div>
+                        <div class="question-block"><p class="question-text">22. &nbsp; $y^{\prime\prime}+8y^{\prime}+25y=27e^{-4x},\ \ y(0)=5,\ y^{\prime}(0)=1$</p></div>
+                        <div class="question-block"><p class="question-text">23. &nbsp; $y^{\prime\prime}+y^{\prime}-2y=18xe^{x},\ \ y(0)=6,\ y^{\prime}(0)=1$</p></div>
+                        <div class="question-block"><p class="question-text">24. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}+4y^{\prime}-12y=0,\ \ y(0)=5,\ y^{\prime}(0)=0,\ y^{\prime\prime}(0)=6$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 25&ndash;26: <strong>Verilen çarpanlamayı kullanarak</strong> çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">25.</p>
+                            <p>$m^{4}+6m^{3}+11m^{2}+6m+1=(m^{2}+3m+1)^{2}$ bağıntısını kullanarak $y^{(4)}+6y^{\prime\prime\prime}+11y^{\prime\prime}+6y^{\prime}+y=0$ denkleminin genel çözümünü bulunuz.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">26.</p>
+                            <p>$m^{4}+2m^{3}+9m^{2}+8m+16=(m^{2}+m+4)^{2}$ bağıntısını kullanarak $y^{(4)}+2y^{\prime\prime\prime}+9y^{\prime\prime}+8y^{\prime}+16y=0$ denkleminin genel çözümünü bulunuz.</p>
+                        </div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 27&ndash;28: Belirsiz katsayılar yöntemiyle özel integrali bulmak için kullanılacak <strong>harfli katsayılı doğrusal kombinasyonu</strong> yazınız. <em>(Fiili hesap yapmayınız.)</em></p>
+
+                        <div class="question-block"><p class="question-text">27. &nbsp; $4y^{(5)}-4y^{(4)}+y^{\prime\prime\prime}=x^{2}(e^{x/2}+1)+100$</p></div>
+                        <div class="question-block"><p class="question-text">28. &nbsp; $y^{(4)}-2y^{\prime\prime\prime}+6y^{\prime\prime}+22y^{\prime}+13y=x^{2}e^{-x}+xe^{2x}\sin 3x$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 29&ndash;32: Çeşitli.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">29.</p>
+                            <p>$y=e^{x}$'in $(x-1)y^{\prime\prime}-(x+1)y^{\prime}+2y=0$ denkleminin bir çözümü olduğu biliniyor. Mertebe düşürme ile doğrusal bağımsız diğer çözümü bulup <strong>genel çözümü</strong> yazınız.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">30.</p>
+                            <p>$y=x$ ve $y=x^{2}+1$'in ilgili homojen denklemin bağımsız çözümleri olduğu biliniyor. Aşağıdaki denklemin genel çözümünü bulunuz:</p>
+                            $$(x^{2}-1)y^{\prime\prime}-2xy^{\prime}+2y=\frac{(x^{2}-1)^{2}}{x}$$
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">31.</p>
+                            <p>$y^{\prime\prime}+y^{\prime}-6y=28e^{4x}$ denklemini <strong>iki farklı yöntemle</strong> çözünüz.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">32.</p>
+                            <p>$y^{\prime\prime\prime}-3y^{\prime\prime}+2y^{\prime}=12e^{3x}$ denklemini <strong>iki farklı yöntemle</strong> çözünüz.</p>
+                        </div>
                     </div>
 
 
                     <!-- ############################################################
                          BÖLÜM 5  —  İÇERİK EKLENECEK
                          ############################################################ -->
+
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 5 — Sabit Katsayılı İkinci Mertebeden Denklemlerin Uygulamaları -->
+                    <!-- ######################################################## -->
 
                     <div id="bolum-5" class="section chapter-head">
                         <div class="section-title">
@@ -3320,36 +4334,42 @@
                     </div>
 
                     <!-- >>> 5.1 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
+
                     <div id="bolum-5-1" class="section placeholder">
                         <div class="section-title">5.1 &nbsp;Yay Üzerindeki Kütlenin Titreşim Diferansiyel Denklemi</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
                     </div>
 
                     <!-- >>> 5.2 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
+
                     <div id="bolum-5-2" class="section placeholder">
                         <div class="section-title">5.2 &nbsp;Serbest, Sönümsüz Hareket</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
                     </div>
 
                     <!-- >>> 5.3 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
+
                     <div id="bolum-5-3" class="section placeholder">
                         <div class="section-title">5.3 &nbsp;Serbest, Sönümlü Hareket</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
                     </div>
 
                     <!-- >>> 5.4 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
+
                     <div id="bolum-5-4" class="section placeholder">
                         <div class="section-title">5.4 &nbsp;Zorlanmış Hareket</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
                     </div>
 
                     <!-- >>> 5.5 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
+
                     <div id="bolum-5-5" class="section placeholder">
                         <div class="section-title">5.5 &nbsp;Rezonans Olayları</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
                     </div>
 
                     <!-- >>> 5.6 İÇERİĞİNİ BU KARTIN YERİNE YAPIŞTIRIN <<< -->
+
                     <div id="bolum-5-6" class="section placeholder">
                         <div class="section-title">5.6 &nbsp;Elektrik Devresi Problemleri</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
@@ -3364,105 +4384,7 @@
         </div>
     </div>
 
-    <script>
-        /* ---- Cevap göster / gizle ---- */
-        function toggleAnswer(btn) {
-            var answer = btn.parentElement.querySelector('.answer');
-            if (!answer) return;
-            var isVisible = answer.classList.contains('visible');
-            answer.classList.toggle('visible');
-            btn.textContent = isVisible ? 'Cevabı Göster' : 'Cevabı Gizle';
-        }
 
-        /* ---- Sidebar bölüm aç / kapa ---- */
-        function toggleChapter(btn) {
-            btn.classList.toggle('open');
-            var list = btn.nextElementSibling;
-            if (list) list.classList.toggle('open');
-        }
-
-        /* ---- Mobil sidebar ---- */
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('open');
-            document.querySelector('.sidebar-overlay').classList.toggle('open');
-        }
-
-        /* ---- Scroll-spy: aktif bölümü sidebar'da vurgula ---- */
-        (function () {
-            var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar-nav a'));
-            var pairs = [];
-
-            links.forEach(function (link) {
-                var href = link.getAttribute('href');
-                if (href && href.charAt(0) === '#') {
-                    var el = document.querySelector(href);
-                    if (el) pairs.push({ el: el, link: link });
-                }
-            });
-
-            if (!pairs.length) return;
-
-            function setActive(link) {
-                links.forEach(function (l) { l.classList.remove('active'); });
-                link.classList.add('active');
-
-                // Aktif linkin bölümü kapalıysa aç
-                var list = link.closest('.chapter-links');
-                if (list && !list.classList.contains('open')) {
-                    list.classList.add('open');
-                    var toggle = list.previousElementSibling;
-                    if (toggle) toggle.classList.add('open');
-                }
-            }
-
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (!entry.isIntersecting) return;
-                    pairs.forEach(function (p) {
-                        if (p.el === entry.target) setActive(p.link);
-                    });
-                });
-            }, { rootMargin: '-10% 0px -80% 0px' });
-
-            pairs.forEach(function (p) { observer.observe(p.el); });
-
-            // Linke tıklanınca: bölümü aç, mobilde menüyü kapat
-            links.forEach(function (link) {
-                link.addEventListener('click', function () {
-                    setActive(link);
-                    if (window.innerWidth <= 768) {
-                        document.querySelector('.sidebar').classList.remove('open');
-                        document.querySelector('.sidebar-overlay').classList.remove('open');
-                    }
-                });
-            });
-        })();
-
-        /* ---- Gece Modu (Dark Mode) ---- */
-        function toggleDarkMode() {
-            var isDark = document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeUI(isDark);
-        }
-
-        function updateThemeUI(isDark) {
-            var icon = document.getElementById('theme-icon');
-            var text = document.getElementById('theme-text');
-            if (icon) icon.textContent = isDark ? '☀️' : '🌙';
-            if (text) text.textContent = isDark ? 'Gündüz Modu' : 'Gece Modu';
-        }
-
-        // Sayfa yüklendiğinde temayı hatırla / sistem tercihini uygula
-        (function initTheme() {
-            var savedTheme = localStorage.getItem('theme');
-            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            var isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-            if (isDark) {
-                document.body.classList.add('dark-mode');
-            }
-            updateThemeUI(isDark);
-        })();
-    </script>
-
+    <script src="app.js"></script>
 </body>
 </html>

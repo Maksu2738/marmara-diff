@@ -1,0 +1,2 @@
+ad: Yüksek Mertebeden Doğrusal Denklemlerin Açık Çözüm Yöntemleri
+acik: hayir

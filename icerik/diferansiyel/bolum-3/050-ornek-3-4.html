@@ -1,0 +1,29 @@
+<!--@
+id: ornek-3-4
+-->
+                    <div id="ornek-3-4" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 3.4: Eğik Yörüngeler
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 3.4 — Eğik Yörüngeler</p>
+                            <p>$y=cx$ doğrular ailesini $45^{\circ}$ açı ile kesen eğik yörüngeleri bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p><strong>Adım 1:</strong> $y=cx \implies c=y/x$. Türev alırsak:</p>
+                                $$\frac{dy}{dx}=c \implies \frac{dy}{dx} = \frac{y}{x}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Adım 2:</strong> Denklemde $f(x,y)=y/x$ ve $\tan 45^{\circ}=1$ olduğundan, diferansiyel denklemi şu formda kurarız:</p>
+                                $$\frac{dy}{dx} = \frac{y/x + 1}{1 - y/x} = \frac{x+y}{x-y}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Adım 3:</strong> Bu homojen bir denklemdir. $y=vx \implies \displaystyle \frac{dy}{dx}=v+x\frac{dv}{dx}$ dönüşümü yapılır:</p>
+                                $$v+x\frac{dv}{dx} = \frac{1+v}{1-v} \implies \frac{(v-1)dv}{v^2+1} = -\frac{dx}{x}$$
+                                <p>İntegrali alındığında:</p>
+                                $$\frac{1}{2}\ln(v^2+1) - \arctan v = -\ln|x| - \ln|c|$$
+                                <p>$v$ yerine $y/x$ konularak nihai çözüm bulunur:</p>
+                                $$\ln c^2(x^2+y^2) - 2\arctan\frac{y}{x} = 0$$
+                            </div>
+                        </div>
+                    </div>

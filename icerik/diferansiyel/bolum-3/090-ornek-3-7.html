@@ -1,0 +1,32 @@
+<!--@
+id: ornek-3-7
+-->
+                    <div id="ornek-3-7" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 3.7: Sürtünme Problemi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 3.7 — Sürtünme Problemi</p>
+                            <p>48 lb ağırlığında bir cisim yatayla $30^{\circ}$ açı yapan metal bir kaydıraktan bırakılıyor. Hava direnci $\frac{1}{2}v$, sürtünme katsayısı $\mu = \frac{1}{4}$'tür. Cismin 2 saniye sonraki hızı nedir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p>Kütle $m = 48/32 = 3/2$. Eğik düzleme paralel kuvvetler belirlenir:</p>
+                                <ul>
+                                    <li>Ağırlığın paralel bileşeni: $F_1 = 48 \sin 30^{\circ} = 24$.</li>
+                                    <li>Normal kuvvet: $N = 48 \cos 30^{\circ} = 24\sqrt{3}$.</li>
+                                    <li>Sürtünme kuvveti: $F_2 = -\mu N = -\frac{1}{4}(24\sqrt{3}) = -6\sqrt{3}$.</li>
+                                    <li>Hava direnci: $F_3 = -\frac{1}{2}v$.</li>
+                                </ul>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Hareket denklemi (başlangıç şartı $v(0)=0$):</p>
+                                $$\frac{3}{2}\frac{dv}{dt} = 24 - 6\sqrt{3} - \frac{1}{2}v$$
+                                <p>Düzenlenip integral alınırsa:</p>
+                                $$\frac{dv}{48-12\sqrt{3}-v} = \frac{dt}{3} \implies v = 48 - 12\sqrt{3} - c_1e^{-t/3}$$
+                                <p>$v(0)=0 \implies c_1 = 48 - 12\sqrt{3}$. Hız denklemi:</p>
+                                $$v = (48-12\sqrt{3})(1-e^{-t/3})$$
+                                <p>$t=2$ için sonuç $v \approx 13.2$ ft/sec olarak hesaplanır.</p>
+                            </div>
+                        </div>
+                    </div>

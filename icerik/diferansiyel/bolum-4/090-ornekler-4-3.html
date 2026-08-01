@@ -1,0 +1,132 @@
+<!--@
+id: ornekler-4-3
+menu: Örnekler 4.29 &ndash; 4.39
+-->
+                    <div id="ornekler-4-3" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.29 &ndash; 4.39
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.29 &mdash; Açıklayıcı Örnek (Çakışma Olmayan ve Çakışan Durumlar)</p>
+                            <p>(a) $y^{\prime\prime}-2y^{\prime}-3y=2e^{4x}$ &nbsp; (b) $y^{\prime\prime}-2y^{\prime}-3y=2e^{3x}$ &nbsp; denklemlerinin özel integrallerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Ortak homojen çözüm: yardımcı denklem $m^{2}-2m-3=0$'ın kökleri $m_{1}=3,\ m_{2}=-1$ &rArr; $y_{c}=c_{1}e^{3x}+c_{2}e^{-x}$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a) $F(x)=2e^{4x}$ &mdash; çakışma yok.</strong> $y_{p}=Ae^{4x}$ deneyelim:</p>
+                                $$16Ae^{4x}-8Ae^{4x}-3Ae^{4x}=2e^{4x}\ \Longrightarrow\ 5A=2\ \Longrightarrow\ A=\tfrac{2}{5}$$
+                                $$y_{p}=\tfrac{2}{5}e^{4x}$$
+                                <p><strong>(b) $F(x)=2e^{3x}$ &mdash; çakışma var.</strong> $e^{3x}$ zaten $y_{c}$'de. $y_{p}=Ae^{3x}$ dersek $0=2e^{3x}$ çelişkisi çıkar. Bu yüzden tahmini $x$ ile çarpıp $y_{p}=Axe^{3x}$ alalım:</p>
+                                $$y_{p}^{\prime}=Ae^{3x}+3Axe^{3x},\qquad y_{p}^{\prime\prime}=6Ae^{3x}+9Axe^{3x}$$
+                                <p>Denklemde:</p>
+                                $$(9A-6A-3A)xe^{3x}+(6A-2A)e^{3x}=2e^{3x}\ \Longrightarrow\ 4A=2\ \Longrightarrow\ A=\tfrac{1}{2}$$
+                                $$y_{p}=\tfrac{1}{2}xe^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.30 &ndash; 4.34 &mdash; UC Kümeleri</p>
+                            <p>Verilen fonksiyonların UC kümelerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li>$f(x)=x^{3}$: türevleri $3x^{2},\ 6x,\ 6$ &rArr; $S=\{x^{3},\ x^{2},\ x,\ 1\}$.</li>
+                                    <li>$f(x)=\sin 2x$: türevi $2\cos 2x$ &rArr; $S=\{\sin 2x,\ \cos 2x\}$.</li>
+                                    <li>$f(x)=x^{2}\sin x$: $\{x^{2},x,1\}\times\{\sin x,\cos x\}$ &rArr; $S=\{x^{2}\sin x,\ x^{2}\cos x,\ x\sin x,\ x\cos x,\ \sin x,\ \cos x\}$.</li>
+                                    <li>$f(x)=x^{3}\cos 2x$: $\{x^{3},x^{2},x,1\}\times\{\sin 2x,\cos 2x\}$ &rArr; 8 elemanlı küme (tüm çapraz çarpımlar).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.35 &mdash; Küme Revizyonu (Adım 3)</p>
+                            <p>(a) $y^{\prime\prime}-3y^{\prime}+2y=x^{2}e^{x}$ &nbsp; (b) $y^{\prime\prime}-2y^{\prime}+y=x^{2}e^{x}$ &nbsp; için UC kümelerini revize ediniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Her ikisinde başlangıç kümesi: $S=\{x^{2}e^{x},\ xe^{x},\ e^{x}\}$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $y_{c}=c_{1}e^{x}+c_{2}e^{2x}$. $S$'de yalnız $e^{x}$ çakışır. $S$'yi $x$ ile çarparız:</p>
+                                $$S^{\prime}=\{x^{3}e^{x},\ x^{2}e^{x},\ xe^{x}\}\quad\text{(hiçbir eleman }y_{c}\text{'de değil)}$$
+                                <p><strong>(b)</strong> $y_{c}=c_{1}e^{x}+c_{2}xe^{x}$. $S$'de hem $e^{x}$ hem $xe^{x}$ çakışır. $x$ ile çarpsak $xe^{x}$ hâlâ çakışır; $x^{2}$ ile çarparız:</p>
+                                $$S^{\prime\prime}=\{x^{4}e^{x},\ x^{3}e^{x},\ x^{2}e^{x}\}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.36 &mdash; İki UC Kümesi Birlikte</p>
+                            <p>$y^{\prime\prime}-2y^{\prime}-3y=2e^{x}-10\sin x$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{c}=c_{1}e^{3x}+c_{2}e^{-x}$. Kümeler: $S_{1}=\{e^{x}\}$, $S_{2}=\{\sin x,\cos x\}$. Çakışma yok.</p>
+                                <p>Tahmin: $y_{p}=Ae^{x}+B\sin x+C\cos x$.</p>
+                                $$y_{p}^{\prime}=Ae^{x}+B\cos x-C\sin x,\quad y_{p}^{\prime\prime}=Ae^{x}-B\sin x-C\cos x$$
+                                <p>Denklemde yerine konursa:</p>
+                                $$-4Ae^{x}+(-4B+2C)\sin x+(-4C-2B)\cos x=2e^{x}-10\sin x$$
+                                <p>Katsayı eşleme: $-4A=2\Rightarrow A=-\tfrac{1}{2}$; $-4B+2C=-10$ ve $-2B-4C=0$ sisteminden $B=2,\ C=-1$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{3x}+c_{2}e^{-x}-\tfrac{1}{2}e^{x}+2\sin x-\cos x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.37 &mdash; Elenen ve Revize Edilen Kümelerle</p>
+                            <p>$y^{\prime\prime}-3y^{\prime}+2y=2x^{2}+e^{x}+2xe^{x}+4e^{3x}$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{c}=c_{1}e^{x}+c_{2}e^{2x}$.</p>
+                                <p>Kümeler: $S_{1}=\{x^{2},x,1\}$, $S_{2}=\{e^{x}\}$, $S_{3}=\{xe^{x},e^{x}\}$, $S_{4}=\{e^{3x}\}$.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$S_{2}\subset S_{3}$ &rArr; $S_{2}$ <strong>elenir</strong>.</li>
+                                    <li>$S_{3}$'teki $e^{x}$, $y_{c}$'de olduğundan $S_{3}$'ü $x$ ile çarp: $S_{3}^{\prime}=\{x^{2}e^{x},\ xe^{x}\}$.</li>
+                                </ul>
+                                <p>Tahmin: $y_{p}=Ax^{2}+Bx+C+De^{3x}+Ex^{2}e^{x}+Fxe^{x}$.</p>
+                                <p>Denklemde yerine konup katsayılar eşitlenirse:</p>
+                                $$A=1,\ B=3,\ C=\tfrac{7}{2},\ D=2,\ E=-1,\ F=-3$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{x}+c_{2}e^{2x}+x^{2}+3x+\tfrac{7}{2}+2e^{3x}-x^{2}e^{x}-3xe^{x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.38 &mdash; 4. Mertebeden Denklem</p>
+                            <p>$y^{(4)}+y^{\prime\prime}=3x^{2}+4\sin x-2\cos x$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{4}+m^{2}=m^{2}(m^{2}+1)=0$ &rArr; kökler $0,0,\ i,-i$. Dolayısıyla:</p>
+                                $$y_{c}=c_{1}+c_{2}x+c_{3}\sin x+c_{4}\cos x$$
+                                <p>Kümeler: $S_{1}=\{x^{2},x,1\}$, $S_{2}=\{\sin x,\cos x\}$, $S_{3}=\{\cos x,\sin x\}$.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$S_{3}=S_{2}$ &rArr; $S_{3}$ <strong>elenir</strong>.</li>
+                                    <li>$S_{1}$'de $1$ ve $x$ $y_{c}$'de var &rArr; $S_{1}$'i $x^{2}$ ile çarp: $S_{1}^{\prime}=\{x^{4},x^{3},x^{2}\}$.</li>
+                                    <li>$S_{2}$'nin her iki elemanı da $y_{c}$'de &rArr; $S_{2}$'yi $x$ ile çarp: $S_{2}^{\prime}=\{x\sin x,\ x\cos x\}$.</li>
+                                </ul>
+                                <p>Tahmin: $y_{p}=Ax^{4}+Bx^{3}+Cx^{2}+Dx\sin x+Ex\cos x$.</p>
+                                <p>Denklemde çözüm sonucu: $A=\tfrac{1}{4},\ B=0,\ C=-3,\ D=1,\ E=2$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}+c_{2}x+c_{3}\sin x+c_{4}\cos x+\tfrac{1}{4}x^{4}-3x^{2}+x\sin x+2x\cos x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.39 &mdash; Başlangıç Değer Problemi</p>
+                            <p>$y^{\prime\prime}-2y^{\prime}-3y=2e^{x}-10\sin x,\ \ y(0)=2,\ y^{\prime}(0)=4$ problemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 4.36'dan:</p>
+                                $$y=c_{1}e^{3x}+c_{2}e^{-x}-\tfrac{1}{2}e^{x}+2\sin x-\cos x$$
+                                $$y^{\prime}=3c_{1}e^{3x}-c_{2}e^{-x}-\tfrac{1}{2}e^{x}+2\cos x+\sin x$$
+                                <p><strong>Başlangıç şartları ($x=0$):</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$y(0)=2$: $c_{1}+c_{2}-\tfrac{1}{2}+0-1=2\ \Rightarrow\ c_{1}+c_{2}=\tfrac{7}{2}$</li>
+                                    <li>$y^{\prime}(0)=4$: $3c_{1}-c_{2}-\tfrac{1}{2}+2+0=4\ \Rightarrow\ 3c_{1}-c_{2}=\tfrac{5}{2}$</li>
+                                </ul>
+                                <p>Sistem çözülünce $c_{1}=\tfrac{3}{2},\ c_{2}=2$.</p>
+                                <p><strong>Benzersiz çözüm:</strong></p>
+                                $$y=\tfrac{3}{2}e^{3x}+2e^{-x}-\tfrac{1}{2}e^{x}+2\sin x-\cos x$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.3 ===== -->

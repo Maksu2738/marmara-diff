@@ -1,0 +1,7 @@
+# Ders ayarlari — sitenin baslik/altyazi metinleri buradan gelir.
+baslik: Ders Çalışma Şablonu
+altbaslik: Konu Anlatımı &bull; Örnekler &bull; Sorular
+sidebar_baslik: Ders Notları
+sidebar_altbaslik: Diferansiyel Denklemler
+footer: Ders Çalışma Şablonu &mdash; İnteraktif Öğrenme
+cikti: index.html

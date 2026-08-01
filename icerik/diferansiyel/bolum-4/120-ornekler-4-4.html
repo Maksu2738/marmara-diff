@@ -1,0 +1,77 @@
+<!--@
+id: ornekler-4-4
+menu: Örnekler 4.40 &ndash; 4.42
+-->
+                    <div id="ornekler-4-4" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.40 &ndash; 4.42
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.40 &mdash; UC Fonksiyonu Olmayan Sağ Taraf</p>
+                            <p>$y^{\prime\prime}+y=\tan x$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tamamlayıcı fonksiyon:</strong> $y_{c}=c_{1}\sin x+c_{2}\cos x$; yani $y_{1}=\sin x,\ y_{2}=\cos x$.</p>
+                                <p>Özel integrali $y_{p}=v_{1}(x)\sin x+v_{2}(x)\cos x$ formunda ararız.</p>
+                                <p><strong>Sistem:</strong></p>
+                                $$\begin{aligned} v_{1}^{\prime}\sin x+v_{2}^{\prime}\cos x&=0 \\ v_{1}^{\prime}\cos x-v_{2}^{\prime}\sin x&=\tan x \end{aligned}$$
+                                <p>$W=-\sin^{2}x-\cos^{2}x=-1$. Cramer ile:</p>
+                                $$v_{1}^{\prime}=\frac{-\cos x\tan x}{-1}=\sin x$$
+                                $$v_{2}^{\prime}=\frac{\sin x\tan x}{-1}=-\frac{\sin^{2}x}{\cos x}=\frac{\cos^{2}x-1}{\cos x}=\cos x-\sec x$$
+                                <p><strong>İntegraller</strong> (sabitler sıfır):</p>
+                                $$v_{1}(x)=-\cos x,\qquad v_{2}(x)=\sin x-\ln|\sec x+\tan x|$$
+                                <p><strong>Özel integral:</strong></p>
+                                $$y_{p}=(-\cos x)\sin x+(\sin x-\ln|\sec x+\tan x|)\cos x=-(\cos x)\ln|\sec x+\tan x|$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}\sin x+c_{2}\cos x-(\cos x)\ln|\sec x+\tan x|$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.41 &mdash; Üçüncü Mertebe (Yöntemin Genellenmesi)</p>
+                            <p>$y^{\prime\prime\prime}-6y^{\prime\prime}+11y^{\prime}-6y=e^{x}$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{3}-6m^{2}+11m-6=(m-1)(m-2)(m-3)=0$. Tamamlayıcı fonksiyon:</p>
+                                $$y_{c}=c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}$$
+                                <p>Tahmin: $y_{p}=v_{1}(x)e^{x}+v_{2}(x)e^{2x}+v_{3}(x)e^{3x}$. Üç fonksiyon için iki ek kısıt konur:</p>
+                                <ol style="margin-left: 1.25rem;">
+                                    <li>$v_{1}^{\prime}e^{x}+v_{2}^{\prime}e^{2x}+v_{3}^{\prime}e^{3x}=0$</li>
+                                    <li>$v_{1}^{\prime}e^{x}+2v_{2}^{\prime}e^{2x}+3v_{3}^{\prime}e^{3x}=0$</li>
+                                    <li>$v_{1}^{\prime}e^{x}+4v_{2}^{\prime}e^{2x}+9v_{3}^{\prime}e^{3x}=e^{x}$ &nbsp;<em>(orijinal denklemden)</em></li>
+                                </ol>
+                                <p>Bu $3\times 3$ sistemi Cramer ile çözülür:</p>
+                                $$v_{1}^{\prime}=\tfrac{1}{2},\quad v_{2}^{\prime}=-e^{-x},\quad v_{3}^{\prime}=\tfrac{1}{2}e^{-2x}$$
+                                <p>İntegraller:</p>
+                                $$v_{1}=\tfrac{1}{2}x,\quad v_{2}=e^{-x},\quad v_{3}=-\tfrac{1}{4}e^{-2x}$$
+                                <p><strong>Özel integral:</strong></p>
+                                $$y_{p}=\tfrac{1}{2}xe^{x}+e^{-x}\cdot e^{2x}-\tfrac{1}{4}e^{-2x}\cdot e^{3x}=\tfrac{1}{2}xe^{x}+e^{x}-\tfrac{1}{4}e^{x}=\tfrac{1}{2}xe^{x}+\tfrac{3}{4}e^{x}$$
+                                <p>$\tfrac{3}{4}e^{x}$ terimi $c_{1}e^{x}$'e katılabilir ($c_{1}^{\prime}=c_{1}+\tfrac{3}{4}$). <strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}^{\prime}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}+\tfrac{1}{2}xe^{x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.42 &mdash; Değişken Katsayılı Denklem</p>
+                            <p>$(x^{2}+1)y^{\prime\prime}-2xy^{\prime}+2y=6(x^{2}+1)^{2}$ denkleminin genel çözümünü bulunuz. (Homojen çözümlerin $y_{1}=x,\ y_{2}=x^{2}-1$ olduğu biliniyor.)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{c}=c_{1}x+c_{2}(x^{2}-1)$. Tahmin: $y_{p}=v_{1}(x)\cdot x+v_{2}(x)(x^{2}-1)$.</p>
+                                <p>Standart forma bölmek yerine $a_{0}(x)=x^{2}+1$ ile doğrudan sistemi kurarız. Sağ tarafı $a_{0}$'a bölünce $\tfrac{F}{a_{0}}=6(x^{2}+1)$:</p>
+                                $$\begin{aligned} x\,v_{1}^{\prime}+(x^{2}-1)v_{2}^{\prime}&=0 \\ v_{1}^{\prime}+2x\,v_{2}^{\prime}&=6(x^{2}+1) \end{aligned}$$
+                                <p>Wronskian: $W=x\cdot 2x-(x^{2}-1)\cdot 1=x^{2}+1$. Cramer:</p>
+                                $$v_{1}^{\prime}=\frac{-6(x^{2}+1)(x^{2}-1)}{x^{2}+1}=-6(x^{2}-1)$$
+                                $$v_{2}^{\prime}=\frac{6x(x^{2}+1)}{x^{2}+1}=6x$$
+                                <p>İntegraller (sabitler sıfır):</p>
+                                $$v_{1}(x)=-2x^{3}+6x,\qquad v_{2}(x)=3x^{2}$$
+                                <p><strong>Özel integral:</strong></p>
+                                $$y_{p}=(-2x^{3}+6x)x+3x^{2}(x^{2}-1)=-2x^{4}+6x^{2}+3x^{4}-3x^{2}=x^{4}+3x^{2}$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}x+c_{2}(x^{2}-1)+x^{4}+3x^{2}$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.4 ===== -->

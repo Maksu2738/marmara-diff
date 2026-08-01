@@ -1,0 +1,32 @@
+<!--@
+id: ornek-3-12
+-->
+                    <div id="ornek-3-12" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 3.12: Eşitsiz Akışlı Karışım
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 3.12 — Eşitsiz Akışlı Karışım</p>
+                            <p>Büyük bir tankta 50 galon su içinde 10 lb tuz çözünmüştür. Tanka dakikada 5 galon hızla (içinde galon başına 2 lb tuz olan) salamura giriyor. Karıştırılan karışım dakikada 3 galon hızla çıkıyor. $t$ anında tanktaki tuz miktarını bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p>Temel kural: $\displaystyle \frac{dx}{dt} = \text{IN} - \text{OUT}$.</p>
+                                <p>$\text{IN} = (2\text{ lb/gal})(5\text{ gal/min}) = 10\text{ lb/min}$.</p>
+                                <p>Su artışı dakikada $5-3=2$ galondur. Toplam hacim $50+2t$ olur.</p>
+                                <p>$\displaystyle \text{OUT} = \left(\frac{x}{50+2t}\right)(3) = \frac{3x}{50+2t}$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Doğrusal Diferansiyel Denklem:</p>
+                                $$\frac{dx}{dt} + \frac{3}{2t+50}x = 10$$
+                                <p>İntegral çarpanı hesaplanır:</p>
+                                $$e^{\int \frac{3}{2t+50}dt} = (2t+50)^{3/2}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegral sonucu:</p>
+                                $$x = 4(t+25) + \frac{c}{(2t+50)^{3/2}}$$
+                                <p>$x(0)=10 \implies c = -22,500\sqrt{2}$.</p>
+                                <p>Nihai denklem:</p>
+                                $$x = 4t + 100 - \frac{22,500\sqrt{2}}{(2t+50)^{3/2}}$$
+                            </div>
+                        </div>
+                    </div>

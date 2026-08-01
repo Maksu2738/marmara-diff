@@ -1,0 +1,108 @@
+<!--@
+id: bolum-2-1
+menu: 2.1 Tam Denklemler ve İntegral Çarpanları
+-->
+                    <div id="bolum-2-1" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            2.1 &nbsp;Tam Diferansiyel Denklemler ve İntegral Çarpanları
+                        </div>
+
+                        <h3 style="margin: 0.5rem 0 0.75rem; color: #4a5568;">A. Birinci Mertebeden Denklemlerin Standart Formları</h3>
+                        <p>Bu bölümde incelenen birinci mertebeden diferansiyel denklemler iki temel formda ifade edilebilir:</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem;">
+                                <strong style="color: #7c3aed;">1. Türev Formu</strong><br>
+                                <em style="font-size: 0.85rem;">(derivative form)</em>
+                                $$\frac{dy}{dx}=f(x,y)$$
+                            </div>
+                            <div style="background: #ecfdf5; border-radius: 10px; padding: 1.25rem;">
+                                <strong style="color: #059669;">2. Diferansiyel Form</strong><br>
+                                <em style="font-size: 0.85rem;">(differential form)</em>
+                                $$M(x,y)\,dx+N(x,y)\,dy=0$$
+                            </div>
+                        </div>
+
+                        <p>Bu formlardan birinde verilen bir denklem kolaylıkla diğer forma dönüştürülebilir. <strong>Türev formunda</strong> notasyonun doğası gereği $y$'nin bağımlı, $x$'in bağımsız değişken olduğu açıkça görülür.</p>
+
+                        <div class="highlight">
+                            <strong>Dikkat:</strong> <strong>Diferansiyel formda</strong> her iki değişken de bağımlı veya bağımsız olarak kabul edilebilir; aksi belirtilmedikçe standart olarak $y$ bağımlı, $x$ bağımsız değişken kabul edilir.
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Tam Diferansiyel Denklemler (Exact Differential Equations)</h3>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9;">Tanım &mdash; Tam Diferansiyel (Total Differential)</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">$F$, bir $D$ bölgesinde sürekli birinci kısmi türevlere sahip iki reel değişkenli bir fonksiyon olsun. $F$'nin <strong>tam diferansiyeli</strong> $dF$, tüm $(x,y)\in D$ için şöyle tanımlanır:</p>
+                            $$dF(x,y)=\frac{\partial F(x,y)}{\partial x}dx+\frac{\partial F(x,y)}{\partial y}dy$$
+                        </div>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9;">Tanım &mdash; Tam Diferansiyel Denklem</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">Eğer bir $D$ bölgesinde</p>
+                            $$\frac{\partial F(x,y)}{\partial x}=M(x,y), \qquad \frac{\partial F(x,y)}{\partial y}=N(x,y)$$
+                            <p style="font-size: 0.95rem;">olacak şekilde bir $F$ fonksiyonu varsa, $M(x,y)dx+N(x,y)dy$ ifadesine <strong>tam diferansiyel</strong> (<em>exact differential</em>) adı verilir. Bu durumda</p>
+                            $$M(x,y)\,dx+N(x,y)\,dy=0$$
+                            <p style="font-size: 0.95rem;">denklemine de <strong>tam diferansiyel denklem</strong> (<em>exact differential equation</em>) denir.</p>
+                        </div>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">Teorem 2.1 &mdash; Tamlık Kriteri</strong>
+                            <p style="margin-top: 0.6rem; font-size: 0.95rem;">$M$ ve $N$, bir dikdörtgensel bölge olan $D$'deki tüm $(x,y)$ noktalarında sürekli birinci kısmi türevlere sahip olsun.</p>
+                            <ol style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem;">
+                                <li>Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi $D$'de <strong>tam ise</strong>, tüm $(x,y)\in D$ için $\displaystyle\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ olur.</li>
+                                <li style="margin-top: 0.4rem;"><strong>Tersine</strong>, eğer tüm $(x,y)\in D$ için $\displaystyle\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ sağlanıyorsa, denklem $D$'de <strong>tamdır</strong>.</li>
+                            </ol>
+                            <hr style="margin: 0.9rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                            <p style="font-size: 0.9rem;"><strong>İspat özeti:</strong> Denklem tamsa $\frac{\partial F}{\partial x}=M$ ve $\frac{\partial F}{\partial y}=N$ olan bir $F$ vardır. Buradan $\frac{\partial^{2}F}{\partial y\,\partial x}=\frac{\partial M}{\partial y}$ ve $\frac{\partial^{2}F}{\partial x\,\partial y}=\frac{\partial N}{\partial x}$ elde edilir. Sürekli kısmi türevler için karma ikinci mertebe türevler eşit olduğundan $\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ bulunur.</p>
+                        </div>
+
+                        <div class="highlight">
+                            <strong>Tamlık Kriteri (Criterion for Exactness):</strong> $\displaystyle\frac{\partial M(x,y)}{\partial y}=\frac{\partial N(x,y)}{\partial x}$
+                            <p style="margin-top: 0.5rem;">Bu testin uygulanabilmesi için denklemin <u>kesinlikle</u> $M(x,y)dx+N(x,y)dy=0$ standart formunda yazılmış olması gerekir.</p>
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">C. Tam Diferansiyel Denklemlerin Çözümü</h3>
+                        <p>Denklem tam ise $\frac{\partial F}{\partial x}=M(x,y)$ ve $\frac{\partial F}{\partial y}=N(x,y)$ şartlarını sağlayan bir $F$ fonksiyonu vardır. O halde denklem şöyle yazılabilir:</p>
+                        $$\frac{\partial F(x,y)}{\partial x}dx+\frac{\partial F(x,y)}{\partial y}dy=0 \implies dF(x,y)=0$$
+                        <p>Bu durumda $c$ bir keyfi sabit olmak üzere $F(x,y)=c$ bağıntısı denklemin doğal bir çözümüdür.</p>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">Teorem 2.2</strong>
+                            <p style="margin-top: 0.6rem; font-size: 0.95rem;">Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi $D$ bölgesinde tam ise, bu denklemin <strong>bir parametreli çözüm ailesi</strong>, $c$ keyfi bir sabit olmak üzere</p>
+                            $$F(x,y)=c$$
+                            <p style="font-size: 0.95rem;">şeklinde verilir; burada $F$, tüm $(x,y)\in D$ için $\frac{\partial F}{\partial x}=M(x,y)$ ve $\frac{\partial F}{\partial y}=N(x,y)$ şartlarını sağlar.</p>
+                        </div>
+
+                        <p><strong>Çözüm yöntemleri:</strong> $F(x,y)$ fonksiyonunu bulmak için denklem doğrudan entegre edilebilir veya <strong>gruplandırma yöntemi</strong> (<em>method of grouping</em>) kullanılabilir.</p>
+
+                        <div style="background: #ecfdf5; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #059669;">Standart Yöntem &mdash; Adımlar</strong>
+                            <ol style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem;">
+                                <li>$\displaystyle F(x,y)=\int M(x,y)\,\partial x+\phi(y)$ &nbsp;(kısmi entegrasyon; $y$ sabit tutulur)</li>
+                                <li style="margin-top: 0.35rem;">Bu ifadenin $y$'ye göre türevi alınır ve $N(x,y)$'ye eşitlenir.</li>
+                                <li style="margin-top: 0.35rem;">Ortaya çıkan denklemden <strong>keyfi fonksiyon</strong> $\phi(y)$ hesaplanır.</li>
+                                <li style="margin-top: 0.35rem;">Çözüm ailesi $F(x,y)=c$ olarak yazılır.</li>
+                            </ol>
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">D. İntegral Çarpanları (Integrating Factors)</h3>
+                        <p>Eğer verilen bir denklem için</p>
+                        $$\frac{\partial M(x,y)}{\partial y} \neq \frac{\partial N(x,y)}{\partial x}$$
+                        <p>ise denklem tam <u>değildir</u> ve yukarıdaki yöntemler uygulanamaz. Ancak denklemi tam hale getirecek bir çarpan bulmak mümkündür.</p>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9;">Tanım &mdash; İntegral Çarpanı</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">Bir $D$ bölgesinde $M(x,y)dx+N(x,y)dy=0$ denklemi tam değilken,</p>
+                            $$\mu(x,y)M(x,y)\,dx+\mu(x,y)N(x,y)\,dy=0$$
+                            <p style="font-size: 0.95rem;">denklemi $D$'de tam oluyorsa, $\mu(x,y)$ fonksiyonuna orijinal denklemin bir <strong>integral çarpanı</strong> (<em>integrating factor</em>) denir.</p>
+                        </div>
+
+                        <div style="background: #fff1f2; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #e11d48;">Uyarı</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">Orijinal denklemin bir integral çarpanıyla çarpılması, onu <strong>temelde eşdeğer tam denkleme</strong> (<em>essentially equivalent exact equation</em>) dönüştürür. Ancak bu işlem sonucunda orijinal denkleme ait bazı <u>çözümlerin kaybedilmesi</u> veya <u>yeni (orijinal denklemi sağlamayan) çözümlerin kazanılması</u> ihtimali doğabileceği için dikkatli olunmalıdır.</p>
+                        </div>
+                    </div>
+
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 2.1 – 2.7 ===== -->

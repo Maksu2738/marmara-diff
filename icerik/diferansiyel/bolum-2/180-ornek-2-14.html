@@ -1,0 +1,26 @@
+<!--@
+id: ornek-2-14
+-->
+                    <div id="ornek-2-14" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.14: Doğrusal Denklem Çözümü
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> Aşağıdaki diferansiyel denklemi çözünüz:</p>
+                            $$\frac{dy}{dx}+\left(\frac{2x+1}{x}\right)y=e^{-2x}$$
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Burada $\displaystyle P(x)=\frac{2x+1}{x}$ olduğu için integral çarpanı:</p>
+                                $$exp\left[\int\left(\frac{2x+1}{x}\right)dx\right]=exp(2x+\ln|x|)=xe^{2x}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Denklemi bu integral çarpanıyla çarparsak:</p>
+                                $$xe^{2x}\frac{dy}{dx}+e^{2x}(2x+1)y=x$$
+                                <p>veya</p>
+                                $$\frac{d}{dx}(xe^{2x}y)=x$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegralini aldığımızda ($c$ keyfi bir sabittir):</p>
+                                $$xe^{2x}y=\frac{x^{2}}{2}+c \implies y=\frac{1}{2}xe^{-2x}+\frac{c}{x}e^{-2x}$$
+                            </div>
+                        </div>
+                    </div>

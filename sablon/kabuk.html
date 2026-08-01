@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ders Çalışma Şablonu</title>
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\\\(', right: '\\\\)', display: false},
+                {left: '\\\\[', right: '\\\\]', display: true}
+            ]
+        });"></script>
+
+    <link rel="stylesheet" href="style.css">
+<!--EXTRA_CSS-->
+</head>
+<body>
+
+    <!-- Hamburger (mobil) -->
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menü">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="layout">
+
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2><!--SIDEBAR_BASLIK--></h2>
+                <p><!--SIDEBAR_ALTBASLIK--></p>
+            </div>
+
+            <div class="sidebar-nav">
+<!--SIDEBAR-->
+            </div>
+        </nav>
+
+        <div class="main-wrapper">
+            <header>
+                <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; width: 100%;">
+                    <div style="text-align: left;">
+                        <h1><!--BASLIK--></h1>
+                        <p><!--ALTBASLIK--></p>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Gece Modu">
+                        <span id="theme-icon">🌙</span> <span id="theme-text">Gece Modu</span>
+                    </button>
+                </div>
+            </header>
+
+            <main>
+                <div id="content-area">
+<!--ICERIK-->
+                </div>
+            </main>
+
+            <footer>
+                <!--FOOTER-->
+            </footer>
+        </div>
+    </div>
+
+<!--EXTRA_JS-->
+    <script src="app.js"></script>
+</body>
+</html>

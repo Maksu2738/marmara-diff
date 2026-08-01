@@ -1,0 +1,32 @@
+<!--@
+id: ornek-2-13
+-->
+                    <div id="ornek-2-13" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.13: Homojen Denklem Başlangıç Değer Problemi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> $(y+\sqrt{x^{2}+y^{2}})dx-x~dy=0$, $y(1)=0$ problemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Denklem homojendir. Türev formunda yazarsak:</p>
+                                $$\frac{dy}{dx}=\frac{y+\sqrt{x^{2}+y^{2}}}{x}$$
+                                <p>Başlangıçtaki $x$ değeri 1 (pozitif) olduğu için $x>0$ alıp $x=\sqrt{x^{2}}$ diyebiliriz:</p>
+                                $$\frac{dy}{dx}=\frac{y}{x}+\sqrt{1+\left(\frac{y}{x}\right)^{2}}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y=vx$ dersek:</p>
+                                $$v+x\frac{dv}{dx}=v+\sqrt{1+v^{2}} \implies x\frac{dv}{dx}=\sqrt{1+v^{2}}$$
+                                <p>Değişkenlerine ayırırsak:</p>
+                                $$\frac{dv}{\sqrt{v^{2}+1}}=\frac{dx}{x}$$
+                                <p>Tabloları kullanarak integrali alırsak:</p>
+                                $$\ln|v+\sqrt{v^{2}+1}|=\ln|x|+\ln|c| \implies v+\sqrt{v^{2}+1}=cx$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$v$ yerine $\displaystyle \frac{y}{x}$ koyarsak:</p>
+                                $$\frac{y}{x}+\sqrt{\frac{y^{2}}{x^{2}}+1}=cx \implies y+\sqrt{x^{2}+y^{2}}=cx^{2}$$
+                                <p><strong>Başlangıç Şartı:</strong> $x=1$ iken $y=0$. Buradan $0+\sqrt{1+0}=c(1)^{2} \implies c=1$ çıkar.</p>
+                                <p>Genel çözüm formülü $y+\sqrt{x^{2}+y^{2}}=x^{2}$ halini alır ve buradan $y$ çekilerek özel çözüm bulunur:</p>
+                                $$y=\frac{1}{2}(x^{2}-1)$$
+                            </div>
+                        </div>
+                    </div>

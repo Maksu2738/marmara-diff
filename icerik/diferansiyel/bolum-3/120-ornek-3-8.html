@@ -1,0 +1,26 @@
+<!--@
+id: ornek-3-8
+-->
+                    <div id="ornek-3-8" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 3.8: Radyoaktif Bozunma
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 3.8 — Radyoaktif Bozunma</p>
+                            <p>Radyoaktif çekirdeklerin bozunma hızı mevcut miktarla orantılıdır. Yarılanma ömrü 1500 yıl ise, 4500 yıl sonra yüzde kaç kalır?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p>Diferansiyel denklem $\displaystyle \frac{dx}{dt} = -kx$ ve başlangıç şartı $x(0)=x_0$.</p>
+                                <p>Çözüm: $x = x_0e^{-kt}$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$t=1500$ için $\displaystyle x = \frac{1}{2}x_0$ olur:</p>
+                                $$\frac{1}{2}x_0 = x_0e^{-1500k} \implies e^{-k} = \left(\frac{1}{2}\right)^{1/1500}$$
+                                <p>Genel ifade: $\displaystyle x = x_0\left(\frac{1}{2}\right)^{t/1500}$.</p>
+                                <p>$t=4500$ konulduğunda:</p>
+                                $$x = x_0\left(\frac{1}{2}\right)^3 = \frac{1}{8}x_0$$
+                                <p>Yani başlangıç miktarının $\frac{1}{8}$'i, diğer bir deyişle %12.5 kalır.</p>
+                            </div>
+                        </div>
+                    </div>

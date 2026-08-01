@@ -1,0 +1,106 @@
+<!--@
+id: ornekler-1
+menu: Örnekler 1.1 &ndash; 1.10
+-->
+                    <div id="ornekler-1" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 1.1 &ndash; 1.10
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.1 &mdash; Denklem Örnekleri</p>
+                            <p>Aşağıdakiler diferansiyel denklem örnekleridir:</p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.1)</strong> &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+xy\!\left(\frac{dy}{dx}\right)^{2}=0$</p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.2)</strong> &nbsp; $\displaystyle\frac{d^{4}x}{dt^{4}}+5\frac{d^{2}x}{dt^{2}}+3x=\sin t$</p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.3)</strong> &nbsp; $\displaystyle\frac{\partial v}{\partial s}+\frac{\partial v}{\partial t}=v$</p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.4)</strong> &nbsp; $\displaystyle\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}+\frac{\partial^{2}u}{\partial z^{2}}=0$</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.2 &mdash; Adi / Kısmi Ayrımı</p>
+                            <p>(1.1) ve (1.2) numaralı denklemler tek bağımsız değişken barındırdıklarından <strong>adi diferansiyel denklem</strong>dir.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.3 &mdash; Kısmi Diferansiyel Denklem</p>
+                            <p>(1.3) ve (1.4) numaralı denklemler birden fazla bağımsız değişkene sahip oldukları için <strong>kısmi diferansiyel denklem</strong>dir.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.4 &mdash; Mertebelerin Bulunması</p>
+                            <ul style="margin: 0.5rem 0 0 1.25rem;">
+                                <li><strong>(1.1)</strong> &rarr; En yüksek türev $\frac{d^{2}y}{dx^{2}}$ &rarr; <strong>2. mertebe</strong></li>
+                                <li><strong>(1.2)</strong> &rarr; En yüksek türev $\frac{d^{4}x}{dt^{4}}$ &rarr; <strong>4. mertebe</strong></li>
+                                <li><strong>(1.3)</strong> &rarr; En yüksek türev 1. kısmi türev &rarr; <strong>1. mertebe</strong></li>
+                                <li><strong>(1.4)</strong> &rarr; En yüksek türev 2. kısmi türev &rarr; <strong>2. mertebe</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.5 &mdash; Doğrusal Denklem Örnekleri</p>
+                            <p>Aşağıdaki denklemler <strong>doğrusaldır</strong> ($y$ ve türevleri birinci derecedendir ve çarpımları yoktur):</p>
+                            <p style="margin: 0.75rem 0;"><strong>Sabit katsayılı:</strong> &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+5\frac{dy}{dx}+6y=0$</p>
+                            <p style="margin: 0.75rem 0;"><strong>Değişken katsayılı:</strong> &nbsp; $\displaystyle\frac{d^{4}y}{dx^{4}}+x^{2}\frac{d^{3}y}{dx^{3}}+x^{3}\frac{dy}{dx}=xe^{x}$</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.6 &mdash; Doğrusal Olmayan Denklem Örnekleri</p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.7)</strong> &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+5\frac{dy}{dx}+6y^{2}=0$<br>
+                            <span style="color: #e11d48; font-size: 0.9rem;">&rarr; $y$ ikinci dereceden olduğu için doğrusal değil.</span></p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.8)</strong> &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+5\!\left(\frac{dy}{dx}\right)^{3}+6y=0$<br>
+                            <span style="color: #e11d48; font-size: 0.9rem;">&rarr; Türev küp şeklinde olduğu için doğrusal değil.</span></p>
+                            <p style="margin: 0.75rem 0;"><strong>(1.9)</strong> &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+5y\frac{dy}{dx}+6y=0$<br>
+                            <span style="color: #e11d48; font-size: 0.9rem;">&rarr; $y$ ve birinci türevinin çarpımı olduğu için doğrusal değil.</span></p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.7 &mdash; Açık Çözüm</p>
+                            <p>$f(x) = 2\sin x + 3\cos x$ fonksiyonunun $\displaystyle\frac{d^{2}y}{dx^{2}}+y=0$ denkleminin bir açık çözümü olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong> Fonksiyonun türevlerini alalım:</p>
+                                $$f'(x) = 2\cos x - 3\sin x$$
+                                $$f''(x) = -2\sin x - 3\cos x$$
+                                <p>Yerine koyulduğunda:</p>
+                                $$f''(x) + f(x) = (-2\sin x - 3\cos x) + (2\sin x + 3\cos x) = 0$$
+                                <p>Denklem sağlanır. Dolayısıyla $f(x)$ bir açık çözümdür. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.8 &mdash; Kapalı ve Biçimsel Çözüm</p>
+                            <p>$x^{2}+y^{2}-25=0$ bağıntısının, $\displaystyle x+y\frac{dy}{dx}=0$ denkleminin kapalı çözümü olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong> Bağıntı $-5 < x < 5$ aralığında iki açık fonksiyon tanımlar:</p>
+                                $$f_{1}(x) = \sqrt{25-x^{2}}, \quad f_{2}(x) = -\sqrt{25-x^{2}}$$
+                                <p>$f_1$ için türev alırsak: $\displaystyle f_{1}'(x) = \frac{-x}{\sqrt{25-x^{2}}}$</p>
+                                <p>Yerine konulduğunda:</p>
+                                $$x + \sqrt{25-x^{2}} \cdot \frac{-x}{\sqrt{25-x^{2}}} = x - x = 0 \quad \checkmark$$
+                                <hr style="margin: 1rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Biçimsel çözüm karşı-örneği:</strong> $x^{2}+y^{2}+25=0$ ifadesi formal olarak $2x+2y\frac{dy}{dx}=0$ denklemini sağlıyor gibi görünse de, $y=\pm\sqrt{-25-x^{2}}$ işlemi hiçbir reel aralık tanımlamadığından bu gerçek bir kapalı çözüm değil, <strong>biçimsel çözümdür</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.9 &mdash; Bir Parametreli Çözüm Ailesi</p>
+                            <p>$\displaystyle\frac{dy}{dx}=2x$ denkleminin çözüm ailesini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong> Denklemin çeşitli çözümleri vardır:</p>
+                                $$f(x)=x^{2}, \quad f(x)=x^{2}+1, \quad f(x)=x^{2}+2, \quad \ldots$$
+                                <p>Genel olarak $c$ keyfi bir sabit olmak üzere:</p>
+                                $$f_{c}(x)=x^{2}+c$$
+                                <p>bir çözümdür. Buna <strong>bir parametreli çözüm ailesi</strong> (<em>one-parameter family of solutions</em>) denir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 1.10 &mdash; Geometrik Gösterim</p>
+                            <p>$\displaystyle\frac{dy}{dx}=2x$ diferansiyel denklemi, $y$ eksenini simetri ekseni kabul eden $y=x^{2}+c$ parabollerinin yamaçlarındaki eğimleri belirler. Her bir parabol bu denklemin <strong>integral eğrisidir</strong>.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 1.1 ===== -->

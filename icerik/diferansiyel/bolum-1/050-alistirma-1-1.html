@@ -1,0 +1,134 @@
+<!--@
+id: alistirma-1-1
+menu: Alıştırmalar 1.1
+-->
+                    <div id="alistirma-1-1" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 1.1 &mdash; Sınıflandırma
+                        </div>
+                        <p style="margin-bottom: 1rem;">Aşağıdaki diferansiyel denklemleri adi veya kısmi olarak sınıflandırınız; mertebelerini belirtiniz; doğrusal olup olmadıklarını saptayınız.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">1. &nbsp; $\displaystyle\frac{dy}{dx}+x^{2}y=xe^{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem (tek bağımsız değişken $x$)</li>
+                                    <li><strong>Mertebe:</strong> 1 (en yüksek türev $\frac{dy}{dx}$)</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal &mdash; $y$ ve $\frac{dy}{dx}$ birinci derecededir, çarpımları yoktur.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. &nbsp; $\displaystyle\frac{d^{3}y}{dx^{3}}+4\frac{d^{2}y}{dx^{2}}-5\frac{dy}{dx}+3y=\sin x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 3</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal, sabit katsayılı</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3. &nbsp; $\displaystyle\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Kısmi diferansiyel denklem (iki bağımsız değişken: $x$, $y$)</li>
+                                    <li><strong>Mertebe:</strong> 2</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal (Laplace denklemi)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $x^{2}\,dy+y^{2}\,dx=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p style="margin-bottom: 0.5rem;">Denklem $\displaystyle x^{2}\frac{dy}{dx}+y^{2}=0$ şeklinde de yazılabilir.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 1</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal değil &mdash; $y^{2}$ terimi var.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $\displaystyle\frac{d^{4}y}{dx^{4}}+3\!\left(\frac{d^{2}y}{dx^{2}}\right)^{5}+5y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 4</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal değil &mdash; $\left(\frac{d^{2}y}{dx^{2}}\right)^{5}$ terimi, ikinci türevin 5. kuvvetidir.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $\displaystyle\frac{\partial^{4}u}{\partial x^{2}\,\partial y^{2}}+\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}+u=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Kısmi diferansiyel denklem (iki bağımsız değişken: $x$, $y$)</li>
+                                    <li><strong>Mertebe:</strong> 4 (en yüksek kısmi türev $\frac{\partial^{4}u}{\partial x^{2}\partial y^{2}}$ dördüncü mertebeden)</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+y\sin x=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 2</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal, değişken katsayılı &mdash; $\sin x$ burada $y$'nin katsayısıdır ($x$'in fonksiyonu).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $\displaystyle\frac{d^{2}y}{dx^{2}}+x\sin y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 2</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal değil &mdash; $\sin y$ ifadesi bağımlı değişkenin transandantal (aşkın) fonksiyonudur.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $\displaystyle\frac{d^{6}x}{dt^{6}}+\frac{d^{4}x}{dt^{4}}\cdot\frac{d^{3}x}{dt^{3}}+x=t$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 6</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal değil &mdash; dördüncü ve üçüncü türevlerin çarpımı mevcuttur.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $\displaystyle\left(\frac{dr}{ds}\right)^{3}=\sqrt{\frac{d^{2}r}{ds^{2}}+1}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Tür:</strong> Adi diferansiyel denklem</li>
+                                    <li><strong>Mertebe:</strong> 2 (en yüksek türev $\frac{d^{2}r}{ds^{2}}$)</li>
+                                    <li><strong>Doğrusallık:</strong> Doğrusal değil &mdash; birinci türev küp formunda, ikinci türev karekök içinde.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 1.2 ===== -->

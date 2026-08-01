@@ -1,0 +1,26 @@
+<!--@
+id: ornek-2-12
+-->
+                    <div id="ornek-2-12" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.12: Homojen Denklem Çözümü
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> $(x^{2}-3y^{2})dx+2xy~dy=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Denklem homojendir. $\displaystyle \frac{dy}{dx}=-\frac{x}{2y}+\frac{3y}{2x}$ formunda yazıp $y=vx$ dönüşümü yapalım:</p>
+                                $$v+x\frac{dv}{dx}=-\frac{1}{2v}+\frac{3v}{2}$$
+                                $$x\frac{dv}{dx}=-\frac{1}{2v}+\frac{v}{2}=\frac{v^{2}-1}{2v}$$
+                                <p>Bu ayrılabilir bir denklemdir. Değişkenleri ayırırsak:</p>
+                                $$\frac{2v~dv}{v^{2}-1}=\frac{dx}{x}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegralleri alırsak:</p>
+                                $$\ln|v^{2}-1|=\ln|x|+\ln|c| \implies |v^{2}-1|=|cx|$$
+                                <p>$v$ yerine $\displaystyle \frac{y}{x}$ koyarsak:</p>
+                                $$\left|\frac{y^{2}}{x^{2}}-1\right|=|cx| \implies |y^{2}-x^{2}|=|cx|x^{2}$$
+                                <p>Eğer $y \geq x \geq 0$ ise bu ifade daha basit olarak $y^{2}-x^{2}=cx^{3}$ şeklinde yazılabilir.</p>
+                            </div>
+                        </div>
+                    </div>

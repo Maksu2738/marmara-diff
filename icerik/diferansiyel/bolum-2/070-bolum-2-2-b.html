@@ -1,0 +1,32 @@
+<!--@
+id: bolum-2-2-b
+-->
+                    <div id="bolum-2-2-b" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            B. Homojen Denklemler <em>(Homogeneous Equations)</em>
+                        </div>
+                        <p>Bazı denklemler doğrudan ayrılabilir formda olmasalar da, uygun bir değişken değiştirme <em>(change of variables)</em> işlemi ile ayrılabilir hale getirilebilirler. Bunlardan biri de homojen denklemlerdir.</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem;">
+                                <strong>Temel Tanım</strong><br>
+                                Bir birinci mertebeden diferansiyel denklem $M(x,y)dx+N(x,y)dy=0$, türev formunda $\displaystyle \frac{dy}{dx}=f(x,y)$ olarak yazıldığında, $f(x,y)$ ifadesi bir $g(y/x)$ fonksiyonu olarak yazılabilecek şekilde bir $g$ fonksiyonu bulunabiliyorsa bu denkleme <strong>homojen denklem</strong> <em>(homogeneous equation)</em> denir.
+                            </div>
+                            <div style="background: #ecfdf5; border-radius: 10px; padding: 1.25rem;">
+                                <strong>Alternatif Tanınma Yöntemi</strong><br>
+                                Eğer bir $F$ fonksiyonu $F(tx,ty)=t^{n}F(x,y)$ şartını sağlıyorsa bu fonksiyona $n$. dereceden <strong>homojen fonksiyon</strong> <em>(homogeneous function of degree n)</em> denir. Eğer denklemdeki hem $M$ hem de $N$ aynı $n$. dereceden homojen fonksiyonlarsa, diferansiyel denklem de homojendir.
+                            </div>
+                        </div>
+
+                        <div class="highlight">
+                            <strong>Teorem 2.3:</strong>
+                            <p>Eğer $M(x,y)dx+N(x,y)dy=0$ bir homojen denklem ise, $y=vx$ değişken değiştirmesi bu denklemi $v$ ve $x$ değişkenleri cinsinden bir ayrılabilir denkleme dönüştürür.</p>
+                            <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                            <p><strong>İspat:</strong> Denklem homojen olduğu için $\displaystyle \frac{dy}{dx}=g\left(\frac{y}{x}\right)$ formunda yazılabilir. $y=vx$ alırsak, türevi $\displaystyle \frac{dy}{dx}=v+x\frac{dv}{dx}$ olur. Bunu yerine yazarsak denklem şu şekle dönüşür:</p>
+                            $$v+x\frac{dv}{dx}=g(v)$$
+                            <p>Yani $[v-g(v)]dx+x~dv=0$. Değişkenleri ayırdığımızda:</p>
+                            $$\frac{dv}{v-g(v)}+\frac{dx}{x}=0$$
+                            <p>bulunur ki bu da ayrılabilir bir denklemdir. Bu denklem entegre edilip, $c$ keyfi sabit olmak üzere, $v$ yerine tekrar $\displaystyle \frac{y}{x}$ yazılarak $F\left(\frac{y}{x}\right)+\ln|x|=c$ formunda çözüm elde edilir.</p>
+                        </div>
+                    </div>

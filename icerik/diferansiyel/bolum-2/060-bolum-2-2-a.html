@@ -1,0 +1,27 @@
+<!--@
+id: bolum-2-2-a
+-->
+                    <div id="bolum-2-2-a" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            A. Ayrılabilir Denklemler <em>(Separable Equations)</em>
+                        </div>
+                        <p><strong>Tanım:</strong> Aşağıdaki formda yazılabilen bir denkleme değişkenlerine ayrılabilir denklem <em>(equation with variables separable)</em> veya kısaca ayrılabilir denklem <em>(separable equation)</em> denir:</p>
+                        $$F(x)G(y)dx+f(x)g(y)dy=0$$
+                        <p>Örneğin, $(x-4)y^{4}dx-x^{3}(y^{2}-3)dy=0$ denklemi ayrılabilir bir denklemdir.</p>
+                        <p>Genel olarak ayrılabilir denklemler tam <em>(exact)</em> değildir, ancak bariz bir integral çarpanına <em>(integrating factor)</em> sahiptirler; bu çarpan $\displaystyle \frac{1}{f(x)G(y)}$ ifadesidir. Eğer denklemi bu ifadeyle çarparsak, değişkenleri ayırarak temel olarak eşdeğer olan şu tam diferansiyel denklemi elde ederiz:</p>
+                        $$\frac{F(x)}{f(x)}dx+\frac{g(y)}{G(y)}dy=0$$
+                        <p>Bu denklem tamdır çünkü:</p>
+                        $$\frac{\partial}{\partial y}\left[\frac{F(x)}{f(x)}\right]=0=\frac{\partial}{\partial x}\left[\frac{g(y)}{G(y)}\right]$$
+                        <p>eşitliği sağlanır.</p>
+                        <p>$\displaystyle \frac{F(x)}{f(x)}$ ifadesine $M(x)$, $\displaystyle \frac{g(y)}{G(y)}$ ifadesine de $N(y)$ dersek denklem $M(x)dx+N(y)dy=0$ formunu alır. $M$ sadece $x$'in, $N$ ise sadece $y$'nin bir fonksiyonu olduğundan, $c$ keyfi bir sabit olmak üzere bir parametreli çözüm ailesi <em>(one-parameter family of solutions)</em> şu şekilde verilir:</p>
+                        $$\int M(x)dx+\int N(y)dy=c$$
+                        <p>Böylece ayrılabilir denklemleri çözme problemi sadece bu integrallerin alınması işlemine indirgenmiş olur.</p>
+                        
+                        <div class="highlight">
+                            <strong>Önemli Not - Çözüm Kaybı:</strong>
+                            <p>Denklemi ayırırken $\displaystyle \frac{1}{f(x)G(y)}$ ile çarptık, yani aslında $f(x)G(y)$'ye böldük. Bunu yaparken ne $f(x)$'in ne de $G(y)$'nin sıfır olmadığını zımnen varsaydık. Ancak orijinal denklemi türev formunda <em>(derivative form)</em> yazarsak:</p>
+                            $$f(x)g(y)\frac{dy}{dx}+F(x)G(y)=0$$
+                            <p>Eğer $G(y_{0})=0$ eşitliğini sağlayan herhangi bir reel $y_{0}$ sayısı varsa, o zaman $y=y_{0}$ orijinal denklemin bir sabit çözümü <em>(constant solution)</em> olur ve bu çözüm biçimsel ayırma işleminde <em>(formal separation process)</em> kaybolmuş olabilir. Bu sebeple ayrılabilir denklemler çözülürken, bölünen faktörleri sıfır yapan değerler incelenmeli ve bunların kayıp çözümler olup olmadığı kontrol edilmelidir.</p>
+                        </div>
+                    </div>

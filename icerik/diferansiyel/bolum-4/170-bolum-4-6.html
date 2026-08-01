@@ -1,0 +1,85 @@
+<!--@
+id: bolum-4-6
+menu: 4.6 Teoremler ve İspatları
+-->
+                    <div id="bolum-4-6" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.6 &nbsp;İkinci Mertebeden Homojen Doğrusal Denklem: Teoremler ve İspatları
+                        </div>
+
+                        <p>Bu bölümde ikinci mertebeden homojen doğrusal denklem</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0 \qquad (4.91)$$
+                        <p>üzerine temel teoremlerin ifadeleri ve ispatları detaylı olarak verilir. $a_{0},a_{1},a_{2}$ fonksiyonlarının $[a,b]$ üzerinde sürekli ve $a_{0}(x)\neq 0$ olduğu varsayılır.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem A</strong> <em>(Teorem 4.1'in özel hâli).</em>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>Her $x_{0}\in[a,b]$ ve her $c_{0},c_{1}\in\mathbb{R}$ için (4.91)'in $f(x_{0})=c_{0},\ f^{\prime}(x_{0})=c_{1}$ şartlarını sağlayan <strong>benzersiz</strong> $f$ çözümü vardır ve tüm $[a,b]$ üzerinde tanımlıdır.</li>
+                                <li>Özel olarak $f(x_{0})=0,\ f^{\prime}(x_{0})=0$ ise benzersiz çözüm <strong>aşikar çözüm</strong> $f\equiv 0$'dır.</li>
+                            </ol>
+                        </div>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Teorem B</strong> <em>(cebir).</em> İki bilinmeyenli iki homojen doğrusal cebirsel denklemin <strong>aşikar olmayan</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfır olmasıdır.
+                            <br>
+                            <strong>Teorem C</strong> <em>(cebir).</em> İki bilinmeyenli iki doğrusal cebirsel denklemin <strong>benzersiz</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfırdan farklı olmasıdır.
+                        </div>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.15 &mdash; Doğrusal Kombinasyonun Çözüm Olması</h3>
+
+                        <p><em>Hipotez:</em> $f_{1},f_{2}$, (4.91)'in iki çözümü ve $c_{1},c_{2}$ keyfi sabit.</p>
+                        <p><em>Sonuç:</em> $c_{1}f_{1}+c_{2}f_{2}$ de bir çözümdür.</p>
+
+                        <p><strong>İspat.</strong> $f=c_{1}f_{1}+c_{2}f_{2}$'nin türevleri:</p>
+                        $$f^{\prime}=c_{1}f_{1}^{\prime}+c_{2}f_{2}^{\prime},\qquad f^{\prime\prime}=c_{1}f_{1}^{\prime\prime}+c_{2}f_{2}^{\prime\prime}$$
+                        <p>(4.91)'in sol tarafına yerleştirip düzenlersek:</p>
+                        $$c_{1}\underbrace{[a_{0}f_{1}^{\prime\prime}+a_{1}f_{1}^{\prime}+a_{2}f_{1}]}_{=0}+c_{2}\underbrace{[a_{0}f_{2}^{\prime\prime}+a_{1}f_{2}^{\prime}+a_{2}f_{2}]}_{=0}=0 \qquad\blacksquare$$
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.16 &mdash; Doğrusal Bağımsız Çözüm Kümesinin Varlığı</h3>
+
+                        <p><em>Hipotez:</em> $a_{0},a_{1},a_{2}$ $[a,b]$'de sürekli ve $a_{0}(x)\neq 0$.</p>
+                        <p><em>Sonuç:</em> (4.91)'in $[a,b]$ üzerinde <strong>doğrusal bağımsız</strong> iki çözümü vardır.</p>
+
+                        <p><strong>İspat (yapıcı).</strong> $x_{0}\in[a,b]$ sabit. Teorem A ile:</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$f_{1}(x_{0})=1,\ f_{1}^{\prime}(x_{0})=0$ olan benzersiz $f_{1}$,</li>
+                            <li>$f_{2}(x_{0})=0,\ f_{2}^{\prime}(x_{0})=1$ olan benzersiz $f_{2}$ bulunur.</li>
+                        </ul>
+                        <p>Doğrusal bağımlı olsalardı, hepsi birden sıfır olmayan $c_{1},c_{2}$ için tüm $x$'te $c_{1}f_{1}(x)+c_{2}f_{2}(x)=0$ ve türevi de sıfır olurdu. $x=x_{0}$'da:</p>
+                        $$c_{1}(1)+c_{2}(0)=0,\quad c_{1}(0)+c_{2}(1)=0\ \Longrightarrow\ c_{1}=c_{2}=0$$
+                        <p>Bu bir çelişkidir; dolayısıyla $f_{1},f_{2}$ doğrusal bağımsızdır. $\blacksquare$</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.17 &amp; 4.18 &mdash; Wronskian ile Bağımsızlık Kriteri</h3>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>İfade:</strong> (4.91)'in iki çözümü $f_{1},f_{2}$'nin $[a,b]$'de <strong>doğrusal bağımsız</strong> olması için gerek ve yeter şart, Wronski determinantı $W[f_{1},f_{2}]$'nin bu aralıkta <strong>en az bir $x$ için sıfırdan farklı</strong> olmasıdır. Eşdeğer olarak (Teorem 4.18): doğrusal bağımlı olması için gerek ve yeter şart, $W$'nin her $x$ için sıfır olmasıdır.
+                        </div>
+
+                        <p><strong>İspat.</strong> $(\Rightarrow)$ Diyelim ki $W\equiv 0$. Bir $x_{0}$'ı sabitleyip cebirsel sistemi kuralım:</p>
+                        $$\begin{aligned} c_{1}f_{1}(x_{0})+c_{2}f_{2}(x_{0})&=0 \\ c_{1}f_{1}^{\prime}(x_{0})+c_{2}f_{2}^{\prime}(x_{0})&=0 \end{aligned}$$
+                        <p>Katsayılar determinantı $W(x_{0})=0$ olduğundan Teorem B'ye göre aşikar olmayan bir $(c_{1},c_{2})$ çözümü vardır. $f=c_{1}f_{1}+c_{2}f_{2}$ Teorem 4.15 ile bir çözümdür ve $f(x_{0})=f^{\prime}(x_{0})=0$. Teorem A(2)'ye göre $f\equiv 0$; yani $f_{1},f_{2}$ doğrusal bağımlıdır.</p>
+
+                        <p>$(\Leftarrow)$ Doğrusal bağımlı iseler, $c_{1}f_{1}+c_{2}f_{2}\equiv 0$ ($c_{1},c_{2}$'nin ikisi birden sıfır değil). Türev alıp iki denklemi tüm $x$'te yazınca sistemin sıfır olmayan çözümü olduğundan katsayılar determinantı $W(x)=0$ her yerde. $\blacksquare$</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.19 &mdash; Wronskian'ın "Ya Hep Ya Hiç" Özelliği (Abel Formülü)</h3>
+
+                        <p><em>İfade:</em> $f_{1},f_{2}$ (4.91)'in iki çözümü ise, $W[f_{1},f_{2}](x)$ ya $[a,b]$'de <strong>her yerde sıfırdır</strong> ya da <strong>hiçbir noktada sıfır değildir</strong>.</p>
+
+                        <p><strong>İspat.</strong> Doğrusal bağımlı iseler Teorem 4.18'e göre $W\equiv 0$. Doğrusal bağımsız iseler $W(x)=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$'nin türevini alıp $f_{1}^{\prime\prime},f_{2}^{\prime\prime}$'yi (4.91)'den çekerek yerine yazınca:</p>
+                        $$W^{\prime}(x)=-\frac{a_{1}(x)}{a_{0}(x)}\,W(x)$$
+                        <p>Bu ayrılabilir denklemin çözümü <strong>Abel formülüdür</strong>:</p>
+                        $$W(x)=W(x_{0})\exp\!\left[-\int_{x_{0}}^{x}\frac{a_{1}(t)}{a_{0}(t)}\,dt\right]$$
+                        <p>Herhangi bir $x_{0}$'da $W(x_{0})=0$ olsaydı her $x$ için $W(x)=0$ çıkardı; ama bu doğrusal bağımsızlıkla çelişir. Dolayısıyla $W$ hiçbir yerde sıfır olmaz. $\blacksquare$</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.20 &mdash; Genel Çözüm Teoremi</h3>
+
+                        <p><em>Hipotez:</em> $f_{1},f_{2}$ (4.91)'in doğrusal bağımsız iki çözümü.</p>
+                        <p><em>Sonuç:</em> (4.91)'in her $f$ çözümü uygun $c_{1},c_{2}$ sabitleriyle $f=c_{1}f_{1}+c_{2}f_{2}$ olarak yazılabilir.</p>
+
+                        <p><strong>İspat.</strong> $x_{0}\in[a,b]$ sabit. Cebirsel sistem:</p>
+                        $$\begin{aligned} k_{1}f_{1}(x_{0})+k_{2}f_{2}(x_{0})&=f(x_{0}) \\ k_{1}f_{1}^{\prime}(x_{0})+k_{2}f_{2}^{\prime}(x_{0})&=f^{\prime}(x_{0}) \end{aligned}$$
+                        <p>Doğrusal bağımsızlıktan $W(x_{0})\neq 0$; Teorem C ile sistemin benzersiz $(k_{1},k_{2})=(c_{1},c_{2})$ çözümü vardır. Şimdi $g=c_{1}f_{1}+c_{2}f_{2}$ tanımlansın; Teorem 4.15 ile bir çözümdür ve inşadan $g(x_{0})=f(x_{0}),\ g^{\prime}(x_{0})=f^{\prime}(x_{0})$. Teorem A(1)'in benzersizliğinden $g\equiv f$, yani $f=c_{1}f_{1}+c_{2}f_{2}$. $\blacksquare$</p>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.6 ===== -->

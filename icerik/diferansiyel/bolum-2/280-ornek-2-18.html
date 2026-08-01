@@ -1,0 +1,27 @@
+<!--@
+id: ornek-2-18
+-->
+                    <div id="ornek-2-18" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.18: İntegral Çarpanı Bulma
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.18 — İntegral Çarpanı Uygulaması</p>
+                            <p>Aşağıdaki denklemi çözünüz: $$(2x^{2}+y)dx+(x^{2}y-x)dy=0$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p>Denklem tam, ayrılabilir, homojen, doğrusal veya Bernoulli değildir. Teorem 2.6'yı uygulamayı deneriz. $M(x,y)=2x^{2}+y$ ve $N(x,y)=x^{2}y-x$'tir. (2.46) numaralı ifadeyi hesaplarsak:</p>
+                                $$\frac{1}{x^{2}y-x}\left[\frac{\partial}{\partial y}(2x^{2}+y)-\frac{\partial}{\partial x}(x^{2}y-x)\right] = \frac{1}{x^{2}y-x}\left[1-(2xy-1)\right]=\frac{2(1-xy)}{x(xy-1)}=-\frac{2}{x}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Bu ifade yalnızca $x$'e bağlıdır, o yüzden integral çarpanı şu formülle bulunur:</p>
+                                $$\exp\left(-\int\frac{2}{x}dx\right)=\exp(-2\ln|x|)=\frac{1}{x^{2}}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Orijinal denklemi $1/x^{2}$ ile çarptığımızda denklem şu hale gelir:</p>
+                                $$\left(2+\frac{y}{x^{2}}\right)dx+\left(y-\frac{1}{x}\right)dy=0$$
+                                <p>Bu yeni denklem tam bir diferansiyel denklemdir ve integrali alındığında genel çözümü şöyledir:</p>
+                                $$2x+\frac{y^{2}}{2}-\frac{y}{x}=c$$
+                            </div>
+                        </div>
+                    </div>

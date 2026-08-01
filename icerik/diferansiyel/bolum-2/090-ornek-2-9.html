@@ -1,0 +1,30 @@
+<!--@
+id: ornek-2-9
+-->
+                    <div id="ornek-2-9" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.9: Başlangıç Değer Problemi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> $x\sin y~dx+(x^{2}+1)\cos y~dy=0$ diferansiyel denklemini ve $y(1)=\frac{\pi}{2}$ başlangıç şartını <em>(initial condition)</em> içeren başlangıç değer problemini <em>(initial-value problem)</em> çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Her iki tarafı $(x^{2}+1)\sin y$ ifadesine bölersek:</p>
+                                $$\frac{x}{x^{2}+1}dx+\frac{\cos y}{\sin y}dy=0$$
+                                $$\int\frac{x~dx}{x^{2}+1}+\int\frac{\cos y}{\sin y}dy=c_{0}$$
+                                <p>İntegralleri alırsak:</p>
+                                $$\frac{1}{2}\ln(x^{2}+1)+\ln|\sin y|=c_{0}$$
+                                <p>İşlemi toparlamak için keyfi sabiti $\ln|c_{1}|$ olarak yazarsak:</p>
+                                $$\frac{1}{2}\ln(x^{2}+1)+\ln|\sin y|=\ln|c_{1}|$$
+                                $$2\ln|\sin y|=\ln(\sin y)^{2} \quad \text{ve} \quad 2\ln|c_{1}|=\ln c_{1}^{2}=\ln c \quad (c \geq 0)$$
+                                $$\ln(x^{2}+1)+\ln \sin^{2}y=\ln c \implies \ln((x^{2}+1)\sin^{2}y)=\ln c$$
+                                $$(x^{2}+1)\sin^{2}y=c$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Kayıp Çözüm Kontrolü:</strong> Böldüğümüz $\sin y=0$'ın kökleri $y=n\pi$ ($n=0,\pm1,\pm2,...$) şeklindedir. Bunlar asıl denklemi sağlar ancak $c=0$ durumunda zaten çözüm ailesinin içinde yer aldıkları için kayıp çözüm yoktur.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç Şartının Uygulanması:</strong> $x=1$ için $\displaystyle y=\frac{\pi}{2}$ verildiğinden $(1^{2}+1)\sin^{2}\left(\frac{\pi}{2}\right)=c \implies c=2$ bulunur.</p>
+                                <p><strong>Sonuç:</strong> $(x^{2}+1)\sin^{2}y=2$.</p>
+                            </div>
+                        </div>
+                    </div>

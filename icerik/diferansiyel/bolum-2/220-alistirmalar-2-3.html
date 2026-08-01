@@ -1,0 +1,84 @@
+<!--@
+id: alistirmalar-2-3
+-->
+                    <div id="alistirmalar-2-3" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Bölüm Sonu Alıştırmaları <em>(Exercises 2.3)</em>
+                        </div>
+                        
+                        <div class="question-block">
+                            <p class="question-text"><strong>1-18 Arası Verilen Diferansiyel Denklemleri Çözünüz:</strong></p>
+                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+                                <li><strong>1.</strong> $\displaystyle \frac{dy}{dx}+\frac{3y}{x}=6x^{2}.$</li>
+                                <li><strong>2.</strong> $\displaystyle x^{4}\frac{dy}{dx}+2x^{3}y=1.$</li>
+                                <li><strong>3.</strong> $\displaystyle \frac{dy}{dx}+3y=3x^{2}e^{-3x}.$</li>
+                                <li><strong>4.</strong> $\displaystyle \frac{dy}{dx}+4xy=8x.$</li>
+                                <li><strong>5.</strong> $\displaystyle \frac{dx}{dt}+\frac{x}{t^{2}}=\frac{1}{t^{2}}.$</li>
+                                <li><strong>6.</strong> $\displaystyle (u^{2}+1)\frac{dv}{du}+4uv=3u.$</li>
+                                <li><strong>7.</strong> $\displaystyle x\frac{dy}{dx}+\frac{2x+1}{x+1}y=x-1.$</li>
+                                <li><strong>8.</strong> $\displaystyle (x^{2}+x-2)\frac{dy}{dx}+3(x+1)y=x-1.$</li>
+                                <li><strong>9.</strong> $\displaystyle x~dy+(xy+y-1)dx=0.$</li>
+                                <li><strong>10.</strong> $\displaystyle y~dx+(xy^{2}+x-y)dy=0.$</li>
+                                <li><strong>11.</strong> $\displaystyle \frac{dr}{d\theta}+r\tan\theta=\cos\theta.$</li>
+                                <li><strong>12.</strong> $\displaystyle \cos\theta~dr+(r\sin\theta-\cos^{4}\theta)d\theta=0.$</li>
+                                <li><strong>13.</strong> $\displaystyle (\cos^{2}x-y\cos x)dx-(1+\sin x)dy=0.$</li>
+                                <li><strong>14.</strong> $\displaystyle (y\sin 2x-\cos x)dx+(1+\sin^{2}x)dy=0.$</li>
+                                <li><strong>15.</strong> $\displaystyle \frac{dy}{dx}-\frac{y}{x}=-\frac{y^{2}}{x}.$</li>
+                                <li><strong>16.</strong> $\displaystyle x\frac{dy}{dx}+y=-2x^{6}y^{4}.$</li>
+                                <li><strong>17.</strong> $\displaystyle dy+(4y-8y^{-3})x~dx=0.$</li>
+                                <li><strong>18.</strong> $\displaystyle \frac{dx}{dt}+\frac{t+1}{2t}x=\frac{t+1}{xt}.$</li>
+                            </ul>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><em>Not: Kaynak metinde bu egzersizlerin adım adım çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text"><strong>19-30 Arası Başlangıç Değer Problemlerini Çözünüz:</strong></p>
+                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+                                <li><strong>19.</strong> $\displaystyle x\frac{dy}{dx}-2y=2x^{4},$ $\quad y(2)=8$.</li>
+                                <li><strong>20.</strong> $\displaystyle \frac{dy}{dx}+3x^{2}y=x^{2},$ $\quad y(0)=2$.</li>
+                                <li><strong>21.</strong> $\displaystyle e^{x}[y-3(e^{x}+1)^{2}]dx+(e^{x}+1)dy=0,$ $\quad y(0)=4$.</li>
+                                <li><strong>22.</strong> $\displaystyle 2x(y+1)dx-(x^{2}+1)dy=0,$ $\quad y(1)=-5$.</li>
+                                <li><strong>23.</strong> $\displaystyle \frac{dr}{d\theta}+r\tan\theta=\cos^{2}\theta,$ $\quad r(\frac{\pi}{4})=1$.</li>
+                                <li><strong>24.</strong> $\displaystyle \frac{dx}{dt}-x=\sin 2t,$ $\quad x(0)=0$.</li>
+                                <li><strong>25.</strong> $\displaystyle \frac{dy}{dx}+\frac{y}{2x}=\frac{x}{y^{3}},$ $\quad y(1)=2$.</li>
+                                <li><strong>26.</strong> $\displaystyle x\frac{dy}{dx}+y=(xy)^{3/2},$ $\quad y(1)=4$.</li>
+                                <li><strong>27.</strong> $\displaystyle \frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}2,&0\le x<1\\ 0,&x\ge1\end{cases}$ iken), $\quad y(0)=0$.</li>
+                                <li><strong>28.</strong> $\displaystyle \frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}5,&0\le x<10\\ 1,&x\ge10\end{cases}$ iken), $\quad y(0)=6$.</li>
+                                <li><strong>29.</strong> $\displaystyle \frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}e^{-x},&0\le x<2\\ e^{-2},&x\ge2\end{cases}$ iken), $\quad y(0)=1$.</li>
+                                <li><strong>30.</strong> $\displaystyle (x+1)\frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}x,&0\le x<3\\ 3,&x\ge3\end{cases}$ iken), $\quad y(0)=1/2$.</li>
+                            </ul>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><em>Not: Kaynak metinde bu egzersizlerin adım adım çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text"><strong>31-41 Arası Teorik Gösterimler ve Uygulamalar:</strong></p>
+                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
+                                <li><strong>31.</strong> $a, b, k$ pozitif, $\lambda$ ise negatif olmayan sabitler olmak üzere $\displaystyle a\frac{dy}{dx}+by=ke^{-\lambda x}$ denklemini çözünüz. $\lambda=0$ ise her çözümün $x\rightarrow\infty$ için $k/b$'ye yaklaştığını, $\lambda>0$ ise $0$'a yaklaştığını gösteriniz.</li>
+                                <li><strong>32.</strong> $\displaystyle \frac{dy}{dx}+P(x)y=0$ denkleminde eğer $f$ ve $g$ birer çözüm ve $c_{1}, c_{2}$ keyfi sabitlerse $c_{1}f+c_{2}g$'nin de bir çözüm olduğunu kanıtlayın. Bunu genelleyerek toplamın da (süperpozisyon) çözüm olduğunu gösterin.</li>
+                                <li><strong>33.</strong> $\displaystyle \frac{dy}{dx}+P(x)y=0$ denklemi için $f(x)=0$'ın bir çözüm olduğunu, eğer $f(x_{0})=0$ gibi bir şart varsa tüm noktalarda $f(x)=0$ olduğunu ve iki çözüm tek bir noktada kesişiyorsa her yerde eşit olduklarını (tekliğin doğasını) ispatlayın.</li>
+                                <li><strong>34.</strong> $\displaystyle \frac{dy}{dx}+P(x)y=Q(x)$ denkleminin iki farklı çözümü $f$ ve $g$ ise, $(f-g)$ farkının bağdaşık $\displaystyle \frac{dy}{dx}+P(x)y=0$ denklemini çözdüğünü gösterin.</li>
+                                <li><strong>35.</strong> İki farklı sağ tarafa sahip denklemlerin çözümleri biliniyorsa toplamlarının sağ tarafların toplamına ait denklemin bir çözümü olduğunu kanıtlayıp $\displaystyle \frac{dy}{dx}+y=2\sin x+5\sin 2x$ denklemini çözün.</li>
+                                <li><strong>36.</strong> 35'i $n$ tane fonksiyon için genelleyip $\displaystyle \frac{dy}{dx}+y=\sum_{k=1}^{5}\sin kx$ denklemini çözünüz.</li>
+                                <li><strong>37.</strong> Genel kurallara göre şu denklemleri çözünüz:<br>
+                                (a) $\displaystyle \cos y\frac{dy}{dx}+\frac{1}{x}\sin y=1$<br>
+                                (b) $\displaystyle (y+1)\frac{dy}{dx}+x(y^{2}+2y)=x$</li>
+                                <li><strong>38.</strong> $\displaystyle \frac{dy}{dx}=A(x)y^{2}+B(x)y+C(x)$ formuna Riccati'nin denklemi <em>(Riccati's equation)</em> denir. $A(x)=0$ ise denklemin doğrusal, $C(x)=0$ ise Bernoulli olduğunu; ayrıca herhangi bilinen bir çözüm $f$ ise $y=f+\frac{1}{v}$ dönüşümünün denklemi $v$ türünden doğrusal hale getirdiğini ispatlayınız.</li>
+                                <li><strong>39.</strong> Verilen $f(x)=1$ çözümünü kullanarak $\displaystyle \frac{dy}{dx}=(1-x)y^{2}+(2x-1)y-x$ Riccati denklemini çözünüz.</li>
+                                <li><strong>40.</strong> Verilen $f(x)=x$ çözümünü kullanarak $\displaystyle \frac{dy}{dx}=-y^{2}+xy+1$ Riccati denklemini çözünüz.</li>
+                                <li><strong>41.</strong> Verilen $f(x)=x$ çözümünü kullanarak $\displaystyle \frac{dy}{dx}=-8xy^{2}+4x(4x+1)y-(8x^{3}+4x^{2}-1)$ Riccati denklemini çözünüz.</li>
+                            </ul>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><em>Not: Kaynak metinde bu teorik ispatlar ve uygulamaların çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 2.4 ÖZEL İNTEGRASYON ÇARPANLARI VE DÖNÜŞÜMLER ===== -->

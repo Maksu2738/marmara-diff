@@ -1,0 +1,122 @@
+<!--@
+id: ornekler-2-1
+menu: Örnekler 2.1 &ndash; 2.7
+-->
+                    <div id="ornekler-2-1" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 2.1 &ndash; 2.7
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.1 &mdash; Tam Diferansiyelin Hesaplanması</p>
+                            <p>Tüm reel $(x,y)$ değerleri için $F(x,y)=xy^{2}+2x^{3}y$ fonksiyonunun tam diferansiyelini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Kısmi türevler:</strong></p>
+                                $$\frac{\partial F(x,y)}{\partial x}=y^{2}+6x^{2}y, \qquad \frac{\partial F(x,y)}{\partial y}=2xy+2x^{3}$$
+                                <p>Bu durumda tam diferansiyel:</p>
+                                $$dF(x,y)=(y^{2}+6x^{2}y)\,dx+(2xy+2x^{3})\,dy$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.2 &mdash; Tam Olan ve Olmayan Denklem</p>
+                            <p>$y^{2}dx+2xy\,dy=0$ denklemini ve bunun $y$'ye bölünmesiyle elde edilen $y\,dx+2x\,dy=0$ denklemini karşılaştırınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Birinci denklem tamdır.</strong> Çünkü $y^{2}dx+2xy\,dy$ ifadesi $F(x,y)=xy^{2}$ fonksiyonunun tam diferansiyelidir:</p>
+                                <p>$dx$'in katsayısı $\frac{\partial F}{\partial x}=y^{2}$, &nbsp; $dy$'nin katsayısı $\frac{\partial F}{\partial y}=2xy$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>İkinci denklem tam değildir.</strong> ($y$ ile bölme işlemi tamlığı bozmuştur.)</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.3 &mdash; Tamlık Kriterinin Uygulanması</p>
+                            <p>Teorem 2.1'deki tamlık kriterini Örnek 2.2'deki iki denkleme uygulayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>İlk denklem:</strong> $M(x,y)=y^{2}$, &nbsp; $N(x,y)=2xy$</p>
+                                $$\frac{\partial M}{\partial y}=2y=\frac{\partial N}{\partial x}$$
+                                <p>Bu denklem <strong>tamdır</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>İkinci denklem:</strong> $M(x,y)=y$, &nbsp; $N(x,y)=2x$</p>
+                                $$\frac{\partial M}{\partial y}=1 \ne 2=\frac{\partial N}{\partial x}$$
+                                <p>Bu nedenle ikinci denklem <strong>hiçbir bölgede tam değildir</strong>. &cross;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.4 &mdash; Tamlık Kontrolü</p>
+                            <p>$(2x \sin y+y^{3}e^{x})dx+(x^{2}\cos y+3y^{2}e^{x})dy=0$ denkleminin tam olup olmadığını belirleyiniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M(x,y)=2x \sin y+y^{3}e^{x}$, &nbsp; $N(x,y)=x^{2}\cos y+3y^{2}e^{x}$</p>
+                                $$\frac{\partial M}{\partial y}=2x \cos y+3y^{2}e^{x}=\frac{\partial N}{\partial x}$$
+                                <p>Denklem <strong>tamdır</strong>. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.5 &mdash; İki Yöntemle Çözüm</p>
+                            <p>$(3x^{2}+4xy)dx+(2x^{2}+2y)dy=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tamlık kontrolü:</strong> $M=3x^{2}+4xy$, &nbsp; $N=2x^{2}+2y$</p>
+                                <p>$\frac{\partial M}{\partial y}=4x=\frac{\partial N}{\partial x}$ &rarr; denklem tamdır. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Standart Yöntem:</strong></p>
+                                $$F(x,y)=\int(3x^{2}+4xy)\,\partial x+\phi(y)=x^{3}+2x^{2}y+\phi(y)$$
+                                <p>$y$'ye göre türev alıp $N$'ye eşitleriz:</p>
+                                $$\frac{\partial F}{\partial y}=2x^{2}+\frac{d\phi(y)}{dy}=2x^{2}+2y \implies \frac{d\phi(y)}{dy}=2y$$
+                                <p>Buradan $\phi(y)=y^{2}+c_{0}$ bulunur.</p>
+                                <p><strong>Çözüm ailesi:</strong> $x^{3}+2x^{2}y+y^{2}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Gruplandırma Yöntemi:</strong></p>
+                                $$3x^{2}dx+(4xy\,dx+2x^{2}dy)+2y\,dy=0$$
+                                $$d(x^{3})+d(2x^{2}y)+d(y^{2})=d(c)$$
+                                $$d(x^{3}+2x^{2}y+y^{2})=d(c) \implies x^{3}+2x^{2}y+y^{2}=c$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.6 &mdash; Başlangıç Değer Problemi</p>
+                            <p>$(2x \cos y+3x^{2}y)dx+(x^{3}-x^{2}\sin y-y)dy=0$, &nbsp; $y(0)=2$ problemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tamlık kontrolü:</strong> $\frac{\partial M}{\partial y}=-2x \sin y+3x^{2}=\frac{\partial N}{\partial x}$ &rarr; tamdır. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Standart Yöntem:</strong></p>
+                                $$F(x,y)=\int(2x \cos y+3x^{2}y)\,\partial x+\phi(y)=x^{2}\cos y+x^{3}y+\phi(y)$$
+                                $$\frac{\partial F}{\partial y}=-x^{2}\sin y+x^{3}+\frac{d\phi(y)}{dy}=x^{3}-x^{2}\sin y-y \implies \frac{d\phi(y)}{dy}=-y$$
+                                <p>$\displaystyle\phi(y)=-\frac{y^{2}}{2}+c_{0}$</p>
+                                <p><strong>Çözüm ailesi:</strong> $\displaystyle x^{2}\cos y+x^{3}y-\frac{y^{2}}{2}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartının uygulanması:</strong> $x=0$, $y=2$ &rarr; $0+0-\frac{2^{2}}{2}=c \implies c=-2$</p>
+                                <p><strong>Özel çözüm:</strong> $\displaystyle x^{2}\cos y+x^{3}y-\frac{y^{2}}{2}=-2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Gruplandırma Yöntemiyle:</strong></p>
+                                $$(2x \cos y\,dx-x^{2}\sin y\,dy)+(3x^{2}y\,dx+x^{3}dy)-y\,dy=0$$
+                                $$d(x^{2}\cos y)+d(x^{3}y)-d\!\left(\tfrac{y^{2}}{2}\right)=d(c) \implies x^{2}\cos y+x^{3}y-\frac{y^{2}}{2}=c$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 2.7 &mdash; İntegral Çarpanı</p>
+                            <p>$(3y+4xy^{2})dx+(2x+3x^{2}y)dy=0$ denklemini inceleyiniz ve $\mu(x,y)=x^{2}y$ çarpanının etkisini gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tamlık kontrolü:</strong></p>
+                                <p>$\displaystyle\frac{\partial M}{\partial y}=3+8xy$ &nbsp;ve&nbsp; $\displaystyle\frac{\partial N}{\partial x}=2+6xy$ &rarr; <strong>denklem tam değildir</strong>. &cross;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$\mu(x,y)=x^{2}y$ ile çarpalım:</strong></p>
+                                $$(3x^{2}y^{2}+4x^{3}y^{3})dx+(2x^{3}y+3x^{4}y^{2})dy=0$$
+                                <p>Yeni denklemde:</p>
+                                $$\frac{\partial(\mu M)}{\partial y}=6x^{2}y+12x^{3}y^{2}, \qquad \frac{\partial(\mu N)}{\partial x}=6x^{2}y+12x^{3}y^{2}$$
+                                <p>Denklem artık <strong>tam olduğu için</strong> $\mu(x,y)=x^{2}y$ bir <strong>integral çarpanıdır</strong>. &check;</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 2.1 ===== -->

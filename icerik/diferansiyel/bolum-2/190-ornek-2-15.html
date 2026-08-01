@@ -1,0 +1,32 @@
+<!--@
+id: ornek-2-15
+-->
+                    <div id="ornek-2-15" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.15: Başlangıç Değer Problemi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> Şu başlangıç değer problemini <em>(initial-value problem)</em> çözünüz:</p>
+                            $$(x^{2}+1)\frac{dy}{dx}+4xy=x, \quad y(2)=1$$
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Diferansiyel denklemi standart doğrusal forma getirmek için $x^{2}+1$'e böleriz:</p>
+                                $$\frac{dy}{dx}+\frac{4x}{x^{2}+1}y=\frac{x}{x^{2}+1}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Burada $\displaystyle P(x)=\frac{4x}{x^{2}+1}$ olup integral çarpanı:</p>
+                                $$exp\left[\int\frac{4x~dx}{x^{2}+1}\right]=exp[\ln(x^{2}+1)^{2}]=(x^{2}+1)^{2}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Denklemi bu çarpanla çarpınca:</p>
+                                $$(x^{2}+1)^{2}\frac{dy}{dx}+4x(x^{2}+1)y=x(x^{2}+1)$$
+                                <p>veya</p>
+                                $$\frac{d}{dx}[(x^{2}+1)^{2}y]=x^{3}+x$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegrali aldığımızda çözüm ailesini şu şekilde buluruz:</p>
+                                $$(x^{2}+1)^{2}y=\frac{x^{4}}{4}+\frac{x^{2}}{2}+c$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Başlangıç şartı olan $x=2$ için $y=1$ yerine konulduğunda $25=6+c \implies c=19$ bulunur. Böylece çözüm:</p>
+                                $$(x^{2}+1)^{2}y=\frac{x^{4}}{4}+\frac{x^{2}}{2}+19$$
+                            </div>
+                        </div>
+                    </div>

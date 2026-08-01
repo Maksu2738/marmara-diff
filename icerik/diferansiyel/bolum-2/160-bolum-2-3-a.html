@@ -1,0 +1,32 @@
+<!--@
+id: bolum-2-3-a
+-->
+                    <div id="bolum-2-3-a" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            A. Doğrusal Denklemler <em>(Linear Equations)</em>
+                        </div>
+                        <p><strong>Tanım:</strong> Birinci mertebeden bir adi diferansiyel denklem, $y$ bağımlı değişkenine <em>(dependent variable)</em> ve $x$ bağımsız değişkenine <em>(independent variable)</em> göre doğrusal ise (veya bu forma dönüştürülebiliyorsa) şu formda yazılır:</p>
+                        $$\frac{dy}{dx}+P(x)y=Q(x)$$
+                        <p>Örneğin, $\displaystyle x\frac{dy}{dx}+(x+1)y=x^{3}$ denklemi birinci mertebeden doğrusal bir denklemdir, çünkü her iki tarafı $x$'e bölerek $\displaystyle P(x)=1+\frac{1}{x}$ ve $Q(x)=x^{2}$ olacak şekilde standart forma getirilebilir.</p>
+                        <p>Bu denklemi diferansiyel formda yazarsak:</p>
+                        $$[P(x)y-Q(x)]dx+dy=0$$
+                        <p>elde edilir. Bu denklem $M(x,y)dx+N(x,y)dy=0$ yapısındadır ve $M(x,y)=P(x)y-Q(x)$, $N(x,y)=1$'dir. Kısmi türevler alındığında $\displaystyle \frac{\partial M}{\partial y}=P(x)$ ve $\displaystyle \frac{\partial N}{\partial x}=0$ çıkar. Yani $P(x)=0$ olmadığı (ki bu durumda denklem basit bir ayrılabilir denkleme dönüşür) sürece bu denklem tam <em>(exact)</em> değildir.</p>
+                        <p>Ancak bu denklemi tam hale getirecek, sadece $x$'e bağlı olan bir integral çarpanı <em>(integrating factor)</em> bulunabilir. Denklemi $\mu(x)$ ile çarparsak:</p>
+                        $$[\mu(x)P(x)y-\mu(x)Q(x)]dx+\mu(x)dy=0$$
+                        <p>olur. Bu yeni denklemin tam olması için:</p>
+                        $$\mu(x)P(x)=\frac{d}{dx}[\mu(x)]$$
+                        <p>şartı sağlanmalıdır. Bu ayrılabilir diferansiyel denklem çözüldüğünde integral çarpanı şu formda bulunur:</p>
+                        $$\mu=e^{\int P(x)dx}$$
+
+                        <div class="highlight">
+                            <strong>Teorem 2.4:</strong>
+                            <p>Doğrusal diferansiyel denklem olan $\displaystyle \frac{dy}{dx}+P(x)y=Q(x)$ şu formda bir integral çarpanına sahiptir:</p>
+                            $$e^{\int P(x)dx}$$
+                            <p>Bu denklemin bir parametreli çözüm ailesi <em>(one-parameter family of solutions)</em> şu şekildedir:</p>
+                            $$y e^{\int P(x)dx}=\int e^{\int P(x)dx}Q(x)dx+c$$
+                            <p>Yani:</p>
+                            $$y=e^{-\int P(x)dx}\left[\int e^{\int P(x)dx}Q(x)dx+c\right]$$
+                            <p>Ayrıca, bu çözüm ailesinin doğrusal denklemin tüm çözümlerini kapsadığı gösterilebilir.</p>
+                        </div>
+                    </div>

@@ -1,0 +1,22 @@
+<!--@
+id: ornek-2-8
+-->
+                    <div id="ornek-2-8" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.8: Ayrılabilir Denklem Çözümü
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> $(x-4)y^{4}dx-x^{3}(y^{2}-3)dy=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Denklem ayrılabilirdir. Her iki tarafı $x^{3}y^{4}$ ifadesine bölersek:</p>
+                                $$\frac{(x-4)dx}{x^{3}}-\frac{(y^{2}-3)dy}{y^{4}}=0$$
+                                $$(x^{-2}-4x^{-3})dx-(y^{-2}-3y^{-4})dy=0$$
+                                <p>İntegralleri alırsak, $c$ keyfi sabit olmak üzere bir parametreli çözüm ailesini elde ederiz:</p>
+                                $$-\frac{1}{x}+\frac{2}{x^{2}}+\frac{1}{y}-\frac{1}{y^{3}}=c$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Kayıp Çözüm Kontrolü:</strong> Ayırma işlemi sırasında $x^{3}\neq0$ ve $y^{4}\neq0$ kabul ettik. $y^{4}=0$ eşitliğinden gelen $y=0$ çözümünü incelersek, bunun çözüm ailesine dahil olmadığını görürüz. Ancak asıl denkleme bakarsak $y=0$'ın denklemi sağladığı açıktır. Dolayısıyla $y=0$, ayırma işleminde kaybolan bir çözümdür.</p>
+                            </div>
+                        </div>
+                    </div>

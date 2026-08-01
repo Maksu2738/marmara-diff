@@ -1,0 +1,29 @@
+<!--@
+id: ornek-2-17
+-->
+                    <div id="ornek-2-17" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.17: Bernoulli Denklemi Çözümü
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> $\displaystyle \frac{dy}{dx}+y=xy^{3}$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Bu, $n=3$ olan bir Bernoulli diferansiyel denklemidir. Önce denklemi $y^{-3}$ ile çarparak başlarız:</p>
+                                $$y^{-3}\frac{dy}{dx}+y^{-2}=x$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$v=y^{1-n}=y^{-2}$ dersek, $\displaystyle \frac{dv}{dx}=-2y^{-3}\frac{dy}{dx}$ olur. Bu ifadeyi denkleme yerleştirirsek:</p>
+                                $$-\frac{1}{2}\frac{dv}{dx}+v=x \implies \frac{dv}{dx}-2v=-2x$$
+                                <p>artık doğrusal bir denklemdir. $P(x)=-2$ olup integral çarpanı $e^{-2x}$'dir.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                $$e^{-2x}\frac{dv}{dx}-2e^{-2x}v=-2xe^{-2x} \implies \frac{d}{dx}(e^{-2x}v)=-2xe^{-2x}$$
+                                <p>İntegrali alırsak:</p>
+                                $$e^{-2x}v=\frac{1}{2}e^{-2x}(2x+1)+c \implies v=x+\frac{1}{2}+ce^{2x}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$v$ yerine $\displaystyle \frac{1}{y^{2}}$ koyduğumuzda nihai sonuç:</p>
+                                $$\frac{1}{y^{2}}=x+\frac{1}{2}+ce^{2x}$$
+                                <p>olarak bulunur.</p>
+                            </div>
+                        </div>
+                    </div>

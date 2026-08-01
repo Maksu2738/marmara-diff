@@ -1,0 +1,305 @@
+
+/* ================= MATRİS HESAP MAKİNESİ ================= */
+.section.arac { border-left-color: #0ea5e9; }
+.section.arac .section-title { color: #0369a1; }
+.section.arac .badge { background: #0ea5e9; }
+
+.calc-intro { margin-bottom: 1.25rem; color: #4a5568; }
+
+.calc-grid-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.matrix-panel {
+    flex: 1;
+    min-width: 240px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem 1.15rem 1.15rem;
+}
+
+.matrix-panel h4 {
+    font-size: 1rem;
+    color: #0369a1;
+    margin-bottom: 0.65rem;
+}
+
+.dim-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.dim-row select {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.35rem;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #1e293b;
+    cursor: pointer;
+}
+
+.matrix-inputs { display: grid; gap: 6px; }
+
+.matrix-inputs input {
+    width: 100%;
+    min-width: 44px;
+    text-align: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.2rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    color: #1e293b;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.matrix-inputs input:focus {
+    outline: none;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+.scalar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.scalar-row input {
+    width: 90px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.4rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    color: #1e293b;
+}
+
+.calc-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.op-btn {
+    background: #fff;
+    color: #0369a1;
+    border: 1.5px solid #bae6fd;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+
+.op-btn:hover {
+    background: #0ea5e9;
+    color: #fff;
+    border-color: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+.op-btn.primary {
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
+    color: #fff;
+    border-color: transparent;
+}
+.op-btn.primary:hover { opacity: 0.92; }
+
+.op-btn.ghost { color: #64748b; border-color: #e2e8f0; }
+.op-btn.ghost:hover { background: #64748b; border-color: #64748b; }
+
+.calc-result {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 1.15rem 1.35rem;
+    min-height: 60px;
+}
+
+.calc-result .result-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0369a1;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.calc-result .result-msg { color: #b91c1c; font-weight: 600; }
+.calc-result .result-hint { color: #64748b; font-style: italic; font-size: 0.9rem; }
+.calc-result .result-note { color: #0369a1; font-weight: 600; margin-bottom: 0.5rem; }
+
+/* Matris çıktısı (köşeli parantezli) */
+.matrix-out {
+    display: inline-flex;
+    align-items: stretch;
+    gap: 4px;
+    margin: 0.35rem 0.75rem 0.35rem 0;
+    vertical-align: middle;
+}
+.matrix-out .bracket {
+    width: 10px;
+    border: 2px solid #0369a1;
+}
+.matrix-out .bracket.left  { border-right: none; border-radius: 4px 0 0 4px; }
+.matrix-out .bracket.right { border-left: none; border-radius: 0 4px 4px 0; }
+.matrix-out table { border-collapse: collapse; }
+.matrix-out td {
+    padding: 0.28rem 0.6rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
+    color: #0c4a6e;
+    white-space: nowrap;
+}
+.scalar-out {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0369a1;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Dark mode — hesap makinesi */
+body.dark-mode .section.arac { border-left-color: #38bdf8 !important; }
+body.dark-mode .section.arac .section-title { color: #7dd3fc !important; }
+body.dark-mode .calc-intro { color: #cbd5e1 !important; }
+body.dark-mode .matrix-panel {
+    background: #171424 !important;
+    border-color: #2e2846 !important;
+}
+body.dark-mode .matrix-panel h4 { color: #7dd3fc !important; }
+body.dark-mode .dim-row,
+body.dark-mode .scalar-row { color: #94a3b8 !important; }
+body.dark-mode .matrix-inputs input,
+body.dark-mode .dim-row select,
+body.dark-mode .scalar-row input {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+body.dark-mode .op-btn {
+    background: #1e1b2e !important;
+    color: #7dd3fc !important;
+    border-color: #334155 !important;
+}
+body.dark-mode .op-btn:hover {
+    background: #0ea5e9 !important;
+    color: #fff !important;
+    border-color: #0ea5e9 !important;
+}
+body.dark-mode .op-btn.primary {
+    background: linear-gradient(135deg, #0284c7, #0ea5e9) !important;
+    color: #fff !important;
+}
+body.dark-mode .op-btn.ghost { color: #94a3b8 !important; }
+body.dark-mode .calc-result {
+    background: #0f172a !important;
+    border-color: #1e3a5f !important;
+}
+body.dark-mode .calc-result .result-label,
+body.dark-mode .calc-result .result-note { color: #7dd3fc !important; }
+body.dark-mode .calc-result .result-hint { color: #94a3b8 !important; }
+body.dark-mode .calc-result .result-msg { color: #fca5a5 !important; }
+body.dark-mode .matrix-out .bracket { border-color: #7dd3fc !important; }
+body.dark-mode .matrix-out td { color: #bae6fd !important; }
+body.dark-mode .scalar-out { color: #7dd3fc !important; }
+
+/* ---- Adımları göster anahtarı ---- */
+.steps-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.9rem;
+    margin-bottom: 1rem;
+    padding: 0.7rem 1rem;
+    background: #eff6ff;
+    border: 1px dashed #93c5fd;
+    border-radius: 10px;
+}
+.steps-toggle label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #0369a1;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.steps-toggle input { width: 18px; height: 18px; cursor: pointer; accent-color: #0ea5e9; }
+.steps-toggle-note { font-size: 0.8rem; color: #64748b; }
+
+/* ---- Adım kartları ---- */
+.steps-wrap { margin-top: 0.75rem; }
+.step-card {
+    background: #fff;
+    border: 1px solid #e0f2fe;
+    border-left: 4px solid #0ea5e9;
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 0.85rem;
+}
+.step-head {
+    font-size: 0.9rem;
+    color: #334155;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+.step-no {
+    display: inline-block;
+    background: #0ea5e9;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+}
+.step-op {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background: #f1f5f9;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    color: #0c4a6e;
+}
+.step-final {
+    background: #ecfeff;
+    border-left-color: #0891b2;
+}
+.step-final .step-head { color: #0e7490; font-weight: 700; }
+
+body.dark-mode .steps-toggle {
+    background: #0f172a !important;
+    border-color: #1e3a5f !important;
+}
+body.dark-mode .steps-toggle label { color: #7dd3fc !important; }
+body.dark-mode .steps-toggle-note { color: #94a3b8 !important; }
+body.dark-mode .step-card {
+    background: #171424 !important;
+    border-color: #1e3a5f !important;
+    border-left-color: #0ea5e9 !important;
+}
+body.dark-mode .step-head { color: #cbd5e1 !important; }
+body.dark-mode .step-op { background: #0f172a !important; color: #bae6fd !important; }
+body.dark-mode .step-final { background: #0c2733 !important; border-left-color: #22d3ee !important; }
+body.dark-mode .step-final .step-head { color: #67e8f9 !important; }

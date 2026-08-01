@@ -1,0 +1,146 @@
+<!--@
+id: alistirma-1-3
+menu: Alıştırmalar 1.3
+-->
+                    <div id="alistirma-1-3" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 1.3
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">1. &nbsp;$y=4e^{2x}+2e^{-3x}$ fonksiyonunun aşağıdaki başlangıç değer problemi için bir çözüm olduğunu gösteriniz:</p>
+                            $$\frac{d^{2}y}{dx^{2}}+\frac{dy}{dx}-6y=0, \qquad y(0)=6, \qquad y'(0)=2$$
+                            <p>Peki $y=2e^{2x}+4e^{-3x}$ fonksiyonu da bu problemin bir çözümü müdür? Nedenini açıklayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Birinci fonksiyon:</strong> $y'=8e^{2x}-6e^{-3x}$, &nbsp; $y''=16e^{2x}+18e^{-3x}$</p>
+                                <p>$y''+y'-6y = (16+8-24)e^{2x} + (18-6-12)e^{-3x} = 0$ &check;</p>
+                                <p>$y(0)=4+2=6$ &check; &nbsp;&nbsp; $y'(0)=8-6=2$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>İkinci fonksiyon:</strong> $y=2e^{2x}+4e^{-3x}$ diferansiyel denklemi sağlar ve $y(0)=2+4=6$ &check;</p>
+                                <p>Ancak $y'=4e^{2x}-12e^{-3x}$ olduğundan $y'(0)=4-12=-8 \ne 2$ &cross;</p>
+                                <p><strong>Sonuç:</strong> Hayır &mdash; ikinci türev şartını sağlamadığı için bu problemin çözümü <u>değildir</u>.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. &nbsp;$\displaystyle\frac{dy}{dx}+y=2xe^{-x}$ denkleminin her çözümü $y=(x^{2}+c)e^{-x}$ formunda yazılabilir. Aşağıdaki problemleri çözünüz:</p>
+                            <p style="margin: 0.5rem 0;">(a) $y(0)=2$ &nbsp;&nbsp;&nbsp; (b) $y(-1)=e+3$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $x=0$, $y=2$: &nbsp; $(0+c)e^{0}=c=2$</p>
+                                <p><strong>Çözüm:</strong> $y=(x^{2}+2)e^{-x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $x=-1$, $y=e+3$: &nbsp; $(1+c)e^{1}=e+3$</p>
+                                <p>$\displaystyle 1+c=\frac{e+3}{e}=1+\frac{3}{e} \implies c=\frac{3}{e}$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(x^{2}+3e^{-1}\right)e^{-x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3. &nbsp;$\displaystyle\frac{d^{2}y}{dx^{2}}-\frac{dy}{dx}-12y=0$ denkleminin her çözümü $y=c_{1}e^{4x}+c_{2}e^{-3x}$ formundadır. Çözünüz:</p>
+                            <p style="margin: 0.5rem 0;">(a) $y(0)=5$, $y'(0)=6$ &nbsp;&nbsp;&nbsp; (b) $y(0)=-2$, $y'(0)=6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y'=4c_{1}e^{4x}-3c_{2}e^{-3x}$ &rarr; &nbsp; $y(0)=c_{1}+c_{2}$, &nbsp; $y'(0)=4c_{1}-3c_{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $c_{1}+c_{2}=5$, &nbsp; $4c_{1}-3c_{2}=6$</p>
+                                <p>$c_{1}=5-c_{2}$ &rarr; $20-4c_{2}-3c_{2}=6 \implies c_{2}=2$, &nbsp; $c_{1}=3$</p>
+                                <p><strong>Çözüm:</strong> $y=3e^{4x}+2e^{-3x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $c_{1}+c_{2}=-2$, &nbsp; $4c_{1}-3c_{2}=6$</p>
+                                <p>$-8-4c_{2}-3c_{2}=6 \implies c_{2}=-2$, &nbsp; $c_{1}=0$</p>
+                                <p><strong>Çözüm:</strong> $y=-2e^{-3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp;$\displaystyle\frac{d^{2}y}{dx^{2}}+y=0$ denkleminin her çözümü $y=c_{1}\sin x+c_{2}\cos x$ formundadır. (a) ve (b)'nin çözümü olduğunu, (c)'nin çözümü olmadığını gösteriniz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $y(0)=0$, $y(\pi/2)=1$ &nbsp;&nbsp; (b) $y(0)=1$, $y'(\pi/2)=-1$ &nbsp;&nbsp; (c) $y(0)=0$, $y(\pi)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y'=c_{1}\cos x-c_{2}\sin x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $y(0)=c_{2}=0$. &nbsp; $y(\pi/2)=c_{1}\cdot 1=1 \implies c_{1}=1$</p>
+                                <p><strong>Çözüm:</strong> $y=\sin x$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $y(0)=c_{2}=1$. &nbsp; $y'(\pi/2)=c_{1}\cos\frac{\pi}{2}-c_{2}\sin\frac{\pi}{2}=0-1=-1$</p>
+                                <p>İkinci şart $c_{1}$'den bağımsız olarak sağlanır &rarr; <strong>sonsuz çözüm</strong>: $y=c_{1}\sin x+\cos x$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $y(0)=c_{2}=0$. &nbsp; $y(\pi)=c_{1}\sin\pi+0=0$</p>
+                                <p>Fakat $y(\pi)=1$ isteniyor: $0 \ne 1$ &rarr; <strong>çözüm yoktur</strong>. &cross;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp;Her çözümü $y=c_{1}x+c_{2}x^{2}+c_{3}x^{3}$ formunda yazılabilen denklem için başlangıç değer problemini çözünüz:</p>
+                            $$x^{3}\frac{d^{3}y}{dx^{3}}-3x^{2}\frac{d^{2}y}{dx^{2}}+6x\frac{dy}{dx}-6y=0$$
+                            <p>$y(2)=0$, &nbsp; $y'(2)=2$, &nbsp; $y''(2)=6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y'=c_{1}+2c_{2}x+3c_{3}x^{2}$, &nbsp; $y''=2c_{2}+6c_{3}x$</p>
+                                <p>Şartlar yerine konursa:</p>
+                                <p>$y(2)=0:\;\; 2c_{1}+4c_{2}+8c_{3}=0$</p>
+                                <p>$y'(2)=2:\;\; c_{1}+4c_{2}+12c_{3}=2$</p>
+                                <p>$y''(2)=6:\;\; 2c_{2}+12c_{3}=6 \implies c_{2}=3-6c_{3}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Birinciye yerleştirilirse $c_{1}=8c_{3}-6$. İkinciye konursa:</p>
+                                <p>$(8c_{3}-6)+4(3-6c_{3})+12c_{3}=2 \implies -4c_{3}=-4 \implies c_{3}=1$</p>
+                                <p>Buradan $c_{2}=-3$, &nbsp; $c_{1}=2$.</p>
+                                <p><strong>Çözüm:</strong> $y=2x-3x^{2}+x^{3}$</p>
+                                <p style="font-size: 0.9rem;">Kontrol: $y(2)=4-12+8=0$ &check;, &nbsp; $y'(2)=2-12+12=2$ &check;, &nbsp; $y''(2)=-6+12=6$ &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp;Teorem 1.1'i uygulayarak aşağıdaki problemlerin $x_{0}=1$ etrafında benzersiz bir çözüme sahip olduğunu gösteriniz:</p>
+                            <p style="margin: 0.5rem 0;">(a) $\displaystyle\frac{dy}{dx}=x^{2}\sin y$, $y(1)=-2$ &nbsp;&nbsp;&nbsp; (b) $\displaystyle\frac{dy}{dx}=\frac{y^{2}}{x-2}$, $y(1)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $f(x,y)=x^{2}\sin y$, &nbsp; $\displaystyle\frac{\partial f}{\partial y}=x^{2}\cos y$</p>
+                                <p>Her ikisi de tüm $xy$ düzleminde süreklidir; $(1,-2)$ noktası bu bölgededir &rarr; <strong>benzersiz çözüm vardır</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\displaystyle f(x,y)=\frac{y^{2}}{x-2}$, &nbsp; $\displaystyle\frac{\partial f}{\partial y}=\frac{2y}{x-2}$</p>
+                                <p>Her ikisi de $x=2$ doğrusu <u>hariç</u> her yerde süreklidir. $(1,0)$ noktası bu doğrudan uzaktır, dolayısıyla noktayı içeren sürekli bir dikdörtgen bölge seçilebilir &rarr; <strong>benzersiz çözüm vardır</strong>. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp;$\displaystyle\frac{dy}{dx}=P(x)y^{2}+Q(x)y$, &nbsp; $y(2)=5$ &nbsp;($P$ ve $Q$ üçüncü dereceden polinomlar). Bu problemin $x_{0}=2$ etrafında benzersiz bir çözümü var mıdır?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$f(x,y)=P(x)y^{2}+Q(x)y$ &nbsp;ve&nbsp; $\displaystyle\frac{\partial f}{\partial y}=2P(x)y+Q(x)$</p>
+                                <p>Polinomlar her yerde sürekli olduğundan hem $f$ hem de $\frac{\partial f}{\partial y}$ <strong>tüm $xy$ düzleminde süreklidir</strong>. $(2,5)$ noktası bu bölgenin içindedir.</p>
+                                <p><strong>Sonuç:</strong> Evet &mdash; Teorem 1.1'in her iki hipotezi de sağlandığı için $|x-2|\le h$ aralığında benzersiz bir çözüm vardır. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp;$\displaystyle\frac{dy}{dx}=y^{1/3}$, &nbsp;$y(0)=0$ probleminin sonsuz sayıda çözümü vardır.</p>
+                            <p style="margin: 0.5rem 0;">(a) Her $c\ge 0$ reel sayısı için aşağıdaki fonksiyonun bir çözüm olduğunu doğrulayınız:</p>
+                            $$y=\begin{cases}0, & x\le c \\[4pt] \left[\tfrac{2}{3}(x-c)\right]^{3/2}, & x\ge c\end{cases}$$
+                            <p style="margin: 0.5rem 0;">(b) $c=0$ için grafiği çiziniz; ardından $c=1$, $c=2$, $c=3$ çözümlerinin grafiklerini de çiziniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a) $x\le c$ bölgesi:</strong> $y=0 \implies y'=0$ &nbsp;ve&nbsp; $y^{1/3}=0$. Denklem sağlanır. &check;</p>
+                                <p style="margin-top: 0.5rem;"><strong>$x\ge c$ bölgesi:</strong></p>
+                                $$y'=\frac{3}{2}\left[\tfrac{2}{3}(x-c)\right]^{1/2}\cdot\frac{2}{3}=\left[\tfrac{2}{3}(x-c)\right]^{1/2}$$
+                                $$y^{1/3}=\left(\left[\tfrac{2}{3}(x-c)\right]^{3/2}\right)^{1/3}=\left[\tfrac{2}{3}(x-c)\right]^{1/2}$$
+                                <p>$y'=y^{1/3}$ &check;</p>
+                                <p style="margin-top: 0.5rem;"><strong>Birleşme noktası:</strong> $x=c$'de iki parça da $y=0$ ve $y'=0$ verir, dolayısıyla fonksiyon sürekli türevlenebilirdir.</p>
+                                <p style="margin-top: 0.5rem;"><strong>Başlangıç şartı:</strong> $c\ge 0$ olduğundan $x=0 \le c$ bölgesindedir &rarr; $y(0)=0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> Her grafik, $x$ ekseni boyunca $x=c$'ye kadar <strong>düz sıfır çizgisidir</strong>; $x=c$ noktasından itibaren yatay teğetle ayrılıp yukarı doğru artan bir eğri izler. $c=1,2,3$ grafikleri, $c=0$ grafiğinin sağa doğru $1$, $2$, $3$ birim ötelenmiş halleridir.</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $f(x,y)=y^{1/3}$ süreklidir, fakat $\frac{\partial f}{\partial y}=\frac{1}{3}y^{-2/3}$ ifadesi $y=0$'da sürekli değildir. Bu yüzden Teorem 1.1 uygulanamaz ve teklik garanti edilmez.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ############################################################
+                         BÖLÜM 2  —  İÇERİK EKLENECEK
+                         Aşağıdaki placeholder kartlarını, hazırladığınız gerçek
+                         içerikle DEĞİŞTİRİN. id değerlerini aynen koruyun,
+                         yoksa sidebar linkleri çalışmaz.
+                         ############################################################ -->

@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineer Cebir Ders Notları</title>
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\\\(', right: '\\\\)', display: false},
+                {left: '\\\\[', right: '\\\\]', display: true}
+            ]
+        });"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f5f3ff;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+
+        /* ================= LAYOUT ================= */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ================= SIDEBAR ================= */
+        .sidebar {
+            width: 290px;
+            min-width: 290px;
+            background: linear-gradient(180deg, #1e1640, #2d2248);
+            color: #e2ddf5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 20px rgba(30, 22, 64, 0.15);
+        }
+
+        .sidebar-header {
+            padding: 1.5rem 1.5rem 1.15rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.3px;
+        }
+
+        .sidebar-header p {
+            font-size: 0.75rem;
+            color: #a99ed4;
+            margin-top: 0.2rem;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 0.75rem 0 2rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-nav::-webkit-scrollbar { width: 8px; }
+        .sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+        .sidebar-nav::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 4px;
+        }
+        .sidebar-nav::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.5); }
+
+        .sidebar-nav ul { list-style: none; }
+
+        /* ---- Bölüm (açılır/kapanır başlık) ---- */
+        .chapter-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #d8d2ee;
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.7rem 1.1rem 0.7rem 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            line-height: 1.35;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .chapter-toggle:hover {
+            background: rgba(124, 58, 237, 0.12);
+            color: #fff;
+        }
+
+        .chapter-num {
+            background: rgba(139, 92, 246, 0.22);
+            color: #c4b5fd;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .chapter-toggle.open .chapter-num {
+            background: #8b5cf6;
+            color: #fff;
+        }
+
+        .chapter-name { flex: 1; }
+
+        .chevron {
+            font-size: 0.62rem;
+            color: #8b7fc0;
+            flex-shrink: 0;
+            margin-top: 4px;
+            transition: transform 0.25s ease;
+        }
+
+        .chapter-toggle.open .chevron { transform: rotate(90deg); }
+
+        .chapter-links {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .chapter-links.open { max-height: 800px; }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 0.42rem 1.25rem 0.42rem 2.4rem;
+            color: #b8b0d8;
+            text-decoration: none;
+            font-size: 0.82rem;
+            border-left: 3px solid transparent;
+            transition: all 0.18s ease;
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(124, 58, 237, 0.12);
+            color: #fff;
+            border-left-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .sidebar-nav a.active {
+            background: rgba(124, 58, 237, 0.22);
+            color: #fff;
+            border-left-color: #8b5cf6;
+            font-weight: 600;
+        }
+
+        .sidebar-nav a.pending { color: #7d739e; }
+        .sidebar-nav a.pending:hover { color: #c4bde0; }
+
+        /* ---- Hamburger (mobil) ---- */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: #2d2248;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            width: 44px;
+            height: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(45, 34, 72, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .hamburger:hover { transform: scale(1.05); }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 99;
+        }
+
+        /* ================= ANA İÇERİK ================= */
+        .main-wrapper {
+            flex: 1;
+            margin-left: 290px;
+            min-width: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6d5ace, #8b5cf6);
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            box-shadow: 0 4px 16px rgba(109, 90, 206, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 880px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ---- Bölüm Kartları ---- */
+        .section {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 2rem 2.25rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 2px 10px rgba(109, 90, 206, 0.06);
+            border-left: 5px solid transparent;
+        }
+
+        .section.konu    { border-left-color: #7c3aed; }
+        .section.ornek   { border-left-color: #10b981; }
+        .section.sorular { border-left-color: #f59e0b; }
+
+        /* Bölüm giriş kartı (Bölüm 1, Bölüm 2 ... başlıkları) */
+        .section.chapter-head {
+            border-left-color: #5b21b6;
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+        }
+
+        .section.chapter-head .section-title {
+            color: #5b21b6;
+            font-size: 1.5rem;
+        }
+
+        /* İçeriği henüz eklenmemiş bölümler */
+        .section.placeholder {
+            background: #fdfcff;
+            border: 2px dashed #e4dcfa;
+            border-left: 5px solid #cbc4e8;
+            box-shadow: none;
+        }
+
+        .section.placeholder .section-title {
+            color: #8b7fc0;
+            font-size: 1.15rem;
+        }
+
+        .placeholder-note {
+            color: #a89cc8;
+            font-size: 0.88rem;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section.konu .section-title    { color: #6d28d9; }
+        .section.ornek .section-title   { color: #059669; }
+        .section.sorular .section-title { color: #d97706; }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            color: #fff;
+        }
+
+        .section.konu .badge    { background: #7c3aed; }
+        .section.ornek .badge   { background: #10b981; }
+        .section.sorular .badge { background: #f59e0b; }
+
+        /* ---- Soru / Cevap ---- */
+        .question-block {
+            background: #faf8ff;
+            border: 1px solid #e9e5f5;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-block p.question-text {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .answer {
+            display: none;
+            background: #f3f0ff;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 0.5rem;
+            border-left: 3px solid #7c3aed;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .answer.visible { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .toggle-btn {
+            background: linear-gradient(135deg, #6d5ace, #8b5cf6);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: opacity 0.2s, transform 0.15s;
+        }
+
+        .toggle-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .toggle-btn:active { transform: translateY(0); }
+
+        /* ---- İçerik Alanı ---- */
+        #content-area { min-height: 60px; }
+
+        /* ---- Genel Yardımcılar ---- */
+        .highlight {
+            background: #ede9fe;
+            border-left: 4px solid #7c3aed;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        code {
+            background: #ede9fe;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        /* Sidebar linkiyle atlanan hedeflerin üst boşluğu */
+        [id] { scroll-margin-top: 1.5rem; }
+
+        /* Uzun formüller taşmasın */
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0.25rem 0;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; align-items: center; justify-content: center; }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.open { display: block; }
+
+            .main-wrapper { margin-left: 0; }
+
+            header { padding-top: 4rem; }
+            header h1 { font-size: 1.5rem; }
+            .section { padding: 1.25rem 1rem; }
+            .header-inner { flex-direction: column; gap: 1rem; text-align: center !important; }
+        }
+
+        /* ================= DARK MODE ================= */
+        body.dark-mode {
+            background-color: #13111c !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .section {
+            background: #1e1b2e !important;
+            background-color: #1e1b2e !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+            border: 1px solid #2d2845 !important;
+        }
+
+        body.dark-mode .section.chapter-head {
+            background: linear-gradient(135deg, #281e4b, #1d1637) !important;
+            border-left-color: #8b5cf6 !important;
+        }
+
+        body.dark-mode .section.chapter-head .section-title {
+            color: #ddd6fe !important;
+        }
+
+        body.dark-mode .section.chapter-head p {
+            color: #cbd5e1 !important;
+        }
+
+        body.dark-mode .section.placeholder {
+            background: #171424 !important;
+            border-color: #3b335c !important;
+            border-left-color: #6d5ace !important;
+        }
+
+        body.dark-mode .section.placeholder .section-title {
+            color: #c4b5fd !important;
+        }
+
+        body.dark-mode .placeholder-note {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-mode .section-title {
+            color: #f1f5f9 !important;
+        }
+
+        body.dark-mode .section.konu .section-title    { color: #c4b5fd !important; }
+        body.dark-mode .section.ornek .section-title   { color: #6ee7b7 !important; }
+        body.dark-mode .section.sorular .section-title { color: #fcd34d !important; }
+
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode strong {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode p,
+        body.dark-mode li {
+            color: #cbd5e1 !important;
+        }
+
+        body.dark-mode .question-block {
+            background-color: #171424 !important;
+            border-color: #2e2846 !important;
+        }
+
+        body.dark-mode .question-block p.question-text {
+            color: #f1f5f9 !important;
+        }
+
+        body.dark-mode .answer {
+            background-color: #25203b !important;
+            border-left-color: #a78bfa !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .highlight {
+            background-color: #272042 !important;
+            border-left-color: #a78bfa !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode div[style*="background"] {
+            background: #25203b !important;
+            background-color: #25203b !important;
+            border-color: #3b335c !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode strong[style*="color"],
+        body.dark-mode h3[style*="color"],
+        body.dark-mode p[style*="color"] {
+            color: #c4b5fd !important;
+        }
+
+        body.dark-mode header {
+            background: linear-gradient(135deg, #1e1640, #3b286b) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        body.dark-mode footer {
+            color: #64748b !important;
+        }
+
+        body.dark-mode code {
+            background-color: #2d264a !important;
+            color: #c4b5fd !important;
+        }
+
+        body.dark-mode .katex {
+            color: #f1f5f9 !important;
+        }
+
+        /* Dark mode toggle button */
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            padding: 0.45rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.28);
+            transform: translateY(-1px);
+        }
+
+        body.dark-mode .theme-toggle-btn {
+            background: rgba(167, 139, 250, 0.2) !important;
+            border-color: rgba(167, 139, 250, 0.4) !important;
+            color: #ddd6fe !important;
+        }
+
+        /* ================= MATRİS HESAP MAKİNESİ ================= */
+        .section.arac { border-left-color: #0ea5e9; }
+        .section.arac .section-title { color: #0369a1; }
+        .section.arac .badge { background: #0ea5e9; }
+
+        .calc-intro { margin-bottom: 1.25rem; color: #4a5568; }
+
+        .calc-grid-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .matrix-panel {
+            flex: 1;
+            min-width: 240px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem 1.15rem 1.15rem;
+        }
+
+        .matrix-panel h4 {
+            font-size: 1rem;
+            color: #0369a1;
+            margin-bottom: 0.65rem;
+        }
+
+        .dim-row {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .dim-row select {
+            font-family: inherit;
+            font-size: 0.85rem;
+            padding: 0.2rem 0.35rem;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            color: #1e293b;
+            cursor: pointer;
+        }
+
+        .matrix-inputs { display: grid; gap: 6px; }
+
+        .matrix-inputs input {
+            width: 100%;
+            min-width: 44px;
+            text-align: center;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.2rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #fff;
+            color: #1e293b;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .matrix-inputs input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+        }
+
+        .scalar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .scalar-row input {
+            width: 90px;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 0.4rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #fff;
+            color: #1e293b;
+        }
+
+        .calc-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .op-btn {
+            background: #fff;
+            color: #0369a1;
+            border: 1.5px solid #bae6fd;
+            padding: 0.5rem 0.85rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: inherit;
+            transition: all 0.15s ease;
+        }
+
+        .op-btn:hover {
+            background: #0ea5e9;
+            color: #fff;
+            border-color: #0ea5e9;
+            transform: translateY(-1px);
+        }
+
+        .op-btn.primary {
+            background: linear-gradient(135deg, #0284c7, #0ea5e9);
+            color: #fff;
+            border-color: transparent;
+        }
+        .op-btn.primary:hover { opacity: 0.92; }
+
+        .op-btn.ghost { color: #64748b; border-color: #e2e8f0; }
+        .op-btn.ghost:hover { background: #64748b; border-color: #64748b; }
+
+        .calc-result {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 12px;
+            padding: 1.15rem 1.35rem;
+            min-height: 60px;
+        }
+
+        .calc-result .result-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0369a1;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .calc-result .result-msg { color: #b91c1c; font-weight: 600; }
+        .calc-result .result-hint { color: #64748b; font-style: italic; font-size: 0.9rem; }
+        .calc-result .result-note { color: #0369a1; font-weight: 600; margin-bottom: 0.5rem; }
+
+        /* Matris çıktısı (köşeli parantezli) */
+        .matrix-out {
+            display: inline-flex;
+            align-items: stretch;
+            gap: 4px;
+            margin: 0.35rem 0.75rem 0.35rem 0;
+            vertical-align: middle;
+        }
+        .matrix-out .bracket {
+            width: 10px;
+            border: 2px solid #0369a1;
+        }
+        .matrix-out .bracket.left  { border-right: none; border-radius: 4px 0 0 4px; }
+        .matrix-out .bracket.right { border-left: none; border-radius: 0 4px 4px 0; }
+        .matrix-out table { border-collapse: collapse; }
+        .matrix-out td {
+            padding: 0.28rem 0.6rem;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.95rem;
+            color: #0c4a6e;
+            white-space: nowrap;
+        }
+        .scalar-out {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0369a1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Dark mode — hesap makinesi */
+        body.dark-mode .section.arac { border-left-color: #38bdf8 !important; }
+        body.dark-mode .section.arac .section-title { color: #7dd3fc !important; }
+        body.dark-mode .calc-intro { color: #cbd5e1 !important; }
+        body.dark-mode .matrix-panel {
+            background: #171424 !important;
+            border-color: #2e2846 !important;
+        }
+        body.dark-mode .matrix-panel h4 { color: #7dd3fc !important; }
+        body.dark-mode .dim-row,
+        body.dark-mode .scalar-row { color: #94a3b8 !important; }
+        body.dark-mode .matrix-inputs input,
+        body.dark-mode .dim-row select,
+        body.dark-mode .scalar-row input {
+            background: #0f172a !important;
+            border-color: #334155 !important;
+            color: #e2e8f0 !important;
+        }
+        body.dark-mode .op-btn {
+            background: #1e1b2e !important;
+            color: #7dd3fc !important;
+            border-color: #334155 !important;
+        }
+        body.dark-mode .op-btn:hover {
+            background: #0ea5e9 !important;
+            color: #fff !important;
+            border-color: #0ea5e9 !important;
+        }
+        body.dark-mode .op-btn.primary {
+            background: linear-gradient(135deg, #0284c7, #0ea5e9) !important;
+            color: #fff !important;
+        }
+        body.dark-mode .op-btn.ghost { color: #94a3b8 !important; }
+        body.dark-mode .calc-result {
+            background: #0f172a !important;
+            border-color: #1e3a5f !important;
+        }
+        body.dark-mode .calc-result .result-label,
+        body.dark-mode .calc-result .result-note { color: #7dd3fc !important; }
+        body.dark-mode .calc-result .result-hint { color: #94a3b8 !important; }
+        body.dark-mode .calc-result .result-msg { color: #fca5a5 !important; }
+        body.dark-mode .matrix-out .bracket { border-color: #7dd3fc !important; }
+        body.dark-mode .matrix-out td { color: #bae6fd !important; }
+        body.dark-mode .scalar-out { color: #7dd3fc !important; }
+
+        /* ---- Adımları göster anahtarı ---- */
+        .steps-toggle {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 0.9rem;
+            margin-bottom: 1rem;
+            padding: 0.7rem 1rem;
+            background: #eff6ff;
+            border: 1px dashed #93c5fd;
+            border-radius: 10px;
+        }
+        .steps-toggle label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #0369a1;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .steps-toggle input { width: 18px; height: 18px; cursor: pointer; accent-color: #0ea5e9; }
+        .steps-toggle-note { font-size: 0.8rem; color: #64748b; }
+
+        /* ---- Adım kartları ---- */
+        .steps-wrap { margin-top: 0.75rem; }
+        .step-card {
+            background: #fff;
+            border: 1px solid #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            border-radius: 10px;
+            padding: 0.85rem 1.1rem;
+            margin-bottom: 0.85rem;
+        }
+        .step-head {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .step-no {
+            display: inline-block;
+            background: #0ea5e9;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.55rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+        }
+        .step-op {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background: #f1f5f9;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #0c4a6e;
+        }
+        .step-final {
+            background: #ecfeff;
+            border-left-color: #0891b2;
+        }
+        .step-final .step-head { color: #0e7490; font-weight: 700; }
+
+        body.dark-mode .steps-toggle {
+            background: #0f172a !important;
+            border-color: #1e3a5f !important;
+        }
+        body.dark-mode .steps-toggle label { color: #7dd3fc !important; }
+        body.dark-mode .steps-toggle-note { color: #94a3b8 !important; }
+        body.dark-mode .step-card {
+            background: #171424 !important;
+            border-color: #1e3a5f !important;
+            border-left-color: #0ea5e9 !important;
+        }
+        body.dark-mode .step-head { color: #cbd5e1 !important; }
+        body.dark-mode .step-op { background: #0f172a !important; color: #bae6fd !important; }
+        body.dark-mode .step-final { background: #0c2733 !important; border-left-color: #22d3ee !important; }
+        body.dark-mode .step-final .step-head { color: #67e8f9 !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Hamburger (mobil) -->
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menü">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="layout">
+
+        <!-- ================================================================
+             SIDEBAR — KONU BAŞLIKLARI
+             Yeni alt başlık eklemek için ilgili <ul class="chapter-links">
+             içine <li><a href="#id">Başlık</a></li> satırı ekleyin.
+             ================================================================ -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Ders Notları</h2>
+                <p>Lineer Cebir (Linear Algebra)</p>
+            </div>
+
+            <div class="sidebar-nav">
+                <ul>
+
+                    <!-- ===== ARAÇ: MATRİS HESAP MAKİNESİ ===== -->
+                    <li>
+                        <a href="#hesap-makinesi" style="padding-left: 1.1rem; font-weight: 700; color: #7dd3fc; display: flex; align-items: center; gap: 0.5rem;">🧮 Matris Hesap Makinesi</a>
+                    </li>
+
+                    <!-- ===== BÖLÜM 1 ===== -->
+                    <li>
+                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
+                            <span class="chapter-num">1</span>
+                            <span class="chapter-name">Systems of Linear Equations</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links open">
+                            <li><a href="#bolum-1" class="pending">Giriş</a></li>
+                            <li><a href="#bolum-1-1" class="pending">1.1 Introduction</a></li>
+                            <li><a href="#bolum-1-2" class="pending">1.2 Linear Equations, Solutions</a></li>
+                            <li><a href="#bolum-1-3" class="pending">1.3 Linear Equations in Two Unknowns</a></li>
+                            <li><a href="#bolum-1-4" class="pending">1.4 Systems of Linear Equations, Equivalent Systems, Elementary Operations</a></li>
+                            <li><a href="#bolum-1-5" class="pending">1.5 Systems in Triangular and Echelon Form</a></li>
+                            <li><a href="#bolum-1-6" class="pending">1.6 Reduction Algorithm</a></li>
+                            <li><a href="#bolum-1-7" class="pending">1.7 Matrices</a></li>
+                            <li><a href="#bolum-1-8" class="pending">1.8 Row Equivalence and Elementary Row Operations</a></li>
+                            <li><a href="#bolum-1-9" class="pending">1.9 Systems of Linear Equations and Matrices</a></li>
+                            <li><a href="#bolum-1-10" class="pending">1.10 Homogeneous Systems of Linear Equations</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 2 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">2</span>
+                            <span class="chapter-name">Vectors in R<sup>n</sup> and C<sup>n</sup>, Spatial Vectors</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#bolum-2" class="pending">Giriş</a></li>
+                            <li><a href="#bolum-2-1" class="pending">2.1 Introduction</a></li>
+                            <li><a href="#bolum-2-2" class="pending">2.2 Vectors in R<sup>n</sup></a></li>
+                            <li><a href="#bolum-2-3" class="pending">2.3 Vector Addition and Scalar Multiplication</a></li>
+                            <li><a href="#bolum-2-4" class="pending">2.4 Vectors and Linear Equations</a></li>
+                            <li><a href="#bolum-2-5" class="pending">2.5 Dot (Scalar) Product</a></li>
+                            <li><a href="#bolum-2-6" class="pending">2.6 Norm of a Vector</a></li>
+                            <li><a href="#bolum-2-7" class="pending">2.7 Located Vectors, Hyperplanes, and Lines in R<sup>n</sup></a></li>
+                            <li><a href="#bolum-2-8" class="pending">2.8 Spatial Vectors, ijk Notation in R<sup>3</sup></a></li>
+                            <li><a href="#bolum-2-9" class="pending">2.9 Complex Numbers</a></li>
+                            <li><a href="#bolum-2-10" class="pending">2.10 Vectors in C<sup>n</sup></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 3 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">3</span>
+                            <span class="chapter-name">Matrices</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#bolum-3" class="pending">Giriş</a></li>
+                            <li><a href="#bolum-3-1" class="pending">3.1 Introduction</a></li>
+                            <li><a href="#bolum-3-2" class="pending">3.2 Matrices</a></li>
+                            <li><a href="#bolum-3-3" class="pending">3.3 Matrix Addition and Scalar Multiplication</a></li>
+                            <li><a href="#bolum-3-4" class="pending">3.4 Matrix Multiplication</a></li>
+                            <li><a href="#bolum-3-5" class="pending">3.5 Transpose of a Matrix</a></li>
+                            <li><a href="#bolum-3-6" class="pending">3.6 Matrices and Systems of Linear Equations</a></li>
+                            <li><a href="#bolum-3-7" class="pending">3.7 Block Matrices</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 4 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">4</span>
+                            <span class="chapter-name">Square Matrices, Elementary Matrices</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#bolum-4" class="pending">Giriş</a></li>
+                            <li><a href="#bolum-4-1" class="pending">4.1 Introduction</a></li>
+                            <li><a href="#bolum-4-2" class="pending">4.2 Square Matrices</a></li>
+                            <li><a href="#bolum-4-3" class="pending">4.3 Diagonal and Trace, Identity Matrix</a></li>
+                            <li><a href="#bolum-4-4" class="pending">4.4 Powers of Matrices, Polynomials in Matrices</a></li>
+                            <li><a href="#bolum-4-5" class="pending">4.5 Invertible (Nonsingular) Matrices</a></li>
+                            <li><a href="#bolum-4-6" class="pending">4.6 Special Types of Square Matrices</a></li>
+                            <li><a href="#bolum-4-7" class="pending">4.7 Complex Matrices</a></li>
+                            <li><a href="#bolum-4-8" class="pending">4.8 Square Block Matrices</a></li>
+                            <li><a href="#bolum-4-9" class="pending">4.9 Elementary Matrices and Applications</a></li>
+                            <li><a href="#bolum-4-10" class="pending">4.10 Elementary Column Operations, Matrix Equivalence</a></li>
+                            <li><a href="#bolum-4-11" class="pending">4.11 Congruent Symmetric Matrices, Law of Inertia</a></li>
+                            <li><a href="#bolum-4-12" class="pending">4.12 Quadratic Forms</a></li>
+                            <li><a href="#bolum-4-13" class="pending">4.13 Similarity</a></li>
+                            <li><a href="#bolum-4-14" class="pending">4.14 LU Factorization</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 5 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">5</span>
+                            <span class="chapter-name">Vector Spaces</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#bolum-5" class="pending">Giriş</a></li>
+                            <li><a href="#bolum-5-1" class="pending">5.1 Introduction</a></li>
+                            <li><a href="#bolum-5-2" class="pending">5.2 Vector Spaces</a></li>
+                            <li><a href="#bolum-5-3" class="pending">5.3 Examples of Vector Spaces</a></li>
+                            <li><a href="#bolum-5-4" class="pending">5.4 Subspaces</a></li>
+                            <li><a href="#bolum-5-5" class="pending">5.5 Linear Combinations, Linear Spans</a></li>
+                            <li><a href="#bolum-5-6" class="pending">5.6 Linear Dependence and Independence</a></li>
+                            <li><a href="#bolum-5-7" class="pending">5.7 Basis and Dimension</a></li>
+                            <li><a href="#bolum-5-8" class="pending">5.8 Linear Equations and Vector Spaces</a></li>
+                            <li><a href="#bolum-5-9" class="pending">5.9 Sums and Direct Sums</a></li>
+                            <li><a href="#bolum-5-10" class="pending">5.10 Coordinates</a></li>
+                            <li><a href="#bolum-5-11" class="pending">5.11 Change of Basis</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 6 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">6</span>
+                            <span class="chapter-name">Inner Product Spaces, Orthogonality</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#bolum-6" class="pending">Giriş</a></li>
+                            <li><a href="#bolum-6-1" class="pending">6.1 Introduction</a></li>
+                            <li><a href="#bolum-6-2" class="pending">6.2 Inner Product Spaces</a></li>
+                            <li><a href="#bolum-6-3" class="pending">6.3 Cauchy-Schwarz Inequality, Applications</a></li>
+                            <li><a href="#bolum-6-4" class="pending">6.4 Orthogonality</a></li>
+                            <li><a href="#bolum-6-5" class="pending">6.5 Orthogonal Sets and Bases, Projections</a></li>
+                            <li><a href="#bolum-6-6" class="pending">6.6 Gram-Schmidt Orthogonalization Process</a></li>
+                            <li><a href="#bolum-6-7" class="pending">6.7 Inner Products and Matrices</a></li>
+                            <li><a href="#bolum-6-8" class="pending">6.8 Complex Inner Product Spaces</a></li>
+                            <li><a href="#bolum-6-9" class="pending">6.9 Normed Vector Spaces</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ================================================================
+             ANA İÇERİK
+             ================================================================ -->
+        <div class="main-wrapper">
+            <header>
+                <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; width: 100%;">
+                    <div style="text-align: left;">
+                        <h1>Lineer Cebir Ders Notları</h1>
+                        <p>Konu Anlatımı &bull; Örnekler &bull; Sorular</p>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Gece Modu">
+                        <span id="theme-icon">🌙</span> <span id="theme-text">Gece Modu</span>
+                    </button>
+                </div>
+            </header>
+
+            <main>
+                <div id="content-area">
+
+                    <!-- ############################################################
+                         ARAÇ — MATRİS HESAP MAKİNESİ
+                         ############################################################ -->
+                    <div id="hesap-makinesi" class="section arac">
+                        <div class="section-title">
+                            <span class="badge">Araç</span>
+                            🧮 Matris Hesap Makinesi
+                        </div>
+                        <p class="calc-intro">Matris boyutlarını seç, değerleri gir ve bir işlem butonuna bas. Konu çalışırken hesaplarını kontrol etmek için kullanabilirsin: <strong>toplama/çıkarma, skaler çarpım, matris çarpımı, transpoz, determinant, ters, rank, satır indirgeme (EBİF/RREF)</strong> ve <strong>Ax = b denklem sistemi çözümü</strong>.</p>
+
+                        <div class="calc-grid-wrap">
+                            <!-- Matris A -->
+                            <div class="matrix-panel">
+                                <h4>Matris A</h4>
+                                <div class="dim-row">
+                                    Satır:
+                                    <select id="a-rows" onchange="buildMatrix('a')">
+                                        <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option>
+                                    </select>
+                                    Sütun:
+                                    <select id="a-cols" onchange="buildMatrix('a')">
+                                        <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option>
+                                    </select>
+                                </div>
+                                <div id="a-inputs" class="matrix-inputs"></div>
+                            </div>
+
+                            <!-- Matris B -->
+                            <div class="matrix-panel">
+                                <h4>Matris B</h4>
+                                <div class="dim-row">
+                                    Satır:
+                                    <select id="b-rows" onchange="buildMatrix('b')">
+                                        <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option>
+                                    </select>
+                                    Sütun:
+                                    <select id="b-cols" onchange="buildMatrix('b')">
+                                        <option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+                                    </select>
+                                </div>
+                                <div id="b-inputs" class="matrix-inputs"></div>
+                            </div>
+                        </div>
+
+                        <div class="scalar-row">
+                            Skaler <em>k</em> =
+                            <input id="scalar-k" type="text" value="2">
+                            <span style="font-size: 0.8rem; color: #94a3b8;">(k·A ve k·B için)</span>
+                        </div>
+
+                        <div class="steps-toggle">
+                            <label>
+                                <input type="checkbox" id="show-steps">
+                                <span>📝 Çözüm adımlarını tek tek göster</span>
+                            </label>
+                            <span class="steps-toggle-note">EBİF, Ax=b, A⁻¹, det(A) ve A×B işlemlerinde adım adım çözüm gösterir.</span>
+                        </div>
+
+                        <div class="calc-buttons">
+                            <button class="op-btn" onclick="doOp('add')">A + B</button>
+                            <button class="op-btn" onclick="doOp('sub')">A − B</button>
+                            <button class="op-btn" onclick="doOp('mul')">A × B</button>
+                            <button class="op-btn" onclick="doOp('scalarA')">k · A</button>
+                            <button class="op-btn" onclick="doOp('scalarB')">k · B</button>
+                            <button class="op-btn" onclick="doOp('transA')">Aᵀ</button>
+                            <button class="op-btn" onclick="doOp('transB')">Bᵀ</button>
+                            <button class="op-btn" onclick="doOp('detA')">det(A)</button>
+                            <button class="op-btn" onclick="doOp('invA')">A⁻¹</button>
+                            <button class="op-btn" onclick="doOp('rankA')">rank(A)</button>
+                            <button class="op-btn" onclick="doOp('rrefA')">EBİF (A)</button>
+                            <button class="op-btn primary" onclick="doOp('solve')">Ax = b Çöz</button>
+                            <button class="op-btn ghost" onclick="doOp('swap')">A ↔ B</button>
+                            <button class="op-btn ghost" onclick="doOp('clear')">Temizle</button>
+                        </div>
+
+                        <div class="calc-result" id="calc-result">
+                            <div class="result-label">Sonuç</div>
+                            <p class="result-hint">Bir işlem seç; sonuç burada görünecek.</p>
+                        </div>
+
+                        <p style="margin-top: 0.9rem; font-size: 0.82rem; color: #94a3b8;">
+                            <strong>İpucu:</strong> <em>Ax = b</em> çözümünde <strong>A</strong> katsayı matrisi, <strong>B</strong> ise sağ taraf vektörüdür (B'nin ilk sütunu kullanılır; B'nin satır sayısı A ile aynı olmalı). Ondalık için nokta kullan (örn. <code>1.5</code>) veya kesir yaz (örn. <code>3/4</code>).
+                        </p>
+                    </div>
+
+                    <!-- ############################################################
+                         BÖLÜM 1  —  Systems of Linear Equations
+                         ############################################################ -->
+
+                    <div id="bolum-1" class="section chapter-head">
+                        <div class="section-title">BÖLÜM 1: Systems of Linear Equations</div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="bolum-1-1" class="section placeholder">
+                        <div class="section-title">1.1 &nbsp;Introduction</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-2" class="section placeholder">
+                        <div class="section-title">1.2 &nbsp;Linear Equations, Solutions</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-3" class="section placeholder">
+                        <div class="section-title">1.3 &nbsp;Linear Equations in Two Unknowns</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-4" class="section placeholder">
+                        <div class="section-title">1.4 &nbsp;Systems of Linear Equations, Equivalent Systems, Elementary Operations</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-5" class="section placeholder">
+                        <div class="section-title">1.5 &nbsp;Systems in Triangular and Echelon Form</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-6" class="section placeholder">
+                        <div class="section-title">1.6 &nbsp;Reduction Algorithm</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-7" class="section placeholder">
+                        <div class="section-title">1.7 &nbsp;Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-8" class="section placeholder">
+                        <div class="section-title">1.8 &nbsp;Row Equivalence and Elementary Row Operations</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-9" class="section placeholder">
+                        <div class="section-title">1.9 &nbsp;Systems of Linear Equations and Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-1-10" class="section placeholder">
+                        <div class="section-title">1.10 &nbsp;Homogeneous Systems of Linear Equations</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+
+                    <!-- ############################################################
+                         BÖLÜM 2  —  Vectors in Rⁿ and Cⁿ, Spatial Vectors
+                         ############################################################ -->
+
+                    <div id="bolum-2" class="section chapter-head">
+                        <div class="section-title">BÖLÜM 2: Vectors in R<sup>n</sup> and C<sup>n</sup>, Spatial Vectors</div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="bolum-2-1" class="section placeholder">
+                        <div class="section-title">2.1 &nbsp;Introduction</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-2" class="section placeholder">
+                        <div class="section-title">2.2 &nbsp;Vectors in R<sup>n</sup></div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-3" class="section placeholder">
+                        <div class="section-title">2.3 &nbsp;Vector Addition and Scalar Multiplication</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-4" class="section placeholder">
+                        <div class="section-title">2.4 &nbsp;Vectors and Linear Equations</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-5" class="section placeholder">
+                        <div class="section-title">2.5 &nbsp;Dot (Scalar) Product</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-6" class="section placeholder">
+                        <div class="section-title">2.6 &nbsp;Norm of a Vector</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-7" class="section placeholder">
+                        <div class="section-title">2.7 &nbsp;Located Vectors, Hyperplanes, and Lines in R<sup>n</sup></div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-8" class="section placeholder">
+                        <div class="section-title">2.8 &nbsp;Spatial Vectors, ijk Notation in R<sup>3</sup></div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-9" class="section placeholder">
+                        <div class="section-title">2.9 &nbsp;Complex Numbers</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-2-10" class="section placeholder">
+                        <div class="section-title">2.10 &nbsp;Vectors in C<sup>n</sup></div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+
+                    <!-- ############################################################
+                         BÖLÜM 3  —  Matrices
+                         ############################################################ -->
+
+                    <div id="bolum-3" class="section chapter-head">
+                        <div class="section-title">BÖLÜM 3: Matrices</div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="bolum-3-1" class="section placeholder">
+                        <div class="section-title">3.1 &nbsp;Introduction</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-3-2" class="section placeholder">
+                        <div class="section-title">3.2 &nbsp;Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-3-3" class="section placeholder">
+                        <div class="section-title">3.3 &nbsp;Matrix Addition and Scalar Multiplication</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-3-4" class="section placeholder">
+                        <div class="section-title">3.4 &nbsp;Matrix Multiplication</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-3-5" class="section placeholder">
+                        <div class="section-title">3.5 &nbsp;Transpose of a Matrix</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-3-6" class="section placeholder">
+                        <div class="section-title">3.6 &nbsp;Matrices and Systems of Linear Equations</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-3-7" class="section placeholder">
+                        <div class="section-title">3.7 &nbsp;Block Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+
+                    <!-- ############################################################
+                         BÖLÜM 4  —  Square Matrices, Elementary Matrices
+                         ############################################################ -->
+
+                    <div id="bolum-4" class="section chapter-head">
+                        <div class="section-title">BÖLÜM 4: Square Matrices, Elementary Matrices</div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="bolum-4-1" class="section placeholder">
+                        <div class="section-title">4.1 &nbsp;Introduction</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-2" class="section placeholder">
+                        <div class="section-title">4.2 &nbsp;Square Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-3" class="section placeholder">
+                        <div class="section-title">4.3 &nbsp;Diagonal and Trace, Identity Matrix</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-4" class="section placeholder">
+                        <div class="section-title">4.4 &nbsp;Powers of Matrices, Polynomials in Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-5" class="section placeholder">
+                        <div class="section-title">4.5 &nbsp;Invertible (Nonsingular) Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-6" class="section placeholder">
+                        <div class="section-title">4.6 &nbsp;Special Types of Square Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-7" class="section placeholder">
+                        <div class="section-title">4.7 &nbsp;Complex Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-8" class="section placeholder">
+                        <div class="section-title">4.8 &nbsp;Square Block Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-9" class="section placeholder">
+                        <div class="section-title">4.9 &nbsp;Elementary Matrices and Applications</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-10" class="section placeholder">
+                        <div class="section-title">4.10 &nbsp;Elementary Column Operations, Matrix Equivalence</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-11" class="section placeholder">
+                        <div class="section-title">4.11 &nbsp;Congruent Symmetric Matrices, Law of Inertia</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-12" class="section placeholder">
+                        <div class="section-title">4.12 &nbsp;Quadratic Forms</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-13" class="section placeholder">
+                        <div class="section-title">4.13 &nbsp;Similarity</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-4-14" class="section placeholder">
+                        <div class="section-title">4.14 &nbsp;LU Factorization</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+
+                    <!-- ############################################################
+                         BÖLÜM 5  —  Vector Spaces
+                         ############################################################ -->
+
+                    <div id="bolum-5" class="section chapter-head">
+                        <div class="section-title">BÖLÜM 5: Vector Spaces</div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="bolum-5-1" class="section placeholder">
+                        <div class="section-title">5.1 &nbsp;Introduction</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-2" class="section placeholder">
+                        <div class="section-title">5.2 &nbsp;Vector Spaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-3" class="section placeholder">
+                        <div class="section-title">5.3 &nbsp;Examples of Vector Spaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-4" class="section placeholder">
+                        <div class="section-title">5.4 &nbsp;Subspaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-5" class="section placeholder">
+                        <div class="section-title">5.5 &nbsp;Linear Combinations, Linear Spans</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-6" class="section placeholder">
+                        <div class="section-title">5.6 &nbsp;Linear Dependence and Independence</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-7" class="section placeholder">
+                        <div class="section-title">5.7 &nbsp;Basis and Dimension</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-8" class="section placeholder">
+                        <div class="section-title">5.8 &nbsp;Linear Equations and Vector Spaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-9" class="section placeholder">
+                        <div class="section-title">5.9 &nbsp;Sums and Direct Sums</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-10" class="section placeholder">
+                        <div class="section-title">5.10 &nbsp;Coordinates</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-5-11" class="section placeholder">
+                        <div class="section-title">5.11 &nbsp;Change of Basis</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+
+                    <!-- ############################################################
+                         BÖLÜM 6  —  Inner Product Spaces, Orthogonality
+                         ############################################################ -->
+
+                    <div id="bolum-6" class="section chapter-head">
+                        <div class="section-title">BÖLÜM 6: Inner Product Spaces, Orthogonality</div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="bolum-6-1" class="section placeholder">
+                        <div class="section-title">6.1 &nbsp;Introduction</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-2" class="section placeholder">
+                        <div class="section-title">6.2 &nbsp;Inner Product Spaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-3" class="section placeholder">
+                        <div class="section-title">6.3 &nbsp;Cauchy-Schwarz Inequality, Applications</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-4" class="section placeholder">
+                        <div class="section-title">6.4 &nbsp;Orthogonality</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-5" class="section placeholder">
+                        <div class="section-title">6.5 &nbsp;Orthogonal Sets and Bases, Projections</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-6" class="section placeholder">
+                        <div class="section-title">6.6 &nbsp;Gram-Schmidt Orthogonalization Process</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-7" class="section placeholder">
+                        <div class="section-title">6.7 &nbsp;Inner Products and Matrices</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-8" class="section placeholder">
+                        <div class="section-title">6.8 &nbsp;Complex Inner Product Spaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                    <div id="bolum-6-9" class="section placeholder">
+                        <div class="section-title">6.9 &nbsp;Normed Vector Spaces</div>
+                        <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+                </div>
+            </main>
+
+            <footer>
+                Lineer Cebir Ders Notları &mdash; İnteraktif Öğrenme
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        /* =====================================================================
+           MATRİS HESAP MAKİNESİ
+           ===================================================================== */
+
+        /* ---- Sayı ayrıştırma (ondalık veya kesir) ---- */
+        function parseNum(str) {
+            str = (str || '').toString().trim().replace(',', '.');
+            if (str === '' || str === '-') return 0;
+            if (str.indexOf('/') !== -1) {
+                var p = str.split('/');
+                var num = parseFloat(p[0]);
+                var den = parseFloat(p[1]);
+                if (isNaN(num) || isNaN(den) || den === 0) return NaN;
+                return num / den;
+            }
+            var v = parseFloat(str);
+            return isNaN(v) ? NaN : v;
+        }
+
+        /* ---- Sayıyı temiz göster ---- */
+        function fmt(x) {
+            if (Math.abs(x) < 1e-10) x = 0;
+            var r = Math.round(x * 1e6) / 1e6;
+            if (Object.is(r, -0)) r = 0;
+            return (r % 1 === 0) ? r.toString() : r.toFixed(4).replace(/0+$/, '').replace(/\.$/, '');
+        }
+
+        /* ---- Giriş ızgarası oluştur ---- */
+        function buildMatrix(which) {
+            var rows = parseInt(document.getElementById(which + '-rows').value, 10);
+            var cols = parseInt(document.getElementById(which + '-cols').value, 10);
+            var container = document.getElementById(which + '-inputs');
+            var old = {};
+            container.querySelectorAll('input').forEach(function (inp) {
+                old[inp.dataset.pos] = inp.value;
+            });
+            container.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+            var html = '';
+            for (var i = 0; i < rows; i++) {
+                for (var j = 0; j < cols; j++) {
+                    var pos = i + '_' + j;
+                    var val = old[pos] !== undefined ? old[pos] : '0';
+                    html += '<input type="text" data-pos="' + pos + '" value="' + val + '">';
+                }
+            }
+            container.innerHTML = html;
+        }
+
+        /* ---- Izgaradan matris oku ---- */
+        function readMatrix(which) {
+            var rows = parseInt(document.getElementById(which + '-rows').value, 10);
+            var cols = parseInt(document.getElementById(which + '-cols').value, 10);
+            var container = document.getElementById(which + '-inputs');
+            var m = [];
+            for (var i = 0; i < rows; i++) { m.push([]); for (var j = 0; j < cols; j++) m[i].push(0); }
+            var bad = false;
+            container.querySelectorAll('input').forEach(function (inp) {
+                var p = inp.dataset.pos.split('_');
+                var v = parseNum(inp.value);
+                if (isNaN(v)) bad = true;
+                m[+p[0]][+p[1]] = v;
+            });
+            return bad ? null : m;
+        }
+
+        /* ---- Matrisi köşeli parantezli HTML olarak göster ---- */
+        function matrixHTML(m) {
+            var body = '<table>';
+            for (var i = 0; i < m.length; i++) {
+                body += '<tr>';
+                for (var j = 0; j < m[i].length; j++) body += '<td>' + fmt(m[i][j]) + '</td>';
+                body += '</tr>';
+            }
+            body += '</table>';
+            return '<span class="matrix-out"><span class="bracket left"></span>' + body + '<span class="bracket right"></span></span>';
+        }
+
+        function showResult(label, html) {
+            document.getElementById('calc-result').innerHTML =
+                '<div class="result-label">' + label + '</div>' + html;
+        }
+        function showError(msg) {
+            showResult('Sonuç', '<p class="result-msg">⚠ ' + msg + '</p>');
+        }
+
+        /* ---- Matris işlemleri ---- */
+        function addSub(A, B, sign) {
+            if (A.length !== B.length || A[0].length !== B[0].length) return null;
+            return A.map(function (row, i) { return row.map(function (v, j) { return v + sign * B[i][j]; }); });
+        }
+        function scalarMul(A, k) {
+            return A.map(function (row) { return row.map(function (v) { return v * k; }); });
+        }
+        function multiply(A, B) {
+            if (A[0].length !== B.length) return null;
+            var res = [];
+            for (var i = 0; i < A.length; i++) {
+                res.push([]);
+                for (var j = 0; j < B[0].length; j++) {
+                    var s = 0;
+                    for (var k = 0; k < B.length; k++) s += A[i][k] * B[k][j];
+                    res[i].push(s);
+                }
+            }
+            return res;
+        }
+        function transpose(A) {
+            var res = [];
+            for (var j = 0; j < A[0].length; j++) { res.push([]); for (var i = 0; i < A.length; i++) res[j].push(A[i][j]); }
+            return res;
+        }
+        function determinant(A) {
+            var n = A.length;
+            var M = A.map(function (r) { return r.slice(); });
+            var det = 1;
+            for (var col = 0; col < n; col++) {
+                var piv = col;
+                for (var r = col + 1; r < n; r++) if (Math.abs(M[r][col]) > Math.abs(M[piv][col])) piv = r;
+                if (Math.abs(M[piv][col]) < 1e-12) return 0;
+                if (piv !== col) { var t = M[piv]; M[piv] = M[col]; M[col] = t; det = -det; }
+                det *= M[col][col];
+                for (var r2 = col + 1; r2 < n; r2++) {
+                    var f = M[r2][col] / M[col][col];
+                    for (var c = col; c < n; c++) M[r2][c] -= f * M[col][c];
+                }
+            }
+            return det;
+        }
+        /* Gauss-Jordan indirgeme; opsiyonel artırılmış sütun sayısı augCols */
+        function rref(A) {
+            var M = A.map(function (r) { return r.slice(); });
+            var rows = M.length, cols = M[0].length, lead = 0;
+            for (var r = 0; r < rows; r++) {
+                if (lead >= cols) break;
+                var i = r;
+                while (Math.abs(M[i][lead]) < 1e-12) {
+                    i++;
+                    if (i === rows) { i = r; lead++; if (lead === cols) return M; }
+                }
+                var tmp = M[i]; M[i] = M[r]; M[r] = tmp;
+                var lv = M[r][lead];
+                for (var j = 0; j < cols; j++) M[r][j] /= lv;
+                for (var k = 0; k < rows; k++) {
+                    if (k === r) continue;
+                    var f = M[k][lead];
+                    for (var j2 = 0; j2 < cols; j2++) M[k][j2] -= f * M[r][j2];
+                }
+                lead++;
+            }
+            return M;
+        }
+        function rank(A) {
+            var R = rref(A), rk = 0;
+            for (var i = 0; i < R.length; i++) {
+                var nonzero = R[i].some(function (v) { return Math.abs(v) > 1e-10; });
+                if (nonzero) rk++;
+            }
+            return rk;
+        }
+        function inverse(A) {
+            var n = A.length;
+            if (n !== A[0].length) return null;
+            var M = A.map(function (r, i) {
+                return r.slice().concat(Array.from({ length: n }, function (_, j) { return i === j ? 1 : 0; }));
+            });
+            var R = rref(M);
+            for (var i = 0; i < n; i++) if (Math.abs(R[i][i] - 1) > 1e-8) return null; // tekil
+            return R.map(function (row) { return row.slice(n); });
+        }
+
+        /* ===== ADIM ADIM ÇÖZÜM ===== */
+        function stepsOn() { return document.getElementById('show-steps').checked; }
+        function snap(M) { return M.map(function (r) { return r.slice(); }); }
+        function op(s) { return '<span class="step-op">' + s + '</span>'; }
+
+        function renderSteps(steps) {
+            var h = '<div class="steps-wrap">';
+            for (var i = 0; i < steps.length; i++) {
+                var cls = steps[i].final ? 'step-card step-final' : 'step-card';
+                var no = steps[i].final ? '<span class="step-no">Sonuç</span>' : '<span class="step-no">Adım ' + (i + 1) + '</span>';
+                h += '<div class="' + cls + '"><div class="step-head">' + no + steps[i].desc + '</div>' +
+                    (steps[i].M ? matrixHTML(steps[i].M) : '') + '</div>';
+            }
+            return h + '</div>';
+        }
+
+        /* Gauss-Jordan indirgeme — adımları kaydeder. pivotCols: pivot aranacak sütun sayısı. */
+        function gjSteps(M, pivotCols) {
+            M = snap(M);
+            var rows = M.length, cols = M[0].length;
+            if (pivotCols == null) pivotCols = cols;
+            var steps = [], lead = 0;
+            for (var r = 0; r < rows; r++) {
+                if (lead >= pivotCols) break;
+                var i = r;
+                while (Math.abs(M[i][lead]) < 1e-12) {
+                    i++;
+                    if (i === rows) { i = r; lead++; if (lead === pivotCols) return { M: M, steps: steps }; }
+                }
+                if (i !== r) {
+                    var t = M[i]; M[i] = M[r]; M[r] = t;
+                    steps.push({ desc: op('R' + (r + 1) + ' ↔ R' + (i + 1)) + ' — pivot 0 olmasın diye satırları yer değiştir.', M: snap(M) });
+                }
+                var lv = M[r][lead];
+                if (Math.abs(lv - 1) > 1e-12) {
+                    for (var j = 0; j < cols; j++) M[r][j] /= lv;
+                    steps.push({ desc: op('R' + (r + 1) + ' → (1/' + fmt(lv) +')·R' + (r + 1)) + ' — pivotu 1 yap.', M: snap(M) });
+                }
+                var elim = [];
+                for (var k = 0; k < rows; k++) {
+                    if (k === r) continue;
+                    var f = M[k][lead];
+                    if (Math.abs(f) > 1e-12) {
+                        for (var j2 = 0; j2 < cols; j2++) M[k][j2] -= f * M[r][j2];
+                        elim.push(op('R' + (k + 1) + ' → R' + (k + 1) + ' − (' + fmt(f) + ')·R' + (r + 1)));
+                    }
+                }
+                if (elim.length) steps.push({ desc: elim.join('&nbsp; ') + ' — ' + (lead + 1) + '. sütunu pivot dışında sıfırla.', M: snap(M) });
+                lead++;
+            }
+            return { M: M, steps: steps };
+        }
+
+        /* Determinant — üst üçgene indirgeyerek, adımlarla */
+        function detSteps(A) {
+            var n = A.length, M = snap(A), det = 1, steps = [], swaps = 0;
+            for (var col = 0; col < n; col++) {
+                var piv = col;
+                for (var r = col + 1; r < n; r++) if (Math.abs(M[r][col]) > Math.abs(M[piv][col])) piv = r;
+                if (Math.abs(M[piv][col]) < 1e-12) {
+                    steps.push({ desc: (col + 1) + '. sütunda pivot bulunamadı (tüm altı sıfır) → determinant 0.', M: snap(M) });
+                    steps.push({ final: true, desc: 'det(A) = <strong>0</strong>' });
+                    return { det: 0, steps: steps };
+                }
+                if (piv !== col) {
+                    var t = M[piv]; M[piv] = M[col]; M[col] = t; det = -det; swaps++;
+                    steps.push({ desc: op('R' + (col + 1) + ' ↔ R' + (piv + 1)) + ' — satır değişimi işareti çevirir: ×(−1).', M: snap(M) });
+                }
+                var elim = [];
+                for (var r2 = col + 1; r2 < n; r2++) {
+                    var f = M[r2][col] / M[col][col];
+                    if (Math.abs(f) > 1e-12) {
+                        for (var c = col; c < n; c++) M[r2][c] -= f * M[col][c];
+                        elim.push(op('R' + (r2 + 1) + ' → R' + (r2 + 1) + ' − (' + fmt(f) + ')·R' + (col + 1)));
+                    }
+                }
+                if (elim.length) steps.push({ desc: elim.join('&nbsp; ') + ' — ' + (col + 1) + '. sütunun altını sıfırla (determinant değişmez).', M: snap(M) });
+            }
+            var diag = [];
+            for (var d = 0; d < n; d++) { det *= M[d][d]; diag.push(fmt(M[d][d])); }
+            steps.push({
+                final: true,
+                desc: 'Üst üçgen matrisin köşegen çarpımı' + (swaps ? ' × (−1)<sup>' + swaps + '</sup>' : '') +
+                    ' = ' + diag.join(' × ') + (swaps ? ' × (−1)<sup>' + swaps + '</sup>' : '') +
+                    ' = <strong>det(A) = ' + fmt(det) + '</strong>'
+            });
+            return { det: det, steps: steps };
+        }
+
+        /* Matris çarpımı — her eleman için nokta çarpımını gösterir */
+        function mulSteps(A, B) {
+            var res = multiply(A, B);
+            var lines = '';
+            for (var i = 0; i < A.length; i++) {
+                for (var j = 0; j < B[0].length; j++) {
+                    var terms = [];
+                    for (var k = 0; k < B.length; k++) terms.push('(' + fmt(A[i][k]) + '·' + fmt(B[k][j]) + ')');
+                    lines += '<div style="margin:0.2rem 0;">' + op('c' + (i + 1) + (j + 1)) + ' = ' +
+                        terms.join(' + ') + ' = <strong>' + fmt(res[i][j]) + '</strong></div>';
+                }
+            }
+            return { res: res, html: '<p class="result-hint">Her eleman, A\'nın satırı ile B\'nin sütununun nokta çarpımıdır (c<sub>ij</sub> = Σ a<sub>ik</sub>·b<sub>kj</sub>):</p>' + lines };
+        }
+
+        /* ---- Ana işlem yürütücü ---- */
+        function doOp(op) {
+            if (op === 'clear') {
+                document.querySelectorAll('#a-inputs input, #b-inputs input').forEach(function (i) { i.value = '0'; });
+                showResult('Sonuç', '<p class="result-hint">Bir işlem seç; sonuç burada görünecek.</p>');
+                return;
+            }
+            if (op === 'swap') {
+                ['rows', 'cols'].forEach(function (d) {
+                    var a = document.getElementById('a-' + d), b = document.getElementById('b-' + d);
+                    var t = a.value; a.value = b.value; b.value = t;
+                });
+                var av = [], bv = [];
+                document.querySelectorAll('#a-inputs input').forEach(function (i) { av.push(i.value); });
+                document.querySelectorAll('#b-inputs input').forEach(function (i) { bv.push(i.value); });
+                buildMatrix('a'); buildMatrix('b');
+                document.querySelectorAll('#a-inputs input').forEach(function (i, k) { if (bv[k] !== undefined) i.value = bv[k]; });
+                document.querySelectorAll('#b-inputs input').forEach(function (i, k) { if (av[k] !== undefined) i.value = av[k]; });
+                showResult('Sonuç', '<p class="result-hint">A ile B yer değiştirdi.</p>');
+                return;
+            }
+
+            var A = readMatrix('a'), B = readMatrix('b'), k = parseNum(document.getElementById('scalar-k').value);
+            if (A === null || B === null) { showError('Geçersiz sayı girişi var. Lütfen kontrol et (ondalık için nokta, kesir için a/b).'); return; }
+            var res;
+
+            switch (op) {
+                case 'add':
+                    res = addSub(A, B, 1);
+                    if (!res) return showError('Toplama için A ve B aynı boyutta olmalı.');
+                    return showResult('A + B', matrixHTML(res));
+                case 'sub':
+                    res = addSub(A, B, -1);
+                    if (!res) return showError('Çıkarma için A ve B aynı boyutta olmalı.');
+                    return showResult('A − B', matrixHTML(res));
+                case 'mul':
+                    res = multiply(A, B);
+                    if (!res) return showError('A × B için A\'nın sütun sayısı = B\'nin satır sayısı olmalı.');
+                    if (stepsOn()) { var ms = mulSteps(A, B); return showResult('A × B', matrixHTML(ms.res) + ms.html); }
+                    return showResult('A × B', matrixHTML(res));
+                case 'scalarA':
+                    if (isNaN(k)) return showError('Skaler k geçersiz.');
+                    return showResult(fmt(k) + ' · A', matrixHTML(scalarMul(A, k)));
+                case 'scalarB':
+                    if (isNaN(k)) return showError('Skaler k geçersiz.');
+                    return showResult(fmt(k) + ' · B', matrixHTML(scalarMul(B, k)));
+                case 'transA':
+                    return showResult('Aᵀ (transpoz)', matrixHTML(transpose(A)));
+                case 'transB':
+                    return showResult('Bᵀ (transpoz)', matrixHTML(transpose(B)));
+                case 'detA':
+                    if (A.length !== A[0].length) return showError('Determinant yalnızca kare matris için tanımlıdır.');
+                    if (stepsOn()) { var ds = detSteps(A); return showResult('det(A) — adım adım', '<span class="scalar-out">' + fmt(ds.det) + '</span>' + renderSteps(ds.steps)); }
+                    return showResult('det(A)', '<span class="scalar-out">' + fmt(determinant(A)) + '</span>');
+                case 'rankA':
+                    return showResult('rank(A)', '<span class="scalar-out">' + rank(A) + '</span>' +
+                        '<p class="result-hint" style="margin-top:0.4rem;">Satır indirgenmiş formdaki sıfır olmayan satır sayısı.</p>');
+                case 'rrefA':
+                    if (stepsOn()) { var rs = gjSteps(A); rs.steps.push({ final: true, desc: 'Satır İndirgenmiş Basamak Form (EBİF) elde edildi.', M: rs.M }); return showResult('EBİF (A) — adım adım', renderSteps(rs.steps)); }
+                    return showResult('EBİF — Satır İndirgenmiş Basamak Form (A)', matrixHTML(rref(A)));
+                case 'invA':
+                    if (A.length !== A[0].length) return showError('Ters yalnızca kare matris için tanımlıdır.');
+                    var det = determinant(A);
+                    if (Math.abs(det) < 1e-10) return showError('A tekildir (det = 0), tersi yoktur.');
+                    if (stepsOn()) {
+                        var n2 = A.length;
+                        var augI = A.map(function (row, i) { return row.slice().concat(Array.from({ length: n2 }, function (_, j) { return i === j ? 1 : 0; })); });
+                        var is = gjSteps(augI, n2);
+                        var invR = is.M.map(function (row) { return row.slice(n2); });
+                        is.steps.unshift({ desc: 'Genişletilmiş matris [ A | I ] kurulur; Gauss-Jordan ile sol taraf I yapılır, sağ tarafta A⁻¹ oluşur.', M: snap(augI) });
+                        is.steps.push({ final: true, desc: 'Sol taraf birim matris → sağ taraf <strong>A⁻¹</strong>:', M: invR });
+                        return showResult('A⁻¹ — adım adım', renderSteps(is.steps));
+                    }
+                    return showResult('A⁻¹ (ters matris)', matrixHTML(inverse(A)) +
+                        '<p class="result-hint" style="margin-top:0.4rem;">det(A) = ' + fmt(det) + '</p>');
+                case 'solve':
+                    return solveSystem(A, B);
+            }
+        }
+
+        /* ---- Ax = b denklem sistemi çözümü ---- */
+        function solveSystem(A, B) {
+            if (B.length !== A.length) return showError('Ax = b için B\'nin satır sayısı A ile aynı olmalı (b, A\'nın satır sayısı kadar).');
+            var b = B.map(function (row) { return [row[0]]; }); // ilk sütun = b vektörü
+            var n = A.length, vars = A[0].length;
+            var aug = A.map(function (row, i) { return row.slice().concat(b[i]); });
+
+            var stepsHTML = '';
+            var R;
+            if (stepsOn()) {
+                var gs = gjSteps(aug, vars);
+                R = gs.M;
+                gs.steps.unshift({ desc: 'Genişletilmiş matris [ A | b ] kurulur ve Gauss-Jordan yöntemiyle indirgenir.', M: snap(aug) });
+                stepsHTML = renderSteps(gs.steps);
+            } else {
+                R = rref(aug);
+            }
+
+            // Tutarsızlık kontrolü: [0 ... 0 | c], c ≠ 0
+            for (var i = 0; i < n; i++) {
+                var allZero = true;
+                for (var j = 0; j < vars; j++) if (Math.abs(R[i][j]) > 1e-10) { allZero = false; break; }
+                if (allZero && Math.abs(R[i][vars]) > 1e-10) {
+                    return showResult('Ax = b', '<p class="result-note">Sistem TUTARSIZ — çözümü yok.</p>' +
+                        '<p class="result-hint">Genişletilmiş matrisin EBİF\'inde [0 … 0 | c≠0] satırı var.</p>' +
+                        (stepsHTML || matrixHTML(R)));
+                }
+            }
+            var rk = rank(A);
+            if (rk < vars) {
+                return showResult('Ax = b', '<p class="result-note">SONSUZ çözüm var (' + (vars - rk) + ' serbest değişken).</p>' +
+                    '<p class="result-hint">rank(A) = ' + rk + ' &lt; bilinmeyen sayısı = ' + vars + '. Genişletilmiş matrisin EBİF hali:</p>' +
+                    (stepsHTML || matrixHTML(R)));
+            }
+            // Tek çözüm: pivot satırlarındaki son sütun
+            var x = [];
+            for (var v = 0; v < vars; v++) x.push([R[v][vars]]);
+            var lbl = [];
+            for (var s = 0; s < vars; s++) lbl.push('x<sub>' + (s + 1) + '</sub> = ' + fmt(x[s][0]));
+            return showResult('Ax = b — TEK çözüm', matrixHTML(x) +
+                '<p class="result-hint" style="margin-top:0.5rem;">' + lbl.join(' &nbsp;•&nbsp; ') + '</p>' + stepsHTML);
+        }
+
+        // Başlangıçta ızgaraları kur
+        buildMatrix('a');
+        buildMatrix('b');
+
+        /* ---- Cevap göster / gizle ---- */
+        function toggleAnswer(btn) {
+            var answer = btn.parentElement.querySelector('.answer');
+            if (!answer) return;
+            var isVisible = answer.classList.contains('visible');
+            answer.classList.toggle('visible');
+            btn.textContent = isVisible ? 'Cevabı Göster' : 'Cevabı Gizle';
+        }
+
+        /* ---- Sidebar bölüm aç / kapa ---- */
+        function toggleChapter(btn) {
+            btn.classList.toggle('open');
+            var list = btn.nextElementSibling;
+            if (list) list.classList.toggle('open');
+        }
+
+        /* ---- Mobil sidebar ---- */
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+            document.querySelector('.sidebar-overlay').classList.toggle('open');
+        }
+
+        /* ---- Scroll-spy: aktif bölümü sidebar'da vurgula ---- */
+        (function () {
+            var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar-nav a'));
+            var pairs = [];
+
+            links.forEach(function (link) {
+                var href = link.getAttribute('href');
+                if (href && href.charAt(0) === '#') {
+                    var el = document.querySelector(href);
+                    if (el) pairs.push({ el: el, link: link });
+                }
+            });
+
+            if (!pairs.length) return;
+
+            function setActive(link) {
+                links.forEach(function (l) { l.classList.remove('active'); });
+                link.classList.add('active');
+
+                // Aktif linkin bölümü kapalıysa aç
+                var list = link.closest('.chapter-links');
+                if (list && !list.classList.contains('open')) {
+                    list.classList.add('open');
+                    var toggle = list.previousElementSibling;
+                    if (toggle) toggle.classList.add('open');
+                }
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    pairs.forEach(function (p) {
+                        if (p.el === entry.target) setActive(p.link);
+                    });
+                });
+            }, { rootMargin: '-10% 0px -80% 0px' });
+
+            pairs.forEach(function (p) { observer.observe(p.el); });
+
+            // Linke tıklanınca: bölümü aç, mobilde menüyü kapat
+            links.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setActive(link);
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.sidebar').classList.remove('open');
+                        document.querySelector('.sidebar-overlay').classList.remove('open');
+                    }
+                });
+            });
+        })();
+
+        /* ---- Gece Modu (Dark Mode) ---- */
+        function toggleDarkMode() {
+            var isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeUI(isDark);
+        }
+
+        function updateThemeUI(isDark) {
+            var icon = document.getElementById('theme-icon');
+            var text = document.getElementById('theme-text');
+            if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+            if (text) text.textContent = isDark ? 'Gündüz Modu' : 'Gece Modu';
+        }
+
+        // Sayfa yüklendiğinde temayı hatırla / sistem tercihini uygula
+        (function initTheme() {
+            var savedTheme = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+            }
+            updateThemeUI(isDark);
+        })();
+    </script>
+
+</body>
+</html>

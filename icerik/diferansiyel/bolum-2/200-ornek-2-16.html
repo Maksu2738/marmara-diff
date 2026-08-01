@@ -1,0 +1,26 @@
+<!--@
+id: ornek-2-16
+-->
+                    <div id="ornek-2-16" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 2.16: Bağımlı ve Bağımsız Değişkenlerin Rolünü Değiştirme
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Soru:</strong> $y^{2}dx+(3xy-1)dy=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm Adımları:</strong> Denklem $\displaystyle \frac{dy}{dx}=\frac{y^{2}}{1-3xy}$ formunda yazıldığında $y$'ye göre doğrusal değildir, tam <em>(exact)</em> veya ayrılabilir de değildir. Ancak roller değiştirilip $x$ bağımlı değişken, $y$ bağımsız değişken kabul edilirse denklem:</p>
+                                $$\frac{dx}{dy}=\frac{1-3xy}{y^{2}} \implies \frac{dx}{dy}+\frac{3}{y}x=\frac{1}{y^{2}}$$
+                                <p>şekline gelir. Bu form, $x$'e göre doğrusaldır ve $\displaystyle P(y)=\frac{3}{y}$'dir.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegral çarpanı: $\displaystyle exp\left[\int\frac{3}{y}dy\right]=y^{3}$</p>
+                                <p>Denklemi $y^{3}$ ile çarpınca:</p>
+                                $$y^{3}\frac{dx}{dy}+3y^{2}x=y \implies \frac{d}{dy}[y^{3}x]=y$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>İntegral alırsak:</p>
+                                $$y^{3}x=\frac{y^{2}}{2}+c \implies x=\frac{1}{2y}+\frac{c}{y^{3}}$$
+                                <p>elde edilir.</p>
+                            </div>
+                        </div>
+                    </div>

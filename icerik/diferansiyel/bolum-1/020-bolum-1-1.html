@@ -1,0 +1,63 @@
+<!--@
+id: bolum-1-1
+menu: 1.1 Sınıflandırma, Köken ve Uygulama
+-->
+                    <div id="bolum-1-1" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            1.1 &nbsp;Diferansiyel Denklemlerin Sınıflandırılması; Kökenleri ve Uygulamaları
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Diferansiyel Denklemler ve Sınıflandırılmaları</h3>
+                        <p>Bir veya daha fazla <strong>bağımlı değişkenin</strong> (<em>dependent variable</em>), bir veya daha fazla <strong>bağımsız değişkene</strong> (<em>independent variable</em>) göre türevlerini barındıran denklemlere <strong>diferansiyel denklem</strong> (<em>differential equation</em>) adı verilir.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Not:</strong> $\frac{d}{dx}(e^{ax})=ae^{ax}$ gibi sadece türev özdeşliği belirten ifadeler bu sınıfa dahil edilmez.
+                        </div>
+
+                        <p>Diferansiyel denklemler içerdiği bağımsız değişken sayısına göre ikiye ayrılır:</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem;">
+                                <strong style="color: #7c3aed;">Adi Diferansiyel Denklem</strong><br>
+                                <em>(Ordinary Differential Equation)</em>
+                                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Bir veya daha fazla bağımlı değişkenin <u>tek bir</u> bağımsız değişkene göre adi türevlerini içeren diferansiyel denklemlerdir.</p>
+                            </div>
+                            <div style="background: #ecfdf5; border-radius: 10px; padding: 1.25rem;">
+                                <strong style="color: #059669;">Kısmi Diferansiyel Denklem</strong><br>
+                                <em>(Partial Differential Equation)</em>
+                                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Bir veya daha fazla bağımlı değişkenin, <u>birden fazla</u> bağımsız değişkene göre kısmi türevlerini içeren denklemlerdir.</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight">
+                            <strong>Mertebe (Order):</strong> Bir diferansiyel denklemde yer alan <u>en yüksek mertebeden türevin</u> mertebesine, o diferansiyel denklemin <strong>mertebesi</strong> denir.
+                        </div>
+
+                        <h4 style="margin: 1.25rem 0 0.5rem; color: #4a5568;">Doğrusallık Sınıflandırması</h4>
+
+                        <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem;">
+                            <strong style="color: #7c3aed;">Doğrusal Adi Diferansiyel Denklem</strong> (<em>Linear ODE</em>)
+                            <p style="margin: 0.5rem 0;">$y$ bağımlı ve $x$ bağımsız değişkeni içeren $n$. mertebeden bir denklem şu formda yazılabiliyorsa doğrusaldır:</p>
+                            $$a_{0}(x)\frac{d^{n}y}{dx^{n}}+a_{1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\cdots+a_{n-1}(x)\frac{dy}{dx}+a_{n}(x)y=b(x)$$
+                            <p style="margin-top: 0.5rem; font-size: 0.93rem;">Burada $a_{0}$ özdeş olarak sıfır değildir. Doğrusal bir denklemde:</p>
+                            <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.93rem;">
+                                <li>$y$ bağımlı değişkeni ve türevleri sadece <strong>birinci derecedendir</strong>,</li>
+                                <li>birbirleriyle <strong>çarpım durumunda bulunmazlar</strong>,</li>
+                                <li>hiçbirinin <strong>transandantal (aşkın) fonksiyonu</strong> denklemin içinde yer almaz.</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: #fff1f2; border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem;">
+                            <strong style="color: #e11d48;">Doğrusal Olmayan Adi Diferansiyel Denklem</strong> (<em>Nonlinear ODE</em>)
+                            <p style="margin-top: 0.5rem; font-size: 0.93rem;">Doğrusal olma şartlarını taşımayan diferansiyel denklemlerdir.</p>
+                        </div>
+
+                        <p style="font-size: 0.95rem;">Doğrusal denklemler de katsayılarına göre alt sınıflara ayrılır: katsayıları sabit değerler olanlara <strong>sabit katsayılı</strong> (<em>constant coefficients</em>), değişken fonksiyonlardan oluşanlara <strong>değişken katsayılı</strong> (<em>variable coefficients</em>) denir.</p>
+
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Diferansiyel Denklemlerin Kökeni ve Uygulaması</h3>
+                        <p>Diferansiyel denklemler bilim ve mühendislikte birçok problemin matematiksel formülasyonu sonucu ortaya çıkar. Örneğin; bir merminin veya gezegenin hareketini belirlemek, elektrik devrelerindeki akımı ölçmek, ısı iletimini hesaplamak, tel titreşimlerini, radyoaktif bozunmayı (<em>radioactive decomposition</em>) ve kimyasal reaksiyonları incelemek gibi pek çok olgu türevlerle, yani <strong>değişim oranlarıyla</strong> ifade edilir.</p>
+                        <p style="margin-top: 0.5rem;">Gerçek dünyadaki karmaşık durumlar <em>idealleştirilerek</em> basit denklemlere dönüştürülür ve bu matematiksel modeller bilim insanları için paha biçilmez bilgiler sunar.</p>
+                    </div>
+
+                    <!-- ===== 1.2 ===== -->

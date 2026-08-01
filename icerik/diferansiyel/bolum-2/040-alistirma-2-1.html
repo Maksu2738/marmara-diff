@@ -1,0 +1,338 @@
+<!--@
+id: alistirma-2-1
+menu: Alıştırmalar 2.1
+-->
+                    <div id="alistirma-2-1" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 2.1
+                        </div>
+
+                        <p style="margin-bottom: 1rem;"><strong>1&ndash;10:</strong> Aşağıdaki denklemlerin tam olup olmadığını belirleyiniz; tam olanları çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">1. &nbsp; $(3x+2y)dx+(2x+y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=2=\frac{\partial N}{\partial x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=\int(3x+2y)\partial x=\frac{3x^{2}}{2}+2xy+\phi(y)$</p>
+                                <p>$F_{y}=2x+\phi'=2x+y \implies \phi=\frac{y^{2}}{2}$</p>
+                                <p><strong>Çözüm:</strong> $3x^{2}+4xy+y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. &nbsp; $(y^{2}+3)dx+(2xy-4)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=2y=\frac{\partial N}{\partial x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=xy^{2}+3x+\phi(y)$, &nbsp; $F_{y}=2xy+\phi'=2xy-4 \implies \phi=-4y$</p>
+                                <p><strong>Çözüm:</strong> $xy^{2}+3x-4y=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3. &nbsp; $(2xy+1)dx+(x^{2}+4y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=2x=\frac{\partial N}{\partial x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=x^{2}y+x+\phi(y)$, &nbsp; $F_{y}=x^{2}+\phi'=x^{2}+4y \implies \phi=2y^{2}$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}y+x+2y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $(3x^{2}y+2)dx-(x^{3}+y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M=3x^{2}y+2$, &nbsp; $N=-(x^{3}+y)$</p>
+                                <p>$\frac{\partial M}{\partial y}=3x^{2}$, &nbsp; $\frac{\partial N}{\partial x}=-3x^{2}$</p>
+                                <p>$3x^{2} \ne -3x^{2}$ &rarr; <strong>tam değildir</strong>. &cross;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $(6xy+2y^{2}-5)dx+(3x^{2}+4xy-6)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=6x+4y=\frac{\partial N}{\partial x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=3x^{2}y+2xy^{2}-5x+\phi(y)$</p>
+                                <p>$F_{y}=3x^{2}+4xy+\phi'=3x^{2}+4xy-6 \implies \phi=-6y$</p>
+                                <p><strong>Çözüm:</strong> $3x^{2}y+2xy^{2}-5x-6y=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $(\theta^{2}+1)\cos r\,dr+2\theta \sin r\,d\theta=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M=(\theta^{2}+1)\cos r$, &nbsp; $N=2\theta \sin r$</p>
+                                <p>$\frac{\partial M}{\partial \theta}=2\theta \cos r=\frac{\partial N}{\partial r}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=\int(\theta^{2}+1)\cos r\,\partial r=(\theta^{2}+1)\sin r+\phi(\theta)$</p>
+                                <p>$F_{\theta}=2\theta \sin r+\phi'=2\theta \sin r \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $(\theta^{2}+1)\sin r=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $(y \sec^{2}x+\sec x \tan x)dx+(\tan x+2y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=\sec^{2}x=\frac{\partial N}{\partial x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=\int(y \sec^{2}x+\sec x \tan x)\partial x=y \tan x+\sec x+\phi(y)$</p>
+                                <p>$F_{y}=\tan x+\phi'=\tan x+2y \implies \phi=y^{2}$</p>
+                                <p><strong>Çözüm:</strong> $y \tan x+\sec x+y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $\displaystyle\left(\frac{x}{y^{2}}+x\right)dx+\left(\frac{x^{2}}{y^{3}}+y\right)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\displaystyle\frac{\partial M}{\partial y}=-\frac{2x}{y^{3}}$, &nbsp; $\displaystyle\frac{\partial N}{\partial x}=\frac{2x}{y^{3}}$</p>
+                                <p>$-\frac{2x}{y^{3}} \ne \frac{2x}{y^{3}}$ &rarr; <strong>tam değildir</strong>. &cross;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $dy$ teriminin işareti $-\frac{x^{2}}{y^{3}}$ olsaydı denklem tam olurdu ve çözüm $\frac{x^{2}}{2y^{2}}+\frac{x^{2}}{2}+\frac{y^{2}}{2}$ türünde bir ifadeye indirgenirdi. Kaynağınızdaki işareti kontrol ediniz.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $\displaystyle\left(\frac{2s-1}{t}\right)ds+\left(\frac{s-s^{2}}{t^{2}}\right)dt=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\displaystyle\frac{\partial M}{\partial t}=-\frac{2s-1}{t^{2}}$, &nbsp; $\displaystyle\frac{\partial N}{\partial s}=\frac{1-2s}{t^{2}}=-\frac{2s-1}{t^{2}}$</p>
+                                <p>Eşit &rarr; <strong>tamdır</strong>. &check;</p>
+                                <p>$\displaystyle F=\int\frac{2s-1}{t}\,\partial s=\frac{s^{2}-s}{t}+\phi(t)$</p>
+                                <p>$\displaystyle F_{t}=-\frac{s^{2}-s}{t^{2}}+\phi'=\frac{s-s^{2}}{t^{2}} \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\frac{s^{2}-s}{t}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $\displaystyle\frac{2y^{3/2}+1}{x^{1/2}}dx+(3x^{1/2}y^{1/2}-1)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\displaystyle\frac{\partial M}{\partial y}=\frac{3y^{1/2}}{x^{1/2}}$, &nbsp; $\displaystyle\frac{\partial N}{\partial x}=\frac{3y^{1/2}}{2x^{1/2}}$</p>
+                                <p>Bu iki ifade eşit değildir &rarr; <strong>tam değildir</strong>. &cross;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $M$'nin paydası $2x^{1/2}$ olsaydı denklem tam olur ve çözüm $2x^{1/2}y^{3/2}+2x^{1/2}-y=c$ formunda çıkardı. Kaynağınızdaki katsayıyı kontrol ediniz.</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>11&ndash;16:</strong> Aşağıdaki başlangıç değer problemlerini çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">11. &nbsp; $(2xy-3)dx+(x^{2}+4y)dy=0$, &nbsp; $y(1)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=2x=\frac{\partial N}{\partial x}$ &rarr; tamdır.</p>
+                                <p>$F=x^{2}y-3x+\phi(y)$, &nbsp; $F_{y}=x^{2}+\phi'=x^{2}+4y \implies \phi=2y^{2}$</p>
+                                <p>Aile: $x^{2}y-3x+2y^{2}=c$</p>
+                                <p>$x=1,\;y=2$: &nbsp; $2-3+8=7$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}y-3x+2y^{2}=7$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12. &nbsp; $(3x^{2}y^{2}-y^{3}+2x)dx+(2x^{3}y-3xy^{2}+1)dy=0$, &nbsp; $y(-2)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=6x^{2}y-3y^{2}=\frac{\partial N}{\partial x}$ &rarr; tamdır.</p>
+                                <p>$F=x^{3}y^{2}-xy^{3}+x^{2}+\phi(y)$</p>
+                                <p>$F_{y}=2x^{3}y-3xy^{2}+\phi'=2x^{3}y-3xy^{2}+1 \implies \phi=y$</p>
+                                <p>Aile: $x^{3}y^{2}-xy^{3}+x^{2}+y=c$</p>
+                                <p>$x=-2,\;y=1$: &nbsp; $-8+2+4+1=-1$</p>
+                                <p><strong>Çözüm:</strong> $x^{3}y^{2}-xy^{3}+x^{2}+y=-1$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13. &nbsp; $(2y \sin x \cos x+y^{2}\sin x)dx+(\sin^{2}x-2y \cos x)dy=0$, &nbsp; $y(0)=3$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=2\sin x \cos x+2y \sin x=\frac{\partial N}{\partial x}$ &rarr; tamdır.</p>
+                                <p>$F=y \sin^{2}x-y^{2}\cos x+\phi(y)$</p>
+                                <p>$F_{y}=\sin^{2}x-2y \cos x+\phi' \implies \phi'=0$</p>
+                                <p>Aile: $y \sin^{2}x-y^{2}\cos x=c$</p>
+                                <p>$x=0,\;y=3$: &nbsp; $0-9(1)=-9$</p>
+                                <p><strong>Çözüm:</strong> $y \sin^{2}x-y^{2}\cos x=-9$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $(ye^{x}+2e^{x}+y^{2})dx+(e^{x}+2xy)dy=0$, &nbsp; $y(0)=6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\frac{\partial M}{\partial y}=e^{x}+2y=\frac{\partial N}{\partial x}$ &rarr; tamdır.</p>
+                                <p>$F=ye^{x}+2e^{x}+xy^{2}+\phi(y)$</p>
+                                <p>$F_{y}=e^{x}+2xy+\phi' \implies \phi'=0$</p>
+                                <p>Aile: $ye^{x}+2e^{x}+xy^{2}=c$</p>
+                                <p>$x=0,\;y=6$: &nbsp; $6+2+0=8$</p>
+                                <p><strong>Çözüm:</strong> $ye^{x}+2e^{x}+xy^{2}=8$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $\displaystyle\left(\frac{3-y}{x^{2}}\right)dx+\left(\frac{y^{2}-2x}{xy^{2}}\right)dy=0$, &nbsp; $y(-1)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M=3x^{-2}-yx^{-2}$, &nbsp; $\displaystyle N=\frac{1}{x}-\frac{2}{y^{2}}$</p>
+                                <p>$\displaystyle\frac{\partial M}{\partial y}=-\frac{1}{x^{2}}=\frac{\partial N}{\partial x}$ &rarr; tamdır.</p>
+                                <p>$\displaystyle F=-\frac{3}{x}+\frac{y}{x}+\phi(y)=\frac{y-3}{x}+\phi(y)$</p>
+                                <p>$\displaystyle F_{y}=\frac{1}{x}+\phi'=\frac{1}{x}-\frac{2}{y^{2}} \implies \phi=\frac{2}{y}$</p>
+                                <p>Aile: $\displaystyle\frac{y-3}{x}+\frac{2}{y}=c$</p>
+                                <p>$x=-1,\;y=2$: &nbsp; $\frac{2-3}{-1}+\frac{2}{2}=1+1=2$</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\frac{y-3}{x}+\frac{2}{y}=2$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $\displaystyle\frac{1+8xy^{2/3}}{x^{2/3}y^{1/3}}dx+\frac{2x^{4/3}y^{2/3}-x^{1/3}}{y^{4/3}}dy=0$, &nbsp; $y(1)=8$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M=x^{-2/3}y^{-1/3}+8x^{1/3}y^{1/3}$, &nbsp; $N=2x^{4/3}y^{-2/3}-x^{1/3}y^{-4/3}$</p>
+                                <p>$\displaystyle\frac{\partial M}{\partial y}=-\tfrac{1}{3}x^{-2/3}y^{-4/3}+\tfrac{8}{3}x^{1/3}y^{-2/3}=\frac{\partial N}{\partial x}$ &rarr; tamdır.</p>
+                                <p>$F=\int M\,\partial x=3x^{1/3}y^{-1/3}+6x^{4/3}y^{1/3}+\phi(y)$</p>
+                                <p>$F_{y}=-x^{1/3}y^{-4/3}+2x^{4/3}y^{-2/3}+\phi'=N \implies \phi'=0$</p>
+                                <p>Aile: $\displaystyle\frac{3x^{1/3}}{y^{1/3}}+6x^{4/3}y^{1/3}=c$</p>
+                                <p>$x=1,\;y=8$: &nbsp; $\frac{3}{2}+6\cdot 2=\frac{27}{2}$</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\frac{3x^{1/3}}{y^{1/3}}+6x^{4/3}y^{1/3}=\frac{27}{2}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp;Denklemi tam yapacak $A$ sabitini bulunuz ve elde edilen tam denklemi çözünüz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $(x^{2}+3xy)dx+(Ax^{2}+4y)dy=0$ &nbsp;&nbsp;&nbsp; (b) $\displaystyle\left(\frac{1}{x^{2}}+\frac{1}{y^{2}}\right)dx+\left(\frac{Ax+1}{y^{3}}\right)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $\frac{\partial M}{\partial y}=3x$, &nbsp; $\frac{\partial N}{\partial x}=2Ax$ &rarr; $3x=2Ax \implies A=\frac{3}{2}$</p>
+                                <p>$F=\frac{x^{3}}{3}+\frac{3}{2}x^{2}y+\phi(y)$, &nbsp; $F_{y}=\frac{3}{2}x^{2}+\phi'=\frac{3}{2}x^{2}+4y \implies \phi=2y^{2}$</p>
+                                <p><strong>Çözüm:</strong> $2x^{3}+9x^{2}y+12y^{2}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\frac{\partial M}{\partial y}=-\frac{2}{y^{3}}$, &nbsp; $\frac{\partial N}{\partial x}=\frac{A}{y^{3}}$ &rarr; $A=-2$</p>
+                                <p>$\displaystyle F=-\frac{1}{x}+\frac{x}{y^{2}}+\phi(y)$, &nbsp; $\displaystyle F_{y}=-\frac{2x}{y^{3}}+\phi'=\frac{-2x+1}{y^{3}} \implies \phi=-\frac{1}{2y^{2}}$</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle -\frac{1}{x}+\frac{x}{y^{2}}-\frac{1}{2y^{2}}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp;Denklemi tam yapacak $A$ sabitini bulunuz ve çözünüz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $(Ax^{2}y+2y^{2})dx+(x^{3}+4xy)dy=0$ &nbsp;&nbsp;&nbsp; (b) $\displaystyle\left(\frac{Ay}{x^{3}}+\frac{y}{x^{2}}\right)dx+\left(\frac{1}{x^{2}}-\frac{1}{x}\right)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $\frac{\partial M}{\partial y}=Ax^{2}+4y$, &nbsp; $\frac{\partial N}{\partial x}=3x^{2}+4y$ &rarr; $A=3$</p>
+                                <p>$F=x^{3}y+2xy^{2}+\phi(y)$, &nbsp; $F_{y}=x^{3}+4xy+\phi' \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $x^{3}y+2xy^{2}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\frac{\partial M}{\partial y}=\frac{A}{x^{3}}+\frac{1}{x^{2}}$, &nbsp; $\frac{\partial N}{\partial x}=-\frac{2}{x^{3}}+\frac{1}{x^{2}}$ &rarr; $A=-2$</p>
+                                <p>$\displaystyle F=\frac{y}{x^{2}}-\frac{y}{x}+\phi(y)$, &nbsp; $\displaystyle F_{y}=\frac{1}{x^{2}}-\frac{1}{x}+\phi' \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\frac{y}{x^{2}}-\frac{y}{x}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp;Denklemi tam yapacak en genel $N(x,y)$ fonksiyonunu belirleyiniz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $(x^{3}+xy^{2})dx+N(x,y)dy=0$ &nbsp;&nbsp;&nbsp; (b) $(x^{-2}y^{-2}+xy^{-3})dx+N(x,y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Tamlık için $\displaystyle\frac{\partial N}{\partial x}=\frac{\partial M}{\partial y}$ olmalı; $N$, bu ifadenin $x$'e göre integralidir (keyfi bir $\phi(y)$ eklenerek).</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $\frac{\partial M}{\partial y}=2xy$ &rarr; $N=\int 2xy\,\partial x=x^{2}y+\phi(y)$</p>
+                                <p><strong>Sonuç:</strong> $N(x,y)=x^{2}y+\phi(y)$ &nbsp;($\phi$ keyfi türevlenebilir fonksiyon)</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\frac{\partial M}{\partial y}=-2x^{-2}y^{-3}-3xy^{-4}$</p>
+                                <p>$N=\int\left(-2x^{-2}y^{-3}-3xy^{-4}\right)\partial x=\frac{2}{xy^{3}}-\frac{3x^{2}}{2y^{4}}+\phi(y)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp;Denklemi tam yapacak en genel $M(x,y)$ fonksiyonunu belirleyiniz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $M(x,y)dx+(2x^{2}y^{3}+x^{4}y)dy=0$ &nbsp;&nbsp;&nbsp; (b) $M(x,y)dx+(2ye^{x}+y^{2}e^{3x})dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Tamlık için $\displaystyle\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ olmalı; $M$, bu ifadenin $y$'ye göre integralidir (keyfi bir $\phi(x)$ eklenerek).</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $\frac{\partial N}{\partial x}=4xy^{3}+4x^{3}y$</p>
+                                <p>$M=\int(4xy^{3}+4x^{3}y)\,\partial y=xy^{4}+2x^{3}y^{2}+\phi(x)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\frac{\partial N}{\partial x}=2ye^{x}+3y^{2}e^{3x}$</p>
+                                <p>$M=\int(2ye^{x}+3y^{2}e^{3x})\,\partial y=y^{2}e^{x}+y^{3}e^{3x}+\phi(x)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">21. &nbsp;$(4x+3y^{2})dx+2xy\,dy=0$ denklemini dikkate alın.</p>
+                            <p style="margin: 0.5rem 0;">(a) Tam olmadığını gösteriniz. &nbsp;(b) $x^{n}$ formunda bir integral çarpanı bulunuz ($n$ pozitif tamsayı). &nbsp;(c) Çarpıp elde edilen tam denklemi çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $\frac{\partial M}{\partial y}=6y$, &nbsp; $\frac{\partial N}{\partial x}=2y$ &rarr; eşit değil, <strong>tam değildir</strong>. &cross;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $x^{n}$ ile çarpalım: $(4x^{n+1}+3x^{n}y^{2})dx+2x^{n+1}y\,dy=0$</p>
+                                <p>$\frac{\partial}{\partial y}=6x^{n}y$, &nbsp; $\frac{\partial}{\partial x}=2(n+1)x^{n}y$</p>
+                                <p>$6=2(n+1) \implies n=2$ &rarr; <strong>integral çarpanı: $\mu=x^{2}$</strong></p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $(4x^{3}+3x^{2}y^{2})dx+2x^{3}y\,dy=0$</p>
+                                <p>$F=x^{4}+x^{3}y^{2}+\phi(y)$, &nbsp; $F_{y}=2x^{3}y+\phi' \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $x^{4}+x^{3}y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">22. &nbsp;$(y^{2}+2xy)dx-x^{2}dy=0$ denklemini dikkate alın.</p>
+                            <p style="margin: 0.5rem 0;">(a) Tam olmadığını gösteriniz. &nbsp;(b) $y^{n}$ ile çarpıp integral çarpanı yapan $n$'yi bulunuz. &nbsp;(c) Tam denklemi çözünüz. &nbsp;(d) $y=0$'ın orijinal denklemin çözümü olduğunu, fakat (c)'deki denklemin çözümü olmadığını gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $\frac{\partial M}{\partial y}=2y+2x$, &nbsp; $\frac{\partial N}{\partial x}=-2x$ &rarr; <strong>tam değildir</strong>. &cross;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $y^{n}$ ile çarpalım: $(y^{n+2}+2xy^{n+1})dx-x^{2}y^{n}dy=0$</p>
+                                <p>$\frac{\partial}{\partial y}=(n+2)y^{n+1}+2(n+1)xy^{n}$, &nbsp; $\frac{\partial}{\partial x}=-2xy^{n}$</p>
+                                <p>Eşitlik için: $n+2=0$ ve $2(n+1)=-2$ &rarr; her ikisi de $n=-2$ verir.</p>
+                                <p><strong>İntegral çarpanı: $\mu=y^{-2}$</strong></p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $\displaystyle\left(1+\frac{2x}{y}\right)dx-\frac{x^{2}}{y^{2}}dy=0$</p>
+                                <p>$\displaystyle F=x+\frac{x^{2}}{y}+\phi(y)$, &nbsp; $\displaystyle F_{y}=-\frac{x^{2}}{y^{2}}+\phi' \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle x+\frac{x^{2}}{y}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(d)</strong> $y=0$ (dolayısıyla $dy=0$) orijinal denklemde: $(0+0)dx-x^{2}\cdot 0=0$ &check; &mdash; <strong>bir çözümdür</strong>.</p>
+                                <p>Fakat $x+\frac{x^{2}}{y}=c$ ifadesinde $y=0$ paydayı sıfırlar; bu çözüm <u>kaybedilmiştir</u>.</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Bu, D bölümündeki uyarının somut örneğidir: integral çarpanıyla çarpmak çözüm kaybettirebilir.</em></p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">23. &nbsp;$[y+xf(x^{2}+y^{2})]dx+[yf(x^{2}+y^{2})-x]dy=0$ formundaki denklemi dikkate alın.</p>
+                            <p style="margin: 0.5rem 0;">(a) Bu formdaki bir denklemin tam olmadığını gösteriniz. &nbsp;(b) $\displaystyle\frac{1}{x^{2}+y^{2}}$'nin bir integral çarpanı olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$u=x^{2}+y^{2}$ kısaltmasını kullanalım.</p>
+                                <p><strong>(a)</strong> $\displaystyle\frac{\partial M}{\partial y}=1+2xyf'(u)$, &nbsp; $\displaystyle\frac{\partial N}{\partial x}=2xyf'(u)-1$</p>
+                                <p>$\displaystyle\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}=2 \ne 0$ &rarr; <strong>hiçbir zaman tam değildir</strong>. &cross;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\mu=\frac{1}{u}$ ile çarpalım: $\displaystyle \mu M=\frac{y}{u}+\frac{xf(u)}{u}$, &nbsp; $\displaystyle \mu N=\frac{yf(u)}{u}-\frac{x}{u}$</p>
+                                <p>$\displaystyle\frac{\partial(\mu M)}{\partial y}=\frac{1}{u}-\frac{2y^{2}}{u^{2}}+\frac{2xyf'}{u}-\frac{2xyf}{u^{2}}$</p>
+                                <p>$\displaystyle\frac{\partial(\mu N)}{\partial x}=\frac{2xyf'}{u}-\frac{2xyf}{u^{2}}-\frac{1}{u}+\frac{2x^{2}}{u^{2}}$</p>
+                                <p>Fark alınırsa:</p>
+                                $$\frac{2}{u}-\frac{2(x^{2}+y^{2})}{u^{2}}=\frac{2}{u}-\frac{2u}{u^{2}}=0$$
+                                <p>Eşitlik sağlanır &rarr; $\displaystyle\mu=\frac{1}{x^{2}+y^{2}}$ bir <strong>integral çarpanıdır</strong>. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">24. &nbsp;23(b)'deki sonucu kullanarak çözünüz:</p>
+                            $$[y+x(x^{2}+y^{2})^{2}]dx+[y(x^{2}+y^{2})^{2}-x]dy=0$$
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Bu denklem 23'teki forma $f(u)=u^{2}$ ile uyar ($u=x^{2}+y^{2}$). İntegral çarpanı: $\displaystyle\mu=\frac{1}{u}$</p>
+                                <p>Çarpım sonrası:</p>
+                                $$\left(\frac{y}{u}+xu\right)dx+\left(yu-\frac{x}{u}\right)dy=0$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\displaystyle F=\int\left(\frac{y}{x^{2}+y^{2}}+x(x^{2}+y^{2})\right)\partial x$</p>
+                                <p>$\displaystyle=\arctan\!\left(\frac{x}{y}\right)+\frac{x^{4}}{4}+\frac{x^{2}y^{2}}{2}+\phi(y)$</p>
+                                <p>$y$'ye göre türev: $\displaystyle F_{y}=-\frac{x}{u}+x^{2}y+\phi'$</p>
+                                <p>Bu, $\displaystyle yu-\frac{x}{u}=x^{2}y+y^{3}-\frac{x}{u}$ ifadesine eşitlenirse $\phi'=y^{3} \implies \phi=\frac{y^{4}}{4}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\displaystyle\frac{x^{4}}{4}+\frac{x^{2}y^{2}}{2}+\frac{y^{4}}{4}=\frac{(x^{2}+y^{2})^{2}}{4}$ olduğundan:</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\arctan\!\left(\frac{x}{y}\right)+\frac{1}{4}\left(x^{2}+y^{2}\right)^{2}=c$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 2.2 DEĞİŞKENLERİNE AYRILABİLİR DENKLEMLER ===== -->

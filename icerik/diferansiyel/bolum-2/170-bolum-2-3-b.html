@@ -1,0 +1,36 @@
+<!--@
+id: bolum-2-3-b
+-->
+                    <div id="bolum-2-3-b" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            B. Bernoulli Denklemleri <em>(Bernoulli Equations)</em>
+                        </div>
+                        <p><strong>Tanım:</strong> Aşağıdaki formda yazılan denklemlere Bernoulli diferansiyel denklemi <em>(Bernoulli differential equation)</em> denir:</p>
+                        $$\frac{dy}{dx}+P(x)y=Q(x)y^{n}$$
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem;">
+                                <strong>Durum 1: $n=0$ veya $n=1$</strong><br>
+                                Eğer $n=0$ veya $1$ ise denklem zaten doğrusaldır ve standart doğrusal denklem yöntemleriyle basitçe çözülür.
+                            </div>
+                            <div style="background: #ecfdf5; border-radius: 10px; padding: 1.25rem;">
+                                <strong>Durum 2: $n \neq 0$ ve $n \neq 1$</strong><br>
+                                Denklem doğrusal değildir. Doğrusal hale getirmek için <strong>$v=y^{1-n}$</strong> şeklinde özel bir dönüşüm <em>(transformation)</em> yapılması gerekir.
+                            </div>
+                        </div>
+
+                        <div class="highlight">
+                            <strong>Teorem 2.5:</strong>
+                            <p>$n \neq 0$ veya $1$ olsun. O halde, $v=y^{1-n}$ dönüşümü,</p>
+                            $$\frac{dy}{dx}+P(x)y=Q(x)y^{n}$$
+                            <p>Bernoulli denklemini $v$ cinsinden doğrusal bir denkleme indirger.</p>
+                            <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                            <p><strong>İspat:</strong> İlk olarak denklemi $y^{-n}$ ile çarpıp eşdeğer formda yazarız:</p>
+                            $$y^{-n}\frac{dy}{dx}+P(x)y^{1-n}=Q(x)$$
+                            <p>Burada $v=y^{1-n}$ olarak alırsak, $\displaystyle \frac{dv}{dx}=(1-n)y^{-n}\frac{dy}{dx}$ olur. Denkleme yerleştirdiğimizde ifade şuna dönüşür:</p>
+                            $$\frac{dv}{dx}+(1-n)P(x)v=(1-n)Q(x)$$
+                            <p>Bu denklem artık $v$'ye göre doğrusaldır.</p>
+                        </div>
+                        <p><strong>Genel Form Notu:</strong> Bernoulli denklemi aslında $\displaystyle \frac{df(y)}{dy}\frac{dy}{dx}+P(x)f(y)=Q(x)$ şeklindeki çok daha genel bir formatın özel bir durumudur ve bu genel formda da $v=f(y)$ denildiğinde yine doğrusal bir denkleme geçiş yapılır.</p>
+                    </div>

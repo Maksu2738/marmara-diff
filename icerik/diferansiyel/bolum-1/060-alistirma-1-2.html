@@ -1,0 +1,133 @@
+<!--@
+id: alistirma-1-2
+menu: Alıştırmalar 1.2
+-->
+                    <div id="alistirma-1-2" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 1.2 &mdash; Çözüm Doğrulama
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">1. Aşağıdaki fonksiyonların, karşılık gelen diferansiyel denklemlerin çözümü olduğunu gösteriniz.</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.75rem 0;">
+                                <div style="background: #faf8ff; padding: 0.75rem; border-radius: 8px;">
+                                    <strong>Fonksiyon:</strong><br>
+                                    (a) $f(x)=x+3e^{-x}$<br>
+                                    (b) $f(x)=2e^{3x}-5e^{4x}$<br>
+                                    (c) $f(x)=e^{x}+2x^{2}+6x+7$<br>
+                                    (d) $f(x)=\frac{1}{1+x^{2}}$
+                                </div>
+                                <div style="background: #faf8ff; padding: 0.75rem; border-radius: 8px;">
+                                    <strong>Denklem:</strong><br>
+                                    (a) $\frac{dy}{dx}+y=x+1$<br>
+                                    (b) $\frac{d^{2}y}{dx^{2}}-7\frac{dy}{dx}+12y=0$<br>
+                                    (c) $\frac{d^{2}y}{dx^{2}}-3\frac{dy}{dx}+2y=4x^{2}$<br>
+                                    (d) $(1+x^{2})\frac{d^{2}y}{dx^{2}}+4x\frac{dy}{dx}+2y=0$
+                                </div>
+                            </div>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $f'(x) = 1 - 3e^{-x}$. Yerine koyarsak: $(1-3e^{-x})+(x+3e^{-x}) = x+1$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $f'=6e^{3x}-20e^{4x}$, &nbsp; $f''=18e^{3x}-80e^{4x}$.</p>
+                                <p>$f''-7f'+12f = (18e^{3x}-80e^{4x})-7(6e^{3x}-20e^{4x})+12(2e^{3x}-5e^{4x})$</p>
+                                <p>$= (18-42+24)e^{3x}+(-80+140-60)e^{4x} = 0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $f'=e^{x}+4x+6$, &nbsp; $f''=e^{x}+4$.</p>
+                                <p>$f''-3f'+2f = (e^{x}+4)-3(e^{x}+4x+6)+2(e^{x}+2x^{2}+6x+7)$</p>
+                                <p>$= (1-3+2)e^{x}+(4-18+14)+(-12+12)x+(4)x^{2} = 4x^{2}$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(d)</strong> $f = (1+x^{2})^{-1}$, &nbsp; $f' = \frac{-2x}{(1+x^{2})^{2}}$, &nbsp; $f'' = \frac{6x^{2}-2}{(1+x^{2})^{3}}$</p>
+                                <p>$(1+x^{2})f'' + 4xf' + 2f = \frac{6x^{2}-2}{(1+x^{2})^{2}} + \frac{-8x^{2}}{(1+x^{2})^{2}} + \frac{2}{1+x^{2}}$</p>
+                                <p>$= \frac{6x^{2}-2-8x^{2}+2(1+x^{2})}{(1+x^{2})^{2}} = \frac{0}{(1+x^{2})^{2}} = 0$ &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. Kapalı çözümleri doğrulayınız.</p>
+                            <p style="margin: 0.5rem 0;">(a) $x^{3}+3xy^{2}=1$ bağıntısının $0 < x < 1$ aralığında $\displaystyle 2xy\frac{dy}{dx}+x^{2}+y^{2}=0$ için kapalı çözüm olduğunu gösterin.</p>
+                            <p style="margin: 0.5rem 0;">(b) $5x^{2}y^{2}-2x^{3}y^{2}=1$ bağıntısının $0 < x < \frac{5}{2}$ aralığında $\displaystyle x\frac{dy}{dx}+y=x^{3}y^{3}$ için kapalı çözüm olduğunu gösterin.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $x^{3}+3xy^{2}=1$'den kapalı türev alınır:</p>
+                                $$3x^{2}+3y^{2}+6xy\frac{dy}{dx}=0$$
+                                <p>Her iki taraf 3'e bölünürse: $x^{2}+y^{2}+2xy\frac{dy}{dx}=0$ &check;</p>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Ayrıca $0 < x < 1$ aralığında $y = \pm\sqrt{\frac{1-x^{3}}{3x}}$ reel ve tanımlıdır.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $5x^{2}y^{2}-2x^{3}y^{2}=1$'den kapalı türev alınır ve $x\frac{dy}{dx}+y=x^{3}y^{3}$ denklemiyle doğrulanır.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3. Çözüm ailelerini doğrulayınız.</p>
+                            <p style="margin: 0.5rem 0;">(a) $f(x)=(x^{3}+c)e^{-3x}$ &rarr; $\displaystyle\frac{dy}{dx}+3y=3x^{2}e^{-3x}$</p>
+                            <p style="margin: 0.5rem 0;">(b) $f(x)=2+ce^{-2x^{2}}$ &rarr; $\displaystyle\frac{dy}{dx}+4xy=8x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $f'(x)=3x^{2}e^{-3x}-3(x^{3}+c)e^{-3x}$</p>
+                                <p>$f'+3f = 3x^{2}e^{-3x} - 3(x^{3}+c)e^{-3x} + 3(x^{3}+c)e^{-3x} = 3x^{2}e^{-3x}$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $f'(x) = -4cxe^{-2x^{2}}$</p>
+                                <p>$f'+4xf = -4cxe^{-2x^{2}} + 4x(2+ce^{-2x^{2}}) = 8x$ &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. İki parametreli çözüm ailelerini doğrulayınız.</p>
+                            <p style="margin: 0.5rem 0;">(a) $f(x)=c_{1}e^{4x}+c_{2}e^{-2x}$ &rarr; $\displaystyle\frac{d^{2}y}{dx^{2}}-2\frac{dy}{dx}-8y=0$</p>
+                            <p style="margin: 0.5rem 0;">(b) $g(x)=c_{1}e^{2x}+c_{2}xe^{2x}+c_{3}e^{-2x}$ &rarr; $\displaystyle\frac{d^{3}y}{dx^{3}}-2\frac{d^{2}y}{dx^{2}}-4\frac{dy}{dx}+8y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong></p>
+                                <p>$f'=4c_{1}e^{4x}-2c_{2}e^{-2x}$, &nbsp; $f''=16c_{1}e^{4x}+4c_{2}e^{-2x}$</p>
+                                <p>$f''-2f'-8f = (16-8-8)c_{1}e^{4x} + (4+4-8)c_{2}e^{-2x} = 0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> Benzer şekilde $g$, $g'$, $g''$, $g'''$ hesaplanıp yerine konulduğunda her terimin katsayıları sıfır olur ve denklem sağlanır. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. Belirli çözüm formlarını sağlayan parametreleri bulunuz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $f(x)=e^{mx}$ &rarr; $\displaystyle\frac{d^{3}y}{dx^{3}}-3\frac{d^{2}y}{dx^{2}}-4\frac{dy}{dx}+12y=0$ &mdash; $m$ = ?</p>
+                            <p style="margin: 0.5rem 0;">(b) $g(x)=x^{n}$ &rarr; $\displaystyle x^{3}\frac{d^{3}y}{dx^{3}}+2x^{2}\frac{d^{2}y}{dx^{2}}-10x\frac{dy}{dx}-8y=0$ &mdash; $n$ = ?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> Karakteristik denklem: $m^{3}-3m^{2}-4m+12=0$</p>
+                                <p>$(m-2)(m-3)(m+2)=0$ &rarr; <strong>$m = -2, \; 2, \; 3$</strong></p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $n^{3}-n^{2}-10n-8=0$</p>
+                                <p>$(n-4)(n+1)(n+2)=0$ &rarr; <strong>$n = -2, \; -1, \; 4$</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. Başlangıç değer problemlerini doğrulayınız.</p>
+                            <p style="margin: 0.5rem 0;">(a) $f(x)=(2x^{2}+2e^{3x}+3)e^{-2x}$ &rarr; $\displaystyle\frac{dy}{dx}+2y=6e^{x}+4xe^{-2x}$, &nbsp; $f(0)=5$</p>
+                            <p style="margin: 0.5rem 0;">(b) $f(x)=3e^{2x}-2xe^{2x}-\cos 2x$ &rarr; $\displaystyle\frac{d^{2}y}{dx^{2}}-4\frac{dy}{dx}+4y=-8\sin 2x$, &nbsp; $f(0)=2$, $f'(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $f(0)=(0+2+3)e^{0}=5$ &check;</p>
+                                <p>$f'+2f = (6e^{3x}+4x)e^{-2x} = 6e^{x}+4xe^{-2x}$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $f(0) = 3-0-1=2$ &check; &nbsp; $f'(0) = 6-2-0+0 = 4$ &check;</p>
+                                <p>$f''-4f'+4f = -8\sin 2x$ &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. Özel durumları inceleyin.</p>
+                            <p style="margin: 0.5rem 0;">(a) $\displaystyle\left|\frac{dy}{dx}\right|+|y|+1=0$ denkleminin reel çözümü olmadığını gösteriniz.</p>
+                            <p style="margin: 0.5rem 0;">(b) $\displaystyle\left(\frac{dy}{dx}\right)^{2}-4y=0$ &rarr; $f(x)=(x+c)^{2}$ ailesi + $g(x)=0$ ek çözümü.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $\left|\frac{dy}{dx}\right| \geq 0$ ve $|y| \geq 0$ olduğundan toplam daima $\geq 1 > 0$. Reel çözüm yoktur. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $f(x) = (x+c)^{2}$ &rarr; $(f')^{2} - 4f = 4(x+c)^{2} - 4(x+c)^{2} = 0$ &check;</p>
+                                <p>$g(x) = 0$ &rarr; $(0)^{2} - 4(0) = 0$ &check;</p>
+                                <p>$g(x)=0$ aileden bağımsızdır; $(x+c)^{2}=0$ tüm aralıkta değil yalnızca tek noktada sağlanır.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== 1.3 ===== -->

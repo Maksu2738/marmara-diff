@@ -1,0 +1,30 @@
+<!--@
+id: ornek-3-5
+-->
+                    <div id="ornek-3-5" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Örnek 3.5: Düşen Cisim Problemi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text">Örnek 3.5 — Düşen Cisim Problemi</p>
+                            <p>8 lb ağırlığında bir cisim yüksekten bırakılıyor. Hava direnci hızın 2 katı ($2v$) olduğuna göre, herhangi bir $t$ anındaki hızı ($v$) ve düşme mesafesini ($x$) bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong></p>
+                                <p>Ağırlık $w=8$, kütle $m=w/g = 8/32 = 1/4$.<br>Aşağı yönlü kuvvet $F_1=8$, yukarı yönlü direnç $F_2=-2v$.</p>
+                                <p>Newton yasası ile diferansiyel denklem (başlangıç şartı: $v(0)=0$):</p>
+                                $$\frac{1}{4}\frac{dv}{dt} = 8 - 2v$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Değişkenlerine ayrılırsa: $\displaystyle \frac{dv}{8-2v} = 4dt$.<br>İntegral alınırsa:</p>
+                                $$-\frac{1}{2}\ln|8-2v| = 4t + c_0 \implies 8-2v = c_1e^{-8t}$$
+                                <p>$v(0)=0 \implies c_1=8$. Hız denklemi:</p>
+                                $$v = 4(1-e^{-8t})$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Mesafe için $\displaystyle v = \frac{dx}{dt}$ dersek:</p>
+                                $$x = \int 4(1-e^{-8t})dt = 4\left(t + \frac{1}{8}e^{-8t}\right) + c_2$$
+                                <p>$x(0)=0 \implies c_2 = -1/2$. Mesafe denklemi:</p>
+                                $$x = 4\left(t + \frac{1}{8}e^{-8t} - \frac{1}{8}\right)$$
+                            </div>
+                        </div>
+                    </div>

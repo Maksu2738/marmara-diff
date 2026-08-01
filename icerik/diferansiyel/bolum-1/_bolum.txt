@@ -1,2 +1,2 @@
-ad: Diferansiyel Denklemler ve Çözümleri
+ad: Temel Kavramlar: Diferansiyel Denklemler ve Çözümleri
 acik: evet

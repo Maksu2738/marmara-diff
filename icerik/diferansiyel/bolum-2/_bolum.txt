@@ -1,2 +1,2 @@
-ad: Tam Çözümü Bulunabilen Birinci Mertebeden Denklemler
+ad: Birinci Mertebeden Diferansiyel Denklemler
 acik: hayir

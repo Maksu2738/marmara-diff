@@ -348,12 +348,22 @@ main {
 #content-area { min-height: 60px; }
 
 /* ---- Genel Yardımcılar ---- */
+/* Blok vurgu kutusu (callout) — <div class="highlight"> */
 .highlight {
     background: #ede9fe;
     border-left: 4px solid #7c3aed;
     padding: 1rem 1.25rem;
     border-radius: 0 8px 8px 0;
     margin: 1rem 0;
+}
+
+/* Satır içi vurgu — markdown'daki ==metin== bunu üretir */
+.vurgu {
+    background: #ede9fe;
+    color: #5b21b6;
+    padding: 0.05em 0.3em;
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 code {
@@ -479,6 +489,11 @@ body.dark-mode .highlight {
     background-color: #272042 !important;
     border-left-color: #a78bfa !important;
     color: #e2e8f0 !important;
+}
+
+body.dark-mode .vurgu {
+    background: rgba(167, 139, 250, 0.22) !important;
+    color: #ddd6fe !important;
 }
 
 body.dark-mode div[style*="background"] {

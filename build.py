@@ -102,7 +102,8 @@ def satir_ici(metin):
 
     metin = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', metin)
     metin = re.sub(r'(?<![\w*])\*([^*\n]+?)\*(?![\w*])', r'<em>\1</em>', metin)
-    metin = re.sub(r'==(.+?)==', r'<span class="highlight">\1</span>', metin)
+    # .highlight bu projede blok kutusudur; satir ici vurgu icin .vurgu kullanilir
+    metin = re.sub(r'==(.+?)==', r'<span class="vurgu">\1</span>', metin)
     metin = re.sub(r'__(.+?)__', r'<u>\1</u>', metin)
     metin = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'<a href="\2">\1</a>', metin)
 
@@ -149,6 +150,19 @@ def bloklari_cevir(satirlar, girinti):
             i += 1
             continue
 
+        # --- vurgu kutusu (callout)
+        if cip.startswith('[KUTU]'):
+            ic = []
+            i += 1
+            while i < n and not satirlar[i].strip().startswith('[/KUTU]'):
+                ic.append(satirlar[i])
+                i += 1
+            i += 1                      # [/KUTU] satirini atla
+            ekle('<div class="highlight">')
+            cikti.extend(bloklari_cevir(ic, girinti + ' ' * 4))
+            ekle('</div>')
+            continue
+
         # --- soru blogu
         if cip.startswith('[SORU]'):
             i = soru_blogu(satirlar, i, cikti, girinti)
@@ -187,6 +201,7 @@ def _blok_basi(cip):
     return (cip.startswith('<') or cip.startswith('$$') or cip.startswith('- ')
             or cip.startswith('#') or cip.startswith('[SORU]')
             or cip.startswith('[CEVAP]') or cip.startswith('[/CEVAP]')
+            or cip.startswith('[KUTU]') or cip.startswith('[/KUTU]')
             or cip in ('---', '***') or re.match(r'^\d+\.\s', cip) is not None)
 
 

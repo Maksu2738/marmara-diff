@@ -1,2 +1,3 @@
-ad: Yüksek Mertebeden Doğrusal Denklemlerin Açık Çözüm Yöntemleri
+ad: Ödevler
 acik: hayir
+numara: Ö

@@ -1,2 +1,2 @@
-ad: Birinci Mertebeden Denklemlerin Uygulamaları
+ad: Diferansiyel Denklem Çözümleri için Açık Yöntemler
 acik: hayir

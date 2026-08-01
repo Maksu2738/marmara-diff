@@ -68,7 +68,8 @@ Gövde:
 | `- madde` | `<ul>` |
 | `1. madde` | `<ol>` |
 | `---` | `<hr>` |
-| `**kalın**` `*eğik*` `==vurgulu==` `__altı çizili__` | `<strong>` `<em>` `<span class="highlight">` `<u>` |
+| `**kalın**` `*eğik*` `==vurgulu==` `__altı çizili__` | `<strong>` `<em>` `<span class="vurgu">` `<u>` |
+| `[KUTU]` … `[/KUTU]` | `<div class="highlight">` — "Not:", tanım vb. için kutu |
 | `$...$` ve `$$...$$` | **hiç dokunulmaz**, KaTeX'e gider |
 | `<` ile başlayan satır | ham HTML, aynen geçer (kaçış kapısı) |
 
@@ -91,6 +92,9 @@ kullanılabilir.
 
 - Matematik içindeki `<`, `_`, `\` karakterleri korunur; `$...$` dışında ham `<`
   kullanacaksan `&lt;` yaz.
+- `.highlight` **blok kutusudur**, satır içi vurgu için değil. Satır içi vurgu
+  `.vurgu` sınıfıdır (`==...==` bunu üretir). Karıştırma — `<span class="highlight">`
+  yazarsan metnin üstüne taşan bir kutu çıkar.
 - `bol.py` tek seferlik taşıma içindi, **tekrar çalıştırma** — `icerik/`
   altındaki değişiklikleri siler.
 - `arsiv/` klasörü taşımadan önceki orijinal dosyaları tutar; referans içindir,

@@ -1,2 +1,3 @@
-ad: Sabit Katsayılı İkinci Mertebeden Denklemlerin Uygulamaları
+ad: Kapsam Dışı — Derste İşlenmedi
 acik: hayir
+numara: K

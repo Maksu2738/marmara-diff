@@ -1,0 +1,134 @@
+<!--@
+id: ornekler-4-2
+menu: 3.2 Örnekler
+-->
+                    <div id="ornekler-4-2" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.20 &ndash; 4.28
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.20 &mdash; Farklı Reel Kökler</p>
+                            <p>$y^{\prime\prime}-3y^{\prime}+2y=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{2}-3m+2=0\ \Longrightarrow\ (m-1)(m-2)=0$.</p>
+                                <p>Kökler: $m_{1}=1,\ m_{2}=2$ (farklı reel).</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{x}+c_{2}e^{2x}$$
+                                <p>Wronskian $W(e^{x},e^{2x})=e^{3x}\neq 0$ olduğundan çözümler doğrusal bağımsızdır. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.21 &mdash; Farklı Reel Kökler (3. Mertebe)</p>
+                            <p>$y^{\prime\prime\prime}-4y^{\prime\prime}+y^{\prime}+6y=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{3}-4m^{2}+m+6=0$. $m=-1$ bir köktür. Sentetik bölmeyle:</p>
+                                $$(m+1)(m^{2}-5m+6)=0\ \Longrightarrow\ (m+1)(m-2)(m-3)=0$$
+                                <p>Kökler: $m_{1}=-1,\ m_{2}=2,\ m_{3}=3$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{-x}+c_{2}e^{2x}+c_{3}e^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.22 &mdash; Tekrarlı Reel Kök (Giriş)</p>
+                            <p>$y^{\prime\prime}-6y^{\prime}+9y=0$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{2}-6m+9=(m-3)^{2}=0$ &rArr; $m_{1}=m_{2}=3$ (çift katlı).</p>
+                                <p>İlk köke karşılık $e^{3x}$ çözümü tektir; ikinci bağımsız çözüm için $y=e^{3x}v$ dönüşümüyle <strong>mertebe düşürme</strong> uygulanır:</p>
+                                $$y^{\prime}=e^{3x}v^{\prime}+3e^{3x}v,\qquad y^{\prime\prime}=e^{3x}v^{\prime\prime}+6e^{3x}v^{\prime}+9e^{3x}v$$
+                                <p>Denklemde yerine konduğunda tüm $v$ ve $v^{\prime}$ terimleri birbirini götürür ve $e^{3x}v^{\prime\prime}=0$ kalır. $w=v^{\prime}$ dersek:</p>
+                                $$\frac{dw}{dx}=0\ \Longrightarrow\ w=c\ \Longrightarrow\ v=x+c_{0}$$
+                                <p>$c_{0}=0$ için bağımsız çözüm $xe^{3x}$'tir.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}e^{3x}+c_{2}xe^{3x}=(c_{1}+c_{2}x)e^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.23 &mdash; Tekrarlı ve Farklı Kökler Bir Arada</p>
+                            <p>$y^{\prime\prime\prime}-4y^{\prime\prime}-3y^{\prime}+18y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{3}-4m^{2}-3m+18=0$'ın kökleri: $3,\ 3,\ -2$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=(c_{1}+c_{2}x)e^{3x}+c_{3}e^{-2x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.24 &mdash; 3-Katlı Tekrarlı Kök</p>
+                            <p>$y^{(4)}-5y^{\prime\prime\prime}+6y^{\prime\prime}+4y^{\prime}-8y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{4}-5m^{3}+6m^{2}+4m-8=0$'ın kökleri: $2,\ 2,\ 2,\ -1$.</p>
+                                <p>Üç katlı kök $m=2$: &nbsp; $(c_{1}+c_{2}x+c_{3}x^{2})e^{2x}$. &nbsp; Basit kök $m=-1$: &nbsp; $c_{4}e^{-x}$.</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=(c_{1}+c_{2}x+c_{3}x^{2})e^{2x}+c_{4}e^{-x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.25 &mdash; Saf Sanal Eşlenik Kökler</p>
+                            <p>$y^{\prime\prime}+y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem: $m^{2}+1=0$ &rArr; $m=\pm i$ (yani $a=0,\ b=1$).</p>
+                                $$y=e^{0\cdot x}(c_{1}\sin x+c_{2}\cos x)$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=c_{1}\sin x+c_{2}\cos x$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.26 &mdash; Karmaşık Kökler</p>
+                            <p>$y^{\prime\prime}-6y^{\prime}+25y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{2}-6m+25=0$:</p>
+                                $$m=\frac{6\pm\sqrt{36-100}}{2}=3\pm 4i \quad (a=3,\ b=4)$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=e^{3x}(c_{1}\sin 4x+c_{2}\cos 4x)$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.27 &mdash; Tekrarlı Karmaşık Kökler</p>
+                            <p>$y^{(4)}-4y^{\prime\prime\prime}+14y^{\prime\prime}-20y^{\prime}+25y=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Yardımcı denklem $m^{4}-4m^{3}+14m^{2}-20m+25=0$'ın kökleri: $1+2i,\ 1-2i,\ 1+2i,\ 1-2i$ (çifte katlı eşlenik çift).</p>
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$y=e^{x}\bigl[(c_{1}+c_{2}x)\sin 2x+(c_{3}+c_{4}x)\cos 2x\bigr]$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.28 &mdash; Başlangıç Değer Problemi</p>
+                            <p>$y^{\prime\prime}-6y^{\prime}+25y=0,\quad y(0)=-3,\quad y^{\prime}(0)=-1$ problemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 4.26'dan genel çözüm: $y=e^{3x}(c_{1}\sin 4x+c_{2}\cos 4x)$.</p>
+                                <p><strong>Türev:</strong></p>
+                                $$y^{\prime}=e^{3x}\bigl[(3c_{1}-4c_{2})\sin 4x+(4c_{1}+3c_{2})\cos 4x\bigr]$$
+                                <p><strong>Başlangıç şartları:</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$y(0)=-3$: $\ c_{2}=-3$</li>
+                                    <li>$y^{\prime}(0)=-1$: $\ 4c_{1}+3c_{2}=-1\ \Longrightarrow\ 4c_{1}-9=-1\ \Longrightarrow\ c_{1}=2$</li>
+                                </ul>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=e^{3x}(2\sin 4x-3\cos 4x)$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Alternatif form (tek sinüs):</strong> $\sqrt{2^{2}+(-3)^{2}}=\sqrt{13}$ parantezine alınırsa</p>
+                                $$y=\sqrt{13}\,e^{3x}\left[\tfrac{2}{\sqrt{13}}\sin 4x-\tfrac{3}{\sqrt{13}}\cos 4x\right]=\sqrt{13}\,e^{3x}\sin(4x+\phi)$$
+                                <p>burada $\sin\phi=-\tfrac{3}{\sqrt{13}},\ \cos\phi=\tfrac{2}{\sqrt{13}}$'tür.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.2 ===== -->

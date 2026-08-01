@@ -1,0 +1,47 @@
+<!--@
+id: alistirmalar-teorik-clairaut
+menu: Clairaut Denklemi
+-->
+                    <div id="alistirmalar-teorik-clairaut" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Teorik Sorular ve Clairaut Denklemi
+                        </div>
+                        
+                        <div class="question-block">
+                            <p class="question-text">Teorik Sorular:</p>
+                            <ol start="15">
+                                <li>Teorem 2.6'yı ispatlayınız.</li>
+                                <li>Teorem 2.7'yi ispatlayınız.</li>
+                                <li>$\mu(x,y)$ ve $v(x,y)$ fonksiyonlarının, $M(x,y)dx+N(x,y)dy=0$ denkleminin integral çarpanları olduğunu ve oranlarının ($\mu/v$) sabit olmadığını varsayalım. O halde $\mu(x,y)=cv(x,y)$ bağıntısının her $c$ sabiti için denklemin bir çözümü olduğunu gösteriniz.</li>
+                                <li>Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi homojen ise ve $Mx+Ny \neq 0$ ise, o zaman $\displaystyle \frac{1}{Mx+Ny}$ ifadesinin bir integral çarpanı olduğunu gösteriniz.</li>
+                                <li>Eğer denklem hem homojen hem de tam ise ve $Mx+Ny$ sabit değilse, çözümün $Mx+Ny=c$ olduğunu gösteriniz.</li>
+                            </ol>
+
+                            <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #d4d0e8;">
+                            <p class="question-text">Clairaut Denklemi <em>(Clairaut Equation)</em> Özel İncelemesi:</p>
+                            <ol start="20">
+                                <li>$y=px+f(p)$ formundaki bir denkleme ($p \equiv dy/dx$) Clairaut denklemi denir. Bu denklemin çözümü için şu adımları takip ediniz:
+                                    <ul>
+                                        <li>Denklemi $x$'e göre türevini alıp sadeleştirerek $[x+f^{\prime}(p)]\frac{dp}{dx}=0$ şekline getirin.</li>
+                                        <li>$x+f^{\prime}(p) \neq 0$ olduğunu varsayarak kalan kısmı çözün: $p=c$ ($c$ keyfi sabit).</li>
+                                        <li>$p$'yi ortadan kaldırarak $y=cx+f(c)$ formunda bir parametreli çözüm ailesini <em>(one-parameter family of solutions)</em> elde edin.</li>
+                                        <li><em>Not: $x+f^{\prime}(p)=0$ kabul edildiğinde, bu çözüm ailesinin içinde bulunmayan ekstra bir çözüm elde edilebilir. Buna <strong>tekil çözüm</strong> (singular solution) denir.</em></li>
+                                    </ul>
+                                </li>
+                                <li>$y=px+p^{2}$ Clairaut denklemini ele alınız ($p \equiv dy/dx$).
+                                    <br>(a) Bir parametreli çözüm ailesini bulunuz.
+                                    <br>(b) Egzersiz 20'deki Not bölümünde anlatıldığı gibi, (a)'da bulunmayan ekstra (tekil) çözümü bulunuz.
+                                    <br>(c) Elde edilen bu çözüm aileleri ile tekil çözümün grafiklerini çizerek aralarındaki geometrik ilişkiyi tanımlayınız.
+                                </li>
+                            </ol>
+
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Clairaut Denklemi (21) İçin İpucu:</strong></p>
+                                <p>(a) Genel çözüm ailesi: $y=cx+c^{2}$ olacaktır (doğrular ailesi).</p>
+                                <p>(b) Tekil çözüm için $x+2p=0 \implies p = -x/2$. Yerine koyduğunuzda tekil çözüm $y = -x^{2}/4$ (bir parabol) olur.</p>
+                                <p>(c) Tekil çözüm (parabol), bir parametreli çözüm ailesindeki doğruların "zarf eğrisi" (envelope) konumundadır.</p>
+                            </div>
+                        </div>
+                    </div>

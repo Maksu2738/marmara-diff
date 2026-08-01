@@ -91,6 +91,17 @@ Soru blokları:
 gerekirse `[/CEVAP]` yazılır. Cevap içinde paragraf, liste, `$$...$$` serbestçe
 kullanılabilir.
 
+## Yazım tercihi
+
+"Teorem" kelimesi sitede **her yerde `THEoREM`** olarak yazılır — başlıkta da,
+cümle içinde de. Kullanıcının kişisel tercihi.
+
+Türkçe ekler kesme işaretiyle bağlanır: `THEoREM'i`, `THEoREM'ler`,
+`THEoREM'den`, `THEoREM'inin`. Ek yoksa düz `THEoREM`.
+
+`id:` satırlarına ve `$...$` matematiğine **dokunma** — çapa isimleri
+küçük harfli kalır (`bolum-4-6`, `teorem-...` gibi mevcut id'ler değişmez).
+
 ## Dikkat
 
 - Matematik içindeki `<`, `_`, `\` karakterleri korunur; `$...$` dışında ham `<`

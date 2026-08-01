@@ -144,7 +144,7 @@
                             <li><a href="#bolum-4-5">4.5 Cauchy-Euler Denklemi</a></li>
                             <li><a href="#ornekler-4-5">Örnekler 4.43 &ndash; 4.44</a></li>
                             <li><a href="#alistirma-4-5">Alıştırmalar 4.5</a></li>
-                            <li><a href="#bolum-4-6">4.6 Teoremler ve İspatları</a></li>
+                            <li><a href="#bolum-4-6">4.6 THEoREM'ler ve İspatları</a></li>
                             <li><a href="#alistirma-4-6">Alıştırmalar 4.6</a></li>
                         </ul>
                     </li>
@@ -687,10 +687,10 @@
                         <p><strong>Çözüm adımları:</strong> Önce $g(x,y,c)=0$ şeklinde bir parametreli çözüm ailesi bulunur. Ardından $x_{0}$ ve $y_{0}$ yerine yazılarak $g(x_{0},y_{0},c)=0$ denkleminden $c$ sabiti hesaplanır (buna $c_{0}$ diyelim) ve problemi sağlayan özel çözüm $g(x,y,c_{0})=0$ formunda elde edilir.</p>
 
                         <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Çözümlerin Varlığı (Existence of Solutions)</h3>
-                        <p>Her sınır değer veya başlangıç değer probleminin bir çözümü olmak <u>zorunda değildir</u>; hatta bazı durumlarda tek bir çözüm yerine <strong>sonsuz sayıda</strong> çözüm bulunabilir. Çözümün var olup olmadığını ve varsa <strong>benzersiz</strong> (<em>unique</em>) olup olmadığını anlamak için aşağıdaki teoremden faydalanılır.</p>
+                        <p>Her sınır değer veya başlangıç değer probleminin bir çözümü olmak <u>zorunda değildir</u>; hatta bazı durumlarda tek bir çözüm yerine <strong>sonsuz sayıda</strong> çözüm bulunabilir. Çözümün var olup olmadığını ve varsa <strong>benzersiz</strong> (<em>unique</em>) olup olmadığını anlamak için aşağıdaki THEoREM'den faydalanılır.</p>
 
                         <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
-                            <strong style="color: #6d28d9; font-size: 1.05rem;">Teorem 1.1 &mdash; Temel Varlık ve Teklik Teoremi</strong><br>
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">THEoREM 1.1 &mdash; Temel Varlık ve Teklik THEoREM'i</strong><br>
                             <em style="font-size: 0.85rem;">(Basic Existence and Uniqueness Theorem)</em>
 
                             <p style="margin-top: 0.9rem;"><strong>Hipotez (Hypothesis):</strong> $\displaystyle\frac{dy}{dx}=f(x,y)$ diferansiyel denklemi için:</p>
@@ -704,7 +704,7 @@
                         </div>
 
                         <div class="highlight">
-                            <strong>Dikkat:</strong> Bu teorem bize yalnızca bir çözüm arayıp aramamamız gerektiğini söyler; çözümün <u>nasıl bulunacağına</u> dair bir yöntem sunmaz.
+                            <strong>Dikkat:</strong> Bu THEoREM bize yalnızca bir çözüm arayıp aramamamız gerektiğini söyler; çözümün <u>nasıl bulunacağına</u> dair bir yöntem sunmaz.
                         </div>
                     </div>
 
@@ -764,28 +764,28 @@
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">Örnek 1.15 &mdash; Varlık ve Teklik Teoremi Uygulaması</p>
-                            <p>$\displaystyle\frac{dy}{dx}=x^{2}+y^{2}$, &nbsp; $y(1)=3$ problemi için Teorem 1.1 uygulanabilir mi?</p>
+                            <p class="question-text">Örnek 1.15 &mdash; Varlık ve Teklik THEoREM'i Uygulaması</p>
+                            <p>$\displaystyle\frac{dy}{dx}=x^{2}+y^{2}$, &nbsp; $y(1)=3$ problemi için THEoREM 1.1 uygulanabilir mi?</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><strong>Çözüm:</strong> Burada $f(x,y)=x^{2}+y^{2}$ ve $\displaystyle\frac{\partial f}{\partial y}=2y$'dir.</p>
                                 <p>Her iki fonksiyon da $xy$ düzleminin <strong>tüm alanlarında süreklidir</strong>. Başlangıç noktası $(1,3)$ bu bölgenin içindedir.</p>
-                                <p>Dolayısıyla hipotezler sağlanır: teoremin sonucuna göre bu problemin $x_{0}=1$ civarında tanımlı kesinlikle <strong>tek (benzersiz)</strong> bir çözümü vardır. &check;</p>
+                                <p>Dolayısıyla hipotezler sağlanır: THEoREM'in sonucuna göre bu problemin $x_{0}=1$ civarında tanımlı kesinlikle <strong>tek (benzersiz)</strong> bir çözümü vardır. &check;</p>
                             </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">Örnek 1.16 &mdash; Varlık ve Teklik Teoremi İstisnası</p>
+                            <p class="question-text">Örnek 1.16 &mdash; Varlık ve Teklik THEoREM'i İstisnası</p>
                             <p>$\displaystyle\frac{dy}{dx}=\frac{y}{\sqrt{x}}$ denklemini iki farklı başlangıç şartı için inceleyiniz: &nbsp;(i) $y(1)=2$ &nbsp;(ii) $y(0)=2$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><strong>Durum 1 &mdash; $y(1)=2$:</strong></p>
                                 <p>$\displaystyle f(x,y)=\frac{y}{x^{1/2}}$ ve $\displaystyle\frac{\partial f}{\partial y}=\frac{1}{x^{1/2}}$ fonksiyonları $x=0$ (yani $y$ ekseni) haricinde her yerde süreklidir.</p>
-                                <p>$(1,2)$ noktası $y$ ekseninden uzak olduğu için bu noktayı merkez alan sürekli bir bölge tanımlanabilir. Dolayısıyla teoreme göre <strong>benzersiz bir çözüm garanti edilir</strong>. &check;</p>
+                                <p>$(1,2)$ noktası $y$ ekseninden uzak olduğu için bu noktayı merkez alan sürekli bir bölge tanımlanabilir. Dolayısıyla THEoREM'e göre <strong>benzersiz bir çözüm garanti edilir</strong>. &check;</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                                 <p><strong>Durum 2 &mdash; $y(0)=2$:</strong></p>
-                                <p>Bu kez incelenen nokta $(0,2)$ olup, süreksizliğin bulunduğu $x=0$ doğrusu <u>üzerindedir</u>. Fonksiyon ve kısmi türevi bu noktada sürekli olmadığından <strong>Teorem 1.1 uygulanamaz</strong>.</p>
-                                <p>Teorem, çözümün varlığı ya da yokluğu hakkında <u>hiçbir bilgi veremez</u>.</p>
+                                <p>Bu kez incelenen nokta $(0,2)$ olup, süreksizliğin bulunduğu $x=0$ doğrusu <u>üzerindedir</u>. Fonksiyon ve kısmi türevi bu noktada sürekli olmadığından <strong>THEoREM 1.1 uygulanamaz</strong>.</p>
+                                <p>THEoREM, çözümün varlığı ya da yokluğu hakkında <u>hiçbir bilgi veremez</u>.</p>
                             </div>
                         </div>
                     </div>
@@ -884,7 +884,7 @@
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">6. &nbsp;Teorem 1.1'i uygulayarak aşağıdaki problemlerin $x_{0}=1$ etrafında benzersiz bir çözüme sahip olduğunu gösteriniz:</p>
+                            <p class="question-text">6. &nbsp;THEoREM 1.1'i uygulayarak aşağıdaki problemlerin $x_{0}=1$ etrafında benzersiz bir çözüme sahip olduğunu gösteriniz:</p>
                             <p style="margin: 0.5rem 0;">(a) $\displaystyle\frac{dy}{dx}=x^{2}\sin y$, $y(1)=-2$ &nbsp;&nbsp;&nbsp; (b) $\displaystyle\frac{dy}{dx}=\frac{y^{2}}{x-2}$, $y(1)=0$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -902,7 +902,7 @@
                             <div class="answer">
                                 <p>$f(x,y)=P(x)y^{2}+Q(x)y$ &nbsp;ve&nbsp; $\displaystyle\frac{\partial f}{\partial y}=2P(x)y+Q(x)$</p>
                                 <p>Polinomlar her yerde sürekli olduğundan hem $f$ hem de $\frac{\partial f}{\partial y}$ <strong>tüm $xy$ düzleminde süreklidir</strong>. $(2,5)$ noktası bu bölgenin içindedir.</p>
-                                <p><strong>Sonuç:</strong> Evet &mdash; Teorem 1.1'in her iki hipotezi de sağlandığı için $|x-2|\le h$ aralığında benzersiz bir çözüm vardır. &check;</p>
+                                <p><strong>Sonuç:</strong> Evet &mdash; THEoREM 1.1'in her iki hipotezi de sağlandığı için $|x-2|\le h$ aralığında benzersiz bir çözüm vardır. &check;</p>
                             </div>
                         </div>
 
@@ -922,7 +922,7 @@
                                 <p style="margin-top: 0.5rem;"><strong>Başlangıç şartı:</strong> $c\ge 0$ olduğundan $x=0 \le c$ bölgesindedir &rarr; $y(0)=0$ &check;</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                                 <p><strong>(b)</strong> Her grafik, $x$ ekseni boyunca $x=c$'ye kadar <strong>düz sıfır çizgisidir</strong>; $x=c$ noktasından itibaren yatay teğetle ayrılıp yukarı doğru artan bir eğri izler. $c=1,2,3$ grafikleri, $c=0$ grafiğinin sağa doğru $1$, $2$, $3$ birim ötelenmiş halleridir.</p>
-                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $f(x,y)=y^{1/3}$ süreklidir, fakat $\frac{\partial f}{\partial y}=\frac{1}{3}y^{-2/3}$ ifadesi $y=0$'da sürekli değildir. Bu yüzden Teorem 1.1 uygulanamaz ve teklik garanti edilmez.</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $f(x,y)=y^{1/3}$ süreklidir, fakat $\frac{\partial f}{\partial y}=\frac{1}{3}y^{-2/3}$ ifadesi $y=0$'da sürekli değildir. Bu yüzden THEoREM 1.1 uygulanamaz ve teklik garanti edilmez.</p>
                             </div>
                         </div>
                     </div>
@@ -995,7 +995,7 @@
                         </div>
 
                         <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
-                            <strong style="color: #6d28d9; font-size: 1.05rem;">Teorem 2.1 &mdash; Tamlık Kriteri</strong>
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">THEoREM 2.1 &mdash; Tamlık Kriteri</strong>
                             <p style="margin-top: 0.6rem; font-size: 0.95rem;">$M$ ve $N$, bir dikdörtgensel bölge olan $D$'deki tüm $(x,y)$ noktalarında sürekli birinci kısmi türevlere sahip olsun.</p>
                             <ol style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem;">
                                 <li>Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi $D$'de <strong>tam ise</strong>, tüm $(x,y)\in D$ için $\displaystyle\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ olur.</li>
@@ -1016,7 +1016,7 @@
                         <p>Bu durumda $c$ bir keyfi sabit olmak üzere $F(x,y)=c$ bağıntısı denklemin doğal bir çözümüdür.</p>
 
                         <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
-                            <strong style="color: #6d28d9; font-size: 1.05rem;">Teorem 2.2</strong>
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">THEoREM 2.2</strong>
                             <p style="margin-top: 0.6rem; font-size: 0.95rem;">Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi $D$ bölgesinde tam ise, bu denklemin <strong>bir parametreli çözüm ailesi</strong>, $c$ keyfi bir sabit olmak üzere</p>
                             $$F(x,y)=c$$
                             <p style="font-size: 0.95rem;">şeklinde verilir; burada $F$, tüm $(x,y)\in D$ için $\frac{\partial F}{\partial x}=M(x,y)$ ve $\frac{\partial F}{\partial y}=N(x,y)$ şartlarını sağlar.</p>
@@ -1086,7 +1086,7 @@
 
                         <div class="question-block">
                             <p class="question-text">Örnek 2.3 &mdash; Tamlık Kriterinin Uygulanması</p>
-                            <p>Teorem 2.1'deki tamlık kriterini Örnek 2.2'deki iki denkleme uygulayınız.</p>
+                            <p>THEoREM 2.1'deki tamlık kriterini Örnek 2.2'deki iki denkleme uygulayınız.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><strong>İlk denklem:</strong> $M(x,y)=y^{2}$, &nbsp; $N(x,y)=2xy$</p>
@@ -1554,7 +1554,7 @@
                         </div>
 
                         <div class="highlight">
-                            <strong>Teorem 2.3:</strong>
+                            <strong>THEoREM 2.3:</strong>
                             <p>Eğer $M(x,y)dx+N(x,y)dy=0$ bir homojen denklem ise, $y=vx$ değişken değiştirmesi bu denklemi $v$ ve $x$ değişkenleri cinsinden bir ayrılabilir denkleme dönüştürür.</p>
                             <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                             <p><strong>İspat:</strong> Denklem homojen olduğu için $\displaystyle \frac{dy}{dx}=g\left(\frac{y}{x}\right)$ formunda yazılabilir. $y=vx$ alırsak, türevi $\displaystyle \frac{dy}{dx}=v+x\frac{dv}{dx}$ olur. Bunu yerine yazarsak denklem şu şekle dönüşür:</p>
@@ -1797,7 +1797,7 @@
                         $$\mu=e^{\int P(x)dx}$$
 
                         <div class="highlight">
-                            <strong>Teorem 2.4:</strong>
+                            <strong>THEoREM 2.4:</strong>
                             <p>Doğrusal diferansiyel denklem olan $\displaystyle \frac{dy}{dx}+P(x)y=Q(x)$ şu formda bir integral çarpanına sahiptir:</p>
                             $$e^{\int P(x)dx}$$
                             <p>Bu denklemin bir parametreli çözüm ailesi <em>(one-parameter family of solutions)</em> şu şekildedir:</p>
@@ -1828,7 +1828,7 @@
                         </div>
 
                         <div class="highlight">
-                            <strong>Teorem 2.5:</strong>
+                            <strong>THEoREM 2.5:</strong>
                             <p>$n \neq 0$ veya $1$ olsun. O halde, $v=y^{1-n}$ dönüşümü,</p>
                             $$\frac{dy}{dx}+P(x)y=Q(x)y^{n}$$
                             <p>Bernoulli denklemini $v$ cinsinden doğrusal bir denkleme indirger.</p>
@@ -2446,10 +2446,10 @@
                         $$N(x,y)\frac{\partial\mu}{\partial x}-M(x,y)\frac{\partial\mu}{\partial y}=\left[\frac{\partial M(x,y)}{\partial y}-\frac{\partial N(x,y)}{\partial x}\right]\mu$$
                         <p>Bu denklemi genel haliyle çözmek zor olduğundan, $\mu$'nün sadece $x$'e veya sadece $y$'ye bağlı olduğu özel durumlara bakılır. Örneğin $\mu$ sadece $x$'e bağlıysa ($\mu(x)$), kısmi türev denklemi şu adi diferansiyel denkleme sadeleşir:</p>
                         $$\frac{d\mu(x)}{\mu(x)}=\frac{1}{N(x,y)}\left[\frac{\partial M(x,y)}{\partial y}-\frac{\partial N(x,y)}{\partial x}\right]dx$$
-                        <p>Eğer eşitliğin sağ tarafı yalnızca $x$'e bağlıysa, bu denklem çözülerek integral çarpanı bulunabilir. Bu durumlar aşağıdaki teoremle özetlenir:</p>
+                        <p>Eğer eşitliğin sağ tarafı yalnızca $x$'e bağlıysa, bu denklem çözülerek integral çarpanı bulunabilir. Bu durumlar aşağıdaki THEoREM'le özetlenir:</p>
 
                         <div class="highlight">
-                            <strong>Teorem 2.6:</strong> $M(x,y)dx+N(x,y)dy=0$ diferansiyel denklemini ele alalım.
+                            <strong>THEoREM 2.6:</strong> $M(x,y)dx+N(x,y)dy=0$ diferansiyel denklemini ele alalım.
                             <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                             <p>Eğer $\displaystyle \frac{1}{N(x,y)}\left[\frac{\partial M(x,y)}{\partial y}-\frac{\partial N(x,y)}{\partial x}\right]$ ifadesi <strong>sadece $x$'e bağlıysa</strong>, o zaman orijinal denklemin bir integral çarpanı şu şekildedir:</p>
                             $$\exp\left( \int\frac{1}{N(x,y)}\left[\frac{\partial M(x,y)}{\partial y}-\frac{\partial N(x,y)}{\partial x}\right]dx \right)$$
@@ -2470,7 +2470,7 @@
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><strong>Çözüm:</strong></p>
-                                <p>Denklem tam, ayrılabilir, homojen, doğrusal veya Bernoulli değildir. Teorem 2.6'yı uygulamayı deneriz. $M(x,y)=2x^{2}+y$ ve $N(x,y)=x^{2}y-x$'tir. (2.46) numaralı ifadeyi hesaplarsak:</p>
+                                <p>Denklem tam, ayrılabilir, homojen, doğrusal veya Bernoulli değildir. THEoREM 2.6'yı uygulamayı deneriz. $M(x,y)=2x^{2}+y$ ve $N(x,y)=x^{2}y-x$'tir. (2.46) numaralı ifadeyi hesaplarsak:</p>
                                 $$\frac{1}{x^{2}y-x}\left[\frac{\partial}{\partial y}(2x^{2}+y)-\frac{\partial}{\partial x}(x^{2}y-x)\right] = \frac{1}{x^{2}y-x}\left[1-(2xy-1)\right]=\frac{2(1-xy)}{x(xy-1)}=-\frac{2}{x}$$
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                                 <p>Bu ifade yalnızca $x$'e bağlıdır, o yüzden integral çarpanı şu formülle bulunur:</p>
@@ -2520,7 +2520,7 @@
                             
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><strong>Çözüm Yönergeleri:</strong> Öğrenci pratiği için ayrılmıştır. İlk dört soruda Teorem 2.6'yı test edin. Dönüşüm sorularında $a_2/a_1$ oranını kontrol ederek Teorem 2.7'deki ilgili durumu uygulayın.</p>
+                                <p><strong>Çözüm Yönergeleri:</strong> Öğrenci pratiği için ayrılmıştır. İlk dört soruda THEoREM 2.6'yı test edin. Dönüşüm sorularında $a_2/a_1$ oranını kontrol ederek THEoREM 2.7'deki ilgili durumu uygulayın.</p>
                             </div>
                         </div>
                     </div>
@@ -2592,13 +2592,13 @@
                             3.1 &nbsp;Doğrusal Diferansiyel Denklemlerin Temel Teorisi
                         </div>
 
-                        <p>Adi doğrusal diferansiyel denklemler (<em>ordinary linear differential equations</em>) teorik olarak basit ve zarif olmalarının yanı sıra, bilim ve mühendislikteki birçok pratik uygulamada sıklıkla karşılaşıldıkları için büyük bir öneme sahiptir. İlerleyen bölümlerde denklemleri çözmek için çeşitli yöntemler geliştirilecektir ancak öncelikle tüm bölüm boyunca kullanılacak olan temel teoremlerin incelenmesi gerekir.</p>
+                        <p>Adi doğrusal diferansiyel denklemler (<em>ordinary linear differential equations</em>) teorik olarak basit ve zarif olmalarının yanı sıra, bilim ve mühendislikteki birçok pratik uygulamada sıklıkla karşılaşıldıkları için büyük bir öneme sahiptir. İlerleyen bölümlerde denklemleri çözmek için çeşitli yöntemler geliştirilecektir ancak öncelikle tüm bölüm boyunca kullanılacak olan temel THEoREM'lerin incelenmesi gerekir.</p>
 
                         <div class="highlight" style="margin: 1rem 0;">
                             <strong>Notasyon:</strong> Bu bölümde daha önce kullanılan $\dfrac{dy}{dx}$ notasyonu yerine, türevleri belirtmek için genellikle üssü notasyonu ($y^{\prime}$, $y^{\prime\prime}$) kullanılacaktır.
                         </div>
 
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Tanım ve Temel Varlık Teoremi</h3>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Tanım ve Temel Varlık THEoREM'i</h3>
 
                         <p><strong>Tanım.</strong> $y$ bağımlı değişkenine ve $x$ bağımsız değişkenine sahip <strong>$n$. mertebeden bir doğrusal adi diferansiyel denklem</strong> (<em>linear ordinary differential equation</em>), şu formda olan veya bu forma dönüştürülebilen bir denklemdir:</p>
                         $$a_{0}(x)y^{(n)}+a_{1}(x)y^{(n-1)}+\cdots+a_{n-1}(x)y^{\prime}+a_{n}(x)y=F(x) \qquad (4.1)$$
@@ -2614,7 +2614,7 @@
                         $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$$
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.1 &mdash; Başlangıç Değer Problemleri İçin Temel Varlık Teoremi.</strong>
+                            <strong>THEoREM 4.1 &mdash; Başlangıç Değer Problemleri İçin Temel Varlık THEoREM'i.</strong>
                             <p style="margin-top: 0.5rem;"><em>Hipotez:</em></p>
                             <ol style="margin-left: 1.25rem;">
                                 <li>(4.1) doğrusal denkleminde $a_{0},a_{1},\ldots,a_{n}$ ve $F$ fonksiyonları $a \le x \le b$ aralığında sürekli olsun ve bu aralıkta $a_{0}(x)\neq 0$ olsun.</li>
@@ -2632,7 +2632,7 @@
                         <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Homojen Denklem</h3>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.2 &mdash; Doğrusal Homojen Denklemler Üzerine Temel Teorem.</strong>
+                            <strong>THEoREM 4.2 &mdash; Doğrusal Homojen Denklemler Üzerine Temel THEoREM.</strong>
                             <p style="margin-top: 0.5rem;"><em>Hipotez:</em> $f_{1},f_{2},\ldots,f_{m}$, (4.2) homojen denkleminin herhangi $m$ çözümü olsun.</p>
                             <p><em>Sonuç:</em> $c_{1},c_{2},\ldots,c_{m}$ keyfi sabitler olmak üzere</p>
                             $$c_{1}f_{1}+c_{2}f_{2}+\cdots+c_{m}f_{m}$$
@@ -2646,7 +2646,7 @@
                         <p><strong>Tanım (Doğrusal Bağımsızlık).</strong> Fonksiyonlar doğrusal bağımlı değillerse &mdash; yani yukarıdaki eşitlik yalnızca $c_{1}=c_{2}=\cdots=c_{n}=0$ olduğunda sağlanıyorsa &mdash; <strong>doğrusal bağımsız</strong> (<em>linearly independent</em>) denir.</p>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.3.</strong> $n$. mertebeden homojen doğrusal denklemin her zaman $n$ tane doğrusal bağımsız çözümü vardır. Ayrıca, $f_{1},f_{2},\ldots,f_{n}$ bu denklemin $n$ tane doğrusal bağımsız çözümü ise, denklemin herhangi bir $f$ çözümü uygun $c_{1},c_{2},\ldots,c_{n}$ sabitleri seçilerek
+                            <strong>THEoREM 4.3.</strong> $n$. mertebeden homojen doğrusal denklemin her zaman $n$ tane doğrusal bağımsız çözümü vardır. Ayrıca, $f_{1},f_{2},\ldots,f_{n}$ bu denklemin $n$ tane doğrusal bağımsız çözümü ise, denklemin herhangi bir $f$ çözümü uygun $c_{1},c_{2},\ldots,c_{n}$ sabitleri seçilerek
                             $$f = c_{1}f_{1}+c_{2}f_{2}+\cdots+c_{n}f_{n}$$
                             şeklinde ifade edilebilir.
                         </div>
@@ -2659,7 +2659,7 @@
                         $$W(f_{1},f_{2},\ldots,f_{n})=\begin{vmatrix}f_{1}&f_{2}&\cdots&f_{n}\\ f_{1}^{\prime}&f_{2}^{\prime}&\cdots&f_{n}^{\prime}\\ \vdots&\vdots& &\vdots\\ f_{1}^{(n-1)}&f_{2}^{(n-1)}&\cdots&f_{n}^{(n-1)}\end{vmatrix}$$
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.4 &amp; Teorem 4.5.</strong> $f_{1},f_{2},\ldots,f_{n}$ çözümlerinin doğrusal bağımsız olması için <strong>gerek ve yeter şart</strong>, Wronski determinantının aralıktaki en az bir $x$ için sıfırdan farklı olmasıdır. Üstelik bu determinant ya aralığın her yerinde sıfırdır ya da hiçbir yerinde sıfır değildir.
+                            <strong>THEoREM 4.4 &amp; THEoREM 4.5.</strong> $f_{1},f_{2},\ldots,f_{n}$ çözümlerinin doğrusal bağımsız olması için <strong>gerek ve yeter şart</strong>, Wronski determinantının aralıktaki en az bir $x$ için sıfırdan farklı olmasıdır. Üstelik bu determinant ya aralığın her yerinde sıfırdır ya da hiçbir yerinde sıfır değildir.
                         </div>
 
                         <p>İkinci mertebeden bir denklem için:</p>
@@ -2668,11 +2668,11 @@
                         <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">C. Mertebe Düşürme</h3>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.6.</strong> Eğer $f$, $n$. mertebeden homojen doğrusal denklemin aşikar olmayan bir çözümü ise, $y=f(x)v$ dönüşümü orijinal denklemi $w=\dfrac{dv}{dx}$ bağımlı değişkenine göre $(n-1)$. mertebeden yeni bir homojen doğrusal denkleme indirger.
+                            <strong>THEoREM 4.6.</strong> Eğer $f$, $n$. mertebeden homojen doğrusal denklemin aşikar olmayan bir çözümü ise, $y=f(x)v$ dönüşümü orijinal denklemi $w=\dfrac{dv}{dx}$ bağımlı değişkenine göre $(n-1)$. mertebeden yeni bir homojen doğrusal denkleme indirger.
                         </div>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.7 &mdash; İkinci Mertebeden Durum.</strong> $f$, $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ denkleminin bilinen bir çözümü ise, $y=f(x)v$ dönüşümü ($w=v^{\prime}$ ile) denklemi birinci mertebeden şu forma indirger:
+                            <strong>THEoREM 4.7 &mdash; İkinci Mertebeden Durum.</strong> $f$, $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ denkleminin bilinen bir çözümü ise, $y=f(x)v$ dönüşümü ($w=v^{\prime}$ ile) denklemi birinci mertebeden şu forma indirger:
                             $$a_{0}(x)f(x)\frac{dw}{dx}+\bigl[2a_{0}(x)f^{\prime}(x)+a_{1}(x)f(x)\bigr]w=0$$
                             Bu ayrılabilir denklemin çözülmesiyle $w$ ve ardından $v$ elde edilir:
                             $$w=\frac{\exp\!\left[-\displaystyle\int\dfrac{a_{1}(x)}{a_{0}(x)}\,dx\right]}{[f(x)]^{2}}$$
@@ -2683,14 +2683,14 @@
                         <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">D. Homojen Olmayan Denklem</h3>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.8.</strong> $v$, homojen olmayan (4.1) denkleminin herhangi bir çözümü ve $u$, buna karşılık gelen homojen (4.2) denkleminin herhangi bir çözümü ise, $u+v$ toplamı da (4.1)'in bir çözümüdür.
+                            <strong>THEoREM 4.8.</strong> $v$, homojen olmayan (4.1) denkleminin herhangi bir çözümü ve $u$, buna karşılık gelen homojen (4.2) denkleminin herhangi bir çözümü ise, $u+v$ toplamı da (4.1)'in bir çözümüdür.
                         </div>
 
-                        <p><strong>Tanım ve Teorem 4.9.</strong> Homojen (4.2) denkleminin genel çözümüne (4.1) denkleminin <strong>tamamlayıcı fonksiyonu</strong> (<em>complementary function</em>) denir ve $y_{c}$ ile gösterilir. (4.1) denkleminin, içinde hiçbir keyfi sabit barındırmayan herhangi bir özel çözümüne <strong>özel integral</strong> (<em>particular integral</em>) denir ve $y_{p}$ ile gösterilir. Homojen olmayan denklemin tüm çözümlerini kapsayan genel çözümü, bu iki parçanın toplamıdır:</p>
+                        <p><strong>Tanım ve THEoREM 4.9.</strong> Homojen (4.2) denkleminin genel çözümüne (4.1) denkleminin <strong>tamamlayıcı fonksiyonu</strong> (<em>complementary function</em>) denir ve $y_{c}$ ile gösterilir. (4.1) denkleminin, içinde hiçbir keyfi sabit barındırmayan herhangi bir özel çözümüne <strong>özel integral</strong> (<em>particular integral</em>) denir ve $y_{p}$ ile gösterilir. Homojen olmayan denklemin tüm çözümlerini kapsayan genel çözümü, bu iki parçanın toplamıdır:</p>
                         $$y = y_{c} + y_{p}$$
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.10 &mdash; Süperpozisyon Prensibi.</strong> $f_{1}$ fonksiyonu sağ tarafı $F_{1}(x)$ olan denklemin bir özel integrali ve $f_{2}$ fonksiyonu sağ tarafı $F_{2}(x)$ olan denklemin bir özel integrali ise; $k_{1}f_{1}+k_{2}f_{2}$ doğrusal kombinasyonu da sağ tarafı $k_{1}F_{1}(x)+k_{2}F_{2}(x)$ olan denklemin bir özel integralidir.
+                            <strong>THEoREM 4.10 &mdash; Süperpozisyon Prensibi.</strong> $f_{1}$ fonksiyonu sağ tarafı $F_{1}(x)$ olan denklemin bir özel integrali ve $f_{2}$ fonksiyonu sağ tarafı $F_{2}(x)$ olan denklemin bir özel integrali ise; $k_{1}f_{1}+k_{2}f_{2}$ doğrusal kombinasyonu da sağ tarafı $k_{1}F_{1}(x)+k_{2}F_{2}(x)$ olan denklemin bir özel integralidir.
                         </div>
                     </div>
 
@@ -2715,11 +2715,11 @@
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">Örnek 4.3 &mdash; Varlık Teoreminin Uygulanması</p>
+                            <p class="question-text">Örnek 4.3 &mdash; Varlık THEoREM'inin Uygulanması</p>
                             <p>$y^{\prime\prime}+3xy^{\prime}+x^{3}y=e^{x}$ denklemi ve $y(1)=2,\ y^{\prime}(1)=-5$ şartlarını ele alınız.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p>Katsayılar $1,\ 3x,\ x^{3}$ ve sağ taraftaki $e^{x}$ her yerde ($-\infty<x<\infty$) süreklidir. Başlangıç noktası $x_{0}=1$ bu aralıkta olduğu için, Teorem 4.1'e göre problem <strong>tüm reel sayılar aralığında benzersiz</strong> bir çözüme sahiptir.</p>
+                                <p>Katsayılar $1,\ 3x,\ x^{3}$ ve sağ taraftaki $e^{x}$ her yerde ($-\infty<x<\infty$) süreklidir. Başlangıç noktası $x_{0}=1$ bu aralıkta olduğu için, THEoREM 4.1'e göre problem <strong>tüm reel sayılar aralığında benzersiz</strong> bir çözüme sahiptir.</p>
                             </div>
                         </div>
 
@@ -2728,7 +2728,7 @@
                             <p>$y^{\prime\prime\prime}+2y^{\prime\prime}+4xy^{\prime}+x^{2}y=0$ homojen denklemi $f(2)=f^{\prime}(2)=f^{\prime\prime}(2)=0$ şartlarıyla veriliyor.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p>Teorem 4.1'in sonucu (corollary) gereği bu şartları sağlayan <strong>benzersiz çözüm</strong>, tüm $x$'ler için $f(x)=0$ olan <strong>aşikar çözümdür</strong>.</p>
+                                <p>THEoREM 4.1'in sonucu (corollary) gereği bu şartları sağlayan <strong>benzersiz çözüm</strong>, tüm $x$'ler için $f(x)=0$ olan <strong>aşikar çözümdür</strong>.</p>
                             </div>
                         </div>
 
@@ -2737,8 +2737,8 @@
                             <p>(a) $y^{\prime\prime}+y=0$ için $\sin x$ ve $\cos x$ birer çözümdür. (b) $y^{\prime\prime\prime}-2y^{\prime\prime}-y^{\prime}+2y=0$ için $e^{x},\ e^{-x},\ e^{2x}$ birer çözümdür. Doğrusal kombinasyonlarının da çözüm olduğunu gösteriniz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p>Teorem 4.2 gereği, herhangi $c_{1},c_{2}$ için $c_{1}\sin x+c_{2}\cos x$ ilk denklemin çözümüdür. Örneğin $5\sin x+6\cos x$ bir çözümdür.</p>
-                                <p>Aynı teoremden, $2e^{x}-3e^{-x}+\tfrac{2}{3}e^{2x}$ kombinasyonu ikinci denklemin bir çözümüdür.</p>
+                                <p>THEoREM 4.2 gereği, herhangi $c_{1},c_{2}$ için $c_{1}\sin x+c_{2}\cos x$ ilk denklemin çözümüdür. Örneğin $5\sin x+6\cos x$ bir çözümdür.</p>
+                                <p>Aynı THEoREM'den, $2e^{x}-3e^{-x}+\tfrac{2}{3}e^{2x}$ kombinasyonu ikinci denklemin bir çözümüdür.</p>
                             </div>
                         </div>
 
@@ -2831,7 +2831,7 @@
                             <p>$y^{\prime\prime}+y=3x+5\tan x$ denkleminin bir özel integralini bulunuz. ($y^{\prime\prime}+y=x$ için $y=x$; $y^{\prime\prime}+y=\tan x$ için $y=-(\cos x)\ln|\sec x+\tan x|$ özel integralleri bilinmektedir.)</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p>Teorem 4.10 (süperpozisyon) uygulanarak, sağ taraftaki katsayılar doğrudan aktarılır:</p>
+                                <p>THEoREM 4.10 (süperpozisyon) uygulanarak, sağ taraftaki katsayılar doğrudan aktarılır:</p>
                                 $$y_{p}=3\cdot x + 5\cdot\bigl[-(\cos x)\ln|\sec x+\tan x|\bigr]$$
                                 $$\boxed{\ y_{p}=3x-5(\cos x)\ln|\sec x+\tan x|\ }$$
                             </div>
@@ -2849,7 +2849,7 @@
 
                         <div class="question-block">
                             <p class="question-text">1.</p>
-                            <p>Teorem 4.1 aşağıdaki problemlerden birine uygulanabilir ancak diğerine uygulanamaz. Hangisine uygulandığını ve hangi sonucun çıkarılabileceğini belirleyiniz. Neden diğerine uygulanamadığını açıklayınız.</p>
+                            <p>THEoREM 4.1 aşağıdaki problemlerden birine uygulanabilir ancak diğerine uygulanamaz. Hangisine uygulandığını ve hangi sonucun çıkarılabileceğini belirleyiniz. Neden diğerine uygulanamadığını açıklayınız.</p>
                             <ul style="margin-left: 1.25rem;">
                                 <li>(a) $y^{\prime\prime}+5y^{\prime}+6y=e^{x},\ \ y(0)=5,\ \ y^{\prime}(0)=7$</li>
                                 <li>(b) $y^{\prime\prime}+5y^{\prime}+6y=e^{x},\ \ y(0)=5,\ \ y^{\prime}(1)=7$</li>
@@ -2863,7 +2863,7 @@
 
                         <div class="question-block">
                             <p class="question-text">3.</p>
-                            <p>Teorem 4.2'yi $m=n=2$ durumu için ispatlayınız. Yani $f_{1}(x)$ ve $f_{2}(x)$'in $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ için çözüm olması durumunda, $c_{1}f_{1}(x)+c_{2}f_{2}(x)$'in de bir çözüm olduğunu kanıtlayınız.</p>
+                            <p>THEoREM 4.2'yi $m=n=2$ durumu için ispatlayınız. Yani $f_{1}(x)$ ve $f_{2}(x)$'in $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ için çözüm olması durumunda, $c_{1}f_{1}(x)+c_{2}f_{2}(x)$'in de bir çözüm olduğunu kanıtlayınız.</p>
                         </div>
 
                         <div class="question-block">
@@ -2871,7 +2871,7 @@
                             <p>$y^{\prime\prime}-4y^{\prime}+3y=0$ denklemini (A) ele alınız.</p>
                             <ul style="margin-left: 1.25rem;">
                                 <li>(a) $e^{x}$ ve $e^{3x}$'in $a<b$ olmak üzere herhangi bir $a\le x\le b$ aralığında bu denklemin çözümü olduğunu gösteriniz.</li>
-                                <li>(b) Hangi teorem bize $5e^{x}+2e^{3x}$, $6e^{x}-4e^{3x}$ ve $-7e^{x}+5e^{3x}$'in de çözüm olduğunu söyler?</li>
+                                <li>(b) Hangi THEoREM bize $5e^{x}+2e^{3x}$, $6e^{x}-4e^{3x}$ ve $-7e^{x}+5e^{3x}$'in de çözüm olduğunu söyler?</li>
                                 <li>(c) Neden $3e^{x},\ -4e^{x},\ 5e^{x},\ 6e^{x}$ ifadeleri de birer çözümdür?</li>
                             </ul>
                         </div>
@@ -2881,7 +2881,7 @@
                             <p>Yine (A) denklemini ele alınız.</p>
                             <ul style="margin-left: 1.25rem;">
                                 <li>(a) Doğrusal bağımlılık tanımını kullanarak Soru 4(c)'deki dört fonksiyonun doğrusal bağımlı olduğunu gösteriniz.</li>
-                                <li>(b) Teorem 4.4'ü kullanarak Soru 4(c)'de listelenen çözüm çiftlerinin her birinin doğrusal bağımlı olduğunu gösteriniz.</li>
+                                <li>(b) THEoREM 4.4'ü kullanarak Soru 4(c)'de listelenen çözüm çiftlerinin her birinin doğrusal bağımlı olduğunu gösteriniz.</li>
                             </ul>
                         </div>
 
@@ -2890,7 +2890,7 @@
                             <p>Yine (A) denklemini ele alınız.</p>
                             <ul style="margin-left: 1.25rem;">
                                 <li>(a) Doğrusal bağımsızlık tanımını kullanarak $e^{x}$ ve $e^{3x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
-                                <li>(b) Teorem 4.4'ü kullanarak bu iki çözümün doğrusal bağımsız olduğunu gösteriniz.</li>
+                                <li>(b) THEoREM 4.4'ü kullanarak bu iki çözümün doğrusal bağımsız olduğunu gösteriniz.</li>
                             </ul>
                         </div>
 
@@ -2974,7 +2974,7 @@
 
                         <div class="question-block">
                             <p class="question-text">22.</p>
-                            <p>Teorem 4.8'i $n=2$ durumu için ispatlayınız. Yani $u$'nun homojen denklemi, $v$'nin ise homojen olmayan denklemi çözdüğü durumda $u+v$'nin de homojen olmayan denklemi çözdüğünü gösteriniz.</p>
+                            <p>THEoREM 4.8'i $n=2$ durumu için ispatlayınız. Yani $u$'nun homojen denklemi, $v$'nin ise homojen olmayan denklemi çözdüğü durumda $u+v$'nin de homojen olmayan denklemi çözdüğünü gösteriniz.</p>
                         </div>
 
                         <div class="question-block">
@@ -2996,7 +2996,7 @@
                                 <li>$y^{\prime\prime}-5y^{\prime}+6y=x$ için $y=\tfrac{x}{6}+\tfrac{5}{36}$</li>
                                 <li>$y^{\prime\prime}-5y^{\prime}+6y=e^{x}$ için $y=\tfrac{e^{x}}{2}$</li>
                             </ul>
-                            <p>Teorem 4.10'u (süperpozisyon) uygulayarak şu denklemin özel integralini bulunuz:</p>
+                            <p>THEoREM 4.10'u (süperpozisyon) uygulayarak şu denklemin özel integralini bulunuz:</p>
                             $$y^{\prime\prime}-5y^{\prime}+6y=2-12x+6e^{x}$$
                         </div>
                     </div>
@@ -3035,7 +3035,7 @@
                         <p>diferansiyel denklemin $n$ tane <strong>doğrusal bağımsız</strong> çözümüdür.</p>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.11.</strong> Sabit katsayılı $n$. mertebeden homojen doğrusal denklemin yardımcı denkleminin $n$ farklı reel kökü $m_{1},m_{2},\ldots,m_{n}$ ise, genel çözüm
+                            <strong>THEoREM 4.11.</strong> Sabit katsayılı $n$. mertebeden homojen doğrusal denklemin yardımcı denkleminin $n$ farklı reel kökü $m_{1},m_{2},\ldots,m_{n}$ ise, genel çözüm
                             $$y=c_{1}e^{m_{1}x}+c_{2}e^{m_{2}x}+\cdots+c_{n}e^{m_{n}x}$$
                             biçimindedir ($c_{1},\ldots,c_{n}$ keyfi sabitler).
                         </div>
@@ -3045,7 +3045,7 @@
                         <p>Bir kök tekrarlıysa yalnızca $e^{mx}$ tek bir bağımsız çözüm üretir. Eksik olan bağımsız çözümleri bulmak için <strong>mertebe düşürme</strong> (<em>reduction of order</em>) yöntemi uygulanır. Örnek 4.22'de görüleceği gibi, $m$ çift katlı bir kökse $e^{mx}$ ile birlikte $xe^{mx}$ de yeni bir doğrusal bağımsız çözümdür.</p>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.12.</strong>
+                            <strong>THEoREM 4.12.</strong>
                             <ol style="margin-left: 1.25rem;">
                                 <li>Sabit katsayılı denklemin yardımcı denkleminin $k$ kez tekrarlanan bir reel $m$ kökü varsa, genel çözümün bu köke karşılık gelen kısmı
                                 $$(c_{1}+c_{2}x+c_{3}x^{2}+\cdots+c_{k}x^{k-1})e^{mx}$$
@@ -3063,7 +3063,7 @@
                         $$e^{ax}\bigl[c_{1}\sin bx+c_{2}\cos bx\bigr]$$
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.13.</strong>
+                            <strong>THEoREM 4.13.</strong>
                             <ol style="margin-left: 1.25rem;">
                                 <li>Yardımcı denklemin $a+bi$, $a-bi$ (tekrarlanmayan) eşlenik karmaşık kökleri varsa, genel çözümün bu çifte karşılık gelen kısmı
                                 $$y=e^{ax}(c_{1}\sin bx+c_{2}\cos bx)$$
@@ -3613,7 +3613,7 @@
                             <p class="question-text">2.</p>
                             <p>$(x-1)y^{\prime\prime}-xy^{\prime}+y=0$ denkleminin $y=x$ ve $y=e^{x}$ olmak üzere iki çözümü olduğu biliniyor ($1<a<b$ aralığında).</p>
                             <ul style="margin-left: 1.25rem;">
-                                <li>(a) $2x+3e^{x},\ x-e^{x},\ 3e^{x}-5x$'in de çözüm olduğunu garantileyen teoremi belirtiniz.</li>
+                                <li>(a) $2x+3e^{x},\ x-e^{x},\ 3e^{x}-5x$'in de çözüm olduğunu garantileyen THEoREM'i belirtiniz.</li>
                                 <li>(b) Doğrusal bağımsızlık tanımını kullanarak $x$ ve $e^{x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
                                 <li>(c) Wronskian ile aynı sonucu kanıtlayınız.</li>
                                 <li>(d) Genel çözüm nedir?</li>
@@ -3763,7 +3763,7 @@
                                 $$-\frac{\pi}{2}<\frac{x^{2}}{2}+\frac{\pi}{4}<\frac{\pi}{2}$$
                                 <p>koşulunu çözeriz. Sol eşitsizlik $x^{2}\ge 0$ olduğundan zaten sağlanır; sağ eşitsizlik ise</p>
                                 $$\frac{x^{2}}{2}<\frac{\pi}{4}\;\Longrightarrow\;x^{2}<\frac{\pi}{2}\;\Longrightarrow\;|x|<\sqrt{\frac{\pi}{2}}\approx 1{,}2533$$
-                                <p>verir. Yani çözüm $\left(-\sqrt{\pi/2},\;\sqrt{\pi/2}\right)$ aralığında tanımlıdır ve uç noktalara yaklaşırken $y\to\pm\infty$ olur. Denklemin sağ tarafı her yerde sürekli olmasına rağmen çözümün sonlu bir aralıkta patlaması, <span class="vurgu">doğrusal olmayan</span> denklemlerde varlık teoreminin yalnızca <span class="vurgu">yerel</span> bir garanti verdiğinin tipik bir örneğidir.</p>
+                                <p>verir. Yani çözüm $\left(-\sqrt{\pi/2},\;\sqrt{\pi/2}\right)$ aralığında tanımlıdır ve uç noktalara yaklaşırken $y\to\pm\infty$ olur. Denklemin sağ tarafı her yerde sürekli olmasına rağmen çözümün sonlu bir aralıkta patlaması, <span class="vurgu">doğrusal olmayan</span> denklemlerde varlık THEoREM'inin yalnızca <span class="vurgu">yerel</span> bir garanti verdiğinin tipik bir örneğidir.</p>
                             </div>
                         </div>
                     </div>
@@ -4035,7 +4035,7 @@
                         </div>
                         <p>Aşağıdaki forma sahip denklemler, uygun bir dönüşümle daha temel denklemlere dönüştürülebilir:</p>
                         $$(a_{1}x+b_{1}y+c_{1})dx+(a_{2}x+b_{2}y+c_{2})dy=0$$
-                        <p><strong>Teorem 2.7:</strong> Burada $a_{1}$, $b_{1}$, $c_{1}$, $a_{2}$, $b_{2}$ ve $c_{2}$ birer sabittir.</p>
+                        <p><strong>THEoREM 2.7:</strong> Burada $a_{1}$, $b_{1}$, $c_{1}$, $a_{2}$, $b_{2}$ ve $c_{2}$ birer sabittir.</p>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
                             <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem;">
@@ -4067,7 +4067,7 @@
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><strong>Çözüm:</strong></p>
-                                <p>Burada $a_{1}=1, b_{1}=-2, a_{2}=4, b_{2}=-3$'tür. $a_{2}/a_{1} = 4$ iken $b_{2}/b_{1} = 3/2$'dir. Oranlar eşit olmadığı için <strong>Teorem 2.7'nin 1. Durumu</strong> uygulanır.</p>
+                                <p>Burada $a_{1}=1, b_{1}=-2, a_{2}=4, b_{2}=-3$'tür. $a_{2}/a_{1} = 4$ iken $b_{2}/b_{1} = 3/2$'dir. Oranlar eşit olmadığı için <strong>THEoREM 2.7'nin 1. Durumu</strong> uygulanır.</p>
                                 <p>Şu denklem sistemini çözeriz: $h-2k+1=0$ ve $4h-3k-6=0$. Çözümünden $h=3$ ve $k=2$ bulunur. Dönüşümümüz $x=X+3, y=Y+2$ olur.</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                                 <p>Yerine koyduğumuzda denklem şu homojen hale gelir:</p>
@@ -4097,7 +4097,7 @@
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><strong>Çözüm:</strong></p>
-                                <p>Burada $a_{1}=1, b_{1}=2, a_{2}=2, b_{2}=4$ olup $a_{2}/a_{1}=b_{2}/b_{1}=2$ olduğu için <strong>Teorem 2.7'nin 2. Durumu</strong> geçerlidir.</p>
+                                <p>Burada $a_{1}=1, b_{1}=2, a_{2}=2, b_{2}=4$ olup $a_{2}/a_{1}=b_{2}/b_{1}=2$ olduğu için <strong>THEoREM 2.7'nin 2. Durumu</strong> geçerlidir.</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
                                 <p>$z=x+2y$ dersek denklem şu hale dönüşür:</p>
                                 $$(z+3)dx+(2z-1)\left(\frac{dz-dx}{2}\right)=0$$
@@ -4127,8 +4127,8 @@
                         <div class="question-block">
                             <p class="question-text">Teorik Sorular:</p>
                             <ol start="15">
-                                <li>Teorem 2.6'yı ispatlayınız.</li>
-                                <li>Teorem 2.7'yi ispatlayınız.</li>
+                                <li>THEoREM 2.6'yı ispatlayınız.</li>
+                                <li>THEoREM 2.7'yi ispatlayınız.</li>
                                 <li>$\mu(x,y)$ ve $v(x,y)$ fonksiyonlarının, $M(x,y)dx+N(x,y)dy=0$ denkleminin integral çarpanları olduğunu ve oranlarının ($\mu/v$) sabit olmadığını varsayalım. O halde $\mu(x,y)=cv(x,y)$ bağıntısının her $c$ sabiti için denklemin bir çözümü olduğunu gösteriniz.</li>
                                 <li>Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi homojen ise ve $Mx+Ny \neq 0$ ise, o zaman $\displaystyle \frac{1}{Mx+Ny}$ ifadesinin bir integral çarpanı olduğunu gösteriniz.</li>
                                 <li>Eğer denklem hem homojen hem de tam ise ve $Mx+Ny$ sabit değilse, çözümün $Mx+Ny=c$ olduğunu gösteriniz.</li>
@@ -4370,7 +4370,7 @@
                         <p>Burada $a_{0},a_{1},\ldots,a_{n}$ sabittir. Karakteristik özellik: sol taraftaki her terim $x^{k}y^{(k)}$ biçimindeki ifadelerin sabit katıdır.</p>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem 4.14.</strong> $x=e^{t}$ dönüşümü, Cauchy-Euler denklemini <strong>sabit katsayılı doğrusal bir diferansiyel denkleme</strong> dönüştürür.
+                            <strong>THEoREM 4.14.</strong> $x=e^{t}$ dönüşümü, Cauchy-Euler denklemini <strong>sabit katsayılı doğrusal bir diferansiyel denkleme</strong> dönüştürür.
                         </div>
 
                         <p><strong>İspat (ikinci mertebeden durum).</strong> $x>0$ için $x=e^{t}\ \Leftrightarrow\ t=\ln x$ alalım. Zincir kuralıyla:</p>
@@ -4387,7 +4387,7 @@
                         <div class="highlight" style="margin: 1rem 0;">
                             <strong>Önemli Notlar.</strong>
                             <ol style="margin-left: 1.25rem;">
-                                <li>En yüksek dereceli katsayı $a_{0}x^{n}$ $x=0$'da sıfırdır; dolayısıyla <strong>Temel Varlık Teoremi'nin geçerli olduğu temel aralık $x=0$'ı içermez</strong>.</li>
+                                <li>En yüksek dereceli katsayı $a_{0}x^{n}$ $x=0$'da sıfırdır; dolayısıyla <strong>Temel Varlık THEoREM'i'nin geçerli olduğu temel aralık $x=0$'ı içermez</strong>.</li>
                                 <li>İspatta $x>0$ varsayıldı; $x<0$ için doğru dönüşüm $x=-e^{t}$'dir. Aksi belirtilmedikçe $x>0$ kabul edilir.</li>
                             </ol>
                         </div>
@@ -4518,15 +4518,15 @@
                     <div id="bolum-4-6" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
-                            4.6 &nbsp;İkinci Mertebeden Homojen Doğrusal Denklem: Teoremler ve İspatları
+                            4.6 &nbsp;İkinci Mertebeden Homojen Doğrusal Denklem: THEoREM'ler ve İspatları
                         </div>
 
                         <p>Bu bölümde ikinci mertebeden homojen doğrusal denklem</p>
                         $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0 \qquad (4.91)$$
-                        <p>üzerine temel teoremlerin ifadeleri ve ispatları detaylı olarak verilir. $a_{0},a_{1},a_{2}$ fonksiyonlarının $[a,b]$ üzerinde sürekli ve $a_{0}(x)\neq 0$ olduğu varsayılır.</p>
+                        <p>üzerine temel THEoREM'lerin ifadeleri ve ispatları detaylı olarak verilir. $a_{0},a_{1},a_{2}$ fonksiyonlarının $[a,b]$ üzerinde sürekli ve $a_{0}(x)\neq 0$ olduğu varsayılır.</p>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem A</strong> <em>(Teorem 4.1'in özel hâli).</em>
+                            <strong>THEoREM A</strong> <em>(THEoREM 4.1'in özel hâli).</em>
                             <ol style="margin-left: 1.25rem;">
                                 <li>Her $x_{0}\in[a,b]$ ve her $c_{0},c_{1}\in\mathbb{R}$ için (4.91)'in $f(x_{0})=c_{0},\ f^{\prime}(x_{0})=c_{1}$ şartlarını sağlayan <strong>benzersiz</strong> $f$ çözümü vardır ve tüm $[a,b]$ üzerinde tanımlıdır.</li>
                                 <li>Özel olarak $f(x_{0})=0,\ f^{\prime}(x_{0})=0$ ise benzersiz çözüm <strong>aşikar çözüm</strong> $f\equiv 0$'dır.</li>
@@ -4534,12 +4534,12 @@
                         </div>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Teorem B</strong> <em>(cebir).</em> İki bilinmeyenli iki homojen doğrusal cebirsel denklemin <strong>aşikar olmayan</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfır olmasıdır.
+                            <strong>THEoREM B</strong> <em>(cebir).</em> İki bilinmeyenli iki homojen doğrusal cebirsel denklemin <strong>aşikar olmayan</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfır olmasıdır.
                             <br>
-                            <strong>Teorem C</strong> <em>(cebir).</em> İki bilinmeyenli iki doğrusal cebirsel denklemin <strong>benzersiz</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfırdan farklı olmasıdır.
+                            <strong>THEoREM C</strong> <em>(cebir).</em> İki bilinmeyenli iki doğrusal cebirsel denklemin <strong>benzersiz</strong> çözüme sahip olması için gerek ve yeter şart, katsayılar determinantının sıfırdan farklı olmasıdır.
                         </div>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.15 &mdash; Doğrusal Kombinasyonun Çözüm Olması</h3>
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">THEoREM 4.15 &mdash; Doğrusal Kombinasyonun Çözüm Olması</h3>
 
                         <p><em>Hipotez:</em> $f_{1},f_{2}$, (4.91)'in iki çözümü ve $c_{1},c_{2}$ keyfi sabit.</p>
                         <p><em>Sonuç:</em> $c_{1}f_{1}+c_{2}f_{2}$ de bir çözümdür.</p>
@@ -4549,12 +4549,12 @@
                         <p>(4.91)'in sol tarafına yerleştirip düzenlersek:</p>
                         $$c_{1}\underbrace{[a_{0}f_{1}^{\prime\prime}+a_{1}f_{1}^{\prime}+a_{2}f_{1}]}_{=0}+c_{2}\underbrace{[a_{0}f_{2}^{\prime\prime}+a_{1}f_{2}^{\prime}+a_{2}f_{2}]}_{=0}=0 \qquad\blacksquare$$
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.16 &mdash; Doğrusal Bağımsız Çözüm Kümesinin Varlığı</h3>
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">THEoREM 4.16 &mdash; Doğrusal Bağımsız Çözüm Kümesinin Varlığı</h3>
 
                         <p><em>Hipotez:</em> $a_{0},a_{1},a_{2}$ $[a,b]$'de sürekli ve $a_{0}(x)\neq 0$.</p>
                         <p><em>Sonuç:</em> (4.91)'in $[a,b]$ üzerinde <strong>doğrusal bağımsız</strong> iki çözümü vardır.</p>
 
-                        <p><strong>İspat (yapıcı).</strong> $x_{0}\in[a,b]$ sabit. Teorem A ile:</p>
+                        <p><strong>İspat (yapıcı).</strong> $x_{0}\in[a,b]$ sabit. THEoREM A ile:</p>
                         <ul style="margin-left: 1rem;">
                             <li>$f_{1}(x_{0})=1,\ f_{1}^{\prime}(x_{0})=0$ olan benzersiz $f_{1}$,</li>
                             <li>$f_{2}(x_{0})=0,\ f_{2}^{\prime}(x_{0})=1$ olan benzersiz $f_{2}$ bulunur.</li>
@@ -4563,36 +4563,36 @@
                         $$c_{1}(1)+c_{2}(0)=0,\quad c_{1}(0)+c_{2}(1)=0\ \Longrightarrow\ c_{1}=c_{2}=0$$
                         <p>Bu bir çelişkidir; dolayısıyla $f_{1},f_{2}$ doğrusal bağımsızdır. $\blacksquare$</p>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.17 &amp; 4.18 &mdash; Wronskian ile Bağımsızlık Kriteri</h3>
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">THEoREM 4.17 &amp; 4.18 &mdash; Wronskian ile Bağımsızlık Kriteri</h3>
 
                         <div class="highlight" style="margin: 1rem 0;">
-                            <strong>İfade:</strong> (4.91)'in iki çözümü $f_{1},f_{2}$'nin $[a,b]$'de <strong>doğrusal bağımsız</strong> olması için gerek ve yeter şart, Wronski determinantı $W[f_{1},f_{2}]$'nin bu aralıkta <strong>en az bir $x$ için sıfırdan farklı</strong> olmasıdır. Eşdeğer olarak (Teorem 4.18): doğrusal bağımlı olması için gerek ve yeter şart, $W$'nin her $x$ için sıfır olmasıdır.
+                            <strong>İfade:</strong> (4.91)'in iki çözümü $f_{1},f_{2}$'nin $[a,b]$'de <strong>doğrusal bağımsız</strong> olması için gerek ve yeter şart, Wronski determinantı $W[f_{1},f_{2}]$'nin bu aralıkta <strong>en az bir $x$ için sıfırdan farklı</strong> olmasıdır. Eşdeğer olarak (THEoREM 4.18): doğrusal bağımlı olması için gerek ve yeter şart, $W$'nin her $x$ için sıfır olmasıdır.
                         </div>
 
                         <p><strong>İspat.</strong> $(\Rightarrow)$ Diyelim ki $W\equiv 0$. Bir $x_{0}$'ı sabitleyip cebirsel sistemi kuralım:</p>
                         $$\begin{aligned} c_{1}f_{1}(x_{0})+c_{2}f_{2}(x_{0})&=0 \\ c_{1}f_{1}^{\prime}(x_{0})+c_{2}f_{2}^{\prime}(x_{0})&=0 \end{aligned}$$
-                        <p>Katsayılar determinantı $W(x_{0})=0$ olduğundan Teorem B'ye göre aşikar olmayan bir $(c_{1},c_{2})$ çözümü vardır. $f=c_{1}f_{1}+c_{2}f_{2}$ Teorem 4.15 ile bir çözümdür ve $f(x_{0})=f^{\prime}(x_{0})=0$. Teorem A(2)'ye göre $f\equiv 0$; yani $f_{1},f_{2}$ doğrusal bağımlıdır.</p>
+                        <p>Katsayılar determinantı $W(x_{0})=0$ olduğundan THEoREM B'ye göre aşikar olmayan bir $(c_{1},c_{2})$ çözümü vardır. $f=c_{1}f_{1}+c_{2}f_{2}$ THEoREM 4.15 ile bir çözümdür ve $f(x_{0})=f^{\prime}(x_{0})=0$. THEoREM A(2)'ye göre $f\equiv 0$; yani $f_{1},f_{2}$ doğrusal bağımlıdır.</p>
 
                         <p>$(\Leftarrow)$ Doğrusal bağımlı iseler, $c_{1}f_{1}+c_{2}f_{2}\equiv 0$ ($c_{1},c_{2}$'nin ikisi birden sıfır değil). Türev alıp iki denklemi tüm $x$'te yazınca sistemin sıfır olmayan çözümü olduğundan katsayılar determinantı $W(x)=0$ her yerde. $\blacksquare$</p>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.19 &mdash; Wronskian'ın "Ya Hep Ya Hiç" Özelliği (Abel Formülü)</h3>
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">THEoREM 4.19 &mdash; Wronskian'ın "Ya Hep Ya Hiç" Özelliği (Abel Formülü)</h3>
 
                         <p><em>İfade:</em> $f_{1},f_{2}$ (4.91)'in iki çözümü ise, $W[f_{1},f_{2}](x)$ ya $[a,b]$'de <strong>her yerde sıfırdır</strong> ya da <strong>hiçbir noktada sıfır değildir</strong>.</p>
 
-                        <p><strong>İspat.</strong> Doğrusal bağımlı iseler Teorem 4.18'e göre $W\equiv 0$. Doğrusal bağımsız iseler $W(x)=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$'nin türevini alıp $f_{1}^{\prime\prime},f_{2}^{\prime\prime}$'yi (4.91)'den çekerek yerine yazınca:</p>
+                        <p><strong>İspat.</strong> Doğrusal bağımlı iseler THEoREM 4.18'e göre $W\equiv 0$. Doğrusal bağımsız iseler $W(x)=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$'nin türevini alıp $f_{1}^{\prime\prime},f_{2}^{\prime\prime}$'yi (4.91)'den çekerek yerine yazınca:</p>
                         $$W^{\prime}(x)=-\frac{a_{1}(x)}{a_{0}(x)}\,W(x)$$
                         <p>Bu ayrılabilir denklemin çözümü <strong>Abel formülüdür</strong>:</p>
                         $$W(x)=W(x_{0})\exp\!\left[-\int_{x_{0}}^{x}\frac{a_{1}(t)}{a_{0}(t)}\,dt\right]$$
                         <p>Herhangi bir $x_{0}$'da $W(x_{0})=0$ olsaydı her $x$ için $W(x)=0$ çıkardı; ama bu doğrusal bağımsızlıkla çelişir. Dolayısıyla $W$ hiçbir yerde sıfır olmaz. $\blacksquare$</p>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">Teorem 4.20 &mdash; Genel Çözüm Teoremi</h3>
+                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">THEoREM 4.20 &mdash; Genel Çözüm THEoREM'i</h3>
 
                         <p><em>Hipotez:</em> $f_{1},f_{2}$ (4.91)'in doğrusal bağımsız iki çözümü.</p>
                         <p><em>Sonuç:</em> (4.91)'in her $f$ çözümü uygun $c_{1},c_{2}$ sabitleriyle $f=c_{1}f_{1}+c_{2}f_{2}$ olarak yazılabilir.</p>
 
                         <p><strong>İspat.</strong> $x_{0}\in[a,b]$ sabit. Cebirsel sistem:</p>
                         $$\begin{aligned} k_{1}f_{1}(x_{0})+k_{2}f_{2}(x_{0})&=f(x_{0}) \\ k_{1}f_{1}^{\prime}(x_{0})+k_{2}f_{2}^{\prime}(x_{0})&=f^{\prime}(x_{0}) \end{aligned}$$
-                        <p>Doğrusal bağımsızlıktan $W(x_{0})\neq 0$; Teorem C ile sistemin benzersiz $(k_{1},k_{2})=(c_{1},c_{2})$ çözümü vardır. Şimdi $g=c_{1}f_{1}+c_{2}f_{2}$ tanımlansın; Teorem 4.15 ile bir çözümdür ve inşadan $g(x_{0})=f(x_{0}),\ g^{\prime}(x_{0})=f^{\prime}(x_{0})$. Teorem A(1)'in benzersizliğinden $g\equiv f$, yani $f=c_{1}f_{1}+c_{2}f_{2}$. $\blacksquare$</p>
+                        <p>Doğrusal bağımsızlıktan $W(x_{0})\neq 0$; THEoREM C ile sistemin benzersiz $(k_{1},k_{2})=(c_{1},c_{2})$ çözümü vardır. Şimdi $g=c_{1}f_{1}+c_{2}f_{2}$ tanımlansın; THEoREM 4.15 ile bir çözümdür ve inşadan $g(x_{0})=f(x_{0}),\ g^{\prime}(x_{0})=f^{\prime}(x_{0})$. THEoREM A(1)'in benzersizliğinden $g\equiv f$, yani $f=c_{1}f_{1}+c_{2}f_{2}$. $\blacksquare$</p>
                     </div>
 
                     <!-- ===== ALIŞTIRMALAR 4.6 ===== -->

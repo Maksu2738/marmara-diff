@@ -1,0 +1,34 @@
+<!--@
+id: bolum-2-1-c
+menu: C. Tam Diferansiyel Denklemlerin Çözümü
+-->
+                    <div id="bolum-2-1-c" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            C. Tam Diferansiyel Denklemlerin Çözümü
+                        </div>
+
+                        <p>Denklem tam ise $\frac{\partial F}{\partial x}=M(x,y)$ ve $\frac{\partial F}{\partial y}=N(x,y)$ şartlarını sağlayan bir $F$ fonksiyonu vardır. O halde denklem şöyle yazılabilir:</p>
+                        $$\frac{\partial F(x,y)}{\partial x}dx+\frac{\partial F(x,y)}{\partial y}dy=0 \implies dF(x,y)=0$$
+                        <p>Bu durumda $c$ bir keyfi sabit olmak üzere $F(x,y)=c$ bağıntısı denklemin doğal bir çözümüdür.</p>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">THEoREM 2.2</strong>
+                            <p style="margin-top: 0.6rem; font-size: 0.95rem;">Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi $D$ bölgesinde tam ise, bu denklemin <strong>bir parametreli çözüm ailesi</strong>, $c$ keyfi bir sabit olmak üzere</p>
+                            $$F(x,y)=c$$
+                            <p style="font-size: 0.95rem;">şeklinde verilir; burada $F$, tüm $(x,y)\in D$ için $\frac{\partial F}{\partial x}=M(x,y)$ ve $\frac{\partial F}{\partial y}=N(x,y)$ şartlarını sağlar.</p>
+                        </div>
+
+                        <p><strong>Çözüm yöntemleri:</strong> $F(x,y)$ fonksiyonunu bulmak için denklem doğrudan entegre edilebilir veya <strong>gruplandırma yöntemi</strong> (<em>method of grouping</em>) kullanılabilir.</p>
+
+                        <div style="background: #ecfdf5; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #059669;">Standart Yöntem &mdash; Adımlar</strong>
+                            <ol style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem;">
+                                <li>$\displaystyle F(x,y)=\int M(x,y)\,\partial x+\phi(y)$ &nbsp;(kısmi entegrasyon; $y$ sabit tutulur)</li>
+                                <li style="margin-top: 0.35rem;">Bu ifadenin $y$'ye göre türevi alınır ve $N(x,y)$'ye eşitlenir.</li>
+                                <li style="margin-top: 0.35rem;">Ortaya çıkan denklemden <strong>keyfi fonksiyon</strong> $\phi(y)$ hesaplanır.</li>
+                                <li style="margin-top: 0.35rem;">Çözüm ailesi $F(x,y)=c$ olarak yazılır.</li>
+                            </ol>
+                        </div>
+
+                    </div>

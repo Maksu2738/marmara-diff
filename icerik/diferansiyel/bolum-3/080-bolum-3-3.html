@@ -2,66 +2,9 @@
 id: bolum-4-3
 menu: 3.3 Belirsiz Katsayılar Yöntemi
 -->
-                    <div id="bolum-4-3" class="section konu">
+                    <div id="bolum-4-3" class="section konu-basi">
                         <div class="section-title">
-                            <span class="badge">Konu</span>
                             3.3 &nbsp;Belirsiz Katsayılar Yöntemi
                         </div>
 
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Giriş</h3>
-
-                        <p>Sabit katsayılı, homojen olmayan denklemin genel formu:</p>
-                        $$a_{0}y^{(n)}+a_{1}y^{(n-1)}+\cdots+a_{n-1}y^{\prime}+a_{n}y=F(x)$$
-                        <p>Genel çözümü $y=y_{c}+y_{p}$'dir; burada $y_{c}$ karşılık gelen homojen denklemin genel çözümü (<strong>tamamlayıcı fonksiyon</strong>), $y_{p}$ ise içinde keyfi sabit bulunmayan bir <strong>özel integraldir</strong>. Bu bölümün amacı $y_{p}$'yi bulmak için kullanılan <strong>belirsiz katsayılar yöntemini</strong> (<em>method of undetermined coefficients</em>) sunmaktır.</p>
-
-                        <p>Yöntem, uygulanabildiği fonksiyon sınıfı sınırlı olsa da fiziksel uygulamalarda çok sık karşılaşılan fonksiyonları kapsadığı ve uygulanması basit olduğu için oldukça önemlidir.</p>
-
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Yöntem</h3>
-
-                        <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Tanım (UC Fonksiyonu).</strong> Bir fonksiyona, aşağıdaki dört temel tipten biriyle tanımlanıyorsa veya bu dört temel tipten iki ya da daha fazlasının <strong>sonlu çarpımı</strong> olarak tanımlanıyorsa <strong>UC fonksiyonu</strong> (<em>UC function</em>) denir:
-                            <ol style="margin-left: 1.25rem;">
-                                <li>$x^{n}$ &nbsp; ($n$ pozitif tam sayı veya sıfır)</li>
-                                <li>$e^{ax}$ &nbsp; ($a\neq 0$ sabit)</li>
-                                <li>$\sin(bx+c)$ &nbsp; ($b\neq 0$)</li>
-                                <li>$\cos(bx+c)$ &nbsp; ($b\neq 0$)</li>
-                            </ol>
-                            <p style="margin-top: 0.5rem;">Herhangi bir UC fonksiyonunun ardışık türevleri de daima ya bir UC fonksiyonunun sabit katı ya da UC fonksiyonlarının bir doğrusal kombinasyonudur.</p>
-                        </div>
-
-                        <p><strong>Tanım (UC Kümesi).</strong> Bir $f$ UC fonksiyonunun kendisi ve ardışık türevlerinin oluşturduğu tüm <strong>doğrusal bağımsız UC fonksiyonlarının</strong> kümesine $f$'nin <strong>UC kümesi</strong> (<em>UC set</em>) denir.</p>
-
-                        <p><strong>Temel UC kümeleri (Tablo 4.1):</strong></p>
-                        <div style="overflow-x: auto; margin: 0.75rem 0;">
-                        <table style="border-collapse: collapse; width: 100%; font-size: 0.95em;">
-                            <thead>
-                                <tr style="border-bottom: 2px solid #4a5568;">
-                                    <th style="text-align: left; padding: 0.4rem 0.6rem;">Fonksiyon $f$</th>
-                                    <th style="text-align: left; padding: 0.4rem 0.6rem;">UC Kümesi $S$</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td style="padding: 0.4rem 0.6rem;">$x^{n}$</td><td style="padding: 0.4rem 0.6rem;">$\{x^{n},\ x^{n-1},\ \ldots,\ x,\ 1\}$</td></tr>
-                                <tr><td style="padding: 0.4rem 0.6rem;">$e^{ax}$</td><td style="padding: 0.4rem 0.6rem;">$\{e^{ax}\}$</td></tr>
-                                <tr><td style="padding: 0.4rem 0.6rem;">$\sin(bx+c)$ veya $\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{\sin(bx+c),\ \cos(bx+c)\}$</td></tr>
-                                <tr><td style="padding: 0.4rem 0.6rem;">$x^{n}e^{ax}$</td><td style="padding: 0.4rem 0.6rem;">$\{x^{n}e^{ax},\ x^{n-1}e^{ax},\ \ldots,\ xe^{ax},\ e^{ax}\}$</td></tr>
-                                <tr><td style="padding: 0.4rem 0.6rem;">$x^{n}\sin(bx+c)$ veya $x^{n}\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{x^{n}\sin(bx+c),\ x^{n}\cos(bx+c),\ \ldots,\ \sin(bx+c),\ \cos(bx+c)\}$</td></tr>
-                                <tr><td style="padding: 0.4rem 0.6rem;">$e^{ax}\sin(bx+c)$ veya $e^{ax}\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{e^{ax}\sin(bx+c),\ e^{ax}\cos(bx+c)\}$</td></tr>
-                            </tbody>
-                        </table>
-                        </div>
-                        <p style="font-size: 0.9em; color: #718096;"><em>Not:</em> İki temel UC fonksiyonunun çarpımından oluşan bir UC fonksiyonunun UC kümesi, iki fonksiyonun ayrı ayrı UC kümelerinin elemanlarının birbirleriyle çarpılmasıyla elde edilen tüm çarpımların kümesidir.</p>
-
-                        <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Belirsiz Katsayılar Yönteminin Adımları.</strong> $F(x)$ fonksiyonu $u_{1},u_{2},\ldots,u_{m}$ UC fonksiyonlarının bir doğrusal kombinasyonuysa (ve $y_{c}$ önceden biliniyorsa):
-                            <ol style="margin-left: 1.25rem;">
-                                <li>Her $u_{i}$ için ilgili $S_{i}$ UC kümesini oluştur.</li>
-                                <li>Bir küme başka bir kümenin <strong>aynısı</strong> ise veya <strong>içinde kapsanıyorsa</strong>, küçük olanı ele.</li>
-                                <li>Kalan kümelerden bir tanesinin herhangi bir elemanı $y_{c}$ içinde de yer alıyorsa, o kümedeki her elemanı $x$'in <strong>en düşük pozitif tam sayı kuvvetiyle</strong> ($x^{k}$) çarp. Yeni kümede hiçbir eleman $y_{c}$'de olmamalıdır.</li>
-                                <li>Kalan (veya revize edilmiş) tüm kümelerin elemanlarını, belirsiz sabit katsayılar ($A,B,C,\ldots$) ile bir doğrusal kombinasyon halinde topla.</li>
-                                <li>Bu ifadeyi orijinal diferansiyel denklemde yerine yaz ve tüm $x$ için özdeşlik olacak biçimde katsayıları belirle.</li>
-                            </ol>
-                        </div>
                     </div>
-
-                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.29 – 4.39 ===== -->

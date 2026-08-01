@@ -1,0 +1,42 @@
+<!--@
+id: bolum-2-1-b
+menu: B. Tam Diferansiyel Denklemler (Exact Differential Equations)
+-->
+                    <div id="bolum-2-1-b" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            B. Tam Diferansiyel Denklemler (Exact Differential Equations)
+                        </div>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9;">Tanım &mdash; Tam Diferansiyel (Total Differential)</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">$F$, bir $D$ bölgesinde sürekli birinci kısmi türevlere sahip iki reel değişkenli bir fonksiyon olsun. $F$'nin <strong>tam diferansiyeli</strong> $dF$, tüm $(x,y)\in D$ için şöyle tanımlanır:</p>
+                            $$dF(x,y)=\frac{\partial F(x,y)}{\partial x}dx+\frac{\partial F(x,y)}{\partial y}dy$$
+                        </div>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9;">Tanım &mdash; Tam Diferansiyel Denklem</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.95rem;">Eğer bir $D$ bölgesinde</p>
+                            $$\frac{\partial F(x,y)}{\partial x}=M(x,y), \qquad \frac{\partial F(x,y)}{\partial y}=N(x,y)$$
+                            <p style="font-size: 0.95rem;">olacak şekilde bir $F$ fonksiyonu varsa, $M(x,y)dx+N(x,y)dy$ ifadesine <strong>tam diferansiyel</strong> (<em>exact differential</em>) adı verilir. Bu durumda</p>
+                            $$M(x,y)\,dx+N(x,y)\,dy=0$$
+                            <p style="font-size: 0.95rem;">denklemine de <strong>tam diferansiyel denklem</strong> (<em>exact differential equation</em>) denir.</p>
+                        </div>
+
+                        <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.25rem; margin: 1rem 0;">
+                            <strong style="color: #6d28d9; font-size: 1.05rem;">THEoREM 2.1 &mdash; Tamlık Kriteri</strong>
+                            <p style="margin-top: 0.6rem; font-size: 0.95rem;">$M$ ve $N$, bir dikdörtgensel bölge olan $D$'deki tüm $(x,y)$ noktalarında sürekli birinci kısmi türevlere sahip olsun.</p>
+                            <ol style="margin: 0.5rem 0 0 1.5rem; font-size: 0.95rem;">
+                                <li>Eğer $M(x,y)dx+N(x,y)dy=0$ denklemi $D$'de <strong>tam ise</strong>, tüm $(x,y)\in D$ için $\displaystyle\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ olur.</li>
+                                <li style="margin-top: 0.4rem;"><strong>Tersine</strong>, eğer tüm $(x,y)\in D$ için $\displaystyle\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ sağlanıyorsa, denklem $D$'de <strong>tamdır</strong>.</li>
+                            </ol>
+                            <hr style="margin: 0.9rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                            <p style="font-size: 0.9rem;"><strong>İspat özeti:</strong> Denklem tamsa $\frac{\partial F}{\partial x}=M$ ve $\frac{\partial F}{\partial y}=N$ olan bir $F$ vardır. Buradan $\frac{\partial^{2}F}{\partial y\,\partial x}=\frac{\partial M}{\partial y}$ ve $\frac{\partial^{2}F}{\partial x\,\partial y}=\frac{\partial N}{\partial x}$ elde edilir. Sürekli kısmi türevler için karma ikinci mertebe türevler eşit olduğundan $\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}$ bulunur.</p>
+                        </div>
+
+                        <div class="highlight">
+                            <strong>Tamlık Kriteri (Criterion for Exactness):</strong> $\displaystyle\frac{\partial M(x,y)}{\partial y}=\frac{\partial N(x,y)}{\partial x}$
+                            <p style="margin-top: 0.5rem;">Bu testin uygulanabilmesi için denklemin <u>kesinlikle</u> $M(x,y)dx+N(x,y)dy=0$ standart formunda yazılmış olması gerekir.</p>
+                        </div>
+
+                    </div>

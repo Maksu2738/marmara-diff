@@ -1,0 +1,38 @@
+<!--@
+id: bolum-1-3-a
+menu: A. Başlangıç Değer ve Sınır Değer Problemleri
+-->
+                    <div id="bolum-1-3-a" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            A. Başlangıç Değer ve Sınır Değer Problemleri
+                        </div>
+
+                        <p>Uygulamalarda karşılaşılan problemler genellikle sadece bir diferansiyel denklemden değil, aynı zamanda çözümün sağlaması gereken <strong>ek şartlardan</strong> (<em>supplementary conditions</em>) oluşur.</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            <div style="background: #eff6ff; border-radius: 10px; padding: 1.25rem; border: 1px solid #bfdbfe;">
+                                <strong style="color: #1d4ed8;">Başlangıç Değer Problemi</strong><br>
+                                <em style="font-size: 0.85rem;">(initial-value problem / one-point boundary-value problem)</em>
+                                <p style="margin-top: 0.5rem; font-size: 0.93rem;">Çözüm için verilen tüm ek şartlar <strong>tek bir $x$ değerine</strong> aitse bu adı alır.</p>
+                            </div>
+                            <div style="background: #f5f3ff; border-radius: 10px; padding: 1.25rem; border: 1px solid #ddd6fe;">
+                                <strong style="color: #6d28d9;">Sınır Değer Problemi</strong><br>
+                                <em style="font-size: 0.85rem;">(boundary-value problem / two-point boundary-value problem)</em>
+                                <p style="margin-top: 0.5rem; font-size: 0.93rem;">Ek şartlar <strong>iki veya daha fazla farklı $x$ değerine</strong> aitse bu şekilde adlandırılır.</p>
+                            </div>
+                        </div>
+
+                        <p>Birinci mertebeden genel bir başlangıç değer problemi şu şekilde ifade edilir:</p>
+                        $$\frac{dy}{dx}=f(x,y)$$
+                        $$y(x_{0})=y_{0}$$
+
+                        <p>Burada $f$, $xy$ düzlemindeki bir $D$ bölgesinde (<em>domain</em>) <strong>sürekli bir fonksiyondur</strong> (<em>continuous function</em>) ve <strong>başlangıç şartı</strong> (<em>initial condition</em>) çözümün $(x_{0},\,y_{0})$ noktasından geçmesini, yani $x_{0}$ anında $y_{0}$ değerini almasını zorunlu kılar.</p>
+
+                        <div class="highlight">
+                            <strong>Geometrik anlam:</strong> Amaç, diferansiyel denklemin $(x_{0},\,y_{0})$ noktasından geçen bir <strong>integral eğrisini</strong> bulmaktır.
+                        </div>
+
+                        <p><strong>Çözüm adımları:</strong> Önce $g(x,y,c)=0$ şeklinde bir parametreli çözüm ailesi bulunur. Ardından $x_{0}$ ve $y_{0}$ yerine yazılarak $g(x_{0},y_{0},c)=0$ denkleminden $c$ sabiti hesaplanır (buna $c_{0}$ diyelim) ve problemi sağlayan özel çözüm $g(x,y,c_{0})=0$ formunda elde edilir.</p>
+
+                    </div>

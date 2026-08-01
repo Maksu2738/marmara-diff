@@ -235,6 +235,22 @@ main {
 .section.sorular { border-left-color: #f59e0b; }
 .section.odev    { border-left-color: #e11d48; }
 
+/* Ana konu başlığı (2.2, 2.3 gibi) — altında A./B. kartları gelir.
+   İçerik taşımaz, yalnızca bölümün başladığını gösterir. */
+.section.konu-basi {
+    border-left-color: #7c3aed;
+    background: linear-gradient(135deg, #faf8ff, #f1ecfe);
+    padding: 0.9rem 1.5rem;
+    box-shadow: none;
+    margin-bottom: 1rem;
+}
+
+.section.konu-basi .section-title {
+    margin: 0;
+    color: #5b21b6;
+    font-size: 1.25rem;
+}
+
 /* Bölüm giriş kartı (Bölüm 1, Bölüm 2 ... başlıkları) */
 .section.chapter-head {
     border-left-color: #5b21b6;
@@ -448,6 +464,15 @@ body.dark-mode .section {
     background-color: #1e1b2e !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
     border: 1px solid #2d2845 !important;
+}
+
+body.dark-mode .section.konu-basi {
+    background: linear-gradient(135deg, #241d3d, #2b2348) !important;
+    border-left-color: #a78bfa !important;
+}
+
+body.dark-mode .section.konu-basi .section-title {
+    color: #c4b5fd !important;
 }
 
 body.dark-mode .section.chapter-head {

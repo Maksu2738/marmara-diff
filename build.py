@@ -25,7 +25,7 @@ SABLON = os.path.join(KOK, 'sablon')
 CIKTI = os.path.join(KOK, 'docs')
 
 GIRINTI = ' ' * 20          # govde parcalarinin girintisi
-ROZETLER = {'konu': 'Konu', 'ornek': 'Örnek', 'sorular': 'Sorular'}
+ROZETLER = {'konu': 'Konu', 'ornek': 'Örnek', 'sorular': 'Sorular', 'odev': 'Ödev'}
 
 
 # ---------------------------------------------------------------- yardimcilar
@@ -276,6 +276,9 @@ def bolumleri_topla(ders_yolu):
 
         bolumler.append({
             'no': no,
+            # sidebar'daki yuvarlakta gorunen etiket; sayi disinda bir sey
+            # istenirse _bolum.txt icine 'numara: Ö' yazilir
+            'etiket': ayar.get('numara', str(no)),
             'ad': ayar.get('ad', 'Bölüm %d' % no),
             'acik': ayar.get('acik', 'hayir') == 'evet',
             'parcalar': parcalar,
@@ -291,7 +294,7 @@ def sidebar_uret(bolumler):
         s.append('                    <li>')
         s.append('                        <button class="chapter-toggle%s" onclick="toggleChapter(this)">'
                  % (' open' if b['acik'] else ''))
-        s.append('                            <span class="chapter-num">%d</span>' % b['no'])
+        s.append('                            <span class="chapter-num">%s</span>' % b['etiket'])
         s.append('                            <span class="chapter-name">%s</span>' % b['ad'])
         s.append('                            <span class="chevron">&#9654;</span>')
         s.append('                        </button>')

@@ -13,7 +13,9 @@ dosyalarından ulaş.
 icerik/diferansiyel/
     ders.txt                 site başlıkları
     bolum-N/
-        _bolum.txt           bölümün adı ve açık/kapalı durumu
+        _bolum.txt           bölümün adı, açık/kapalı durumu, sidebar etiketi
+                             (`numara: Ö` gibi bir satırla yuvarlaktaki sayı
+                             yerine harf konabilir — Ödevler bölümü böyle)
         010-*.html           eski içerik (HTML, aynen korunuyor)
         020-*.md             yeni içerik (Markdown — bundan sonrası böyle)
 sablon/
@@ -50,8 +52,9 @@ baslik: 5.1 &nbsp;Yay Üzerindeki Kütlenin Titreşim Diferansiyel Denklemi
 - `id` — sayfa içi çapa; benzersiz olmalı (`build.py` çakışmayı uyarır)
 - `menu` — sidebar'da görünecek yazı. **Satırı hiç yazmazsan** o bölüm sidebar'a
   eklenmez (ara bölümler için kullanışlı).
-- `tip` — `konu` / `ornek` / `sorular` / `chapter-head` / `placeholder`.
-  Rozet (Konu / Örnek / Sorular) buna göre otomatik gelir. `rozet: yok` ile kapatılır.
+- `tip` — `konu` / `ornek` / `sorular` / `odev` / `chapter-head` / `placeholder`.
+  Rozet (Konu / Örnek / Sorular / Ödev) ve sol kenar rengi buna göre otomatik
+  gelir. `rozet: yok` ile rozet kapatılır.
 - `durum: bekliyor` — sidebar linkini soluk gösterir (içerik henüz yoksa)
 
 Gövde:

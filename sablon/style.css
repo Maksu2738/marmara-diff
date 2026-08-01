@@ -233,6 +233,7 @@ main {
 .section.konu    { border-left-color: #7c3aed; }
 .section.ornek   { border-left-color: #10b981; }
 .section.sorular { border-left-color: #f59e0b; }
+.section.odev    { border-left-color: #e11d48; }
 
 /* Bölüm giriş kartı (Bölüm 1, Bölüm 2 ... başlıkları) */
 .section.chapter-head {
@@ -291,6 +292,7 @@ main {
 .section.konu .badge    { background: #7c3aed; }
 .section.ornek .badge   { background: #10b981; }
 .section.sorular .badge { background: #f59e0b; }
+.section.odev .badge    { background: #e11d48; }
 
 /* ---- Soru / Cevap ---- */
 .question-block {
@@ -445,6 +447,7 @@ body.dark-mode .section-title {
 body.dark-mode .section.konu .section-title    { color: #c4b5fd !important; }
 body.dark-mode .section.ornek .section-title   { color: #6ee7b7 !important; }
 body.dark-mode .section.sorular .section-title { color: #fcd34d !important; }
+body.dark-mode .section.odev .section-title    { color: #fda4af !important; }
 
 body.dark-mode h3,
 body.dark-mode h4,

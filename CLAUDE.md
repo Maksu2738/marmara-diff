@@ -54,7 +54,9 @@ baslik: 5.1 &nbsp;Yay Üzerindeki Kütlenin Titreşim Diferansiyel Denklemi
   eklenmez (ara bölümler için kullanışlı).
 - `tip` — `konu` / `ornek` / `sorular` / `odev` / `chapter-head` / `placeholder`.
   Rozet (Konu / Örnek / Sorular / Ödev) ve sol kenar rengi buna göre otomatik
-  gelir. `rozet: yok` ile rozet kapatılır.
+  gelir. `rozet: yok` rozeti kaldırır; `rozet: Ödev 3` gibi bir değer yazılırsa
+  varsayılan metnin yerine o kullanılır (Ödevler bölümü böyle çalışıyor:
+  rozet numarayı, başlık konuyu taşır).
 - `durum: bekliyor` — sidebar linkini soluk gösterir (içerik henüz yoksa)
 
 Gövde:

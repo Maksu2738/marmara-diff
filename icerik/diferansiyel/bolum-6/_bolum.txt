@@ -1,0 +1,3 @@
+ad: Ödevler
+acik: hayir
+numara: Ö

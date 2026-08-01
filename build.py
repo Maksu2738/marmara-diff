@@ -237,8 +237,14 @@ def md_parcasi(basliklar, govde):
 
     if baslik:
         satirlar.append(GIRINTI + '    <div class="section-title">')
-        rozet = ROZETLER.get(tip)
-        if rozet and basliklar.get('rozet', '').lower() != 'yok':
+        # 'rozet: yok' rozeti kaldirir; baska bir deger yazilirsa
+        # varsayilan metnin yerine o kullanilir (orn. 'rozet: Ödev 1')
+        istek = basliklar.get('rozet', '').strip()
+        if istek.lower() == 'yok':
+            rozet = None
+        else:
+            rozet = istek or ROZETLER.get(tip)
+        if rozet:
             satirlar.append(GIRINTI + '        <span class="badge">%s</span>' % rozet)
         satirlar.append(GIRINTI + '        ' + satir_ici(baslik))
         satirlar.append(GIRINTI + '    </div>')

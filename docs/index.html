@@ -139,6 +139,21 @@
                         </ul>
                     </li>
 
+                    <!-- ===== BÖLÜM 6 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">Ö</span>
+                            <span class="chapter-name">Ödevler</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#odev-1">Ödev 1 &mdash; Tam Denklem</a></li>
+                            <li><a href="#odev-2">Ödev 2 &mdash; Ayrılabilir Denklem (BDP)</a></li>
+                            <li><a href="#odev-3">Ödev 3 &mdash; Homojen Dönüşüm</a></li>
+                            <li><a href="#odev-4">Ödev 4 &mdash; Bernoulli Denklemi</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -4373,6 +4388,175 @@
                     <div id="bolum-5-6" class="section placeholder">
                         <div class="section-title">5.6 &nbsp;Elektrik Devresi Problemleri</div>
                         <p class="placeholder-note">İçerik henüz eklenmedi.</p>
+                    </div>
+
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 6 — Ödevler -->
+                    <!-- ######################################################## -->
+
+                    <div id="odev-1" class="section odev">
+                        <div class="section-title">
+                            <span class="badge">Ödev 1</span>
+                            Tam Diferansiyel Denklem
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-1">2.1 Tam Denklemler ve İntegral Çarpanları</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki diferansiyel denklemi çözünüz: $\displaystyle(2xy+3x^{2})\,dx+(x^{2}+4y)\,dy=0$. Denklemin <span class="highlight">tam</span> olduğunu doğrulayınız ve kapalı biçimdeki genel çözümünü belirleyiniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklemi standart forma yaz ve tamlığı sına.</strong></p>
+                                <p>Denklem $M(x,y)\,dx+N(x,y)\,dy=0$ formundadır:</p>
+                                $$M(x,y)=2xy+3x^{2},\qquad N(x,y)=x^{2}+4y$$
+                                <p>Tamlık koşulu $\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}$ şeklindedir:</p>
+                                $$\frac{\partial M}{\partial y}=2x,\qquad \frac{\partial N}{\partial x}=2x$$
+                                <p>İkisi eşit olduğundan denklem <span class="highlight">tamdır</span>; integral çarpanı aramaya gerek yoktur.</p>
+                                <p><strong>Adım 2 — Potansiyel fonksiyonu $M$ üzerinden kur.</strong></p>
+                                <p>Öyle bir $F(x,y)$ arıyoruz ki $\dfrac{\partial F}{\partial x}=M$ ve $\dfrac{\partial F}{\partial y}=N$ olsun. Birincisini $x$'e göre integre edelim ($y$ sabit tutulur):</p>
+                                $$F(x,y)=\int\left(2xy+3x^{2}\right)dx=x^{2}y+x^{3}+g(y)$$
+                                <p>Burada integral sabiti, $y$'nin henüz bilinmeyen bir fonksiyonu olan $g(y)$'dir.</p>
+                                <p><strong>Adım 3 — $g(y)$'yi $N$ koşulundan belirle.</strong></p>
+                                $$\frac{\partial F}{\partial y}=x^{2}+g'(y)$$
+                                <p>Bu ifade $N(x,y)=x^{2}+4y$ ile aynı olmalıdır:</p>
+                                $$x^{2}+g'(y)=x^{2}+4y\;\Longrightarrow\;g'(y)=4y\;\Longrightarrow\;g(y)=2y^{2}$$
+                                <p>$g$ yalnızca $y$'ye bağlı çıktı — bu, 1. adımdaki tamlık sonucunun tutarlılık kontrolüdür. Eğer burada $x$ içeren bir terim kalsaydı bir yerde hata yapmış olurduk.</p>
+                                <p><strong>Adım 4 — Genel çözüm.</strong></p>
+                                $$\boxed{\,x^{2}y+x^{3}+2y^{2}=c\,}$$
+                                <p><strong>Doğrulama.</strong> Bulunan $F$'nin tam diferansiyelini alalım:</p>
+                                $$dF=\frac{\partial F}{\partial x}dx+\frac{\partial F}{\partial y}dy=(2xy+3x^{2})\,dx+(x^{2}+4y)\,dy$$
+                                <p>Başlangıçtaki denklemin sol tarafıyla birebir aynı; çözüm doğrudur.</p>
+                                <p>Çözüm $y$'ye göre kapalı biçimdedir. $y$ için açık ifade istenirse $2y^{2}+x^{2}y+(x^{3}-c)=0$ ikinci derece denklemi çözülerek $y=\dfrac{-x^{2}\pm\sqrt{x^{4}-8(x^{3}-c)}}{4}$ elde edilir; ancak soru kapalı biçim istediği için bu adım gerekli değildir.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="odev-2" class="section odev">
+                        <div class="section-title">
+                            <span class="badge">Ödev 2</span>
+                            Ayrılabilir Denklem &mdash; Başlangıç Değer Problemi
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-2">2.2 Değişkenlerine Ayrılabilir Denklemler</a> &bull; <a href="#bolum-1-3">1.3 BDP, SDP ve Varlık</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki başlangıç değer problemini çözünüz: $\displaystyle\frac{dy}{dx}=x\left(1+y^{2}\right),\qquad y(0)=1$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Değişkenleri ayır.</strong></p>
+                                <p>Sağ taraf $x$'e bağlı bir çarpan ile $y$'ye bağlı bir çarpanın çarpımı olduğundan denklem <span class="highlight">ayrılabilirdir</span>. $1+y^{2}>0$ her zaman sağlandığı için bölme işlemi güvenlidir; kaybedilen tekil çözüm yoktur.</p>
+                                $$\frac{dy}{1+y^{2}}=x\,dx$$
+                                <p><strong>Adım 2 — İki tarafı da integre et.</strong></p>
+                                $$\int\frac{dy}{1+y^{2}}=\int x\,dx$$
+                                $$\arctan y=\frac{x^{2}}{2}+c$$
+                                <p><strong>Adım 3 — Başlangıç koşulunu uygula.</strong></p>
+                                <p>$x=0$ için $y=1$ verilmiş:</p>
+                                $$\arctan(1)=\frac{0^{2}}{2}+c\;\Longrightarrow\;c=\frac{\pi}{4}$$
+                                <p>Böylece kapalı biçimdeki çözüm:</p>
+                                $$\arctan y=\frac{x^{2}}{2}+\frac{\pi}{4}$$
+                                <p><strong>Adım 4 — $y$'yi açık biçimde yaz.</strong></p>
+                                <p>Her iki tarafın tanjantını alalım:</p>
+                                $$\boxed{\,y(x)=\tan\!\left(\frac{x^{2}}{2}+\frac{\pi}{4}\right)\,}$$
+                                <p><strong>Doğrulama.</strong> $y=\tan u$ ve $u=\dfrac{x^{2}}{2}+\dfrac{\pi}{4}$ olsun. Zincir kuralıyla</p>
+                                $$\frac{dy}{dx}=\sec^{2}(u)\cdot\frac{du}{dx}=\left(1+\tan^{2}u\right)\cdot x=x\left(1+y^{2}\right)$$
+                                <p>denklem sağlanıyor. Ayrıca $y(0)=\tan(\pi/4)=1$ olduğundan başlangıç koşulu da tutuyor.</p>
+                                <p><strong>Çözümün geçerli olduğu aralık.</strong> $\tan$ fonksiyonu $u=\pm\dfrac{\pi}{2}$ noktalarında tanımsızdır. Başlangıç noktası $x=0$'ı içeren aralığı bulmak için</p>
+                                $$-\frac{\pi}{2}<\frac{x^{2}}{2}+\frac{\pi}{4}<\frac{\pi}{2}$$
+                                <p>koşulunu çözeriz. Sol eşitsizlik $x^{2}\ge 0$ olduğundan zaten sağlanır; sağ eşitsizlik ise</p>
+                                $$\frac{x^{2}}{2}<\frac{\pi}{4}\;\Longrightarrow\;x^{2}<\frac{\pi}{2}\;\Longrightarrow\;|x|<\sqrt{\frac{\pi}{2}}\approx 1{,}2533$$
+                                <p>verir. Yani çözüm $\left(-\sqrt{\pi/2},\;\sqrt{\pi/2}\right)$ aralığında tanımlıdır ve uç noktalara yaklaşırken $y\to\pm\infty$ olur. Denklemin sağ tarafı her yerde sürekli olmasına rağmen çözümün sonlu bir aralıkta patlaması, <span class="highlight">doğrusal olmayan</span> denklemlerde varlık teoreminin yalnızca <span class="highlight">yerel</span> bir garanti verdiğinin tipik bir örneğidir.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="odev-3" class="section odev">
+                        <div class="section-title">
+                            <span class="badge">Ödev 3</span>
+                            Homojen Denklem ve $v=y/x$ Dönüşümü
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-4">2.4 Özel İntegrasyon Çarpanları ve Dönüşümler</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki diferansiyel denklemi $\displaystyle v=\frac{y}{x}$ dönüşümünü kullanarak çözünüz: $\displaystyle\frac{dy}{dx}=\frac{x+y}{x-y}$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklemin homojen olduğunu gör.</strong></p>
+                                <p>Sağ tarafta $x$ ve $y$ yerine $tx$ ve $ty$ yazalım:</p>
+                                $$\frac{tx+ty}{tx-ty}=\frac{t(x+y)}{t(x-y)}=\frac{x+y}{x-y}$$
+                                <p>İfade değişmedi; yani sağ taraf <span class="highlight">sıfırıncı dereceden homojendir</span>. Bu tür denklemler $v=y/x$ dönüşümüyle her zaman ayrılabilir hâle gelir.</p>
+                                <p><strong>Adım 2 — Dönüşümü uygula.</strong></p>
+                                <p>$v=\dfrac{y}{x}$ olsun. Buradan $y=vx$ ve çarpım kuralıyla</p>
+                                $$\frac{dy}{dx}=v+x\frac{dv}{dx}$$
+                                <p>Sağ tarafı da $v$ cinsinden yazalım; pay ve paydayı $x$'e bölersek ($x\neq 0$):</p>
+                                $$\frac{x+y}{x-y}=\frac{1+\frac{y}{x}}{1-\frac{y}{x}}=\frac{1+v}{1-v}$$
+                                <p>Denklem şu hâle gelir:</p>
+                                $$v+x\frac{dv}{dx}=\frac{1+v}{1-v}$$
+                                <p><strong>Adım 3 — Değişkenleri ayır.</strong></p>
+                                <p>$v$'yi sağ tarafa geçirip ortak paydada birleştirelim:</p>
+                                $$x\frac{dv}{dx}=\frac{1+v}{1-v}-v=\frac{(1+v)-v(1-v)}{1-v}=\frac{1+v-v+v^{2}}{1-v}=\frac{1+v^{2}}{1-v}$$
+                                <p>Payda sadeleşmesine dikkat: $+v$ ve $-v$ terimleri götürülür, geriye $1+v^{2}$ kalır. Şimdi ayırabiliriz:</p>
+                                $$\frac{1-v}{1+v^{2}}\,dv=\frac{dx}{x}$$
+                                <p><strong>Adım 4 — İntegre et.</strong></p>
+                                <p>Sol tarafı iki parçaya bölmek işi kolaylaştırır:</p>
+                                $$\int\left(\frac{1}{1+v^{2}}-\frac{v}{1+v^{2}}\right)dv=\int\frac{dx}{x}$$
+                                <p>Birinci integral $\arctan v$, ikincisi ise $u=1+v^{2}$ dönüşümüyle $\tfrac{1}{2}\ln\left(1+v^{2}\right)$ verir:</p>
+                                $$\arctan v-\frac{1}{2}\ln\left(1+v^{2}\right)=\ln|x|+c$$
+                                <p><strong>Adım 5 — Geri dönüşüm yap ve sadeleştir.</strong></p>
+                                <p>$v=\dfrac{y}{x}$ yerine konursa:</p>
+                                $$\arctan\!\left(\frac{y}{x}\right)-\frac{1}{2}\ln\!\left(1+\frac{y^{2}}{x^{2}}\right)=\ln|x|+c$$
+                                <p>Logaritmalı terimi açalım:</p>
+                                $$\frac{1}{2}\ln\!\left(\frac{x^{2}+y^{2}}{x^{2}}\right)=\frac{1}{2}\ln\left(x^{2}+y^{2}\right)-\frac{1}{2}\ln\left(x^{2}\right)=\frac{1}{2}\ln\left(x^{2}+y^{2}\right)-\ln|x|$$
+                                <p>Yerine yazarsak $-\ln|x|$ terimi sağ taraftaki $\ln|x|$ ile sadeleşir:</p>
+                                $$\arctan\!\left(\frac{y}{x}\right)-\frac{1}{2}\ln\left(x^{2}+y^{2}\right)+\ln|x|=\ln|x|+c$$
+                                $$\boxed{\,\arctan\!\left(\frac{y}{x}\right)-\frac{1}{2}\ln\left(x^{2}+y^{2}\right)=c\,}$$
+                                <p><strong>Not.</strong> Kutup koordinatlarında $x=r\cos\theta$, $y=r\sin\theta$ yazılırsa $\arctan(y/x)=\theta$ ve $\tfrac{1}{2}\ln(x^{2}+y^{2})=\ln r$ olur; çözüm $\theta-\ln r=c$, yani $r=Ke^{\theta}$ biçimini alır. Çözüm eğrileri <span class="highlight">logaritmik spirallerdir</span>. Ayrıca $x=y$ doğrusu üzerinde başlangıçtaki denklemin paydası sıfır olduğundan çözüm orada tanımsızdır.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="odev-4" class="section odev">
+                        <div class="section-title">
+                            <span class="badge">Ödev 4</span>
+                            Bernoulli Denklemi
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-3">2.3 Doğrusal ve Bernoulli Denklemleri</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki diferansiyel denklemi çözünüz: $\displaystyle\frac{dy}{dx}+\frac{2}{x}\,y=x^{2}y^{3},\qquad x>0$. Bernoulli üssünü belirleyip uygun dönüşümle denklemi doğrusal hâle getiriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Bernoulli üssünü belirle.</strong></p>
+                                <p>Bernoulli denkleminin genel biçimi şudur:</p>
+                                $$\frac{dy}{dx}+P(x)\,y=Q(x)\,y^{n}$$
+                                <p>Verilen denklemle karşılaştırırsak</p>
+                                $$P(x)=\frac{2}{x},\qquad Q(x)=x^{2},\qquad \boxed{n=3}$$
+                                <p>$n\neq 0$ ve $n\neq 1$ olduğundan denklem doğrusal değildir; dönüşüm gerekir.</p>
+                                <p><strong>Adım 2 — Dönüşümü kur.</strong></p>
+                                <p>Bernoulli denklemlerinde standart dönüşüm $v=y^{1-n}$ şeklindedir. Burada $n=3$ olduğundan:</p>
+                                $$v=y^{1-3}=y^{-2}$$
+                                <p>Türevini alalım:</p>
+                                $$\frac{dv}{dx}=-2y^{-3}\frac{dy}{dx}\;\Longrightarrow\;y^{-3}\frac{dy}{dx}=-\frac{1}{2}\frac{dv}{dx}$$
+                                <p><strong>Adım 3 — Denklemi $v$ cinsinden yaz.</strong></p>
+                                <p>Önce denklemin her iki tarafını $y^{3}$'e bölelim (yani $y^{-3}$ ile çarpalım):</p>
+                                $$y^{-3}\frac{dy}{dx}+\frac{2}{x}\,y^{-2}=x^{2}$$
+                                <p>Şimdi $y^{-2}=v$ ve $y^{-3}y'=-\tfrac{1}{2}v'$ yerine konur:</p>
+                                $$-\frac{1}{2}\frac{dv}{dx}+\frac{2}{x}\,v=x^{2}$$
+                                <p>Her iki tarafı $-2$ ile çarparak standart doğrusal forma getirelim:</p>
+                                $$\frac{dv}{dx}-\frac{4}{x}\,v=-2x^{2}$$
+                                <p>Denklem artık <span class="highlight">$v$'ye göre doğrusaldır</span>.</p>
+                                <p><strong>Adım 4 — İntegral çarpanıyla çöz.</strong></p>
+                                $$\mu(x)=e^{\int-\frac{4}{x}dx}=e^{-4\ln x}=x^{-4}$$
+                                <p>($x>0$ verildiği için mutlak değere gerek yoktur.) Denklemi $\mu$ ile çarparsak sol taraf bir çarpımın türevine dönüşür:</p>
+                                $$\frac{d}{dx}\left(x^{-4}v\right)=-2x^{2}\cdot x^{-4}=-2x^{-2}$$
+                                <p>İntegre edelim:</p>
+                                $$x^{-4}v=\int-2x^{-2}\,dx=\frac{2}{x}+c$$
+                                <p>Buradan $v$ yalnız bırakılır:</p>
+                                $$v=x^{4}\left(\frac{2}{x}+c\right)=2x^{3}+cx^{4}$$
+                                <p><strong>Adım 5 — $y$'ye geri dön.</strong></p>
+                                <p>$v=y^{-2}$ olduğundan:</p>
+                                $$y^{-2}=2x^{3}+cx^{4}=x^{3}(2+cx)$$
+                                $$\boxed{\,y^{2}=\frac{1}{x^{3}(2+cx)}\quad\text{veya}\quad y=\pm\frac{1}{\sqrt{x^{3}(2+cx)}}\,}$$
+                                <p><strong>Doğrulama.</strong> $v=2x^{3}+cx^{4}$ ise $v'=6x^{2}+4cx^{3}$ olur. Adım 3'teki doğrusal denklemde yerine koyalım:</p>
+                                $$v'-\frac{4}{x}v=\left(6x^{2}+4cx^{3}\right)-\frac{4\left(2x^{3}+cx^{4}\right)}{x}=6x^{2}+4cx^{3}-8x^{2}-4cx^{3}=-2x^{2}$$
+                                <p>Sağ tarafla birebir aynı; çözüm doğrudur.</p>
+                                <p><strong>Kaybedilen çözüm.</strong> 3. adımda $y^{3}$'e böldük, dolayısıyla $y\equiv 0$ olasılığını dışarıda bıraktık. $y\equiv 0$ başlangıçtaki denklemi sağlar ve yukarıdaki aileden hiçbir $c$ değeriyle elde edilemez; bu nedenle <span class="highlight">tekil çözümdür</span> ve ayrıca belirtilmelidir. Ayrıca çözümün tanımlı olması için $x^{3}(2+cx)>0$ koşulu gerekir.</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

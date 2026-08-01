@@ -101,9 +101,18 @@
                         <ul class="chapter-links">
                             <li><a href="#bolum-4" class="pending">Giriş</a></li>
                             <li><a href="#bolum-4-1">3.1 Temel Teori</a></li>
+                            <li><a href="#bolum-4-1-a">A. Tanım ve Temel Varlık THEoREM'i</a></li>
+                            <li><a href="#bolum-4-1-b">B. Homojen Denklem</a></li>
+                            <li><a href="#bolum-4-1-c">C. Mertebe Düşürme</a></li>
+                            <li><a href="#bolum-4-1-d">D. Homojen Olmayan Denklem</a></li>
                             <li><a href="#ornekler-4-1">3.1 Örnekler</a></li>
                             <li><a href="#alistirma-4-1">3.1 Alıştırmalar</a></li>
                             <li><a href="#bolum-4-2">3.2 Sabit Katsayılı Homojen Denklem</a></li>
+                            <li><a href="#bolum-4-2-a">A. Giriş</a></li>
+                            <li><a href="#bolum-4-2-b">B. Durum 1: Farklı Reel Kökler</a></li>
+                            <li><a href="#bolum-4-2-c">C. Durum 2: Tekrarlı Reel Kökler</a></li>
+                            <li><a href="#bolum-4-2-d">D. Durum 3: Eşlenik Karmaşık Kökler</a></li>
+                            <li><a href="#bolum-4-2-e">E. Bir Başlangıç Değer Problemi</a></li>
                             <li><a href="#ornekler-4-2">3.2 Örnekler</a></li>
                             <li><a href="#alistirma-4-2">3.2 Alıştırmalar</a></li>
                             <li><a href="#bolum-4-3">3.3 Belirsiz Katsayılar Yöntemi</a></li>
@@ -2603,7 +2612,13 @@
                             <strong>Notasyon:</strong> Bu bölümde daha önce kullanılan $\dfrac{dy}{dx}$ notasyonu yerine, türevleri belirtmek için genellikle üssü notasyonu ($y^{\prime}$, $y^{\prime\prime}$) kullanılacaktır.
                         </div>
 
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Tanım ve Temel Varlık THEoREM'i</h3>
+                    </div>
+
+                    <div id="bolum-4-1-a" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            A. Tanım ve Temel Varlık THEoREM'i
+                        </div>
 
                         <p><strong>Tanım.</strong> $y$ bağımlı değişkenine ve $x$ bağımsız değişkenine sahip <strong>$n$. mertebeden bir doğrusal adi diferansiyel denklem</strong> (<em>linear ordinary differential equation</em>), şu formda olan veya bu forma dönüştürülebilen bir denklemdir:</p>
                         $$a_{0}(x)y^{(n)}+a_{1}(x)y^{(n-1)}+\cdots+a_{n-1}(x)y^{\prime}+a_{n}(x)y=F(x) \qquad (4.1)$$
@@ -2634,7 +2649,13 @@
                             <strong>Sonuç (Corollary).</strong> Eğer $f$, $n$. mertebeden bir homojen denklemin bir çözümü ise ve bir $x_{0}$ noktasında $f(x_{0})=f^{\prime}(x_{0})=\cdots=f^{(n-1)}(x_{0})=0$ şartlarını sağlıyorsa, o zaman $[a,b]$ üzerinde tüm $x$ için $f(x)=0$'dır. Buna <strong>aşikar çözüm</strong> (<em>trivial solution</em>) denir.
                         </div>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Homojen Denklem</h3>
+                    </div>
+
+                    <div id="bolum-4-1-b" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            B. Homojen Denklem
+                        </div>
 
                         <div class="highlight" style="margin: 1rem 0;">
                             <strong>THEoREM 4.2 &mdash; Doğrusal Homojen Denklemler Üzerine Temel THEoREM.</strong>
@@ -2670,7 +2691,13 @@
                         <p>İkinci mertebeden bir denklem için:</p>
                         $$W(f_{1},f_{2})=\begin{vmatrix}f_{1}&f_{2}\\ f_{1}^{\prime}&f_{2}^{\prime}\end{vmatrix}=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$$
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">C. Mertebe Düşürme</h3>
+                    </div>
+
+                    <div id="bolum-4-1-c" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            C. Mertebe Düşürme
+                        </div>
 
                         <div class="highlight" style="margin: 1rem 0;">
                             <strong>THEoREM 4.6.</strong> Eğer $f$, $n$. mertebeden homojen doğrusal denklemin aşikar olmayan bir çözümü ise, $y=f(x)v$ dönüşümü orijinal denklemi $w=\dfrac{dv}{dx}$ bağımlı değişkenine göre $(n-1)$. mertebeden yeni bir homojen doğrusal denkleme indirger.
@@ -2685,7 +2712,13 @@
                             Elde edilen $g(x)=f(x)v(x)$ fonksiyonu orijinal denklemin $f$ ile <strong>doğrusal bağımsız</strong> yeni bir çözümüdür. Genel çözüm $y=c_{1}f+c_{2}g$ olarak yazılır.
                         </div>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">D. Homojen Olmayan Denklem</h3>
+                    </div>
+
+                    <div id="bolum-4-1-d" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            D. Homojen Olmayan Denklem
+                        </div>
 
                         <div class="highlight" style="margin: 1rem 0;">
                             <strong>THEoREM 4.8.</strong> $v$, homojen olmayan (4.1) denkleminin herhangi bir çözümü ve $u$, buna karşılık gelen homojen (4.2) denkleminin herhangi bir çözümü ise, $u+v$ toplamı da (4.1)'in bir çözümüdür.
@@ -3014,7 +3047,13 @@
                             3.2 &nbsp;Sabit Katsayılı Homojen Doğrusal Denklem
                         </div>
 
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Giriş</h3>
+                    </div>
+
+                    <div id="bolum-4-2-a" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            A. Giriş
+                        </div>
 
                         <p>Bu bölümde, katsayılarının tamamı reel sabitler olan $n$. mertebeden homojen doğrusal diferansiyel denklem (<em>homogeneous linear differential equation with constant coefficients</em>) özel durumu incelenir:</p>
                         $$a_{0}y^{(n)}+a_{1}y^{(n-1)}+\cdots+a_{n-1}y^{\prime}+a_{n}y=0$$
@@ -3033,7 +3072,13 @@
 
                         <p>$y=e^{mx}$'in çözüm olabilmesi için $m$'in yardımcı denklemi sağlaması gerekir. Köklerin durumuna göre üç <strong>durum (case)</strong> ortaya çıkar: farklı reel, tekrarlı reel ve karmaşık kökler.</p>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">B. Durum 1: Farklı Reel Kökler</h3>
+                    </div>
+
+                    <div id="bolum-4-2-b" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            B. Durum 1: Farklı Reel Kökler
+                        </div>
 
                         <p>Yardımcı denklemin $m_{1},m_{2},\ldots,m_{n}$ şeklinde $n$ tane <strong>farklı reel kökü</strong> varsa,</p>
                         $$e^{m_{1}x},\ e^{m_{2}x},\ \ldots,\ e^{m_{n}x}$$
@@ -3045,7 +3090,13 @@
                             biçimindedir ($c_{1},\ldots,c_{n}$ keyfi sabitler).
                         </div>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">C. Durum 2: Tekrarlı Reel Kökler</h3>
+                    </div>
+
+                    <div id="bolum-4-2-c" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            C. Durum 2: Tekrarlı Reel Kökler
+                        </div>
 
                         <p>Bir kök tekrarlıysa yalnızca $e^{mx}$ tek bir bağımsız çözüm üretir. Eksik olan bağımsız çözümleri bulmak için <strong>mertebe düşürme</strong> (<em>reduction of order</em>) yöntemi uygulanır. Örnek 4.22'de görüleceği gibi, $m$ çift katlı bir kökse $e^{mx}$ ile birlikte $xe^{mx}$ de yeni bir doğrusal bağımsız çözümdür.</p>
 
@@ -3062,7 +3113,13 @@
                             </ol>
                         </div>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">D. Durum 3: Eşlenik Karmaşık Kökler</h3>
+                    </div>
+
+                    <div id="bolum-4-2-d" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            D. Durum 3: Eşlenik Karmaşık Kökler
+                        </div>
 
                         <p>Katsayılar reel olduğu için yardımcı denklemin $a+bi$ ($a,b\in\mathbb{R}$, $i^{2}=-1$, $b\neq 0$) şeklinde bir karmaşık kökü varsa, eşleniği $a-bi$ de köktür. Bu çifte karşılık gelen çözüm parçası $k_{1}e^{(a+bi)x}+k_{2}e^{(a-bi)x}$ olur. <strong>Euler formülü</strong> $e^{i\theta}=\cos\theta+i\sin\theta$ ile bu ifade reel forma dönüşür:</p>
                         $$e^{ax}\bigl[c_{1}\sin bx+c_{2}\cos bx\bigr]$$
@@ -3079,7 +3136,13 @@
                             </ol>
                         </div>
 
-                        <h3 style="margin: 1.5rem 0 0.75rem; color: #4a5568;">E. Bir Başlangıç Değer Problemi</h3>
+                    </div>
+
+                    <div id="bolum-4-2-e" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            E. Bir Başlangıç Değer Problemi
+                        </div>
 
                         <p>Genel çözüm bulunduktan sonra, başlangıç değer probleminde verilen şartlar yerine konularak <strong>keyfi sabitler</strong> belirlenir ve probleme özel benzersiz çözüm elde edilir. Bazen bir kosinüs ve bir sinüs teriminin doğrusal kombinasyonu, faz kaymalı tek bir sinüs fonksiyonu (<strong>alternatif form</strong>) olarak da yazılabilir:</p>
                         $$A\sin bx+B\cos bx=\sqrt{A^{2}+B^{2}}\,\sin(bx+\phi)$$

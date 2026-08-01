@@ -1,0 +1,40 @@
+<!--@
+id: bolum-4-1-a
+menu: A. Tanım ve Temel Varlık THEoREM'i
+-->
+                    <div id="bolum-4-1-a" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            A. Tanım ve Temel Varlık THEoREM'i
+                        </div>
+
+                        <p><strong>Tanım.</strong> $y$ bağımlı değişkenine ve $x$ bağımsız değişkenine sahip <strong>$n$. mertebeden bir doğrusal adi diferansiyel denklem</strong> (<em>linear ordinary differential equation</em>), şu formda olan veya bu forma dönüştürülebilen bir denklemdir:</p>
+                        $$a_{0}(x)y^{(n)}+a_{1}(x)y^{(n-1)}+\cdots+a_{n-1}(x)y^{\prime}+a_{n}(x)y=F(x) \qquad (4.1)$$
+                        <p>Burada $a_{0}$ özdeş olarak sıfır değildir. Katsayılar $a_{0},a_{1},\ldots,a_{n}$ ile $F$ fonksiyonlarının $a \le x \le b$ reel aralığında sürekli reel fonksiyonlar olduğu ve bu aralıktaki hiçbir $x$ için $a_{0}(x)\neq 0$ olduğu varsayılır. Eşitliğin sağ tarafındaki $F(x)$ fonksiyonuna <strong>homojen olmayan terim</strong> (<em>nonhomogeneous term</em>) denir.</p>
+
+                        <p>Eğer $F$ özdeş olarak sıfır ise denklem</p>
+                        $$a_{0}(x)y^{(n)}+a_{1}(x)y^{(n-1)}+\cdots+a_{n-1}(x)y^{\prime}+a_{n}(x)y=0 \qquad (4.2)$$
+                        <p>halini alır; bu durumda denkleme <strong>homojen</strong> (<em>homogeneous</em>) denir.</p>
+
+                        <p>Özel olarak $n=2$ için ikinci mertebeden homojen olmayan denklem:</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=F(x)$$
+                        <p>ve buna karşılık gelen ikinci mertebeden homojen denklem:</p>
+                        $$a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>THEoREM 4.1 &mdash; Başlangıç Değer Problemleri İçin Temel Varlık THEoREM'i.</strong>
+                            <p style="margin-top: 0.5rem;"><em>Hipotez:</em></p>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>(4.1) doğrusal denkleminde $a_{0},a_{1},\ldots,a_{n}$ ve $F$ fonksiyonları $a \le x \le b$ aralığında sürekli olsun ve bu aralıkta $a_{0}(x)\neq 0$ olsun.</li>
+                                <li>$x_{0}\in[a,b]$ herhangi bir nokta ve $c_{0},c_{1},\ldots,c_{n-1}$ herhangi $n$ reel sabit olsun.</li>
+                            </ol>
+                            <p style="margin-top: 0.5rem;"><em>Sonuç:</em> Denklemin</p>
+                            $$f(x_{0})=c_{0},\quad f^{\prime}(x_{0})=c_{1},\quad \ldots,\quad f^{(n-1)}(x_{0})=c_{n-1}$$
+                            <p>şartlarını sağlayan <strong>benzersiz (tek)</strong> bir $f$ çözümü vardır ve bu çözüm tüm $[a,b]$ aralığında tanımlıdır.</p>
+                        </div>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Sonuç (Corollary).</strong> Eğer $f$, $n$. mertebeden bir homojen denklemin bir çözümü ise ve bir $x_{0}$ noktasında $f(x_{0})=f^{\prime}(x_{0})=\cdots=f^{(n-1)}(x_{0})=0$ şartlarını sağlıyorsa, o zaman $[a,b]$ üzerinde tüm $x$ için $f(x)=0$'dır. Buna <strong>aşikar çözüm</strong> (<em>trivial solution</em>) denir.
+                        </div>
+
+                    </div>

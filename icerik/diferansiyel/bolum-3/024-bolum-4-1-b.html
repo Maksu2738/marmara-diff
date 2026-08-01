@@ -1,0 +1,45 @@
+<!--@
+id: bolum-4-1-b
+menu: B. Homojen Denklem
+-->
+                    <div id="bolum-4-1-b" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            B. Homojen Denklem
+                        </div>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>THEoREM 4.2 &mdash; Doğrusal Homojen Denklemler Üzerine Temel THEoREM.</strong>
+                            <p style="margin-top: 0.5rem;"><em>Hipotez:</em> $f_{1},f_{2},\ldots,f_{m}$, (4.2) homojen denkleminin herhangi $m$ çözümü olsun.</p>
+                            <p><em>Sonuç:</em> $c_{1},c_{2},\ldots,c_{m}$ keyfi sabitler olmak üzere</p>
+                            $$c_{1}f_{1}+c_{2}f_{2}+\cdots+c_{m}f_{m}$$
+                            <p>doğrusal kombinasyonu da denklemin bir çözümüdür.</p>
+                        </div>
+
+                        <p><strong>Tanım (Doğrusal Bağımlılık).</strong> $[a,b]$ üzerindeki tüm $x$'ler için, hepsi birden sıfır olmayan $c_{1},c_{2},\ldots,c_{n}$ sabitleri</p>
+                        $$c_{1}f_{1}(x)+c_{2}f_{2}(x)+\cdots+c_{n}f_{n}(x)=0$$
+                        <p>eşitliğini sağlayacak şekilde bulunabiliyorsa, $f_{1},f_{2},\ldots,f_{n}$ fonksiyonlarına bu aralıkta <strong>doğrusal bağımlı</strong> (<em>linearly dependent</em>) denir.</p>
+
+                        <p><strong>Tanım (Doğrusal Bağımsızlık).</strong> Fonksiyonlar doğrusal bağımlı değillerse &mdash; yani yukarıdaki eşitlik yalnızca $c_{1}=c_{2}=\cdots=c_{n}=0$ olduğunda sağlanıyorsa &mdash; <strong>doğrusal bağımsız</strong> (<em>linearly independent</em>) denir.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>THEoREM 4.3.</strong> $n$. mertebeden homojen doğrusal denklemin her zaman $n$ tane doğrusal bağımsız çözümü vardır. Ayrıca, $f_{1},f_{2},\ldots,f_{n}$ bu denklemin $n$ tane doğrusal bağımsız çözümü ise, denklemin herhangi bir $f$ çözümü uygun $c_{1},c_{2},\ldots,c_{n}$ sabitleri seçilerek
+                            $$f = c_{1}f_{1}+c_{2}f_{2}+\cdots+c_{n}f_{n}$$
+                            şeklinde ifade edilebilir.
+                        </div>
+
+                        <p><strong>Tanım.</strong> $n$. mertebeden homojen denklemin $n$ doğrusal bağımsız çözümünden oluşan $\{f_{1},f_{2},\ldots,f_{n}\}$ kümesine denklemin <strong>temel çözüm kümesi</strong> (<em>fundamental set of solutions</em>) denir. Bu durumda</p>
+                        $$f(x)=c_{1}f_{1}(x)+c_{2}f_{2}(x)+\cdots+c_{n}f_{n}(x)$$
+                        <p>ifadesine denklemin <strong>genel çözümü</strong> (<em>general solution</em>) adı verilir.</p>
+
+                        <p><strong>Wronski Determinantı.</strong> $n-1$ kez türevlenebilen $n$ fonksiyonun Wronskian'ı:</p>
+                        $$W(f_{1},f_{2},\ldots,f_{n})=\begin{vmatrix}f_{1}&f_{2}&\cdots&f_{n}\\ f_{1}^{\prime}&f_{2}^{\prime}&\cdots&f_{n}^{\prime}\\ \vdots&\vdots& &\vdots\\ f_{1}^{(n-1)}&f_{2}^{(n-1)}&\cdots&f_{n}^{(n-1)}\end{vmatrix}$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>THEoREM 4.4 &amp; THEoREM 4.5.</strong> $f_{1},f_{2},\ldots,f_{n}$ çözümlerinin doğrusal bağımsız olması için <strong>gerek ve yeter şart</strong>, Wronski determinantının aralıktaki en az bir $x$ için sıfırdan farklı olmasıdır. Üstelik bu determinant ya aralığın her yerinde sıfırdır ya da hiçbir yerinde sıfır değildir.
+                        </div>
+
+                        <p>İkinci mertebeden bir denklem için:</p>
+                        $$W(f_{1},f_{2})=\begin{vmatrix}f_{1}&f_{2}\\ f_{1}^{\prime}&f_{2}^{\prime}\end{vmatrix}=f_{1}f_{2}^{\prime}-f_{1}^{\prime}f_{2}$$
+
+                    </div>

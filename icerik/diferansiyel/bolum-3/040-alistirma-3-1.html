@@ -7,159 +7,406 @@ menu: 3.1 Alıştırmalar
                             <span class="badge">Sorular</span>
                             Alıştırmalar 4.1
                         </div>
-                        <p style="margin-bottom: 1rem;"><em>Not: Kitabın bu bölümünde egzersiz soruları adım adım çözümleriyle verilmediği için, aşağıda yalnızca soru metinleri sunulmuştur.</em></p>
 
-                        <div class="question-block">
-                            <p class="question-text">1.</p>
-                            <p>THEoREM 4.1 aşağıdaki problemlerden birine uygulanabilir ancak diğerine uygulanamaz. Hangisine uygulandığını ve hangi sonucun çıkarılabileceğini belirleyiniz. Neden diğerine uygulanamadığını açıklayınız.</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) $y^{\prime\prime}+5y^{\prime}+6y=e^{x},\ \ y(0)=5,\ \ y^{\prime}(0)=7$</li>
-                                <li>(b) $y^{\prime\prime}+5y^{\prime}+6y=e^{x},\ \ y(0)=5,\ \ y^{\prime}(1)=7$</li>
-                            </ul>
-                        </div>
-
-                        <div class="question-block">
-                            <p class="question-text">2. &mdash; Sözlü cevaplayınız</p>
-                            <p>Şu başlangıç değer probleminin çözümü nedir? Neden? $y^{\prime\prime}+xy^{\prime}+x^{2}y=0,\ y(1)=0,\ y^{\prime}(1)=0$.</p>
+                        <div class="highlight">
+                            <p><strong>Kullanılan araçlar.</strong> Bu bölümdeki soruların çoğu üç şeye dayanır:</p>
+                            <p><strong>1) Wronskian.</strong> $n$ çözümün doğrusal bağımsızlığı için $W\ne 0$ olması yeter (THEoREM 4.4). İki fonksiyon için $W(f_{1},f_{2})=f_{1}f_{2}'-f_{2}f_{1}'$.</p>
+                            <p><strong>2) Doğrusallık.</strong> $L[y]=a_{0}y^{(n)}+\dots+a_{n}y$ operatörü doğrusaldır; çözümlerin doğrusal birleşimi yine çözümdür.</p>
+                            <p><strong>3) Mertebe düşürme.</strong> $y''+P(x)y'+Q(x)y=0$ ve bir $y_{1}$ biliniyorsa:</p>
+                            $$y_{2}=y_{1}\int\frac{e^{-\int P\,dx}}{y_{1}^{2}}\,dx$$
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">3.</p>
-                            <p>THEoREM 4.2'yi $m=n=2$ durumu için ispatlayınız. Yani $f_{1}(x)$ ve $f_{2}(x)$'in $a_{0}(x)y^{\prime\prime}+a_{1}(x)y^{\prime}+a_{2}(x)y=0$ için çözüm olması durumunda, $c_{1}f_{1}(x)+c_{2}f_{2}(x)$'in de bir çözüm olduğunu kanıtlayınız.</p>
+                            <p class="question-text">1. &nbsp;THEoREM 4.1 aşağıdakilerden birine uygulanır, diğerine uygulanmaz. Hangisi ve neden?</p>
+                            <p style="margin: 0.5rem 0;">(a) $y''+5y'+6y=e^{x}$, &nbsp; $y(0)=5$, &nbsp; $y'(0)=7$</p>
+                            <p style="margin: 0.5rem 0;">(b) $y''+5y'+6y=e^{x}$, &nbsp; $y(0)=5$, &nbsp; $y'(1)=7$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>THEoREM 4.1 bir <strong>başlangıç değer problemi</strong> teoremidir: bütün ek şartlar <u>aynı</u> $x_{0}$ noktasında verilmelidir.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a) Uygulanır.</strong> Her iki şart da $x_{0}=0$ noktasındadır.</p>
+                                <p>Katsayılar ($1,5,6$) ve sağ taraf $e^{x}$ her yerde süreklidir, ayrıca $a_{0}=1\ne 0$'dır.</p>
+                                <p><strong>Sonuç:</strong> $-\infty&lt;x&lt;\infty$ aralığında <u>bir ve yalnız bir</u> çözüm vardır.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b) Uygulanmaz.</strong> Şartlar $x=0$ ve $x=1$ gibi <u>iki farklı</u> noktada verilmiştir.</p>
+                                <p>Bu bir başlangıç değer problemi değil, <strong>sınır değer problemidir</strong>; THEoREM 4.1 bu tür problemler hakkında hiçbir şey söylemez (çözüm olabilir de, olmayabilir de, birden çok da olabilir).</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">4.</p>
-                            <p>$y^{\prime\prime}-4y^{\prime}+3y=0$ denklemini (A) ele alınız.</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) $e^{x}$ ve $e^{3x}$'in $a<b$ olmak üzere herhangi bir $a\le x\le b$ aralığında bu denklemin çözümü olduğunu gösteriniz.</li>
-                                <li>(b) Hangi THEoREM bize $5e^{x}+2e^{3x}$, $6e^{x}-4e^{3x}$ ve $-7e^{x}+5e^{3x}$'in de çözüm olduğunu söyler?</li>
-                                <li>(c) Neden $3e^{x},\ -4e^{x},\ 5e^{x},\ 6e^{x}$ ifadeleri de birer çözümdür?</li>
-                            </ul>
+                            <p class="question-text">2. &nbsp;$y''+xy'+x^{2}y=0$, &nbsp; $y(1)=0$, &nbsp; $y'(1)=0$ probleminin çözümü nedir? Neden?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çözüm:</strong> $y\equiv 0$ (aşikâr çözüm).</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><em>Neden bu?</em> $y=0$ alınırsa $y'=y''=0$ olur ve denklem sağlanır; ayrıca $y(1)=0$, $y'(1)=0$ şartları da sağlanır.</p>
+                                <p><em>Neden başkası olamaz?</em> Katsayılar $1$, $x$, $x^{2}$ her yerde sürekli ve $a_{0}=1\ne 0$ olduğundan THEoREM 4.1 uygulanır ve çözümün <strong>tek</strong> olduğunu söyler. Bir çözüm bulduğumuza göre aradığımız odur.</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">5.</p>
-                            <p>Yine (A) denklemini ele alınız.</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) Doğrusal bağımlılık tanımını kullanarak Soru 4(c)'deki dört fonksiyonun doğrusal bağımlı olduğunu gösteriniz.</li>
-                                <li>(b) THEoREM 4.4'ü kullanarak Soru 4(c)'de listelenen çözüm çiftlerinin her birinin doğrusal bağımlı olduğunu gösteriniz.</li>
-                            </ul>
+                            <p class="question-text">3. &nbsp;THEoREM 4.2'yi $m=n=2$ için ispatlayınız: $f_{1},f_{2}$ çözümse $c_{1}f_{1}+c_{2}f_{2}$ de çözümdür.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$L[y]=a_{0}(x)y''+a_{1}(x)y'+a_{2}(x)y$ yazalım. Varsayım: $L[f_{1}]=0$, $L[f_{2}]=0$.</p>
+                                <p>$y=c_{1}f_{1}+c_{2}f_{2}$ için türevler doğrusaldır:</p>
+                                <p>$y'=c_{1}f_{1}'+c_{2}f_{2}'$, &nbsp; $y''=c_{1}f_{1}''+c_{2}f_{2}''$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                $$L[y]=a_{0}\left(c_{1}f_{1}''+c_{2}f_{2}''\right)+a_{1}\left(c_{1}f_{1}'+c_{2}f_{2}'\right)+a_{2}\left(c_{1}f_{1}+c_{2}f_{2}\right)$$
+                                <p>$c_{1}$ ve $c_{2}$'ye göre gruplayalım:</p>
+                                $$=c_{1}\underbrace{\left(a_{0}f_{1}''+a_{1}f_{1}'+a_{2}f_{1}\right)}_{=\,L[f_{1}]=0}+c_{2}\underbrace{\left(a_{0}f_{2}''+a_{1}f_{2}'+a_{2}f_{2}\right)}_{=\,L[f_{2}]=0}=0$$
+                                <p>Yani $c_{1}f_{1}+c_{2}f_{2}$ de bir çözümdür. &check;</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">6.</p>
-                            <p>Yine (A) denklemini ele alınız.</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) Doğrusal bağımsızlık tanımını kullanarak $e^{x}$ ve $e^{3x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
-                                <li>(b) THEoREM 4.4'ü kullanarak bu iki çözümün doğrusal bağımsız olduğunu gösteriniz.</li>
-                            </ul>
+                            <p class="question-text">4. &nbsp;$y''-4y'+3y=0$ &nbsp;(A) denklemi için: &nbsp;(a) $e^{x}$ ve $e^{3x}$'in çözüm olduğunu gösteriniz. &nbsp;(b) $5e^{x}+2e^{3x}$ vb. neden çözümdür? &nbsp;(c) $3e^{x},-4e^{x},5e^{x},6e^{x}$ neden çözümdür?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $y=e^{mx}$ için $y''-4y'+3y=\left(m^{2}-4m+3\right)e^{mx}$.</p>
+                                <p>$m=1$: &nbsp; $1-4+3=0$ &check; &nbsp;&nbsp; $m=3$: &nbsp; $9-12+3=0$ &check;</p>
+                                <p>Bu her $a\le x\le b$ aralığında geçerlidir, çünkü hesap $x$'ten bağımsızdır.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> <strong>THEoREM 4.2</strong> (doğrusal birleşim / süperpozisyon). Üçü de $c_{1}e^{x}+c_{2}e^{3x}$ formundadır:</p>
+                                <p>$(5,2)$, &nbsp; $(6,-4)$, &nbsp; $(-7,5)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> Bunlar da aynı teoremin özel hâlidir: $c_{2}=0$ alınmış doğrusal birleşimlerdir.</p>
+                                <p>$3e^{x}=3\cdot e^{x}+0\cdot e^{3x}$ &nbsp;vb.</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">7.</p>
-                            <p>$y^{\prime\prime}-5y^{\prime}+6y=0$ denklemini ele alınız.</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) $e^{2x}$ ve $e^{3x}$'in $-\infty<x<\infty$ aralığında doğrusal bağımsız çözümler olduğunu gösteriniz.</li>
-                                <li>(b) Denklemin genel çözümünü yazınız.</li>
-                                <li>(c) $y(0)=2,\ y^{\prime}(0)=3$ şartlarını sağlayan çözümü bulunuz. Benzersiz olduğunu açıklayıp tanımlı olduğu aralığı belirtiniz.</li>
-                            </ul>
+                            <p class="question-text">5. &nbsp;(a) Tanımı kullanarak $3e^{x},-4e^{x},5e^{x},6e^{x}$'in doğrusal bağımlı olduğunu; &nbsp;(b) THEoREM 4.4 ile çiftlerinin bağımlı olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> Doğrusal bağımlılık için, <u>hepsi sıfır olmayan</u> sabitler bulup birleşimi özdeş sıfır yapmalıyız.</p>
+                                <p>$c_{1}=4$, &nbsp; $c_{2}=3$, &nbsp; $c_{3}=c_{4}=0$ seçelim:</p>
+                                $$4\left(3e^{x}\right)+3\left(-4e^{x}\right)+0+0=12e^{x}-12e^{x}=0$$
+                                <p>Sabitlerin hepsi sıfır değil &rarr; küme <strong>doğrusal bağımlıdır</strong>. &check;</p>
+                                <p style="font-size: 0.9rem;">Aslında hepsi $e^{x}$'in katı olduğundan herhangi iki tanesi zaten bağımlıdır.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> Genel bir çift $\left(ae^{x},\,be^{x}\right)$ için Wronskian:</p>
+                                $$W=\begin{vmatrix}ae^{x}&be^{x}\\ ae^{x}&be^{x}\end{vmatrix}=abe^{2x}-abe^{2x}=0$$
+                                <p>İki satır özdeş olduğundan determinant sıfırdır. $W\equiv 0$ &rarr; <strong>bağımlı</strong>. &check;</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">8.</p>
-                            <p>$y^{\prime\prime}-2y^{\prime}+y=0$ denklemini ele alınız.</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) $e^{x}$ ve $xe^{x}$'in tüm reel sayılarda doğrusal bağımsız çözümler olduğunu gösteriniz.</li>
-                                <li>(b) Genel çözümü yazınız.</li>
-                                <li>(c) $y(0)=1,\ y^{\prime}(0)=4$ şartlarını sağlayan benzersiz çözümü ve tanımlı olduğu aralığı bulunuz.</li>
-                            </ul>
+                            <p class="question-text">6. &nbsp;$e^{x}$ ve $e^{3x}$'in doğrusal bağımsız olduğunu &nbsp;(a) tanımla, &nbsp;(b) THEoREM 4.4 ile gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $c_{1}e^{x}+c_{2}e^{3x}=0$ her $x$ için sağlansın. İki farklı bilgi çıkaralım:</p>
+                                <p>$x=0$ &rarr; $c_{1}+c_{2}=0$</p>
+                                <p>Türev alıp $x=0$ &rarr; $c_{1}+3c_{2}=0$</p>
+                                <p>Çıkarma: $2c_{2}=0 \implies c_{2}=0$, buradan $c_{1}=0$.</p>
+                                <p>Yalnız aşikâr sabitler işe yarıyor &rarr; <strong>bağımsız</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $W=\begin{vmatrix}e^{x}&e^{3x}\\ e^{x}&3e^{3x}\end{vmatrix}=3e^{4x}-e^{4x}=2e^{4x}$</p>
+                                <p>Üstel fonksiyon hiç sıfır olmadığından $W\ne 0$ &rarr; <strong>bağımsız</strong>. &check;</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">9.</p>
-                            <p>$x^{2}y^{\prime\prime}-2xy^{\prime}+2y=0$ denklemi için $x$ ve $x^{2}$'nin $0<x<\infty$ aralığında doğrusal bağımsız çözüm olduğunu gösteriniz, genel çözümü yazınız ve $y(1)=3,\ y^{\prime}(1)=2$ başlangıç şartını sağlayan çözümü bulunuz.</p>
+                            <p class="question-text">7. &nbsp;$y''-5y'+6y=0$: &nbsp;(a) $e^{2x}$, $e^{3x}$ bağımsız çözümdür; &nbsp;(b) genel çözüm; &nbsp;(c) $y(0)=2$, $y'(0)=3$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $m^{2}-5m+6$: &nbsp; $m=2$ &rarr; $4-10+6=0$ &check; &nbsp; $m=3$ &rarr; $9-15+6=0$ &check;</p>
+                                <p>$W=\begin{vmatrix}e^{2x}&e^{3x}\\ 2e^{2x}&3e^{3x}\end{vmatrix}=3e^{5x}-2e^{5x}=e^{5x}\ne 0$ &rarr; bağımsız.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $y=c_{1}e^{2x}+c_{2}e^{3x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $y'=2c_{1}e^{2x}+3c_{2}e^{3x}$</p>
+                                <p>$c_{1}+c_{2}=2$, &nbsp; $2c_{1}+3c_{2}=3$</p>
+                                <p>Birinciyi $2$ ile çarpıp çıkaralım: $c_{2}=-1$, &nbsp; $c_{1}=3$</p>
+                                <p><strong>Çözüm:</strong> $y=3e^{2x}-e^{3x}$</p>
+                                <p>Katsayılar her yerde sürekli ve $a_{0}=1\ne 0$ olduğundan THEoREM 4.1 gereği bu çözüm <u>benzersizdir</u> ve $-\infty&lt;x&lt;\infty$ aralığında tanımlıdır.</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">10.</p>
-                            <p>$x^{2}y^{\prime\prime}+xy^{\prime}-4y=0$ denklemi için $x^{2}$ ve $1/x^{2}$'nin $0<x<\infty$ aralığında doğrusal bağımsız çözüm olduğunu gösteriniz, genel çözümü yazınız ve $y(2)=3,\ y^{\prime}(2)=-1$ başlangıç şartını sağlayan çözümü bulunuz.</p>
+                            <p class="question-text">8. &nbsp;$y''-2y'+y=0$: &nbsp;(a) $e^{x}$, $xe^{x}$ bağımsız çözümdür; &nbsp;(b) genel çözüm; &nbsp;(c) $y(0)=1$, $y'(0)=4$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $y=e^{x}$: &nbsp; $1-2+1=0$ &check;</p>
+                                <p>$y=xe^{x}$: &nbsp; $y'=(1+x)e^{x}$, &nbsp; $y''=(2+x)e^{x}$</p>
+                                <p>$(2+x)-2(1+x)+x=2+x-2-2x+x=0$ &check;</p>
+                                <p>$W=\begin{vmatrix}e^{x}&xe^{x}\\ e^{x}&(1+x)e^{x}\end{vmatrix}=e^{2x}\left[(1+x)-x\right]=e^{2x}\ne 0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $y=c_{1}e^{x}+c_{2}xe^{x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $y(0)=c_{1}=1$</p>
+                                <p>$y'=c_{1}e^{x}+c_{2}(1+x)e^{x}$ &rarr; $y'(0)=c_{1}+c_{2}=4 \implies c_{2}=3$</p>
+                                <p><strong>Çözüm:</strong> $y=(1+3x)e^{x}$, &nbsp; $-\infty&lt;x&lt;\infty$ aralığında benzersiz.</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">11.</p>
-                            <p>$y^{\prime\prime}-5y^{\prime}+4y=0$ denklemi için:</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) $e^{x},\ e^{4x}$ ve $2e^{x}-3e^{4x}$'in çözüm olduğunu gösteriniz.</li>
-                                <li>(b) $e^{x}$ ve $e^{4x}$'in doğrusal bağımsız olduğunu gösteriniz.</li>
-                                <li>(c) $e^{x}$ ve $2e^{x}-3e^{4x}$'in de doğrusal bağımsız olduğunu gösteriniz.</li>
-                                <li>(d) $e^{4x}$ ve $2e^{x}-3e^{4x}$ ifadeleri de bir başka doğrusal bağımsız çözüm çifti midir? Gerekçelendiriniz.</li>
-                            </ul>
+                            <p class="question-text">9. &nbsp;$x^{2}y''-2xy'+2y=0$; &nbsp;$x$ ve $x^{2}$ bağımsız çözümdür. Genel çözümü ve $y(1)=3$, $y'(1)=2$ çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y=x$: &nbsp; $0-2x+2x=0$ &check;</p>
+                                <p>$y=x^{2}$: &nbsp; $2x^{2}-4x^{2}+2x^{2}=0$ &check;</p>
+                                <p>$W=\begin{vmatrix}x&x^{2}\\ 1&2x\end{vmatrix}=2x^{2}-x^{2}=x^{2}$</p>
+                                <p>$0&lt;x&lt;\infty$ aralığında $x^{2}\ne 0$ &rarr; bağımsız.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x+c_{2}x^{2}$</p>
+                                <p>$y'=c_{1}+2c_{2}x$</p>
+                                <p>$c_{1}+c_{2}=3$, &nbsp; $c_{1}+2c_{2}=2$ &rarr; $c_{2}=-1$, &nbsp; $c_{1}=4$</p>
+                                <p><strong>Çözüm:</strong> $y=4x-x^{2}$</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">12.</p>
-                            <p>$e^{-x},\ e^{3x},\ e^{4x}$'in $y^{\prime\prime\prime}-6y^{\prime\prime}+5y^{\prime}+12y=0$ denkleminin çözümleri olduğunu bildiğinize göre, doğrusal bağımsız olduklarını gösteriniz ve genel çözümü yazınız.</p>
+                            <p class="question-text">10. &nbsp;$x^{2}y''+xy'-4y=0$; &nbsp;$x^{2}$ ve $1/x^{2}$ bağımsız çözümdür. Genel çözümü ve $y(2)=3$, $y'(2)=-1$ çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y=x^{2}$: &nbsp; $2x^{2}+2x^{2}-4x^{2}=0$ &check;</p>
+                                <p>$y=x^{-2}$: &nbsp; $y'=-2x^{-3}$, $y''=6x^{-4}$</p>
+                                <p>$6x^{-2}-2x^{-2}-4x^{-2}=0$ &check;</p>
+                                <p>$W=x^{2}\left(-2x^{-3}\right)-x^{-2}(2x)=-\dfrac{2}{x}-\dfrac{2}{x}=-\dfrac{4}{x}\ne 0$ &nbsp;($x&gt;0$)</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x^{2}+\dfrac{c_{2}}{x^{2}}$</p>
+                                <p>$y'=2c_{1}x-\dfrac{2c_{2}}{x^{3}}$</p>
+                                <p>$x=2$: &nbsp; $4c_{1}+\dfrac{c_{2}}{4}=3$ &nbsp;ve&nbsp; $4c_{1}-\dfrac{c_{2}}{4}=-1$</p>
+                                <p>Toplarsak $8c_{1}=2 \implies c_{1}=\dfrac{1}{4}$, buradan $c_{2}=8$.</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{x^{2}}{4}+\dfrac{8}{x^{2}}$</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">13.</p>
-                            <p>$x,\ x^{2},\ x^{4}$'ün $x^{3}y^{\prime\prime\prime}-4x^{2}y^{\prime\prime}+8xy^{\prime}-8y=0$ denklemini çözdüğünü bildiğinize göre, $0<x<\infty$ aralığında doğrusal bağımsız olduklarını gösteriniz ve genel çözümü yazınız.</p>
-                        </div>
-
-                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Aşağıdaki sorularda (14&ndash;21) verilen $y=f(x)$ çözümünü kullanarak mertebeyi düşürüp doğrusal bağımsız ikinci çözümü bulunuz ve genel çözümü yazınız.</p>
-
-                        <div class="question-block">
-                            <p class="question-text">14. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+4y=0,\quad y=x$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">15. &nbsp; $(x+1)^{2}y^{\prime\prime}-3(x+1)y^{\prime}+3y=0,\quad y=x+1$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">16. &nbsp; $(x^{2}-1)y^{\prime\prime}-2xy^{\prime}+2y=0,\quad y=x$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">17. &nbsp; $(x^{2}-x+1)y^{\prime\prime}-(x^{2}+x)y^{\prime}+(x+1)y=0,\quad y=x$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">18. &nbsp; $(2x+1)y^{\prime\prime}-4(x+1)y^{\prime}+4y=0,\quad y=e^{2x}$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">19. &nbsp; $(x^{3}-x^{2})y^{\prime\prime}-(x^{3}+2x^{2}-2x)y^{\prime}+(2x^{2}+2x-2)y=0,\quad y=x^{2}$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">20. &nbsp; $(x^{2}-2x+2)y^{\prime\prime}-x^{2}y^{\prime}+xy=0,\quad y=x$</p>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text">21. &nbsp; $(x^{2}+x)y^{\prime\prime}-(x^{2}-2)y^{\prime}-(x+2)y=0,\quad y=e^{x}$</p>
+                            <p class="question-text">11. &nbsp;$y''-5y'+4y=0$ için: &nbsp;(a) $e^{x},e^{4x},2e^{x}-3e^{4x}$ çözümdür; &nbsp;(b) $e^{x},e^{4x}$ bağımsız; &nbsp;(c) $e^{x}$ ile $2e^{x}-3e^{4x}$ bağımsız; &nbsp;(d) $e^{4x}$ ile $2e^{x}-3e^{4x}$ de bağımsız mı?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $m^{2}-5m+4$: &nbsp; $m=1$ &rarr; $1-5+4=0$ &check;; &nbsp; $m=4$ &rarr; $16-20+4=0$ &check;</p>
+                                <p>$2e^{x}-3e^{4x}$ bir doğrusal birleşim olduğundan THEoREM 4.2 gereği çözümdür.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $W=4e^{5x}-e^{5x}=3e^{5x}\ne 0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $g=2e^{x}-3e^{4x}$, &nbsp; $g'=2e^{x}-12e^{4x}$</p>
+                                <p>$W\left(e^{x},g\right)=e^{x}g'-g\,e^{x}=e^{x}\left[\left(2e^{x}-12e^{4x}\right)-\left(2e^{x}-3e^{4x}\right)\right]$</p>
+                                <p>$=e^{x}\left(-9e^{4x}\right)=-9e^{5x}\ne 0$ &rarr; bağımsız &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(d) Evet.</strong></p>
+                                <p>$W\left(e^{4x},g\right)=e^{4x}\left(2e^{x}-12e^{4x}\right)-\left(2e^{x}-3e^{4x}\right)4e^{4x}$</p>
+                                <p>$=2e^{5x}-12e^{8x}-8e^{5x}+12e^{8x}=-6e^{5x}\ne 0$ &check;</p>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><em>Genel gözlem:</em> $g$ hem $e^{x}$ hem $e^{4x}$ bileşenini <u>sıfırdan farklı</u> katsayıyla taşıdığından, ikisinden herhangi biriyle bağımsız bir çift oluşturur.</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">22.</p>
-                            <p>THEoREM 4.8'i $n=2$ durumu için ispatlayınız. Yani $u$'nun homojen denklemi, $v$'nin ise homojen olmayan denklemi çözdüğü durumda $u+v$'nin de homojen olmayan denklemi çözdüğünü gösteriniz.</p>
+                            <p class="question-text">12. &nbsp;$e^{-x},e^{3x},e^{4x}$ çözümleri $y'''-6y''+5y'+12y=0$ için bağımsız mıdır? Genel çözüm nedir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Üçlü Wronskian'da her sütundan üstel çarpanı dışarı alalım:</p>
+                                $$W=\begin{vmatrix}e^{-x}&e^{3x}&e^{4x}\\ -e^{-x}&3e^{3x}&4e^{4x}\\ e^{-x}&9e^{3x}&16e^{4x}\end{vmatrix}=e^{-x}e^{3x}e^{4x}\begin{vmatrix}1&1&1\\ -1&3&4\\ 1&9&16\end{vmatrix}$$
+                                <p>Kalan determinant <strong>Vandermonde</strong>'dur ($r_{1}=-1$, $r_{2}=3$, $r_{3}=4$):</p>
+                                <p>$\left(3-(-1)\right)\left(4-(-1)\right)\left(4-3\right)=4\cdot 5\cdot 1=20$</p>
+                                <p>$W=20e^{6x}\ne 0$ &rarr; <strong>bağımsız</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}e^{-x}+c_{2}e^{3x}+c_{3}e^{4x}$</p>
+                                <p style="font-size: 0.9rem;">Vandermonde yapısı şunu söyler: <u>farklı</u> köklere ait üstel çözümler daima doğrusal bağımsızdır.</p>
+                            </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">23.</p>
-                            <p>$y^{\prime\prime}-3y^{\prime}+2y=4x^{2}$ denklemi için;</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>(a) $e^{x}$ ve $e^{2x}$'in homojen denklemin bağımsız çözümleri olduğunu gösteriniz.</li>
-                                <li>(b) Tamamlayıcı fonksiyon nedir?</li>
-                                <li>(c) $2x^{2}+6x+7$'nin bir özel integral olduğunu gösteriniz.</li>
-                                <li>(d) Genel çözüm nedir?</li>
-                            </ul>
+                            <p class="question-text">13. &nbsp;$x,x^{2},x^{4}$ çözümleri $x^{3}y'''-4x^{2}y''+8xy'-8y=0$ için $0&lt;x&lt;\infty$'da bağımsız mıdır? Genel çözüm nedir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y=x^{n}$ konursa her terim $x^{n}$ verir:</p>
+                                <p>$\left[n(n-1)(n-2)-4n(n-1)+8n-8\right]x^{n}=0$</p>
+                                <p>$n=1$: &nbsp; $0-0+8-8=0$ &check;</p>
+                                <p>$n=2$: &nbsp; $0-8+16-8=0$ &check;</p>
+                                <p>$n=4$: &nbsp; $24-48+32-8=0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                $$W=\begin{vmatrix}x&x^{2}&x^{4}\\ 1&2x&4x^{3}\\ 0&2&12x^{2}\end{vmatrix}$$
+                                <p>İlk satıra göre açalım:</p>
+                                <p>$=x\left(24x^{3}-8x^{3}\right)-x^{2}\left(12x^{2}-0\right)+x^{4}(2-0)$</p>
+                                <p>$=16x^{4}-12x^{4}+2x^{4}=6x^{4}$</p>
+                                <p>$0&lt;x&lt;\infty$'da $6x^{4}\ne 0$ &rarr; <strong>bağımsız</strong>. &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x+c_{2}x^{2}+c_{3}x^{4}$</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight">
+                            <p><strong>14&ndash;21: Mertebe düşürme.</strong> Denklem $y''+P(x)y'+Q(x)y=0$ formuna getirilir (baş katsayıya bölünür), sonra</p>
+                            $$y_{2}=y_{1}\int\frac{e^{-\int P\,dx}}{y_{1}^{2}}\,dx$$
+                            <p>uygulanır. Bulunan $y_{2}$'nin sabit katları da çözüm olduğundan, en sade hâli alınır.</p>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text">24.</p>
-                            <p>Aşağıdaki özel integraller bilinmektedir:</p>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>$y^{\prime\prime}-5y^{\prime}+6y=1$ için $y=\tfrac{1}{6}$</li>
-                                <li>$y^{\prime\prime}-5y^{\prime}+6y=x$ için $y=\tfrac{x}{6}+\tfrac{5}{36}$</li>
-                                <li>$y^{\prime\prime}-5y^{\prime}+6y=e^{x}$ için $y=\tfrac{e^{x}}{2}$</li>
-                            </ul>
-                            <p>THEoREM 4.10'u (süperpozisyon) uygulayarak şu denklemin özel integralini bulunuz:</p>
-                            $$y^{\prime\prime}-5y^{\prime}+6y=2-12x+6e^{x}$$
+                            <p class="question-text">14. &nbsp; $x^{2}y''-4xy'+4y=0$, &nbsp; $y_{1}=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y''-\dfrac{4}{x}y'+\dfrac{4}{x^{2}}y=0$ &rarr; $P=-\dfrac{4}{x}$</p>
+                                <p>$e^{-\int P\,dx}=e^{4\ln x}=x^{4}$</p>
+                                <p>$y_{2}=x\displaystyle\int\frac{x^{4}}{x^{2}}dx=x\int x^{2}dx=\frac{x^{4}}{3}$</p>
+                                <p>Sabit katı atarak $y_{2}=x^{4}$.</p>
+                                <p><em>Kontrol:</em> $12x^{4}-16x^{4}+4x^{4}=0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x+c_{2}x^{4}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $(x+1)^{2}y''-3(x+1)y'+3y=0$, &nbsp; $y_{1}=x+1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{3}{x+1}$ &rarr; $e^{-\int P\,dx}=(x+1)^{3}$</p>
+                                <p>$y_{2}=(x+1)\displaystyle\int\frac{(x+1)^{3}}{(x+1)^{2}}dx=(x+1)\cdot\frac{(x+1)^{2}}{2}$</p>
+                                <p>$y_{2}=(x+1)^{3}$</p>
+                                <p><em>Kontrol:</em> $y'=3(x+1)^{2}$, $y''=6(x+1)$ &rarr; $6-9+3=0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}(x+1)+c_{2}(x+1)^{3}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $(x^{2}-1)y''-2xy'+2y=0$, &nbsp; $y_{1}=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{2x}{x^{2}-1}$ &rarr; $\displaystyle\int P\,dx=-\ln\left|x^{2}-1\right|$</p>
+                                <p>$e^{-\int P\,dx}=x^{2}-1$</p>
+                                <p>$y_{2}=x\displaystyle\int\frac{x^{2}-1}{x^{2}}dx=x\int\left(1-x^{-2}\right)dx=x\left(x+\frac{1}{x}\right)$</p>
+                                <p>$y_{2}=x^{2}+1$</p>
+                                <p><em>Kontrol:</em> $2\left(x^{2}-1\right)-4x^{2}+2\left(x^{2}+1\right)=0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x+c_{2}\left(x^{2}+1\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp; $(x^{2}-x+1)y''-(x^{2}+x)y'+(x+1)y=0$, &nbsp; $y_{1}=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{x^{2}+x}{x^{2}-x+1}$; &nbsp; $y_{1}^{2}=x^{2}$. Formülü doğrudan kullanmak yerine $y=xv$ koymak daha temiz:</p>
+                                <p>$y'=v+xv'$, &nbsp; $y''=2v'+xv''$. Yerine koyunca $v$'li terimler sıfırlanır ve</p>
+                                <p>$x\left(x^{2}-x+1\right)v''-(x-1)\left(x^{2}+2\right)v'=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$w=v'$ ile: &nbsp; $\dfrac{dw}{w}=\dfrac{(x-1)\left(x^{2}+2\right)}{x\left(x^{2}-x+1\right)}dx$</p>
+                                <p>Bölme ve basit kesirler:</p>
+                                $$\frac{x^{3}-x^{2}+2x-2}{x^{3}-x^{2}+x}=1-\frac{2}{x}+\frac{2x-1}{x^{2}-x+1}$$
+                                <p>$\ln w=x-2\ln|x|+\ln\left(x^{2}-x+1\right)$</p>
+                                <p>$v'=\dfrac{e^{x}\left(x^{2}-x+1\right)}{x^{2}}=e^{x}\left(1-\frac{1}{x}+\frac{1}{x^{2}}\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\dfrac{d}{dx}\left(\dfrac{e^{x}}{x}\right)=e^{x}\left(\dfrac{1}{x}-\dfrac{1}{x^{2}}\right)$ olduğundan:</p>
+                                <p>$v=e^{x}-\dfrac{e^{x}}{x}=\dfrac{e^{x}(x-1)}{x}$</p>
+                                <p>$y_{2}=xv=(x-1)e^{x}$</p>
+                                <p><em>Kontrol:</em> $y'=xe^{x}$, $y''=(x+1)e^{x}$ ve $\left(x^{2}-x+1\right)(x+1)=x^{3}+1$ kullanılırsa toplam $0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x+c_{2}(x-1)e^{x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp; $(2x+1)y''-4(x+1)y'+4y=0$, &nbsp; $y_{1}=e^{2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{4(x+1)}{2x+1}$; &nbsp; $\dfrac{x+1}{2x+1}=\dfrac{1}{2}+\dfrac{1}{2(2x+1)}$</p>
+                                <p>$\displaystyle\int P\,dx=-4\left[\frac{x}{2}+\frac{1}{4}\ln(2x+1)\right]=-2x-\ln(2x+1)$</p>
+                                <p>$e^{-\int P\,dx}=e^{2x}(2x+1)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y_{2}=e^{2x}\displaystyle\int\frac{e^{2x}(2x+1)}{e^{4x}}dx=e^{2x}\int(2x+1)e^{-2x}dx$</p>
+                                <p>Kısmi integrasyon: $\displaystyle\int(2x+1)e^{-2x}dx=-(x+1)e^{-2x}$</p>
+                                <p>$y_{2}=-(x+1)$ &rarr; sadeleştirip $y_{2}=x+1$</p>
+                                <p><em>Kontrol:</em> $y''=0$, $y'=1$ &rarr; $-4(x+1)+4(x+1)=0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}e^{2x}+c_{2}(x+1)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp; $(x^{3}-x^{2})y''-(x^{3}+2x^{2}-2x)y'+(2x^{2}+2x-2)y=0$, &nbsp; $y_{1}=x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{x^{3}+2x^{2}-2x}{x^{3}-x^{2}}=-\dfrac{x^{2}+2x-2}{x(x-1)}$</p>
+                                <p>Bölme ve basit kesirler: $\dfrac{x^{2}+2x-2}{x(x-1)}=1+\dfrac{2}{x}+\dfrac{1}{x-1}$</p>
+                                <p>$\displaystyle\int P\,dx=-\left[x+2\ln|x|+\ln|x-1|\right]$</p>
+                                <p>$e^{-\int P\,dx}=e^{x}x^{2}(x-1)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y_{2}=x^{2}\displaystyle\int\frac{e^{x}x^{2}(x-1)}{x^{4}}dx=x^{2}\int e^{x}\left(\frac{1}{x}-\frac{1}{x^{2}}\right)dx$</p>
+                                <p>İntegral tam türevdir: $\displaystyle\int e^{x}\left(\frac{1}{x}-\frac{1}{x^{2}}\right)dx=\frac{e^{x}}{x}$</p>
+                                <p>$y_{2}=x^{2}\cdot\dfrac{e^{x}}{x}=xe^{x}$</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x^{2}+c_{2}xe^{x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp; $(x^{2}-2x+2)y''-x^{2}y'+xy=0$, &nbsp; $y_{1}=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{x^{2}}{x^{2}-2x+2}$</p>
+                                <p>$\dfrac{x^{2}}{x^{2}-2x+2}=1+\dfrac{2x-2}{x^{2}-2x+2}$ &nbsp;(pay, paydanın türevi)</p>
+                                <p>$\displaystyle\int P\,dx=-\left[x+\ln\left(x^{2}-2x+2\right)\right]$</p>
+                                <p>$e^{-\int P\,dx}=e^{x}\left(x^{2}-2x+2\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y_{2}=x\displaystyle\int e^{x}\left(1-\frac{2}{x}+\frac{2}{x^{2}}\right)dx$</p>
+                                <p>$\displaystyle\int e^{x}\left(g+g'\right)dx=e^{x}g$ kuralında $g=1-\dfrac{2}{x}$ alalım: $g'=\dfrac{2}{x^{2}}$ &check;</p>
+                                <p>$y_{2}=x\cdot e^{x}\left(1-\frac{2}{x}\right)=(x-2)e^{x}$</p>
+                                <p><em>Kontrol:</em> $y'=(x-1)e^{x}$, $y''=xe^{x}$ &rarr; $xe^{x}\left[\left(x^{2}-2x+2\right)-x(x-1)+(x-2)\right]=0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}x+c_{2}(x-2)e^{x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">21. &nbsp; $(x^{2}+x)y''-(x^{2}-2)y'-(x+2)y=0$, &nbsp; $y_{1}=e^{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$P=-\dfrac{x^{2}-2}{x(x+1)}$; &nbsp; bölme ve basit kesirler:</p>
+                                <p>$\dfrac{x^{2}-2}{x(x+1)}=1-\dfrac{2}{x}+\dfrac{1}{x+1}$</p>
+                                <p>$\displaystyle\int P\,dx=-\left[x-2\ln|x|+\ln|x+1|\right]$</p>
+                                <p>$e^{-\int P\,dx}=\dfrac{e^{x}(x+1)}{x^{2}}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y_{2}=e^{x}\displaystyle\int\frac{e^{x}(x+1)}{x^{2}e^{2x}}dx=e^{x}\int e^{-x}\left(\frac{1}{x}+\frac{1}{x^{2}}\right)dx$</p>
+                                <p>$\dfrac{d}{dx}\left(-\dfrac{e^{-x}}{x}\right)=e^{-x}\left(\dfrac{1}{x}+\dfrac{1}{x^{2}}\right)$ olduğundan integral $-\dfrac{e^{-x}}{x}$'tir.</p>
+                                <p>$y_{2}=-\dfrac{1}{x}$ &rarr; sadeleştirip $y_{2}=\dfrac{1}{x}$</p>
+                                <p><em>Kontrol:</em> $y'=-x^{-2}$, $y''=2x^{-3}$ &rarr; $\dfrac{2}{x}+\dfrac{2}{x^{2}}+1-\dfrac{2}{x^{2}}-1-\dfrac{2}{x}=0$ &check;</p>
+                                <p><strong>Genel çözüm:</strong> $y=c_{1}e^{x}+\dfrac{c_{2}}{x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">22. &nbsp;THEoREM 4.8'i $n=2$ için ispatlayınız: $u$ homojen denklemi, $v$ homojen olmayan denklemi çözüyorsa $u+v$ de homojen olmayanı çözer.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$L[y]=a_{0}y''+a_{1}y'+a_{2}y$ olsun. Varsayımlar:</p>
+                                <p>$L[u]=0$ &nbsp;(homojen) &nbsp;&nbsp; $L[v]=F(x)$ &nbsp;(homojen olmayan)</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$L$ doğrusal olduğundan (Alıştırma 3):</p>
+                                $$L[u+v]=L[u]+L[v]=0+F(x)=F(x)$$
+                                <p>Yani $u+v$ homojen olmayan denklemi sağlar. &check;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Önemi:</em> Genel çözümün <strong>tamamlayıcı fonksiyon + özel integral</strong> yapısı buradan gelir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">23. &nbsp;$y''-3y'+2y=4x^{2}$ için: &nbsp;(a) $e^{x},e^{2x}$ bağımsız homojen çözümdür; &nbsp;(b) tamamlayıcı fonksiyon; &nbsp;(c) $2x^{2}+6x+7$ bir özel integraldir; &nbsp;(d) genel çözüm.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $m^{2}-3m+2$: &nbsp; $m=1$ &rarr; $1-3+2=0$ &check;; &nbsp; $m=2$ &rarr; $4-6+2=0$ &check;</p>
+                                <p>$W=e^{x}\cdot 2e^{2x}-e^{2x}\cdot e^{x}=e^{3x}\ne 0$ &rarr; bağımsız.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b) Tamamlayıcı fonksiyon:</strong> $y_{c}=c_{1}e^{x}+c_{2}e^{2x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $y_{p}=2x^{2}+6x+7$, &nbsp; $y_{p}'=4x+6$, &nbsp; $y_{p}''=4$</p>
+                                <p>$4-3(4x+6)+2\left(2x^{2}+6x+7\right)$</p>
+                                <p>$x^{2}$: $4$ &nbsp;&nbsp; $x$: $-12+12=0$ &nbsp;&nbsp; sabit: $4-18+14=0$</p>
+                                <p>Toplam $=4x^{2}$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(d) Genel çözüm:</strong> $y=c_{1}e^{x}+c_{2}e^{2x}+2x^{2}+6x+7$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">24. &nbsp;Verilen özel integralleri kullanarak $y''-5y'+6y=2-12x+6e^{x}$ için bir özel integral bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sağ tarafı, özel integrali bilinen parçaların katları olarak yazalım:</p>
+                                $$2-12x+6e^{x}=2\cdot(1)+(-12)\cdot(x)+6\cdot\left(e^{x}\right)$$
+                                <p>THEoREM 4.10 (süperpozisyon) aynı katsayılarla özel integralleri birleştirmemize izin verir:</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y_{p}=2\left(\dfrac{1}{6}\right)+(-12)\left(\dfrac{x}{6}+\dfrac{5}{36}\right)+6\left(\dfrac{e^{x}}{2}\right)$</p>
+                                <p>$=\dfrac{1}{3}-2x-\dfrac{5}{3}+3e^{x}$</p>
+                                <p><strong>Özel integral:</strong> $y_{p}=3e^{x}-2x-\dfrac{4}{3}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><em>Kontrol:</em> $y_{p}'=3e^{x}-2$, &nbsp; $y_{p}''=3e^{x}$</p>
+                                <p>$3e^{x}-5\left(3e^{x}-2\right)+6\left(3e^{x}-2x-\tfrac{4}{3}\right)=(3-15+18)e^{x}-12x+10-8$</p>
+                                <p>$=6e^{x}-12x+2$ &check;</p>
+                            </div>
                         </div>
                     </div>
 

@@ -55,7 +55,19 @@ menu: Alıştırmalar 1.2
                                 <p>Her iki taraf 3'e bölünürse: $x^{2}+y^{2}+2xy\frac{dy}{dx}=0$ &check;</p>
                                 <p style="font-size: 0.9rem; margin-top: 0.5rem;">Ayrıca $0 < x < 1$ aralığında $y = \pm\sqrt{\frac{1-x^{3}}{3x}}$ reel ve tanımlıdır.</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
-                                <p><strong>(b)</strong> $5x^{2}y^{2}-2x^{3}y^{2}=1$'den kapalı türev alınır ve $x\frac{dy}{dx}+y=x^{3}y^{3}$ denklemiyle doğrulanır.</p>
+                                <p><strong>(b)</strong> $5x^{2}y^{2}-2x^{3}y^{2}=1$ bağıntısından kapalı türev alalım:</p>
+                                $$10xy^{2}+10x^{2}y\frac{dy}{dx}-6x^{2}y^{2}-4x^{3}y\frac{dy}{dx}=0$$
+                                <p>$2$'ye bölüp $\frac{dy}{dx}$'li terimleri yalnız bırakalım:</p>
+                                $$x^{2}y\left(5-2x\right)\frac{dy}{dx}=xy^{2}\left(3x-5\right)$$
+                                <p>$\displaystyle\frac{dy}{dx}=\frac{y(3x-5)}{x(5-2x)}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Şimdi denklemin sol tarafını hesaplayalım:</p>
+                                $$x\frac{dy}{dx}+y=\frac{y(3x-5)}{5-2x}+y=\frac{y\left[(3x-5)+(5-2x)\right]}{5-2x}=\frac{xy}{5-2x}$$
+                                <p>Sağ tarafa gelmek için bağıntıyı yeniden düzenleyelim:</p>
+                                <p>$x^{2}y^{2}\left(5-2x\right)=1 \implies 5-2x=\dfrac{1}{x^{2}y^{2}}$</p>
+                                <p>Bunu yerine koyarsak:</p>
+                                $$x\frac{dy}{dx}+y=xy\cdot x^{2}y^{2}=x^{3}y^{3} \quad \checkmark$$
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;">$0 < x < \frac{5}{2}$ aralığında $5-2x > 0$ olduğundan $y^{2}=\dfrac{1}{x^{2}(5-2x)}$ pozitiftir; yani $y$ reel ve tanımlıdır (payda da sıfır olmaz).</p>
                             </div>
                         </div>
 
@@ -83,7 +95,23 @@ menu: Alıştırmalar 1.2
                                 <p>$f'=4c_{1}e^{4x}-2c_{2}e^{-2x}$, &nbsp; $f''=16c_{1}e^{4x}+4c_{2}e^{-2x}$</p>
                                 <p>$f''-2f'-8f = (16-8-8)c_{1}e^{4x} + (4+4-8)c_{2}e^{-2x} = 0$ &check;</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
-                                <p><strong>(b)</strong> Benzer şekilde $g$, $g'$, $g''$, $g'''$ hesaplanıp yerine konulduğunda her terimin katsayıları sıfır olur ve denklem sağlanır. &check;</p>
+                                <p><strong>(b)</strong> Denklem doğrusal ve homojen olduğundan üç terimi <u>ayrı ayrı</u> denemek yeterlidir; sağlıyorlarsa her doğrusal birleşimleri de sağlar (süperpozisyon).</p>
+                                <p>Kısaltma: $L[y]=y'''-2y''-4y'+8y$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>1) $y=e^{2x}$:</strong> &nbsp; $y'=2e^{2x}$, $y''=4e^{2x}$, $y'''=8e^{2x}$</p>
+                                <p>$L=\left(8-2\cdot 4-4\cdot 2+8\right)e^{2x}=(8-8-8+8)e^{2x}=0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>2) $y=e^{-2x}$:</strong> &nbsp; $y'=-2e^{-2x}$, $y''=4e^{-2x}$, $y'''=-8e^{-2x}$</p>
+                                <p>$L=\left(-8-8+8+8\right)e^{-2x}=0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>3) $y=xe^{2x}$</strong> &nbsp;(çarpım kuralıyla):</p>
+                                <p>$y'=(1+2x)e^{2x}$, &nbsp; $y''=(4+4x)e^{2x}$, &nbsp; $y'''=(12+8x)e^{2x}$</p>
+                                <p>$L=\left[(12+8x)-2(4+4x)-4(1+2x)+8x\right]e^{2x}$</p>
+                                <p>Sabit terimler: $12-8-4=0$; &nbsp; $x$'li terimler: $8x-8x-8x+8x=0$</p>
+                                <p>$L=0$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Üçü de sağladığından $L\!\left[c_{1}e^{2x}+c_{2}xe^{2x}+c_{3}e^{-2x}\right]=0$. &check;</p>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><em>Neden bu üç fonksiyon?</em> Karakteristik denklem $m^{3}-2m^{2}-4m+8=(m-2)^{2}(m+2)$'dir. $m=2$ <u>çift</u> kök olduğu için $e^{2x}$'in yanına bir de $xe^{2x}$ gelir.</p>
                             </div>
                         </div>
 
@@ -107,11 +135,30 @@ menu: Alıştırmalar 1.2
                             <p style="margin: 0.5rem 0;">(b) $f(x)=3e^{2x}-2xe^{2x}-\cos 2x$ &rarr; $\displaystyle\frac{d^{2}y}{dx^{2}}-4\frac{dy}{dx}+4y=-8\sin 2x$, &nbsp; $f(0)=2$, $f'(0)=4$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><strong>(a)</strong> $f(0)=(0+2+3)e^{0}=5$ &check;</p>
-                                <p>$f'+2f = (6e^{3x}+4x)e^{-2x} = 6e^{x}+4xe^{-2x}$ &check;</p>
+                                <p><strong>(a)</strong> Önce parantezi dağıtalım &mdash; türev almak çok kolaylaşır:</p>
+                                $$f(x)=2x^{2}e^{-2x}+2e^{x}+3e^{-2x}$$
+                                <p>&nbsp;(orta terim: $2e^{3x}\cdot e^{-2x}=2e^{x}$)</p>
+                                <p>$f'(x)=4xe^{-2x}-4x^{2}e^{-2x}+2e^{x}-6e^{-2x}$</p>
                                 <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
-                                <p><strong>(b)</strong> $f(0) = 3-0-1=2$ &check; &nbsp; $f'(0) = 6-2-0+0 = 4$ &check;</p>
-                                <p>$f''-4f'+4f = -8\sin 2x$ &check;</p>
+                                <p>$f'+2f$ toplamını terim terim yazalım:</p>
+                                <p>$x^{2}e^{-2x}$ terimleri: &nbsp; $-4+2(2)=0$</p>
+                                <p>$e^{-2x}$ terimleri: &nbsp; $-6+2(3)=0$</p>
+                                <p>$e^{x}$ terimleri: &nbsp; $2+2(2)=6$</p>
+                                <p>Geriye yalnız $4xe^{-2x}$ kalır:</p>
+                                $$f'+2f=6e^{x}+4xe^{-2x} \quad \checkmark$$
+                                <p><strong>Başlangıç şartı:</strong> $f(0)=(0+2+3)e^{0}=5$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $f(x)=3e^{2x}-2xe^{2x}-\cos 2x$</p>
+                                <p>$f'=6e^{2x}-2e^{2x}-4xe^{2x}+2\sin 2x=(4-4x)e^{2x}+2\sin 2x$</p>
+                                <p>$f''=-4e^{2x}+2(4-4x)e^{2x}+4\cos 2x=(4-8x)e^{2x}+4\cos 2x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$f''-4f'+4f$ ifadesini iki gruba ayıralım.</p>
+                                <p><strong>Üstel kısım:</strong> $(4-8x)-4(4-4x)+4(3-2x)$</p>
+                                <p>$=4-8x-16+16x+12-8x=0$</p>
+                                <p><strong>Trigonometrik kısım:</strong> $4\cos 2x-4(2\sin 2x)+4(-\cos 2x)$</p>
+                                <p>$=4\cos 2x-8\sin 2x-4\cos 2x=-8\sin 2x$</p>
+                                $$f''-4f'+4f=-8\sin 2x \quad \checkmark$$
+                                <p><strong>Başlangıç şartları:</strong> $f(0)=3-0-1=2$ &check; &nbsp;&nbsp; $f'(0)=4+0=4$ &check;</p>
                             </div>
                         </div>
 

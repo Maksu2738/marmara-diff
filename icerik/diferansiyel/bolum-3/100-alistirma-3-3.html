@@ -8,78 +8,910 @@ menu: 3.3 Alıştırmalar
                             Alıştırmalar 4.3
                         </div>
 
-                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;34: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz.</p>
+                        <div class="highlight">
+                            <p><strong>Yöntem.</strong> Önce $y_{c}$ (tamamlayıcı fonksiyon) bulunur. Sağ taraftaki her terim için deneme fonksiyonu yazılır; <u>deneme terimi $y_{c}$'de zaten varsa</u> $x$'in uygun kuvvetiyle çarpılır.</p>
+                            <p><strong>Kısayol.</strong> Yardımcı polinom $p(m)$ olmak üzere, $e^{rx}$ tipi zorlamalarda</p>
+                            $$L\!\left[u(x)e^{rx}\right]=e^{rx}\left[p(r)u+p'(r)u'+\tfrac{p''(r)}{2!}u''+\cdots\right]$$
+                            <p>Bu formül $r$ kök olduğunda ($p(r)=0$) katsayı hesabını çok kısaltır.</p>
+                        </div>
 
-                        <div class="question-block"><p class="question-text">1. &nbsp; $y^{\prime\prime}-3y^{\prime}+2y=4x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">2. &nbsp; $y^{\prime\prime}-2y^{\prime}-8y=4e^{2x}-21e^{-3x}$</p></div>
-                        <div class="question-block"><p class="question-text">3. &nbsp; $y^{\prime\prime}+2y^{\prime}+5y=6\sin 2x+7\cos 2x$</p></div>
-                        <div class="question-block"><p class="question-text">4. &nbsp; $y^{\prime\prime}+2y^{\prime}+2y=10\sin 4x$</p></div>
-                        <div class="question-block"><p class="question-text">5. &nbsp; $y^{\prime\prime}+2y^{\prime}+4y=13\cos 4x$</p></div>
-                        <div class="question-block"><p class="question-text">6. &nbsp; $y^{\prime\prime}-3y^{\prime}-4y=16x-12e^{2x}$</p></div>
-                        <div class="question-block"><p class="question-text">7. &nbsp; $y^{\prime\prime}+6y^{\prime}+5y=2e^{x}+10e^{5x}$</p></div>
-                        <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}+2y^{\prime}+10y=5xe^{-2x}$</p></div>
-                        <div class="question-block"><p class="question-text">9. &nbsp; $2y^{\prime\prime}+3y^{\prime}-2y=6x^{2}e^{x}-4x^{2}+12$</p></div>
-                        <div class="question-block"><p class="question-text">10. &nbsp; $y^{\prime\prime}+6y^{\prime}+8y=6xe^{2x}+8x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">11. &nbsp; $y^{\prime\prime}+4y=4\sin 2x+8\cos 2x$</p></div>
-                        <div class="question-block"><p class="question-text">12. &nbsp; $y^{\prime\prime}-4y=16xe^{2x}$</p></div>
-                        <div class="question-block"><p class="question-text">13. &nbsp; $4y^{\prime\prime}-4y^{\prime}+y=e^{x/2}+e^{-x/2}$</p></div>
-                        <div class="question-block"><p class="question-text">14. &nbsp; $y^{\prime\prime}-6y^{\prime}+9y=6e^{3x}+5xe^{4x}$</p></div>
-                        <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime\prime}+4y^{\prime\prime}+y^{\prime}-6y=-18x^{2}+1$</p></div>
-                        <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime\prime}+2y^{\prime\prime}-3y^{\prime}-10y=8xe^{-2x}$</p></div>
-                        <div class="question-block"><p class="question-text">17. &nbsp; $y^{\prime\prime\prime}+y^{\prime\prime}+3y^{\prime}-5y=5\sin 2x+10x^{2}+3x+7$</p></div>
-                        <div class="question-block"><p class="question-text">18. &nbsp; $4y^{\prime\prime\prime}-4y^{\prime\prime}-5y^{\prime}+3y=3x^{3}-8x$</p></div>
-                        <div class="question-block"><p class="question-text">19. &nbsp; $y^{\prime\prime}+y^{\prime}-6y=10e^{2x}-18e^{3x}-6x-11$</p></div>
-                        <div class="question-block"><p class="question-text">20. &nbsp; $y^{\prime\prime}+y^{\prime}-2y=6e^{-2x}+3e^{x}-4x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">21. &nbsp; $y^{\prime\prime}-6y^{\prime}+5y=24x^{2}e^{x}+8e^{5x}$</p></div>
-                        <div class="question-block"><p class="question-text">22. &nbsp; $y^{\prime\prime}-4y^{\prime}+5y=6e^{2x}\cos x$</p></div>
-                        <div class="question-block"><p class="question-text">23. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}+4y=4e^{x}-18e^{-x}$</p></div>
-                        <div class="question-block"><p class="question-text">24. &nbsp; $y^{\prime\prime\prime}-2y^{\prime\prime}-y^{\prime}+2y=9e^{2x}-8e^{3x}$</p></div>
-                        <div class="question-block"><p class="question-text">25. &nbsp; $y^{\prime\prime\prime}+y^{\prime}=2x^{2}+4\sin x$</p></div>
-                        <div class="question-block"><p class="question-text">26. &nbsp; $y^{(4)}-3y^{\prime\prime\prime}+2y^{\prime\prime}=3e^{-x}+6e^{2x}-6x$</p></div>
-                        <div class="question-block"><p class="question-text">27. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+11y^{\prime}-6y=xe^{x}-4e^{2x}+6e^{4x}$</p></div>
-                        <div class="question-block"><p class="question-text">28. &nbsp; $y^{\prime\prime\prime}-4y^{\prime\prime}+5y^{\prime}-2y=3x^{2}e^{x}-7e^{x}$</p></div>
-                        <div class="question-block"><p class="question-text">29. &nbsp; $y^{\prime\prime\prime}-4y^{\prime\prime}+4y^{\prime}=24xe^{2x}+16+9e^{3x}$</p></div>
-                        <div class="question-block"><p class="question-text">30. &nbsp; $y^{\prime\prime\prime}-4y^{\prime}=32xe^{2x}-24x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">31. &nbsp; $y^{\prime\prime}+y=x\sin x$</p></div>
-                        <div class="question-block"><p class="question-text">32. &nbsp; $y^{\prime\prime}+4y=12x^{2}-16x\cos 2x$</p></div>
-                        <div class="question-block"><p class="question-text">33. &nbsp; $y^{(4)}+2y^{\prime\prime\prime}-3y^{\prime\prime}=18x^{2}+16xe^{x}+4e^{3x}-9$</p></div>
-                        <div class="question-block"><p class="question-text">34. &nbsp; $y^{(4)}-5y^{\prime\prime\prime}+7y^{\prime\prime}-5y^{\prime}+6y=5\sin x-12\sin 2x$</p></div>
+                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;34: Genel çözümü bulunuz.</p>
 
-                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 35&ndash;50: <strong>Başlangıç değer problemlerini</strong> çözünüz.</p>
+                        <div class="question-block">
+                            <p class="question-text">1. &nbsp; $y''-3y'+2y=4x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{2}-3m+2=(m-1)(m-2)$ &rarr; $y_{c}=c_{1}e^{x}+c_{2}e^{2x}$</p>
+                                <p>Deneme: $y_{p}=Ax^{2}+Bx+C$</p>
+                                <p>$2A-3(2Ax+B)+2\left(Ax^{2}+Bx+C\right)$</p>
+                                <p>$x^{2}$: $2A=4 \implies A=2$</p>
+                                <p>$x$: $-6A+2B=0 \implies B=6$</p>
+                                <p>sabit: $2A-3B+2C=0 \implies C=7$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{x}+c_{2}e^{2x}+2x^{2}+6x+7$</p>
+                            </div>
+                        </div>
 
-                        <div class="question-block"><p class="question-text">35. &nbsp; $y^{\prime\prime}-4y^{\prime}+3y=9x^{2}+4,\ \ y(0)=6,\ y^{\prime}(0)=8$</p></div>
-                        <div class="question-block"><p class="question-text">36. &nbsp; $y^{\prime\prime}+5y^{\prime}+4y=16x+20e^{x},\ \ y(0)=0,\ y^{\prime}(0)=3$</p></div>
-                        <div class="question-block"><p class="question-text">37. &nbsp; $y^{\prime\prime}-8y^{\prime}+15y=9xe^{2x},\ \ y(0)=5,\ y^{\prime}(0)=10$</p></div>
-                        <div class="question-block"><p class="question-text">38. &nbsp; $y^{\prime\prime}+7y^{\prime}+10y=4xe^{-3x},\ \ y(0)=0,\ y^{\prime}(0)=-1$</p></div>
-                        <div class="question-block"><p class="question-text">39. &nbsp; $y^{\prime\prime}+8y^{\prime}+16y=8e^{-2x},\ \ y(0)=2,\ y^{\prime}(0)=0$</p></div>
-                        <div class="question-block"><p class="question-text">40. &nbsp; $y^{\prime\prime}+6y^{\prime}+9y=27e^{-6x},\ \ y(0)=-2,\ y^{\prime}(0)=0$</p></div>
-                        <div class="question-block"><p class="question-text">41. &nbsp; $y^{\prime\prime}+4y^{\prime}+13y=18e^{-2x},\ \ y(0)=0,\ y^{\prime}(0)=4$</p></div>
-                        <div class="question-block"><p class="question-text">42. &nbsp; $y^{\prime\prime}-10y^{\prime}+29y=8e^{5x},\ \ y(0)=0,\ y^{\prime}(0)=8$</p></div>
-                        <div class="question-block"><p class="question-text">43. &nbsp; $y^{\prime\prime}-4y^{\prime}+13y=8\sin 3x,\ \ y(0)=1,\ y^{\prime}(0)=2$</p></div>
-                        <div class="question-block"><p class="question-text">44. &nbsp; $y^{\prime\prime}-y^{\prime}-6y=8e^{2x}-5e^{3x},\ \ y(0)=3,\ y^{\prime}(0)=5$</p></div>
-                        <div class="question-block"><p class="question-text">45. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=2xe^{2x}+6e^{x},\ \ y(0)=1,\ y^{\prime}(0)=0$</p></div>
-                        <div class="question-block"><p class="question-text">46. &nbsp; $y^{\prime\prime}-y=3x^{2}e^{x},\ \ y(0)=1,\ y^{\prime}(0)=2$</p></div>
-                        <div class="question-block"><p class="question-text">47. &nbsp; $y^{\prime\prime}+y=3x^{2}-4\sin x,\ \ y(0)=0,\ y^{\prime}(0)=1$</p></div>
-                        <div class="question-block"><p class="question-text">48. &nbsp; $y^{\prime\prime}+4y=8\sin 2x,\ \ y(0)=6,\ y^{\prime}(0)=8$</p></div>
-                        <div class="question-block"><p class="question-text">49. &nbsp; $y^{\prime\prime\prime}-4y^{\prime\prime}+y^{\prime}+6y=3xe^{x}+2e^{x}-\sin x,\ \ y(0)=\tfrac{33}{40},\ y^{\prime}(0)=0,\ y^{\prime\prime}(0)=0$</p></div>
-                        <div class="question-block"><p class="question-text">50. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+9y^{\prime}-4y=8x^{2}+3-6e^{2x},\ \ y(0)=1,\ y^{\prime}(0)=7,\ y^{\prime\prime}(0)=10$</p></div>
+                        <div class="question-block">
+                            <p class="question-text">2. &nbsp; $y''-2y'-8y=4e^{2x}-21e^{-3x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{2}-2m-8=(m-4)(m+2)$ &rarr; $y_{c}=c_{1}e^{4x}+c_{2}e^{-2x}$</p>
+                                <p>$p(2)=4-4-8=-8$ &rarr; $-8A=4 \implies A=-\dfrac{1}{2}$</p>
+                                <p>$p(-3)=9+6-8=7$ &rarr; $7B=-21 \implies B=-3$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{4x}+c_{2}e^{-2x}-\dfrac{1}{2}e^{2x}-3e^{-3x}$</p>
+                            </div>
+                        </div>
 
-                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 51&ndash;64: Aşağıdaki denklemlerin her biri için, belirsiz katsayılar yöntemiyle özel integrali bulmak amacıyla kullanılacak <strong>harfli belirsiz katsayılara sahip doğrusal kombinasyonu</strong> oluşturunuz. <em>(Özel integralleri fiilen hesaplamayınız.)</em></p>
+                        <div class="question-block">
+                            <p class="question-text">3. &nbsp; $y''+2y'+5y=6\sin 2x+7\cos 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=-1\pm 2i$ &rarr; $y_{c}=e^{-x}\left(c_{1}\cos 2x+c_{2}\sin 2x\right)$</p>
+                                <p>$e^{-x}$ çarpanı olduğundan $\cos 2x,\sin 2x$ tekrar değil.</p>
+                                <p>$y_{p}=A\cos 2x+B\sin 2x$ &rarr; toplam $(A+4B)\cos 2x+(B-4A)\sin 2x$</p>
+                                <p>$A+4B=7$, &nbsp; $-4A+B=6$ &rarr; $B=2$, &nbsp; $A=-1$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{-x}\left(c_{1}\cos 2x+c_{2}\sin 2x\right)-\cos 2x+2\sin 2x$</p>
+                            </div>
+                        </div>
 
-                        <div class="question-block"><p class="question-text">51. &nbsp; $y^{\prime\prime}-6y^{\prime}+8y=x^{3}+x+e^{-2x}$</p></div>
-                        <div class="question-block"><p class="question-text">52. &nbsp; $y^{\prime\prime}+9y=e^{3x}+e^{-3x}+e^{3x}\sin 3x$</p></div>
-                        <div class="question-block"><p class="question-text">53. &nbsp; $y^{\prime\prime}+4y^{\prime}+5y=e^{-2x}(1+\cos x)$</p></div>
-                        <div class="question-block"><p class="question-text">54. &nbsp; $y^{\prime\prime}-6y^{\prime}+9y=x^{4}e^{x}+x^{3}e^{2x}+x^{2}e^{3x}$</p></div>
-                        <div class="question-block"><p class="question-text">55. &nbsp; $y^{\prime\prime}+6y^{\prime}+13y=xe^{-3x}\sin 2x+x^{2}e^{-2x}\sin 3x$</p></div>
-                        <div class="question-block"><p class="question-text">56. &nbsp; $y^{\prime\prime\prime}-3y^{\prime\prime}+2y^{\prime}=x^{2}e^{x}+3xe^{2x}+5x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">57. &nbsp; $y^{\prime\prime\prime}-6y^{\prime\prime}+12y^{\prime}-8y=xe^{2x}+x^{2}e^{3x}$</p></div>
-                        <div class="question-block"><p class="question-text">58. &nbsp; $y^{(4)}+3y^{\prime\prime\prime}+4y^{\prime\prime}+3y^{\prime}+y=x^{2}e^{-x}+3e^{-x/2}\cos\tfrac{\sqrt{3}}{2}x$</p></div>
-                        <div class="question-block"><p class="question-text">59. &nbsp; $y^{(4)}-16y=x^{2}\sin 2x+x^{4}e^{2x}$</p></div>
-                        <div class="question-block"><p class="question-text">60. &nbsp; $y^{(6)}+2y^{(5)}+5y^{(4)}=x^{3}+x^{2}e^{-x}+e^{-x}\sin 2x$</p></div>
-                        <div class="question-block"><p class="question-text">61. &nbsp; $y^{(4)}+2y^{\prime\prime}+y=x^{2}\cos x$</p></div>
-                        <div class="question-block"><p class="question-text">62. &nbsp; $y^{(4)}+16y=xe^{\sqrt{2}x}\sin\sqrt{2}x+e^{-\sqrt{2}x}\cos\sqrt{2}x$</p></div>
-                        <div class="question-block"><p class="question-text">63. &nbsp; $y^{(4)}+3y^{\prime\prime}-4y=\cos^{2}x-\cosh x$</p></div>
-                        <div class="question-block"><p class="question-text">64. &nbsp; $y^{(4)}+10y^{\prime\prime}+9y=\sin x\sin 2x$</p></div>
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $y''+2y'+2y=10\sin 4x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=-1\pm i$ &rarr; $y_{c}=e^{-x}\left(c_{1}\cos x+c_{2}\sin x\right)$</p>
+                                <p>$y_{p}=A\cos 4x+B\sin 4x$:</p>
+                                <p>$\cos$: $-16A+8B+2A=-14A+8B=0$</p>
+                                <p>$\sin$: $-16B-8A+2B=-8A-14B=10$</p>
+                                <p>$B=\dfrac{7A}{4}$ &rarr; $-8A-\dfrac{49A}{2}=10 \implies A=-\dfrac{4}{13}$, &nbsp; $B=-\dfrac{7}{13}$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{-x}\left(c_{1}\cos x+c_{2}\sin x\right)-\dfrac{4\cos 4x+7\sin 4x}{13}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $y''+2y'+4y=13\cos 4x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=-1\pm i\sqrt{3}$ &rarr; $y_{c}=e^{-x}\left(c_{1}\cos\sqrt{3}x+c_{2}\sin\sqrt{3}x\right)$</p>
+                                <p>$y_{p}=A\cos 4x+B\sin 4x$:</p>
+                                <p>$\cos$: $-12A+8B=13$ &nbsp;&nbsp; $\sin$: $-8A-12B=0 \implies A=-\dfrac{3B}{2}$</p>
+                                <p>$18B+8B=26B=13 \implies B=\dfrac{1}{2}$, &nbsp; $A=-\dfrac{3}{4}$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{-x}\left(c_{1}\cos\sqrt{3}x+c_{2}\sin\sqrt{3}x\right)-\dfrac{3}{4}\cos 4x+\dfrac{1}{2}\sin 4x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $y''-3y'-4y=16x-12e^{2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-4)(m+1)$ &rarr; $y_{c}=c_{1}e^{4x}+c_{2}e^{-x}$</p>
+                                <p><strong>$16x$:</strong> $y_{p}=Ax+B$ &rarr; $-4Ax+(-3A-4B)=16x$</p>
+                                <p>$A=-4$, &nbsp; $B=3$</p>
+                                <p><strong>$-12e^{2x}$:</strong> $p(2)=4-6-4=-6$ &rarr; $-6C=-12 \implies C=2$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{4x}+c_{2}e^{-x}-4x+3+2e^{2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $y''+6y'+5y=2e^{x}+10e^{5x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m+1)(m+5)$ &rarr; $y_{c}=c_{1}e^{-x}+c_{2}e^{-5x}$</p>
+                                <p>$p(1)=1+6+5=12$ &rarr; $12A=2 \implies A=\dfrac{1}{6}$</p>
+                                <p>$p(5)=25+30+5=60$ &rarr; $60B=10 \implies B=\dfrac{1}{6}$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{-x}+c_{2}e^{-5x}+\dfrac{1}{6}e^{x}+\dfrac{1}{6}e^{5x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $y''+2y'+10y=5xe^{-2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=-1\pm 3i$ &rarr; $y_{c}=e^{-x}\left(c_{1}\cos 3x+c_{2}\sin 3x\right)$</p>
+                                <p>$p(-2)=4-4+10=10$, &nbsp; $p'(m)=2m+2 \implies p'(-2)=-2$</p>
+                                <p>$y_{p}=(Ax+B)e^{-2x}$ &rarr; $\left[10(Ax+B)-2A\right]e^{-2x}=5xe^{-2x}$</p>
+                                <p>$10A=5 \implies A=\dfrac{1}{2}$; &nbsp; $10B-1=0 \implies B=\dfrac{1}{10}$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{-x}\left(c_{1}\cos 3x+c_{2}\sin 3x\right)+\dfrac{(5x+1)e^{-2x}}{10}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $2y''+3y'-2y=6x^{2}e^{x}-4x^{2}+12$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$2m^{2}+3m-2=(2m-1)(m+2)$ &rarr; $y_{c}=c_{1}e^{x/2}+c_{2}e^{-2x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$6x^{2}e^{x}$:</strong> $y=ue^{x}$ konursa operatör $3u+7u'+2u''$ olur.</p>
+                                <p>$u=Ax^{2}+Bx+C$: &nbsp; $3Ax^{2}+(3B+14A)x+(3C+7B+4A)=6x^{2}$</p>
+                                <p>$A=2$, &nbsp; $B=-\dfrac{28}{3}$, &nbsp; $C=\dfrac{172}{9}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$-4x^{2}+12$:</strong> $y_{p}=Dx^{2}+Ex+F$</p>
+                                <p>$-2Dx^{2}+(6D-2E)x+(4D+3E-2F)$ &rarr; $D=2$, $E=6$, $F=7$</p>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=c_{1}e^{x/2}+c_{2}e^{-2x}+\left(2x^{2}-\tfrac{28}{3}x+\tfrac{172}{9}\right)e^{x}+2x^{2}+6x+7$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $y''+6y'+8y=6xe^{2x}+8x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m+2)(m+4)$ &rarr; $y_{c}=c_{1}e^{-2x}+c_{2}e^{-4x}$</p>
+                                <p><strong>$6xe^{2x}$:</strong> $p(2)=24$, &nbsp; $p'(2)=10$</p>
+                                <p>$24A=6 \implies A=\dfrac{1}{4}$; &nbsp; $24B+10\cdot\tfrac{1}{4}=0 \implies B=-\dfrac{5}{48}$</p>
+                                <p><strong>$8x^{2}$:</strong> $y_{p}=Cx^{2}+Dx+E$ &rarr; $8C=8$, $12C+8D=0$, $2C+6D+8E=0$</p>
+                                <p>$C=1$, &nbsp; $D=-\dfrac{3}{2}$, &nbsp; $E=\dfrac{7}{8}$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{-2x}+c_{2}e^{-4x}+\dfrac{(12x-5)e^{2x}}{48}+x^{2}-\dfrac{3x}{2}+\dfrac{7}{8}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">11. &nbsp; $y''+4y=4\sin 2x+8\cos 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm 2i$ &rarr; $y_{c}=c_{1}\cos 2x+c_{2}\sin 2x$ &mdash; sağ taraf <strong>tekrar ediyor</strong>, $x$ ile çarpılır.</p>
+                                <p>$y_{p}=x\left(A\cos 2x+B\sin 2x\right)$ için</p>
+                                $$y_{p}''+4y_{p}=-4A\sin 2x+4B\cos 2x$$
+                                <p>$-4A=4 \implies A=-1$; &nbsp; $4B=8 \implies B=2$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}\cos 2x+c_{2}\sin 2x+x\left(2\sin 2x-\cos 2x\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12. &nbsp; $y''-4y=16xe^{2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm 2$ &rarr; $y_{c}=c_{1}e^{2x}+c_{2}e^{-2x}$; &nbsp; $e^{2x}$ tekrar &rarr; $x$ ile çarp.</p>
+                                <p>$y_{p}=\left(Ax^{2}+Bx\right)e^{2x}$; &nbsp; $p(2)=0$, $p'(2)=4$, $\tfrac{p''}{2!}=1$</p>
+                                <p>$4u'+u''=8Ax+4B+2A=16x$</p>
+                                <p>$A=2$, &nbsp; $B=-1$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{2x}+c_{2}e^{-2x}+\left(2x^{2}-x\right)e^{2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13. &nbsp; $4y''-4y'+y=e^{x/2}+e^{-x/2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(2m-1)^{2}$ &rarr; $m=\dfrac{1}{2}$ çift kök; &nbsp; $y_{c}=\left(c_{1}+c_{2}x\right)e^{x/2}$</p>
+                                <p>$y=ue^{x/2}$ konursa operatör sadece $4u''e^{x/2}$ olur.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$e^{x/2}$:</strong> çift tekrar &rarr; $u=Ax^{2}$; &nbsp; $4(2A)=1 \implies A=\dfrac{1}{8}$</p>
+                                <p><strong>$e^{-x/2}$:</strong> $p\!\left(-\tfrac{1}{2}\right)=1+2+1=4$ &rarr; $4B=1 \implies B=\dfrac{1}{4}$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(c_{1}+c_{2}x\right)e^{x/2}+\dfrac{x^{2}e^{x/2}}{8}+\dfrac{e^{-x/2}}{4}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $y''-6y'+9y=6e^{3x}+5xe^{4x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-3)^{2}$ &rarr; $y_{c}=\left(c_{1}+c_{2}x\right)e^{3x}$</p>
+                                <p><strong>$6e^{3x}$:</strong> çift tekrar. $y=ue^{3x}$ için operatör $u''e^{3x}$'tir.</p>
+                                <p>$u=Ax^{2}$ &rarr; $2A=6 \implies A=3$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$5xe^{4x}$:</strong> $p(4)=16-24+9=1$, &nbsp; $p'(4)=2$</p>
+                                <p>$\left[1\cdot(Bx+C)+2B\right]=5x \implies B=5$, &nbsp; $C=-10$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(c_{1}+c_{2}x\right)e^{3x}+3x^{2}e^{3x}+(5x-10)e^{4x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $y'''+4y''+y'-6y=-18x^{2}+1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=1$ kök: $1+4+1-6=0$ &rarr; $(m-1)(m+2)(m+3)$</p>
+                                <p>$y_{c}=c_{1}e^{x}+c_{2}e^{-2x}+c_{3}e^{-3x}$</p>
+                                <p>$y_{p}=Ax^{2}+Bx+C$:</p>
+                                <p>$8A+(2Ax+B)-6\left(Ax^{2}+Bx+C\right)$</p>
+                                <p>$x^{2}$: $-6A=-18 \implies A=3$</p>
+                                <p>$x$: $2A-6B=0 \implies B=1$</p>
+                                <p>sabit: $8A+B-6C=1 \implies C=4$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{x}+c_{2}e^{-2x}+c_{3}e^{-3x}+3x^{2}+x+4$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $y'''+2y''-3y'-10y=8xe^{-2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=2$ kök: $8+8-6-10=0$ &rarr; $(m-2)\left(m^{2}+4m+5\right)$</p>
+                                <p>$m=-2\pm i$ &rarr; $y_{c}=c_{1}e^{2x}+e^{-2x}\left(c_{2}\cos x+c_{3}\sin x\right)$</p>
+                                <p style="font-size: 0.9rem;">Dikkat: $-2$ <u>reel kök değil</u> (kökler $-2\pm i$), dolayısıyla tekrar yok.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$p(-2)=-8+8+6-10=-4$, &nbsp; $p'(m)=3m^{2}+4m-3 \implies p'(-2)=1$</p>
+                                <p>$\left[-4(Ax+B)+A\right]=8x \implies A=-2$, &nbsp; $B=-\dfrac{1}{2}$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{2x}+e^{-2x}\left(c_{2}\cos x+c_{3}\sin x\right)-\left(2x+\tfrac{1}{2}\right)e^{-2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp; $y'''+y''+3y'-5y=5\sin 2x+10x^{2}+3x+7$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=1$ kök &rarr; $(m-1)\left(m^{2}+2m+5\right)$, &nbsp; $m=-1\pm 2i$</p>
+                                <p>$y_{c}=c_{1}e^{x}+e^{-x}\left(c_{2}\cos 2x+c_{3}\sin 2x\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$5\sin 2x$:</strong> $y_{p}=A\cos 2x+B\sin 2x$</p>
+                                <p>$\cos$: $-9A-2B=0$ &nbsp;&nbsp; $\sin$: $2A-9B=5$</p>
+                                <p>$B=-\dfrac{9A}{2}$ &rarr; $2A+\dfrac{81A}{2}=5 \implies A=\dfrac{2}{17}$, &nbsp; $B=-\dfrac{9}{17}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$10x^{2}+3x+7$:</strong> $y_{p}=Cx^{2}+Dx+E$</p>
+                                <p>$-5C=10 \implies C=-2$; &nbsp; $6C-5D=3 \implies D=-3$; &nbsp; $2C+3D-5E=7 \implies E=-4$</p>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=c_{1}e^{x}+e^{-x}\left(c_{2}\cos 2x+c_{3}\sin 2x\right)+\frac{2\cos 2x-9\sin 2x}{17}-2x^{2}-3x-4$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp; $4y'''-4y''-5y'+3y=3x^{3}-8x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\dfrac{1}{2}$ kök &rarr; $(2m-1)\left(2m^{2}-m-3\right)=(2m-1)(2m-3)(m+1)$</p>
+                                <p>$y_{c}=c_{1}e^{x/2}+c_{2}e^{3x/2}+c_{3}e^{-x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y_{p}=Ax^{3}+Bx^{2}+Cx+D$:</p>
+                                <p>$x^{3}$: $3A=3 \implies A=1$</p>
+                                <p>$x^{2}$: $-15A+3B=0 \implies B=5$</p>
+                                <p>$x$: $-24A-10B+3C=-8 \implies C=22$</p>
+                                <p>sabit: $24A-8B-5C+3D=0 \implies D=42$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{x/2}+c_{2}e^{3x/2}+c_{3}e^{-x}+x^{3}+5x^{2}+22x+42$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp; $y''+y'-6y=10e^{2x}-18e^{3x}-6x-11$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-2)(m+3)$ &rarr; $y_{c}=c_{1}e^{2x}+c_{2}e^{-3x}$</p>
+                                <p><strong>$10e^{2x}$:</strong> $2$ kök! &rarr; $y_{p}=Axe^{2x}$; &nbsp; $p'(2)=5$</p>
+                                <p>$5A=10 \implies A=2$</p>
+                                <p><strong>$-18e^{3x}$:</strong> $p(3)=9+3-6=6$ &rarr; $6B=-18 \implies B=-3$</p>
+                                <p><strong>$-6x-11$:</strong> $-6Cx+(C-6D)$ &rarr; $C=1$, &nbsp; $D=2$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{2x}+c_{2}e^{-3x}+2xe^{2x}-3e^{3x}+x+2$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp; $y''+y'-2y=6e^{-2x}+3e^{x}-4x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-1)(m+2)$ &rarr; $y_{c}=c_{1}e^{x}+c_{2}e^{-2x}$; &nbsp; $p'(m)=2m+1$</p>
+                                <p><strong>$6e^{-2x}$:</strong> $-2$ kök; $p'(-2)=-3$ &rarr; $-3A=6 \implies A=-2$</p>
+                                <p><strong>$3e^{x}$:</strong> $1$ kök; $p'(1)=3$ &rarr; $3B=3 \implies B=1$</p>
+                                <p><strong>$-4x^{2}$:</strong> $-2Cx^{2}+(2C-2D)x+(2C+D-2E)$</p>
+                                <p>$C=2$, &nbsp; $D=2$, &nbsp; $E=3$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{x}+c_{2}e^{-2x}-2xe^{-2x}+xe^{x}+2x^{2}+2x+3$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">21. &nbsp; $y''-6y'+5y=24x^{2}e^{x}+8e^{5x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-1)(m-5)$ &rarr; $y_{c}=c_{1}e^{x}+c_{2}e^{5x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$24x^{2}e^{x}$:</strong> $e^{x}$ tekrar &rarr; $u=Ax^{3}+Bx^{2}+Cx$</p>
+                                <p>$y=ue^{x}$ için operatör $-4u'+u''$:</p>
+                                <p>$-12Ax^{2}+(6A-8B)x+(2B-4C)=24x^{2}$</p>
+                                <p>$A=-2$, &nbsp; $B=-\dfrac{3}{2}$, &nbsp; $C=-\dfrac{3}{4}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$8e^{5x}$:</strong> $5$ kök; $p'(5)=4$ &rarr; $4D=8 \implies D=2$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{x}+c_{2}e^{5x}-\dfrac{\left(8x^{3}+6x^{2}+3x\right)e^{x}}{4}+2xe^{5x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">22. &nbsp; $y''-4y'+5y=6e^{2x}\cos x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=2\pm i$ &rarr; $y_{c}=e^{2x}\left(c_{1}\cos x+c_{2}\sin x\right)$ &mdash; sağ taraf <strong>tam tekrar</strong>.</p>
+                                <p>$y=e^{2x}w$ konursa denklem sadeleşir:</p>
+                                $$y''-4y'+5y=e^{2x}\left(w''+w\right)$$
+                                <p>Yani $w''+w=6\cos x$ çözülecek; $w=x(A\cos x+B\sin x)$ için $w''+w=-2A\sin x+2B\cos x$.</p>
+                                <p>$A=0$, &nbsp; $2B=6 \implies B=3$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{2x}\left(c_{1}\cos x+c_{2}\sin x\right)+3xe^{2x}\sin x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">23. &nbsp; $y'''-3y''+4y=4e^{x}-18e^{-x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{3}-3m^{2}+4=(m+1)(m-2)^{2}$ &rarr; $y_{c}=c_{1}e^{-x}+\left(c_{2}+c_{3}x\right)e^{2x}$</p>
+                                <p><strong>$4e^{x}$:</strong> $p(1)=1-3+4=2$ &rarr; $2A=4 \implies A=2$</p>
+                                <p><strong>$-18e^{-x}$:</strong> $-1$ basit kök; $p'(m)=3m^{2}-6m \implies p'(-1)=9$</p>
+                                <p>$9B=-18 \implies B=-2$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{-x}+\left(c_{2}+c_{3}x\right)e^{2x}+2e^{x}-2xe^{-x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">24. &nbsp; $y'''-2y''-y'+2y=9e^{2x}-8e^{3x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{2}(m-2)-(m-2)=(m-2)(m-1)(m+1)$</p>
+                                <p>$y_{c}=c_{1}e^{2x}+c_{2}e^{x}+c_{3}e^{-x}$</p>
+                                <p><strong>$9e^{2x}$:</strong> $2$ basit kök; $p'(m)=3m^{2}-4m-1 \implies p'(2)=3$</p>
+                                <p>$3A=9 \implies A=3$</p>
+                                <p><strong>$-8e^{3x}$:</strong> $p(3)=27-18-3+2=8$ &rarr; $8B=-8 \implies B=-1$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{2x}+c_{2}e^{x}+c_{3}e^{-x}+3xe^{2x}-e^{3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">25. &nbsp; $y'''+y'=2x^{2}+4\sin x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{3}+m=m\left(m^{2}+1\right)$ &rarr; kökler $0,\;\pm i$</p>
+                                <p>$y_{c}=c_{1}+c_{2}\cos x+c_{3}\sin x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$2x^{2}$:</strong> $m=0$ kök olduğundan polinom $x$ ile çarpılır: $y_{p}=Ax^{3}+Bx^{2}+Cx$</p>
+                                <p>$y'''+y'=3Ax^{2}+2Bx+(6A+C)=2x^{2}$</p>
+                                <p>$A=\dfrac{2}{3}$, &nbsp; $B=0$, &nbsp; $C=-4$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$4\sin x$:</strong> $\pm i$ kök &rarr; $y_{p}=x\left(D\cos x+E\sin x\right)$</p>
+                                <p>Hesap sonucu: $y'''+y'=-2D\cos x-2E\sin x$</p>
+                                <p>$D=0$, &nbsp; $-2E=4 \implies E=-2$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}+c_{2}\cos x+c_{3}\sin x+\dfrac{2x^{3}}{3}-4x-2x\sin x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">26. &nbsp; $y^{(4)}-3y'''+2y''=3e^{-x}+6e^{2x}-6x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{2}(m-1)(m-2)$ &rarr; kökler $0$ (çift), $1$, $2$</p>
+                                <p>$y_{c}=c_{1}+c_{2}x+c_{3}e^{x}+c_{4}e^{2x}$</p>
+                                <p><strong>$3e^{-x}$:</strong> $p(-1)=1+3+2=6$ &rarr; $6A=3 \implies A=\dfrac{1}{2}$</p>
+                                <p><strong>$6e^{2x}$:</strong> $2$ basit kök; $p'(m)=4m^{3}-9m^{2}+4m \implies p'(2)=4$</p>
+                                <p>$4B=6 \implies B=\dfrac{3}{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$-6x$:</strong> $m=0$ <u>çift</u> kök &rarr; $x^{2}$ ile çarp: $y_{p}=Cx^{3}+Dx^{2}$</p>
+                                <p>$12Cx+(4D-18C)=-6x$ &rarr; $C=-\dfrac{1}{2}$, &nbsp; $D=-\dfrac{9}{4}$</p>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=c_{1}+c_{2}x+c_{3}e^{x}+c_{4}e^{2x}+\tfrac{1}{2}e^{-x}+\tfrac{3}{2}xe^{2x}-\tfrac{1}{2}x^{3}-\tfrac{9}{4}x^{2}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">27. &nbsp; $y'''-6y''+11y'-6y=xe^{x}-4e^{2x}+6e^{4x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-1)(m-2)(m-3)$ &rarr; $y_{c}=c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}$</p>
+                                <p>$p'(m)=3m^{2}-12m+11$, &nbsp; $\dfrac{p''(m)}{2}=3m-6$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$xe^{x}$:</strong> $1$ basit kök; $p'(1)=2$, $\tfrac{p''(1)}{2}=-3$</p>
+                                <p>$u=Ax^{2}+Bx$ ile $2u'-3u''=4Ax+2B-6A=x$</p>
+                                <p>$A=\dfrac{1}{4}$, &nbsp; $B=\dfrac{3}{4}$</p>
+                                <p><strong>$-4e^{2x}$:</strong> $p'(2)=-1$ &rarr; $-C=-4 \implies C=4$</p>
+                                <p><strong>$6e^{4x}$:</strong> $p(4)=64-96+44-6=6$ &rarr; $D=1$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}e^{x}+c_{2}e^{2x}+c_{3}e^{3x}+\dfrac{x(x+3)e^{x}}{4}+4xe^{2x}+e^{4x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">28. &nbsp; $y'''-4y''+5y'-2y=3x^{2}e^{x}-7e^{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=1$ kök &rarr; $(m-1)^{2}(m-2)$; &nbsp; $y_{c}=\left(c_{1}+c_{2}x\right)e^{x}+c_{3}e^{2x}$</p>
+                                <p>Sağ taraf $\left(3x^{2}-7\right)e^{x}$; &nbsp; $e^{x}$ <strong>çift</strong> tekrar &rarr; $x^{2}$ ile çarp.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$p(1)=p'(1)=0$, &nbsp; $\dfrac{p''(1)}{2}=-1$, &nbsp; $\dfrac{p'''}{6}=1$</p>
+                                <p>$u=Ax^{4}+Bx^{3}+Cx^{2}$ ile operatör $-u''+u'''$:</p>
+                                <p>$-12Ax^{2}+(24A-6B)x+(6B-2C)=3x^{2}-7$</p>
+                                <p>$A=-\dfrac{1}{4}$, &nbsp; $B=-1$, &nbsp; $C=\dfrac{1}{2}$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(c_{1}+c_{2}x\right)e^{x}+c_{3}e^{2x}-\left(\tfrac{x^{4}}{4}+x^{3}-\tfrac{x^{2}}{2}\right)e^{x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">29. &nbsp; $y'''-4y''+4y'=24xe^{2x}+16+9e^{3x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m(m-2)^{2}$ &rarr; $y_{c}=c_{1}+\left(c_{2}+c_{3}x\right)e^{2x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$24xe^{2x}$:</strong> $2$ çift kök &rarr; $x^{2}$ ile çarp; $u=Ax^{3}+Bx^{2}$</p>
+                                <p>$p(2)=p'(2)=0$, &nbsp; $\dfrac{p''(2)}{2}=2$ &rarr; operatör $2u''+u'''$</p>
+                                <p>$12Ax+(4B+6A)=24x$ &rarr; $A=2$, &nbsp; $B=-3$</p>
+                                <p><strong>$16$:</strong> $m=0$ basit kök &rarr; $y_{p}=Cx$; &nbsp; $4C=16 \implies C=4$</p>
+                                <p><strong>$9e^{3x}$:</strong> $p(3)=27-36+12=3$ &rarr; $D=3$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}+\left(c_{2}+c_{3}x\right)e^{2x}+\left(2x^{3}-3x^{2}\right)e^{2x}+4x+3e^{3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">30. &nbsp; $y'''-4y'=32xe^{2x}-24x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m(m-2)(m+2)$ &rarr; $y_{c}=c_{1}+c_{2}e^{2x}+c_{3}e^{-2x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$32xe^{2x}$:</strong> $2$ basit kök; $p'(m)=3m^{2}-4 \implies p'(2)=8$, &nbsp; $\dfrac{p''(2)}{2}=6$</p>
+                                <p>$u=Ax^{2}+Bx$ ile $8u'+6u''=16Ax+(8B+12A)=32x$</p>
+                                <p>$A=2$, &nbsp; $B=-3$</p>
+                                <p><strong>$-24x^{2}$:</strong> $m=0$ basit kök &rarr; $y_{p}=Cx^{3}+Dx^{2}+Ex$</p>
+                                <p>$-12Cx^{2}-8Dx+(6C-4E)=-24x^{2}$ &rarr; $C=2$, $D=0$, $E=3$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}+c_{2}e^{2x}+c_{3}e^{-2x}+\left(2x^{2}-3x\right)e^{2x}+2x^{3}+3x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">31. &nbsp; $y''+y=x\sin x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm i$ &rarr; $y_{c}=c_{1}\cos x+c_{2}\sin x$; sağ taraf tekrar &rarr; $x$ ile çarp.</p>
+                                <p>$y_{p}=\left(Ax^{2}+Bx\right)\cos x+\left(Cx^{2}+Dx\right)\sin x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y=P\cos x+Q\sin x$ için genel formül:</p>
+                                $$y''+y=\left(P''+2Q'\right)\cos x+\left(Q''-2P'\right)\sin x$$
+                                <p>$\cos$: $2A+2(2Cx+D)=0$ &rarr; $C=0$, &nbsp; $D=-A$</p>
+                                <p>$\sin$: $2C-2(2Ax+B)=x$ &rarr; $A=-\dfrac{1}{4}$, &nbsp; $B=C=0$, &nbsp; $D=\dfrac{1}{4}$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}\cos x+c_{2}\sin x+\dfrac{x\sin x-x^{2}\cos x}{4}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">32. &nbsp; $y''+4y=12x^{2}-16x\cos 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm 2i$ &rarr; $y_{c}=c_{1}\cos 2x+c_{2}\sin 2x$</p>
+                                <p><strong>$12x^{2}$:</strong> $y_{p}=Ax^{2}+Bx+C$ &rarr; $4A=12$, $4B=0$, $2A+4C=0$</p>
+                                <p>$A=3$, &nbsp; $B=0$, &nbsp; $C=-\dfrac{3}{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$-16x\cos 2x$:</strong> tekrar &rarr; $y_{p}=\left(Dx^{2}+Ex\right)\cos 2x+\left(Fx^{2}+Gx\right)\sin 2x$</p>
+                                <p>$y=P\cos 2x+Q\sin 2x$ için: &nbsp; $y''+4y=\left(P''+4Q'\right)\cos 2x+\left(Q''-4P'\right)\sin 2x$</p>
+                                <p>$\cos$: $2D+4(2Fx+G)=-16x$ &rarr; $F=-2$, &nbsp; $2D+4G=0$</p>
+                                <p>$\sin$: $2F-4(2Dx+E)=0$ &rarr; $D=0$, &nbsp; $E=\dfrac{F}{2}=-1$, buradan $G=0$</p>
+                                <p><strong>Çözüm:</strong> $y=c_{1}\cos 2x+c_{2}\sin 2x+3x^{2}-\dfrac{3}{2}-x\cos 2x-2x^{2}\sin 2x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">33. &nbsp; $y^{(4)}+2y'''-3y''=18x^{2}+16xe^{x}+4e^{3x}-9$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{2}\left(m^{2}+2m-3\right)=m^{2}(m+3)(m-1)$</p>
+                                <p>$y_{c}=c_{1}+c_{2}x+c_{3}e^{-3x}+c_{4}e^{x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$18x^{2}-9$:</strong> $m=0$ çift kök &rarr; $x^{2}$ ile çarp: $Ax^{4}+Bx^{3}+Cx^{2}$</p>
+                                <p>$-36Ax^{2}+(48A-18B)x+(24A+12B-6C)=18x^{2}-9$</p>
+                                <p>$A=-\dfrac{1}{2}$, &nbsp; $B=-\dfrac{4}{3}$, &nbsp; $C=-\dfrac{19}{6}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$16xe^{x}$:</strong> $1$ basit kök; $p'(1)=4$, &nbsp; $\dfrac{p''(1)}{2}=9$</p>
+                                <p>$u=Dx^{2}+Ex$ ile $4u'+9u''=8Dx+(4E+18D)=16x$</p>
+                                <p>$D=2$, &nbsp; $E=-9$</p>
+                                <p><strong>$4e^{3x}$:</strong> $p(3)=81+54-27=108$ &rarr; $F=\dfrac{1}{27}$</p>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=c_{1}+c_{2}x+c_{3}e^{-3x}+c_{4}e^{x}-\tfrac{x^{4}}{2}-\tfrac{4x^{3}}{3}-\tfrac{19x^{2}}{6}+\left(2x^{2}-9x\right)e^{x}+\tfrac{e^{3x}}{27}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">34. &nbsp; $y^{(4)}-5y'''+7y''-5y'+6y=5\sin x-12\sin 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=2$ kök &rarr; bölünce $m^{3}-3m^{2}+m-3=(m-3)\left(m^{2}+1\right)$</p>
+                                <p>Kökler: $2,\;3,\;\pm i$ &rarr; $y_{c}=c_{1}e^{2x}+c_{2}e^{3x}+c_{3}\cos x+c_{4}\sin x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$5\sin x$:</strong> $\pm i$ kök &rarr; $y_{p}=x\left(A\cos x+B\sin x\right)$</p>
+                                <p>Operatörü $\left(D^{2}-5D+6\right)\left(D^{2}+1\right)$ diye ayıralım. Önce $\left(D^{2}+1\right)y_{p}=-2A\sin x+2B\cos x=z$.</p>
+                                <p>$z''=-z$ olduğundan $\left(D^{2}-5D+6\right)z=5z-5z'$:</p>
+                                <p>$\cos$: $10B+10A=0$ &nbsp;&nbsp; $\sin$: $10B-10A=5$</p>
+                                <p>$A=-\dfrac{1}{4}$, &nbsp; $B=\dfrac{1}{4}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$-12\sin 2x$:</strong> $2i$ kök değil. $p(2i)=16+40i-28-10i+6=-6+30i$</p>
+                                <p>$-12e^{2ix}$ zorlaması için katsayı $\dfrac{-12}{-6+30i}=\dfrac{1+5i}{13}$</p>
+                                <p>Sanal kısmı alınca: $y_{p}=\dfrac{\sin 2x+5\cos 2x}{13}$</p>
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=c_{1}e^{2x}+c_{2}e^{3x}+c_{3}\cos x+c_{4}\sin x+\frac{x\left(\sin x-\cos x\right)}{4}+\frac{5\cos 2x+\sin 2x}{13}$$
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 35&ndash;50: Başlangıç değer problemlerini çözünüz.</p>
+
+                        <div class="highlight">
+                            <p><strong>Sıra önemli:</strong> önce genel çözüm ($y_{c}+y_{p}$) tamamlanır, <u>sonra</u> başlangıç şartları uygulanır. $y_{p}$ hazır olmadan sabitleri belirlemeye çalışmak hatalı sonuç verir.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">35. &nbsp; $y''-4y'+3y=9x^{2}+4$, &nbsp; $y(0)=6$, $y'(0)=8$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-1)(m-3)$ &rarr; $y_{c}=c_{1}e^{x}+c_{2}e^{3x}$</p>
+                                <p>$y_{p}=Ax^{2}+Bx+C$: &nbsp; $3A=9$, $-8A+3B=0$, $2A-4B+3C=4$</p>
+                                <p>$A=3$, &nbsp; $B=8$, &nbsp; $C=10$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+c_{2}+10=6 \implies c_{1}+c_{2}=-4$</p>
+                                <p>$y'(0)=c_{1}+3c_{2}+8=8 \implies c_{1}+3c_{2}=0$</p>
+                                <p>$c_{2}=2$, &nbsp; $c_{1}=-6$</p>
+                                <p><strong>Çözüm:</strong> $y=-6e^{x}+2e^{3x}+3x^{2}+8x+10$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">36. &nbsp; $y''+5y'+4y=16x+20e^{x}$, &nbsp; $y(0)=0$, $y'(0)=3$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m+1)(m+4)$ &rarr; $y_{c}=c_{1}e^{-x}+c_{2}e^{-4x}$</p>
+                                <p>$16x$: $4Ax+(5A+4B)$ &rarr; $A=4$, &nbsp; $B=-5$</p>
+                                <p>$20e^{x}$: $p(1)=10$ &rarr; $C=2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+c_{2}-5+2=0 \implies c_{1}+c_{2}=3$</p>
+                                <p>$y'(0)=-c_{1}-4c_{2}+4+2=3 \implies c_{1}+4c_{2}=3$</p>
+                                <p>$c_{2}=0$, &nbsp; $c_{1}=3$</p>
+                                <p><strong>Çözüm:</strong> $y=3e^{-x}+2e^{x}+4x-5$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">37. &nbsp; $y''-8y'+15y=9xe^{2x}$, &nbsp; $y(0)=5$, $y'(0)=10$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-3)(m-5)$ &rarr; $y_{c}=c_{1}e^{3x}+c_{2}e^{5x}$</p>
+                                <p>$p(2)=3$, &nbsp; $p'(2)=-4$ &rarr; $\left[3(Ax+B)-4A\right]=9x$</p>
+                                <p>$A=3$, &nbsp; $B=4$ &rarr; $y_{p}=(3x+4)e^{2x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+c_{2}+4=5 \implies c_{1}+c_{2}=1$</p>
+                                <p>$y'(0)=3c_{1}+5c_{2}+3+8=10 \implies 3c_{1}+5c_{2}=-1$</p>
+                                <p>$c_{2}=-2$, &nbsp; $c_{1}=3$</p>
+                                <p><strong>Çözüm:</strong> $y=3e^{3x}-2e^{5x}+(3x+4)e^{2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">38. &nbsp; $y''+7y'+10y=4xe^{-3x}$, &nbsp; $y(0)=0$, $y'(0)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m+2)(m+5)$ &rarr; $y_{c}=c_{1}e^{-2x}+c_{2}e^{-5x}$</p>
+                                <p>$p(-3)=9-21+10=-2$, &nbsp; $p'(-3)=1$</p>
+                                <p>$-2A=4 \implies A=-2$; &nbsp; $-2B+A=0 \implies B=-1$</p>
+                                <p>$y_{p}=-(2x+1)e^{-3x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+c_{2}-1=0 \implies c_{1}+c_{2}=1$</p>
+                                <p>$y'(0)=-2c_{1}-5c_{2}-2+3=-1 \implies 2c_{1}+5c_{2}=2$</p>
+                                <p>$c_{2}=0$, &nbsp; $c_{1}=1$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{-2x}-(2x+1)e^{-3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">39. &nbsp; $y''+8y'+16y=8e^{-2x}$, &nbsp; $y(0)=2$, $y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m+4)^{2}$ &rarr; $y_{c}=\left(c_{1}+c_{2}x\right)e^{-4x}$</p>
+                                <p>$p(-2)=4-16+16=4$ &rarr; $4A=8 \implies A=2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+2=2 \implies c_{1}=0$</p>
+                                <p>$y'(0)=c_{2}-4c_{1}-4=0 \implies c_{2}=4$</p>
+                                <p><strong>Çözüm:</strong> $y=4xe^{-4x}+2e^{-2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">40. &nbsp; $y''+6y'+9y=27e^{-6x}$, &nbsp; $y(0)=-2$, $y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m+3)^{2}$ &rarr; $y_{c}=\left(c_{1}+c_{2}x\right)e^{-3x}$</p>
+                                <p>$p(-6)=36-36+9=9$ &rarr; $9A=27 \implies A=3$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+3=-2 \implies c_{1}=-5$</p>
+                                <p>$y'(0)=c_{2}-3c_{1}-18=0 \implies c_{2}+15-18=0 \implies c_{2}=3$</p>
+                                <p><strong>Çözüm:</strong> $y=(3x-5)e^{-3x}+3e^{-6x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">41. &nbsp; $y''+4y'+13y=18e^{-2x}$, &nbsp; $y(0)=0$, $y'(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=-2\pm 3i$ &rarr; $y_{c}=e^{-2x}\left(c_{1}\cos 3x+c_{2}\sin 3x\right)$</p>
+                                <p>$p(-2)=4-8+13=9$ &rarr; $9A=18 \implies A=2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+2=0 \implies c_{1}=-2$</p>
+                                <p>$y'(0)=\left(-2c_{1}+3c_{2}\right)-4=4 \implies 4+3c_{2}-4=4 \implies c_{2}=\dfrac{4}{3}$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{-2x}\left(2-2\cos 3x+\dfrac{4}{3}\sin 3x\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">42. &nbsp; $y''-10y'+29y=8e^{5x}$, &nbsp; $y(0)=0$, $y'(0)=8$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=5\pm 2i$ &rarr; $y_{c}=e^{5x}\left(c_{1}\cos 2x+c_{2}\sin 2x\right)$</p>
+                                <p>$p(5)=25-50+29=4$ &rarr; $4A=8 \implies A=2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+2=0 \implies c_{1}=-2$</p>
+                                <p>$y'(0)=\left(5c_{1}+2c_{2}\right)+10=8 \implies -10+2c_{2}+10=8 \implies c_{2}=4$</p>
+                                <p><strong>Çözüm:</strong> $y=e^{5x}\left(2-2\cos 2x+4\sin 2x\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">43. &nbsp; $y''-4y'+13y=8\sin 3x$, &nbsp; $y(0)=1$, $y'(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=2\pm 3i$ &rarr; $y_{c}=e^{2x}\left(c_{1}\cos 3x+c_{2}\sin 3x\right)$</p>
+                                <p style="font-size: 0.9rem;">$e^{2x}$ çarpanı olduğundan çıplak $\sin 3x$ tekrar değildir.</p>
+                                <p>$y_{p}=A\cos 3x+B\sin 3x$:</p>
+                                <p>$\cos$: $4A-12B=0 \implies A=3B$ &nbsp;&nbsp; $\sin$: $12A+4B=8$</p>
+                                <p>$40B=8 \implies B=\dfrac{1}{5}$, &nbsp; $A=\dfrac{3}{5}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+\dfrac{3}{5}=1 \implies c_{1}=\dfrac{2}{5}$</p>
+                                <p>$y'(0)=2c_{1}+3c_{2}+\dfrac{3}{5}=2 \implies c_{2}=\dfrac{1}{5}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{1}{5}\left[e^{2x}\left(2\cos 3x+\sin 3x\right)+3\cos 3x+\sin 3x\right]$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">44. &nbsp; $y''-y'-6y=8e^{2x}-5e^{3x}$, &nbsp; $y(0)=3$, $y'(0)=5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-3)(m+2)$ &rarr; $y_{c}=c_{1}e^{3x}+c_{2}e^{-2x}$</p>
+                                <p>$8e^{2x}$: $p(2)=-4$ &rarr; $A=-2$</p>
+                                <p>$-5e^{3x}$: $3$ <strong>kök</strong>; $p'(3)=5$ &rarr; $5B=-5 \implies B=-1$, &nbsp; $y_{p}=-xe^{3x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+c_{2}-2=3 \implies c_{1}+c_{2}=5$</p>
+                                <p>$y'(0)=3c_{1}-2c_{2}-4-1=5 \implies 3c_{1}-2c_{2}=10$</p>
+                                <p>$c_{2}=1$, &nbsp; $c_{1}=4$</p>
+                                <p><strong>Çözüm:</strong> $y=4e^{3x}+e^{-2x}-2e^{2x}-xe^{3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">45. &nbsp; $y''-2y'+y=2xe^{2x}+6e^{x}$, &nbsp; $y(0)=1$, $y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-1)^{2}$ &rarr; $y_{c}=\left(c_{1}+c_{2}x\right)e^{x}$</p>
+                                <p><strong>$2xe^{2x}$:</strong> $p(2)=1$, $p'(2)=2$ &rarr; $(Ax+B)+2A=2x$</p>
+                                <p>$A=2$, &nbsp; $B=-4$</p>
+                                <p><strong>$6e^{x}$:</strong> $1$ çift kök &rarr; $y_{p}=Cx^{2}e^{x}$; operatör $u''e^{x}$ olduğundan $2C=6 \implies C=3$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}-4=1 \implies c_{1}=5$</p>
+                                <p>$y'(0)=\left(c_{1}+c_{2}\right)+\left(2-8\right)=0 \implies c_{2}=1$</p>
+                                <p><strong>Çözüm:</strong> $y=(5+x)e^{x}+3x^{2}e^{x}+(2x-4)e^{2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">46. &nbsp; $y''-y=3x^{2}e^{x}$, &nbsp; $y(0)=1$, $y'(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm 1$ &rarr; $y_{c}=c_{1}e^{x}+c_{2}e^{-x}$; &nbsp; $e^{x}$ tekrar &rarr; $x$ ile çarp.</p>
+                                <p>$p(1)=0$, $p'(1)=2$, $\dfrac{p''}{2}=1$ &rarr; operatör $2u'+u''$</p>
+                                <p>$u=Ax^{3}+Bx^{2}+Cx$: &nbsp; $6Ax^{2}+(4B+6A)x+(2C+2B)=3x^{2}$</p>
+                                <p>$A=\dfrac{1}{2}$, &nbsp; $B=-\dfrac{3}{4}$, &nbsp; $C=\dfrac{3}{4}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}+c_{2}=1$</p>
+                                <p>$y'(0)=c_{1}-c_{2}+C=2 \implies c_{1}-c_{2}=\dfrac{5}{4}$</p>
+                                <p>$c_{1}=\dfrac{9}{8}$, &nbsp; $c_{2}=-\dfrac{1}{8}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{9e^{x}-e^{-x}}{8}+\dfrac{\left(2x^{3}-3x^{2}+3x\right)e^{x}}{4}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">47. &nbsp; $y''+y=3x^{2}-4\sin x$, &nbsp; $y(0)=0$, $y'(0)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm i$ &rarr; $y_{c}=c_{1}\cos x+c_{2}\sin x$</p>
+                                <p><strong>$3x^{2}$:</strong> $Ax^{2}+Bx+(2A+C)$ &rarr; $A=3$, $B=0$, $C=-6$</p>
+                                <p><strong>$-4\sin x$:</strong> tekrar &rarr; $y_{p}=x\left(D\cos x+E\sin x\right)$; &nbsp; $y''+y=-2D\sin x+2E\cos x$</p>
+                                <p>$-2D=-4 \implies D=2$, &nbsp; $E=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}-6=0 \implies c_{1}=6$</p>
+                                <p>$y'(0)=c_{2}+2=1 \implies c_{2}=-1$</p>
+                                <p><strong>Çözüm:</strong> $y=6\cos x-\sin x+3x^{2}-6+2x\cos x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">48. &nbsp; $y''+4y=8\sin 2x$, &nbsp; $y(0)=6$, $y'(0)=8$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=\pm 2i$ &rarr; tekrar; &nbsp; $y_{p}=x\left(A\cos 2x+B\sin 2x\right)$</p>
+                                <p>$y''+4y=-4A\sin 2x+4B\cos 2x=8\sin 2x$</p>
+                                <p>$A=-2$, &nbsp; $B=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$y(0)=c_{1}=6$</p>
+                                <p>$y'(0)=2c_{2}-2=8 \implies c_{2}=5$</p>
+                                <p><strong>Çözüm:</strong> $y=6\cos 2x+5\sin 2x-2x\cos 2x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">49. &nbsp; $y'''-4y''+y'+6y=3xe^{x}+2e^{x}-\sin x$, &nbsp; $y(0)=\frac{33}{40}$, $y'(0)=0$, $y''(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=-1$ kök &rarr; $(m+1)(m-2)(m-3)$; &nbsp; $y_{c}=c_{1}e^{-x}+c_{2}e^{2x}+c_{3}e^{3x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$(3x+2)e^{x}$:</strong> $p(1)=4$, &nbsp; $p'(m)=3m^{2}-8m+1 \implies p'(1)=-4$</p>
+                                <p>$4A=3 \implies A=\dfrac{3}{4}$; &nbsp; $4B-4A=2 \implies B=\dfrac{5}{4}$</p>
+                                <p><strong>$-\sin x$:</strong> $y=k\sin x$ denenirse operatör $10k\sin x$ verir &rarr; $k=-\dfrac{1}{10}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$c_{1}+c_{2}+c_{3}=-\dfrac{17}{40}$</p>
+                                <p>$-c_{1}+2c_{2}+3c_{3}=-\dfrac{19}{10}$</p>
+                                <p>$c_{1}+4c_{2}+9c_{3}=-\dfrac{11}{4}$</p>
+                                <p>Çözülürse $c_{3}=0$, &nbsp; $c_{2}=-\dfrac{31}{40}$, &nbsp; $c_{1}=\dfrac{7}{20}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{7}{20}e^{-x}-\dfrac{31}{40}e^{2x}+\dfrac{(3x+5)e^{x}}{4}-\dfrac{\sin x}{10}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">50. &nbsp; $y'''-6y''+9y'-4y=8x^{2}+3-6e^{2x}$, &nbsp; $y(0)=1$, $y'(0)=7$, $y''(0)=10$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m=1$ kök &rarr; $(m-1)^{2}(m-4)$; &nbsp; $y_{c}=\left(c_{1}+c_{2}x\right)e^{x}+c_{3}e^{4x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$8x^{2}+3$:</strong> $y_{p}=Ax^{2}+Bx+C$</p>
+                                <p>$-4A=8 \implies A=-2$; &nbsp; $18A-4B=0 \implies B=-9$; &nbsp; $-12A+9B-4C=3 \implies C=-15$</p>
+                                <p><strong>$-6e^{2x}$:</strong> $p(2)=8-24+18-4=-2$ &rarr; $D=3$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$c_{1}+c_{3}=13$</p>
+                                <p>$c_{1}+c_{2}+4c_{3}=10$</p>
+                                <p>$c_{1}+2c_{2}+16c_{3}=2$</p>
+                                <p>$c_{3}=-\dfrac{5}{9}$, &nbsp; $c_{2}=-\dfrac{4}{3}$, &nbsp; $c_{1}=\dfrac{122}{9}$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(\dfrac{122}{9}-\dfrac{4x}{3}\right)e^{x}-\dfrac{5}{9}e^{4x}+3e^{2x}-2x^{2}-9x-15$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 51&ndash;64: Yalnızca <strong>deneme fonksiyonunu</strong> (belirsiz katsayılı doğrusal kombinasyonu) kurunuz. <em>Katsayıları hesaplamayınız.</em></p>
+
+                        <div class="highlight">
+                            <p><strong>Kural.</strong> Sağ taraftaki her terim için, o terimin türevlerinden doğan bağımsız fonksiyonlar kümesi yazılır. Bu kümenin herhangi bir üyesi $y_{c}$'de varsa, <u>o kümenin tamamı</u> $x^{k}$ ile çarpılır &mdash; burada $k$, ilgili kökün katlılığıdır.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">51. &nbsp; $y''-6y'+8y=x^{3}+x+e^{-2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kökler: $2,\,4$. Hiçbir terim tekrar etmiyor.</p>
+                                <p><strong>Deneme:</strong> $y_{p}=Ax^{3}+Bx^{2}+Cx+D+Ee^{-2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">52. &nbsp; $y''+9y=e^{3x}+e^{-3x}+e^{3x}\sin 3x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kökler: $\pm 3i$. &nbsp; $e^{3x}\sin 3x$'e karşılık gelen $3\pm 3i$ kök <u>değil</u>.</p>
+                                <p><strong>Deneme:</strong> $y_{p}=Ae^{3x}+Be^{-3x}+e^{3x}\left(C\cos 3x+D\sin 3x\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">53. &nbsp; $y''+4y'+5y=e^{-2x}(1+\cos x)$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kökler: $-2\pm i$. Sağ taraf $e^{-2x}+e^{-2x}\cos x$.</p>
+                                <p>$e^{-2x}$: $-2$ tek başına kök değil &rarr; çarpansız.</p>
+                                <p>$e^{-2x}\cos x$: $-2\pm i$ <strong>basit kök</strong> &rarr; $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong> $y_{p}=Ae^{-2x}+xe^{-2x}\left(B\cos x+C\sin x\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">54. &nbsp; $y''-6y'+9y=x^{4}e^{x}+x^{3}e^{2x}+x^{2}e^{3x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kök: $3$ (çift). Yalnız üçüncü terim tekrar ediyor &rarr; $x^{2}$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=\left(A_{0}x^{4}+A_{1}x^{3}+A_{2}x^{2}+A_{3}x+A_{4}\right)e^{x}$$
+                                $$+\left(B_{0}x^{3}+B_{1}x^{2}+B_{2}x+B_{3}\right)e^{2x}+x^{2}\left(C_{0}x^{2}+C_{1}x+C_{2}\right)e^{3x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">55. &nbsp; $y''+6y'+13y=xe^{-3x}\sin 2x+x^{2}e^{-2x}\sin 3x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kökler: $-3\pm 2i$. Birinci terim <strong>tam tekrar</strong> ($x$ ile çarpılır), ikincide $-2\pm 3i$ kök değil.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x\,e^{-3x}\left[\left(A_{0}x+A_{1}\right)\cos 2x+\left(B_{0}x+B_{1}\right)\sin 2x\right]$$
+                                $$+\,e^{-2x}\left[\left(C_{0}x^{2}+C_{1}x+C_{2}\right)\cos 3x+\left(D_{0}x^{2}+D_{1}x+D_{2}\right)\sin 3x\right]$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">56. &nbsp; $y'''-3y''+2y'=x^{2}e^{x}+3xe^{2x}+5x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m(m-1)(m-2)$ &rarr; kökler $0,\,1,\,2$ &mdash; <u>üç terim de</u> tekrar ediyor, her biri $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x\left(A_{0}x^{2}+A_{1}x+A_{2}\right)e^{x}+x\left(B_{0}x+B_{1}\right)e^{2x}+x\left(C_{0}x^{2}+C_{1}x+C_{2}\right)$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">57. &nbsp; $y'''-6y''+12y'-8y=xe^{2x}+x^{2}e^{3x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-2)^{3}$ &rarr; $2$ <strong>üç katlı</strong> kök; birinci terim $x^{3}$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong> $y_{p}=x^{3}\left(A_{0}x+A_{1}\right)e^{2x}+\left(B_{0}x^{2}+B_{1}x+B_{2}\right)e^{3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">58. &nbsp; $y^{(4)}+3y'''+4y''+3y'+y=x^{2}e^{-x}+3e^{-x/2}\cos\frac{\sqrt{3}}{2}x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{4}+3m^{3}+4m^{2}+3m+1=(m+1)^{2}\left(m^{2}+m+1\right)$</p>
+                                <p>Kökler: $-1$ (çift), &nbsp; $-\dfrac{1}{2}\pm\dfrac{\sqrt{3}}{2}i$ (basit)</p>
+                                <p>Birinci terim $x^{2}$, ikinci terim $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x^{2}\left(A_{0}x^{2}+A_{1}x+A_{2}\right)e^{-x}+x\,e^{-x/2}\left(B\cos\tfrac{\sqrt{3}}{2}x+C\sin\tfrac{\sqrt{3}}{2}x\right)$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">59. &nbsp; $y^{(4)}-16y=x^{2}\sin 2x+x^{4}e^{2x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kökler: $\pm 2,\;\pm 2i$ &mdash; her ikisi de basit tekrar, $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x\left[\left(A_{0}x^{2}+A_{1}x+A_{2}\right)\cos 2x+\left(B_{0}x^{2}+B_{1}x+B_{2}\right)\sin 2x\right]$$
+                                $$+\,x\left(C_{0}x^{4}+C_{1}x^{3}+C_{2}x^{2}+C_{3}x+C_{4}\right)e^{2x}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">60. &nbsp; $y^{(6)}+2y^{(5)}+5y^{(4)}=x^{3}+x^{2}e^{-x}+e^{-x}\sin 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{4}\left(m^{2}+2m+5\right)$ &rarr; kökler $0$ (<strong>4 katlı</strong>), $-1\pm 2i$</p>
+                                <p>$x^{3}$: $x^{4}$ ile çarpılır. &nbsp; $x^{2}e^{-x}$: $-1$ kök değil. &nbsp; $e^{-x}\sin 2x$: basit tekrar, $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x^{4}\left(A_{0}x^{3}+A_{1}x^{2}+A_{2}x+A_{3}\right)+\left(B_{0}x^{2}+B_{1}x+B_{2}\right)e^{-x}$$
+                                $$+\,x\,e^{-x}\left(C\cos 2x+D\sin 2x\right)$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">61. &nbsp; $y^{(4)}+2y''+y=x^{2}\cos x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\left(m^{2}+1\right)^{2}$ &rarr; $\pm i$ <strong>çift katlı</strong> &rarr; $x^{2}$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x^{2}\left[\left(A_{0}x^{2}+A_{1}x+A_{2}\right)\cos x+\left(B_{0}x^{2}+B_{1}x+B_{2}\right)\sin x\right]$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">62. &nbsp; $y^{(4)}+16y=xe^{\sqrt{2}x}\sin\sqrt{2}x+e^{-\sqrt{2}x}\cos\sqrt{2}x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$m^{4}=-16$ &rarr; $|m|=2$, açılar $\dfrac{\pi}{4},\dfrac{3\pi}{4},\dfrac{5\pi}{4},\dfrac{7\pi}{4}$</p>
+                                <p>Kökler: $\pm\sqrt{2}\pm i\sqrt{2}$ &mdash; <u>her iki terim de</u> tekrar, $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong></p>
+                                $$y_{p}=x\,e^{\sqrt{2}x}\left[\left(A_{0}x+A_{1}\right)\cos\sqrt{2}x+\left(B_{0}x+B_{1}\right)\sin\sqrt{2}x\right]$$
+                                $$+\,x\,e^{-\sqrt{2}x}\left(C\cos\sqrt{2}x+D\sin\sqrt{2}x\right)$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">63. &nbsp; $y^{(4)}+3y''-4y=\cos^{2}x-\cosh x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Önce sağ tarafı sadeleştir:</strong></p>
+                                <p>$\cos^{2}x=\dfrac{1+\cos 2x}{2}$, &nbsp; $\cosh x=\dfrac{e^{x}+e^{-x}}{2}$</p>
+                                <p>Yani sağ taraf: sabit $+\cos 2x+e^{x}+e^{-x}$ tipinde terimler.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$m^{4}+3m^{2}-4=\left(m^{2}+4\right)\left(m^{2}-1\right)$ &rarr; kökler $\pm 2i,\;\pm 1$</p>
+                                <p>Sabit: $0$ kök değil. &nbsp; $\cos 2x$, $e^{x}$, $e^{-x}$: hepsi basit tekrar &rarr; $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong> $y_{p}=A+x\left(B\cos 2x+C\sin 2x\right)+Dxe^{x}+Exe^{-x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">64. &nbsp; $y^{(4)}+10y''+9y=\sin x\sin 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Çarpımı toplama çevir:</strong></p>
+                                $$\sin x\sin 2x=\tfrac{1}{2}\left[\cos x-\cos 3x\right]$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$m^{4}+10m^{2}+9=\left(m^{2}+1\right)\left(m^{2}+9\right)$ &rarr; kökler $\pm i,\;\pm 3i$</p>
+                                <p>Hem $\cos x$ hem $\cos 3x$ tekrar ediyor &rarr; ikisi de $x$ ile çarpılır.</p>
+                                <p><strong>Deneme:</strong> $y_{p}=x\left(A\cos x+B\sin x\right)+x\left(C\cos 3x+D\sin 3x\right)$</p>
+                                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><em>Not:</em> Sadeleştirme yapılmasaydı $\sin x\sin 2x$ için doğru deneme kümesi görülemezdi &mdash; çarpım halindeki trigonometrik zorlamalarda ilk adım daima toplam-fark formülüdür.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- ===== 4.4 KONU ===== -->

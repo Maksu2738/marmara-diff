@@ -7,40 +7,287 @@ menu: Bölüm 2 Genel Tekrar
                             <span class="badge">Sorular</span>
                             Bölüm 2 Genel Tekrar Alıştırmaları <em>(Chapter Review Exercises)</em>
                         </div>
-                        
+
+                        <div class="highlight">
+                            <p><strong>Bu bölümde denklemler karışık verilmiştir.</strong> Her soruda ilk iş <u>türü teşhis etmektir</u>. Pratik sıra:</p>
+                            <p>1) Değişkenler ayrılıyor mu? &nbsp; 2) $M_{y}=N_{x}$ mi (tam)? &nbsp; 3) $M,N$ aynı dereceden homojen mi? &nbsp; 4) $y'+Py=Q$ formuna giriyor mu (gerekirse $x$'i $y$'nin fonksiyonu sayarak)? &nbsp; 5) $y'+Py=Qy^{n}$ mi (Bernoulli)? &nbsp; 6) Hiçbiri değilse integral çarpanı ya da bir dönüşüm.</p>
+                        </div>
+
+                        <p style="margin-bottom: 1rem;"><strong>1&ndash;14:</strong> Genel diferansiyel denklemler.</p>
+
                         <div class="question-block">
-                            <p class="question-text">Genel Diferansiyel Denklemler (1-14):</p>
-                            <ol>
-                                <li>$3x^{2}y^{2}dx+2x^{3}y dy=0$</li>
-                                <li>$x dy+(x^{2}y+2y-3)dx=0$</li>
-                                <li>$(y^{4}+2y^{2})\sin x dx+(y^{3}+y)\cos x dy=0$</li>
-                                <li>$(\sin x+\sin y)dx+(y+x \cos y)dy=0$</li>
-                                <li>$(6x+y)dx+(4x+y)dy=0$</li>
-                                <li>$(x^{2}+x)\frac{dy}{dx}+(5x+2)y=\frac{1}{x}$</li>
-                                <li>$x^{2}(y^{2}+1)dx+y(x^{3}+1)dy=0$</li>
-                                <li>$\displaystyle \frac{dy}{dx}+4xy=\frac{x}{y^{2}}$</li>
-                                <li>$(x^{2}+2x)e^{x}y dx+(x^{2}e^{x}+2y)dy=0$</li>
-                                <li>$(x^{2}-xy+2y^{2})dx+(x^{2}-2xy)dy=0$</li>
-                                <li>$(x+1)\frac{dy}{dx}+x^{2}y=e^{-x^{2}/2}$</li>
-                                <li>$y dx=(4x+2y)dy \quad (\text{Varsayım: } x>0, y>0)$</li>
-                                <li>$(2x^{2}y-e^{-x^{2}})dx+(x+1)dy=0$</li>
-                                <li>$\displaystyle \frac{dy}{dx}=(x^{2}+y)^{2}-2x \quad (\text{İpucu: } u=x^{2}+y \text{ alınız})$</li>
-                            </ol>
-
-                            <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #d4d0e8;">
-                            <p class="question-text">Başlangıç Değer Problemleri (15-20):</p>
-                            <ol start="15">
-                                <li>$(2ye^{2x}+y^{2})dx+(e^{2x}+2xy)dy=0, \quad y(0)=2$</li>
-                                <li>$x\frac{dy}{dx}+(2x^{2}+1)y=x, \quad y(1)=\frac{1}{2}$</li>
-                                <li>$(2x^{2}+3xy+y^{2})dx+(x^{2}+xy)dy=0, \quad y(2)=1$</li>
-                                <li>$(x+1)\frac{dy}{dx}+2y=f(x), \quad f(x)=\begin{cases}2x, & 0 \le x < 3 \\ 4, & x \ge 3 \end{cases}, \quad y(0)=5$</li>
-                                <li>$(2xy^{2}+4x^{3}y)dx+(2x^{2}y+x^{4}+4y)dy=0, \quad y(0)=2$</li>
-                                <li>$(x+1)\frac{dy}{dx}+y=\begin{cases}1, & 0 \le x < 3 \\ 4-x, & x \ge 3 \end{cases}, \quad y(1)=2$</li>
-                            </ol>
-
+                            <p class="question-text">1. &nbsp; $3x^{2}y^{2}\,dx+2x^{3}y\,dy=0$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><strong>Genel Yönerge:</strong> Bu bölümde daha önce öğrenilen ayrılabilir, tam, homojen, doğrusal, Bernoulli ve özel dönüşümlü denklemler karışık halde verilmiştir. Her denklem için önce hangi türe ait olduğunu tespit edin ve ilgili yöntemi uygulayın.</p>
+                                <p><strong>Tür:</strong> Tam &nbsp;($M_{y}=6x^{2}y=N_{x}$) &mdash; aynı zamanda ayrılabilir.</p>
+                                <p>$F=x^{3}y^{2}+\phi(y)$; &nbsp; $F_{y}=2x^{3}y \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $x^{3}y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. &nbsp; $x\,dy+(x^{2}y+2y-3)dx=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Doğrusal. &nbsp; $x\dfrac{dy}{dx}+\left(x^{2}+2\right)y=3$</p>
+                                <p>$\dfrac{dy}{dx}+\dfrac{x^{2}+2}{x}y=\dfrac{3}{x}$</p>
+                                <p>$\displaystyle\int\left(x+\frac{2}{x}\right)dx=\frac{x^{2}}{2}+2\ln|x|$ &rarr; $\mu=x^{2}e^{x^{2}/2}$</p>
+                                <p>$\left(x^{2}e^{x^{2}/2}y\right)'=3xe^{x^{2}/2} \implies x^{2}e^{x^{2}/2}y=3e^{x^{2}/2}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{3}{x^{2}}+\dfrac{c\,e^{-x^{2}/2}}{x^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3. &nbsp; $(y^{4}+2y^{2})\sin x\,dx+(y^{3}+y)\cos x\,dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Ayrılabilir. &nbsp; $y^{2}(y^{2}+2)\cos x$ ile bölelim:</p>
+                                $$\tan x\,dx+\frac{y\left(y^{2}+1\right)}{y^{2}\left(y^{2}+2\right)}\,dy=0$$
+                                <p>İkinci integralde $u=y^{2}$, &nbsp; $y\,dy=\dfrac{du}{2}$:</p>
+                                <p>$\displaystyle\frac{1}{2}\int\frac{u+1}{u(u+2)}du=\frac{1}{4}\int\left(\frac{1}{u}+\frac{1}{u+2}\right)du=\frac{1}{4}\ln\left|u(u+2)\right|$</p>
+                                <p>$-\ln|\cos x|+\dfrac{1}{4}\ln\left[y^{2}\left(y^{2}+2\right)\right]=c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $y^{2}\left(y^{2}+2\right)=c\cos^{4}x$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $(\sin x+\sin y)dx+(y+x\cos y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Tam &nbsp;($M_{y}=\cos y=N_{x}$).</p>
+                                <p>$F=-\cos x+x\sin y+\phi(y)$</p>
+                                <p>$F_{y}=x\cos y+\phi'=y+x\cos y \implies \phi=\dfrac{y^{2}}{2}$</p>
+                                <p><strong>Çözüm:</strong> $2x\sin y+y^{2}-2\cos x=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $(6x+y)dx+(4x+y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Homojen (1. derece); $M_{y}=1\ne 4=N_{x}$ olduğundan tam değil.</p>
+                                <p>$y=vx$: &nbsp; $\left(6+v+4v+v^{2}\right)dx+x(4+v)dv=0$</p>
+                                <p>$v^{2}+5v+6=(v+2)(v+3)$</p>
+                                $$\frac{dx}{x}=-\frac{v+4}{(v+2)(v+3)}\,dv=-\left[\frac{2}{v+2}-\frac{1}{v+3}\right]dv$$
+                                <p>$\ln|x|+2\ln|v+2|-\ln|v+3|=c_{1} \implies \dfrac{x(v+2)^{2}}{v+3}=c$</p>
+                                <p>$v=\dfrac{y}{x}$ konup sadeleştirilirse:</p>
+                                <p><strong>Çözüm:</strong> $(y+2x)^{2}=c\,(y+3x)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $\displaystyle (x^{2}+x)\frac{dy}{dx}+(5x+2)y=\frac{1}{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Doğrusal. &nbsp; $x^{2}+x=x(x+1)$ ile bölelim:</p>
+                                <p>$\dfrac{dy}{dx}+\dfrac{5x+2}{x(x+1)}y=\dfrac{1}{x^{2}(x+1)}$</p>
+                                <p>Basit kesirler: $\dfrac{5x+2}{x(x+1)}=\dfrac{2}{x}+\dfrac{3}{x+1}$ &rarr; $\mu=x^{2}(x+1)^{3}$</p>
+                                <p>$\left[x^{2}(x+1)^{3}y\right]'=x^{2}(x+1)^{3}\cdot\dfrac{1}{x^{2}(x+1)}=(x+1)^{2}$</p>
+                                <p>$x^{2}(x+1)^{3}y=\dfrac{(x+1)^{3}}{3}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{1}{3x^{2}}+\dfrac{c}{x^{2}(x+1)^{3}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $x^{2}(y^{2}+1)dx+y(x^{3}+1)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Ayrılabilir. &nbsp; $(y^{2}+1)(x^{3}+1)$ ile bölelim:</p>
+                                $$\frac{x^{2}}{x^{3}+1}\,dx+\frac{y}{y^{2}+1}\,dy=0$$
+                                <p>Her iki integralde de pay, paydanın türevinin sabit katıdır:</p>
+                                <p>$\dfrac{1}{3}\ln\left|x^{3}+1\right|+\dfrac{1}{2}\ln\left(y^{2}+1\right)=c_{1}$</p>
+                                <p>$6$ ile çarparsak:</p>
+                                <p><strong>Çözüm:</strong> $\left(x^{3}+1\right)^{2}\left(y^{2}+1\right)^{3}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $\displaystyle\frac{dy}{dx}+4xy=\frac{x}{y^{2}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Bernoulli, $n=-2$.</p>
+                                <p>$y^{2}$ ile çarpıp $v=y^{3}$, &nbsp; $v'=3y^{2}y'$ alalım:</p>
+                                <p>$\dfrac{v'}{3}+4xv=x \implies v'+12xv=3x$</p>
+                                <p>$\mu=e^{6x^{2}}$: &nbsp; $\left(e^{6x^{2}}v\right)'=3xe^{6x^{2}} \implies e^{6x^{2}}v=\dfrac{1}{4}e^{6x^{2}}+c$</p>
+                                <p><strong>Çözüm:</strong> $y^{3}=\dfrac{1}{4}+ce^{-6x^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $(x^{2}+2x)e^{x}y\,dx+(x^{2}e^{x}+2y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Tam. Kontrol:</p>
+                                <p>$M_{y}=\left(x^{2}+2x\right)e^{x}$</p>
+                                <p>$N_{x}=2xe^{x}+x^{2}e^{x}=\left(x^{2}+2x\right)e^{x}$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$N$'den başlayalım: &nbsp; $F=\displaystyle\int\left(x^{2}e^{x}+2y\right)\partial y=x^{2}e^{x}y+y^{2}+\psi(x)$</p>
+                                <p>$F_{x}=\left(2xe^{x}+x^{2}e^{x}\right)y=M$ &check; &rarr; $\psi'=0$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}e^{x}y+y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $(x^{2}-xy+2y^{2})dx+(x^{2}-2xy)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Homojen (2. derece).</p>
+                                <p>$y=vx$: &nbsp; $\left(1-v+2v^{2}\right)dx+(1-2v)(v\,dx+x\,dv)=0$</p>
+                                <p>$dx$'in katsayısı: $1-v+2v^{2}+v-2v^{2}=1$ &nbsp;&mdash; hepsi sadeleşir:</p>
+                                $$\frac{dx}{x}+(1-2v)dv=0$$
+                                <p>$\ln|x|+v-v^{2}=c$</p>
+                                <p><strong>Çözüm:</strong> $\ln|x|+\dfrac{y}{x}-\dfrac{y^{2}}{x^{2}}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">11. &nbsp; $\displaystyle (x+1)\frac{dy}{dx}+x^{2}y=e^{-x^{2}/2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Doğrusal.</p>
+                                <p>$\dfrac{dy}{dx}+\dfrac{x^{2}}{x+1}y=\dfrac{e^{-x^{2}/2}}{x+1}$</p>
+                                <p>$\displaystyle\int\frac{x^{2}}{x+1}dx=\int\left(x-1+\frac{1}{x+1}\right)dx=\frac{x^{2}}{2}-x+\ln|x+1|$</p>
+                                <p>$\mu=(x+1)e^{x^{2}/2-x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left[(x+1)e^{x^{2}/2-x}y\right]'=(x+1)e^{x^{2}/2-x}\cdot\dfrac{e^{-x^{2}/2}}{x+1}=e^{-x}$</p>
+                                <p>$(x+1)e^{x^{2}/2-x}y=-e^{-x}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{\left(ce^{x}-1\right)e^{-x^{2}/2}}{x+1}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12. &nbsp; $y\,dx=(4x+2y)dy$ &nbsp;($x&gt;0$, $y&gt;0$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y$'ye göre doğrusal değil; fakat <strong>$x$'i $y$'nin fonksiyonu</strong> sayarsak doğrusaldır:</p>
+                                <p>$\dfrac{dx}{dy}=\dfrac{4x+2y}{y} \implies \dfrac{dx}{dy}-\dfrac{4}{y}x=2$</p>
+                                <p>$\mu=y^{-4}$: &nbsp; $\left(y^{-4}x\right)'=2y^{-4}$</p>
+                                <p>$y^{-4}x=-\dfrac{2}{3}y^{-3}+c$</p>
+                                <p><strong>Çözüm:</strong> $x=cy^{4}-\dfrac{2y}{3}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13. &nbsp; $\left(2x^{2}y-e^{-x^{2}}\right)dx+(x+1)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Tür:</strong> Doğrusal. &nbsp; $(x+1)\dfrac{dy}{dx}+2x^{2}y=e^{-x^{2}}$</p>
+                                <p>$\displaystyle\int\frac{2x^{2}}{x+1}dx=2\int\left(x-1+\frac{1}{x+1}\right)dx=x^{2}-2x+2\ln|x+1|$</p>
+                                <p>$\mu=(x+1)^{2}e^{x^{2}-2x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left[(x+1)^{2}e^{x^{2}-2x}y\right]'=(x+1)^{2}e^{x^{2}-2x}\cdot\dfrac{e^{-x^{2}}}{x+1}=(x+1)e^{-2x}$</p>
+                                <p>Kısmi integrasyon: $\displaystyle\int(x+1)e^{-2x}dx=-\frac{(2x+3)e^{-2x}}{4}$</p>
+                                <p>$(x+1)^{2}e^{x^{2}-2x}y=-\dfrac{(2x+3)e^{-2x}}{4}+c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $4(x+1)^{2}y=e^{-x^{2}}\left[ce^{2x}-(2x+3)\right]$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $\displaystyle\frac{dy}{dx}=\left(x^{2}+y\right)^{2}-2x$ &nbsp;(İpucu: $u=x^{2}+y$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$u=x^{2}+y \implies \dfrac{du}{dx}=2x+\dfrac{dy}{dx}$, &nbsp; yani $\dfrac{dy}{dx}=\dfrac{du}{dx}-2x$.</p>
+                                <p>Denklemde yerine koyalım:</p>
+                                <p>$\dfrac{du}{dx}-2x=u^{2}-2x$</p>
+                                <p>$-2x$ terimleri sadeleşir &mdash; ipucunun amacı buydu:</p>
+                                $$\frac{du}{dx}=u^{2}$$
+                                <p>$-\dfrac{1}{u}=x+c_{1} \implies u=\dfrac{1}{k-x}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{1}{k-x}-x^{2}$</p>
+                            </div>
+                        </div>
+
+                        <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #d4d0e8;">
+                        <p style="margin-bottom: 1rem;"><strong>15&ndash;20:</strong> Başlangıç değer problemleri.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $\left(2ye^{2x}+y^{2}\right)dx+\left(e^{2x}+2xy\right)dy=0$, &nbsp; $y(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M_{y}=2e^{2x}+2y=N_{x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=\displaystyle\int\left(e^{2x}+2xy\right)\partial y=ye^{2x}+xy^{2}+\psi(x)$</p>
+                                <p>$F_{x}=2ye^{2x}+y^{2}=M$ &check; &rarr; $\psi'=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=0,\;y=2$ &rarr; $2+0=2$</p>
+                                <p><strong>Çözüm:</strong> $ye^{2x}+xy^{2}=2$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $\displaystyle x\frac{dy}{dx}+\left(2x^{2}+1\right)y=x$, &nbsp; $y(1)=\frac{1}{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}+\left(2x+\dfrac{1}{x}\right)y=1$</p>
+                                <p>$\displaystyle\int\left(2x+\frac{1}{x}\right)dx=x^{2}+\ln|x|$ &rarr; $\mu=xe^{x^{2}}$</p>
+                                <p>$\left(xe^{x^{2}}y\right)'=xe^{x^{2}} \implies xe^{x^{2}}y=\dfrac{e^{x^{2}}}{2}+c$</p>
+                                <p>$y=\dfrac{1}{2x}+\dfrac{ce^{-x^{2}}}{x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=1$ &rarr; $\dfrac{1}{2}+ce^{-1}=\dfrac{1}{2} \implies c=0$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{1}{2x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp; $\left(2x^{2}+3xy+y^{2}\right)dx+\left(x^{2}+xy\right)dy=0$, &nbsp; $y(2)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Homojen (2. derece). $y=vx$:</p>
+                                <p>$\left(2+3v+v^{2}+v+v^{2}\right)dx+x(1+v)dv=0$</p>
+                                <p>$2v^{2}+4v+2=2(v+1)^{2}$ &nbsp;&mdash; ortak $(v+1)$ çarpanı sadeleşir:</p>
+                                <p>$2(v+1)dx+x\,dv=0 \implies \dfrac{2\,dx}{x}+\dfrac{dv}{v+1}=0$</p>
+                                <p>$2\ln|x|+\ln|v+1|=c_{1} \implies x^{2}(v+1)=c$</p>
+                                <p>$v+1=\dfrac{x+y}{x}$ &rarr; $x(x+y)=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=2,\;y=1$ &rarr; $2\cdot 3=6$</p>
+                                <p><strong>Çözüm:</strong> $x(x+y)=6$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp; $\displaystyle (x+1)\frac{dy}{dx}+2y=f(x)$, &nbsp; $f(x)=\begin{cases}2x,&0\le x&lt;3\\ 4,&x\ge 3\end{cases}$, &nbsp; $y(0)=5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}+\dfrac{2}{x+1}y=\dfrac{f(x)}{x+1}$ &rarr; $\mu=(x+1)^{2}$</p>
+                                <p>$\left[(x+1)^{2}y\right]'=(x+1)f(x)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$0\le x&lt;3$:</strong> &nbsp; $(x+1)^{2}y=\displaystyle\int\left(2x^{2}+2x\right)dx=\frac{2x^{3}}{3}+x^{2}+c$</p>
+                                <p>$y(0)=5 \implies c=5$</p>
+                                <p>$y=\dfrac{2x^{3}+3x^{2}+15}{3(x+1)^{2}}$; &nbsp; $x=3$'te: $\dfrac{54+27+15}{48}=2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$x\ge 3$:</strong> &nbsp; $(x+1)^{2}y=\displaystyle\int 4(x+1)dx=2(x+1)^{2}+K$</p>
+                                <p>Süreklilik: $16\cdot 2=32=32+K \implies K=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=\begin{cases}\dfrac{2x^{3}+3x^{2}+15}{3(x+1)^{2}},&0\le x&lt;3\\[8pt] 2,&x\ge 3\end{cases}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp; $\left(2xy^{2}+4x^{3}y\right)dx+\left(2x^{2}y+x^{4}+4y\right)dy=0$, &nbsp; $y(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M_{y}=4xy+4x^{3}=N_{x}$ &rarr; <strong>tamdır</strong>.</p>
+                                <p>$F=x^{2}y^{2}+x^{4}y+\phi(y)$</p>
+                                <p>$F_{y}=2x^{2}y+x^{4}+\phi'=2x^{2}y+x^{4}+4y \implies \phi=2y^{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=0,\;y=2$ &rarr; $0+0+8=8$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}y^{2}+x^{4}y+2y^{2}=8$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp; $\displaystyle (x+1)\frac{dy}{dx}+y=\begin{cases}1,&0\le x&lt;3\\ 4-x,&x\ge 3\end{cases}$, &nbsp; $y(1)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sol taraf tam türevdir: $\dfrac{d}{dx}\left[(x+1)y\right]=f(x)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$0\le x&lt;3$:</strong> &nbsp; $(x+1)y=x+c$</p>
+                                <p>$y(1)=2 \implies 4=1+c \implies c=3$</p>
+                                <p>$y=\dfrac{x+3}{x+1}$; &nbsp; $x=3$'te $(x+1)y=6$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$x\ge 3$:</strong> &nbsp; $(x+1)y=4x-\dfrac{x^{2}}{2}+K$</p>
+                                <p>Süreklilik: $12-\dfrac{9}{2}+K=6 \implies K=-\dfrac{3}{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=\begin{cases}\dfrac{x+3}{x+1},&0\le x&lt;3\\[8pt] \dfrac{8x-x^{2}-3}{2(x+1)},&x\ge 3\end{cases}$</p>
+                                <p style="font-size: 0.9rem;">Kontrol: $x=3$'te ikinci ifade $\dfrac{24-9-3}{8}=\dfrac{3}{2}$; birinci ifade de $\dfrac{6}{4}=\dfrac{3}{2}$ &check;</p>
                             </div>
                         </div>
                     </div>

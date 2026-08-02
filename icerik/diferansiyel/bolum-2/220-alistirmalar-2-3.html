@@ -8,76 +8,619 @@ menu: 2.3 Alıştırmalar
                             Bölüm Sonu Alıştırmaları <em>(Exercises 2.3)</em>
                         </div>
                         
+                        <p style="margin-bottom: 1rem;"><strong>1&ndash;18:</strong> Aşağıdaki diferansiyel denklemleri çözünüz.</p>
+
+                        <div class="highlight">
+                            <p><strong>Yol haritası:</strong> $1-14$ arası denklemler <strong>doğrusaldır</strong>. Standart forma $\dfrac{dy}{dx}+P(x)y=Q(x)$ getirip integral çarpanı $\mu=e^{\int P\,dx}$ ile çarpılır; sol taraf her zaman $\left(\mu y\right)'$ olur.</p>
+                            <p>$15-18$ arası denklemler <strong>Bernoulli</strong> tipindedir: $\dfrac{dy}{dx}+P y=Q y^{n}$. $v=y^{1-n}$ dönüşümü denklemi $v$ cinsinden doğrusal yapar.</p>
+                        </div>
+
                         <div class="question-block">
-                            <p class="question-text"><strong>1-18 Arası Verilen Diferansiyel Denklemleri Çözünüz:</strong></p>
-                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
-                                <li><strong>1.</strong> $\displaystyle \frac{dy}{dx}+\frac{3y}{x}=6x^{2}.$</li>
-                                <li><strong>2.</strong> $\displaystyle x^{4}\frac{dy}{dx}+2x^{3}y=1.$</li>
-                                <li><strong>3.</strong> $\displaystyle \frac{dy}{dx}+3y=3x^{2}e^{-3x}.$</li>
-                                <li><strong>4.</strong> $\displaystyle \frac{dy}{dx}+4xy=8x.$</li>
-                                <li><strong>5.</strong> $\displaystyle \frac{dx}{dt}+\frac{x}{t^{2}}=\frac{1}{t^{2}}.$</li>
-                                <li><strong>6.</strong> $\displaystyle (u^{2}+1)\frac{dv}{du}+4uv=3u.$</li>
-                                <li><strong>7.</strong> $\displaystyle x\frac{dy}{dx}+\frac{2x+1}{x+1}y=x-1.$</li>
-                                <li><strong>8.</strong> $\displaystyle (x^{2}+x-2)\frac{dy}{dx}+3(x+1)y=x-1.$</li>
-                                <li><strong>9.</strong> $\displaystyle x~dy+(xy+y-1)dx=0.$</li>
-                                <li><strong>10.</strong> $\displaystyle y~dx+(xy^{2}+x-y)dy=0.$</li>
-                                <li><strong>11.</strong> $\displaystyle \frac{dr}{d\theta}+r\tan\theta=\cos\theta.$</li>
-                                <li><strong>12.</strong> $\displaystyle \cos\theta~dr+(r\sin\theta-\cos^{4}\theta)d\theta=0.$</li>
-                                <li><strong>13.</strong> $\displaystyle (\cos^{2}x-y\cos x)dx-(1+\sin x)dy=0.$</li>
-                                <li><strong>14.</strong> $\displaystyle (y\sin 2x-\cos x)dx+(1+\sin^{2}x)dy=0.$</li>
-                                <li><strong>15.</strong> $\displaystyle \frac{dy}{dx}-\frac{y}{x}=-\frac{y^{2}}{x}.$</li>
-                                <li><strong>16.</strong> $\displaystyle x\frac{dy}{dx}+y=-2x^{6}y^{4}.$</li>
-                                <li><strong>17.</strong> $\displaystyle dy+(4y-8y^{-3})x~dx=0.$</li>
-                                <li><strong>18.</strong> $\displaystyle \frac{dx}{dt}+\frac{t+1}{2t}x=\frac{t+1}{xt}.$</li>
-                            </ul>
+                            <p class="question-text">1. &nbsp; $\displaystyle\frac{dy}{dx}+\frac{3y}{x}=6x^{2}$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><em>Not: Kaynak metinde bu egzersizlerin adım adım çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                                <p>$P=\dfrac{3}{x}$ &rarr; $\mu=e^{3\ln x}=x^{3}$</p>
+                                <p>$\left(x^{3}y\right)'=6x^{5}$</p>
+                                <p>$x^{3}y=x^{6}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=x^{3}+\dfrac{c}{x^{3}}$</p>
                             </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text"><strong>19-30 Arası Başlangıç Değer Problemlerini Çözünüz:</strong></p>
-                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
-                                <li><strong>19.</strong> $\displaystyle x\frac{dy}{dx}-2y=2x^{4},$ $\quad y(2)=8$.</li>
-                                <li><strong>20.</strong> $\displaystyle \frac{dy}{dx}+3x^{2}y=x^{2},$ $\quad y(0)=2$.</li>
-                                <li><strong>21.</strong> $\displaystyle e^{x}[y-3(e^{x}+1)^{2}]dx+(e^{x}+1)dy=0,$ $\quad y(0)=4$.</li>
-                                <li><strong>22.</strong> $\displaystyle 2x(y+1)dx-(x^{2}+1)dy=0,$ $\quad y(1)=-5$.</li>
-                                <li><strong>23.</strong> $\displaystyle \frac{dr}{d\theta}+r\tan\theta=\cos^{2}\theta,$ $\quad r(\frac{\pi}{4})=1$.</li>
-                                <li><strong>24.</strong> $\displaystyle \frac{dx}{dt}-x=\sin 2t,$ $\quad x(0)=0$.</li>
-                                <li><strong>25.</strong> $\displaystyle \frac{dy}{dx}+\frac{y}{2x}=\frac{x}{y^{3}},$ $\quad y(1)=2$.</li>
-                                <li><strong>26.</strong> $\displaystyle x\frac{dy}{dx}+y=(xy)^{3/2},$ $\quad y(1)=4$.</li>
-                                <li><strong>27.</strong> $\displaystyle \frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}2,&0\le x<1\\ 0,&x\ge1\end{cases}$ iken), $\quad y(0)=0$.</li>
-                                <li><strong>28.</strong> $\displaystyle \frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}5,&0\le x<10\\ 1,&x\ge10\end{cases}$ iken), $\quad y(0)=6$.</li>
-                                <li><strong>29.</strong> $\displaystyle \frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}e^{-x},&0\le x<2\\ e^{-2},&x\ge2\end{cases}$ iken), $\quad y(0)=1$.</li>
-                                <li><strong>30.</strong> $\displaystyle (x+1)\frac{dy}{dx}+y=f(x),$ ($f(x)=\begin{cases}x,&0\le x<3\\ 3,&x\ge3\end{cases}$ iken), $\quad y(0)=1/2$.</li>
-                            </ul>
+                            <p class="question-text">2. &nbsp; $\displaystyle x^{4}\frac{dy}{dx}+2x^{3}y=1$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><em>Not: Kaynak metinde bu egzersizlerin adım adım çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                                <p>$x^{4}$ ile bölüp standart forma getirelim: $\dfrac{dy}{dx}+\dfrac{2}{x}y=x^{-4}$</p>
+                                <p>$\mu=x^{2}$</p>
+                                <p>$\left(x^{2}y\right)'=x^{2}\cdot x^{-4}=x^{-2}$</p>
+                                <p>$x^{2}y=-\dfrac{1}{x}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=-\dfrac{1}{x^{3}}+\dfrac{c}{x^{2}}$</p>
                             </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text"><strong>31-41 Arası Teorik Gösterimler ve Uygulamalar:</strong></p>
-                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
-                                <li><strong>31.</strong> $a, b, k$ pozitif, $\lambda$ ise negatif olmayan sabitler olmak üzere $\displaystyle a\frac{dy}{dx}+by=ke^{-\lambda x}$ denklemini çözünüz. $\lambda=0$ ise her çözümün $x\rightarrow\infty$ için $k/b$'ye yaklaştığını, $\lambda>0$ ise $0$'a yaklaştığını gösteriniz.</li>
-                                <li><strong>32.</strong> $\displaystyle \frac{dy}{dx}+P(x)y=0$ denkleminde eğer $f$ ve $g$ birer çözüm ve $c_{1}, c_{2}$ keyfi sabitlerse $c_{1}f+c_{2}g$'nin de bir çözüm olduğunu kanıtlayın. Bunu genelleyerek toplamın da (süperpozisyon) çözüm olduğunu gösterin.</li>
-                                <li><strong>33.</strong> $\displaystyle \frac{dy}{dx}+P(x)y=0$ denklemi için $f(x)=0$'ın bir çözüm olduğunu, eğer $f(x_{0})=0$ gibi bir şart varsa tüm noktalarda $f(x)=0$ olduğunu ve iki çözüm tek bir noktada kesişiyorsa her yerde eşit olduklarını (tekliğin doğasını) ispatlayın.</li>
-                                <li><strong>34.</strong> $\displaystyle \frac{dy}{dx}+P(x)y=Q(x)$ denkleminin iki farklı çözümü $f$ ve $g$ ise, $(f-g)$ farkının bağdaşık $\displaystyle \frac{dy}{dx}+P(x)y=0$ denklemini çözdüğünü gösterin.</li>
-                                <li><strong>35.</strong> İki farklı sağ tarafa sahip denklemlerin çözümleri biliniyorsa toplamlarının sağ tarafların toplamına ait denklemin bir çözümü olduğunu kanıtlayıp $\displaystyle \frac{dy}{dx}+y=2\sin x+5\sin 2x$ denklemini çözün.</li>
-                                <li><strong>36.</strong> 35'i $n$ tane fonksiyon için genelleyip $\displaystyle \frac{dy}{dx}+y=\sum_{k=1}^{5}\sin kx$ denklemini çözünüz.</li>
-                                <li><strong>37.</strong> Genel kurallara göre şu denklemleri çözünüz:<br>
-                                (a) $\displaystyle \cos y\frac{dy}{dx}+\frac{1}{x}\sin y=1$<br>
-                                (b) $\displaystyle (y+1)\frac{dy}{dx}+x(y^{2}+2y)=x$</li>
-                                <li><strong>38.</strong> $\displaystyle \frac{dy}{dx}=A(x)y^{2}+B(x)y+C(x)$ formuna Riccati'nin denklemi <em>(Riccati's equation)</em> denir. $A(x)=0$ ise denklemin doğrusal, $C(x)=0$ ise Bernoulli olduğunu; ayrıca herhangi bilinen bir çözüm $f$ ise $y=f+\frac{1}{v}$ dönüşümünün denklemi $v$ türünden doğrusal hale getirdiğini ispatlayınız.</li>
-                                <li><strong>39.</strong> Verilen $f(x)=1$ çözümünü kullanarak $\displaystyle \frac{dy}{dx}=(1-x)y^{2}+(2x-1)y-x$ Riccati denklemini çözünüz.</li>
-                                <li><strong>40.</strong> Verilen $f(x)=x$ çözümünü kullanarak $\displaystyle \frac{dy}{dx}=-y^{2}+xy+1$ Riccati denklemini çözünüz.</li>
-                                <li><strong>41.</strong> Verilen $f(x)=x$ çözümünü kullanarak $\displaystyle \frac{dy}{dx}=-8xy^{2}+4x(4x+1)y-(8x^{3}+4x^{2}-1)$ Riccati denklemini çözünüz.</li>
-                            </ul>
+                            <p class="question-text">3. &nbsp; $\displaystyle\frac{dy}{dx}+3y=3x^{2}e^{-3x}$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><em>Not: Kaynak metinde bu teorik ispatlar ve uygulamaların çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                                <p>$\mu=e^{3x}$</p>
+                                <p>$\left(e^{3x}y\right)'=e^{3x}\cdot 3x^{2}e^{-3x}=3x^{2}$</p>
+                                <p>$e^{3x}y=x^{3}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(x^{3}+c\right)e^{-3x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $\displaystyle\frac{dy}{dx}+4xy=8x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mu=e^{\int 4x\,dx}=e^{2x^{2}}$</p>
+                                <p>$\left(e^{2x^{2}}y\right)'=8xe^{2x^{2}}$</p>
+                                <p>$e^{2x^{2}}y=2e^{2x^{2}}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=2+ce^{-2x^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $\displaystyle\frac{dx}{dt}+\frac{x}{t^{2}}=\frac{1}{t^{2}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\displaystyle\int\frac{dt}{t^{2}}=-\frac{1}{t}$ &rarr; $\mu=e^{-1/t}$</p>
+                                <p>$\left(e^{-1/t}x\right)'=\dfrac{e^{-1/t}}{t^{2}}$</p>
+                                <p>Sağ taraf tam olarak $\dfrac{d}{dt}e^{-1/t}$ olduğundan:</p>
+                                <p>$e^{-1/t}x=e^{-1/t}+c$</p>
+                                <p><strong>Çözüm:</strong> $x=1+ce^{1/t}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $\displaystyle (u^{2}+1)\frac{dv}{du}+4uv=3u$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dv}{du}+\dfrac{4u}{u^{2}+1}v=\dfrac{3u}{u^{2}+1}$</p>
+                                <p>$\displaystyle\int\frac{4u}{u^{2}+1}du=2\ln(u^{2}+1)$ &rarr; $\mu=\left(u^{2}+1\right)^{2}$</p>
+                                <p>$\left[\left(u^{2}+1\right)^{2}v\right]'=3u\left(u^{2}+1\right)$</p>
+                                <p>$\displaystyle\int 3u(u^{2}+1)du=\frac{3}{4}\left(u^{2}+1\right)^{2}+c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $v=\dfrac{3}{4}+\dfrac{c}{\left(u^{2}+1\right)^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $\displaystyle x\frac{dy}{dx}+\frac{2x+1}{x+1}y=x-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x$ ile bölelim: $\dfrac{dy}{dx}+\dfrac{2x+1}{x(x+1)}y=\dfrac{x-1}{x}$</p>
+                                <p>Basit kesirler: $\dfrac{2x+1}{x(x+1)}=\dfrac{1}{x}+\dfrac{1}{x+1}$</p>
+                                <p>$\displaystyle\int P\,dx=\ln|x|+\ln|x+1|$ &rarr; $\mu=x(x+1)$</p>
+                                <p>$\left[x(x+1)y\right]'=x(x+1)\cdot\dfrac{x-1}{x}=x^{2}-1$</p>
+                                <p>$x(x+1)y=\dfrac{x^{3}}{3}-x+c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{x^{3}-3x+c}{3x(x+1)}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $\displaystyle (x^{2}+x-2)\frac{dy}{dx}+3(x+1)y=x-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x^{2}+x-2=(x+2)(x-1)$; bu çarpanla bölelim:</p>
+                                <p>$\dfrac{dy}{dx}+\dfrac{3(x+1)}{(x+2)(x-1)}y=\dfrac{1}{x+2}$</p>
+                                <p>Basit kesirler: $\dfrac{3x+3}{(x+2)(x-1)}=\dfrac{1}{x+2}+\dfrac{2}{x-1}$</p>
+                                <p>$\mu=(x+2)(x-1)^{2}$</p>
+                                <p>$\left[(x+2)(x-1)^{2}y\right]'=(x-1)^{2}$</p>
+                                <p>$(x+2)(x-1)^{2}y=\dfrac{(x-1)^{3}}{3}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{x-1}{3(x+2)}+\dfrac{c}{(x+2)(x-1)^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $x\,dy+(xy+y-1)dx=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x\dfrac{dy}{dx}+(x+1)y=1 \implies \dfrac{dy}{dx}+\dfrac{x+1}{x}y=\dfrac{1}{x}$</p>
+                                <p>$\displaystyle\int\left(1+\frac{1}{x}\right)dx=x+\ln|x|$ &rarr; $\mu=xe^{x}$</p>
+                                <p>$\left(xe^{x}y\right)'=xe^{x}\cdot\dfrac{1}{x}=e^{x}$</p>
+                                <p>$xe^{x}y=e^{x}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{e^{x}+c}{xe^{x}}=\dfrac{1}{x}+\dfrac{ce^{-x}}{x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $y\,dx+(xy^{2}+x-y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Denklem $y$'ye göre doğrusal değil, fakat <strong>$x$'i $y$'nin fonksiyonu</strong> sayarsak doğrusaldır:</p>
+                                <p>$y\dfrac{dx}{dy}+x\left(y^{2}+1\right)=y \implies \dfrac{dx}{dy}+\dfrac{y^{2}+1}{y}x=1$</p>
+                                <p>$\displaystyle\int\left(y+\frac{1}{y}\right)dy=\frac{y^{2}}{2}+\ln|y|$ &rarr; $\mu=y\,e^{y^{2}/2}$</p>
+                                <p>$\left(y\,e^{y^{2}/2}x\right)'=y\,e^{y^{2}/2}$</p>
+                                <p>$y\,e^{y^{2}/2}x=e^{y^{2}/2}+c$</p>
+                                <p><strong>Çözüm:</strong> $x=\dfrac{1}{y}+\dfrac{c\,e^{-y^{2}/2}}{y}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">11. &nbsp; $\displaystyle\frac{dr}{d\theta}+r\tan\theta=\cos\theta$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\displaystyle\int\tan\theta\,d\theta=-\ln|\cos\theta|$ &rarr; $\mu=\sec\theta$</p>
+                                <p>$\left(r\sec\theta\right)'=\cos\theta\cdot\sec\theta=1$</p>
+                                <p>$r\sec\theta=\theta+c$</p>
+                                <p><strong>Çözüm:</strong> $r=(\theta+c)\cos\theta$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12. &nbsp; $\cos\theta\,dr+(r\sin\theta-\cos^{4}\theta)d\theta=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\cos\theta$ ile bölelim: $\dfrac{dr}{d\theta}+r\tan\theta=\cos^{3}\theta$</p>
+                                <p>$\mu=\sec\theta$</p>
+                                <p>$\left(r\sec\theta\right)'=\cos^{3}\theta\cdot\sec\theta=\cos^{2}\theta$</p>
+                                <p>$\displaystyle\int\cos^{2}\theta\,d\theta=\frac{\theta}{2}+\frac{\sin 2\theta}{4}$</p>
+                                <p><strong>Çözüm:</strong> $r=\dfrac{\cos\theta}{4}\left(2\theta+\sin 2\theta+c\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13. &nbsp; $(\cos^{2}x-y\cos x)dx-(1+\sin x)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(1+\sin x)\dfrac{dy}{dx}+y\cos x=\cos^{2}x$</p>
+                                <p>$\dfrac{dy}{dx}+\dfrac{\cos x}{1+\sin x}\,y=\dfrac{\cos^{2}x}{1+\sin x}$</p>
+                                <p>Pay, paydanın türevi: $\mu=1+\sin x$</p>
+                                <p>$\left[(1+\sin x)y\right]'=\cos^{2}x$</p>
+                                <p>$(1+\sin x)y=\dfrac{x}{2}+\dfrac{\sin 2x}{4}+c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{2x+\sin 2x+c}{4(1+\sin x)}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $(y\sin 2x-\cos x)dx+(1+\sin^{2}x)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}+\dfrac{\sin 2x}{1+\sin^{2}x}\,y=\dfrac{\cos x}{1+\sin^{2}x}$</p>
+                                <p>$\dfrac{d}{dx}\left(1+\sin^{2}x\right)=2\sin x\cos x=\sin 2x$ olduğundan $\mu=1+\sin^{2}x$</p>
+                                <p>$\left[\left(1+\sin^{2}x\right)y\right]'=\cos x$</p>
+                                <p>$\left(1+\sin^{2}x\right)y=\sin x+c$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{\sin x+c}{1+\sin^{2}x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $\displaystyle\frac{dy}{dx}-\frac{y}{x}=-\frac{y^{2}}{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Bernoulli, $n=2$. $y^{2}$ ile bölelim:</p>
+                                <p>$y^{-2}\dfrac{dy}{dx}-\dfrac{1}{x}y^{-1}=-\dfrac{1}{x}$</p>
+                                <p>$v=y^{-1}$, &nbsp; $v'=-y^{-2}y'$:</p>
+                                <p>$-v'-\dfrac{v}{x}=-\dfrac{1}{x} \implies v'+\dfrac{v}{x}=\dfrac{1}{x}$</p>
+                                <p>$\mu=x$: &nbsp; $(xv)'=1 \implies xv=x+c$</p>
+                                <p>$v=1+\dfrac{c}{x}=\dfrac{x+c}{x}$; &nbsp; $v=\dfrac{1}{y}$:</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{x}{x+c}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $\displaystyle x\frac{dy}{dx}+y=-2x^{6}y^{4}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x$ ile bölelim: $\dfrac{dy}{dx}+\dfrac{y}{x}=-2x^{5}y^{4}$ &rarr; Bernoulli, $n=4$.</p>
+                                <p>$y^{4}$ ile bölüp $v=y^{-3}$, &nbsp; $v'=-3y^{-4}y'$ alalım:</p>
+                                <p>$-\dfrac{v'}{3}+\dfrac{v}{x}=-2x^{5} \implies v'-\dfrac{3v}{x}=6x^{5}$</p>
+                                <p>$\mu=x^{-3}$: &nbsp; $\left(x^{-3}v\right)'=6x^{2}$</p>
+                                <p>$x^{-3}v=2x^{3}+c \implies v=2x^{6}+cx^{3}$</p>
+                                <p><strong>Çözüm:</strong> $y^{3}\left(2x^{6}+cx^{3}\right)=1$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp; $dy+(4y-8y^{-3})x\,dx=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}+4xy=8xy^{-3}$ &rarr; Bernoulli, $n=-3$.</p>
+                                <p>$y^{3}$ ile çarpıp $v=y^{4}$, &nbsp; $v'=4y^{3}y'$ alalım:</p>
+                                <p>$\dfrac{v'}{4}+4xv=8x \implies v'+16xv=32x$</p>
+                                <p>$\mu=e^{8x^{2}}$: &nbsp; $\left(e^{8x^{2}}v\right)'=32xe^{8x^{2}}$</p>
+                                <p>$e^{8x^{2}}v=2e^{8x^{2}}+c$</p>
+                                <p><strong>Çözüm:</strong> $y^{4}=2+ce^{-8x^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp; $\displaystyle\frac{dx}{dt}+\frac{t+1}{2t}x=\frac{t+1}{xt}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sağ taraf $x^{-1}$ içerir &rarr; Bernoulli, $n=-1$.</p>
+                                <p>$x$ ile çarpıp $v=x^{2}$, &nbsp; $v'=2xx'$ alalım:</p>
+                                <p>$\dfrac{v'}{2}+\dfrac{t+1}{2t}v=\dfrac{t+1}{t} \implies v'+\dfrac{t+1}{t}v=\dfrac{2(t+1)}{t}$</p>
+                                <p>$\displaystyle\int\left(1+\frac{1}{t}\right)dt=t+\ln|t|$ &rarr; $\mu=te^{t}$</p>
+                                <p>$\left(te^{t}v\right)'=te^{t}\cdot\dfrac{2(t+1)}{t}=2(t+1)e^{t}$</p>
+                                <p>Kısmi integrasyon: $\displaystyle\int 2(t+1)e^{t}dt=2te^{t}+c$</p>
+                                <p>$te^{t}v=2te^{t}+c$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}=2+\dfrac{ce^{-t}}{t}$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>19&ndash;30:</strong> Aşağıdaki başlangıç değer problemlerini çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp; $\displaystyle x\frac{dy}{dx}-2y=2x^{4}$, &nbsp; $y(2)=8$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}-\dfrac{2}{x}y=2x^{3}$ &rarr; $\mu=x^{-2}$</p>
+                                <p>$\left(x^{-2}y\right)'=2x \implies x^{-2}y=x^{2}+c$</p>
+                                <p>$y=x^{4}+cx^{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $16+4c=8 \implies c=-2$</p>
+                                <p><strong>Çözüm:</strong> $y=x^{4}-2x^{2}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp; $\displaystyle\frac{dy}{dx}+3x^{2}y=x^{2}$, &nbsp; $y(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mu=e^{x^{3}}$</p>
+                                <p>$\left(e^{x^{3}}y\right)'=x^{2}e^{x^{3}} \implies e^{x^{3}}y=\dfrac{1}{3}e^{x^{3}}+c$</p>
+                                <p>$y=\dfrac{1}{3}+ce^{-x^{3}}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $\dfrac{1}{3}+c=2 \implies c=\dfrac{5}{3}$</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{1}{3}+\dfrac{5}{3}e^{-x^{3}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">21. &nbsp; $e^{x}\left[y-3(e^{x}+1)^{2}\right]dx+(e^{x}+1)dy=0$, &nbsp; $y(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(e^{x}+1)\dfrac{dy}{dx}+e^{x}y=3e^{x}(e^{x}+1)^{2}$</p>
+                                <p>Sol taraf zaten tam türev: $\dfrac{d}{dx}\left[(e^{x}+1)y\right]$ &nbsp;(yani $\mu=e^{x}+1$).</p>
+                                <p>$(e^{x}+1)y=\displaystyle\int 3e^{x}(e^{x}+1)^{2}dx=(e^{x}+1)^{3}+c$</p>
+                                <p>$y=(e^{x}+1)^{2}+\dfrac{c}{e^{x}+1}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=0$ &rarr; $4+\dfrac{c}{2}=4 \implies c=0$</p>
+                                <p><strong>Çözüm:</strong> $y=\left(e^{x}+1\right)^{2}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">22. &nbsp; $2x(y+1)dx-(x^{2}+1)dy=0$, &nbsp; $y(1)=-5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}-\dfrac{2x}{x^{2}+1}y=\dfrac{2x}{x^{2}+1}$ &rarr; $\mu=\dfrac{1}{x^{2}+1}$</p>
+                                <p>$\left(\dfrac{y}{x^{2}+1}\right)'=\dfrac{2x}{\left(x^{2}+1\right)^{2}}$</p>
+                                <p>$\dfrac{y}{x^{2}+1}=-\dfrac{1}{x^{2}+1}+c \implies y=-1+c\left(x^{2}+1\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $-1+2c=-5 \implies c=-2$</p>
+                                <p><strong>Çözüm:</strong> $y=-2x^{2}-3$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">23. &nbsp; $\displaystyle\frac{dr}{d\theta}+r\tan\theta=\cos^{2}\theta$, &nbsp; $r\!\left(\frac{\pi}{4}\right)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mu=\sec\theta$</p>
+                                <p>$\left(r\sec\theta\right)'=\cos^{2}\theta\cdot\sec\theta=\cos\theta$</p>
+                                <p>$r\sec\theta=\sin\theta+c \implies r=\cos\theta\left(\sin\theta+c\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $\theta=\dfrac{\pi}{4}$ &rarr; $\dfrac{\sqrt{2}}{2}\left(\dfrac{\sqrt{2}}{2}+c\right)=1$</p>
+                                <p>$\dfrac{\sqrt{2}}{2}+c=\sqrt{2} \implies c=\dfrac{\sqrt{2}}{2}$</p>
+                                <p><strong>Çözüm:</strong> $r=\cos\theta\left(\sin\theta+\dfrac{\sqrt{2}}{2}\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">24. &nbsp; $\displaystyle\frac{dx}{dt}-x=\sin 2t$, &nbsp; $x(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mu=e^{-t}$</p>
+                                <p>$\left(e^{-t}x\right)'=e^{-t}\sin 2t$</p>
+                                <p>$\displaystyle\int e^{at}\sin bt\,dt=\frac{e^{at}\left(a\sin bt-b\cos bt\right)}{a^{2}+b^{2}}$ formülünde $a=-1$, $b=2$:</p>
+                                <p>$e^{-t}x=-\dfrac{e^{-t}\left(\sin 2t+2\cos 2t\right)}{5}+c$</p>
+                                <p>$x=-\dfrac{\sin 2t+2\cos 2t}{5}+ce^{t}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $-\dfrac{2}{5}+c=0 \implies c=\dfrac{2}{5}$</p>
+                                <p><strong>Çözüm:</strong> $x=\dfrac{2e^{t}-\sin 2t-2\cos 2t}{5}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">25. &nbsp; $\displaystyle\frac{dy}{dx}+\frac{y}{2x}=\frac{x}{y^{3}}$, &nbsp; $y(1)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Bernoulli, $n=-3$. $y^{3}$ ile çarpıp $v=y^{4}$, &nbsp; $v'=4y^{3}y'$:</p>
+                                <p>$\dfrac{v'}{4}+\dfrac{v}{2x}=x \implies v'+\dfrac{2v}{x}=4x$</p>
+                                <p>$\mu=x^{2}$: &nbsp; $\left(x^{2}v\right)'=4x^{3} \implies x^{2}v=x^{4}+c$</p>
+                                <p>$y^{4}=x^{2}+\dfrac{c}{x^{2}}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=1,\;y=2$ &rarr; $16=1+c \implies c=15$</p>
+                                <p><strong>Çözüm:</strong> $y^{4}=x^{2}+\dfrac{15}{x^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">26. &nbsp; $\displaystyle x\frac{dy}{dx}+y=(xy)^{3/2}$, &nbsp; $y(1)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sol taraf tam olarak $\dfrac{d}{dx}(xy)$'dir. $u=xy$ diyelim:</p>
+                                $$\frac{du}{dx}=u^{3/2}$$
+                                <p>Ayrılabilir: $u^{-3/2}du=dx$</p>
+                                <p>$-2u^{-1/2}=x+c_{1} \implies \dfrac{1}{\sqrt{u}}=\dfrac{k-x}{2}$ &nbsp;($k=-c_{1}$)</p>
+                                <p>$u=xy=\dfrac{4}{(k-x)^{2}}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=1,\;y=4$ &rarr; $u=4$ &rarr; $(k-1)^{2}=1 \implies k=2$ ya da $k=0$.</p>
+                                <p>$\sqrt{u}=\dfrac{2}{k-x}$ pozitif olmalı; $k=0$ için $x=1$'de negatif çıkar &rarr; <strong>$k=2$</strong>.</p>
+                                <p><strong>Çözüm:</strong> $y=\dfrac{4}{x(2-x)^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight">
+                            <p><strong>27&ndash;30 için yöntem:</strong> Sağ taraf parçalı tanımlı olduğundan denklem <u>her aralıkta ayrı ayrı</u> çözülür. İlk aralıkta başlangıç şartı kullanılır; ikinci aralıkta ise sabit, çözümün kırılma noktasında <strong>sürekli</strong> olmasından bulunur.</p>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">27. &nbsp; $\displaystyle\frac{dy}{dx}+y=f(x)$, &nbsp; $f(x)=\begin{cases}2,&0\le x&lt;1\\ 0,&x\ge 1\end{cases}$, &nbsp; $y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mu=e^{x}$ her iki aralıkta da aynıdır.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$0\le x&lt;1$:</strong> &nbsp; $\left(e^{x}y\right)'=2e^{x} \implies y=2+ce^{-x}$</p>
+                                <p>$y(0)=0 \implies c=-2$ &rarr; $y=2\left(1-e^{-x}\right)$</p>
+                                <p>Kırılma noktası değeri: $y(1)=2\left(1-e^{-1}\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$x\ge 1$:</strong> &nbsp; $\left(e^{x}y\right)'=0 \implies y=Ke^{-x}$</p>
+                                <p>Süreklilik: $Ke^{-1}=2\left(1-e^{-1}\right) \implies K=2(e-1)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=\begin{cases}2\left(1-e^{-x}\right),&0\le x&lt;1\\[4pt] 2(e-1)e^{-x},&x\ge 1\end{cases}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">28. &nbsp; $\displaystyle\frac{dy}{dx}+y=f(x)$, &nbsp; $f(x)=\begin{cases}5,&0\le x&lt;10\\ 1,&x\ge 10\end{cases}$, &nbsp; $y(0)=6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>$0\le x&lt;10$:</strong> &nbsp; $\left(e^{x}y\right)'=5e^{x} \implies y=5+ce^{-x}$</p>
+                                <p>$y(0)=6 \implies c=1$ &rarr; $y=5+e^{-x}$</p>
+                                <p>$y(10)=5+e^{-10}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$x\ge 10$:</strong> &nbsp; $\left(e^{x}y\right)'=e^{x} \implies y=1+Ke^{-x}$</p>
+                                <p>Süreklilik: $1+Ke^{-10}=5+e^{-10} \implies K=4e^{10}+1$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=\begin{cases}5+e^{-x},&0\le x&lt;10\\[4pt] 1+4e^{10-x}+e^{-x},&x\ge 10\end{cases}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">29. &nbsp; $\displaystyle\frac{dy}{dx}+y=f(x)$, &nbsp; $f(x)=\begin{cases}e^{-x},&0\le x&lt;2\\ e^{-2},&x\ge 2\end{cases}$, &nbsp; $y(0)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>$0\le x&lt;2$:</strong> &nbsp; $\left(e^{x}y\right)'=e^{x}e^{-x}=1 \implies e^{x}y=x+c$</p>
+                                <p>$y=(x+c)e^{-x}$; &nbsp; $y(0)=1 \implies c=1$ &rarr; $y=(x+1)e^{-x}$</p>
+                                <p>$y(2)=3e^{-2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$x\ge 2$:</strong> &nbsp; $\left(e^{x}y\right)'=e^{-2}e^{x} \implies y=e^{-2}+Ke^{-x}$</p>
+                                <p>Süreklilik: $e^{-2}+Ke^{-2}=3e^{-2} \implies K=2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=\begin{cases}(x+1)e^{-x},&0\le x&lt;2\\[4pt] e^{-2}+2e^{-x},&x\ge 2\end{cases}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">30. &nbsp; $\displaystyle (x+1)\frac{dy}{dx}+y=f(x)$, &nbsp; $f(x)=\begin{cases}x,&0\le x&lt;3\\ 3,&x\ge 3\end{cases}$, &nbsp; $y(0)=\frac{1}{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sol taraf tam türevdir: $\dfrac{d}{dx}\left[(x+1)y\right]=f(x)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$0\le x&lt;3$:</strong> &nbsp; $(x+1)y=\dfrac{x^{2}}{2}+c$</p>
+                                <p>$y(0)=\dfrac{1}{2} \implies c=\dfrac{1}{2}$ &rarr; $y=\dfrac{x^{2}+1}{2(x+1)}$</p>
+                                <p>$y(3)=\dfrac{10}{8}=\dfrac{5}{4}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$x\ge 3$:</strong> &nbsp; $(x+1)y=3x+K$</p>
+                                <p>Süreklilik: $4\cdot\dfrac{5}{4}=9+K \implies K=-4$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=\begin{cases}\dfrac{x^{2}+1}{2(x+1)},&0\le x&lt;3\\[8pt] \dfrac{3x-4}{x+1},&x\ge 3\end{cases}$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>31&ndash;41:</strong> Teorik gösterimler ve uygulamalar.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">31. &nbsp;$a,b,k$ pozitif, $\lambda\ge 0$ sabitler olmak üzere $\displaystyle a\frac{dy}{dx}+by=ke^{-\lambda x}$ denklemini çözünüz. $\lambda=0$ ise her çözümün $x\to\infty$ için $k/b$'ye, $\lambda&gt;0$ ise $0$'a yaklaştığını gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{dy}{dx}+\dfrac{b}{a}y=\dfrac{k}{a}e^{-\lambda x}$ &rarr; $\mu=e^{bx/a}$</p>
+                                <p>$\left(e^{bx/a}y\right)'=\dfrac{k}{a}e^{\left(\frac{b}{a}-\lambda\right)x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Durum 1: $\lambda\ne\dfrac{b}{a}$</strong></p>
+                                $$y=\frac{k}{b-a\lambda}e^{-\lambda x}+ce^{-bx/a}$$
+                                <p><strong>Durum 2: $\lambda=\dfrac{b}{a}$</strong> &nbsp;(üstel terimler çakışır, integral $x$ verir)</p>
+                                $$y=\frac{k}{a}x\,e^{-\lambda x}+ce^{-\lambda x}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Limit davranışı.</strong> $a,b&gt;0$ olduğundan $\dfrac{b}{a}&gt;0$ ve $e^{-bx/a}\to 0$.</p>
+                                <p><strong>$\lambda=0$:</strong> Durum 1 geçerlidir ($\lambda=0\ne b/a$) ve $y=\dfrac{k}{b}+ce^{-bx/a}$.</p>
+                                <p>İkinci terim sıfıra gittiğinden &nbsp; $\displaystyle\lim_{x\to\infty}y=\frac{k}{b}$ &nbsp;&mdash; keyfi $c$'den bağımsız. &check;</p>
+                                <p><strong>$\lambda&gt;0$:</strong> Her iki durumda da tüm terimler $e^{-\lambda x}$ veya $e^{-bx/a}$ (ya da $xe^{-\lambda x}$) çarpanı taşır; üstel azalma $x$'in doğrusal büyümesini bastırdığından hepsi $0$'a gider:</p>
+                                <p>$\displaystyle\lim_{x\to\infty}y=0$ &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">32. &nbsp;$\displaystyle\frac{dy}{dx}+P(x)y=0$ denkleminin $f$ ve $g$ çözümleri için $c_{1}f+c_{2}g$'nin de çözüm olduğunu kanıtlayıp genelleyiniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$L[y]=\dfrac{dy}{dx}+P(x)y$ kısaltmasını kullanalım. Varsayım: $L[f]=0$, $L[g]=0$.</p>
+                                <p>Türev ve çarpma işlemleri toplamaya dağıldığından:</p>
+                                $$L\left[c_{1}f+c_{2}g\right]=\left(c_{1}f+c_{2}g\right)'+P\left(c_{1}f+c_{2}g\right)$$
+                                $$=c_{1}\left(f'+Pf\right)+c_{2}\left(g'+Pg\right)=c_{1}L[f]+c_{2}L[g]=0$$
+                                <p>Yani $c_{1}f+c_{2}g$ de bir çözümdür. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Genelleme (süperpozisyon).</strong> $f_{1},\dots,f_{n}$ çözüm ve $c_{1},\dots,c_{n}$ sabitse, aynı hesap tümevarımla tekrarlanarak:</p>
+                                $$L\left[\sum_{i=1}^{n}c_{i}f_{i}\right]=\sum_{i=1}^{n}c_{i}L[f_{i}]=0$$
+                                <p>Bu özelliğe $L$ operatörünün <strong>doğrusallığı</strong> denir; homojen denklemin çözümleri bir vektör uzayı oluşturur.</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Uyarı:</em> Bu yalnız <u>homojen</u> ($Q=0$) denklem için geçerlidir. $L[y]=Q$ ise $L[c_{1}f+c_{2}g]=(c_{1}+c_{2})Q$ olur, ancak $c_{1}+c_{2}=1$ ise çözüm kalır.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">33. &nbsp;$\displaystyle\frac{dy}{dx}+P(x)y=0$ için: $f\equiv 0$'ın çözüm olduğunu; bir çözüm tek bir $x_{0}$'da sıfırsa her yerde sıfır olduğunu; iki çözüm bir noktada kesişiyorsa her yerde eşit olduklarını ispatlayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a) Aşikâr çözüm.</strong> $f(x)\equiv 0$ için $f'=0$ ve $Pf=0$, dolayısıyla $0+0=0$. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> Genel çözüm $\mu=e^{\int P\,dx}$ ile:</p>
+                                $$f(x)=c\,e^{-\int P(x)\,dx}$$
+                                <p>Kilit gözlem: <strong>üstel fonksiyon hiçbir noktada sıfır olmaz</strong>.</p>
+                                <p>$f(x_{0})=0$ ise $c\,e^{-\int P}\big|_{x_{0}}=0$ olur; üstel çarpan $\ne 0$ olduğundan $c=0$.</p>
+                                <p>$c=0$ ise $f(x)=0$ <u>her</u> $x$ için. &rarr; Bir çözüm ya hiç sıfır olmaz ya da özdeş olarak sıfırdır. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $f$ ve $g$ çözüm ve $f(x_{0})=g(x_{0})$ olsun. $h=f-g$ diyelim.</p>
+                                <p>32'ye göre ($c_{1}=1$, $c_{2}=-1$) $h$ de bir çözümdür ve $h(x_{0})=0$.</p>
+                                <p>(b)'ye göre $h\equiv 0$, yani $f(x)=g(x)$ her $x$ için. &check;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Yorum:</em> Bu, homojen doğrusal denklemin integral eğrilerinin <u>hiç kesişmediğini</u> söyler &mdash; teklik teoreminin bu özel durumdaki somut ispatıdır.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">34. &nbsp;$\displaystyle\frac{dy}{dx}+P(x)y=Q(x)$ denkleminin iki çözümü $f$ ve $g$ ise, $f-g$ farkının bağdaşık denklemi sağladığını gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Varsayım:</p>
+                                <p>$f'+Pf=Q$ &nbsp;&nbsp;(1)</p>
+                                <p>$g'+Pg=Q$ &nbsp;&nbsp;(2)</p>
+                                <p>(1)'den (2)'yi çıkaralım; sağ taraflar aynı olduğundan $Q$ yok olur:</p>
+                                $$\left(f-g\right)'+P\left(f-g\right)=Q-Q=0$$
+                                <p>Yani $f-g$, bağdaşık (homojen) $\dfrac{dy}{dx}+Py=0$ denkleminin çözümüdür. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Sonuç:</strong> $f-g=ce^{-\int P\,dx}$ olduğundan, doğrusal denklemin genel çözümü</p>
+                                <p style="text-align:center;"><em>genel çözüm = herhangi bir özel çözüm + homojen çözüm</em></p>
+                                <p>yapısındadır &mdash; bu, ileride $n$. mertebeden denklemlerde de kullanılacak temel ilkedir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">35. &nbsp;$f_{1}$ ve $f_{2}$ sırasıyla $y'+Py=Q_{1}$ ve $y'+Py=Q_{2}$ denklemlerini sağlıyorsa $f_{1}+f_{2}$'nin $y'+Py=Q_{1}+Q_{2}$'yi sağladığını kanıtlayıp $\displaystyle\frac{dy}{dx}+y=2\sin x+5\sin 2x$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>İspat.</strong> $L[y]=y'+Py$ doğrusal olduğundan:</p>
+                                $$L\left[f_{1}+f_{2}\right]=L[f_{1}]+L[f_{2}]=Q_{1}+Q_{2}$$
+                                <p>Yani sağ taraf parçalara ayrılabilir; her parça ayrı çözülüp toplanır. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Uygulama.</strong> $y'+y=A\sin kx$ için $y=\alpha\sin kx+\beta\cos kx$ deneyelim:</p>
+                                <p>$y'+y=\left(\alpha-k\beta\right)\sin kx+\left(k\alpha+\beta\right)\cos kx$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>$Q_{1}=2\sin x$</strong> &nbsp;($k=1$): &nbsp; $\alpha-\beta=2$, &nbsp; $\alpha+\beta=0$ &rarr; $\alpha=1,\;\beta=-1$</p>
+                                <p>$f_{1}=\sin x-\cos x$</p>
+                                <p><strong>$Q_{2}=5\sin 2x$</strong> &nbsp;($k=2$): &nbsp; $\alpha-2\beta=5$, &nbsp; $2\alpha+\beta=0$ &rarr; $\alpha=1,\;\beta=-2$</p>
+                                <p>$f_{2}=\sin 2x-2\cos 2x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Buna homojen çözüm $ce^{-x}$ eklenir:</p>
+                                <p><strong>Çözüm:</strong> $y=\sin x-\cos x+\sin 2x-2\cos 2x+ce^{-x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">36. &nbsp;35'i $n$ fonksiyon için genelleyip $\displaystyle\frac{dy}{dx}+y=\sum_{k=1}^{5}\sin kx$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Genelleme.</strong> $L[f_{i}]=Q_{i}$ ise, tümevarımla</p>
+                                $$L\left[\sum_{i=1}^{n}f_{i}\right]=\sum_{i=1}^{n}Q_{i}$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Uygulama.</strong> $y'+y=\sin kx$ için 35'teki katsayı denklemleri $A=1$ ile:</p>
+                                <p>$\alpha-k\beta=1$, &nbsp; $k\alpha+\beta=0 \implies \beta=-k\alpha$</p>
+                                <p>$\alpha+k^{2}\alpha=1 \implies \alpha=\dfrac{1}{1+k^{2}}$, &nbsp; $\beta=\dfrac{-k}{1+k^{2}}$</p>
+                                <p>$f_{k}=\dfrac{\sin kx-k\cos kx}{1+k^{2}}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=\sum_{k=1}^{5}\frac{\sin kx-k\cos kx}{1+k^{2}}+ce^{-x}$$
+                                <p>Açık yazılışı: &nbsp; $\dfrac{\sin x-\cos x}{2}+\dfrac{\sin 2x-2\cos 2x}{5}+\dfrac{\sin 3x-3\cos 3x}{10}+\dfrac{\sin 4x-4\cos 4x}{17}+\dfrac{\sin 5x-5\cos 5x}{26}+ce^{-x}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">37. &nbsp;Uygun dönüşümlerle çözünüz. &nbsp;(a) $\displaystyle\cos y\frac{dy}{dx}+\frac{1}{x}\sin y=1$ &nbsp;&nbsp;&nbsp; (b) $\displaystyle (y+1)\frac{dy}{dx}+x(y^{2}+2y)=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $\cos y\,\dfrac{dy}{dx}$ tam olarak $\dfrac{d}{dx}\left(\sin y\right)$'dir. $v=\sin y$:</p>
+                                <p>$\dfrac{dv}{dx}+\dfrac{v}{x}=1$ &rarr; doğrusal, $\mu=x$</p>
+                                <p>$(xv)'=x \implies xv=\dfrac{x^{2}}{2}+c$</p>
+                                <p><strong>Çözüm:</strong> $\sin y=\dfrac{x}{2}+\dfrac{c}{x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $v=y^{2}+2y$ dersek $v'=2(y+1)y'$, yani $(y+1)y'=\dfrac{v'}{2}$:</p>
+                                <p>$\dfrac{v'}{2}+xv=x \implies v'+2xv=2x$</p>
+                                <p>$\mu=e^{x^{2}}$: &nbsp; $\left(e^{x^{2}}v\right)'=2xe^{x^{2}} \implies v=1+ce^{-x^{2}}$</p>
+                                <p>$y^{2}+2y=1+ce^{-x^{2}}$; iki tarafa $1$ eklersek:</p>
+                                <p><strong>Çözüm:</strong> $(y+1)^{2}=2+ce^{-x^{2}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">38. &nbsp;<strong>Riccati denklemi</strong> $\displaystyle\frac{dy}{dx}=A(x)y^{2}+B(x)y+C(x)$. &nbsp;$A=0$ iken doğrusal, $C=0$ iken Bernoulli olduğunu; bilinen bir $f$ çözümü varsa $y=f+\dfrac{1}{v}$ dönüşümünün denklemi $v$'de doğrusallaştırdığını gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a) $A(x)=0$:</strong> &nbsp; $y'=By+C \implies y'-By=C$ &rarr; birinci mertebeden <strong>doğrusal</strong>. &check;</p>
+                                <p><strong>(b) $C(x)=0$:</strong> &nbsp; $y'-By=Ay^{2}$ &rarr; $n=2$ ile <strong>Bernoulli</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> $f$ bilinen bir çözüm olsun: $f'=Af^{2}+Bf+C$ &nbsp;&nbsp;(&#9733;)</p>
+                                <p>$y=f+\dfrac{1}{v}$ &rarr; $y'=f'-\dfrac{v'}{v^{2}}$. Denklemde yerine koyalım:</p>
+                                $$f'-\frac{v'}{v^{2}}=A\left(f+\frac{1}{v}\right)^{2}+B\left(f+\frac{1}{v}\right)+C$$
+                                <p>Sağ tarafı açalım:</p>
+                                $$=\underbrace{Af^{2}+Bf+C}_{=\;f'\;\text{, yani }(\star)}+\frac{2Af}{v}+\frac{A}{v^{2}}+\frac{B}{v}$$
+                                <p>$f'$ iki taraftan da düşer:</p>
+                                $$-\frac{v'}{v^{2}}=\frac{2Af+B}{v}+\frac{A}{v^{2}}$$
+                                <p>$-v^{2}$ ile çarpalım:</p>
+                                $$v'=-\left(2Af+B\right)v-A$$
+                                <p><strong>Sonuç:</strong> $\;v'+\left[2A(x)f(x)+B(x)\right]v=-A(x)$ &nbsp;&mdash; $v$'de <strong>doğrusal</strong>. &check;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> 39&ndash;41'de bu formül doğrudan kullanılacaktır.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">39. &nbsp; $\displaystyle\frac{dy}{dx}=(1-x)y^{2}+(2x-1)y-x$, &nbsp; bilinen çözüm $f(x)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><em>Kontrol:</em> $y=1$ için sağ taraf $(1-x)+(2x-1)-x=0=f'$ &check;</p>
+                                <p>$A=1-x$, &nbsp; $B=2x-1$, &nbsp; $C=-x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>38'deki formül: $v'+\left(2Af+B\right)v=-A$</p>
+                                <p>$2Af+B=2(1-x)(1)+(2x-1)=1$</p>
+                                <p>$v'+v=x-1$ &rarr; $\mu=e^{x}$</p>
+                                <p>$\left(e^{x}v\right)'=(x-1)e^{x}$; &nbsp; kısmi integrasyonla $\displaystyle\int(x-1)e^{x}dx=(x-2)e^{x}$</p>
+                                <p>$v=x-2+ce^{-x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=1+\dfrac{1}{x-2+ce^{-x}}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">40. &nbsp; $\displaystyle\frac{dy}{dx}=-y^{2}+xy+1$, &nbsp; bilinen çözüm $f(x)=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><em>Kontrol:</em> $y=x$ için sağ taraf $-x^{2}+x^{2}+1=1=f'$ &check;</p>
+                                <p>$A=-1$, &nbsp; $B=x$, &nbsp; $C=1$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$2Af+B=-2x+x=-x$ &rarr; $v'-xv=-A=1$</p>
+                                <p>$\mu=e^{-x^{2}/2}$: &nbsp; $\left(e^{-x^{2}/2}v\right)'=e^{-x^{2}/2}$</p>
+                                $$v=e^{x^{2}/2}\left(c+\int_{0}^{x}e^{-t^{2}/2}dt\right)$$
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong></p>
+                                $$y=x+\frac{e^{-x^{2}/2}}{\;c+\displaystyle\int_{0}^{x}e^{-t^{2}/2}dt\;}$$
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $\int e^{-t^{2}/2}dt$ elemanter fonksiyonlarla ifade edilemez; hata fonksiyonu cinsinden $\sqrt{\tfrac{\pi}{2}}\,\mathrm{erf}\!\left(\tfrac{x}{\sqrt{2}}\right)$ yazılabilir. Cevabın integral biçiminde kalması normaldir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">41. &nbsp; $\displaystyle\frac{dy}{dx}=-8xy^{2}+4x(4x+1)y-\left(8x^{3}+4x^{2}-1\right)$, &nbsp; bilinen çözüm $f(x)=x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><em>Kontrol:</em> $y=x$ için sağ taraf</p>
+                                <p>$-8x^{3}+\left(16x^{3}+4x^{2}\right)-8x^{3}-4x^{2}+1=1=f'$ &check;</p>
+                                <p>$A=-8x$, &nbsp; $B=16x^{2}+4x$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$2Af+B=-16x^{2}+16x^{2}+4x=4x$</p>
+                                <p>$v'+4xv=-A=8x$</p>
+                                <p>$\mu=e^{2x^{2}}$: &nbsp; $\left(e^{2x^{2}}v\right)'=8xe^{2x^{2}} \implies e^{2x^{2}}v=2e^{2x^{2}}+c$</p>
+                                <p>$v=2+ce^{-2x^{2}}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $y=x+\dfrac{1}{2+ce^{-2x^{2}}}$</p>
                             </div>
                         </div>
                     </div>

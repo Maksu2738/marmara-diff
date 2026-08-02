@@ -8,71 +8,480 @@ menu: 2.2 Alıştırmalar
                             Bölüm Sonu Alıştırmaları <em>(Exercises 2.2)</em>
                         </div>
                         
+                        <p style="margin-bottom: 1rem;"><strong>1&ndash;14:</strong> Aşağıdaki diferansiyel denklemleri çözünüz.</p>
+
+                        <div class="highlight">
+                            <p><strong>Yol haritası:</strong> $1-7$ arası denklemler <strong>değişkenlerine ayrılabilir</strong> tiptedir &mdash; çarpanlara ayırıp $x$'li terimleri bir yana, $y$'li terimleri diğer yana toplamak yeterlidir.</p>
+                            <p>$8-14$ arası denklemler ise <strong>homojendir</strong>: $y=vx$ (ya da uygun olduğunda $u=wv$) dönüşümü denklemi ayrılabilir hâle getirir. $12$ ayrıca <strong>tam</strong> olduğundan doğrudan tamlık yöntemiyle çözülür.</p>
+                        </div>
+
                         <div class="question-block">
-                            <p class="question-text"><strong>1-14 Arası Diferansiyel Denklemleri Çözünüz:</strong></p>
-                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
-                                <li><strong>1.</strong> $4xy~dx+(x^{2}+1)dy=0$.</li>
-                                <li><strong>2.</strong> $(xy+2x+y+2)dx+(x^{2}+2x)dy=0$.</li>
-                                <li><strong>3.</strong> $2r(s^{2}+1)dr+(r^{4}+1)ds=0$.</li>
-                                <li><strong>4.</strong> $\csc y~dx+\sec x~dy=0$.</li>
-                                <li><strong>5.</strong> $\tan \theta~dr+2r~d\theta=0$.</li>
-                                <li><strong>6.</strong> $(e^{v}+1)\cos u~du+e^{v}(\sin u+1)dv=0$.</li>
-                                <li><strong>7.</strong> $(x+4)(y^{2}+1)dx+y(x^{2}+3x+2)dy=0$.</li>
-                                <li><strong>8.</strong> $(x+y)dx-x~dy=0$.</li>
-                                <li><strong>9.</strong> $(2xy+3y^{2})dx-(2xy+x^{2})dy=0$.</li>
-                                <li><strong>10.</strong> $v^{3}du+(u^{3}-uv^{2})dv=0$.</li>
-                                <li><strong>11.</strong> $\left(x\tan\left(\frac{y}{x}\right)+y\right)dx-x~dy=0$.</li>
-                                <li><strong>12.</strong> $(2s^{2}+2st+t^{2})ds+(s^{2}+2st-t^{2})dt=0$.</li>
-                                <li><strong>13.</strong> $(x^{3}+y^{2}\sqrt{x^{2}+y^{2}})dx-xy\sqrt{x^{2}+y^{2}}dy=0$.</li>
-                                <li><strong>14.</strong> $(\sqrt{x+y}+\sqrt{x-y})dx+(\sqrt{x-y}-\sqrt{x+y})dy=0$.</li>
-                            </ul>
+                            <p class="question-text">1. &nbsp; $4xy\,dx+(x^{2}+1)dy=0$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><em>Not: Kaynak metinde bu egzersizlerin adım adım çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                                <p>Denklem doğrudan ayrılabilir; $y(x^{2}+1)$ ile bölelim:</p>
+                                $$\frac{4x}{x^{2}+1}\,dx+\frac{dy}{y}=0$$
+                                <p>İlk integralde pay, paydanın türevinin $2$ katıdır:</p>
+                                <p>$2\ln(x^{2}+1)+\ln|y|=c_{1}$</p>
+                                <p>$\ln\left[y(x^{2}+1)^{2}\right]=c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $y(x^{2}+1)^{2}=c$</p>
                             </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text"><strong>15-20 Arası Başlangıç Değer Problemlerini Çözünüz:</strong></p>
-                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
-                                <li><strong>15.</strong> $(y+2)dx+y(x+4)dy=0$, $\quad y(-3)=-1$.</li>
-                                <li><strong>16.</strong> $8\cos^{2}y~dx+\csc^{2}x~dy=0$, $\quad y(\frac{\pi}{12})=\frac{\pi}{4}$.</li>
-                                <li><strong>17.</strong> $(3x+8)(y^{2}+4)dx-4y(x^{2}+5x+6)dy=0$, $\quad y(1)=2$.</li>
-                                <li><strong>18.</strong> $(x^{2}+3y^{2})dx-2xy~dy=0$, $\quad y(2)=6$.</li>
-                                <li><strong>19.</strong> $(2x-5y)dx+(4x-y)dy=0$, $\quad y(1)=4$.</li>
-                                <li><strong>20.</strong> $(3x^{2}+9xy+5y^{2})dx-(6x^{2}+4xy)dy=0$, $\quad y(2)=-6$.</li>
-                            </ul>
+                            <p class="question-text">2. &nbsp; $(xy+2x+y+2)dx+(x^{2}+2x)dy=0$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><em>Not: Kaynak metinde bu egzersizlerin adım adım çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                                <p>Katsayıları gruplayarak çarpanlara ayıralım:</p>
+                                <p>$xy+2x+y+2=x(y+2)+(y+2)=(x+1)(y+2)$, &nbsp; $x^{2}+2x=x(x+2)$</p>
+                                $$\frac{x+1}{x(x+2)}\,dx+\frac{dy}{y+2}=0$$
+                                <p>Basit kesirlere ayıralım:</p>
+                                $$\frac{x+1}{x(x+2)}=\frac{1}{2}\cdot\frac{1}{x}+\frac{1}{2}\cdot\frac{1}{x+2}$$
+                                <p>$\tfrac{1}{2}\ln|x|+\tfrac{1}{2}\ln|x+2|+\ln|y+2|=c_{1}$</p>
+                                <p>$2$ ile çarpıp düzenlersek:</p>
+                                <p><strong>Çözüm:</strong> $x(x+2)(y+2)^{2}=c$</p>
                             </div>
                         </div>
 
                         <div class="question-block">
-                            <p class="question-text"><strong>21-27 Arası Teorik Gösterimler ve Uygulamalar:</strong></p>
-                            <ul style="list-style-type: none; padding-left: 0; line-height: 1.8;">
-                                <li><strong>21. (a)</strong> $(Ax+By)dx+(Cx+Dy)dy=0$ homojen denkleminin tam olması için $B=C$ şartının gerek ve yeter olduğunu gösteriniz.<br>
-                                <strong>(b)</strong> $(Ax^{2}+Bxy+Cy^{2})dx+(Dx^{2}+Exy+Fy^{2})dy=0$ homojen denkleminin tam olması için $B=2D$ ve $E=2C$ şartının gerek ve yeter olduğunu gösteriniz.</li>
-                                <li><strong>22.</strong> 21(a) sonucunu kullanarak şu denklemleri iki farklı yöntemle çözünüz:<br>
-                                (a) $(x+2y)dx+(2x-y)dy=0$. <br>
-                                (b) $(3x-y)dx-(x+y)dy=0$.</li>
-                                <li><strong>23.</strong> 21(b) sonucunu kullanarak şu denklemleri iki farklı yöntemle çözünüz:<br>
-                                (a) $(x^{2}+2y^{2})dx+(4xy-y^{2})dy=0$. <br>
-                                (b) $(2x^{2}+2xy+y^{2})dx+(x^{2}+2xy)dy=0$.</li>
-                                <li><strong>24. (a)</strong> $M~dx+N~dy=0$ homojen bir denklem ise, $x=uy$ dönüşümünün bu denklemi $u$ ve $x$ cinsinden ayrılabilir bir denkleme dönüştürdüğünü kanıtlayınız.<br>
-                                <strong>(b)</strong> (a)'daki sonucu kullanarak Örnek 2.12'deki denklemi çözünüz.<br>
-                                <strong>(c)</strong> (a)'daki sonucu kullanarak Örnek 2.13'teki denklemi çözünüz.</li>
-                                <li><strong>25.</strong> $M~dx+N~dy=0$ homojen bir denklem ise, $x=r\cos\theta$, $y=r\sin\theta$ dönüşümünün bu denklemi $r$ ve $\theta$ cinsinden ayrılabilir bir denkleme dönüştürdüğünü gösteriniz.</li>
-                                <li><strong>26.</strong> Alıştırma 25'teki yöntemi kullanarak: (a) Alıştırma 8'i çözünüz. (b) Alıştırma 9'u çözünüz.</li>
-                                <li><strong>27.</strong> Farz edelim ki $M~dx+N~dy=0$ (A) denklemi homojendir.<br>
-                                <strong>(a)</strong> Denklem (A)'nın, $k$ sabit olmak üzere, $x=k\xi$, $y=k\eta$ (B) dönüşümü altında değişmez <em>(invariant)</em> kaldığını gösteriniz.<br>
-                                <strong>(b)</strong> Denklem (A)'nın genel çözümünün $x=c\phi(y/x)$ (C) formunda yazılabileceğini gösteriniz (burada $c$ keyfi sabittir).<br>
-                                <strong>(c)</strong> (b)'de elde edilen sonucu kullanarak, (C) çözümünün de (B) dönüşümü altında değişmez kaldığını gösteriniz.<br>
-                                <strong>(d)</strong> (a) ve (c)'de kanıtlanan sonuçları geometrik olarak yorumlayınız.</li>
-                            </ul>
+                            <p class="question-text">3. &nbsp; $2r(s^{2}+1)dr+(r^{4}+1)ds=0$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><em>Not: Kaynak metinde bu teorik ispatlar ve uygulamaların çözüm yolları verilmemiştir. Öğrencinin pratik yapması için bırakılmıştır.</em></p>
+                                <p>$(s^{2}+1)(r^{4}+1)$ ile bölelim:</p>
+                                $$\frac{2r}{r^{4}+1}\,dr+\frac{ds}{s^{2}+1}=0$$
+                                <p>İlk integralde $u=r^{2}$, &nbsp; $du=2r\,dr$:</p>
+                                $$\int\frac{du}{u^{2}+1}=\arctan u=\arctan(r^{2})$$
+                                <p><strong>Çözüm:</strong> $\arctan(r^{2})+\arctan s=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $\csc y\,dx+\sec x\,dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\sec x\,\csc y$ ile bölelim; $\dfrac{1}{\sec x}=\cos x$ ve $\dfrac{1}{\csc y}=\sin y$:</p>
+                                $$\cos x\,dx+\sin y\,dy=0$$
+                                <p>$\sin x-\cos y=c$</p>
+                                <p><strong>Çözüm:</strong> $\sin x-\cos y=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $\tan\theta\,dr+2r\,d\theta=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$r\tan\theta$ ile bölelim:</p>
+                                $$\frac{dr}{r}+2\cot\theta\,d\theta=0$$
+                                <p>$\ln|r|+2\ln|\sin\theta|=c_{1}$</p>
+                                <p>$\ln\left|r\sin^{2}\theta\right|=c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $r\sin^{2}\theta=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $(e^{v}+1)\cos u\,du+e^{v}(\sin u+1)dv=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(e^{v}+1)(\sin u+1)$ ile bölelim:</p>
+                                $$\frac{\cos u}{\sin u+1}\,du+\frac{e^{v}}{e^{v}+1}\,dv=0$$
+                                <p>Her iki integralde de pay, paydanın türevidir:</p>
+                                <p>$\ln|\sin u+1|+\ln(e^{v}+1)=c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $(1+\sin u)(e^{v}+1)=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $(x+4)(y^{2}+1)dx+y(x^{2}+3x+2)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x^{2}+3x+2=(x+1)(x+2)$ &nbsp;ve&nbsp; $(y^{2}+1)(x+1)(x+2)$ ile bölelim:</p>
+                                $$\frac{x+4}{(x+1)(x+2)}\,dx+\frac{y}{y^{2}+1}\,dy=0$$
+                                <p>Basit kesirler: $\dfrac{x+4}{(x+1)(x+2)}=\dfrac{3}{x+1}-\dfrac{2}{x+2}$</p>
+                                <p>$3\ln|x+1|-2\ln|x+2|+\tfrac{1}{2}\ln(y^{2}+1)=c_{1}$</p>
+                                <p>$2$ ile çarparsak:</p>
+                                <p><strong>Çözüm:</strong> $(x+1)^{6}(y^{2}+1)=c\,(x+2)^{4}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $(x+y)dx-x\,dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M$ ve $N$ birinci dereceden homojen. $y=vx$, &nbsp; $dy=v\,dx+x\,dv$:</p>
+                                <p>$(x+vx)dx-x(v\,dx+x\,dv)=0$</p>
+                                <p>$x\,dx+vx\,dx-vx\,dx-x^{2}dv=0$</p>
+                                <p>$v$'li terimler sadeleşir:</p>
+                                $$\frac{dx}{x}=dv$$
+                                <p>$\ln|x|=v+c=\dfrac{y}{x}+c$</p>
+                                <p><strong>Çözüm:</strong> $y=x\left(\ln|x|+c\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $(2xy+3y^{2})dx-(2xy+x^{2})dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İkinci dereceden homojen. $y=vx$:</p>
+                                <p>$x^{2}(2v+3v^{2})dx-x^{2}(2v+1)(v\,dx+x\,dv)=0$</p>
+                                <p>$x^{2}$ sadeleşir; $dx$'li terimler toplanır:</p>
+                                <p>$(2v+3v^{2}-2v^{2}-v)dx=x(2v+1)dv$</p>
+                                $$\frac{dx}{x}=\frac{2v+1}{v^{2}+v}\,dv$$
+                                <p>Sağ tarafta pay, paydanın türevidir:</p>
+                                <p>$\ln|x|=\ln|v^{2}+v|+c_{1} \implies x=c\,(v^{2}+v)$</p>
+                                <p>$v=\dfrac{y}{x}$ &rarr; $v^{2}+v=\dfrac{y^{2}+xy}{x^{2}}$ yerine konursa:</p>
+                                <p><strong>Çözüm:</strong> $x^{3}=c\,y(x+y)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $v^{3}du+(u^{3}-uv^{2})dv=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Üçüncü dereceden homojen. Burada $u=wv$, &nbsp; $du=w\,dv+v\,dw$ almak daha kolaydır:</p>
+                                <p>$v^{3}(w\,dv+v\,dw)+(w^{3}v^{3}-wv^{3})dv=0$</p>
+                                <p>$v^{3}$ ile bölelim:</p>
+                                <p>$w\,dv+v\,dw+(w^{3}-w)dv=0$</p>
+                                <p>$w$ terimleri sadeleşir: &nbsp; $w^{3}dv+v\,dw=0$</p>
+                                $$\frac{dv}{v}+\frac{dw}{w^{3}}=0$$
+                                <p>$\ln|v|-\dfrac{1}{2w^{2}}=c$</p>
+                                <p>$w=\dfrac{u}{v}$ &rarr; $\dfrac{1}{2w^{2}}=\dfrac{v^{2}}{2u^{2}}$:</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\ln|v|-\frac{v^{2}}{2u^{2}}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">11. &nbsp; $\left(x\tan\!\left(\frac{y}{x}\right)+y\right)dx-x\,dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y/x$ içerdiğinden homojen. $y=vx$:</p>
+                                <p>$(x\tan v+vx)dx-x(v\,dx+x\,dv)=0$</p>
+                                <p>$vx\,dx$ terimleri sadeleşir: &nbsp; $x\tan v\,dx=x^{2}dv$</p>
+                                $$\frac{dx}{x}=\cot v\,dv$$
+                                <p>$\ln|x|=\ln|\sin v|+c_{1}$</p>
+                                <p><strong>Çözüm:</strong> $x=c\,\sin\!\left(\dfrac{y}{x}\right)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12. &nbsp; $(2s^{2}+2st+t^{2})ds+(s^{2}+2st-t^{2})dt=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Denklem homojendir, ancak önce tamlığı deneyelim:</p>
+                                <p>$\dfrac{\partial M}{\partial t}=2s+2t$, &nbsp; $\dfrac{\partial N}{\partial s}=2s+2t$ &rarr; eşit, <strong>tamdır</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$F=\displaystyle\int(2s^{2}+2st+t^{2})\,\partial s=\frac{2s^{3}}{3}+s^{2}t+st^{2}+\phi(t)$</p>
+                                <p>$F_{t}=s^{2}+2st+\phi'=s^{2}+2st-t^{2} \implies \phi'=-t^{2} \implies \phi=-\dfrac{t^{3}}{3}$</p>
+                                <p>$\dfrac{2s^{3}}{3}+s^{2}t+st^{2}-\dfrac{t^{3}}{3}=c_{1}$; &nbsp; $3$ ile çarpalım:</p>
+                                <p><strong>Çözüm:</strong> $2s^{3}+3s^{2}t+3st^{2}-t^{3}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13. &nbsp; $\left(x^{3}+y^{2}\sqrt{x^{2}+y^{2}}\right)dx-xy\sqrt{x^{2}+y^{2}}\,dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Üçüncü dereceden homojen. $y=vx$ &nbsp;($x&gt;0$ için $\sqrt{x^{2}+y^{2}}=x\sqrt{1+v^{2}}$):</p>
+                                <p>$M=x^{3}\left(1+v^{2}\sqrt{1+v^{2}}\right)$, &nbsp; $N=-x^{3}v\sqrt{1+v^{2}}$</p>
+                                <p>$x^{3}\left(1+v^{2}\sqrt{1+v^{2}}\right)dx-x^{3}v\sqrt{1+v^{2}}\left(v\,dx+x\,dv\right)=0$</p>
+                                <p>$x^{3}$ ile bölüp $dx$'li terimleri toplayalım; $v^{2}\sqrt{1+v^{2}}$ terimleri sadeleşir:</p>
+                                $$\frac{dx}{x}=v\sqrt{1+v^{2}}\,dv$$
+                                <p>Sağ tarafta $u=1+v^{2}$: &nbsp; $\displaystyle\int v\sqrt{1+v^{2}}\,dv=\frac{1}{3}(1+v^{2})^{3/2}$</p>
+                                <p>$\ln|x|=\dfrac{1}{3}\left(1+v^{2}\right)^{3/2}+c$</p>
+                                <p>$1+v^{2}=\dfrac{x^{2}+y^{2}}{x^{2}}$ yerine konursa:</p>
+                                <p><strong>Çözüm:</strong> $\displaystyle\ln|x|=\frac{\left(x^{2}+y^{2}\right)^{3/2}}{3x^{3}}+c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $\left(\sqrt{x+y}+\sqrt{x-y}\right)dx+\left(\sqrt{x-y}-\sqrt{x+y}\right)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Önce $\dfrac{dy}{dx}$ oranını sadeleştirelim; pay ve paydayı $\sqrt{x+y}+\sqrt{x-y}$ ile çarpalım:</p>
+                                $$\frac{dy}{dx}=\frac{\sqrt{x+y}+\sqrt{x-y}}{\sqrt{x+y}-\sqrt{x-y}}=\frac{\left(\sqrt{x+y}+\sqrt{x-y}\right)^{2}}{(x+y)-(x-y)}$$
+                                <p>Pay açılırsa $2x+2\sqrt{x^{2}-y^{2}}$, payda $2y$ olur:</p>
+                                $$y\,dy=\left(x+\sqrt{x^{2}-y^{2}}\right)dx$$
+                                <p>Bu birinci dereceden homojendir. $y=vx$:</p>
+                                <p>$v^{2}dx+vx\,dv=\left(1+\sqrt{1-v^{2}}\right)dx$</p>
+                                <p>$vx\,dv=\left(1-v^{2}+\sqrt{1-v^{2}}\right)dx$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$w=\sqrt{1-v^{2}}$ diyelim. O hâlde $1-v^{2}+\sqrt{1-v^{2}}=w^{2}+w=w(w+1)$ ve $w^{2}=1-v^{2}$ türevlenirse $v\,dv=-w\,dw$:</p>
+                                <p>$-xw\,dw=w(w+1)dx$</p>
+                                $$\frac{dx}{x}+\frac{dw}{w+1}=0$$
+                                <p>$\ln|x|+\ln|w+1|=c_{1} \implies x\left(1+\sqrt{1-v^{2}}\right)=c$</p>
+                                <p>$\sqrt{1-v^{2}}=\dfrac{\sqrt{x^{2}-y^{2}}}{x}$ konursa:</p>
+                                <p><strong>Çözüm:</strong> $x+\sqrt{x^{2}-y^{2}}=c$</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Kontrol:</em> Türev alınırsa $\left(x+\sqrt{x^{2}-y^{2}}\right)dx=y\,dy$ elde edilir &mdash; başladığımız denklemle aynı. &check;</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>15&ndash;20:</strong> Aşağıdaki başlangıç değer problemlerini çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">15. &nbsp; $(y+2)dx+y(x+4)dy=0$, &nbsp; $y(-3)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Ayrılabilir; $(y+2)(x+4)$ ile bölelim:</p>
+                                $$\frac{dx}{x+4}+\frac{y}{y+2}\,dy=0$$
+                                <p>$\dfrac{y}{y+2}=1-\dfrac{2}{y+2}$ olduğundan:</p>
+                                <p>$\ln|x+4|+y-2\ln|y+2|=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=-3$, $y=-1$ &rarr; $\ln 1+(-1)-2\ln 1=-1$</p>
+                                <p><strong>Çözüm:</strong> $\ln|x+4|+y-2\ln|y+2|=-1$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">16. &nbsp; $8\cos^{2}y\,dx+\csc^{2}x\,dy=0$, &nbsp; $y\!\left(\frac{\pi}{12}\right)=\frac{\pi}{4}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\cos^{2}y\,\csc^{2}x$ ile bölelim:</p>
+                                $$8\sin^{2}x\,dx+\sec^{2}y\,dy=0$$
+                                <p>$\sin^{2}x=\dfrac{1-\cos 2x}{2}$ &rarr; $\displaystyle\int 8\sin^{2}x\,dx=4x-2\sin 2x$</p>
+                                <p>$4x-2\sin 2x+\tan y=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=\dfrac{\pi}{12}$, $y=\dfrac{\pi}{4}$</p>
+                                <p>$\dfrac{\pi}{3}-2\sin\dfrac{\pi}{6}+\tan\dfrac{\pi}{4}=\dfrac{\pi}{3}-1+1=\dfrac{\pi}{3}$</p>
+                                <p><strong>Çözüm:</strong> $4x-2\sin 2x+\tan y=\dfrac{\pi}{3}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">17. &nbsp; $(3x+8)(y^{2}+4)dx-4y(x^{2}+5x+6)dy=0$, &nbsp; $y(1)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x^{2}+5x+6=(x+2)(x+3)$:</p>
+                                $$\frac{3x+8}{(x+2)(x+3)}\,dx-\frac{4y}{y^{2}+4}\,dy=0$$
+                                <p>Basit kesirler: $\dfrac{3x+8}{(x+2)(x+3)}=\dfrac{2}{x+2}+\dfrac{1}{x+3}$</p>
+                                <p>$2\ln|x+2|+\ln|x+3|-2\ln(y^{2}+4)=c_{1}$</p>
+                                <p>$\displaystyle\frac{(x+2)^{2}(x+3)}{(y^{2}+4)^{2}}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=1$, $y=2$ &rarr; $\dfrac{9\cdot 4}{64}=\dfrac{9}{16}$</p>
+                                <p><strong>Çözüm:</strong> $16(x+2)^{2}(x+3)=9\left(y^{2}+4\right)^{2}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">18. &nbsp; $(x^{2}+3y^{2})dx-2xy\,dy=0$, &nbsp; $y(2)=6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İkinci dereceden homojen. $y=vx$:</p>
+                                <p>$x^{2}(1+3v^{2})dx-2vx^{2}(v\,dx+x\,dv)=0$</p>
+                                <p>$(1+3v^{2}-2v^{2})dx=2vx\,dv$</p>
+                                $$\frac{dx}{x}=\frac{2v}{1+v^{2}}\,dv$$
+                                <p>$\ln|x|=\ln(1+v^{2})+c_{1} \implies x=c\left(1+v^{2}\right)$</p>
+                                <p>$1+v^{2}=\dfrac{x^{2}+y^{2}}{x^{2}}$ &rarr; $x^{3}=c\left(x^{2}+y^{2}\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=2$, $y=6$ &rarr; $8=c(4+36)=40c \implies c=\dfrac{1}{5}$</p>
+                                <p><strong>Çözüm:</strong> $5x^{3}=x^{2}+y^{2}$, &nbsp; yani $y^{2}=5x^{3}-x^{2}$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">19. &nbsp; $(2x-5y)dx+(4x-y)dy=0$, &nbsp; $y(1)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Birinci dereceden homojen. $y=vx$:</p>
+                                <p>$(2-5v)dx+(4-v)(v\,dx+x\,dv)=0$</p>
+                                <p>$(2-5v+4v-v^{2})dx+x(4-v)dv=0$</p>
+                                <p>$2-v-v^{2}=-(v+2)(v-1)$ olduğundan:</p>
+                                $$\frac{dx}{x}=\frac{4-v}{(v+2)(v-1)}\,dv$$
+                                <p>Basit kesirler: $\dfrac{4-v}{(v+2)(v-1)}=\dfrac{-2}{v+2}+\dfrac{1}{v-1}$</p>
+                                <p>$\ln|x|=-2\ln|v+2|+\ln|v-1|+c_{1} \implies \dfrac{x(v+2)^{2}}{v-1}=c$</p>
+                                <p>$v=\dfrac{y}{x}$ konup sadeleştirilirse: $\dfrac{(y+2x)^{2}}{y-x}=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=1$, $y=4$ &rarr; $\dfrac{36}{3}=12$</p>
+                                <p><strong>Çözüm:</strong> $(y+2x)^{2}=12(y-x)$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">20. &nbsp; $(3x^{2}+9xy+5y^{2})dx-(6x^{2}+4xy)dy=0$, &nbsp; $y(2)=-6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İkinci dereceden homojen. $y=vx$:</p>
+                                <p>$x^{2}(3+9v+5v^{2})dx-x^{2}(6+4v)(v\,dx+x\,dv)=0$</p>
+                                <p>$(3+9v+5v^{2}-6v-4v^{2})dx=x(6+4v)dv$</p>
+                                $$\frac{dx}{x}=\frac{4v+6}{v^{2}+3v+3}\,dv$$
+                                <p>Pay, paydanın türevinin $2$ katıdır: $4v+6=2(2v+3)$</p>
+                                <p>$\ln|x|=2\ln\left|v^{2}+3v+3\right|+c_{1} \implies x=c\left(v^{2}+3v+3\right)^{2}$</p>
+                                <p>$v^{2}+3v+3=\dfrac{y^{2}+3xy+3x^{2}}{x^{2}}$ &rarr; $x^{5}=c\left(3x^{2}+3xy+y^{2}\right)^{2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=2$, $y=-6$ &rarr; $3(4)+3(-12)+36=12$ &nbsp;ve&nbsp; $x^{5}=32$</p>
+                                <p>$32=c\cdot 144 \implies c=\dfrac{2}{9}$</p>
+                                <p><strong>Çözüm:</strong> $9x^{5}=2\left(3x^{2}+3xy+y^{2}\right)^{2}$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>21&ndash;27:</strong> Teorik gösterimler ve uygulamalar.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">21. &nbsp;Aşağıdaki homojen denklemlerin tam olması için verilen şartların gerek ve yeter olduğunu gösteriniz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $(Ax+By)dx+(Cx+Dy)dy=0$ &rarr; $B=C$</p>
+                            <p style="margin: 0.5rem 0;">(b) $(Ax^{2}+Bxy+Cy^{2})dx+(Dx^{2}+Exy+Fy^{2})dy=0$ &rarr; $B=2D$ ve $E=2C$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Her iki şıkta da tamlık ölçütü aynıdır: $\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}$ <u>her</u> $(x,y)$ için sağlanmalı.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $\dfrac{\partial M}{\partial y}=B$, &nbsp; $\dfrac{\partial N}{\partial x}=C$</p>
+                                <p>Bunlar sabit olduğundan eşitlik $\iff B=C$. Şart hem <em>gerek</em> hem <em>yeterdir</em>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $\dfrac{\partial M}{\partial y}=Bx+2Cy$, &nbsp; $\dfrac{\partial N}{\partial x}=2Dx+Ey$</p>
+                                <p>İki polinom her $(x,y)$ için eşitse katsayıları eşittir:</p>
+                                <p>$x$ katsayıları: $B=2D$ &nbsp;&nbsp; $y$ katsayıları: $2C=E$</p>
+                                <p>Tersine bu iki şart sağlanırsa iki ifade özdeş olur. &rarr; gerek ve yeter. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">22. &nbsp;21(a) sonucunu kullanarak şu denklemleri <strong>iki farklı yöntemle</strong> çözünüz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $(x+2y)dx+(2x-y)dy=0$ &nbsp;&nbsp;&nbsp; (b) $(3x-y)dx-(x+y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $B=2$, $C=2$ &rarr; $B=C$, denklem <strong>tamdır</strong>.</p>
+                                <p><em>1. yöntem (tamlık):</em> $F=\dfrac{x^{2}}{2}+2xy+\phi(y)$, &nbsp; $F_{y}=2x+\phi'=2x-y \implies \phi=-\dfrac{y^{2}}{2}$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}+4xy-y^{2}=c$</p>
+                                <p><em>2. yöntem (homojen, $y=vx$):</em></p>
+                                <p>$(1+2v)dx+(2-v)(v\,dx+x\,dv)=0 \implies (1+4v-v^{2})dx=x(v-2)dv$</p>
+                                <p>$d(1+4v-v^{2})=-2(v-2)dv$ olduğundan $\ln|x|=-\tfrac{1}{2}\ln|1+4v-v^{2}|+c_{1}$</p>
+                                <p>$x^{2}(1+4v-v^{2})=c \implies x^{2}+4xy-y^{2}=c$ &nbsp;&mdash; aynı sonuç. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $M=3x-y$, $N=-x-y$ &rarr; $B=-1$, $C=-1$, <strong>tamdır</strong>.</p>
+                                <p><em>1. yöntem:</em> $F=\dfrac{3x^{2}}{2}-xy+\phi(y)$, &nbsp; $F_{y}=-x+\phi'=-x-y \implies \phi=-\dfrac{y^{2}}{2}$</p>
+                                <p><strong>Çözüm:</strong> $3x^{2}-2xy-y^{2}=c$</p>
+                                <p><em>2. yöntem ($y=vx$):</em> $(3-2v-v^{2})dx=x(1+v)dv$</p>
+                                <p>$d(3-2v-v^{2})=-2(1+v)dv$ &rarr; $x^{2}(3-2v-v^{2})=c \implies 3x^{2}-2xy-y^{2}=c$ &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">23. &nbsp;21(b) sonucunu kullanarak şu denklemleri <strong>iki farklı yöntemle</strong> çözünüz.</p>
+                            <p style="margin: 0.5rem 0;">(a) $(x^{2}+2y^{2})dx+(4xy-y^{2})dy=0$ &nbsp;&nbsp;&nbsp; (b) $(2x^{2}+2xy+y^{2})dx+(x^{2}+2xy)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $A=1,B=0,C=2$; &nbsp; $D=0,E=4,F=-1$</p>
+                                <p>$B=2D$: $0=0$ &check; &nbsp;&nbsp; $E=2C$: $4=4$ &check; &rarr; <strong>tamdır</strong>.</p>
+                                <p><em>1. yöntem:</em> $F=\dfrac{x^{3}}{3}+2xy^{2}+\phi(y)$, &nbsp; $F_{y}=4xy+\phi'=4xy-y^{2} \implies \phi=-\dfrac{y^{3}}{3}$</p>
+                                <p><strong>Çözüm:</strong> $x^{3}+6xy^{2}-y^{3}=c$</p>
+                                <p><em>2. yöntem ($y=vx$):</em> $(1+6v^{2}-v^{3})dx=-x(4v-v^{2})dv$</p>
+                                <p>$d(1+6v^{2}-v^{3})=3(4v-v^{2})dv$ &rarr; $\ln|x|=-\tfrac{1}{3}\ln|1+6v^{2}-v^{3}|+c_{1}$</p>
+                                <p>$x^{3}(1+6v^{2}-v^{3})=c \implies x^{3}+6xy^{2}-y^{3}=c$ &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $A=2,B=2,C=1$; &nbsp; $D=1,E=2,F=0$</p>
+                                <p>$B=2D$: $2=2$ &check; &nbsp;&nbsp; $E=2C$: $2=2$ &check; &rarr; <strong>tamdır</strong>.</p>
+                                <p><em>1. yöntem:</em> $F=\dfrac{2x^{3}}{3}+x^{2}y+xy^{2}+\phi(y)$, &nbsp; $F_{y}=x^{2}+2xy+\phi' \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $2x^{3}+3x^{2}y+3xy^{2}=c$</p>
+                                <p><em>2. yöntem ($y=vx$):</em></p>
+                                <p>$x^{2}(2+2v+v^{2})dx+x^{2}(1+2v)(v\,dx+x\,dv)=0$</p>
+                                <p>$(2+2v+v^{2}+v+2v^{2})dx+x(1+2v)dv=0 \implies (3v^{2}+3v+2)dx=-x(2v+1)dv$</p>
+                                <p>$d(3v^{2}+3v+2)=3(2v+1)dv$ &rarr; $\ln|x|=-\tfrac{1}{3}\ln\left(3v^{2}+3v+2\right)+c_{1}$</p>
+                                <p>$x^{3}\left(3v^{2}+3v+2\right)=c$; &nbsp; $v=\dfrac{y}{x}$ konursa $2x^{3}+3x^{2}y+3xy^{2}=c$ &nbsp;&mdash; aynı sonuç. &check;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> Bu denklem, Alıştırma 12'deki $(2s^{2}+2st+t^{2})ds+(s^{2}+2st-t^{2})dt=0$ ile aynı yapıdadır; tek fark $F$ katsayısının $0$ yerine $-1$ olmasıdır.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">24. &nbsp;(a) $M\,dx+N\,dy=0$ homojen ise, $x=uy$ dönüşümünün denklemi ayrılabilir hâle getirdiğini kanıtlayınız. &nbsp;(b) Bunu Örnek 2.12'ye, &nbsp;(c) Örnek 2.13'e uygulayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $M$ ve $N$, $n$. dereceden homojen olsun: $M(ty,y)=y^{n}M(t,1)$.</p>
+                                <p>$x=uy$, &nbsp; $dx=u\,dy+y\,du$ konursa $M(x,y)=y^{n}M(u,1)$, &nbsp; $N(x,y)=y^{n}N(u,1)$:</p>
+                                $$y^{n}M(u,1)\left(u\,dy+y\,du\right)+y^{n}N(u,1)\,dy=0$$
+                                <p>$y^{n}$ sadeleşir; $dy$'li terimler toplanır:</p>
+                                $$\left[uM(u,1)+N(u,1)\right]dy+y\,M(u,1)\,du=0$$
+                                $$\frac{dy}{y}+\frac{M(u,1)\,du}{uM(u,1)+N(u,1)}=0$$
+                                <p>Sol terim yalnız $y$'ye, sağ terim yalnız $u$'ya bağlıdır &rarr; <strong>ayrılabilir</strong>. &check;</p>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><em>Not:</em> $x=uy$ dönüşümü değişkenleri $u$ ile <u>$y$</u> cinsinden ayırır ($y=vx$ dönüşümünün simetriği). $y$'nin çarpan olarak göründüğü denklemlerde bu seçim daha kısa hesap verir.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b) Örnek 2.12:</strong> $(x^{2}-3y^{2})dx+2xy\,dy=0$. &nbsp; $x=uy$:</p>
+                                <p>$y^{2}(u^{2}-3)(u\,dy+y\,du)+2uy^{2}\,dy=0$</p>
+                                <p>$y^{2}$ sadeleşir: &nbsp; $(u^{3}-3u+2u)dy+y(u^{2}-3)du=0$</p>
+                                $$\frac{dy}{y}+\frac{u^{2}-3}{u^{3}-u}\,du=0$$
+                                <p>Basit kesirler: $\dfrac{u^{2}-3}{u(u-1)(u+1)}=\dfrac{3}{u}-\dfrac{1}{u-1}-\dfrac{1}{u+1}$</p>
+                                <p>$\ln|y|+3\ln|u|-\ln|u^{2}-1|=c_{1} \implies \dfrac{y\,u^{3}}{u^{2}-1}=c$</p>
+                                <p>$u=\dfrac{x}{y}$ konursa $\dfrac{x^{3}}{x^{2}-y^{2}}=c$, yani $y^{2}-x^{2}=c'x^{3}$ &nbsp;&mdash; Örnek 2.12 ile aynı. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c) Örnek 2.13:</strong> $\left(y+\sqrt{x^{2}+y^{2}}\right)dx-x\,dy=0$. &nbsp; $x=uy$, $y&gt;0$ için $\sqrt{x^{2}+y^{2}}=y\sqrt{u^{2}+1}$:</p>
+                                <p>$y\left(1+\sqrt{u^{2}+1}\right)(u\,dy+y\,du)-uy\,dy=0$</p>
+                                <p>$y$ ile bölüp $dy$'li terimleri toplarsak $u$'lar kısmen sadeleşir:</p>
+                                <p>$u\sqrt{u^{2}+1}\,dy+y\left(1+\sqrt{u^{2}+1}\right)du=0$</p>
+                                $$\frac{dy}{y}+\left[\frac{1}{u\sqrt{u^{2}+1}}+\frac{1}{u}\right]du=0$$
+                                <p>$\displaystyle\int\frac{du}{u\sqrt{u^{2}+1}}=\ln|u|-\ln\left(1+\sqrt{u^{2}+1}\right)$ olduğundan:</p>
+                                <p>$\ln|y|+2\ln|u|-\ln\left(1+\sqrt{u^{2}+1}\right)=c_{1} \implies \dfrac{y\,u^{2}}{1+\sqrt{u^{2}+1}}=c$</p>
+                                <p>$u=\dfrac{x}{y}$ konursa $\dfrac{x^{2}}{y+\sqrt{x^{2}+y^{2}}}=c$, yani $y+\sqrt{x^{2}+y^{2}}=c'x^{2}$ &nbsp;&mdash; Örnek 2.13 ile aynı. &check;</p>
+                                <p>$y(1)=0$ şartı $c'=1$ verir ve $y=\dfrac{1}{2}\left(x^{2}-1\right)$ bulunur.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">25. &nbsp;$M\,dx+N\,dy=0$ homojen ise, $x=r\cos\theta$, &nbsp;$y=r\sin\theta$ dönüşümünün denklemi $r$ ve $\theta$ cinsinden ayrılabilir hâle getirdiğini gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$dx=\cos\theta\,dr-r\sin\theta\,d\theta$, &nbsp; $dy=\sin\theta\,dr+r\cos\theta\,d\theta$</p>
+                                <p>$M,N$ $n$. dereceden homojen olduğundan, kısaca $m(\theta)=M(\cos\theta,\sin\theta)$ ve $n(\theta)=N(\cos\theta,\sin\theta)$ yazarsak:</p>
+                                <p>$M(r\cos\theta,r\sin\theta)=r^{n}m(\theta)$, &nbsp; $N(r\cos\theta,r\sin\theta)=r^{n}n(\theta)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Yerine koyup $r^{n}$ ile bölelim:</p>
+                                $$m\left(\cos\theta\,dr-r\sin\theta\,d\theta\right)+n\left(\sin\theta\,dr+r\cos\theta\,d\theta\right)=0$$
+                                <p>$dr$ ve $d\theta$ terimlerini gruplayalım:</p>
+                                $$\left[m\cos\theta+n\sin\theta\right]dr+r\left[n\cos\theta-m\sin\theta\right]d\theta=0$$
+                                $$\frac{dr}{r}+\frac{n(\theta)\cos\theta-m(\theta)\sin\theta}{m(\theta)\cos\theta+n(\theta)\sin\theta}\,d\theta=0$$
+                                <p>İkinci terimin katsayısı yalnız $\theta$'ya bağlıdır &rarr; <strong>ayrılabilir</strong>. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">26. &nbsp;Alıştırma 25'teki kutupsal yöntemle: &nbsp;(a) Alıştırma 8'i, &nbsp;(b) Alıştırma 9'u çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kısaltma: $c=\cos\theta$, &nbsp; $s=\sin\theta$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(a)</strong> $(x+y)dx-x\,dy=0$ &rarr; $m=c+s$, &nbsp; $n=-c$</p>
+                                <p>Payda: $mc+ns=c^{2}+sc-cs=c^{2}$</p>
+                                <p>Pay: $nc-ms=-c^{2}-sc-s^{2}=-1-sc$</p>
+                                $$\frac{dr}{r}=\frac{1+\sin\theta\cos\theta}{\cos^{2}\theta}\,d\theta=\left(\sec^{2}\theta+\tan\theta\right)d\theta$$
+                                <p>$\ln r=\tan\theta-\ln|\cos\theta|+c_{1}$</p>
+                                <p>$\ln|r\cos\theta|=\tan\theta+c_{1}$; &nbsp; $r\cos\theta=x$ ve $\tan\theta=\dfrac{y}{x}$:</p>
+                                <p><strong>Çözüm:</strong> $\ln|x|=\dfrac{y}{x}+c$ &nbsp;&mdash; Alıştırma 8 ile aynı. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $(2xy+3y^{2})dx-(2xy+x^{2})dy=0$ &rarr; $m=2cs+3s^{2}$, &nbsp; $n=-(2cs+c^{2})$</p>
+                                <p>Payda: $mc+ns=2c^{2}s+3s^{2}c-2cs^{2}-c^{2}s=cs(c+s)$</p>
+                                <p>Pay: $nc-ms=-\left(c^{3}+2c^{2}s+2cs^{2}+3s^{3}\right)$</p>
+                                $$\frac{dr}{r}=\frac{c^{3}+2c^{2}s+2cs^{2}+3s^{3}}{cs(c+s)}\,d\theta$$
+                                <p>Sağ taraf üç basit parçaya ayrılır:</p>
+                                $$\frac{dr}{r}=\left[\cot\theta+\frac{\cos\theta-\sin\theta}{\cos\theta+\sin\theta}+3\tan\theta\right]d\theta$$
+                                <p>$\ln r=\ln|\sin\theta|+\ln|\cos\theta+\sin\theta|-3\ln|\cos\theta|+c_{1}$</p>
+                                <p>$r\cos^{3}\theta=c\,\sin\theta\left(\cos\theta+\sin\theta\right)$; &nbsp; iki tarafı $r^{2}$ ile çarpalım:</p>
+                                <p>$\left(r\cos\theta\right)^{3}=c\left(r\sin\theta\right)\left(r\cos\theta+r\sin\theta\right)$</p>
+                                <p><strong>Çözüm:</strong> $x^{3}=c\,y(x+y)$ &nbsp;&mdash; Alıştırma 9 ile aynı. &check;</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">27. &nbsp;$M\,dx+N\,dy=0$ &nbsp;(A) homojen olsun. &nbsp;(a) (A)'nın $x=k\xi$, $y=k\eta$ &nbsp;(B) dönüşümü altında değişmez kaldığını, &nbsp;(b) genel çözümün $x=c\,\phi(y/x)$ &nbsp;(C) formunda yazılabileceğini, &nbsp;(c) (C)'nin de (B) altında değişmez kaldığını gösterip &nbsp;(d) sonucu geometrik olarak yorumlayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a)</strong> $M,N$ $n$. dereceden homojen; $x=k\xi$, $y=k\eta$ &rarr; $dx=k\,d\xi$, $dy=k\,d\eta$:</p>
+                                <p>$M(k\xi,k\eta)=k^{n}M(\xi,\eta)$, &nbsp; $N(k\xi,k\eta)=k^{n}N(\xi,\eta)$</p>
+                                $$k^{n}M(\xi,\eta)\,k\,d\xi+k^{n}N(\xi,\eta)\,k\,d\eta=0$$
+                                <p>$k^{n+1}\ne 0$ ile bölünürse:</p>
+                                $$M(\xi,\eta)\,d\xi+N(\xi,\eta)\,d\eta=0$$
+                                <p>Bu, (A) ile <u>tıpatıp aynı</u> denklemdir &rarr; <strong>değişmezdir</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(b)</strong> $y=vx$ dönüşümü (A)'yı ayrılabilir yapar:</p>
+                                $$\frac{dx}{x}=-\frac{M(1,v)\,dv}{vM(1,v)+N(1,v)}$$
+                                <p>Sağ tarafın bir ilkeli $G(v)$ olsun: &nbsp; $\ln|x|=G(v)+\ln|c|$</p>
+                                <p>$x=c\,e^{G(v)}$; &nbsp; $\phi(v)=e^{G(v)}$ dersek $v=\dfrac{y}{x}$ ile</p>
+                                $$x=c\,\phi\!\left(\frac{y}{x}\right)$$
+                                <p>elde edilir. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(c)</strong> (C)'de $x=k\xi$, $y=k\eta$ koyalım. Kritik nokta: oran değişmez, çünkü $k$ sadeleşir:</p>
+                                $$\frac{y}{x}=\frac{k\eta}{k\xi}=\frac{\eta}{\xi}$$
+                                <p>$k\xi=c\,\phi\!\left(\dfrac{\eta}{\xi}\right) \implies \xi=\dfrac{c}{k}\,\phi\!\left(\dfrac{\eta}{\xi}\right)$</p>
+                                <p>$c'=\dfrac{c}{k}$ de keyfi bir sabit olduğundan bu, (C) ile aynı formdur &rarr; <strong>çözüm ailesi değişmezdir</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>(d) Geometrik yorum:</strong> $(x,y)\mapsto(kx,ky)$ dönüşümü, orijin merkezli bir <em>homoteti</em> (ölçekleme) dir.</p>
+                                <p>(a) şıkkı: eğim alanı orijinden çıkan her ışın boyunca sabittir &mdash; $\dfrac{dy}{dx}$ yalnız $\dfrac{y}{x}$'e bağlıdır.</p>
+                                <p>(c) şıkkı: bir çözüm eğrisini orijine göre $k$ katı büyütürsek yine <u>aynı ailenin</u> bir çözüm eğrisini elde ederiz. Yani homojen denklemin integral eğrileri, orijin merkezli ölçeklemeyle birbirine dönüşen tek bir eğri ailesidir.</p>
                             </div>
                         </div>
                     </div>

@@ -7,38 +7,265 @@ menu: 2.5 Alıştırmalar
                             <span class="badge">Sorular</span>
                             Bölüm 2.5 Egzersizleri <em>(kitapta Exercises 2.4)</em>
                         </div>
-                        
+
+                        <div class="highlight">
+                            <p><strong>Yol haritası.</strong> $1-4$: tam olmayan denklemi tam yapan integral çarpanı aranır. Ölçüt:</p>
+                            <p>$\dfrac{M_{y}-N_{x}}{N}$ yalnız $x$'e bağlıysa &rarr; $\mu(x)=e^{\int\frac{M_{y}-N_{x}}{N}dx}$</p>
+                            <p>$\dfrac{N_{x}-M_{y}}{M}$ yalnız $y$'ye bağlıysa &rarr; $\mu(y)=e^{\int\frac{N_{x}-M_{y}}{M}dy}$</p>
+                            <p>$5-6$: $\mu=x^{p}y^{q}$ denenir, tamlık şartından $p$ ve $q$ çözülür.</p>
+                            <p>$7-14$: $(a_{1}x+b_{1}y+c_{1})dx+(a_{2}x+b_{2}y+c_{2})dy=0$ tipi. $a_{1}b_{2}-a_{2}b_{1}\ne 0$ ise iki doğru <strong>kesişir</strong>; kesişim noktasına öteleme yapılır ve denklem homojenleşir. Determinant $0$ ise doğrular <strong>paraleldir</strong>; $z=a_{1}x+b_{1}y$ dönüşümü denklemi ayrılabilir yapar.</p>
+                        </div>
+
+                        <p style="margin-bottom: 1rem;"><strong>1&ndash;4:</strong> Bir integral çarpanı bularak çözünüz.</p>
+
                         <div class="question-block">
-                            <p class="question-text">1-4 arasındaki diferansiyel denklemleri öncelikle bir integral çarpanı bularak çözünüz:</p>
-                            <ol>
-                                <li>$(5xy+4y^{2}+1)dx+(x^{2}+2xy)dy=0$</li>
-                                <li>$(2x+\tan y)dx+(x-x^{2}\tan y)dy=0$</li>
-                                <li>$[y^{2}(x+1)+y]dx+(2xy+1)dy=0$</li>
-                                <li>$(2xy^{2}+y)dx+(2y^{3}-x)dy=0$</li>
-                            </ol>
-                            <p class="question-text">5 ve 6 numaralı sorularda $x^{p}y^{q}$ formunda bir integral çarpanı bularak çözünüz:</p>
-                            <ol start="5">
-                                <li>$(4xy^{2}+6y)dx+(5x^{2}y+8x)dy=0$</li>
-                                <li>$(8x^{2}y^{3}-2y^{4})dx+(5x^{3}y^{2}-8xy^{3})dy=0$</li>
-                            </ol>
-                            <p class="question-text">7-10 arasındaki diferansiyel denklemleri uygun bir dönüşüm yaparak çözünüz:</p>
-                            <ol start="7">
-                                <li>$(5x+2y+1)dx+(2x+y+1)dy=0$</li>
-                                <li>$(3x-y+1)dx-(6x-2y-3)dy=0$</li>
-                                <li>$(x-2y-3)dx+(2x+y-1)dy=0$</li>
-                                <li>$(10x-4y+12)dx-(x+5y+3)dy=0$</li>
-                            </ol>
-                            <p class="question-text">11-14 arasındaki başlangıç değer problemlerini <em>(initial-value problems)</em> çözünüz:</p>
-                            <ol start="11">
-                                <li>$(6x+4y+1)dx+(4x+2y+2)dy=0, \quad y(1/2)=3$</li>
-                                <li>$(3x-y-6)dx+(x+y+2)dy=0, \quad y(2)=-2$</li>
-                                <li>$(2x+3y+1)dx+(4x+6y+1)dy=0, \quad y(-2)=2$</li>
-                                <li>$(4x+3y+1)dx+(x+y+1)dy=0, \quad y(3)=-4$</li>
-                            </ol>
-                            
+                            <p class="question-text">1. &nbsp; $(5xy+4y^{2}+1)dx+(x^{2}+2xy)dy=0$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
-                                <p><strong>Çözüm Yönergeleri:</strong> Öğrenci pratiği için ayrılmıştır. İlk dört soruda THEoREM 2.6'yı test edin. Dönüşüm sorularında $a_2/a_1$ oranını kontrol ederek THEoREM 2.7'deki ilgili durumu uygulayın.</p>
+                                <p>$M_{y}=5x+8y$, &nbsp; $N_{x}=2x+2y$ &rarr; tam değil.</p>
+                                <p>$\dfrac{M_{y}-N_{x}}{N}=\dfrac{3x+6y}{x^{2}+2xy}=\dfrac{3(x+2y)}{x(x+2y)}=\dfrac{3}{x}$ &nbsp;&mdash; yalnız $x$'e bağlı.</p>
+                                <p>$\mu=e^{\int 3/x\,dx}=x^{3}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left(5x^{4}y+4x^{3}y^{2}+x^{3}\right)dx+\left(x^{5}+2x^{4}y\right)dy=0$</p>
+                                <p>$F=x^{5}y+x^{4}y^{2}+\dfrac{x^{4}}{4}+\phi(y)$</p>
+                                <p>$F_{y}=x^{5}+2x^{4}y \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $4x^{5}y+4x^{4}y^{2}+x^{4}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">2. &nbsp; $(2x+\tan y)dx+(x-x^{2}\tan y)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M_{y}=\sec^{2}y$, &nbsp; $N_{x}=1-2x\tan y$ &rarr; tam değil.</p>
+                                <p>$N_{x}-M_{y}=1-2x\tan y-\sec^{2}y$; &nbsp; $\sec^{2}y=1+\tan^{2}y$ konursa:</p>
+                                <p>$=-2x\tan y-\tan^{2}y=-\tan y\left(2x+\tan y\right)$</p>
+                                <p>$\dfrac{N_{x}-M_{y}}{M}=\dfrac{-\tan y\,(2x+\tan y)}{2x+\tan y}=-\tan y$ &nbsp;&mdash; yalnız $y$'ye bağlı.</p>
+                                <p>$\mu=e^{-\int\tan y\,dy}=e^{\ln|\cos y|}=\cos y$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left(2x\cos y+\sin y\right)dx+\left(x\cos y-x^{2}\sin y\right)dy=0$</p>
+                                <p>$F=x^{2}\cos y+x\sin y+\phi(y)$</p>
+                                <p>$F_{y}=-x^{2}\sin y+x\cos y \implies \phi'=0$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}\cos y+x\sin y=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">3. &nbsp; $\left[y^{2}(x+1)+y\right]dx+(2xy+1)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M=xy^{2}+y^{2}+y$, &nbsp; $N=2xy+1$</p>
+                                <p>$M_{y}=2xy+2y+1$, &nbsp; $N_{x}=2y$ &rarr; tam değil.</p>
+                                <p>$\dfrac{M_{y}-N_{x}}{N}=\dfrac{2xy+1}{2xy+1}=1$ &nbsp;&mdash; sabit, yani $x$'e bağlı sayılır.</p>
+                                <p>$\mu=e^{\int 1\,dx}=e^{x}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Bu kez $N$'den başlamak kısa: $F=\displaystyle\int e^{x}(2xy+1)\,\partial y=e^{x}\left(xy^{2}+y\right)+\psi(x)$</p>
+                                <p>$F_{x}=e^{x}\left(xy^{2}+y\right)+e^{x}y^{2}=e^{x}\left(xy^{2}+y^{2}+y\right)=\mu M$ &check; &rarr; $\psi'=0$</p>
+                                <p><strong>Çözüm:</strong> $e^{x}\left(xy^{2}+y\right)=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">4. &nbsp; $(2xy^{2}+y)dx+(2y^{3}-x)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$M_{y}=4xy+1$, &nbsp; $N_{x}=-1$ &rarr; tam değil.</p>
+                                <p>$\dfrac{N_{x}-M_{y}}{M}=\dfrac{-4xy-2}{y(2xy+1)}=\dfrac{-2(2xy+1)}{y(2xy+1)}=-\dfrac{2}{y}$</p>
+                                <p>$\mu=e^{-\int 2/y\,dy}=y^{-2}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left(2x+\dfrac{1}{y}\right)dx+\left(2y-\dfrac{x}{y^{2}}\right)dy=0$</p>
+                                <p>$F=x^{2}+\dfrac{x}{y}+\phi(y)$</p>
+                                <p>$F_{y}=-\dfrac{x}{y^{2}}+\phi'=2y-\dfrac{x}{y^{2}} \implies \phi=y^{2}$</p>
+                                <p><strong>Çözüm:</strong> $x^{2}+\dfrac{x}{y}+y^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>5&ndash;6:</strong> $x^{p}y^{q}$ formunda bir integral çarpanı bularak çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">5. &nbsp; $(4xy^{2}+6y)dx+(5x^{2}y+8x)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mu=x^{p}y^{q}$ ile çarpalım:</p>
+                                <p>$\mu M=4x^{p+1}y^{q+2}+6x^{p}y^{q+1}$, &nbsp; $\mu N=5x^{p+2}y^{q+1}+8x^{p+1}y^{q}$</p>
+                                <p>$\left(\mu M\right)_{y}=4(q+2)x^{p+1}y^{q+1}+6(q+1)x^{p}y^{q}$</p>
+                                <p>$\left(\mu N\right)_{x}=5(p+2)x^{p+1}y^{q+1}+8(p+1)x^{p}y^{q}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Benzer terimlerin katsayıları eşit olmalı:</p>
+                                <p>$4(q+2)=5(p+2) \implies 4q=5p+2$</p>
+                                <p>$6(q+1)=8(p+1) \implies 3q=4p+1$</p>
+                                <p>İkinciden $q=\dfrac{4p+1}{3}$; birinciye koyarsak $16p+4=15p+6 \implies p=2$, &nbsp; $q=3$.</p>
+                                <p>$\mu=x^{2}y^{3}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left(4x^{3}y^{5}+6x^{2}y^{4}\right)dx+\left(5x^{4}y^{4}+8x^{3}y^{3}\right)dy=0$</p>
+                                <p>$F=x^{4}y^{5}+2x^{3}y^{4}+\phi(y)$; &nbsp; $F_{y}=5x^{4}y^{4}+8x^{3}y^{3}$ &check;</p>
+                                <p><strong>Çözüm:</strong> $x^{4}y^{5}+2x^{3}y^{4}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">6. &nbsp; $(8x^{2}y^{3}-2y^{4})dx+(5x^{3}y^{2}-8xy^{3})dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\left(\mu M\right)_{y}=8(q+3)x^{p+2}y^{q+2}-2(q+4)x^{p}y^{q+3}$</p>
+                                <p>$\left(\mu N\right)_{x}=5(p+3)x^{p+2}y^{q+2}-8(p+1)x^{p}y^{q+3}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$2(q+4)=8(p+1) \implies q=4p$</p>
+                                <p>$8(q+3)=5(p+3) \implies 8q+24=5p+15$</p>
+                                <p>$q=4p$ konursa $32p+24=5p+15 \implies 27p=-9 \implies p=-\dfrac{1}{3}$, &nbsp; $q=-\dfrac{4}{3}$.</p>
+                                <p>$\mu=x^{-1/3}y^{-4/3}$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$\left(8x^{5/3}y^{5/3}-2x^{-1/3}y^{8/3}\right)dx+\left(5x^{8/3}y^{2/3}-8x^{2/3}y^{5/3}\right)dy=0$</p>
+                                <p>$F=3x^{8/3}y^{5/3}-3x^{2/3}y^{8/3}+\phi(y)$; &nbsp; $F_{y}=5x^{8/3}y^{2/3}-8x^{2/3}y^{5/3}$ &check;</p>
+                                <p><strong>Çözüm:</strong> $x^{2/3}y^{5/3}\left(x^{2}-y\right)=c$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>7&ndash;10:</strong> Uygun bir dönüşüm yaparak çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">7. &nbsp; $(5x+2y+1)dx+(2x+y+1)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\begin{vmatrix}5&2\\2&1\end{vmatrix}=5-4=1\ne 0$ &rarr; doğrular kesişir.</p>
+                                <p>$5x+2y+1=0$ ve $2x+y+1=0$ &rarr; $x=1$, $y=-3$.</p>
+                                <p>$X=x-1$, &nbsp; $Y=y+3$ ötelemesiyle sabit terimler yok olur:</p>
+                                <p>$(5X+2Y)dX+(2X+Y)dY=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>Burada $b_{1}=2=a_{2}$ olduğundan denklem <strong>tamdır</strong> (Alıştırma 2.2/21a):</p>
+                                <p>$F=\dfrac{5X^{2}}{2}+2XY+\dfrac{Y^{2}}{2}$</p>
+                                <p><strong>Çözüm:</strong> $5(x-1)^{2}+4(x-1)(y+3)+(y+3)^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">8. &nbsp; $(3x-y+1)dx-(6x-2y-3)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\begin{vmatrix}3&-1\\-6&2\end{vmatrix}=6-6=0$ &rarr; doğrular <strong>paraleldir</strong>.</p>
+                                <p>$z=3x-y$ diyelim: &nbsp; $dy=3\,dx-dz$ &nbsp;ve&nbsp; $6x-2y-3=2z-3$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$(z+1)dx-(2z-3)(3\,dx-dz)=0$</p>
+                                <p>$\left[z+1-6z+9\right]dx+(2z-3)dz=0$</p>
+                                <p>$5(2-z)dx+(2z-3)dz=0$</p>
+                                $$dx=\frac{2z-3}{5(z-2)}\,dz$$
+                                <p>$\dfrac{2z-3}{z-2}=2+\dfrac{1}{z-2}$ olduğundan:</p>
+                                <p>$5x=2z+\ln|z-2|+c$</p>
+                                <p>$z=3x-y$ konup sadeleştirilirse $5x=6x-2y+\ln|3x-y-2|+c$:</p>
+                                <p><strong>Çözüm:</strong> $2y-x-\ln|3x-y-2|=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">9. &nbsp; $(x-2y-3)dx+(2x+y-1)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\begin{vmatrix}1&-2\\2&1\end{vmatrix}=1+4=5\ne 0$ &rarr; kesişirler: $x=1$, $y=-1$.</p>
+                                <p>$X=x-1$, &nbsp; $Y=y+1$: &nbsp; $(X-2Y)dX+(2X+Y)dY=0$ &rarr; homojen.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$Y=vX$: &nbsp; $(1-2v)dX+(2+v)(v\,dX+X\,dv)=0$</p>
+                                <p>$\left(1-2v+2v+v^{2}\right)dX+X(2+v)dv=0$</p>
+                                $$\frac{dX}{X}+\frac{v+2}{v^{2}+1}\,dv=0$$
+                                <p>$\ln|X|+\dfrac{1}{2}\ln\left(v^{2}+1\right)+2\arctan v=c$</p>
+                                <p>İlk iki terim birleşir: $\ln|X|+\dfrac{1}{2}\ln\dfrac{X^{2}+Y^{2}}{X^{2}}=\dfrac{1}{2}\ln\left(X^{2}+Y^{2}\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $\ln\left[(x-1)^{2}+(y+1)^{2}\right]+4\arctan\!\left(\dfrac{y+1}{x-1}\right)=c$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">10. &nbsp; $(10x-4y+12)dx-(x+5y+3)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$10x-4y+12=0$ ve $x+5y+3=0$ &rarr; $x=-\dfrac{4}{3}$, &nbsp; $y=-\dfrac{1}{3}$.</p>
+                                <p>$X=x+\dfrac{4}{3}$, &nbsp; $Y=y+\dfrac{1}{3}$: &nbsp; $(10X-4Y)dX-(X+5Y)dY=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$Y=vX$: &nbsp; $\left(10-4v-v-5v^{2}\right)dX=X(1+5v)dv$</p>
+                                <p>$5\left(2-v-v^{2}\right)dX=X(1+5v)dv$ &nbsp;ve&nbsp; $2-v-v^{2}=-(v+2)(v-1)$</p>
+                                $$\frac{dX}{X}=-\frac{1}{5}\left[\frac{3}{v+2}+\frac{2}{v-1}\right]dv$$
+                                <p>$5\ln|X|+3\ln|v+2|+2\ln|v-1|=c_{1}$</p>
+                                <p>$X^{5}(v+2)^{3}(v-1)^{2}=c$; &nbsp; $X^{5}\cdot\dfrac{(Y+2X)^{3}}{X^{3}}\cdot\dfrac{(Y-X)^{2}}{X^{2}}=(Y+2X)^{3}(Y-X)^{2}$</p>
+                                <p>$Y+2X=2x+y+3$, &nbsp; $Y-X=y-x-1$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Çözüm:</strong> $(2x+y+3)^{3}(y-x-1)^{2}=c$</p>
+                            </div>
+                        </div>
+
+                        <p style="margin: 1.5rem 0 1rem;"><strong>11&ndash;14:</strong> Başlangıç değer problemlerini çözünüz.</p>
+
+                        <div class="question-block">
+                            <p class="question-text">11. &nbsp; $(6x+4y+1)dx+(4x+2y+2)dy=0$, &nbsp; $y\!\left(\frac{1}{2}\right)=3$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Dönüşüme gerek yok &mdash; önce tamlığı kontrol edelim:</p>
+                                <p>$M_{y}=4$, &nbsp; $N_{x}=4$ &rarr; <strong>tamdır</strong>. &check;</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$F=3x^{2}+4xy+x+\phi(y)$</p>
+                                <p>$F_{y}=4x+\phi'=4x+2y+2 \implies \phi=y^{2}+2y$</p>
+                                <p>$3x^{2}+4xy+y^{2}+x+2y=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=\dfrac{1}{2}$, $y=3$:</p>
+                                <p>$\dfrac{3}{4}+6+9+\dfrac{1}{2}+6=\dfrac{89}{4}$</p>
+                                <p><strong>Çözüm:</strong> $12x^{2}+16xy+4y^{2}+4x+8y=89$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">12. &nbsp; $(3x-y-6)dx+(x+y+2)dy=0$, &nbsp; $y(2)=-2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\begin{vmatrix}3&-1\\1&1\end{vmatrix}=4\ne 0$ &rarr; kesişim: $x=1$, $y=-3$.</p>
+                                <p>$X=x-1$, &nbsp; $Y=y+3$: &nbsp; $(3X-Y)dX+(X+Y)dY=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$Y=vX$: &nbsp; $\left(3-v+v+v^{2}\right)dX+X(1+v)dv=0$</p>
+                                $$\frac{dX}{X}+\frac{v+1}{v^{2}+3}\,dv=0$$
+                                <p>$\ln|X|+\dfrac{1}{2}\ln\left(v^{2}+3\right)+\dfrac{1}{\sqrt{3}}\arctan\dfrac{v}{\sqrt{3}}=c$</p>
+                                <p>İlk iki terim: $\dfrac{1}{2}\ln\left(3X^{2}+Y^{2}\right)$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=2,\;y=-2$ &rarr; $X=1$, $Y=1$</p>
+                                <p>$\dfrac{1}{2}\ln 4+\dfrac{1}{\sqrt{3}}\arctan\dfrac{1}{\sqrt{3}}=\ln 2+\dfrac{\pi}{6\sqrt{3}}$</p>
+                                <p><strong>Çözüm:</strong></p>
+                                $$\frac{1}{2}\ln\!\left[3(x-1)^{2}+(y+3)^{2}\right]+\frac{1}{\sqrt{3}}\arctan\frac{y+3}{\sqrt{3}\,(x-1)}=\ln 2+\frac{\pi}{6\sqrt{3}}$$
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">13. &nbsp; $(2x+3y+1)dx+(4x+6y+1)dy=0$, &nbsp; $y(-2)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\dfrac{4}{2}=\dfrac{6}{3}=2$ &rarr; doğrular <strong>paraleldir</strong>.</p>
+                                <p>$z=2x+3y$ &rarr; $dy=\dfrac{dz-2\,dx}{3}$ &nbsp;ve&nbsp; $4x+6y+1=2z+1$.</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$3(z+1)dx+(2z+1)(dz-2\,dx)=0$</p>
+                                <p>$\left[3z+3-4z-2\right]dx+(2z+1)dz=0 \implies (1-z)dx+(2z+1)dz=0$</p>
+                                $$dx=\frac{2z+1}{z-1}\,dz=\left(2+\frac{3}{z-1}\right)dz$$
+                                <p>$x=2z+3\ln|z-1|+c_{1}$; &nbsp; $z=2x+3y$ konup $-3$'e bölünürse:</p>
+                                <p>$x+2y+\ln|2x+3y-1|=c$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=-2,\;y=2$ &rarr; $2x+3y-1=1$, &nbsp; $\ln 1=0$</p>
+                                <p>$c=-2+4=2$</p>
+                                <p><strong>Çözüm:</strong> $x+2y+\ln|2x+3y-1|=2$</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">14. &nbsp; $(4x+3y+1)dx+(x+y+1)dy=0$, &nbsp; $y(3)=-4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\begin{vmatrix}4&3\\1&1\end{vmatrix}=1\ne 0$ &rarr; kesişim: $x=2$, $y=-3$.</p>
+                                <p>$X=x-2$, &nbsp; $Y=y+3$: &nbsp; $(4X+3Y)dX+(X+Y)dY=0$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p>$Y=vX$: &nbsp; $\left(4+3v+v+v^{2}\right)dX+X(1+v)dv=0$</p>
+                                <p>$v^{2}+4v+4=(v+2)^{2}$ &nbsp;&mdash; tam kare:</p>
+                                $$\frac{dX}{X}=-\frac{v+1}{(v+2)^{2}}\,dv$$
+                                <p>$\dfrac{v+1}{(v+2)^{2}}=\dfrac{1}{v+2}-\dfrac{1}{(v+2)^{2}}$ olduğundan:</p>
+                                <p>$\ln|X|=-\ln|v+2|-\dfrac{1}{v+2}+c$</p>
+                                <p>$\ln\left|X(v+2)\right|+\dfrac{1}{v+2}=c$; &nbsp; $X(v+2)=Y+2X$ ve $\dfrac{1}{v+2}=\dfrac{X}{Y+2X}$</p>
+                                <p>$Y+2X=2x+y-1$, &nbsp; $X=x-2$</p>
+                                <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed #d4d0e8;">
+                                <p><strong>Başlangıç şartı:</strong> $x=3,\;y=-4$ &rarr; $2x+y-1=1$, &nbsp; $x-2=1$</p>
+                                <p>$\ln 1+1=1 \implies c=1$</p>
+                                <p><strong>Çözüm:</strong> $\ln|2x+y-1|+\dfrac{x-2}{2x+y-1}=1$</p>
                             </div>
                         </div>
                     </div>

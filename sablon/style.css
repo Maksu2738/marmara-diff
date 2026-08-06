@@ -435,6 +435,24 @@ footer {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+    /* Sayfa yatayda kaymasın — yakınlaştırınca sağa sola kayma buradan
+       geliyordu. Tablolar (.tablo-sar) ve $$...$$ (.katex-display) kendi
+       içlerinde kaydığı için bu kural onları etkilemez. */
+    html, body { overflow-x: hidden; }
+
+    /* İçerikteki iki sütunlu ızgaralar dar ekranda alt alta insin.
+       Eski .html parçalarında satır içi stille yazılmış durumdalar. */
+    .section div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Uzun başlıklar satır atlasın — flex öğesinin min-width: auto
+       değeri başlığı küçültmeyip sağa taşmaya yol açıyordu. */
+    .section-title {
+        flex-wrap: wrap;
+        min-width: 0;
+    }
+
     .hamburger { display: flex; align-items: center; justify-content: center; }
 
     .sidebar {

@@ -5,3 +5,10 @@ sidebar_baslik: Ders Notları
 sidebar_altbaslik: Diferansiyel Denklemler
 footer: Ders Çalışma Şablonu &mdash; İnteraktif Öğrenme
 cikti: index.html
+
+# Ziyaret istatistikleri (istege bagli).
+# cloud.umami.is'te ucretsiz hesap acip siteyi ekleyince verilen
+# "Website ID"yi asagiya yaz, sonra build.py'yi calistir. Bos birakilirsa
+# hicbir takip kodu uretilmez ve hicbir veri toplanmaz.
+# Kendi Umami sunucunu kuruyorsan: umami_sunucu: https://ornek.com
+umami_id:

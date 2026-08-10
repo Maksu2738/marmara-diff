@@ -26,6 +26,7 @@ CIKTI = os.path.join(KOK, 'docs')
 
 GIRINTI = ' ' * 20          # govde parcalarinin girintisi
 ROZETLER = {'konu': 'Konu', 'ornek': 'Örnek', 'sorular': 'Sorular', 'odev': 'Ödev'}
+UMAMI_SUNUCU = 'https://cloud.umami.is'
 
 
 # ---------------------------------------------------------------- yardimcilar
@@ -366,10 +367,36 @@ def kimlik_denetimi(bolumler):
     return sorunlar
 
 
+def varlik_kopyala(ad):
+    kaynak = os.path.join(SABLON, ad)
+    if os.path.exists(kaynak):
+        shutil.copy2(kaynak, os.path.join(CIKTI, ad))
+
+
+def analitik_uret(ayar):
+    """
+    ders.txt icinde 'umami_id' doluysa ziyaret istatistigi script'lerini
+    uretir. Ayar bos ya da yoksa bos string doner -> sayfaya hicbir sey
+    eklenmez, hicbir veri toplanmaz.
+    """
+    site_id = ayar.get('umami_id', '').strip()
+    if not site_id:
+        return ''
+    sunucu = ayar.get('umami_sunucu', UMAMI_SUNUCU).strip().rstrip('/')
+    return ('    <!-- Ziyaret istatistikleri (Umami — cerezsiz, anonim) -->\n'
+            '    <script defer src="%s/script.js" data-website-id="%s"></script>\n'
+            '    <script defer src="analitik.js"></script>'
+            % (sunucu, site_id))
+
+
 def derle(ders):
     ders_yolu = os.path.join(ICERIK, ders)
     ayar = ayar_oku(os.path.join(ders_yolu, 'ders.txt'))
     bolumler = bolumleri_topla(ders_yolu)
+
+    analitik = analitik_uret(ayar)
+    if analitik:
+        varlik_kopyala('analitik.js')
 
     kabuk = dosya_oku(os.path.join(SABLON, 'kabuk.html'))
     sayfa = (kabuk
@@ -381,7 +408,7 @@ def derle(ders):
              .replace('<!--SIDEBAR-->', sidebar_uret(bolumler))
              .replace('<!--ICERIK-->', icerik_uret(bolumler))
              .replace('<!--EXTRA_CSS-->', '')
-             .replace('<!--EXTRA_JS-->', ''))
+             .replace('<!--EXTRA_JS-->', analitik))
 
     # <title>
     sayfa = re.sub(r'<title>.*?</title>',
@@ -399,6 +426,9 @@ def derle(ders):
           % (ders, len(bolumler), parca_sayisi, md_sayisi,
              os.path.basename(hedef), os.path.getsize(hedef) // 1024))
 
+    if analitik:
+        print('  %-22s ziyaret istatistikleri acik (Umami)' % '')
+
     for sorun in kimlik_denetimi(bolumler):
         print('  !! tekrar eden id: %s' % sorun)
 
@@ -409,9 +439,7 @@ def main():
 
     os.makedirs(CIKTI, exist_ok=True)
     for varlik in ('style.css', 'app.js'):
-        kaynak = os.path.join(SABLON, varlik)
-        if os.path.exists(kaynak):
-            shutil.copy2(kaynak, os.path.join(CIKTI, varlik))
+        varlik_kopyala(varlik)
 
     print('Derleniyor...')
     dersler = [a for a in sorted(os.listdir(ICERIK))

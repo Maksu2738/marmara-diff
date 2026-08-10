@@ -36,6 +36,17 @@ docs/                        ÜRETİLEN site — elle düzenleme
 Mevcut bir bölümü değiştirmek gerekirse sadece o parça dosyasını aç; tüm siteyi
 değil.
 
+## Ziyaret istatistikleri
+
+`icerik/diferansiyel/ders.txt` içindeki `umami_id:` satırı doludur ise build,
+sayfaya Umami takip kodunu ve `sablon/analitik.js`'i ekler. Satır boşsa hiçbir
+script üretilmez ve hiçbir veri toplanmaz — çıktı birebir aynı kalır.
+
+Site tek sayfa olduğu için `analitik.js` okunan bölümü ayrı bir sayfa
+görüntülemesi olarak gönderir (`#bolum-5-1` → `/bolum-5-1`) ve kullanıcı
+etkinken dakikada bir "okuma" olayı yollar; ziyaret süresi buradan çıkar.
+Çerez yok, kimlik yok — veriler anonim ve topludur.
+
 ## Markdown formatı
 
 Her dosya bir kimlik bloğuyla başlar:

@@ -2,8 +2,24 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0e0c14" media="(prefers-color-scheme: dark)">
     <title>Ders Çalışma Şablonu</title>
+
+    <!-- Tema, ilk boyamadan önce uygulanır — açılışta beyaz parlama olmasın -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                var dark = t === 'dark' || (!t && window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (dark) document.documentElement.classList.add('pre-dark');
+            } catch (e) {}
+        })();
+    </script>
+    <style>html.pre-dark { background: #0d0c13; }</style>
 
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -23,13 +39,11 @@
 </head>
 <body>
 
-    <!-- Hamburger (mobil) -->
-    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menü">&#9776;</button>
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <div class="sidebar-overlay"></div>
 
     <div class="layout">
 
-        <nav class="sidebar">
+        <nav class="sidebar" aria-label="Bölümler">
             <div class="sidebar-header">
                 <h2><!--SIDEBAR_BASLIK--></h2>
                 <p><!--SIDEBAR_ALTBASLIK--></p>
@@ -41,16 +55,20 @@
         </nav>
 
         <div class="main-wrapper">
-            <header>
-                <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; width: 100%;">
-                    <div style="text-align: left;">
-                        <h1><!--BASLIK--></h1>
-                        <p><!--ALTBASLIK--></p>
-                    </div>
-                    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Gece Modu">
+
+            <div class="topbar">
+                <div class="topbar-inner">
+                    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menü" aria-expanded="false">&#9776;</button>
+                    <span class="topbar-title"><!--BASLIK--></span>
+                    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Gece modunu aç/kapat">
                         <span id="theme-icon">🌙</span> <span id="theme-text">Gece Modu</span>
                     </button>
                 </div>
+            </div>
+
+            <header class="hero">
+                <h1><!--BASLIK--></h1>
+                <p><!--ALTBASLIK--></p>
             </header>
 
             <main>

@@ -192,6 +192,17 @@ def bloklari_cevir(satirlar, girinti):
         while i < n and satirlar[i].strip() and not _blok_basi(satirlar[i].strip()):
             parca.append(satirlar[i].strip())
             i += 1
+
+        if not parca:
+            # Buraya dusen satir bir blok basi ama yukaridaki kurallarin
+            # hicbiri onu yakalamadi: kapatilmamis [CEVAP], basibos [/KUTU],
+            # '### ' olmayan bir '#' satiri gibi. Satiri atlamazsak i hic
+            # artmaz ve derleme sonsuz donguye girer.
+            sys.stderr.write('  UYARI: beklenmedik blok satiri atlandi -> ' + cip[:60] + chr(10))
+            ekle('<p>%s</p>' % satir_ici(cip))
+            i += 1
+            continue
+
         ekle('<p>%s</p>' % satir_ici(' '.join(parca)))
 
     return cikti

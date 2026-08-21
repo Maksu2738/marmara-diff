@@ -198,6 +198,24 @@
                         </ul>
                     </li>
 
+                    <!-- ===== BÖLÜM 89 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">V</span>
+                            <span class="chapter-name">Vize — Çıkmış Sorular ve Çözümleri</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#vize">Giriş</a></li>
+                            <li><a href="#vize-1">Soru 1 &mdash; Tam Denklem</a></li>
+                            <li><a href="#vize-2">Soru 2 &mdash; İntegral Çarpanı</a></li>
+                            <li><a href="#vize-3">Soru 3 &mdash; Bernoulli Denklemi</a></li>
+                            <li><a href="#vize-4">Soru 4 &mdash; Mertebe Düşürme &amp; Wronskian</a></li>
+                            <li><a href="#vize-5">Soru 5 &mdash; Belirsiz Katsayılar</a></li>
+                            <li><a href="#vize-analiz">★ Vize Analizi &mdash; Finale Bakış</a></li>
+                        </ul>
+                    </li>
+
                     <!-- ===== BÖLÜM 90 ===== -->
                     <li>
                         <button class="chapter-toggle" onclick="toggleChapter(this)">
@@ -210,6 +228,8 @@
                             <li><a href="#odev-2">Ödev 2 &mdash; Ayrılabilir Denklem (BDP)</a></li>
                             <li><a href="#odev-3">Ödev 3 &mdash; Homojen Dönüşüm</a></li>
                             <li><a href="#odev-4">Ödev 4 &mdash; Bernoulli Denklemi</a></li>
+                            <li><a href="#odev-5">Ödev 5 &mdash; Laplace Dönüşümü ile BDP</a></li>
+                            <li><a href="#odev-6">Ödev 6 &mdash; Kuvvet Serisi Yöntemi</a></li>
                         </ul>
                     </li>
 
@@ -7918,6 +7938,319 @@
 
 
                     <!-- ######################################################## -->
+                    <!-- BÖLÜM 89 — Vize — Çıkmış Sorular ve Çözümleri -->
+                    <!-- ######################################################## -->
+
+                    <div id="vize" class="section chapter-head">
+                        <div class="section-title">
+                            VİZE: 2026 Ara Sınavı — Sorular ve Çözümleri
+                        </div>
+                        <p>06.08.2026 tarihli ara sınavın <strong>beş sorusu</strong>, hocanın kendi çözüm yolu izlenerek adım adım çözülmüştür. Her sorunun altında ilgili konu anlatımına giden bağlantı vardır.</p>
+                        <div class="highlight">
+                            <p><strong>Neden burada?</strong> Vize soruları derste işlenen ve ödev olarak verilen soru tipleriyle neredeyse birebir örtüşüyordu — hatta 3. soru <a href="#odev-4">Ödev 4</a>'ün aynısıdır. Finalde de aynı davranışı beklemek makuldür: sorular kitaptaki örnek ve alıştırma kalıplarından çıkacaktır. Bu yüzden bu bölümü "çözülmüş sınav" olarak değil, <span class="vurgu">soru tipi haritası</span> olarak kullan.</p>
+                        </div>
+                        <p style="margin-bottom: 0;">Soruların hangi konuya karşılık geldiğini ve finalde ne beklemek gerektiğini <a href="#vize-analiz">Vize Analizi</a> kısmında topluca bulabilirsin.</p>
+                    </div>
+
+                    <div id="vize-1" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Vize 1</span>
+                            Tam Diferansiyel Denklem ve Başlangıç Koşulu
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-1-b">2.1/B Tam Diferansiyel Denklemler</a> &bull; <a href="#bolum-2-1-c">2.1/C Tam Denklemlerin Çözümü</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki diferansiyel denklemi ele alınız: $\displaystyle (Axy-3)\,dx+\left(x^{2}+4y\right)dy=0,\qquad y(1)=2$ <br><strong>(a)</strong> $A$'nın hangi değeri için denklem <span class="vurgu">tam</span> olur? <br><strong>(b)</strong> Bu $A$ değeri için denklemi çözerek <span class="vurgu">kapalı (implicit)</span> çözümü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a) Tamlık koşulu.</strong></p>
+                                <p>Denklemi $M(x,y)\,dx+N(x,y)\,dy=0$ biçiminde okuyalım:</p>
+                                $$M=Axy-3,\qquad N=x^{2}+4y$$
+                                <p>Tamlık koşulu $\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x}$'tir. Kısmi türevleri alalım:</p>
+                                $$\frac{\partial M}{\partial y}=Ax,\qquad \frac{\partial N}{\partial x}=2x$$
+                                <p>Eşitleyelim:</p>
+                                $$Ax=2x\ \Longrightarrow\ \boxed{A=2}$$
+                                <p><strong>(b) $A=2$ için çözüm.</strong></p>
+                                <p>Denklem şu hâle gelir:</p>
+                                $$(2xy-3)\,dx+\left(x^{2}+4y\right)dy=0$$
+                                <p>Denklem tam olduğuna göre $\dfrac{\partial F}{\partial x}=M$ ve $\dfrac{\partial F}{\partial y}=N$ olacak biçimde bir $F(x,y)$ potansiyel fonksiyonu vardır.</p>
+                                <p><strong>Adım 1 —</strong> $M$'yi $x$'e göre integre et ($y$ sabit tutulur):</p>
+                                $$F=\int(2xy-3)\,dx=x^{2}y-3x+\phi(y)$$
+                                <p>Sabit yerine $\phi(y)$ yazdık; çünkü $y$'ye bağlı her şey $x$'e göre türevde kaybolur.</p>
+                                <p><strong>Adım 2 —</strong> Bulduğumuz $F$'in $y$'ye göre türevini $N$ ile eşleştir:</p>
+                                $$\frac{\partial F}{\partial y}=x^{2}+\phi'(y)\ \overset{!}{=}\ x^{2}+4y$$
+                                $$\phi'(y)=4y\ \Longrightarrow\ \phi(y)=2y^{2}$$
+                                <p><strong>Adım 3 —</strong> Genel çözüm $F(x,y)=C$:</p>
+                                $$x^{2}y-3x+2y^{2}=C$$
+                                <p><strong>Adım 4 — Başlangıç koşulunu uygula.</strong> $y(1)=2$, yani $x=1$ iken $y=2$:</p>
+                                $$1^{2}\cdot 2-3\cdot 1+2\cdot 2^{2}=2-3+8=7=C$$
+                                <p>Aranan kapalı çözüm:</p>
+                                $$\boxed{\,x^{2}y-3x+2y^{2}-7=0\,}$$
+                                <hr>
+                                <p><strong>Doğrulama.</strong> $F=x^{2}y-3x+2y^{2}-7$ için $F_{x}=2xy-3=M$ ✓ ve $F_{y}=x^{2}+4y=N$ ✓. Ayrıca $(x,y)=(1,2)$ noktası denklemi sağlıyor: $2-3+8-7=0$ ✓.</p>
+                                <div class="highlight">
+                                    <p><strong>Sınav notu.</strong> Bu soru tipi iki adımı birden yokluyor: önce parametreyi tamlık koşulundan bulmak, sonra tam denklemi çözmek. $\phi(y)$'yi unutup düz integral almak en sık yapılan hatadır. Ayrıca cevabın <span class="vurgu">kapalı</span> biçimde istendiğine dikkat et — $y$'yi yalnız bırakmaya çalışmak gerekmiyor (burada zaten ikinci dereceden bir denklem çözmek gerekirdi).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vize-2" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Vize 2</span>
+                            İntegral Çarpanı Bularak Çözme
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-1-d">2.1/D İntegral Çarpanları</a> &bull; <a href="#bolum-2-4-a">2.5/A İntegral Çarpanlarını Bulma</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki diferansiyel denklemi <span class="vurgu">önce integral çarpanını bularak</span> çözünüz: $\displaystyle \left(5xy+4y^{2}+1\right)dx+\left(x^{2}+2xy\right)dy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklem tam mı?</strong></p>
+                                $$M=5xy+4y^{2}+1,\qquad N=x^{2}+2xy$$
+                                $$\frac{\partial M}{\partial y}=5x+8y,\qquad \frac{\partial N}{\partial x}=2x+2y$$
+                                <p>$5x+8y\neq 2x+2y$ olduğundan denklem <span class="vurgu">tam değildir</span>. Bir integral çarpanı aramamız gerekir.</p>
+                                <p><strong>Adım 2 — Çarpan yalnız $x$'e mi bağlı?</strong></p>
+                                <p>Şu ifadeyi hesaplayalım:</p>
+                                $$\frac{1}{N}\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)$$
+                                <p>Pay:</p>
+                                $$\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}=(5x+8y)-(2x+2y)=3x+6y=3(x+2y)$$
+                                <p>Payda:</p>
+                                $$N=x^{2}+2xy=x(x+2y)$$
+                                <p>Bölelim; $(x+2y)$ çarpanı sadeleşir:</p>
+                                $$\frac{1}{N}\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)=\frac{3(x+2y)}{x(x+2y)}=\frac{3}{x}$$
+                                <p>Sonuç <span class="vurgu">yalnız $x$'in fonksiyonu</span> çıktı; demek ki $\mu=\mu(x)$ biçiminde bir integral çarpanı vardır.</p>
+                                <div class="highlight">
+                                    <p><strong>Karar kuralı.</strong> $\dfrac{1}{N}\left(M_{y}-N_{x}\right)$ sadece $x$'e bağlıysa &rarr; $\mu(x)=\exp\!\left(\displaystyle\int \frac{M_{y}-N_{x}}{N}\,dx\right)$. Sadece $y$'ye bağlıysa &rarr; $\mu(y)=\exp\!\left(\displaystyle\int \frac{N_{x}-M_{y}}{M}\,dy\right)$ — <span class="vurgu">işaretin ters döndüğüne dikkat</span>. Sınavda önce birinciyi dene, sadeleşme olmazsa ikincisine geç.</p>
+                                </div>
+                                <p><strong>Adım 3 — İntegral çarpanını hesapla.</strong></p>
+                                $$\mu(x)=\exp\left(\int\frac{3}{x}\,dx\right)=e^{3\ln x}=e^{\ln x^{3}}=x^{3}$$
+                                <p><strong>Adım 4 — Denklemi $\mu$ ile çarp.</strong></p>
+                                $$x^{3}\left(5xy+4y^{2}+1\right)dx+x^{3}\left(x^{2}+2xy\right)dy=0$$
+                                $$\underbrace{\left(5x^{4}y+4x^{3}y^{2}+x^{3}\right)}_{M^{*}}dx+\underbrace{\left(x^{5}+2x^{4}y\right)}_{N^{*}}dy=0$$
+                                <p>Tamlığı kontrol edelim:</p>
+                                $$\frac{\partial M^{*}}{\partial y}=5x^{4}+8x^{3}y,\qquad \frac{\partial N^{*}}{\partial x}=5x^{4}+8x^{3}y\quad\checkmark$$
+                                <p>Artık tam.</p>
+                                <p><strong>Adım 5 — Potansiyel fonksiyonu bul.</strong></p>
+                                $$F=\int\left(5x^{4}y+4x^{3}y^{2}+x^{3}\right)dx=x^{5}y+x^{4}y^{2}+\frac{x^{4}}{4}+\phi(y)$$
+                                <p>$y$'ye göre türev alıp $N^{*}$ ile eşleştirelim:</p>
+                                $$\frac{\partial F}{\partial y}=x^{5}+2x^{4}y+\phi'(y)\ \overset{!}{=}\ x^{5}+2x^{4}y$$
+                                $$\phi'(y)=0\ \Longrightarrow\ \phi(y)=\text{sabit}$$
+                                <p><strong>Adım 6 — Genel çözüm.</strong></p>
+                                $$\boxed{\,x^{5}y+x^{4}y^{2}+\frac{x^{4}}{4}=C\,}$$
+                                <hr>
+                                <p><strong>Doğrulama.</strong> $F=x^{5}y+x^{4}y^{2}+\frac{x^{4}}{4}$ için</p>
+                                $$F_{x}=5x^{4}y+4x^{3}y^{2}+x^{3}=M^{*}\ \checkmark,\qquad F_{y}=x^{5}+2x^{4}y=N^{*}\ \checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Sınav notu.</strong> Kritik adım 2. adımdaki sadeleşmedir: $3x+6y$ ile $x^{2}+2xy$ ifadelerinin <span class="vurgu">ortak çarpanını görmek</span> ($x+2y$). Görmezsen ifade $x$'e bağlı görünmez ve yanlış yola sapılır. Böyle sorularda payı ve paydayı her zaman çarpanlara ayırmayı dene.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vize-3" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Vize 3</span>
+                            Bernoulli Diferansiyel Denklemi
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-2-3-b">2.3/B Bernoulli Denklemleri</a> &bull; Birebir aynısı: <a href="#odev-4">Ödev 4</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki Bernoulli diferansiyel denklemini çözünüz: $\displaystyle \frac{dy}{dx}+\frac{2}{x}\,y=x^{2}y^{3}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Kalıba otur.</strong></p>
+                                <p>Bernoulli denkleminin genel biçimi</p>
+                                $$y'+P(x)\,y=Q(x)\,y^{n}$$
+                                <p>Bizim denklemde</p>
+                                $$P(x)=\frac{2}{x},\qquad Q(x)=x^{2},\qquad n=3$$
+                                <p><strong>Adım 2 — Dönüşümü seç.</strong></p>
+                                $$v=y^{1-n}=y^{1-3}=y^{-2}$$
+                                <p>Türevini alalım:</p>
+                                $$v'=-2y^{-3}y'\ \Longrightarrow\ y'=-\frac{y^{3}}{2}\,v'$$
+                                <p><strong>Adım 3 — Denkleme yerleştir.</strong></p>
+                                $$-\frac{y^{3}}{2}v'+\frac{2}{x}y=x^{2}y^{3}$$
+                                <p>Her iki tarafı $-\dfrac{2}{y^{3}}$ ile çarpalım:</p>
+                                $$v'-\frac{4}{x}\cdot\underbrace{y^{-2}}_{=\,v}=-2x^{2}$$
+                                $$v'-\frac{4}{x}\,v=-2x^{2}$$
+                                <p>Bu artık <span class="vurgu">birinci mertebeden doğrusal</span> bir denklemdir.</p>
+                                <p><strong>Adım 4 — İntegral çarpanı.</strong></p>
+                                <p>$P(x)=-\dfrac{4}{x}$ olduğundan</p>
+                                $$\mu=e^{\int P\,dx}=e^{-4\ln x}=e^{\ln x^{-4}}=\frac{1}{x^{4}}$$
+                                <p>Denklemi $\mu$ ile çarpalım:</p>
+                                $$\frac{1}{x^{4}}v'-\frac{4}{x^{5}}v=-\frac{2}{x^{2}}$$
+                                <p>Sol taraf tam bir türevdir:</p>
+                                $$\frac{d}{dx}\left[\frac{v}{x^{4}}\right]=-\frac{2}{x^{2}}$$
+                                <p><strong>Adım 5 — İntegre et.</strong></p>
+                                $$\frac{v}{x^{4}}=\int-\frac{2}{x^{2}}\,dx=\frac{2}{x}+C$$
+                                $$v=x^{4}\left(\frac{2}{x}+C\right)=2x^{3}+Cx^{4}$$
+                                <p><strong>Adım 6 — $y$'ye dön.</strong> $v=y^{-2}$ olduğundan</p>
+                                $$\boxed{\,y^{-2}=x^{4}\left(\frac{2}{x}+C\right)=2x^{3}+Cx^{4}\,}$$
+                                <p>İstenirse açık biçimde:</p>
+                                $$y=\pm\frac{1}{\sqrt{x^{3}(2+Cx)}}$$
+                                <hr>
+                                <p><strong>Doğrulama.</strong> $v=2x^{3}+Cx^{4}$ için $v'=6x^{2}+4Cx^{3}$. 3. adımdaki doğrusal denklemde yerine koyalım:</p>
+                                $$v'-\frac{4}{x}v=\left(6x^{2}+4Cx^{3}\right)-\frac{4\left(2x^{3}+Cx^{4}\right)}{x}=6x^{2}+4Cx^{3}-8x^{2}-4Cx^{3}=-2x^{2}\quad\checkmark$$
+                                <p><strong>Kaybedilen çözüm.</strong> 3. adımda $y^{3}$'e bölündüğü için $y\equiv 0$ dışarıda kaldı. $y\equiv 0$ başlangıçtaki denklemi sağlar ve hiçbir $C$ değeriyle elde edilemez; <span class="vurgu">tekil çözümdür</span>.</p>
+                                <div class="highlight">
+                                    <p><strong>Sınav notu.</strong> Bu soru <a href="#odev-4">Ödev 4</a> ile <span class="vurgu">birebir aynıdır</span>. Vizede ödevden aynen soru çıktığına göre finalde de ödevleri ve kitap alıştırmalarını çalışmak en yüksek getirili strateji.</p>
+                                    <p>Kritik ayrıntı: $v'+(1-n)P\,v=(1-n)Q$ formülünde $(1-n)$ çarpanı <span class="vurgu">işaret değiştirir</span>. Burada $1-n=-2$ olduğu için $\frac{2}{x}\to-\frac{4}{x}$ ve $x^{2}\to-2x^{2}$ oldu. En sık hata bu işareti kaçırmaktır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vize-4" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Vize 4</span>
+                            Mertebe Düşürme ile İkinci Çözüm ve Wronskian
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-4-1-c">3.1/C Mertebe Düşürme</a> &bull; <a href="#bolum-4-1-a">3.1/A Tanım ve Temel Varlık THEoREM'i</a></p>
+                        <div class="question-block">
+                            <p class="question-text">$y=x$'in $\displaystyle \left(x^{2}-1\right)y''-2xy'+2y=0$ denkleminin bir çözümü olduğu veriliyor. <br><strong>(a)</strong> <span class="vurgu">Mertebe düşürme</span> yöntemiyle doğrusal bağımsız ikinci çözümü bulunuz ve genel çözümü yazınız. <br><strong>(b)</strong> Bu iki çözümün doğrusal bağımsız olduğunu <span class="vurgu">Wronskian</span> hesaplayarak doğrulayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a) Mertebe düşürme.</strong></p>
+                                <p>$y_{1}=x$ bilindiğine göre ikinci çözümü</p>
+                                $$y_{2}=x\,v(x)$$
+                                <p>biçiminde arıyoruz. Türevleri alalım:</p>
+                                $$y_{2}'=v+xv'$$
+                                $$y_{2}''=v'+v'+xv''=2v'+xv''$$
+                                <p><strong>Adım 1 — Denkleme yerleştir.</strong></p>
+                                $$\left(x^{2}-1\right)\left(xv''+2v'\right)-2x\left(xv'+v\right)+2xv=0$$
+                                <p>Açalım:</p>
+                                $$x\left(x^{2}-1\right)v''+2\left(x^{2}-1\right)v'-2x^{2}v'-2xv+2xv=0$$
+                                <p>$v$'li terimler birbirini götürür ($-2xv+2xv=0$) — mertebe düşürmenin çalıştığının işaretidir. $v'$ katsayısını toplayalım:</p>
+                                $$2\left(x^{2}-1\right)-2x^{2}=2x^{2}-2-2x^{2}=-2$$
+                                <p>Geriye kalan:</p>
+                                $$x\left(x^{2}-1\right)v''-2v'=0$$
+                                <p><strong>Adım 2 — Mertebeyi düşür.</strong> $w=v'$ diyelim; denklem birinci mertebeden olur:</p>
+                                $$x\left(x^{2}-1\right)w'-2w=0\ \Longrightarrow\ \frac{w'}{w}=\frac{2}{x\left(x^{2}-1\right)}$$
+                                <p><strong>Adım 3 — Sağ tarafı basit kesirlere ayır.</strong></p>
+                                $$\frac{2}{x\left(x^{2}-1\right)}=-\frac{2}{x}+\frac{2x}{x^{2}-1}$$
+                                <p style="margin-bottom:0.6rem;">(Kontrol: $-\dfrac{2}{x}+\dfrac{2x}{x^{2}-1}=\dfrac{-2\left(x^{2}-1\right)+2x^{2}}{x\left(x^{2}-1\right)}=\dfrac{2}{x\left(x^{2}-1\right)}$ ✓)</p>
+                                <p><strong>Adım 4 — İntegre et.</strong></p>
+                                $$\ln w=-2\ln x+\ln\left(x^{2}-1\right)+\ln C=\ln\left(C\,\frac{x^{2}-1}{x^{2}}\right)$$
+                                $$w=C\,\frac{x^{2}-1}{x^{2}}=v'$$
+                                <p><strong>Adım 5 — Bir kez daha integre et.</strong> $C=1$ seçelim (herhangi bir sabit işimizi görür):</p>
+                                $$\frac{dv}{dx}=\frac{x^{2}-1}{x^{2}}=1-\frac{1}{x^{2}}$$
+                                $$v=x+\frac{1}{x}+c$$
+                                <p><strong>Adım 6 — İkinci çözüm.</strong></p>
+                                $$y_{2}=x\,v=x\left(x+\frac{1}{x}+c\right)=x^{2}+1+cx$$
+                                <p>$cx$ terimi zaten $y_{1}=x$'in katıdır; bağımsız yeni çözüm olarak</p>
+                                $$\boxed{\,y_{2}=x^{2}+1\,}$$
+                                <p>alınır. <strong>Genel çözüm:</strong></p>
+                                $$\boxed{\,y=c_{1}x+c_{2}\left(x^{2}+1\right)\,}$$
+                                <p><strong>(b) Wronskian.</strong></p>
+                                $$W\left(y_{1},y_{2}\right)=\begin{vmatrix} y_{1} & y_{2} \\[2pt] y_{1}' & y_{2}'\end{vmatrix}=\begin{vmatrix} x & x^{2}+1 \\[2pt] 1 & 2x\end{vmatrix}$$
+                                $$W=x\cdot 2x-1\cdot\left(x^{2}+1\right)=2x^{2}-x^{2}-1=x^{2}-1$$
+                                $$\boxed{\,W=x^{2}-1\neq 0\quad (x\neq\pm 1)\,}$$
+                                <p>$W\neq 0$ olduğundan $y_{1}=x$ ve $y_{2}=x^{2}+1$ çözümleri <span class="vurgu">doğrusal bağımsızdır</span>.</p>
+                                <hr>
+                                <p><strong>Doğrulama.</strong> $y_{2}=x^{2}+1$ gerçekten denklemi sağlıyor mu? $y_{2}'=2x$, $y_{2}''=2$:</p>
+                                $$\left(x^{2}-1\right)(2)-2x(2x)+2\left(x^{2}+1\right)=2x^{2}-2-4x^{2}+2x^{2}+2=0\quad\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Sınav notu.</strong> Wronskian'ın $x=\pm 1$'de sıfır olması tesadüf değil: denklemi standart biçime getirdiğimizde baş katsayı $x^{2}-1$ paydaya iner, yani $x=\pm 1$ <span class="vurgu">tekil noktalardır</span>. Abel THEoREM'i de aynı sonucu verir: $W=\exp\left(-\int\frac{-2x}{x^{2}-1}dx\right)=x^{2}-1$. Bağımsızlık, tekil noktaları içermeyen bir aralıkta ($-1<x<1$ ya da $x>1$) geçerlidir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vize-5" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Vize 5</span>
+                            Belirsiz Katsayılar Yöntemi
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#bolum-4-3">3.3 Belirsiz Katsayılar Yöntemi</a> &bull; <a href="#bolum-4-2">3.2 Sabit Katsayılı Homojen Denklem</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki diferansiyel denklemi <span class="vurgu">belirsiz katsayılar yöntemiyle</span> çözünüz: $\displaystyle y''-3y'-4y=6e^{2x}+8x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Tümleyen (homojen) çözümü bul.</strong></p>
+                                <p>Önce $y''-3y'-4y=0$ denklemini çözelim. $y=e^{mx}$ denersek $y'=me^{mx}$, $y''=m^{2}e^{mx}$ olur:</p>
+                                $$m^{2}e^{mx}-3me^{mx}-4e^{mx}=0$$
+                                <p>$e^{mx}\neq 0$ olduğundan karakteristik denklem:</p>
+                                $$m^{2}-3m-4=0\ \Longrightarrow\ (m-4)(m+1)=0\ \Longrightarrow\ m_{1}=4,\quad m_{2}=-1$$
+                                <p>Kökler farklı ve reel; tümleyen çözüm:</p>
+                                $$y_{c}=c_{1}e^{4x}+c_{2}e^{-x}$$
+                                <p><strong>Adım 2 — Özel çözüm için deneme fonksiyonunu kur.</strong></p>
+                                <p>Sağ taraf iki parçadan oluşuyor; her birinin ürettiği fonksiyon kümesine bakalım:</p>
+                                $$6e^{2x}\ \longrightarrow\ S_{1}=\left\{e^{2x}\right\},\qquad 8x\ \longrightarrow\ S_{2}=\left\{x,\,1\right\}$$
+                                <div class="highlight">
+                                    <p><strong>Çakışma kontrolü.</strong> Deneme kümesindeki hiçbir terim $y_{c}$'de görünmüyor ($e^{4x}$ ve $e^{-x}$ var, $e^{2x}$ yok; polinom terimi de yok). Bu yüzden <span class="vurgu">$x$ ile çarpma düzeltmesi gerekmez</span>. Eğer sağ tarafta örneğin $e^{4x}$ olsaydı, deneme fonksiyonunu $Axe^{4x}$ yapmak zorunda kalırdık.</p>
+                                </div>
+                                <p>Deneme çözümü:</p>
+                                $$y_{p}=Ae^{2x}+Bx+C$$
+                                $$y_{p}'=2Ae^{2x}+B,\qquad y_{p}''=4Ae^{2x}$$
+                                <p><strong>Adım 3 — Denkleme yerleştir.</strong></p>
+                                $$4Ae^{2x}-3\left(2Ae^{2x}+B\right)-4\left(Ae^{2x}+Bx+C\right)=6e^{2x}+8x$$
+                                <p>Benzer terimleri toplayalım:</p>
+                                $$\left(4A-6A-4A\right)e^{2x}-4Bx+\left(-3B-4C\right)=6e^{2x}+8x$$
+                                $$-6Ae^{2x}-4Bx+\left(-3B-4C\right)=6e^{2x}+8x+0$$
+                                <p><strong>Adım 4 — Katsayıları eşleştir.</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$e^{2x}$: &nbsp; $-6A=6\ \Rightarrow\ \boxed{A=-1}$</li>
+                                    <li>$x$: &nbsp; $-4B=8\ \Rightarrow\ \boxed{B=-2}$</li>
+                                    <li>sabit: &nbsp; $-3B-4C=0\ \Rightarrow\ -3(-2)-4C=0\ \Rightarrow\ 6=4C\ \Rightarrow\ \boxed{C=\dfrac{3}{2}}$</li>
+                                </ul>
+                                <p>Özel çözüm:</p>
+                                $$y_{p}=-e^{2x}-2x+\frac{3}{2}$$
+                                <p><strong>Adım 5 — Genel çözüm.</strong></p>
+                                $$\boxed{\,y=c_{1}e^{4x}+c_{2}e^{-x}-e^{2x}-2x+\frac{3}{2}\,}$$
+                                <hr>
+                                <p><strong>Doğrulama.</strong> $y_{p}=-e^{2x}-2x+\frac{3}{2}$ için $y_{p}'=-2e^{2x}-2$ ve $y_{p}''=-4e^{2x}$. Denklemde yerine koyalım:</p>
+                                $$-4e^{2x}-3\left(-2e^{2x}-2\right)-4\left(-e^{2x}-2x+\tfrac{3}{2}\right)$$
+                                $$=-4e^{2x}+6e^{2x}+6+4e^{2x}+8x-6=6e^{2x}+8x\quad\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Sınav notu.</strong> Sağ tarafta <span class="vurgu">iki farklı tip</span> toplandığında ($e^{2x}$ ve $8x$) her tip için ayrı deneme terimi yazılır ve hepsi tek bir $y_{p}$'de toplanır. $8x$ için yalnız $Bx$ yazmak yetmez — polinomun <span class="vurgu">tam derecesi</span> alınmalı, yani $Bx+C$. Sabit terimi unutmak, sınavda bu soruda en çok puan kaybettiren hatadır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="vize-analiz" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Analiz</span>
+                            ★ &nbsp;Vize Analizi ve Finale Dönük Çıkarımlar
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Sorular hangi konudan geldi?</h3>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th>Soru</th><th>Konu</th><th>Yöntem</th><th>Sitedeki yeri</th></tr>
+                        <tr><td>1</td><td>Tam denklemler</td><td>Tamlık koşulundan parametre + potansiyel fonksiyon</td><td><a href="#bolum-2-1-c">2.1/C</a></td></tr>
+                        <tr><td>2</td><td>İntegral çarpanı</td><td>$\frac{1}{N}(M_y-N_x)$ testi, $\mu(x)$</td><td><a href="#bolum-2-1-d">2.1/D</a></td></tr>
+                        <tr><td>3</td><td>Bernoulli</td><td>$v=y^{1-n}$ dönüşümü</td><td><a href="#bolum-2-3-b">2.3/B</a></td></tr>
+                        <tr><td>4</td><td>Mertebe düşürme</td><td>$y_2=y_1v$ + Wronskian</td><td><a href="#bolum-4-1-c">3.1/C</a></td></tr>
+                        <tr><td>5</td><td>Belirsiz katsayılar</td><td>Karakteristik denklem + deneme fonksiyonu</td><td><a href="#bolum-4-3">3.3</a></td></tr>
+                        </table>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çıkan üç desen</h3>
+                        <p><strong>1. Sorular ödev ve kitap alıştırmalarının aynısı ya da çok yakını.</strong></p>
+                        <ol>
+                            <li>soru <a href="#odev-4">Ödev 4</a> ile <span class="vurgu">birebir aynıdır</span> — sayılar bile değişmemiş. Diğerleri de kitaptaki çözümlü örneklerin kalıbını izliyor. Bu, hazırlıkta en yüksek getirili işin <span class="vurgu">ödevleri ve kitap alıştırmalarını çözmek</span> olduğunu söylüyor; yeni tip soru avına çıkmaya gerek yok.</li>
+                        </ol>
+                        <p><strong>2. Her soru tek bir yöntemi yokluyor, ama yöntemi eksiksiz istiyor.</strong> Hiçbir soruda "hangi yöntemi kullanacağını sen bul" denmemiş; yöntem soruda yazıyor (<em>"integral çarpanını bularak"</em>, <em>"mertebe düşürme ile"</em>, <em>"belirsiz katsayılar yöntemiyle"</em>). Buna karşılık ara adımlar isteniyor. Yani <span class="vurgu">yöntemi tanımak değil, uygulamayı sonuna kadar götürmek</span> puan getiriyor.</p>
+                        <p><strong>3. İki soruda ek bir istek var.</strong></p>
+                        <ol>
+                            <li>soruda parametre ($A$) belirleme, 4. soruda Wronskian doğrulaması. Ana çözümü bitirip bu küçük ek adımı atlamak kolay puan kaybı.</li>
+                        </ol>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Finale dönük tahmin</h3>
+                        <p>Vize Bölüm 2 ve Bölüm 3'ün ilk yarısını kapsadı. Final için <span class="vurgu">vizeden sonra işlenen konular</span> ağırlıklı olacaktır:</p>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th>Konu</th><th>Beklenen soru tipi</th><th>Durum</th></tr>
+                        <tr><td><a href="#bolum-4-5">3.4 Cauchy-Euler</a></td><td>$x^{m}$ denenerek karakteristik denklem; üç kök durumu</td><td>sitede hazır</td></tr>
+                        <tr><td><a href="#bolum-4-4">3.5 Parametrelerin Değişimi</a></td><td>Belirsiz katsayıların işlemediği sağ taraf ($\tan x$, $\ln x$, $1/x$ gibi)</td><td>sitede hazır</td></tr>
+                        <tr><td><a href="#laplace">4. Laplace Dönüşümü</a></td><td>Başlangıç değer problemi — bkz. <a href="#odev-5">Ödev 5</a></td><td>konu bekleniyor</td></tr>
+                        <tr><td><a href="#seri">5. Kuvvet Serisi</a></td><td>Rekürans bağıntısı + ilk birkaç terim — bkz. <a href="#odev-6">Ödev 6</a></td><td>konu bekleniyor</td></tr>
+                        <tr><td><a href="#ozel-dd">6. Özel Denklemler</a></td><td>Muhtemelen sorulmaz; sorulursa tanıma düzeyinde</td><td>konu bekleniyor</td></tr>
+                        </table>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>En güçlü sinyal.</strong> Vizede ödevden aynen soru çıktı. Final için verilen <a href="#odev-5">Ödev 5</a> (Laplace ile BDP) ve <a href="#odev-6">Ödev 6</a> (kuvvet serisi rekürans) bu yüzden sıradan ödev değil, <span class="vurgu">finalin habercisi</span> sayılmalı. İkisini de sayıları değiştirerek tekrar çözebilecek düzeyde bilmek gerekir.</p>
+                        </div>
+                        <p style="margin-bottom:0;">Konu anlatımları siteye eklendikçe bu bölüme, buradaki tiplere uygun ==çözümlü deneme soruları== eklenecek.</p>
+                    </div>
+
+
+                    <!-- ######################################################## -->
                     <!-- BÖLÜM 90 — Ödevler -->
                     <!-- ######################################################## -->
 
@@ -8081,6 +8414,160 @@
                                 $$v'-\frac{4}{x}v=\left(6x^{2}+4cx^{3}\right)-\frac{4\left(2x^{3}+cx^{4}\right)}{x}=6x^{2}+4cx^{3}-8x^{2}-4cx^{3}=-2x^{2}$$
                                 <p>Sağ tarafla birebir aynı; çözüm doğrudur.</p>
                                 <p><strong>Kaybedilen çözüm.</strong> 3. adımda $y^{3}$'e böldük, dolayısıyla $y\equiv 0$ olasılığını dışarıda bıraktık. $y\equiv 0$ başlangıçtaki denklemi sağlar ve yukarıdaki aileden hiçbir $c$ değeriyle elde edilemez; bu nedenle <span class="vurgu">tekil çözümdür</span> ve ayrıca belirtilmelidir. Ayrıca çözümün tanımlı olması için $x^{3}(2+cx)>0$ koşulu gerekir.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="odev-5" class="section odev">
+                        <div class="section-title">
+                            <span class="badge">Ödev 5</span>
+                            Laplace Dönüşümü ile Başlangıç Değer Problemi
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#laplace-tanim">4.1 Tanım ve Temel Özellikler</a> &bull; <a href="#laplace-ters">4.2 Ters Laplace Dönüşümü</a></p>
+                        <div class="question-block">
+                            <p class="question-text">Aşağıdaki başlangıç değer problemini <span class="vurgu">Laplace dönüşümü yöntemiyle</span> çözünüz ve $y(t)$ çözümünü belirleyiniz: $\displaystyle y''+4y'+5y=10e^{-t}$, &nbsp; $y(0)=1$, &nbsp; $y'(0)=0$. Tüm ara adımları gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklemin her iki tarafının Laplace dönüşümünü al.</strong></p>
+                                <p>$\mathcal{L}\{y(t)\}=Y(s)$ diyelim. Türev özelliğinden:</p>
+                                $$\mathcal{L}\{y'\}=sY(s)-y(0)=sY-1$$
+                                $$\mathcal{L}\{y''\}=s^{2}Y(s)-s\,y(0)-y'(0)=s^{2}Y-s$$
+                                <p>Sağ taraf için $\mathcal{L}\{e^{at}\}=\dfrac{1}{s-a}$ kuralıyla:</p>
+                                $$\mathcal{L}\{10e^{-t}\}=\frac{10}{s+1}$$
+                                <p>Hepsini yerine koyarsak:</p>
+                                $$\left(s^{2}Y-s\right)+4\left(sY-1\right)+5Y=\frac{10}{s+1}$$
+                                <p><strong>Adım 2 — $Y(s)$'yi yalnız bırak.</strong></p>
+                                <p>$Y$'li terimleri toplayalım:</p>
+                                $$\left(s^{2}+4s+5\right)Y-s-4=\frac{10}{s+1}$$
+                                $$\left(s^{2}+4s+5\right)Y=\frac{10}{s+1}+s+4$$
+                                $$Y(s)=\frac{10}{(s+1)\left(s^{2}+4s+5\right)}+\frac{s+4}{s^{2}+4s+5}$$
+                                <div class="highlight">
+                                    <p><strong>Not.</strong> Başlangıç koşulları daha bu adımda denklemin içine girdi. Laplace yönteminin klasik yönteme göre en büyük üstünlüğü budur: önce genel çözümü bulup sonra $c_{1},c_{2}$ hesaplamak gerekmez, sonuç doğrudan çıkar.</p>
+                                </div>
+                                <p><strong>Adım 3 — Birinci terimi basit kesirlere ayır.</strong></p>
+                                $$\frac{10}{(s+1)\left(s^{2}+4s+5\right)}=\frac{A}{s+1}+\frac{Bs+C}{s^{2}+4s+5}$$
+                                <p>Paydaları eşitleyelim:</p>
+                                $$10=A\left(s^{2}+4s+5\right)+(Bs+C)(s+1)$$
+                                <p>$s=-1$ koyarsak ikinci terim sıfırlanır ve $s^{2}+4s+5=1-4+5=2$ olur:</p>
+                                $$10=2A\ \Longrightarrow\ A=5$$
+                                <p>$A=5$ ile sağ tarafı açalım:</p>
+                                $$10=5s^{2}+20s+25+Bs^{2}+Bs+Cs+C$$
+                                <p>Katsayıları karşılaştıralım:</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$s^{2}$: &nbsp; $5+B=0\ \Rightarrow\ B=-5$</li>
+                                    <li>$s^{1}$: &nbsp; $20+B+C=0\ \Rightarrow\ 20-5+C=0\ \Rightarrow\ C=-15$</li>
+                                    <li>$s^{0}$: &nbsp; $25+C=25-15=10$ &nbsp;✓ (tutarlı)</li>
+                                </ul>
+                                <p>Böylece</p>
+                                $$\frac{10}{(s+1)\left(s^{2}+4s+5\right)}=\frac{5}{s+1}+\frac{-5s-15}{s^{2}+4s+5}$$
+                                <p><strong>Adım 4 — İki terimi birleştir.</strong></p>
+                                $$Y(s)=\frac{5}{s+1}+\frac{-5s-15}{s^{2}+4s+5}+\frac{s+4}{s^{2}+4s+5}=\frac{5}{s+1}+\frac{-4s-11}{s^{2}+4s+5}$$
+                                <p><strong>Adım 5 — Paydayı tam kareye tamamla.</strong></p>
+                                $$s^{2}+4s+5=\left(s^{2}+4s+4\right)+1=(s+2)^{2}+1$$
+                                <p>Payı da $s+2$ cinsinden yazalım:</p>
+                                $$-4s-11=-4(s+2)+8-11=-4(s+2)-3$$
+                                <p>Buradan</p>
+                                $$Y(s)=\frac{5}{s+1}-\frac{4(s+2)}{(s+2)^{2}+1}-\frac{3}{(s+2)^{2}+1}$$
+                                <div class="highlight">
+                                    <p><strong>Neden tam kare?</strong> Ters dönüşüm tablosundaki $\dfrac{s-a}{(s-a)^{2}+b^{2}}\to e^{at}\cos bt$ ve $\dfrac{b}{(s-a)^{2}+b^{2}}\to e^{at}\sin bt$ kalıplarına oturtmak için. Buradaki $s$-öteleme (birinci kayma) özelliğidir: paydadaki $s\to s-a$ kayması, çözümde $e^{at}$ çarpanı doğurur.</p>
+                                </div>
+                                <p><strong>Adım 6 — Ters Laplace dönüşümünü uygula.</strong></p>
+                                <p>Üç terim de tablodaki standart kalıplarda; $a=-2$, $b=1$:</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{5}{s+1}\right\}=5e^{-t}$$
+                                $$\mathcal{L}^{-1}\left\{\frac{4(s+2)}{(s+2)^{2}+1}\right\}=4e^{-2t}\cos t$$
+                                $$\mathcal{L}^{-1}\left\{\frac{3}{(s+2)^{2}+1}\right\}=3e^{-2t}\sin t$$
+                                <p>Sonuç:</p>
+                                $$\boxed{\,y(t)=5e^{-t}-4e^{-2t}\cos t-3e^{-2t}\sin t\,}$$
+                                <hr>
+                                <p><strong>Doğrulama — başlangıç koşulları.</strong></p>
+                                <p>$t=0$ için:</p>
+                                $$y(0)=5-4\cdot 1-3\cdot 0=1\quad\checkmark$$
+                                <p>Türevi alalım:</p>
+                                $$y'(t)=-5e^{-t}-4\left(-2e^{-2t}\cos t-e^{-2t}\sin t\right)-3\left(-2e^{-2t}\sin t+e^{-2t}\cos t\right)$$
+                                $$y'(t)=-5e^{-t}+8e^{-2t}\cos t+4e^{-2t}\sin t+6e^{-2t}\sin t-3e^{-2t}\cos t$$
+                                $$y'(t)=-5e^{-t}+5e^{-2t}\cos t+10e^{-2t}\sin t$$
+                                <p>$t=0$ için:</p>
+                                $$y'(0)=-5+5\cdot 1+10\cdot 0=0\quad\checkmark$$
+                                <p><strong>Doğrulama — yapı.</strong> Karakteristik denklem $m^{2}+4m+5=0$ olup kökleri $m=-2\pm i$'dir; yani tümleyen çözüm $e^{-2t}\left(c_{1}\cos t+c_{2}\sin t\right)$ biçimindedir. Bulduğumuz cevabın son iki terimi tam olarak bu yapıda. Özel çözüm ise $5e^{-t}$; gerçekten de $y_{p}=Ae^{-t}$ denenirse $A-4A+5A=2A=10$, yani $A=5$ çıkar. İki yöntem aynı sonucu veriyor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="odev-6" class="section odev">
+                        <div class="section-title">
+                            <span class="badge">Ödev 6</span>
+                            Kuvvet Serisi Yöntemi ve Rekürans Bağıntısı
+                        </div>
+                        <p style="margin-bottom: 1rem;">İlgili konu: <a href="#seri-temel">5.1 Temel Kavramlar</a></p>
+                        <div class="question-block">
+                            <p class="question-text">$\displaystyle\left(1+x^{2}\right)y''+2xy'+\left(x^{2}-2\right)y=0$ denklemini ele alınız. <br>$x=0$ noktası etrafında <span class="vurgu">kuvvet serisi yöntemini</span> kullanarak $y(x)=\displaystyle\sum_{n=0}^{\infty}a_{n}x^{n}$ biçiminde bir çözüm arayınız. $a_{n}$ katsayıları için rekürans bağıntısını türetiniz ve $y(0)=1$, $y'(0)=2$ başlangıç koşullarını sağlayan çözümün <span class="vurgu">ilk beş sıfırdan farklı terimini</span> bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — $x=0$ sıradan (ordinary) nokta mı?</strong></p>
+                                <p>Denklemi standart biçime getirelim:</p>
+                                $$y''+\frac{2x}{1+x^{2}}\,y'+\frac{x^{2}-2}{1+x^{2}}\,y=0$$
+                                <p>$1+x^{2}$ çarpanı $x=0$'da $1$ değerini alır, sıfır olmaz. Dolayısıyla her iki katsayı da $x=0$ civarında analitiktir; $x=0$ <span class="vurgu">sıradan noktadır</span> ve yakınsak bir kuvvet serisi çözümü aramak meşrudur.</p>
+                                <p><strong>Adım 2 — Seriyi ve türevlerini yaz.</strong></p>
+                                $$y=\sum_{n=0}^{\infty}a_{n}x^{n},\qquad y'=\sum_{n=1}^{\infty}n\,a_{n}x^{n-1},\qquad y''=\sum_{n=2}^{\infty}n(n-1)\,a_{n}x^{n-2}$$
+                                <p><strong>Adım 3 — Her terimi denkleme koy ve $x^{m}$ kuvvetlerine göre düzenle.</strong></p>
+                                <p>Denklemi açalım: $\;y''+x^{2}y''+2xy'+x^{2}y-2y=0$. Beş toplamı tek tek $x^{m}$ formuna getirelim.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$y''=\displaystyle\sum_{n\ge 2}n(n-1)a_{n}x^{n-2}$ &nbsp;&rarr;&nbsp; $m=n-2$ dersek $\displaystyle\sum_{m\ge 0}(m+2)(m+1)a_{m+2}x^{m}$</li>
+                                    <li>$x^{2}y''=\displaystyle\sum_{n\ge 2}n(n-1)a_{n}x^{n}$ &nbsp;&rarr;&nbsp; $\displaystyle\sum_{m\ge 2}m(m-1)a_{m}x^{m}$</li>
+                                    <li>$2xy'=\displaystyle\sum_{n\ge 1}2n\,a_{n}x^{n}$ &nbsp;&rarr;&nbsp; $\displaystyle\sum_{m\ge 1}2m\,a_{m}x^{m}$</li>
+                                    <li>$x^{2}y=\displaystyle\sum_{n\ge 0}a_{n}x^{n+2}$ &nbsp;&rarr;&nbsp; $\displaystyle\sum_{m\ge 2}a_{m-2}x^{m}$</li>
+                                    <li>$-2y=\displaystyle\sum_{m\ge 0}-2a_{m}x^{m}$</li>
+                                </ul>
+                                <div class="highlight">
+                                    <p><strong>Püf noktası.</strong> Amaç bütün toplamları <em>aynı</em> $x^{m}$ üssüne taşımaktır. $y''$ terimindeki indis kaydırması ($n\to m+2$) katsayıyı $a_{m+2}$ yapar; rekürans bağıntısını doğuran da işte bu iki basamaklık sıçramadır.</p>
+                                </div>
+                                <p><strong>Adım 4 — $x^{m}$ katsayısını sıfıra eşitle ($m\ge 2$).</strong></p>
+                                $$(m+2)(m+1)a_{m+2}+m(m-1)a_{m}+2m\,a_{m}+a_{m-2}-2a_{m}=0$$
+                                <p>$a_{m}$'li terimleri toplayalım:</p>
+                                $$m(m-1)+2m-2=m^{2}-m+2m-2=m^{2}+m-2=(m+2)(m-1)$$
+                                <p>Bu sayede bağıntı çok derli toplu bir hâl alır:</p>
+                                $$(m+2)(m+1)\,a_{m+2}+(m+2)(m-1)\,a_{m}+a_{m-2}=0$$
+                                <p>Yani <span class="vurgu">rekürans bağıntısı</span>:</p>
+                                $$\boxed{\;a_{m+2}=-\,\frac{(m+2)(m-1)\,a_{m}+a_{m-2}}{(m+2)(m+1)},\qquad m\ge 2\;}$$
+                                <p><strong>Adım 5 — Düşük mertebeli katsayılar ($m=0$ ve $m=1$).</strong></p>
+                                <p>$m=0$ ve $m=1$ için $a_{m-2}$ terimi yoktur; bu iki durumu ayrıca yazalım.</p>
+                                <p>$x^{0}$ katsayısı: yalnızca $y''$ ve $-2y$ katkı verir:</p>
+                                $$2a_{2}-2a_{0}=0\ \Longrightarrow\ a_{2}=a_{0}$$
+                                <p>$x^{1}$ katsayısı: $y''$, $2xy'$ ve $-2y$ katkı verir:</p>
+                                $$6a_{3}+2a_{1}-2a_{1}=0\ \Longrightarrow\ 6a_{3}=0\ \Longrightarrow\ a_{3}=0$$
+                                <div class="highlight">
+                                    <p><strong>Not.</strong> Bu iki sonuç, Adım 4'teki genel bağıntıda $a_{m-2}$ terimi atılarak $m=0$ ve $m=1$ konularak da elde edilir: $(2)(1)a_{2}+(2)(-1)a_{0}=0$ ve $(3)(2)a_{3}+(3)(0)a_{1}=0$. Bağıntı tutarlıdır.</p>
+                                </div>
+                                <p><strong>Adım 6 — Başlangıç koşullarını uygula.</strong></p>
+                                <p>$y=\sum a_{n}x^{n}$ serisinde $x=0$ koyarsak $y(0)=a_{0}$, türevde $x=0$ koyarsak $y'(0)=a_{1}$ olur. Verilenlere göre</p>
+                                $$a_{0}=1,\qquad a_{1}=2$$
+                                <p><strong>Adım 7 — Katsayıları sırayla üret.</strong></p>
+                                $$a_{2}=a_{0}=1$$
+                                $$a_{3}=0$$
+                                <p>$m=2$ için:</p>
+                                $$(4)(3)a_{4}+(4)(1)a_{2}+a_{0}=0\ \Longrightarrow\ 12a_{4}+4(1)+1=0\ \Longrightarrow\ a_{4}=-\frac{5}{12}$$
+                                <p>$m=3$ için:</p>
+                                $$(5)(4)a_{5}+(5)(2)a_{3}+a_{1}=0\ \Longrightarrow\ 20a_{5}+10(0)+2=0\ \Longrightarrow\ a_{5}=-\frac{1}{10}$$
+                                <p>Elde edilenler:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>$n$</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                                <tr><td>$a_{n}$</td><td>$1$</td><td>$2$</td><td>$1$</td><td>$0$</td><td>$-\dfrac{5}{12}$</td><td>$-\dfrac{1}{10}$</td></tr>
+                                </table>
+                                </div>
+                                <p><strong>Adım 8 — İlk beş sıfırdan farklı terim.</strong></p>
+                                <p>$a_{3}=0$ olduğu için o terim atlanır; sıfırdan farklı ilk beş terim $n=0,1,2,4,5$ indislerinden gelir:</p>
+                                $$\boxed{\;y(x)=1+2x+x^{2}-\frac{5}{12}x^{4}-\frac{1}{10}x^{5}+\cdots\;}$$
+                                <hr>
+                                <p><strong>Doğrulama.</strong> Bulunan polinom kısmını denklemde yerine koyalım ve düşük mertebeli terimlerin gerçekten sıfırlandığını görelim. $y\approx 1+2x+x^{2}-\frac{5}{12}x^{4}-\frac{1}{10}x^{5}$ için</p>
+                                $$y'\approx 2+2x-\frac{5}{3}x^{3}-\frac{1}{2}x^{4},\qquad y''\approx 2-5x^{2}-2x^{3}$$
+                                <p>$x^{0}$ katsayısı: &nbsp; $y''$'den $2$, &nbsp; $-2y$'den $-2(1)=-2$ &nbsp;&rarr;&nbsp; toplam $0$ ✓</p>
+                                <p>$x^{1}$ katsayısı: &nbsp; $2xy'$'den $2(2)=4$, &nbsp; $-2y$'den $-2(2)=-4$ &nbsp;&rarr;&nbsp; toplam $0$ ✓</p>
+                                <p>$x^{2}$ katsayısı: &nbsp; $y''$'den $-5$, &nbsp; $x^{2}y''$'den $2$, &nbsp; $2xy'$'den $2(2)=4$, &nbsp; $x^{2}y$'den $1$, &nbsp; $-2y$'den $-2(1)=-2$ &nbsp;&rarr;&nbsp; $-5+2+4+1-2=0$ ✓</p>
+                                <p>Üç mertebede de sıfır çıkıyor; katsayılar doğru.</p>
+                                <div class="highlight">
+                                    <p><strong>Yakınsaklık yarıçapı.</strong> Standart biçimdeki katsayıların paydası $1+x^{2}$, kökleri $x=\pm i$'dir. $x=0$'a en yakın tekil noktanın uzaklığı $|\pm i|=1$ olduğundan seri en az $|x|<1$ aralığında yakınsar. Tekil nokta <span class="vurgu">karmaşık</span> olsa bile yakınsaklık yarıçapını sınırlar — sınavda sık sorulan bir ayrıntıdır.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

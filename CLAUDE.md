@@ -27,9 +27,10 @@ docs/                        ÜRETİLEN site — elle düzenleme
 
 Bölüm klasörleri numara sırasına göre dizilir. **Ders bölümleri `bolum-1`,
 `bolum-2`, ... diye devam eder; ders dışı bölümler sona sabitlenmiştir:**
-`bolum-90` = Ödevler (`numara: Ö`), `bolum-91` = Kapsam Dışı (`numara: K`).
+`bolum-89` = Vize (`numara: V`), `bolum-90` = Ödevler (`numara: Ö`),
+`bolum-91` = Kapsam Dışı (`numara: K`).
 Yeni bir ders bölümü eklerken sıradaki küçük numarayı kullan (Bölüm 4 ->
-`bolum-4`); 90/91'e dokunma.
+`bolum-4`); 89/90/91'e dokunma.
 
 ## Dış kaynak klasörü
 
@@ -99,6 +100,11 @@ Soru blokları:
 
 [SORU] 2. &nbsp; Cevapsız soru — örnek bloğu gibi görünür
 ```
+
+**Soru metni tek satır olmalı.** `[SORU]` satırı ilk boş satırda biter; araya boş
+satır koyarsan `[CEVAP]` sahipsiz kalır. Denklemi `$\displaystyle ...$` ile satır
+içine al, şıkları `<br>**(a)**` diye ayır — `$$...$$` bloğu kullanma. (Yanlış
+yazarsan `build.py` uyarı basar, artık kilitlenmez.)
 
 `[CEVAP]` bloğu bir sonraki `[SORU]` satırına kadar sürer; erken bitirmek
 gerekirse `[/CEVAP]` yazılır. Cevap içinde paragraf, liste, `$$...$$` serbestçe

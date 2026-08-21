@@ -130,7 +130,68 @@
                             <li><a href="#bolum-4-3-b">B. Yöntem</a></li>
                             <li><a href="#ornekler-4-3">3.3 Örnekler</a></li>
                             <li><a href="#alistirma-4-3">3.3 Alıştırmalar</a></li>
+                            <li><a href="#bolum-4-5">3.4 Cauchy-Euler Denklemi</a></li>
+                            <li><a href="#ornekler-4-5">3.4 Örnekler</a></li>
+                            <li><a href="#alistirma-4-5">3.4 Alıştırmalar</a></li>
                             <li><a href="#alistirma-4-tekrar">Bölüm 3 Genel Tekrar</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 4 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">4</span>
+                            <span class="chapter-name">Laplace Dönüşümü</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#laplace" class="pending">Giriş</a></li>
+                            <li><a href="#laplace-tanim" class="pending">4.1 Tanım ve Temel Özellikler</a></li>
+                            <li><a href="#laplace-ters" class="pending">4.2 Ters Laplace Dönüşümü</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 5 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">5</span>
+                            <span class="chapter-name">Kuvvet Serisi Çözümleri</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#seri" class="pending">Giriş</a></li>
+                            <li><a href="#seri-temel" class="pending">5.1 Temel Kavramlar</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 6 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">6</span>
+                            <span class="chapter-name">Özel Diferansiyel Denklemler</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#ozel-dd" class="pending">Giriş</a></li>
+                            <li><a href="#ozel-dd-airy" class="pending">6.1 Airy Denklemi</a></li>
+                            <li><a href="#ozel-dd-hermite" class="pending">6.2 Hermite Denklemi</a></li>
+                            <li><a href="#ozel-dd-bessel" class="pending">6.3 Bessel Denklemi</a></li>
+                            <li><a href="#ozel-dd-legendre" class="pending">6.4 Legendre Denklemi</a></li>
+                            <li><a href="#ozel-dd-chebyshev" class="pending">6.5 Chebyshev Denklemi</a></li>
+                            <li><a href="#ozel-dd-laguerre" class="pending">6.6 Laguerre Denklemi</a></li>
+                            <li><a href="#ozel-dd-mathieu" class="pending">6.7 Mathieu Denklemi</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ===== BÖLÜM 7 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">7</span>
+                            <span class="chapter-name">Diferansiyel Operatörler</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#operator" class="pending">Giriş</a></li>
                         </ul>
                     </li>
 
@@ -167,9 +228,6 @@
                             <li><a href="#bolum-4-4">4.4 Parametrelerin Değişimi</a></li>
                             <li><a href="#ornekler-4-4">Örnekler 4.40 &ndash; 4.42</a></li>
                             <li><a href="#alistirma-4-4">Alıştırmalar 4.4</a></li>
-                            <li><a href="#bolum-4-5">4.5 Cauchy-Euler Denklemi</a></li>
-                            <li><a href="#ornekler-4-5">Örnekler 4.43 &ndash; 4.44</a></li>
-                            <li><a href="#alistirma-4-5">Alıştırmalar 4.5</a></li>
                             <li><a href="#bolum-4-6">4.6 THEoREM'ler ve İspatları</a></li>
                             <li><a href="#alistirma-4-6">Alıştırmalar 4.6</a></li>
                         </ul>
@@ -6916,6 +6974,164 @@
 
                     <!-- ===== 4.4 KONU ===== -->
 
+                    <div id="bolum-4-5" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            3.4 &nbsp;Cauchy-Euler Denklemi
+                        </div>
+
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Denklem ve Çözüm Yöntemi</h3>
+
+                        <p>Değişken katsayılı $n$. mertebeden doğrusal denklemlerin genel çözümü kapalı formda sadece belirli özel durumlarda elde edilebilir. Bu özel durumlardan uygulamada büyük önem taşıyan biri <strong>Cauchy-Euler denklemi</strong> (veya <em>eşboyutlu denklem</em> &mdash; <em>equidimensional equation</em>) olarak adlandırılır:</p>
+                        $$a_{0}x^{n}y^{(n)}+a_{1}x^{n-1}y^{(n-1)}+\cdots+a_{n-1}xy^{\prime}+a_{n}y=F(x)$$
+                        <p>Burada $a_{0},a_{1},\ldots,a_{n}$ sabittir. Karakteristik özellik: sol taraftaki her terim $x^{k}y^{(k)}$ biçimindeki ifadelerin sabit katıdır.</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>THEoREM 4.14.</strong> $x=e^{t}$ dönüşümü, Cauchy-Euler denklemini <strong>sabit katsayılı doğrusal bir diferansiyel denkleme</strong> dönüştürür.
+                        </div>
+
+                        <p><strong>İspat (ikinci mertebeden durum).</strong> $x>0$ için $x=e^{t}\ \Leftrightarrow\ t=\ln x$ alalım. Zincir kuralıyla:</p>
+                        $$\frac{dy}{dx}=\frac{dy}{dt}\cdot\frac{dt}{dx}=\frac{1}{x}\frac{dy}{dt}\ \Longrightarrow\ x\frac{dy}{dx}=\frac{dy}{dt}$$
+
+                        <p>İkinci türev:</p>
+                        $$\frac{d^{2}y}{dx^{2}}=\frac{1}{x}\frac{d}{dx}\!\left(\frac{dy}{dt}\right)+\frac{dy}{dt}\cdot\frac{d}{dx}\!\left(\frac{1}{x}\right)=\frac{1}{x^{2}}\frac{d^{2}y}{dt^{2}}-\frac{1}{x^{2}}\frac{dy}{dt}$$
+                        <p>Yani:</p>
+                        $$x^{2}\frac{d^{2}y}{dx^{2}}=\frac{d^{2}y}{dt^{2}}-\frac{dy}{dt}$$
+                        <p>$a_{0}x^{2}y^{\prime\prime}+a_{1}xy^{\prime}+a_{2}y=F(x)$ denkleminde yerine konursa:</p>
+                        $$A_{0}\frac{d^{2}y}{dt^{2}}+A_{1}\frac{dy}{dt}+A_{2}y=G(t)$$
+                        <p>burada $A_{0}=a_{0},\ A_{1}=a_{1}-a_{0},\ A_{2}=a_{2}$ ve $G(t)=F(e^{t})$. Bu sabit katsayılı ikinci mertebeden doğrusal bir denklemdir. Genel $n$ için ispat benzer yolla ilerler. &#9632;</p>
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Önemli Notlar.</strong>
+                            <ol style="margin-left: 1.25rem;">
+                                <li>En yüksek dereceli katsayı $a_{0}x^{n}$ $x=0$'da sıfırdır; dolayısıyla <strong>Temel Varlık THEoREM'i'nin geçerli olduğu temel aralık $x=0$'ı içermez</strong>.</li>
+                                <li>İspatta $x>0$ varsayıldı; $x<0$ için doğru dönüşüm $x=-e^{t}$'dir. Aksi belirtilmedikçe $x>0$ kabul edilir.</li>
+                            </ol>
+                        </div>
+
+                        <p><strong>Genel $n$. mertebeden türev için resmi dönüşüm kuralı:</strong> $x=e^{t}$ altında $x^{n}\dfrac{d^{n}y}{dx^{n}}$'i bulmak için</p>
+                        <ol style="margin-left: 1.25rem;">
+                            <li>$r(r-1)(r-2)\cdots[r-(n-1)]$ ifadesini kur.</li>
+                            <li>Bu ifadeyi $r$'ye bağlı $n$. dereceden bir polinom olarak aç.</li>
+                            <li>Her $r^{k}\ (k=1,\ldots,n)$ terimini $\dfrac{d^{k}y}{dt^{k}}$ ile değiştir.</li>
+                            <li>Sonucu $x^{n}\dfrac{d^{n}y}{dx^{n}}$'e eşitle.</li>
+                        </ol>
+
+                        <p><strong>Örnek ($n=3$):</strong> $r(r-1)(r-2)=r^{3}-3r^{2}+2r$ &rArr;</p>
+                        $$x^{3}\frac{d^{3}y}{dx^{3}}=\frac{d^{3}y}{dt^{3}}-3\frac{d^{2}y}{dt^{2}}+2\frac{dy}{dt}$$
+
+                        <div class="highlight" style="margin: 1rem 0;">
+                            <strong>Sık kullanılan dönüşüm tablosu ($x=e^{t}$, &nbsp;$D_{t}=\tfrac{d}{dt}$):</strong>
+                            <ul style="margin-left: 1.25rem;">
+                                <li>$x\,y^{\prime}=D_{t}y$</li>
+                                <li>$x^{2}y^{\prime\prime}=D_{t}(D_{t}-1)y$</li>
+                                <li>$x^{3}y^{\prime\prime\prime}=D_{t}(D_{t}-1)(D_{t}-2)y$</li>
+                                <li>Genel olarak $x^{n}y^{(n)}=D_{t}(D_{t}-1)\cdots(D_{t}-n+1)y$</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.43 – 4.44 ===== -->
+
+                    <div id="ornekler-4-5" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            Çözümlü Örnekler 4.43 &ndash; 4.44
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.43 &mdash; İkinci Mertebe</p>
+                            <p>$x^{2}\dfrac{d^{2}y}{dx^{2}}-2x\dfrac{dy}{dx}+2y=x^{3}$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $x=e^{t},\ t=\ln x$ alalım:</p>
+                                $$x\frac{dy}{dx}=\frac{dy}{dt},\qquad x^{2}\frac{d^{2}y}{dx^{2}}=\frac{d^{2}y}{dt^{2}}-\frac{dy}{dt},\qquad x^{3}=e^{3t}$$
+                                <p>Yerine koyarsak:</p>
+                                $$\left(\tfrac{d^{2}y}{dt^{2}}-\tfrac{dy}{dt}\right)-2\tfrac{dy}{dt}+2y=e^{3t}\ \Longrightarrow\ \frac{d^{2}y}{dt^{2}}-3\frac{dy}{dt}+2y=e^{3t}$$
+                                <p><strong>Adım 2 &mdash; Tamamlayıcı fonksiyon.</strong> $m^{2}-3m+2=(m-1)(m-2)=0$ &rArr; $y_{c}=c_{1}e^{t}+c_{2}e^{2t}$.</p>
+                                <p><strong>Adım 3 &mdash; Özel integral (belirsiz katsayılar).</strong> $e^{3t}$, $y_{c}$'de olmadığından $y_{p}=Ae^{3t}$:</p>
+                                $$9Ae^{3t}-9Ae^{3t}+2Ae^{3t}=e^{3t}\ \Longrightarrow\ 2A=1\ \Longrightarrow\ A=\tfrac{1}{2}$$
+                                <p><strong>Adım 4 &mdash; $t$'de genel çözüm ve $x$'e dönüş.</strong></p>
+                                $$y=c_{1}e^{t}+c_{2}e^{2t}+\tfrac{1}{2}e^{3t}$$
+                                <p>$e^{t}=x$ olduğundan:</p>
+                                $$\boxed{\ y=c_{1}x+c_{2}x^{2}+\tfrac{1}{2}x^{3}\ }$$
+                                <p style="font-size: 0.92em; color: #718096;"><em>Alternatif yol:</em> Önce $y_{c}=c_{1}x+c_{2}x^{2}$'yi bulup, parametrelerin değişimini doğrudan orijinal denklemde uygulamak da olanaklıydı; ancak sağ taraf uygun bir UC fonksiyonu olduğu için bu yöntem daha basittir.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-block">
+                            <p class="question-text">Örnek 4.44 &mdash; Üçüncü Mertebe (Logaritmik Sağ Taraf)</p>
+                            <p>$x^{3}\dfrac{d^{3}y}{dx^{3}}-4x^{2}\dfrac{d^{2}y}{dx^{2}}+8x\dfrac{dy}{dx}-8y=4\ln x$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $x=e^{t}$, $\ln x=t$. Türev dönüşümlerini uygulayalım:</p>
+                                $$\left(\tfrac{d^{3}y}{dt^{3}}-3\tfrac{d^{2}y}{dt^{2}}+2\tfrac{dy}{dt}\right)-4\left(\tfrac{d^{2}y}{dt^{2}}-\tfrac{dy}{dt}\right)+8\left(\tfrac{dy}{dt}\right)-8y=4t$$
+                                <p>Düzenlenirse:</p>
+                                $$\frac{d^{3}y}{dt^{3}}-7\frac{d^{2}y}{dt^{2}}+14\frac{dy}{dt}-8y=4t$$
+                                <p><strong>Adım 2 &mdash; Tamamlayıcı fonksiyon.</strong> $m^{3}-7m^{2}+14m-8=(m-1)(m-2)(m-4)=0$ &rArr;</p>
+                                $$y_{c}=c_{1}e^{t}+c_{2}e^{2t}+c_{3}e^{4t}$$
+                                <p><strong>Adım 3 &mdash; Özel integral.</strong> $y_{p}=At+B$:</p>
+                                $$0-0+14A-8(At+B)=4t\ \Longrightarrow\ -8At+(14A-8B)=4t$$
+                                <p>Katsayı eşleme: $-8A=4\Rightarrow A=-\tfrac{1}{2}$; $14A-8B=0\Rightarrow B=-\tfrac{7}{8}$.</p>
+                                <p><strong>Adım 4 &mdash; $t$'de genel çözüm ve $x$'e dönüş.</strong></p>
+                                $$y=c_{1}e^{t}+c_{2}e^{2t}+c_{3}e^{4t}-\tfrac{1}{2}t-\tfrac{7}{8}$$
+                                $$\boxed{\ y=c_{1}x+c_{2}x^{2}+c_{3}x^{4}-\tfrac{1}{2}\ln x-\tfrac{7}{8}\ }$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ALIŞTIRMALAR 4.5 ===== -->
+
+                    <div id="alistirma-4-5" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            Alıştırmalar 4.5
+                        </div>
+
+                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;22: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz. (Her durumda $x>0$ varsayınız.)</p>
+
+                        <div class="question-block"><p class="question-text">1. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">2. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}-4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">3. &nbsp; $4x^{2}y^{\prime\prime}-4xy^{\prime}+3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">4. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">5. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=0$</p></div>
+                        <div class="question-block"><p class="question-text">6. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+13y=0$</p></div>
+                        <div class="question-block"><p class="question-text">7. &nbsp; $3x^{2}y^{\prime\prime}-4xy^{\prime}+2y=0$</p></div>
+                        <div class="question-block"><p class="question-text">8. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+9y=0$</p></div>
+                        <div class="question-block"><p class="question-text">9. &nbsp; $9x^{2}y^{\prime\prime}+3xy^{\prime}+y=0$</p></div>
+                        <div class="question-block"><p class="question-text">10. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+10y=0$</p></div>
+                        <div class="question-block"><p class="question-text">11. &nbsp; $x^{3}y^{\prime\prime\prime}-3x^{2}y^{\prime\prime}+6xy^{\prime}-6y=0$</p></div>
+                        <div class="question-block"><p class="question-text">12. &nbsp; $x^{3}y^{\prime\prime\prime}+2x^{2}y^{\prime\prime}-10xy^{\prime}-8y=0$</p></div>
+                        <div class="question-block"><p class="question-text">13. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}-6xy^{\prime}+18y=0$</p></div>
+                        <div class="question-block"><p class="question-text">14. &nbsp; $x^{4}y^{(4)}-4x^{2}y^{\prime\prime}+8xy^{\prime}-8y=0$</p></div>
+                        <div class="question-block"><p class="question-text">15. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=4x-6$</p></div>
+                        <div class="question-block"><p class="question-text">16. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3}$</p></div>
+                        <div class="question-block"><p class="question-text">17. &nbsp; $x^{2}y^{\prime\prime}+4xy^{\prime}+2y=4\ln x$</p></div>
+                        <div class="question-block"><p class="question-text">18. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=2x\ln x$</p></div>
+                        <div class="question-block"><p class="question-text">19. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+y=4\sin(\ln x)$</p></div>
+                        <div class="question-block"><p class="question-text">20. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+5y=5x^{2}$</p></div>
+                        <div class="question-block"><p class="question-text">21. &nbsp; $x^{3}y^{\prime\prime\prime}-8x^{2}y^{\prime\prime}+28xy^{\prime}-40y=-\dfrac{9}{x}$</p></div>
+                        <div class="question-block"><p class="question-text">22. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}+2xy^{\prime}-2y=x^{3}$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 23&ndash;30: <strong>Başlangıç değer problemlerini</strong> çözünüz. ($x>0$ varsayınız.)</p>
+
+                        <div class="question-block"><p class="question-text">23. &nbsp; $x^{2}y^{\prime\prime}-2xy^{\prime}-10y=0,\ \ y(1)=5,\ y^{\prime}(1)=4$</p></div>
+                        <div class="question-block"><p class="question-text">24. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=0,\ \ y(2)=0,\ y^{\prime}(2)=4$</p></div>
+                        <div class="question-block"><p class="question-text">25. &nbsp; $x^{2}y^{\prime\prime}+5xy^{\prime}+3y=0,\ \ y(1)=1,\ y^{\prime}(1)=-5$</p></div>
+                        <div class="question-block"><p class="question-text">26. &nbsp; $x^{2}y^{\prime\prime}-2y=4x-8,\ \ y(1)=4,\ y^{\prime}(1)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">27. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+4y=4x^{2}-6x^{3},\ \ y(2)=4,\ y^{\prime}(2)=-1$</p></div>
+                        <div class="question-block"><p class="question-text">28. &nbsp; $x^{2}y^{\prime\prime}+2xy^{\prime}-6y=10x^{2},\ \ y(1)=1,\ y^{\prime}(1)=-6$</p></div>
+                        <div class="question-block"><p class="question-text">29. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3},\ \ y(2)=0,\ y^{\prime}(2)=-8$</p></div>
+                        <div class="question-block"><p class="question-text">30. &nbsp; $x^{2}y^{\prime\prime}-6y=\ln x,\ \ y(1)=\tfrac{1}{6},\ y^{\prime}(1)=-\tfrac{1}{6}$</p></div>
+
+                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 31&ndash;32: Aşağıdaki denklemleri çözünüz. <em>(İpucu: kaydırılmış Cauchy-Euler formu &mdash; $x+2=e^{t}$ ya da $2x-3=e^{t}$ dönüşümü kullanılabilir.)</em></p>
+
+                        <div class="question-block"><p class="question-text">31. &nbsp; $(x+2)^{2}y^{\prime\prime}-(x+2)y^{\prime}-3y=0$</p></div>
+                        <div class="question-block"><p class="question-text">32. &nbsp; $(2x-3)^{2}y^{\prime\prime}-6(2x-3)y^{\prime}+12y=0$</p></div>
+                    </div>
+
+                    <!-- ===== 4.6 KONU ===== -->
+
                     <div id="alistirma-4-tekrar" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -7386,6 +7602,124 @@
                     <!-- ############################################################
                          BÖLÜM 5  —  İÇERİK EKLENECEK
                          ############################################################ -->
+
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 4 — Laplace Dönüşümü -->
+                    <!-- ######################################################## -->
+
+                    <div id="laplace" class="section chapter-head">
+                        <div class="section-title">
+                            BÖLÜM 4: Laplace Dönüşümü
+                        </div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="laplace-tanim" class="section placeholder">
+                        <div class="section-title">
+                            4.1 &nbsp;Tanım ve Temel Özellikler
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="laplace-ters" class="section placeholder">
+                        <div class="section-title">
+                            4.2 &nbsp;Ters Laplace Dönüşümü
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 5 — Kuvvet Serisi Çözümleri -->
+                    <!-- ######################################################## -->
+
+                    <div id="seri" class="section chapter-head">
+                        <div class="section-title">
+                            BÖLÜM 5: Kuvvet Serisi Çözümleri
+                        </div>
+                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                    </div>
+
+                    <div id="seri-temel" class="section placeholder">
+                        <div class="section-title">
+                            5.1 &nbsp;Temel Kavramlar
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 6 — Özel Diferansiyel Denklemler -->
+                    <!-- ######################################################## -->
+
+                    <div id="ozel-dd" class="section chapter-head">
+                        <div class="section-title">
+                            BÖLÜM 6: Özel Diferansiyel Denklemler
+                        </div>
+                        <p class="placeholder-note">Hoca bu denklemleri detaylı işlemedi, yalnızca adlarından söz etti. Her biri için kısa tanıtım ve standart form eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-airy" class="section placeholder">
+                        <div class="section-title">
+                            6.1 &nbsp;Airy Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-hermite" class="section placeholder">
+                        <div class="section-title">
+                            6.2 &nbsp;Hermite Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-bessel" class="section placeholder">
+                        <div class="section-title">
+                            6.3 &nbsp;Bessel Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-legendre" class="section placeholder">
+                        <div class="section-title">
+                            6.4 &nbsp;Legendre Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-chebyshev" class="section placeholder">
+                        <div class="section-title">
+                            6.5 &nbsp;Chebyshev Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-laguerre" class="section placeholder">
+                        <div class="section-title">
+                            6.6 &nbsp;Laguerre Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+                    <div id="ozel-dd-mathieu" class="section placeholder">
+                        <div class="section-title">
+                            6.7 &nbsp;Mathieu Denklemi
+                        </div>
+                        <p class="placeholder-note">İçerik eklenecek.</p>
+                    </div>
+
+
+                    <!-- ######################################################## -->
+                    <!-- BÖLÜM 7 — Diferansiyel Operatörler -->
+                    <!-- ######################################################## -->
+
+                    <div id="operator" class="section chapter-head">
+                        <div class="section-title">
+                            BÖLÜM 7: Diferansiyel Operatörler
+                        </div>
+                        <p class="placeholder-note">Derste yeni başlandı; işlendikçe eklenecek.</p>
+                    </div>
 
 
                     <!-- ######################################################## -->
@@ -8051,164 +8385,6 @@
                     </div>
 
                     <!-- ===== 4.5 KONU ===== -->
-
-                    <div id="bolum-4-5" class="section konu">
-                        <div class="section-title">
-                            <span class="badge">Konu</span>
-                            4.5 &nbsp;Cauchy-Euler Denklemi
-                        </div>
-
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">A. Denklem ve Çözüm Yöntemi</h3>
-
-                        <p>Değişken katsayılı $n$. mertebeden doğrusal denklemlerin genel çözümü kapalı formda sadece belirli özel durumlarda elde edilebilir. Bu özel durumlardan uygulamada büyük önem taşıyan biri <strong>Cauchy-Euler denklemi</strong> (veya <em>eşboyutlu denklem</em> &mdash; <em>equidimensional equation</em>) olarak adlandırılır:</p>
-                        $$a_{0}x^{n}y^{(n)}+a_{1}x^{n-1}y^{(n-1)}+\cdots+a_{n-1}xy^{\prime}+a_{n}y=F(x)$$
-                        <p>Burada $a_{0},a_{1},\ldots,a_{n}$ sabittir. Karakteristik özellik: sol taraftaki her terim $x^{k}y^{(k)}$ biçimindeki ifadelerin sabit katıdır.</p>
-
-                        <div class="highlight" style="margin: 1rem 0;">
-                            <strong>THEoREM 4.14.</strong> $x=e^{t}$ dönüşümü, Cauchy-Euler denklemini <strong>sabit katsayılı doğrusal bir diferansiyel denkleme</strong> dönüştürür.
-                        </div>
-
-                        <p><strong>İspat (ikinci mertebeden durum).</strong> $x>0$ için $x=e^{t}\ \Leftrightarrow\ t=\ln x$ alalım. Zincir kuralıyla:</p>
-                        $$\frac{dy}{dx}=\frac{dy}{dt}\cdot\frac{dt}{dx}=\frac{1}{x}\frac{dy}{dt}\ \Longrightarrow\ x\frac{dy}{dx}=\frac{dy}{dt}$$
-
-                        <p>İkinci türev:</p>
-                        $$\frac{d^{2}y}{dx^{2}}=\frac{1}{x}\frac{d}{dx}\!\left(\frac{dy}{dt}\right)+\frac{dy}{dt}\cdot\frac{d}{dx}\!\left(\frac{1}{x}\right)=\frac{1}{x^{2}}\frac{d^{2}y}{dt^{2}}-\frac{1}{x^{2}}\frac{dy}{dt}$$
-                        <p>Yani:</p>
-                        $$x^{2}\frac{d^{2}y}{dx^{2}}=\frac{d^{2}y}{dt^{2}}-\frac{dy}{dt}$$
-                        <p>$a_{0}x^{2}y^{\prime\prime}+a_{1}xy^{\prime}+a_{2}y=F(x)$ denkleminde yerine konursa:</p>
-                        $$A_{0}\frac{d^{2}y}{dt^{2}}+A_{1}\frac{dy}{dt}+A_{2}y=G(t)$$
-                        <p>burada $A_{0}=a_{0},\ A_{1}=a_{1}-a_{0},\ A_{2}=a_{2}$ ve $G(t)=F(e^{t})$. Bu sabit katsayılı ikinci mertebeden doğrusal bir denklemdir. Genel $n$ için ispat benzer yolla ilerler. &#9632;</p>
-
-                        <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Önemli Notlar.</strong>
-                            <ol style="margin-left: 1.25rem;">
-                                <li>En yüksek dereceli katsayı $a_{0}x^{n}$ $x=0$'da sıfırdır; dolayısıyla <strong>Temel Varlık THEoREM'i'nin geçerli olduğu temel aralık $x=0$'ı içermez</strong>.</li>
-                                <li>İspatta $x>0$ varsayıldı; $x<0$ için doğru dönüşüm $x=-e^{t}$'dir. Aksi belirtilmedikçe $x>0$ kabul edilir.</li>
-                            </ol>
-                        </div>
-
-                        <p><strong>Genel $n$. mertebeden türev için resmi dönüşüm kuralı:</strong> $x=e^{t}$ altında $x^{n}\dfrac{d^{n}y}{dx^{n}}$'i bulmak için</p>
-                        <ol style="margin-left: 1.25rem;">
-                            <li>$r(r-1)(r-2)\cdots[r-(n-1)]$ ifadesini kur.</li>
-                            <li>Bu ifadeyi $r$'ye bağlı $n$. dereceden bir polinom olarak aç.</li>
-                            <li>Her $r^{k}\ (k=1,\ldots,n)$ terimini $\dfrac{d^{k}y}{dt^{k}}$ ile değiştir.</li>
-                            <li>Sonucu $x^{n}\dfrac{d^{n}y}{dx^{n}}$'e eşitle.</li>
-                        </ol>
-
-                        <p><strong>Örnek ($n=3$):</strong> $r(r-1)(r-2)=r^{3}-3r^{2}+2r$ &rArr;</p>
-                        $$x^{3}\frac{d^{3}y}{dx^{3}}=\frac{d^{3}y}{dt^{3}}-3\frac{d^{2}y}{dt^{2}}+2\frac{dy}{dt}$$
-
-                        <div class="highlight" style="margin: 1rem 0;">
-                            <strong>Sık kullanılan dönüşüm tablosu ($x=e^{t}$, &nbsp;$D_{t}=\tfrac{d}{dt}$):</strong>
-                            <ul style="margin-left: 1.25rem;">
-                                <li>$x\,y^{\prime}=D_{t}y$</li>
-                                <li>$x^{2}y^{\prime\prime}=D_{t}(D_{t}-1)y$</li>
-                                <li>$x^{3}y^{\prime\prime\prime}=D_{t}(D_{t}-1)(D_{t}-2)y$</li>
-                                <li>Genel olarak $x^{n}y^{(n)}=D_{t}(D_{t}-1)\cdots(D_{t}-n+1)y$</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.43 – 4.44 ===== -->
-
-                    <div id="ornekler-4-5" class="section ornek">
-                        <div class="section-title">
-                            <span class="badge">Örnek</span>
-                            Çözümlü Örnekler 4.43 &ndash; 4.44
-                        </div>
-
-                        <div class="question-block">
-                            <p class="question-text">Örnek 4.43 &mdash; İkinci Mertebe</p>
-                            <p>$x^{2}\dfrac{d^{2}y}{dx^{2}}-2x\dfrac{dy}{dx}+2y=x^{3}$ denklemini çözünüz.</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $x=e^{t},\ t=\ln x$ alalım:</p>
-                                $$x\frac{dy}{dx}=\frac{dy}{dt},\qquad x^{2}\frac{d^{2}y}{dx^{2}}=\frac{d^{2}y}{dt^{2}}-\frac{dy}{dt},\qquad x^{3}=e^{3t}$$
-                                <p>Yerine koyarsak:</p>
-                                $$\left(\tfrac{d^{2}y}{dt^{2}}-\tfrac{dy}{dt}\right)-2\tfrac{dy}{dt}+2y=e^{3t}\ \Longrightarrow\ \frac{d^{2}y}{dt^{2}}-3\frac{dy}{dt}+2y=e^{3t}$$
-                                <p><strong>Adım 2 &mdash; Tamamlayıcı fonksiyon.</strong> $m^{2}-3m+2=(m-1)(m-2)=0$ &rArr; $y_{c}=c_{1}e^{t}+c_{2}e^{2t}$.</p>
-                                <p><strong>Adım 3 &mdash; Özel integral (belirsiz katsayılar).</strong> $e^{3t}$, $y_{c}$'de olmadığından $y_{p}=Ae^{3t}$:</p>
-                                $$9Ae^{3t}-9Ae^{3t}+2Ae^{3t}=e^{3t}\ \Longrightarrow\ 2A=1\ \Longrightarrow\ A=\tfrac{1}{2}$$
-                                <p><strong>Adım 4 &mdash; $t$'de genel çözüm ve $x$'e dönüş.</strong></p>
-                                $$y=c_{1}e^{t}+c_{2}e^{2t}+\tfrac{1}{2}e^{3t}$$
-                                <p>$e^{t}=x$ olduğundan:</p>
-                                $$\boxed{\ y=c_{1}x+c_{2}x^{2}+\tfrac{1}{2}x^{3}\ }$$
-                                <p style="font-size: 0.92em; color: #718096;"><em>Alternatif yol:</em> Önce $y_{c}=c_{1}x+c_{2}x^{2}$'yi bulup, parametrelerin değişimini doğrudan orijinal denklemde uygulamak da olanaklıydı; ancak sağ taraf uygun bir UC fonksiyonu olduğu için bu yöntem daha basittir.</p>
-                            </div>
-                        </div>
-
-                        <div class="question-block">
-                            <p class="question-text">Örnek 4.44 &mdash; Üçüncü Mertebe (Logaritmik Sağ Taraf)</p>
-                            <p>$x^{3}\dfrac{d^{3}y}{dx^{3}}-4x^{2}\dfrac{d^{2}y}{dx^{2}}+8x\dfrac{dy}{dx}-8y=4\ln x$ denklemini çözünüz.</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p><strong>Adım 1 &mdash; Dönüşüm.</strong> $x=e^{t}$, $\ln x=t$. Türev dönüşümlerini uygulayalım:</p>
-                                $$\left(\tfrac{d^{3}y}{dt^{3}}-3\tfrac{d^{2}y}{dt^{2}}+2\tfrac{dy}{dt}\right)-4\left(\tfrac{d^{2}y}{dt^{2}}-\tfrac{dy}{dt}\right)+8\left(\tfrac{dy}{dt}\right)-8y=4t$$
-                                <p>Düzenlenirse:</p>
-                                $$\frac{d^{3}y}{dt^{3}}-7\frac{d^{2}y}{dt^{2}}+14\frac{dy}{dt}-8y=4t$$
-                                <p><strong>Adım 2 &mdash; Tamamlayıcı fonksiyon.</strong> $m^{3}-7m^{2}+14m-8=(m-1)(m-2)(m-4)=0$ &rArr;</p>
-                                $$y_{c}=c_{1}e^{t}+c_{2}e^{2t}+c_{3}e^{4t}$$
-                                <p><strong>Adım 3 &mdash; Özel integral.</strong> $y_{p}=At+B$:</p>
-                                $$0-0+14A-8(At+B)=4t\ \Longrightarrow\ -8At+(14A-8B)=4t$$
-                                <p>Katsayı eşleme: $-8A=4\Rightarrow A=-\tfrac{1}{2}$; $14A-8B=0\Rightarrow B=-\tfrac{7}{8}$.</p>
-                                <p><strong>Adım 4 &mdash; $t$'de genel çözüm ve $x$'e dönüş.</strong></p>
-                                $$y=c_{1}e^{t}+c_{2}e^{2t}+c_{3}e^{4t}-\tfrac{1}{2}t-\tfrac{7}{8}$$
-                                $$\boxed{\ y=c_{1}x+c_{2}x^{2}+c_{3}x^{4}-\tfrac{1}{2}\ln x-\tfrac{7}{8}\ }$$
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== ALIŞTIRMALAR 4.5 ===== -->
-
-                    <div id="alistirma-4-5" class="section sorular">
-                        <div class="section-title">
-                            <span class="badge">Sorular</span>
-                            Alıştırmalar 4.5
-                        </div>
-
-                        <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;22: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz. (Her durumda $x>0$ varsayınız.)</p>
-
-                        <div class="question-block"><p class="question-text">1. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+3y=0$</p></div>
-                        <div class="question-block"><p class="question-text">2. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}-4y=0$</p></div>
-                        <div class="question-block"><p class="question-text">3. &nbsp; $4x^{2}y^{\prime\prime}-4xy^{\prime}+3y=0$</p></div>
-                        <div class="question-block"><p class="question-text">4. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+4y=0$</p></div>
-                        <div class="question-block"><p class="question-text">5. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=0$</p></div>
-                        <div class="question-block"><p class="question-text">6. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+13y=0$</p></div>
-                        <div class="question-block"><p class="question-text">7. &nbsp; $3x^{2}y^{\prime\prime}-4xy^{\prime}+2y=0$</p></div>
-                        <div class="question-block"><p class="question-text">8. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+9y=0$</p></div>
-                        <div class="question-block"><p class="question-text">9. &nbsp; $9x^{2}y^{\prime\prime}+3xy^{\prime}+y=0$</p></div>
-                        <div class="question-block"><p class="question-text">10. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+10y=0$</p></div>
-                        <div class="question-block"><p class="question-text">11. &nbsp; $x^{3}y^{\prime\prime\prime}-3x^{2}y^{\prime\prime}+6xy^{\prime}-6y=0$</p></div>
-                        <div class="question-block"><p class="question-text">12. &nbsp; $x^{3}y^{\prime\prime\prime}+2x^{2}y^{\prime\prime}-10xy^{\prime}-8y=0$</p></div>
-                        <div class="question-block"><p class="question-text">13. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}-6xy^{\prime}+18y=0$</p></div>
-                        <div class="question-block"><p class="question-text">14. &nbsp; $x^{4}y^{(4)}-4x^{2}y^{\prime\prime}+8xy^{\prime}-8y=0$</p></div>
-                        <div class="question-block"><p class="question-text">15. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=4x-6$</p></div>
-                        <div class="question-block"><p class="question-text">16. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3}$</p></div>
-                        <div class="question-block"><p class="question-text">17. &nbsp; $x^{2}y^{\prime\prime}+4xy^{\prime}+2y=4\ln x$</p></div>
-                        <div class="question-block"><p class="question-text">18. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=2x\ln x$</p></div>
-                        <div class="question-block"><p class="question-text">19. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+y=4\sin(\ln x)$</p></div>
-                        <div class="question-block"><p class="question-text">20. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+5y=5x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">21. &nbsp; $x^{3}y^{\prime\prime\prime}-8x^{2}y^{\prime\prime}+28xy^{\prime}-40y=-\dfrac{9}{x}$</p></div>
-                        <div class="question-block"><p class="question-text">22. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}+2xy^{\prime}-2y=x^{3}$</p></div>
-
-                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 23&ndash;30: <strong>Başlangıç değer problemlerini</strong> çözünüz. ($x>0$ varsayınız.)</p>
-
-                        <div class="question-block"><p class="question-text">23. &nbsp; $x^{2}y^{\prime\prime}-2xy^{\prime}-10y=0,\ \ y(1)=5,\ y^{\prime}(1)=4$</p></div>
-                        <div class="question-block"><p class="question-text">24. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=0,\ \ y(2)=0,\ y^{\prime}(2)=4$</p></div>
-                        <div class="question-block"><p class="question-text">25. &nbsp; $x^{2}y^{\prime\prime}+5xy^{\prime}+3y=0,\ \ y(1)=1,\ y^{\prime}(1)=-5$</p></div>
-                        <div class="question-block"><p class="question-text">26. &nbsp; $x^{2}y^{\prime\prime}-2y=4x-8,\ \ y(1)=4,\ y^{\prime}(1)=-1$</p></div>
-                        <div class="question-block"><p class="question-text">27. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+4y=4x^{2}-6x^{3},\ \ y(2)=4,\ y^{\prime}(2)=-1$</p></div>
-                        <div class="question-block"><p class="question-text">28. &nbsp; $x^{2}y^{\prime\prime}+2xy^{\prime}-6y=10x^{2},\ \ y(1)=1,\ y^{\prime}(1)=-6$</p></div>
-                        <div class="question-block"><p class="question-text">29. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3},\ \ y(2)=0,\ y^{\prime}(2)=-8$</p></div>
-                        <div class="question-block"><p class="question-text">30. &nbsp; $x^{2}y^{\prime\prime}-6y=\ln x,\ \ y(1)=\tfrac{1}{6},\ y^{\prime}(1)=-\tfrac{1}{6}$</p></div>
-
-                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 31&ndash;32: Aşağıdaki denklemleri çözünüz. <em>(İpucu: kaydırılmış Cauchy-Euler formu &mdash; $x+2=e^{t}$ ya da $2x-3=e^{t}$ dönüşümü kullanılabilir.)</em></p>
-
-                        <div class="question-block"><p class="question-text">31. &nbsp; $(x+2)^{2}y^{\prime\prime}-(x+2)y^{\prime}-3y=0$</p></div>
-                        <div class="question-block"><p class="question-text">32. &nbsp; $(2x-3)^{2}y^{\prime\prime}-6(2x-3)y^{\prime}+12y=0$</p></div>
-                    </div>
-
-                    <!-- ===== 4.6 KONU ===== -->
 
                     <div id="bolum-4-6" class="section konu">
                         <div class="section-title">

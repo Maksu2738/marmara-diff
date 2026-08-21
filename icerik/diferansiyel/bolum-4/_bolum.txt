@@ -1,0 +1,2 @@
+ad: Laplace Dönüşümü
+acik: hayir

@@ -1,0 +1,2 @@
+ad: Diferansiyel Operatörler
+acik: hayir

@@ -8,15 +8,7 @@
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\\\(', right: '\\\\)', display: false},
-                {left: '\\\\[', right: '\\\\]', display: true}
-            ]
-        });"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 
@@ -156,14 +148,27 @@
 
                     <!-- ===== BÖLÜM 5 ===== -->
                     <li>
-                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
                             <span class="chapter-num">5</span>
                             <span class="chapter-name">Kuvvet Serisi Çözümleri</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links">
-                            <li><a href="#seri" class="pending">Giriş</a></li>
-                            <li><a href="#seri-temel" class="pending">5.1 Temel Kavramlar</a></li>
+                        <ul class="chapter-links open">
+                            <li><a href="#seri">Giriş</a></li>
+                            <li><a href="#seri-temel">5.1 Adi Nokta Etrafında Kuvvet Serisi Çözümleri</a></li>
+                            <li><a href="#ornek-adi-tekil-nokta">5.1 Örnekler — Adi ve Tekil Noktalar</a></li>
+                            <li><a href="#seri-yontem">5.2 Çözüm Yöntemi</a></li>
+                            <li><a href="#ornek-seri-cozum">5.2 Örnek — Adım Adım Seri Çözümü</a></li>
+                            <li><a href="#ornek-seri-bdp">5.3 Örnek — Başlangıç Değer Problemi</a></li>
+                            <li><a href="#seri-yakinsaklik">5.4 Çözümün Yakınsaklık Aralığı</a></li>
+                            <li><a href="#seri-egzersizler">5.5 Bölüm Sonu Egzersizleri</a></li>
+                            <li><a href="#frobenius-tekil-nokta">5.6 Düzgün Tekil Noktalar ve Frobenius</a></li>
+                            <li><a href="#ornek-tekil-siniflandirma">5.6 Örnekler — Tekil Nokta Sınıflandırması</a></li>
+                            <li><a href="#frobenius-yontem">5.7 Frobenius Yöntemi — Adım Adım</a></li>
+                            <li><a href="#ornek-frobenius">5.7 Örnek — Frobenius Yöntemiyle Çözüm</a></li>
+                            <li><a href="#frobenius-istisnalar">5.8 Frobenius — İkinci Çözüm ve İstisnai Durumlar</a></li>
+                            <li><a href="#ornek-frobenius-cift">5.8 Örnek — İki Bağımsız Frobenius Çözümü</a></li>
+                            <li><a href="#ornek-frobenius-tamsayi-fark">5.8 Örnek — Kök Farkı Tam Sayı</a></li>
                         </ul>
                     </li>
 
@@ -7853,14 +7858,928 @@
                         <div class="section-title">
                             BÖLÜM 5: Kuvvet Serisi Çözümleri
                         </div>
-                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                        <p>Sabit katsayılı lineer diferansiyel denklemlerin çözümlerini, üstel ve trigonometrik fonksiyonlar gibi <strong>elemanter fonksiyonların (elementary functions)</strong> sonlu birleşimleri olarak yazabiliyorduk. Ancak katsayılar değişken olduğunda bu genellikle mümkün değildir — çözüm vardır, ama bilinen fonksiyonlarla ifade edilemez.</p>
+                        <p>Bu bölüm, o çözümlere ulaşmanın bir yolunu kuruyor: çözümü <span class="vurgu">sonsuz bir seri olarak varsayıp katsayılarını denklemin kendisinden belirlemek</span>.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bölümün akışı</h3>
+                        <p><strong>5.1 – 5.4: Adi nokta etrafında.</strong> Önce çözümün ne zaman seri biçiminde var olduğunu söyleyen koşulu kuruyoruz (adi nokta, tekil nokta, THEoREM 5.1), sonra katsayıları bulma yöntemini adım adım işliyoruz. Yöntemin can alıcı adımı <strong>indeks kaydırmadır</strong>; öğrencilerin en çok takıldığı yer burasıdır ve 5.2'de ayrıntısıyla ele alınmıştır. 5.4 ise bulunan serinin nerede geçerli olduğunu — yakınsaklık aralığını — belirliyor.</p>
+                        <p><strong>5.6: Tekil nokta etrafında.</strong> Adi nokta koşulu sağlanmadığında sıradan kuvvet serisi yetmez. Tekil noktaları <strong>düzgün</strong> ve <strong>düzgün olmayan</strong> diye ayırıyoruz; düzgün olanlarda seriyi $|x-x_{0}|^{r}$ çarpanıyla genişleten <strong>Frobenius yöntemi</strong> devreye giriyor.</p>
+                        <div class="highlight">
+                            <p><strong>Bölümü çalışırken izlenecek soru sırası:</strong></p>
+                            <ol>
+                                <li>$x_{0}$ adi nokta mı, tekil nokta mı? — $P_{1}$ ve $P_{2}$'nin analitikliğine bak</li>
+                                <li>Tekilse düzgün mü? — $(x-x_{0})P_{1}$ ve $(x-x_{0})^{2}P_{2}$ analitik mi?</li>
+                                <li>Buna göre hangi biçimi varsayacağım? — $\sum c_{n}(x-x_{0})^{n}$ mi, $|x-x_{0}|^{r}\sum c_{n}(x-x_{0})^{n}$ mi?</li>
+                                <li>Katsayıları özyineleme formülünden çıkar</li>
+                                <li>Varsa başlangıç koşullarını uygula</li>
+                                <li>Yakınsaklık aralığını belirt</li>
+                            </ol>
+                            <p>Neredeyse bütün sınav soruları bu altı adımın bir birleşimidir.</p>
+                        </div>
                     </div>
 
-                    <div id="seri-temel" class="section placeholder">
+                    <div id="seri-temel" class="section konu">
                         <div class="section-title">
-                            5.1 &nbsp;Temel Kavramlar
+                            <span class="badge">Konu</span>
+                            5.1 &nbsp;Adi Nokta Etrafında Kuvvet Serisi Çözümleri
                         </div>
-                        <p class="placeholder-note">İçerik eklenecek.</p>
+                        <p>Sabit katsayılı yüksek mertebeden lineer diferansiyel denklemlerin çözümlerini, bilinen elemanter fonksiyonların sonlu lineer birleşimleri olarak yazabiliyorduk. Ancak genel durumda yüksek mertebeden lineer denklemlerin çözümleri bu kadar basit bir biçimde ifade edilemez. Bu tür denklemler için başka bir ifade aracına ihtiyaç duyarız; bu araç <strong>sonsuz seri (infinite series)</strong> gösterimidir.</p>
+                        <p>İkinci mertebeden homojen lineer diferansiyel denklemi ele alalım:</p>
+                        $$a_{0}(x)\,y''+a_{1}(x)\,y'+a_{2}(x)\,y=0 \tag{5.1}$$
+                        <p>Bu denklemin elemanter fonksiyonlarla ifade edilebilen bir çözümü olmadığını, ancak sonsuz seri biçiminde bir çözümü olduğunu varsayalım. Aradığımız çözüm şu biçimdedir:</p>
+                        $$c_{0}+c_{1}(x-x_{0})+c_{2}(x-x_{0})^{2}+\dots=\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n} \tag{5.2}$$
+                        <p>Burada $c_{0},c_{1},c_{2},\dots$ sabitlerdir. $(5.2)$ biçimindeki bir ifadeye $x-x_{0}$ kuvvetlerinde <strong>kuvvet serisi (power series)</strong> denir.</p>
+                        <div class="highlight">
+                            <p><strong>Dikkat edilmesi gereken nokta:</strong> Katsayıları belirlemeye girişmeden önce, böyle bir çözümün gerçekten var olup olmadığını bilmemiz gerekir. Var olmayan bir çözümü aramak anlamsız olurdu. Bu yüzden önce varlık koşulunu veren tanımları ve THEoREM'i kuracağız.</p>
+                        </div>
+                        <p>Varlık sorusunu yanıtlamak için $(5.1)$ denklemini eşdeğer <strong>normalleştirilmiş biçimde (normalized form)</strong> yazalım:</p>
+                        $$y''+P_{1}(x)\,y'+P_{2}(x)\,y=0 \tag{5.3}$$
+                        <p>burada</p>
+                        $$P_{1}(x)=\frac{a_{1}(x)}{a_{0}(x)},\qquad P_{2}(x)=\frac{a_{2}(x)}{a_{0}(x)}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Analitik fonksiyon</h3>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> Bir $f$ fonksiyonunun $x_{0}$ noktası etrafındaki Taylor serisi</p>
+                            $$\sum_{n=0}^{\infty}\frac{f^{(n)}(x_{0})}{n!}(x-x_{0})^{n}$$
+                            <p>mevcutsa ve $x_{0}$'ı içeren bir açık aralıktaki tüm $x$ değerleri için $f(x)$'e yakınsıyorsa, $f$ fonksiyonu $x_{0}$'da <strong>analitiktir (analytic)</strong> denir.</p>
+                        </div>
+                        <p>Bu tanımın pratik sonuçları şunlardır:</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>Bütün <strong>polinom fonksiyonlar (polynomial functions)</strong> her yerde analitiktir.</li>
+                            <li>$e^{x}$, $\sin x$ ve $\cos x$ fonksiyonları da her yerde analitiktir.</li>
+                            <li>Bir <strong>rasyonel fonksiyon (rational function)</strong>, paydasının sıfır olduğu noktalar dışında analitiktir.</li>
+                        </ul>
+                        <p>Örneğin $\dfrac{1}{x^{2}-3x+2}$ ile tanımlanan rasyonel fonksiyon, $x=1$ ve $x=2$ dışında her yerde analitiktir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adi nokta ve tekil nokta</h3>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $(5.1)$ denklemine eşdeğer olan normalleştirilmiş $(5.3)$ denklemindeki $P_{1}$ ve $P_{2}$ fonksiyonlarının <strong>ikisi de</strong> $x_{0}$'da analitikse, $x_{0}$ noktasına $(5.1)$ denkleminin bir <strong>adi noktası (ordinary point)</strong> denir.</p>
+                            <p>Bu fonksiyonlardan biri (veya ikisi birden) $x_{0}$'da analitik değilse, $x_{0}$ noktasına $(5.1)$ denkleminin bir <strong>tekil noktası (singular point)</strong> denir.</p>
+                        </div>
+                        <p><span class="vurgu">Bir noktanın adi nokta olması için $P_{1}$ ve $P_{2}$'nin ikisinin de o noktada analitik olması gerekir.</span> Yalnızca birinin analitik olması yetmez — bu ayrım aşağıdaki örneklerde belirleyici olacaktır.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Varlık THEoREM'i</h3>
+                        <div class="highlight">
+                            <p><strong>THEoREM 5.1</strong></p>
+                            <p><strong>Hipotez.</strong> $x_{0}$ noktası, $(5.1)$ diferansiyel denkleminin bir adi noktasıdır.</p>
+                            <p><strong>Sonuç.</strong> $(5.1)$ diferansiyel denkleminin,</p>
+                            $$\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n} \tag{5.2}$$
+                            <p>biçiminde, aşikâr olmayan (nontrivial) ve <strong>lineer bağımsız (linearly independent)</strong> iki kuvvet serisi çözümü vardır; bu kuvvet serileri $x_{0}$ etrafındaki bir $|x-x_{0}|<R$ aralığında ($R>0$) yakınsar.</p>
+                        </div>
+                        <p>Bu THEoREM, $(5.1)$ denkleminin kuvvet serisi çözümlerinin varlığı için bir <strong>yeter koşul (sufficient condition)</strong> verir. THEoREM'in söylediği şudur: $x_{0}$ noktası $(5.1)$'in bir adi noktasıysa, denklemin $x-x_{0}$ kuvvetlerinde iki kuvvet serisi çözümü vardır ve bu iki çözüm lineer bağımsızdır.</p>
+                        <p>Dolayısıyla $x_{0}$ bir adi noktaysa, $(5.1)$'in <strong>genel çözümünü (general solution)</strong> bu iki lineer bağımsız kuvvet serisinin lineer birleşimi olarak elde edebiliriz. THEoREM'in ispatı burada verilmemiştir.</p>
+                    </div>
+
+                    <div id="ornek-adi-tekil-nokta" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.1 &nbsp;Çözümlü Örnekler — Adi ve Tekil Noktaların Belirlenmesi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.1.</strong> &nbsp; Aşağıdaki diferansiyel denklemin adi ve tekil noktalarını belirleyiniz: $\displaystyle y''+xy'+(x^{2}+2)y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklemi normalleştirilmiş biçimde yaz.</strong></p>
+                                <p>Denklem zaten $y''+P_{1}(x)y'+P_{2}(x)y=0$ biçimindedir, çünkü $y''$ teriminin katsayısı $1$'dir. Buradan doğrudan okuruz:</p>
+                                $$P_{1}(x)=x,\qquad P_{2}(x)=x^{2}+2$$
+                                <p><strong>Adım 2 — Analitikliği sına.</strong></p>
+                                <p>$P_{1}$ ve $P_{2}$ fonksiyonlarının ikisi de polinom fonksiyondur. Polinom fonksiyonlar her yerde analitik olduğundan, ikisi de her noktada analitiktir.</p>
+                                <p><strong>Adım 3 — Sonuç.</strong></p>
+                                <p>Adi nokta tanımı, $P_{1}$ ve $P_{2}$'nin ikisinin de o noktada analitik olmasını ister. Bu koşul her nokta için sağlandığından:</p>
+                                $$\boxed{\text{Bu denklemin bütün noktaları adi noktadır; tekil noktası yoktur.}}$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.2.</strong> &nbsp; Aşağıdaki denklemin adi ve tekil noktalarını belirleyiniz: $\displaystyle (x-1)y''+xy'+\frac{1}{x}y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Önce normalleştirilmiş biçime geç.</strong></p>
+                                <p>Bu denklem $(5.3)$ biçiminde <span class="vurgu">değildir</span>; $y''$ teriminin katsayısı $1$ olmadığı için doğrudan katsayı okuyamayız. Tüm denklemi $(x-1)$'e bölelim:</p>
+                                $$y''+\frac{x}{x-1}\,y'+\frac{1}{x(x-1)}\,y=0$$
+                                <p>Böylece</p>
+                                $$P_{1}(x)=\frac{x}{x-1},\qquad P_{2}(x)=\frac{1}{x(x-1)}$$
+                                <p><strong>Adım 2 — Her iki fonksiyonun analitik olmadığı noktaları bul.</strong></p>
+                                <p>Bunlar rasyonel fonksiyonlardır; paydalarının sıfır olduğu noktalar dışında analitiktirler.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$P_{1}$ fonksiyonu $x=1$ dışında analitiktir (payda $x-1$).</li>
+                                    <li>$P_{2}$ fonksiyonu $x=0$ ve $x=1$ dışında analitiktir (payda $x(x-1)$).</li>
+                                </ul>
+                                <p><strong>Adım 3 — Tekil noktaları topla.</strong></p>
+                                <p>Bir noktanın tekil olması için $P_{1}$ ve $P_{2}$'den <span class="vurgu">en az birinin</span> orada analitik olmaması yeterlidir:</p>
+                                $$\boxed{x=0 \text{ ve } x=1 \text{ tekil noktadır; diğer bütün noktalar adi noktadır.}}$$
+                                <p><strong>Sık yapılan hataya dikkat.</strong> $x=0$ noktasında $P_{1}(x)=\dfrac{x}{x-1}$ fonksiyonu gayet analitiktir — $P_{1}(0)=0$ sorunsuzdur. Buna rağmen $x=0$ bir tekil noktadır, çünkü $P_{2}$ orada analitik değildir. Adi nokta olabilmek için <span class="vurgu">iki fonksiyonun birden</span> analitik olması gerekir; birinin yeterliliği yanıltıcıdır.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.3.</strong> &nbsp; Örnek 5.1'deki $\displaystyle y''+xy'+(x^{2}+2)y=0$ denkleminin kuvvet serisi çözümleri hakkında ne söylenebilir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 5.1'de bu denklemin bütün noktalarının adi nokta olduğunu görmüştük.</p>
+                                <p>THEoREM 5.1'in hipotezi, seçilen $x_{0}$ noktasının bir adi nokta olmasıdır. Burada <span class="vurgu">her nokta</span> adi nokta olduğundan hipotez, $x_{0}$ hangi nokta seçilirse seçilsin sağlanır.</p>
+                                <p>THEoREM'in sonucuna göre denklemin, herhangi bir $x_{0}$ noktası etrafında</p>
+                                $$\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n}$$
+                                <p>biçiminde, lineer bağımsız iki kuvvet serisi çözümü vardır ve bu seriler $x_{0}$ etrafındaki bir $|x-x_{0}|<R$ aralığında yakınsar.</p>
+                                $$\boxed{\text{Genel çözüm, bu iki lineer bağımsız serinin lineer birleşimi olarak yazılabilir.}}$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="seri-yontem" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            5.2 &nbsp;Kuvvet Serisi Çözümünün Bulunması
+                        </div>
+                        <p>THEoREM 5.1 bize çözümün <em>var olduğunu</em> söyledi. Peki bu çözümü nasıl buluruz? Yani $(5.2)$ ifadesindeki $c_{0},c_{1},c_{2},\dots$ katsayılarını, ifade gerçekten $(5.1)$ denklemini sağlayacak biçimde nasıl belirleriz?</p>
+                        <p>$x_{0}$ noktasının bir adi nokta olduğunu varsayalım; böylece $x-x_{0}$ kuvvetlerinde çözümler gerçekten mevcuttur. Böyle bir çözümü şöyle gösterelim:</p>
+                        $$y=c_{0}+c_{1}(x-x_{0})+c_{2}(x-x_{0})^{2}+\dots=\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n} \tag{5.6}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 1 — Terim terime türev al</h3>
+                        <p>$(5.6)$'daki seri, $x_{0}$ etrafındaki $|x-x_{0}|<R$ aralığında yakınsadığı için bu aralıkta <strong>terim terime (term by term)</strong> iki kez türetilebilir:</p>
+                        $$y'=c_{1}+2c_{2}(x-x_{0})+3c_{3}(x-x_{0})^{2}+\dots=\sum_{n=1}^{\infty}n\,c_{n}(x-x_{0})^{n-1} \tag{5.7}$$
+                        $$y''=2c_{2}+6c_{3}(x-x_{0})+12c_{4}(x-x_{0})^{2}+\dots=\sum_{n=2}^{\infty}n(n-1)c_{n}(x-x_{0})^{n-2} \tag{5.8}$$
+                        <div class="highlight">
+                            <p><strong>Alt sınırlara dikkat.</strong> Türev alındıkça toplamın alt sınırı yükselir: $y$ için $n=0$, $y'$ için $n=1$, $y''$ için $n=2$. Sebebi basittir — türev alınınca sabit terim ve birinci dereceden terim sırasıyla yok olur, o terimlerin toplama katkısı sıfırdır.</p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 2 — Denkleme yerleştir</h3>
+                        <p>$(5.6)$, $(5.7)$ ve $(5.8)$ serilerini $y$ ve türevleri yerine $(5.1)$ diferansiyel denkleminde yazarız. Elde edilen ifadeyi sadeleştirerek şu biçime getiririz:</p>
+                        $$K_{0}+K_{1}(x-x_{0})+K_{2}(x-x_{0})^{2}+\dots=0 \tag{5.9}$$
+                        <p>Burada $K_{i}\;(i=0,1,2,\dots)$ katsayıları, çözümdeki $c_{n}$ katsayılarının fonksiyonlarıdır.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 3 — Her kuvvetin katsayısını sıfıra eşitle</h3>
+                        <p>$(5.9)$ eşitliğinin yakınsaklık aralığındaki <strong>tüm</strong> $x$ değerleri için geçerli olması isteniyorsa, tek yol şudur:</p>
+                        $$K_{0}=K_{1}=K_{2}=\dots=0$$
+                        <p>Başka bir deyişle, $(5.9)$'un sol tarafındaki $x-x_{0}$'ın <span class="vurgu">her kuvvetinin katsayısını</span> sıfıra eşitlemeliyiz. Bu, $c_{n}$ katsayılarının sağlaması gereken bir koşullar kümesi verir. $c_{n}$'ler bu koşulları sağlayacak biçimde seçilirse, ortaya çıkan seri aranan çözümdür.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">İndeks kaydırma — yöntemin can alıcı adımı</h3>
+                        <p>Adım 2'de yerleştirme yapıldığında toplamlarda $x$'in üsleri birbirini tutmaz: kimi toplamda $x^{n-2}$, kiminde $x^{n}$, kiminde $x^{n+2}$ çıkar. $(5.9)$ biçimine geçebilmek için <span class="vurgu">hepsini aynı üsse</span> getirmek gerekir. Bunun yolu <strong>indeks kaydırmadır (index shifting)</strong>.</p>
+                        <p><strong>Kural:</strong> Toplamın içindeki her $n$ yerine $n+k$ yazarsan, toplamın alt sınırı da aynı denklemi sağlayacak biçimde kayar.</p>
+                        <p>Örneğin</p>
+                        $$\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}$$
+                        <p>toplamında üssü $n$ yapmak istiyoruz. Her $n$ yerine $n+2$ yazarız; üs $(n+2)-2=n$ olur:</p>
+                        $$\sum_{n+2=2}^{\infty}(n+2)(n+1)c_{n+2}x^{n}$$
+                        <p>Alt sınırdaki $n+2=2$ koşulu $n=0$ demektir, dolayısıyla toplam şuna eşittir:</p>
+                        $$\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}$$
+                        <div class="highlight">
+                            <p><strong>İkna olmadıysanız:</strong> iki toplamın da ilk birkaç terimini açıkça yazın. $2c_{2}+6c_{3}x+12c_{4}x^{2}+\dots$ — ikisi de aynı seriyi verir. İndeks kaydırma serinin kendisini değiştirmez, sadece aynı seriyi farklı bir sayaçla yazar.</p>
+                        </div>
+                        <p>Benzer biçimde</p>
+                        $$\sum_{n=0}^{\infty}c_{n}x^{n+2}$$
+                        <p>toplamında $n$ yerine $n-2$ yazarız; üs $(n-2)+2=n$ olur ve alt sınır $n-2=0$, yani $n=2$ olur:</p>
+                        $$\sum_{n=2}^{\infty}c_{n-2}x^{n}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ortak aralığa indirgeme</h3>
+                        <p>İndeks kaydırmadan sonra $x$'in üssü her toplamda $n$ olur, ama <strong>alt sınırlar hâlâ farklıdır</strong> — kimi $n=0$'dan, kimi $n=1$'den, kimi $n=2$'den başlar. Bunları tek bir toplam altında birleştirebilmek için ortak aralık seçilir (yukarıdaki durumda $n=2$'den $\infty$'a) ve bu aralığın dışında kalan terimler <span class="vurgu">tek tek açıkça yazılır</span>.</p>
+                        <p>Örneğin $\displaystyle\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}$ toplamında $n=0$ ve $n=1$ terimlerini ayırırsak:</p>
+                        $$2c_{2}+6c_{3}x+\sum_{n=2}^{\infty}(n+2)(n+1)c_{n+2}x^{n}$$
+                        <p>Bütün toplamlar bu şekilde ortak aralığa indirgendikten sonra $x$'in aynı kuvvetleri bir araya toplanır ve $(5.9)$ biçimi elde edilir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Özyineleme formülü</h3>
+                        <p>Katsayıları sıfıra eşitlemek iki tür koşul üretir:</p>
+                        <ol>
+                            <li><strong>Düşük dereceli terimlerden gelen tekil koşullar</strong> — bunlar $c_{2}$'yi $c_{0}$ cinsinden, $c_{3}$'ü $c_{1}$ cinsinden verir.</li>
+                            <li><strong>Genel toplamdan gelen ve her $n$ için geçerli olan koşul</strong> — buna <strong>özyineleme formülü (recurrence formula)</strong> denir.</li>
+                        </ol>
+                        <p>Özyineleme formülü, her $c_{n+2}$ katsayısını kendinden önceki katsayılar cinsinden verir. Böylece <strong>çift indisli katsayıların hepsi $c_{0}$ cinsinden, tek indisli katsayıların hepsi $c_{1}$ cinsinden</strong> ifade edilir.</p>
+                        <p>$c_{0}$ ve $c_{1}$ keyfi kalır — ve zaten olması gereken budur: ikinci mertebeden bir denklemin genel çözümünde iki keyfi sabit bulunur. Sonuçta çözüm</p>
+                        $$y=c_{0}\big(\text{bir seri}\big)+c_{1}\big(\text{başka bir seri}\big)$$
+                        <p>biçiminde toplanır; parantez içindeki iki seri, THEoREM 5.1'in varlığını garantilediği <span class="vurgu">lineer bağımsız iki çözümdür</span>.</p>
+                    </div>
+
+                    <div id="ornek-seri-cozum" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.2 &nbsp;Çözümlü Örnek — Kuvvet Serisi Çözümünün Bulunması
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.4.</strong> &nbsp; $\displaystyle y''+xy'+(x^{2}+2)y=0$ denkleminin $x$ kuvvetlerinde (yani $x_{0}=0$ etrafında) kuvvet serisi çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 5.1'de bu denklemin bütün noktalarının adi nokta olduğunu görmüştük; özel olarak $x_{0}=0$ da adi noktadır. THEoREM 5.1 gereği aranan türden lineer bağımsız iki çözüm mevcuttur. <span class="vurgu">Aşağıdaki yöntem ikisini birden aynı anda verir.</span></p>
+                                <p><strong>Adım 1 — Çözümü seri olarak varsay ve türevlerini yaz.</strong></p>
+                                $$y=\sum_{n=0}^{\infty}c_{n}x^{n} \tag{5.10}$$
+                                <p>Terim terime türeterek:</p>
+                                $$y'=\sum_{n=1}^{\infty}n\,c_{n}x^{n-1},\qquad y''=\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}$$
+                                <p><strong>Adım 2 — Denkleme yerleştir.</strong></p>
+                                $$\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}+x\sum_{n=1}^{\infty}n\,c_{n}x^{n-1}+x^{2}\sum_{n=0}^{\infty}c_{n}x^{n}+2\sum_{n=0}^{\infty}c_{n}x^{n}=0$$
+                                <p>$x$ toplam indisinden bağımsız olduğu için içeri alınabilir:</p>
+                                $$\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}+\sum_{n=1}^{\infty}n\,c_{n}x^{n}+\sum_{n=0}^{\infty}c_{n}x^{n+2}+2\sum_{n=0}^{\infty}c_{n}x^{n}=0 \tag{5.13}$$
+                                <p><strong>Adım 3 — İndeksleri kaydırarak bütün üsleri $x^{n}$ yap.</strong></p>
+                                <p>Birinci toplamda $n\to n+2$ (üs $n$ olur, alt sınır $n=0$'a iner):</p>
+                                $$\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}\;=\;\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}$$
+                                <p>Üçüncü toplamda $n\to n-2$ (üs $n$ olur, alt sınır $n=2$'ye çıkar):</p>
+                                $$\sum_{n=0}^{\infty}c_{n}x^{n+2}\;=\;\sum_{n=2}^{\infty}c_{n-2}x^{n}$$
+                                <p>Denklem şu hâle gelir:</p>
+                                $$\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}+\sum_{n=1}^{\infty}n\,c_{n}x^{n}+\sum_{n=2}^{\infty}c_{n-2}x^{n}+2\sum_{n=0}^{\infty}c_{n}x^{n}=0 \tag{5.20}$$
+                                <p><strong>Adım 4 — Ortak aralığa indirge.</strong></p>
+                                <p>Üsler aynı ama alt sınırlar farklı: sırasıyla $0,\;1,\;2,\;0$. <span class="vurgu">Ortak aralık $n=2$'den $\infty$'a.</span> Dışarıda kalan terimleri tek tek yazalım:</p>
+                                $$\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}=2c_{2}+6c_{3}x+\sum_{n=2}^{\infty}(n+2)(n+1)c_{n+2}x^{n}$$
+                                $$\sum_{n=1}^{\infty}n\,c_{n}x^{n}=c_{1}x+\sum_{n=2}^{\infty}n\,c_{n}x^{n}$$
+                                $$2\sum_{n=0}^{\infty}c_{n}x^{n}=2c_{0}+2c_{1}x+2\sum_{n=2}^{\infty}c_{n}x^{n}$$
+                                <p><strong>Adım 5 — Aynı kuvvetleri topla.</strong></p>
+                                $$(2c_{0}+2c_{2})+(3c_{1}+6c_{3})x+\sum_{n=2}^{\infty}\Big[(n+2)(n+1)c_{n+2}+(n+2)c_{n}+c_{n-2}\Big]x^{n}=0 \tag{5.21}$$
+                                <p>Sabit terimde $2c_{0}+2c_{2}$, $x$ teriminde $c_{1}+2c_{1}+6c_{3}=3c_{1}+6c_{3}$ toplandı. Toplamın içinde $n\,c_{n}+2c_{n}=(n+2)c_{n}$ birleşti.</p>
+                                <p><strong>Adım 6 — Her kuvvetin katsayısını sıfıra eşitle.</strong></p>
+                                $$2c_{0}+2c_{2}=0 \tag{5.22}$$
+                                $$3c_{1}+6c_{3}=0 \tag{5.23}$$
+                                $$(n+2)(n+1)c_{n+2}+(n+2)c_{n}+c_{n-2}=0,\quad n\ge 2 \tag{5.24}$$
+                                <p>$(5.22)$ ve $(5.23)$'ten:</p>
+                                $$c_{2}=-c_{0},\qquad c_{3}=-\tfrac{1}{2}c_{1}$$
+                                <p>$(5.24)$ ise <strong>özyineleme formülüdür</strong>; $c_{n+2}$'yi çözersek:</p>
+                                $$\boxed{\,c_{n+2}=-\frac{(n+2)c_{n}+c_{n-2}}{(n+1)(n+2)},\quad n\ge 2\,} \tag{5.27}$$
+                                <p><strong>Adım 7 — Katsayıları sırayla hesapla.</strong></p>
+                                <p>$n=2$ için:</p>
+                                $$c_{4}=-\frac{4c_{2}+c_{0}}{12}=-\frac{4(-c_{0})+c_{0}}{12}=-\frac{-3c_{0}}{12}=\frac{1}{4}c_{0}$$
+                                <p>$n=3$ için:</p>
+                                $$c_{5}=-\frac{5c_{3}+c_{1}}{20}=-\frac{5\left(-\tfrac{1}{2}c_{1}\right)+c_{1}}{20}=-\frac{-\tfrac{3}{2}c_{1}}{20}=\frac{3}{40}c_{1}$$
+                                <p>Aynı şekilde devam edilerek <span class="vurgu">her çift indisli katsayı $c_{0}$ cinsinden, her tek indisli katsayı $c_{1}$ cinsinden</span> ifade edilir.</p>
+                                <p><strong>Adım 8 — Bulunanları varsayılan çözümde yerine koy.</strong></p>
+                                $$y=c_{0}+c_{1}x-c_{0}x^{2}-\tfrac{1}{2}c_{1}x^{3}+\tfrac{1}{4}c_{0}x^{4}+\tfrac{3}{40}c_{1}x^{5}+\dots$$
+                                <p>$c_{0}$ ve $c_{1}$ parantezine ayırarak:</p>
+                                $$\boxed{\;y=c_{0}\left(1-x^{2}+\frac{1}{4}x^{4}+\dots\right)+c_{1}\left(x-\frac{1}{2}x^{3}+\frac{3}{40}x^{5}+\dots\right)\;} \tag{5.30}$$
+                                <p><strong>Sonucun yorumu.</strong> Parantez içindeki iki seri, $(5.4)$ denkleminin lineer bağımsız iki çözümünün kuvvet serisi açılımlarıdır; $c_{0}$ ve $c_{1}$ keyfi sabitlerdir. Dolayısıyla $(5.30)$, denklemin $x$ kuvvetlerindeki <strong>genel çözümüdür</strong> ($x^{5}$ terimine kadar).</p>
+                                <div class="highlight">
+                                    <p><strong>Neden $x^{5}$'e kadar?</strong> Özyineleme formülü sonsuz sayıda katsayı üretir; pratikte istenen doğruluğa göre birkaç terim hesaplanır. Kapalı biçimde bir formül çıkmadığı sürece çözüm, açık seri terimleriyle verilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-seri-bdp" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.3 &nbsp;Çözümlü Örnek — Seri Yöntemiyle Başlangıç Değer Problemi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.5.</strong> &nbsp; Aşağıdaki başlangıç değer problemini kuvvet serisi yöntemiyle çözünüz: $$(x^{2}-1)y''+3xy'+xy=0,\qquad y(0)=4,\qquad y'(0)=6$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Hangi nokta etrafında seri arayacağımıza karar ver.</strong></p>
+                                <p>Normalleştirilmiş biçime geçersek $y''+\dfrac{3x}{x^{2}-1}y'+\dfrac{x}{x^{2}-1}y=0$ olur; paydalar $x=\pm 1$'de sıfırlanır. Yani <span class="vurgu">$x=\pm 1$ dışındaki bütün noktalar adi noktadır.</span></p>
+                                <p>Başlangıç koşulları $x=0$'da verildiği için $x_{0}=0$ seçeriz ve $x$ kuvvetlerinde çözüm ararız:</p>
+                                $$y=\sum_{n=0}^{\infty}c_{n}x^{n},\qquad y'=\sum_{n=1}^{\infty}nc_{n}x^{n-1},\qquad y''=\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}$$
+                                <div class="highlight">
+                                    <p><strong>$x_{0}$ neden başlangıç noktası seçilir?</strong> Koşullar $x=0$'da verildiği için, $y(0)$ ve $y'(0)$ doğrudan $c_{0}$ ve $c_{1}$'i belirler. Başka bir $x_{0}$ seçilseydi koşulları uygulamak için serinin o noktadaki değerini hesaplamak gerekirdi — gereksiz zorluk.</p>
+                                </div>
+                                <p><strong>Adım 2 — Denkleme yerleştir.</strong></p>
+                                $$\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n}-\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n-2}+3\sum_{n=1}^{\infty}nc_{n}x^{n}+\sum_{n=0}^{\infty}c_{n}x^{n+1}=0$$
+                                <p><strong>Adım 3 — İkinci ve dördüncü toplamda indeks kaydır.</strong></p>
+                                <p>İkincide $n\to n+2$, dördüncüde $n\to n-1$:</p>
+                                $$\sum_{n=2}^{\infty}n(n-1)c_{n}x^{n}-\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}+3\sum_{n=1}^{\infty}nc_{n}x^{n}+\sum_{n=1}^{\infty}c_{n-1}x^{n}=0$$
+                                <p><strong>Adım 4 — Ortak aralık $n\ge 2$; dışarıdakileri aç ve topla.</strong></p>
+                                $$-2c_{2}+\left(c_{0}+3c_{1}-6c_{3}\right)x+\sum_{n=2}^{\infty}\Big[-(n+2)(n+1)c_{n+2}+n(n+2)c_{n}+c_{n-1}\Big]x^{n}=0$$
+                                <p>Toplamın içindeki $c_{n}$ katsayısı şöyle sadeleşti:</p>
+                                $$n(n-1)+3n=n^{2}-n+3n=n^{2}+2n=n(n+2)$$
+                                <p><strong>Adım 5 — Katsayıları sıfıra eşitle.</strong></p>
+                                $$-2c_{2}=0,\qquad c_{0}+3c_{1}-6c_{3}=0$$
+                                $$-(n+2)(n+1)c_{n+2}+n(n+2)c_{n}+c_{n-1}=0,\quad n\ge 2$$
+                                <p>Buradan</p>
+                                $$c_{2}=0,\qquad c_{3}=\frac{c_{0}}{6}+\frac{c_{1}}{2}$$
+                                <p>ve özyineleme formülü:</p>
+                                $$\boxed{\,c_{n+2}=\frac{n(n+2)c_{n}+c_{n-1}}{(n+1)(n+2)},\quad n\ge 2\,}$$
+                                <p><strong>Adım 6 — Katsayıları sırayla hesapla.</strong></p>
+                                <p>$n=2$ için ($c_{2}=0$ olduğunu kullanarak):</p>
+                                $$c_{4}=\frac{2\cdot 4\cdot c_{2}+c_{1}}{3\cdot 4}=\frac{8c_{2}+c_{1}}{12}=\frac{1}{12}c_{1}$$
+                                <p>$n=3$ için:</p>
+                                $$c_{5}=\frac{3\cdot 5\cdot c_{3}+c_{2}}{4\cdot 5}=\frac{15c_{3}}{20}=\frac{3}{4}c_{3}=\frac{3}{4}\left(\frac{c_{0}}{6}+\frac{c_{1}}{2}\right)=\frac{c_{0}}{8}+\frac{3c_{1}}{8}$$
+                                <p><strong>Adım 7 — Genel çözümü yaz.</strong></p>
+                                $$y=c_{0}+c_{1}x+\left(\frac{c_{0}}{6}+\frac{c_{1}}{2}\right)x^{3}+\frac{c_{1}}{12}x^{4}+\left(\frac{c_{0}}{8}+\frac{3c_{1}}{8}\right)x^{5}+\dots$$
+                                <p>$c_{0}$ ve $c_{1}$ parantezine ayırırsak:</p>
+                                $$y=c_{0}\left(1+\frac{1}{6}x^{3}+\frac{1}{8}x^{5}+\dots\right)+c_{1}\left(x+\frac{1}{2}x^{3}+\frac{1}{12}x^{4}+\frac{3}{8}x^{5}+\dots\right)$$
+                                <p><strong>Adım 8 — Başlangıç koşullarını uygula.</strong></p>
+                                <p>$y(0)=4$ koşulunu yazarsak, $x=0$'da birinci parantez $1$, ikincisi $0$ verir:</p>
+                                $$c_{0}=4$$
+                                <p>Türevi alalım:</p>
+                                $$y'=c_{0}\left(\frac{1}{2}x^{2}+\frac{5}{8}x^{4}+\dots\right)+c_{1}\left(1+\frac{3}{2}x^{2}+\frac{1}{3}x^{3}+\frac{15}{8}x^{4}+\dots\right)$$
+                                <p>$y'(0)=6$ koşulunu yazarsak, $x=0$'da birinci parantez $0$, ikincisi $1$ verir:</p>
+                                $$c_{1}=6$$
+                                <p><strong>Adım 9 — Sonuç.</strong></p>
+                                $$y=4\left(1+\frac{1}{6}x^{3}+\frac{1}{8}x^{5}+\dots\right)+6\left(x+\frac{1}{2}x^{3}+\frac{1}{12}x^{4}+\frac{3}{8}x^{5}+\dots\right)$$
+                                <p>Terimleri birleştirirsek:</p>
+                                $$\boxed{\;y=4+6x+\frac{11}{3}x^{3}+\frac{1}{2}x^{4}+\frac{11}{4}x^{5}+\dots\;}$$
+                                <p><strong>Ara işlem kontrolü.</strong> $x^{3}$ katsayısı $\dfrac{4}{6}+\dfrac{6}{2}=\dfrac{2}{3}+3=\dfrac{11}{3}$; $x^{4}$ katsayısı $\dfrac{6}{12}=\dfrac{1}{2}$; $x^{5}$ katsayısı $\dfrac{4}{8}+\dfrac{18}{8}=\dfrac{22}{8}=\dfrac{11}{4}$. <span class="vurgu">$x^{2}$ terimi yoktur, çünkü $c_{2}=0$ çıkmıştı.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.6.</strong> &nbsp; Aynı denklemde başlangıç koşulları $x=0$ yerine $x=2$'de verilseydi ne değişirdi: $(x^{2}-1)y''+3xy'+xy=0$, $y(2)=4$, $y'(2)=6$?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Başlangıç değerleri $x=2$'de verildiği için <span class="vurgu">$x-2$ kuvvetlerinde</span> çözüm aranır:</p>
+                                $$y=\sum_{n=0}^{\infty}c_{n}(x-2)^{n}$$
+                                <p>$x_{0}=2$ noktası adi noktadır (tekil noktalar yalnızca $x=\pm 1$), dolayısıyla THEoREM 5.1 bu biçimde lineer bağımsız iki çözümün varlığını garantiler.</p>
+                                <p><strong>Yöntem aynıdır, tek fark değişken kaymasıdır.</strong> Uygulamada iki yol vardır:</p>
+                                <ol>
+                                    <li>Serileri doğrudan $x-2$ kuvvetlerinde yazıp denklemdeki $x$'li katsayıları da $x=(x-2)+2$ yazarak $x-2$ cinsine çevirmek.</li>
+                                    <li>$t=x-2$ dönüşümü yapıp denklemi $t$ cinsinden yeniden yazmak, $t=0$ etrafında çözmek ve sonunda $t=x-2$ geri koymak.</li>
+                                </ol>
+                                <p>İkinci yol hesabı sadeleştirir, çünkü problem tanıdık "sıfır etrafında seri" biçimine döner.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="seri-yakinsaklik" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            5.4 &nbsp;Seri Çözümün Yakınsaklık Aralığı
+                        </div>
+                        <p>Önceki örneklerde kuvvet serisi çözümleri bulduk ama bu serilerin <strong>nerede yakınsadığını (convergence)</strong> tartışmadık. THEoREM 5.1 yalnızca "$x_{0}$ etrafında bir $|x-x_{0}|<R$ aralığında yakınsar" diyor; $R$'nin ne kadar büyük olduğunu söylemiyor. Bu bölüm o boşluğu dolduruyor.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yakınsaklık yarıçapını veren kural</h3>
+                        <p>Denklemi yine normalleştirilmiş biçimde yazalım:</p>
+                        $$y''+P_{1}(x)y'+P_{2}(x)y=0,\qquad P_{1}=\frac{a_{1}}{a_{0}},\quad P_{2}=\frac{a_{2}}{a_{0}}$$
+                        <p>$x_{0}$ bir adi noktaysa, tanım gereği $P_{1}$ ve $P_{2}$ orada analitiktir; yani her ikisinin de $x_{0}$ etrafında yakınsak birer Taylor serisi vardır. Bu serilerin yakınsaklık aralıkları sırasıyla $|x-x_{0}|<R_{1}$ ve $|x-x_{0}|<R_{2}$ olsun.</p>
+                        <div class="highlight">
+                            <p><strong>Kural.</strong> Seri çözümün yakınsaklık aralığı $|x-x_{0}|<R$, <span class="vurgu">en az</span> $R_{1}$ ve $R_{2}$'nin <strong>küçüğü</strong> kadardır:</p>
+                            $$R\;\ge\;\min\{R_{1},\,R_{2}\}$$
+                            <p>Yani çözüm serisi, katsayı fonksiyonlarının ikisinin birden yakınsadığı her yerde yakınsar.</p>
+                        </div>
+                        <p>Pratikte bu şu anlama gelir: <span class="vurgu">yakınsaklık yarıçapı, $x_{0}$'dan en yakın tekil noktaya olan uzaklıktan küçük değildir.</span> Katsayı fonksiyonlarının Taylor serileri ancak bir tekil noktaya çarpınca durur.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Örnek 5.1'in denklemine uygulama</h3>
+                        $$y''+xy'+(x^{2}+2)y=0$$
+                        <p>Burada $P_{1}(x)=x$ ve $P_{2}(x)=x^{2}+2$; ikisi de polinomdur. Polinomların Taylor serileri <strong>her $x$ için</strong> yakınsar, yani $R_{1}=R_{2}=\infty$.</p>
+                        <p>Dolayısıyla bulduğumuz seri çözüm</p>
+                        $$y=c_{0}\left(1-x^{2}+\frac{1}{4}x^{4}+\dots\right)+c_{1}\left(x-\frac{1}{2}x^{3}+\frac{3}{40}x^{5}+\dots\right)$$
+                        <p><span class="vurgu">bütün $x$ değerleri için yakınsar.</span> Bu beklenen sonuçtu: denklemin hiç tekil noktası yoktu.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Örnek 5.5'in denklemine uygulama</h3>
+                        $$(x^{2}-1)y''+3xy'+xy=0$$
+                        <p>Normalleştirirsek:</p>
+                        $$P_{1}(x)=\frac{3x}{x^{2}-1},\qquad P_{2}(x)=\frac{x}{x^{2}-1}$$
+                        <p>Her ikisinin de paydası $x=\pm 1$'de sıfırlanır. $x_{0}=0$ etrafındaki Taylor serileri, en yakın tekil noktaya kadar yakınsar; $0$'a en yakın tekil noktalar $x=1$ ve $x=-1$, uzaklık $1$'dir. Yani $R_{1}=R_{2}=1$.</p>
+                        <p>Buradan:</p>
+                        $$\boxed{\;y=4+6x+\frac{11}{3}x^{3}+\frac{1}{2}x^{4}+\frac{11}{4}x^{5}+\dots\;\text{serisi en az }|x|<1\text{ için yakınsar.}}$$
+                        <div class="highlight">
+                            <p><strong>"En az" ifadesine dikkat.</strong> Kural bir <strong>alt sınır</strong> verir, kesin yarıçapı değil. Gerçek yakınsaklık aralığı daha geniş olabilir; ama garanti edilen en az bu kadardır. Sınav sorularında istenen genellikle bu garanti edilen alt sınırdır.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Başlangıç noktası kaydığında: $t=x-x_{0}$ dönüşümü</h3>
+                        <p>Başlangıç koşulları $x=0$ yerine başka bir $x_{0}$'da verilirse, $x-x_{0}$ kuvvetlerinde çözüm aranır. En pratik yol <strong>değişken değiştirmektir</strong>.</p>
+                        <p>Örneğin $(x^{2}-1)y''+3xy'+xy=0$, $y(2)=4$, $y'(2)=6$ problemi için $t=x-2$ koyalım. O zaman $x=t+2$ ve</p>
+                        $$x^{2}-1=(t+2)^{2}-1=t^{2}+4t+3,\qquad 3x=3t+6,\qquad x=t+2$$
+                        <p>olduğundan problem şuna dönüşür:</p>
+                        $$\left(t^{2}+4t+3\right)\frac{d^{2}y}{dt^{2}}+(3t+6)\frac{dy}{dt}+(t+2)y=0,\qquad y(0)=4,\;\; y'(0)=6$$
+                        <p>Artık başlangıç koşulları $t=0$'da verilmiştir ve</p>
+                        $$y=\sum_{n=0}^{\infty}c_{n}t^{n}$$
+                        <p>biçiminde, tanıdık "sıfır etrafında seri" problemine indirgenmiştir. Katsayılar Örnek 5.4 ve 5.5'teki gibi bulunur, koşullar uygulanır, sonunda $t$ yerine $x-2$ yazılarak</p>
+                        $$y=\sum_{n=0}^{\infty}c_{n}(x-2)^{n}$$
+                        <p>elde edilir.</p>
+                        <p><strong>Bu dönüşümün yakınsaklığa etkisi.</strong> Yeni denklemin tekil noktaları $t^{2}+4t+3=(t+1)(t+3)=0$ yani $t=-1$ ve $t=-3$'tür; bunlar $x=1$ ve $x=-1$'e karşılık gelir — <span class="vurgu">aynı tekil noktalar, sadece kaydırılmış koordinatta</span>. $t=0$'a en yakın tekil nokta $t=-1$ olduğundan seri en az $|t|<1$, yani $|x-2|<1$ için yakınsar.</p>
+                    </div>
+
+                    <div id="seri-egzersizler" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            5.5 &nbsp;Bölüm Sonu Egzersizleri
+                        </div>
+                        <p>Aşağıdaki denklemlerin $x$ kuvvetlerinde kuvvet serisi çözümlerini bulunuz.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $\displaystyle y''+xy'+y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Serileri yerleştir.</strong></p>
+                                $$\sum_{n=0}^{\infty}(n+2)(n+1)c_{n+2}x^{n}+\sum_{n=1}^{\infty}nc_{n}x^{n}+\sum_{n=0}^{\infty}c_{n}x^{n}=0$$
+                                <p>İkinci toplam $n=0$'da sıfır terim verdiği için alt sınırı $0$'a indirebiliriz; böylece üç toplam da aynı aralıkta olur ve <span class="vurgu">ortak aralığa indirgeme adımına gerek kalmaz</span>.</p>
+                                <p><strong>Adım 2 — Katsayıyı sıfıra eşitle.</strong></p>
+                                $$(n+2)(n+1)c_{n+2}+nc_{n}+c_{n}=0\;\Longrightarrow\;(n+2)(n+1)c_{n+2}+(n+1)c_{n}=0$$
+                                <p>Her iki terimde de $(n+1)$ çarpanı var; $n\ge 0$ için $n+1\neq 0$ olduğundan sadeleştirebiliriz:</p>
+                                $$\boxed{\,c_{n+2}=-\frac{c_{n}}{n+2}\,}$$
+                                <p>Bu özyineleme alışılmadık ölçüde sadedir — $c_{n+2}$ yalnızca $c_{n}$'ye bağlıdır, aradaki terime değil. Demek ki çift ve tek indisler <span class="vurgu">birbirinden tamamen bağımsız</span> iki zincir oluşturur.</p>
+                                <p><strong>Adım 3 — Çift indisli zincir ($c_{0}$'dan).</strong></p>
+                                $$c_{2}=-\frac{c_{0}}{2},\qquad c_{4}=-\frac{c_{2}}{4}=\frac{c_{0}}{8},\qquad c_{6}=-\frac{c_{4}}{6}=-\frac{c_{0}}{48}$$
+                                <p>Genel terim: paydalar $2,\;2\cdot 4,\;2\cdot 4\cdot 6,\dots$ ilerliyor, yani</p>
+                                $$c_{2k}=\frac{(-1)^{k}c_{0}}{2\cdot 4\cdot 6\cdots 2k}=\frac{(-1)^{k}c_{0}}{2^{k}\,k!}$$
+                                <p><strong>Adım 4 — Tek indisli zincir ($c_{1}$'den).</strong></p>
+                                $$c_{3}=-\frac{c_{1}}{3},\qquad c_{5}=-\frac{c_{3}}{5}=\frac{c_{1}}{15},\qquad c_{7}=-\frac{c_{5}}{7}=-\frac{c_{1}}{105}$$
+                                $$c_{2k+1}=\frac{(-1)^{k}c_{1}}{3\cdot 5\cdot 7\cdots(2k+1)}$$
+                                <p><strong>Adım 5 — Genel çözüm.</strong></p>
+                                $$y=c_{0}\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{2^{k}k!}+c_{1}\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k+1}}{3\cdot 5\cdots(2k+1)}$$
+                                <p><strong>Birinci seri kapalı biçime iniyor.</strong> Terimleri şöyle yazalım:</p>
+                                $$\sum_{k=0}^{\infty}\frac{1}{k!}\left(-\frac{x^{2}}{2}\right)^{k}=e^{-x^{2}/2}$$
+                                <p>çünkü $e^{u}=\sum u^{k}/k!$ açılımında $u=-x^{2}/2$ konmuştur. Dolayısıyla</p>
+                                $$\boxed{\;y=c_{0}\,e^{-x^{2}/2}+c_{1}\left(x-\frac{x^{3}}{3}+\frac{x^{5}}{15}-\frac{x^{7}}{105}+\dots\right)\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{1}=e^{-x^{2}/2}$ için $y_{1}'=-xe^{-x^{2}/2}$ ve $y_{1}''=\left(x^{2}-1\right)e^{-x^{2}/2}$. Yerine koyalım:</p>
+                                $$y_{1}''+xy_{1}'+y_{1}=\left(x^{2}-1\right)e^{-x^{2}/2}-x^{2}e^{-x^{2}/2}+e^{-x^{2}/2}=0\;\checkmark$$
+                                <p>$P_{1}=x$ ve $P_{2}=1$ polinom olduğundan seriler <span class="vurgu">her $x$ için</span> yakınsar.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>15.</strong> &nbsp; $\displaystyle y''-xy'-y=0,\qquad y(0)=1,\qquad y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Özyineleme formülünü çıkar.</strong></p>
+                                $$(n+2)(n+1)c_{n+2}-nc_{n}-c_{n}=0\;\Longrightarrow\;(n+2)(n+1)c_{n+2}=(n+1)c_{n}$$
+                                <p>$(n+1)$ sadeleşir:</p>
+                                $$\boxed{\,c_{n+2}=\frac{c_{n}}{n+2}\,}$$
+                                <ol>
+                                    <li>soruyla aynı yapı, tek fark işaret — burada eksi yok.</li>
+                                </ol>
+                                <p><strong>Adım 2 — Başlangıç koşullarını hemen uygula.</strong></p>
+                                <p>Seri $x=0$'da $c_{0}$, türevi $x=0$'da $c_{1}$ verdiğinden:</p>
+                                $$c_{0}=y(0)=1,\qquad c_{1}=y'(0)=0$$
+                                <p><span class="vurgu">$c_{1}=0$ olması bütün tek indisli katsayıları sıfırlar</span>, çünkü tek zincir yalnızca $c_{1}$'den beslenir:</p>
+                                $$c_{3}=\frac{c_{1}}{3}=0,\qquad c_{5}=\frac{c_{3}}{5}=0,\qquad \dots$$
+                                <p><strong>Adım 3 — Çift indisli katsayılar.</strong></p>
+                                $$c_{2}=\frac{c_{0}}{2}=\frac{1}{2},\qquad c_{4}=\frac{c_{2}}{4}=\frac{1}{8},\qquad c_{6}=\frac{c_{4}}{6}=\frac{1}{48}$$
+                                $$c_{2k}=\frac{1}{2\cdot 4\cdots 2k}=\frac{1}{2^{k}k!}$$
+                                <p><strong>Adım 4 — Çözüm.</strong></p>
+                                $$y=1+\frac{x^{2}}{2}+\frac{x^{4}}{8}+\frac{x^{6}}{48}+\dots=\sum_{k=0}^{\infty}\frac{1}{k!}\left(\frac{x^{2}}{2}\right)^{k}$$
+                                $$\boxed{\;y=e^{x^{2}/2}\;}$$
+                                <p><strong>Doğrulama.</strong> $y'=xe^{x^{2}/2}$, $y''=\left(1+x^{2}\right)e^{x^{2}/2}$ olduğundan</p>
+                                $$y''-xy'-y=\left(1+x^{2}\right)e^{x^{2}/2}-x^{2}e^{x^{2}/2}-e^{x^{2}/2}=0\;\checkmark$$
+                                <p>Başlangıç koşulları da sağlanıyor: $y(0)=e^{0}=1$ ve $y'(0)=0\cdot e^{0}=0$. $\checkmark$</p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözülmeyi bekleyen egzersizler</h3>
+                                <p>Aşağıdakiler kitabın bölüm sonu listesindedir. Yöntem yukarıdaki iki çözümdekiyle aynıdır.</p>
+                                <p><strong>$x$ kuvvetlerinde kuvvet serisi çözümü bulunuz (1-14):</strong></p>
+                                <ol>
+                                    <li>&nbsp; $y''-y'+2xy=0$ &nbsp;&nbsp; 5. &nbsp; $y''+xy'+\left(2x^{2}+1\right)y=0$ &nbsp;&nbsp; 7. &nbsp; $y''+xy'+(3x+2)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $y''-\left(x^{3}+2\right)y'-6x^{2}y=0$ &nbsp;&nbsp; 10. &nbsp; $y''-\left(x^{2}+x\right)y'+y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{2}+1\right)y''+xy'+xy=0$ &nbsp;&nbsp; 12. &nbsp; $(x-1)y''-(3x-2)y'+2xy=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{3}-1\right)y''+x^{2}y'+xy=0$ &nbsp;&nbsp; 14. &nbsp; $(x+3)y''+(x+2)y'+y=0$</li>
+                                </ol>
+                                <p><strong>Başlangıç değer problemlerinin kuvvet serisi çözümünü bulunuz (16-20):</strong></p>
+                                <ol>
+                                    <li>&nbsp; $y''+xy'-2y=0,\quad y(0)=0,\quad y'(0)=1$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $y''+x^{2}y'+x^{2}y=0,\quad y(0)=2,\quad y'(0)=4$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{2}+1\right)y''+xy'+2xy=0,\quad y(0)=2,\quad y'(0)=3$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(2x^{2}-3\right)y''-2xy'+y=0,\quad y(0)=-1,\quad y'(0)=5$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{2}-1\right)y''+4xy'+2y=0,\quad y(0)=1,\quad y'(0)=-1$</li>
+                                </ol>
+                                <p><strong>$x-1$ kuvvetlerinde çözüm bulunuz (21-23):</strong></p>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+xy'+y=0$ &nbsp;&nbsp; 22. &nbsp; $x^{2}y''+3xy'-y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $xy''+y'+2y=0,\quad y(1)=2,\quad y'(1)=4$</li>
+                                </ol>
+                                <p><strong>24. &nbsp; Legendre denklemi.</strong> &nbsp; $n$ sabit olmak üzere</p>
+                                $$\left(1-x^{2}\right)y''-2xy'+n(n+1)y=0$$
+                                <p>denklemine <strong>Legendre diferansiyel denklemi (Legendre's differential equation)</strong> denir.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>(a)</strong> $x=0$'ın bu denklemin adi noktası olduğunu gösteriniz ve $x$ kuvvetlerinde lineer bağımsız iki kuvvet serisi çözümü bulunuz.</li>
+                                    <li><strong>(b)</strong> $n$ negatif olmayan bir tam sayıysa, (a)'da bulunan çözümlerden birinin $n$ dereceli bir <strong>polinom</strong> olduğunu gösteriniz.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="frobenius-tekil-nokta" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            5.6 &nbsp;Tekil Noktalar Etrafında Çözümler — Frobenius Yönteminin Temeli
+                        </div>
+                        <p>Şimdiye kadar $x_{0}$'ın <strong>adi nokta</strong> olduğu durumu inceledik. Peki $x_{0}$ bir <strong>tekil noktaysa</strong> ne olur?</p>
+                        <p>O durumda THEoREM 5.1 uygulanamaz ve</p>
+                        $$y=\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n}$$
+                        <p>biçiminde bir çözümün varlığı garanti edilmez. <span class="vurgu">Gerçekten de tekil noktalı bir denklemin genelde bu biçimde bir çözümü yoktur.</span> Başka türden bir çözüm aramamız gerekir.</p>
+                        <p>Belirli koşullar altında şu biçimde bir çözüm varsaymakta haklıyızdır:</p>
+                        $$y=|x-x_{0}|^{r}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n} \tag{5.49}$$
+                        <p>Burada $r$ belirli bir (reel ya da karmaşık) sabittir. Böyle bir çözüm, bir kuvvet serisinin $|x-x_{0}|$'ın bir kuvvetiyle çarpımıdır. Bu yaklaşıma <strong>Frobenius yöntemi (method of Frobenius)</strong> denir.</p>
+                        <div class="highlight">
+                            <p><strong>Neden ekstra bir $|x-x_{0}|^{r}$ çarpanı?</strong> Tekil noktada çözüm sonsuza gidebilir ya da türevi tanımsız olabilir; sıradan bir kuvvet serisi böyle davranışları üretemez, çünkü $x_{0}$'da her zaman sonlu ve düzgündür. $r$ negatif ya da kesirli seçilebildiği için bu çarpan, seriye tekil noktadaki gerekli davranışı kazandırır.</p>
+                        </div>
+                        <p>Ancak bu biçimin işe yarayacağı koşulları söyleyebilmek için önce tekil noktaları sınıflandırmamız gerekir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Düzgün ve düzgün olmayan tekil nokta</h3>
+                        <p>Denklemi yine normalleştirilmiş biçimde yazalım:</p>
+                        $$y''+P_{1}(x)y'+P_{2}(x)y=0,\qquad P_{1}=\frac{a_{1}}{a_{0}},\quad P_{2}=\frac{a_{2}}{a_{0}}$$
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $P_{1}$ ve $P_{2}$'den en az biri $x_{0}$'da analitik olmasın, yani $x_{0}$ bir tekil nokta olsun. Şu iki çarpımı kuralım:</p>
+                            $$(x-x_{0})P_{1}(x)\qquad\text{ve}\qquad (x-x_{0})^{2}P_{2}(x) \tag{5.50}$$
+                            <p>Bu iki fonksiyonun <strong>ikisi de</strong> $x_{0}$'da analitikse, $x_{0}$'a denklemin bir <strong>düzgün tekil noktası (regular singular point)</strong> denir.</p>
+                            <p>Bu çarpımlardan biri (veya ikisi) $x_{0}$'da analitik değilse, $x_{0}$'a bir <strong>düzgün olmayan tekil nokta (irregular singular point)</strong> denir.</p>
+                        </div>
+                        <p>Sınıflandırmanın mantığı şudur: $(x-x_{0})$ ve $(x-x_{0})^{2}$ çarpanları, $P_{1}$ ve $P_{2}$'nin tekil noktadaki patlamasını "sönümlemeye" çalışır. Patlama <span class="vurgu">yeterince zayıfsa</span> çarpım analitik hâle gelir ve tekillik düzgündür; <span class="vurgu">çok şiddetliyse</span> çarpım bile kurtaramaz ve tekillik düzgün değildir.</p>
+                        <p>Çarpanların dereceleri keyfi seçilmemiştir: $P_{1}$ için birinci, $P_{2}$ için ikinci kuvvet alınır. Bu, denklemin $y'$ ve $y$ terimlerinin ölçekleme davranışından gelir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Frobenius çözümünün varlığı</h3>
+                        <div class="highlight">
+                            <p><strong>THEoREM 5.2</strong></p>
+                            <p><strong>Hipotez.</strong> $x_{0}$ noktası, $(5.1)$ diferansiyel denkleminin bir <strong>düzgün tekil noktasıdır</strong>.</p>
+                            <p><strong>Sonuç.</strong> $(5.1)$ denkleminin</p>
+                            $$|x-x_{0}|^{r}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n} \tag{5.49}$$
+                            <p>biçiminde, aşikâr olmayan <strong>en az bir</strong> çözümü vardır. Buradaki $r$, belirlenebilen kesin bir (reel ya da karmaşık) sabittir ve bu çözüm $x_{0}$ etrafındaki bir <strong>delinmiş aralıkta (deleted interval)</strong> $0<|x-x_{0}|<R$ ($R>0$) geçerlidir.</p>
+                        </div>
+                        <p>İki farkı THEoREM 5.1 ile karşılaştırarak görmek gerekir:</p>
+                        <p>| | THEoREM 5.1 (adi nokta) | THEoREM 5.2 (düzgün tekil nokta) | |---|---|---| | Kaç çözüm garanti edilir | <strong>İki</strong> lineer bağımsız çözüm | <strong>En az bir</strong> çözüm | | Çözümün biçimi | $\sum c_{n}(x-x_{0})^{n}$ | $\vert x-x_{0}\vert^{r}\sum c_{n}(x-x_{0})^{n}$ | | Geçerlilik aralığı | $\vert x-x_{0}\vert<R$ ($x_{0}$ dahil) | $0<\vert x-x_{0}\vert<R$ (<span class="vurgu">$x_{0}$ hariç</span>) |</p>
+                        <p><span class="vurgu">İki fark da önemlidir.</span> Tekil noktada yalnızca bir çözüm garanti edilir — ikincisini bulmak ayrı bir iştir. Ayrıca aralık deliktir: çözüm $x_{0}$'ın kendisinde tanımlı olmayabilir, ki bu $r<0$ olduğunda gerçekten böyledir.</p>
+                        <p><strong>Düzgün olmayan tekil noktalar için bu THEoREM hiçbir şey söylemez.</strong> O durumda $(5.49)$ biçiminde bir çözüm bulunabilir de bulunamayabilir de.</p>
+                    </div>
+
+                    <div id="ornek-tekil-siniflandirma" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.6 &nbsp;Çözümlü Örnekler — Düzgün ve Düzgün Olmayan Tekil Noktalar
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.7.</strong> &nbsp; $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin tekil noktalarını bulunuz ve türlerini belirleyiniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Normalleştirilmiş biçime geç.</strong></p>
+                                <p>Tüm denklemi $y''$ katsayısı olan $2x^{2}$'ye bölelim:</p>
+                                $$y''-\frac{1}{2x}y'+\frac{x-5}{2x^{2}}y=0$$
+                                $$P_{1}(x)=-\frac{1}{2x},\qquad P_{2}(x)=\frac{x-5}{2x^{2}}$$
+                                <p><strong>Adım 2 — Tekil noktayı bul.</strong></p>
+                                <p>Her iki fonksiyon da $x=0$'da analitik değildir (paydalar sıfırlanır). Dolayısıyla <span class="vurgu">$x=0$ bir tekil noktadır</span>. Başka tekil nokta yoktur.</p>
+                                <p><strong>Adım 3 — Türünü belirle: $(5.50)$ çarpımlarını kur.</strong></p>
+                                <p>$x_{0}=0$ olduğundan çarpanlar $x$ ve $x^{2}$'dir:</p>
+                                $$xP_{1}(x)=x\cdot\left(-\frac{1}{2x}\right)=-\frac{1}{2}$$
+                                $$x^{2}P_{2}(x)=x^{2}\cdot\frac{x-5}{2x^{2}}=\frac{x-5}{2}$$
+                                <p><strong>Adım 4 — Analitikliği sına.</strong></p>
+                                <p>Birinci çarpım sabit fonksiyondur, ikincisi birinci dereceden polinomdur. <span class="vurgu">İkisi de her yerde analitiktir</span>, özel olarak $x=0$'da da analitiktir.</p>
+                                $$\boxed{x=0\ \text{düzgün tekil noktadır (regular singular point).}}$$
+                                <p><strong>Sonuç.</strong> THEoREM 5.2 gereği bu denklemin</p>
+                                $$|x|^{r}\sum_{n=0}^{\infty}c_{n}x^{n}$$
+                                <p>biçiminde, $0<|x|<R$ delinmiş aralığında geçerli, aşikâr olmayan en az bir çözümü vardır.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.8.</strong> &nbsp; $\displaystyle x^{2}(x-2)^{2}y''+2(x-2)y'+(x+1)y=0$ denkleminin tekil noktalarını bulunuz ve <strong>her birini ayrı ayrı</strong> sınıflandırınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Normalleştir.</strong></p>
+                                <p>$y''$ katsayısı $x^{2}(x-2)^{2}$; buna bölelim:</p>
+                                $$y''+\frac{2(x-2)}{x^{2}(x-2)^{2}}y'+\frac{x+1}{x^{2}(x-2)^{2}}y=0$$
+                                <p>Birinci katsayıda $(x-2)$ sadeleşir:</p>
+                                $$P_{1}(x)=\frac{2}{x^{2}(x-2)},\qquad P_{2}(x)=\frac{x+1}{x^{2}(x-2)^{2}}$$
+                                <p><strong>Adım 2 — Tekil noktalar.</strong></p>
+                                <p>Paydalar $x=0$ ve $x=2$'de sıfırlanır. <span class="vurgu">İki tekil nokta var ve türleri farklı çıkacak — her birini ayrı incelemek gerekir.</span></p>
+                                <hr>
+                                <p><strong>Adım 3 — $x=0$ noktası.</strong></p>
+                                <p>Çarpanlar $x$ ve $x^{2}$:</p>
+                                $$xP_{1}(x)=x\cdot\frac{2}{x^{2}(x-2)}=\frac{2}{x(x-2)}$$
+                                $$x^{2}P_{2}(x)=x^{2}\cdot\frac{x+1}{x^{2}(x-2)^{2}}=\frac{x+1}{(x-2)^{2}}$$
+                                <p>İkinci çarpım $x=0$'da analitiktir (payda $(0-2)^{2}=4\neq 0$). <strong>Ama birinci çarpım $x=0$'da hâlâ analitik değildir</strong> — paydada bir $x$ kalmıştır, $x$ ile çarpmak tekilliği yok etmeye yetmemiştir.</p>
+                                <p>Tanım <span class="vurgu">her iki çarpımın da</span> analitik olmasını ister:</p>
+                                $$\boxed{x=0\ \text{düzgün OLMAYAN tekil noktadır (irregular singular point).}}$$
+                                <hr>
+                                <p><strong>Adım 4 — $x=2$ noktası.</strong></p>
+                                <p>Şimdi $x_{0}=2$, dolayısıyla çarpanlar $(x-2)$ ve $(x-2)^{2}$:</p>
+                                $$(x-2)P_{1}(x)=(x-2)\cdot\frac{2}{x^{2}(x-2)}=\frac{2}{x^{2}}$$
+                                $$(x-2)^{2}P_{2}(x)=(x-2)^{2}\cdot\frac{x+1}{x^{2}(x-2)^{2}}=\frac{x+1}{x^{2}}$$
+                                <p>Her iki çarpımın da paydası $x^{2}$'dir ve $x=2$'de $4\neq 0$ olduğundan <span class="vurgu">ikisi de $x=2$'de analitiktir</span>.</p>
+                                $$\boxed{x=2\ \text{düzgün tekil noktadır (regular singular point).}}$$
+                                <hr>
+                                <p><strong>Sonuç ve yorum.</strong> Aynı denklemin iki tekil noktası farklı türdendir:</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$x=2$'de THEoREM 5.2 uygulanır; denklemin $|x-2|^{r}\displaystyle\sum_{n=0}^{\infty}c_{n}(x-2)^{n}$ biçiminde en az bir çözümü olduğunu biliriz.</li>
+                                    <li>$x=0$'da hiçbir garanti yoktur; bu biçimde bir çözüm bulunabilir de bulunmayabilir de.</li>
+                                </ul>
+                                <div class="highlight">
+                                    <p><strong>Sınavda dikkat edilecek nokta:</strong> Çarpanların kuvveti sabit değildir, <strong>incelenen noktaya göre</strong> yazılır. $x=0$ için $x$ ve $x^{2}$, $x=2$ için $(x-2)$ ve $(x-2)^{2}$ kullanılır. Yanlış çarpanla yapılan sınama yanlış sınıflandırma verir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.9.</strong> &nbsp; Yukarıdaki iki örnekten hangi çözüm biçimlerinin varlığı garanti edilir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Örnek 5.7'nin denklemi</strong> $2x^{2}y''-xy'+(x-5)y=0$ için $x=0$ düzgün tekil noktaydı. THEoREM 5.2'ye göre denklemin</p>
+                                $$y=|x|^{r}\sum_{n=0}^{\infty}c_{n}x^{n}$$
+                                <p>biçiminde, $0<|x|<R$ aralığında geçerli, aşikâr olmayan <strong>en az bir</strong> çözümü vardır. $r$ sabiti hesapla belirlenir.</p>
+                                <p><strong>Örnek 5.8'in denklemi</strong> $x^{2}(x-2)^{2}y''+2(x-2)y'+(x+1)y=0$ için $x=2$ düzgün tekil noktaydı. Aynı THEoREM'e göre</p>
+                                $$y=|x-2|^{r}\sum_{n=0}^{\infty}c_{n}(x-2)^{n}$$
+                                <p>biçiminde en az bir çözüm vardır, $0<|x-2|<R$ aralığında geçerlidir.</p>
+                                <p><span class="vurgu">Her iki durumda da "en az bir" denmesine dikkat edin.</span> Adi noktadaki gibi iki lineer bağımsız çözüm garantisi yoktur; ikinci çözümün nasıl bulunacağı ayrı bir konudur ve $r$ değerlerinin birbirine göre durumuna bağlıdır.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="frobenius-yontem" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            5.7 &nbsp;Frobenius Yöntemi ve Belirtici Denklem
+                        </div>
+                        <p>THEoREM 5.2 bize düzgün tekil nokta etrafında en az bir çözümün varlığını verdi. Peki bu çözümdeki $c_{n}$ katsayılarını ve $r$ sayısını nasıl belirleriz?</p>
+                        <p>İzlenecek yol 5.2'dekine benzer ve <strong>Frobenius yöntemi (method of Frobenius)</strong> adıyla bilinir. Aşağıda $0<x-x_{0}<R$ aralığında geçerli çözümler arayacağız; bu aralıkta $|x-x_{0}|$ sadece $x-x_{0}$'a eşittir, mutlak değer işaretiyle uğraşmaya gerek kalmaz.</p>
+                        <div class="highlight">
+                            <p><strong>Negatif taraf için:</strong> $-R<x-x_{0}<0$ aralığında geçerli çözüm isteniyorsa, $x-x_{0}$ yerine $-(x-x_{0})>0$ yazıp aynı adımlar izlenir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 1 — Çözümü varsay</h3>
+                        $$y=(x-x_{0})^{r}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n}$$
+                        <p>Bunu tek bir toplam hâlinde yazmak hesabı çok kolaylaştırır:</p>
+                        $$y=\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n+r},\qquad \boxed{c_{0}\neq 0} \tag{5.53}$$
+                        <p><span class="vurgu">$c_{0}\neq 0$ koşulu yöntemin belkemiğidir.</span> Bu koşul olmasaydı, seriyi $r$'yi değiştirip başa sıfır katsayılar ekleyerek sonsuz farklı biçimde yazabilirdik ve $r$ belirsiz kalırdı. $c_{0}\neq 0$ demek, "$r$ gerçekten ilk terimin üssüdür" demektir.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 2 — Terim terime türev al</h3>
+                        $$y'=\sum_{n=0}^{\infty}(n+r)c_{n}(x-x_{0})^{n+r-1} \tag{5.54}$$
+                        $$y''=\sum_{n=0}^{\infty}(n+r)(n+r-1)c_{n}(x-x_{0})^{n+r-2} \tag{5.55}$$
+                        <div class="highlight">
+                            <p><strong>5.2'den önemli bir fark:</strong> Orada türev alınca toplamın alt sınırı yükseliyordu ($n=0\to n=1\to n=2$). Burada <span class="vurgu">alt sınır hep $n=0$'da kalır</span>, çünkü $r$ genelde tam sayı değildir; $(n+r)$ çarpanı $n=0$ için sıfır olmaz. Bu, hesabı 5.2'ye göre daha düzenli kılar.</p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 3 — Denkleme yerleştir ve düzenle</h3>
+                        <p>$(5.53)$, $(5.54)$ ve $(5.55)$'i denkleme koyup sadeleştirerek şu biçime getiririz:</p>
+                        $$K_{0}(x-x_{0})^{r+k}+K_{1}(x-x_{0})^{r+k+1}+K_{2}(x-x_{0})^{r+k+2}+\dots=0 \tag{5.56}$$
+                        <p>Burada $k$ belirli bir tam sayıdır ve $K_{i}$ katsayıları hem $r$'nin hem de $c_{n}$'lerin fonksiyonlarıdır.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 4 — Bütün katsayıları sıfıra eşitle</h3>
+                        <p>$(5.56)$'nın delinmiş aralıktaki her $x$ için geçerli olması isteniyorsa:</p>
+                        $$K_{0}=K_{1}=K_{2}=\dots=0$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 5 — Belirtici denklem</h3>
+                        <p>En düşük kuvvetin katsayısı olan $K_{0}$'ı sıfıra eşitlemek, <span class="vurgu">$r$ cinsinden ikinci dereceden bir denklem</span> verir. Buna denklemin <strong>belirtici denklemi (indicial equation)</strong> denir.</p>
+                        <p>Bu denklemin iki kökü, denklemin <strong>üstelleri (exponents)</strong> diye anılır ve $(5.53)$'teki $r$ sabitinin alabileceği <span class="vurgu">yegâne değerlerdir</span>. Yani bu adımda "bilinmeyen" $r$ belirlenmiş olur.</p>
+                        <p>Kökleri $r_{1}$ ve $r_{2}$ ile gösterelim; sıralama şu kurala göre yapılır:</p>
+                        $$\operatorname{Re}(r_{1})\ \ge\ \operatorname{Re}(r_{2})$$
+                        <p>Burada $\operatorname{Re}(r_{j})$, $r_{j}$'nin <strong>reel kısmıdır (real part)</strong>. $r_{j}$ zaten reelse $\operatorname{Re}(r_{j})$ doğrudan $r_{j}$'nin kendisidir; yani reel ve farklı köklerde $r_{1}$ <span class="vurgu">büyük</span> kök, $r_{2}$ <span class="vurgu">küçük</span> köktür.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 6 — Kalan koşullar</h3>
+                        <p>Geriye kalan $K_{1},K_{2},\dots$ katsayılarını da sıfıra eşitleriz. Bu, içinde $r$ sabiti geçen ve $c_{n}$'lerin sağlaması gereken bir koşullar kümesi verir — yani $r$'ye bağlı bir özyineleme formülü.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 7 — Büyük kökü yerleştir</h3>
+                        <p>Adım 6'daki koşullarda $r$ yerine $r_{1}$ yazıp $c_{n}$'leri bu koşulları sağlayacak biçimde seçeriz. Ortaya çıkan seri, aranan biçimde bir çözümdür.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Adım 8 — Küçük kökü dene</h3>
+                        <p>$r_{2}\neq r_{1}$ ise aynı işlem $r_{2}$ ile tekrarlanabilir ve ikinci bir çözüm elde edilebilir.</p>
+                        <div class="highlight">
+                            <p><strong>Buradaki tuzaklar — THEoREM 5.2'nin "en az bir" demesinin sebebi:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$r_{1}$ ve $r_{2}$ <strong>reel ve farklıysa</strong>, Adım 8'de bulunan çözüm Adım 7'dekinden <span class="vurgu">lineer bağımsız olmayabilir</span>. (Özellikle $r_{1}-r_{2}$ tam sayı olduğunda.)</li>
+                                <li>$r_{1}$ ve $r_{2}$ <strong>reel ve eşitse</strong>, Adım 8 Adım 7 ile <span class="vurgu">birebir aynı çözümü</span> verir; yeni bilgi çıkmaz.</li>
+                            </ul>
+                            <p>Bu "istisnai" durumlarda ikinci lineer bağımsız çözümü bulmak için ayrı yöntemler gerekir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Özet: adi nokta ile karşılaştırma</h3>
+                        <p>| | Adi nokta (5.2) | Düzgün tekil nokta (Frobenius) | |---|---|---| | Varsayılan biçim | $\sum c_{n}(x-x_{0})^{n}$ | $\sum c_{n}(x-x_{0})^{n+r}$ | | Ek bilinmeyen | yok | $r$ | | $r$ nereden gelir | — | belirtici denklem (Adım 5) | | Türevde alt sınır | yükselir | $n=0$'da kalır | | Ek koşul | yok | $c_{0}\neq 0$ | | Garanti edilen çözüm | 2 tane, bağımsız | en az 1 tane |</p>
+                    </div>
+
+                    <div id="ornek-frobenius" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.7 &nbsp;Çözümlü Örnek — Frobenius Yönteminin Tam Uygulaması
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.10.</strong> &nbsp; Frobenius yöntemiyle $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin $0<x<R$ aralığındaki çözümlerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Örnek 5.7'de $x=0$'ın bu denklemin <strong>düzgün tekil noktası</strong> olduğunu göstermiştik, dolayısıyla THEoREM 5.2 uygulanır.</p>
+                                <p><strong>Adım 1 — Çözümü varsay.</strong></p>
+                                $$y=\sum_{n=0}^{\infty}c_{n}x^{n+r},\qquad c_{0}\neq 0$$
+                                $$y'=\sum_{n=0}^{\infty}(n+r)c_{n}x^{n+r-1},\qquad y''=\sum_{n=0}^{\infty}(n+r)(n+r-1)c_{n}x^{n+r-2}$$
+                                <p><strong>Adım 2 — Denkleme yerleştir.</strong></p>
+                                $$2\sum_{n=0}^{\infty}(n+r)(n+r-1)c_{n}x^{n+r}-\sum_{n=0}^{\infty}(n+r)c_{n}x^{n+r}+\sum_{n=0}^{\infty}c_{n}x^{n+r+1}-5\sum_{n=0}^{\infty}c_{n}x^{n+r}=0$$
+                                <p>$2x^{2}\cdot y''$ çarpımında $x^{2}$ ile $x^{n+r-2}$ birleşip $x^{n+r}$ verdi; benzer biçimde $-x\cdot y'$ de $x^{n+r}$ verdi. Yalnızca $x\cdot y$ teriminden gelen toplamda üs bir fazla: $x^{n+r+1}$.</p>
+                                <p><strong>Adım 3 — Üsleri eşitle ve topla.</strong></p>
+                                <p>Son toplamda $n\to n-1$ kaydırması yaparsak üs $x^{n+r}$ olur, alt sınır $n=1$'e çıkar:</p>
+                                $$\sum_{n=0}^{\infty}\Big[2(n+r)(n+r-1)-(n+r)-5\Big]c_{n}x^{n+r}+\sum_{n=1}^{\infty}c_{n-1}x^{n+r}=0$$
+                                <p>Birinci toplamın $n=0$ terimini ayırırsak:</p>
+                                $$\Big[2r(r-1)-r-5\Big]c_{0}x^{r}+\sum_{n=1}^{\infty}\Big\{\Big[2(n+r)(n+r-1)-(n+r)-5\Big]c_{n}+c_{n-1}\Big\}x^{n+r}=0$$
+                                <p><strong>Adım 4 — Belirtici denklem.</strong></p>
+                                <p>En düşük kuvvet olan $x^{r}$'nin katsayısını sıfıra eşitleriz. <span class="vurgu">$c_{0}\neq 0$ olduğu için köşeli parantez sıfır olmak zorundadır:</span></p>
+                                $$2r(r-1)-r-5=0\;\Longrightarrow\;2r^{2}-2r-r-5=0\;\Longrightarrow\;2r^{2}-3r-5=0$$
+                                $$r=\frac{3\pm\sqrt{9+40}}{4}=\frac{3\pm 7}{4}$$
+                                $$\boxed{\,r_{1}=\frac{5}{2},\qquad r_{2}=-1\,}$$
+                                <p>Kökler <span class="vurgu">reel ve farklıdır</span>; ayrıca $r_{1}-r_{2}=\dfrac{7}{2}$ bir tam sayı <strong>değildir</strong> — bu, iki bağımsız çözüm bulacağımızın işaretidir.</p>
+                                <p><strong>Adım 5 — Genel özyineleme formülü.</strong></p>
+                                <p>Yüksek kuvvetlerin katsayılarını sıfıra eşitlersek:</p>
+                                $$\Big[2(n+r)(n+r-1)-(n+r)-5\Big]c_{n}+c_{n-1}=0,\qquad n\ge 1$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Büyük kök: $r_{1}=\dfrac{5}{2}$</h3>
+                                <p>$r=\frac{5}{2}$ koyalım. Köşeli parantezi açalım:</p>
+                                $$2\left(n+\tfrac{5}{2}\right)\left(n+\tfrac{3}{2}\right)-\left(n+\tfrac{5}{2}\right)-5$$
+                                $$=2\left(n^{2}+4n+\tfrac{15}{4}\right)-n-\tfrac{5}{2}-5=2n^{2}+8n+\tfrac{15}{2}-n-\tfrac{15}{2}=2n^{2}+7n$$
+                                $$=n(2n+7)$$
+                                <p>Böylece</p>
+                                $$n(2n+7)c_{n}+c_{n-1}=0\;\Longrightarrow\;\boxed{\,c_{n}=-\frac{c_{n-1}}{n(2n+7)},\quad n\ge 1\,}$$
+                                <p>Katsayılar:</p>
+                                $$c_{1}=-\frac{c_{0}}{1\cdot 9}=-\frac{c_{0}}{9},\qquad c_{2}=-\frac{c_{1}}{2\cdot 11}=-\frac{c_{1}}{22}=\frac{c_{0}}{198}$$
+                                $$c_{3}=-\frac{c_{2}}{3\cdot 13}=-\frac{c_{2}}{39}=-\frac{c_{0}}{7722}$$
+                                <p>Birinci çözüm:</p>
+                                $$y_{1}=c_{0}\,x^{5/2}\left(1-\frac{1}{9}x+\frac{1}{198}x^{2}-\frac{1}{7722}x^{3}+\dots\right)$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Küçük kök: $r_{2}=-1$</h3>
+                                <p>$r=-1$ koyalım:</p>
+                                $$2(n-1)(n-2)-(n-1)-5=2\left(n^{2}-3n+2\right)-n+1-5=2n^{2}-6n+4-n-4=2n^{2}-7n$$
+                                $$=n(2n-7)$$
+                                $$\boxed{\,c_{n}=-\frac{c_{n-1}}{n(2n-7)},\quad n\ge 1\,}$$
+                                <p>Katsayılar — <span class="vurgu">paydaların işaretine dikkat, küçük $n$ için $2n-7$ negatiftir:</span></p>
+                                $$c_{1}=-\frac{c_{0}}{1\cdot(-5)}=\frac{c_{0}}{5}$$
+                                $$c_{2}=-\frac{c_{1}}{2\cdot(-3)}=\frac{c_{1}}{6}=\frac{c_{0}}{30}$$
+                                $$c_{3}=-\frac{c_{2}}{3\cdot(-1)}=\frac{c_{2}}{3}=\frac{c_{0}}{90}$$
+                                $$c_{4}=-\frac{c_{3}}{4\cdot 1}=-\frac{c_{0}}{360}$$
+                                <p>$n=4$'ten itibaren $2n-7>0$ olduğu için <span class="vurgu">işaret değişir</span>. İkinci çözüm:</p>
+                                $$y_{2}=c_{0}\,x^{-1}\left(1+\frac{1}{5}x+\frac{1}{30}x^{2}+\frac{1}{90}x^{3}-\frac{1}{360}x^{4}+\dots\right)$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Genel çözüm</h3>
+                                <p>İki çözüm lineer bağımsızdır, dolayısıyla genel çözüm:</p>
+                                $$\boxed{\;y=C_{1}x^{5/2}\left(1-\frac{x}{9}+\frac{x^{2}}{198}-\frac{x^{3}}{7722}+\dots\right)+C_{2}x^{-1}\left(1+\frac{x}{5}+\frac{x^{2}}{30}+\frac{x^{3}}{90}-\dots\right)\;}$$
+                                <p>$C_{1}$ ve $C_{2}$ keyfi sabitlerdir.</p>
+                                <div class="highlight">
+                                    <p><strong>$x=0$'da ne oluyor?</strong> İkinci çözümdeki $x^{-1}$ çarpanı $x\to 0^{+}$ iken sonsuza gider. THEoREM 5.2'nin aralığı bu yüzden <span class="vurgu">delinmiştir</span> ($0<x<R$); $x=0$ noktası çözümün tanım kümesinde değildir. Sıradan bir kuvvet serisi böyle bir çözümü asla üretemezdi — Frobenius'un $x^{r}$ çarpanının varlık sebebi tam olarak budur.</p>
+                                </div>
+                                <p><strong>Neden burada iki bağımsız çözüm çıktı?</strong> $r_{1}-r_{2}=\dfrac{7}{2}$ tam sayı olmadığı için iki dal birbirinden bağımsız kaldı. Kökler eşit olsaydı ya da farkları tam sayı olsaydı, küçük kök dalı ya aynı çözümü verir ya da bağımlı çıkardı; o durumda ikinci çözüm için başka bir yöntem gerekirdi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="frobenius-istisnalar" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            5.8 &nbsp;İkinci Lineer Bağımsız Çözüm — THEoREM 5.3
+                        </div>
+                        <p>Örnek 5.10'da şanslıydık: belirtici denklemin iki kökü de $(5.49)$ biçiminde birer çözüm verdi ve bunlar lineer bağımsız çıktı. Ama 5.7'de belirttiğimiz gibi <span class="vurgu">bu her zaman böyle olmaz</span>. İki soru sormamız gerekiyor:</p>
+                        <ol>
+                            <li>Düzgün tekil nokta $x_{0}$ etrafında, $(5.49)$ biçiminde <strong>iki</strong> lineer bağımsız çözümün varlığı hangi koşulda garanti edilir?</li>
+                            <li>Bu iki çözüm yoksa, temel çözümden lineer bağımsız olan çözümün biçimi nedir?</li>
+                        </ol>
+                        <p>Yanıtı veren THEoREM şudur.</p>
+                        <hr>
+                        <div class="highlight">
+                            <p><strong>THEoREM 5.3</strong></p>
+                            <p><strong>Hipotez.</strong> $x_{0}$ noktası $(5.1)$ denkleminin düzgün tekil noktası olsun. $r_{1}$ ve $r_{2}$, $x_{0}$'a karşılık gelen belirtici denklemin kökleri olsun ($\operatorname{Re}(r_{1})\ge\operatorname{Re}(r_{2})$).</p>
+                            <p><strong>Sonuç 1.</strong> $r_{1}-r_{2}\neq N$ olsun ($N$ negatif olmayan bir tam sayı; yani fark $0,1,2,3,\dots$ değil). O zaman denklemin $(5.49)$ biçiminde, aşikâr olmayan, lineer bağımsız <strong>iki</strong> çözümü vardır:</p>
+                            $$y_{1}(x)=|x-x_{0}|^{r_{1}}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n},\qquad c_{0}\neq 0$$
+                            $$y_{2}(x)=|x-x_{0}|^{r_{2}}\sum_{n=0}^{\infty}c_{n}^{*}(x-x_{0})^{n},\qquad c_{0}^{*}\neq 0$$
+                            <p><strong>Sonuç 2.</strong> $r_{1}-r_{2}=N$ olsun ($N$ <strong>pozitif</strong> tam sayı). O zaman lineer bağımsız iki çözüm şöyledir:</p>
+                            $$y_{1}(x)=|x-x_{0}|^{r_{1}}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n},\qquad c_{0}\neq 0$$
+                            $$y_{2}(x)=|x-x_{0}|^{r_{2}}\sum_{n=0}^{\infty}c_{n}^{*}(x-x_{0})^{n}+C\,y_{1}(x)\ln|x-x_{0}|$$
+                            <p>Burada $c_{0}^{*}\neq 0$ ve $C$ bir sabittir; <span class="vurgu">sıfır olabilir de olmayabilir de</span>.</p>
+                            <p><strong>Sonuç 3.</strong> $r_{1}-r_{2}=0$ olsun (kökler eşit). O zaman:</p>
+                            $$y_{1}(x)=|x-x_{0}|^{r_{1}}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n},\qquad c_{0}\neq 0$$
+                            $$y_{2}(x)=|x-x_{0}|^{r_{1}+1}\sum_{n=0}^{\infty}c_{n}^{*}(x-x_{0})^{n}+y_{1}(x)\ln|x-x_{0}|$$
+                            <p>Üç sonuçtaki çözümler de $x_{0}$ etrafındaki bir delinmiş aralıkta $0<|x-x_{0}|<R$ geçerlidir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Üç durumun karşılaştırması</h3>
+                        <p>$0<x-x_{0}<R$ aralığında çalışıyorsak $|x-x_{0}|$ sadece $x-x_{0}$'dır. Bu aralıkta THEoREM'in söyledikleri şöyle özetlenir:</p>
+                        <p>| Durum | $y_{2}$'nin biçimi | Logaritma var mı? | |---|---|---| | $r_{1}-r_{2}$ tam sayı <strong>değil</strong> | $(x-x_{0})^{r_{2}}\sum c_{n}^{*}(x-x_{0})^{n}$ | Hayır | | $r_{1}-r_{2}$ <strong>pozitif tam sayı</strong> | yukarıdaki $+\;C\,y_{1}\ln(x-x_{0})$ | <span class="vurgu">Belki</span> ($C=0$ olabilir) | | $r_{1}-r_{2}=0$ | $(x-x_{0})^{r_{1}+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$ | <span class="vurgu">Evet, kesin</span> |</p>
+                        <p><strong>Her durumda ortak olan:</strong> Büyük kök $r_{1}$'e karşılık gelen</p>
+                        $$y_{1}(x)=(x-x_{0})^{r_{1}}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n}$$
+                        <p>çözümü <span class="vurgu">her zaman vardır</span>. Sorun hep ikinci çözümdedir. Bu yüzden Frobenius yönteminde <span class="vurgu">önce daima büyük kökle başlanır</span>; o dal hiçbir zaman boşa çıkmaz.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Karmaşık kökler özel bir durumdur</h3>
+                        <p>$r_{1}$ ve $r_{2}$ <strong>eşlenik karmaşık (conjugate complex)</strong> ise, farkları</p>
+                        $$r_{1}-r_{2}=\text{saf sanal bir sayı}$$
+                        <p>olur. Saf sanal bir sayı asla negatif olmayan bir tam sayı olamaz — sıfır bile olamaz, çünkü kökler farklıdır. Dolayısıyla <span class="vurgu">karmaşık köklerde her zaman Sonuç 1 geçerlidir</span> ve $r_{2}$'ye karşılık gelen ikinci çözüm sorunsuz bulunur.</p>
+                        <div class="highlight">
+                            <p><strong>Sınavda karar ağacı:</strong></p>
+                            <ol>
+                                <li>Belirtici denklemi çöz, $r_{1}$ ve $r_{2}$'yi bul ($\operatorname{Re}(r_{1})\ge\operatorname{Re}(r_{2})$).</li>
+                                <li>Farkı hesapla: $r_{1}-r_{2}$.</li>
+                                <li>Fark <strong>tam sayı değilse</strong> (kesirli ya da karmaşık) → iki dalı da normal Frobenius ile çöz, bitti.</li>
+                                <li>Fark <strong>pozitif tam sayıysa</strong> → büyük kökten $y_{1}$'i bul. Küçük kökü denerken tutarsızlık çıkarsa logaritmalı biçime geç.</li>
+                                <li>Fark <strong>sıfırsa</strong> → küçük kök diye bir şey yok; ikinci çözüm kesinlikle logaritmalıdır.</li>
+                            </ol>
+                        </div>
+                        <p><strong>Örnek 5.10'a geri bakış.</strong> Orada $r_{1}=\frac{5}{2}$, $r_{2}=-1$ ve $r_{1}-r_{2}=\frac{7}{2}$ idi. $\frac{7}{2}$ bir tam sayı olmadığından Sonuç 1 geçerliydi — bu yüzden iki dal da sorunsuz, logaritmasız çözüm verdi. <span class="vurgu">Kökleri bulur bulmaz farkı kontrol etmek, hangi zorlukla karşılaşacağınızı baştan söyler.</span></p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$C$ sabiti neden "olabilir de olmayabilir de"?</h3>
+                        <p>Sonuç 2'deki $C$ sabiti hesap yapılmadan bilinemez. Pratikte şöyle ortaya çıkar: küçük kök $r_{2}$ ile özyineleme formülünü kurduğunuzda, $n=N$ adımında $c_{N}$'nin katsayısı sıfır olur.</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>O adımdaki denklem $0\cdot c_{N}=0$ biçimine düşerse, $c_{N}$ keyfi kalır ve logaritmasız bir ikinci çözüm bulunur — yani $C=0$'dır.</li>
+                            <li>Denklem $0\cdot c_{N}=(\text{sıfırdan farklı bir şey})$ biçimine düşerse <strong>çelişki</strong> doğar; bu, logaritmalı terime ihtiyaç olduğunu gösterir ve $C\neq 0$'dır.</li>
+                        </ul>
+                    </div>
+
+                    <div id="ornek-frobenius-cift" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.8 &nbsp;Çözümlü Örnek — Sonuç 1 Durumu ve Sıfırlanan Katsayılar
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.11.</strong> &nbsp; Frobenius yöntemiyle $\displaystyle 2x^{2}y''+xy'+\left(x^{2}-3\right)y=0$ denkleminin $0<x<R$ aralığındaki çözümlerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x=0$'ın düzgün tekil nokta olduğu doğrudan görülür ($xP_{1}=\tfrac12$ ve $x^{2}P_{2}=\tfrac{x^{2}-3}{2}$ analitiktir). Çözümü varsayalım:</p>
+                                $$y=\sum_{n=0}^{\infty}c_{n}x^{n+r},\qquad c_{0}\neq 0$$
+                                <p><strong>Adım 1 — Yerleştir.</strong></p>
+                                $$2\sum_{n=0}^{\infty}(n+r)(n+r-1)c_{n}x^{n+r}+\sum_{n=0}^{\infty}(n+r)c_{n}x^{n+r}+\sum_{n=0}^{\infty}c_{n}x^{n+r+2}-3\sum_{n=0}^{\infty}c_{n}x^{n+r}=0$$
+                                <p><span class="vurgu">Bu kez $x^{2}y$ terimi üssü <strong>iki</strong> artırıyor</span> ($x^{n+r+2}$), Örnek 5.10'daki $xy$ terimi ise bir artırıyordu. Bu fark, özyinelemenin $c_{n-1}$ yerine $c_{n-2}$ içermesine yol açacak.</p>
+                                <p><strong>Adım 2 — İndeks kaydır ve düzenle.</strong></p>
+                                <p>Son toplamda $n\to n-2$ kaydırırsak alt sınır $n=2$ olur:</p>
+                                $$\sum_{n=0}^{\infty}\Big[2(n+r)(n+r-1)+(n+r)-3\Big]c_{n}x^{n+r}+\sum_{n=2}^{\infty}c_{n-2}x^{n+r}=0$$
+                                <p>Birinci toplamın $n=0$ ve $n=1$ terimlerini ayıralım:</p>
+                                $$\Big[2r(r-1)+r-3\Big]c_{0}x^{r}+\Big[2(r+1)r+(r+1)-3\Big]c_{1}x^{r+1}+\sum_{n=2}^{\infty}\Big\{\big[\cdots\big]c_{n}+c_{n-2}\Big\}x^{n+r}=0$$
+                                <p><strong>Adım 3 — Belirtici denklem.</strong></p>
+                                $$2r(r-1)+r-3=0\;\Longrightarrow\;2r^{2}-r-3=0\;\Longrightarrow\;r=\frac{1\pm\sqrt{1+24}}{4}=\frac{1\pm 5}{4}$$
+                                $$\boxed{\,r_{1}=\frac{3}{2},\qquad r_{2}=-1\,}$$
+                                $$r_{1}-r_{2}=\frac{3}{2}+1=\frac{5}{2}$$
+                                <p>$\frac52$ ne sıfır ne de pozitif tam sayıdır → <span class="vurgu">THEoREM 5.3, Sonuç 1 geçerlidir</span>: iki dal da $(5.49)$ biçiminde, logaritmasız, lineer bağımsız çözüm verecek.</p>
+                                <p><strong>Adım 4 — İki koşul.</strong></p>
+                                <p>$x^{r+1}$ katsayısından:</p>
+                                $$\Big[2(r+1)r+(r+1)-3\Big]c_{1}=0$$
+                                <p>ve $n\ge 2$ için özyineleme:</p>
+                                $$\Big[2(n+r)(n+r-1)+(n+r)-3\Big]c_{n}+c_{n-2}=0$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Büyük kök: $r_{1}=\dfrac{3}{2}$</h3>
+                                <p><strong>$c_{1}$ koşulu:</strong> $2\left(\tfrac52\right)\left(\tfrac32\right)+\tfrac52-3=\tfrac{15}{2}+\tfrac52-3=10-3=7$, yani</p>
+                                $$7c_{1}=0\;\Longrightarrow\;c_{1}=0$$
+                                <p><strong>Özyineleme:</strong> Köşeli parantezi sadeleştirelim.</p>
+                                $$2\left(n+\tfrac32\right)\left(n+\tfrac12\right)+\left(n+\tfrac32\right)-3=2\left(n^{2}+2n+\tfrac34\right)+n+\tfrac32-3$$
+                                $$=2n^{2}+4n+\tfrac32+n-\tfrac32=2n^{2}+5n=n(2n+5)$$
+                                $$\boxed{\,c_{n}=-\frac{c_{n-2}}{n(2n+5)},\quad n\ge 2\,}$$
+                                <p>Katsayılar:</p>
+                                $$c_{2}=-\frac{c_{0}}{2\cdot 9}=-\frac{c_{0}}{18},\qquad c_{3}=-\frac{c_{1}}{3\cdot 11}=0,\qquad c_{4}=-\frac{c_{2}}{4\cdot 13}=-\frac{c_{2}}{52}=\frac{c_{0}}{936}$$
+                                <p><span class="vurgu">$c_{1}=0$ olduğu ve özyineleme iki adım geriye baktığı için bütün tek indisli katsayılar sıfırdır.</span> Çözüm yalnızca çift kuvvetler içerir:</p>
+                                $$y_{1}(x)=c_{0}\,x^{3/2}\left(1-\frac{1}{18}x^{2}+\frac{1}{936}x^{4}-\dots\right)$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Küçük kök: $r_{2}=-1$</h3>
+                                <p><strong>$c_{1}$ koşulu:</strong> $2(0)(-1)+0-3=-3$, yani</p>
+                                $$-3c_{1}=0\;\Longrightarrow\;c_{1}=0$$
+                                <p><strong>Özyineleme:</strong></p>
+                                $$2(n-1)(n-2)+(n-1)-3=2\left(n^{2}-3n+2\right)+n-4=2n^{2}-6n+4+n-4=2n^{2}-5n=n(2n-5)$$
+                                $$\boxed{\,c_{n}=-\frac{c_{n-2}}{n(2n-5)},\quad n\ge 2\,}$$
+                                <p>Katsayılar — <span class="vurgu">$n=2$ için $2n-5=-1$ negatiftir, işarete dikkat:</span></p>
+                                $$c_{2}=-\frac{c_{0}}{2\cdot(-1)}=\frac{c_{0}}{2},\qquad c_{3}=-\frac{c_{1}}{3\cdot 1}=0,\qquad c_{4}=-\frac{c_{2}}{4\cdot 3}=-\frac{c_{2}}{12}=-\frac{c_{0}}{24}$$
+                                $$y_{2}(x)=c_{0}\,x^{-1}\left(1+\frac{1}{2}x^{2}-\frac{1}{24}x^{4}+\dots\right)$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Genel çözüm</h3>
+                                $$\boxed{\;y=C_{1}x^{3/2}\left(1-\frac{x^{2}}{18}+\frac{x^{4}}{936}-\dots\right)+C_{2}x^{-1}\left(1+\frac{x^{2}}{2}-\frac{x^{4}}{24}+\dots\right)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Bu örnekten çıkarılacak iki ders:</strong></p>
+                                    <ol>
+                                        <li><strong>Özyinelemenin adım genişliği denklemden gelir.</strong> $x^{2}y$ terimi $c_{n-2}$ üretti, dolayısıyla katsayılar ikişer ikişer bağlandı ve tek/çift zincirler ayrıştı. Örnek 5.10'da $xy$ terimi vardı, orada $c_{n-1}$ çıkmış ve bütün katsayılar tek bir zincire bağlanmıştı.</li>
+                                    </ol>
+                                    <ol>
+                                        <li><strong>$c_{1}$ için ayrı bir koşul çıkması normaldir.</strong> $x^{r+1}$ terimi özyinelemenin kapsamı dışında kalır ($n\ge 2$'den başlar), bu yüzden ayrıca ele alınır. Buradaki gibi katsayısı sıfırdan farklıysa $c_{1}=0$ olmak zorundadır ve bu bütün tek indisli katsayıları siler.</li>
+                                    </ol>
+                                </div>
+                                <p><strong>Kontrol.</strong> THEoREM 5.3 Sonuç 1'in öngörüsü tuttu: fark $\frac52$ tam sayı olmadığı için iki dal da logaritmasız çözüm verdi ve çözümler lineer bağımsız çıktı ($x^{3/2}$ ile $x^{-1}$ çarpanları birbirinin sabit katı olamaz).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-frobenius-tamsayi-fark" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            5.8 &nbsp;Çözümlü Örnek — Kök Farkı Pozitif Tam Sayı Olduğunda
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 5.12.</strong> &nbsp; Frobenius yöntemiyle $\displaystyle x^{2}y''-xy'-\left(x^{2}+\frac{5}{4}\right)y=0$ denkleminin $0<x<R$ aralığındaki çözümlerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x=0$ düzgün tekil noktadır. Çözümü varsayalım: $y=\displaystyle\sum_{n=0}^{\infty}c_{n}x^{n+r}$, $c_{0}\neq 0$.</p>
+                                <p><strong>Adım 1 — Yerleştirme ve düzenleme.</strong></p>
+                                $$\sum_{n=0}^{\infty}(n+r)(n+r-1)c_{n}x^{n+r}-\sum_{n=0}^{\infty}(n+r)c_{n}x^{n+r}-\sum_{n=0}^{\infty}c_{n}x^{n+r+2}-\frac{5}{4}\sum_{n=0}^{\infty}c_{n}x^{n+r}=0$$
+                                <p>Son toplamda $n\to n-2$ kaydırıp $n=0$ ve $n=1$ terimlerini ayırırsak:</p>
+                                $$\left[r(r-1)-r-\frac{5}{4}\right]c_{0}x^{r}+\left[(r+1)r-(r+1)-\frac{5}{4}\right]c_{1}x^{r+1}+\sum_{n=2}^{\infty}\Big\{[\cdots]c_{n}-c_{n-2}\Big\}x^{n+r}=0$$
+                                <p><strong>Adım 2 — Belirtici denklem.</strong></p>
+                                $$r(r-1)-r-\frac{5}{4}=0\;\Longrightarrow\;r^{2}-2r-\frac{5}{4}=0\;\Longrightarrow\;r=\frac{2\pm\sqrt{4+5}}{2}=\frac{2\pm 3}{2}$$
+                                $$\boxed{\,r_{1}=\frac{5}{2},\qquad r_{2}=-\frac{1}{2}\,}$$
+                                <p><strong>Kritik gözlem:</strong> Köklerin kendileri tam sayı değil, ama <span class="vurgu">farkları tam sayı:</span></p>
+                                $$r_{1}-r_{2}=\frac{5}{2}+\frac{1}{2}=3$$
+                                <p>$3$ pozitif bir tam sayıdır → <span class="vurgu">THEoREM 5.3, Sonuç 2 durumundayız.</span> Büyük kökten bir çözüm garanti; küçük kökten çıkacak olan ise logaritmalı olabilir.</p>
+                                <p><strong>Adım 3 — Koşullar.</strong></p>
+                                $$\left[(r+1)r-(r+1)-\frac{5}{4}\right]c_{1}=0$$
+                                $$\left[(n+r)(n+r-1)-(n+r)-\frac{5}{4}\right]c_{n}-c_{n-2}=0,\qquad n\ge 2$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Büyük kök: $r_{1}=\dfrac{5}{2}$</h3>
+                                <p>$c_{1}$ koşulu: $\left(\tfrac72\right)\left(\tfrac52\right)-\tfrac72-\tfrac54=\tfrac{35}{4}-\tfrac{14}{4}-\tfrac{5}{4}=4$, yani $4c_{1}=0\Rightarrow c_{1}=0$.</p>
+                                <p>Özyineleme parantezi:</p>
+                                $$\left(n+\tfrac52\right)\left(n+\tfrac32\right)-\left(n+\tfrac52\right)-\tfrac54=n^{2}+4n+\tfrac{15}{4}-n-\tfrac{10}{4}-\tfrac{5}{4}=n^{2}+3n=n(n+3)$$
+                                $$\boxed{\,c_{n}=\frac{c_{n-2}}{n(n+3)},\quad n\ge 2\,}$$
+                                $$c_{2}=\frac{c_{0}}{2\cdot 5},\qquad c_{3}=\frac{c_{1}}{3\cdot 6}=0,\qquad c_{4}=\frac{c_{2}}{4\cdot 7}=\frac{c_{0}}{2\cdot 4\cdot 5\cdot 7}$$
+                                <p>Tek indisliler sıfırdır. Genel çift katsayı:</p>
+                                $$c_{2n}=\frac{c_{0}}{\big[2\cdot 4\cdot 6\cdots(2n)\big]\big[5\cdot 7\cdot 9\cdots(2n+3)\big]},\qquad n\ge 1$$
+                                $$y_{1}(x)=c_{0}\,x^{5/2}\left[1+\sum_{n=1}^{\infty}\frac{x^{2n}}{\big[2\cdot 4\cdots(2n)\big]\big[5\cdot 7\cdots(2n+3)\big]}\right]=c_{0}x^{5/2}\left[1+\frac{x^{2}}{10}+\frac{x^{4}}{280}+\dots\right]$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Küçük kök: $r_{2}=-\dfrac{1}{2}$ — burada ne olacağı belli değil</h3>
+                                <p>THEoREM 5.3 bu kök için $(5.49)$ biçiminde bağımsız bir çözüm <span class="vurgu">garanti etmiyor</span>. Yalnızca</p>
+                                $$\sum_{n=0}^{\infty}c_{n}^{*}x^{n+r_{2}}+C\,y_{1}(x)\ln x$$
+                                <p>biçiminde bir çözüm olduğunu söylüyor; $C$ sıfır olabilir de olmayabilir de. <strong>$C=0$ olduğunu umarak</strong> sıradan yoldan devam edelim ve ne olacağını görelim.</p>
+                                <p>$c_{1}$ koşulu: $\left(\tfrac12\right)\left(-\tfrac12\right)-\tfrac12-\tfrac54=-\tfrac14-\tfrac24-\tfrac54=-2$, yani $-2c_{1}=0\Rightarrow c_{1}=0$.</p>
+                                <p>Özyineleme parantezi:</p>
+                                $$\left(n-\tfrac12\right)\left(n-\tfrac32\right)-\left(n-\tfrac12\right)-\tfrac54=n^{2}-2n+\tfrac34-n+\tfrac24-\tfrac54=n^{2}-3n=n(n-3)$$
+                                $$n(n-3)c_{n}-c_{n-2}=0,\qquad n\ge 2$$
+                                <p>$n\neq 3$ için:</p>
+                                $$c_{n}=\frac{c_{n-2}}{n(n-3)}$$
+                                <p><strong>$n=3$'te ne oluyor?</strong> $n(n-3)=3\cdot 0=0$ olduğu için bu formül <span class="vurgu">kullanılamaz</span>. Ham koşula dönelim:</p>
+                                $$0\cdot c_{3}-c_{1}=0$$
+                                <p>$c_{1}=0$ olduğundan bu denklem $0=0$'a indirgenir — <span class="vurgu">her zaman doğrudur.</span></p>
+                                <div class="highlight">
+                                    <p><strong>Buradaki an, bütün örneğin kilit noktası.</strong> $n=N=3$ adımında $c_{3}$'ün katsayısı sıfır oldu. İki ihtimal vardı:</p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li>$0\cdot c_{3}=(\text{sıfırdan farklı bir şey})$ çıksaydı → <strong>çelişki</strong>, logaritmalı terim şart olurdu ($C\neq 0$).</li>
+                                        <li>$0\cdot c_{3}=0$ çıktı → $c_{3}$ <strong>hiçbir kısıt altında değil</strong>, yani <span class="vurgu">$c_{0}$'dan bağımsız ikinci bir keyfi sabit</span>. Demek ki $C=0$ ve umudumuz doğru çıktı.</li>
+                                    </ul>
+                                </div>
+                                <p>Katsayıları hesaplayalım:</p>
+                                $$c_{2}=\frac{c_{0}}{2\cdot(-1)}=-\frac{c_{0}}{2},\qquad c_{4}=\frac{c_{2}}{4\cdot 1}=-\frac{c_{0}}{2\cdot 4},\qquad c_{6}=\frac{c_{4}}{6\cdot 3}=-\frac{c_{0}}{2\cdot 4\cdot 6\cdot 3}$$
+                                $$c_{5}=\frac{c_{3}}{5\cdot 2}=\frac{c_{3}}{2\cdot 5},\qquad c_{7}=\frac{c_{5}}{7\cdot 4}=\frac{c_{3}}{2\cdot 4\cdot 5\cdot 7}$$
+                                <p>Yani <span class="vurgu">çift katsayılar $c_{0}$ cinsinden, $c_{3}$'ten sonraki tek katsayılar $c_{3}$ cinsinden</span> ifade edilir:</p>
+                                $$c_{2n}=-\frac{c_{0}}{\big[2\cdot 4\cdots(2n)\big]\big[3\cdot 5\cdots(2n-3)\big]}\quad (n\ge 3),\qquad c_{2n+1}=\frac{c_{3}}{\big[2\cdot 4\cdots(2n-2)\big]\big[5\cdot 7\cdots(2n+1)\big]}\quad (n\ge 2)$$
+                                <p><strong>Çözüm:</strong></p>
+                                $$y_{2}(x)=x^{-1/2}\left[c_{0}\left(1-\frac{x^{2}}{2}-\frac{x^{4}}{8}-\frac{x^{6}}{144}-\dots\right)+c_{3}\left(x^{3}+\frac{x^{5}}{10}+\frac{x^{7}}{280}+\dots\right)\right]$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Şaşırtıcı sonuç: küçük kök tek başına genel çözümü verdi</h3>
+                                <p>$c_{3}$'lü kısmı ayırıp $x^{-1/2}$ ile çarpalım:</p>
+                                $$x^{-1/2}\cdot c_{3}\left(x^{3}+\frac{x^{5}}{10}+\frac{x^{7}}{280}+\dots\right)=c_{3}\,x^{5/2}\left(1+\frac{x^{2}}{10}+\frac{x^{4}}{280}+\dots\right)$$
+                                <p><span class="vurgu">Bu tam olarak $y_{1}(x)$'tir.</span> Yani küçük kökten gelen ifade, içinde büyük kökün çözümünü de barındırıyor:</p>
+                                $$\boxed{\;y=c_{0}\,x^{-1/2}\left(1-\frac{x^{2}}{2}-\frac{x^{4}}{8}-\frac{x^{6}}{144}-\dots\right)+c_{3}\,x^{5/2}\left(1+\frac{x^{2}}{10}+\frac{x^{4}}{280}+\dots\right)\;}$$
+                                <p>İki keyfi sabit ($c_{0}$ ve $c_{3}$) içerdiğinden bu <span class="vurgu">genel çözümdür</span>.</p>
+                                <div class="highlight">
+                                    <p><strong>Pratik ders:</strong> Kök farkı pozitif tam sayı olduğunda <strong>önce küçük kökü denemek</strong> bazen daha verimlidir. Çelişki çıkmazsa, küçük kök tek hamlede genel çözümü verir ve büyük kökle ayrıca uğraşmaya gerek kalmaz. Çelişki çıkarsa da kaybınız yoktur — o zaman logaritmalı biçime geçersiniz.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 

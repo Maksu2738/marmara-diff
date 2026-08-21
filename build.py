@@ -164,7 +164,7 @@ def bloklari_cevir(satirlar, girinti):
             continue
 
         # --- soru blogu
-        if cip.startswith('[SORU]'):
+        if cip.startswith('[SORU]') or cip.startswith('[SORU*]'):
             i = soru_blogu(satirlar, i, cikti, girinti)
             continue
 
@@ -211,6 +211,7 @@ def bloklari_cevir(satirlar, girinti):
 def _blok_basi(cip):
     return (cip.startswith('<') or cip.startswith('$$') or cip.startswith('- ')
             or cip.startswith('#') or cip.startswith('[SORU]')
+            or cip.startswith('[SORU*]')
             or cip.startswith('[CEVAP]') or cip.startswith('[/CEVAP]')
             or cip.startswith('[KUTU]') or cip.startswith('[/KUTU]')
             or cip in ('---', '***') or re.match(r'^\d+\.\s', cip) is not None)
@@ -219,11 +220,13 @@ def _blok_basi(cip):
 def soru_blogu(satirlar, i, cikti, girinti):
     """[SORU] ... [CEVAP] ... blogunu question-block HTML'ine cevirir."""
     n = len(satirlar)
-    soru = [satirlar[i].strip()[6:].strip()]
+    bas = satirlar[i].strip()
+    yildizli = bas.startswith('[SORU*]')       # ders notundan gelen soru
+    soru = [bas[7:].strip() if yildizli else bas[6:].strip()]
     i += 1
     while i < n:
         cip = satirlar[i].strip()
-        if not cip or cip.startswith('[CEVAP]') or cip.startswith('[SORU]'):
+        if not cip or cip.startswith('[CEVAP]') or cip.startswith('[SORU'):
             break
         soru.append(cip)
         i += 1
@@ -233,7 +236,7 @@ def soru_blogu(satirlar, i, cikti, girinti):
         i += 1
         while i < n:
             cip = satirlar[i].strip()
-            if cip.startswith('[SORU]'):
+            if cip.startswith('[SORU]') or cip.startswith('[SORU*]'):
                 break
             if cip.startswith('[/CEVAP]'):
                 i += 1
@@ -242,7 +245,11 @@ def soru_blogu(satirlar, i, cikti, girinti):
             i += 1
 
     g = girinti
-    cikti.append(g + '<div class="question-block">')
+    sinif = 'question-block yildizli' if yildizli else 'question-block'
+    cikti.append(g + '<div class="%s">' % sinif)
+    if yildizli:
+        cikti.append(g + '    <span class="ders-notu-rozet" title="Ders notlarinda gecen soru">'
+                         '<span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>')
     cikti.append(g + '    <p class="question-text">%s</p>' % satir_ici(' '.join(soru)))
     if cevap:
         cikti.append(g + '    <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>')

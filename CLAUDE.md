@@ -25,6 +25,19 @@ bol.py                       tek seferlik taşıma script'i (tekrar çalıştır
 docs/                        ÜRETİLEN site — elle düzenleme
 ```
 
+Bölüm klasörleri numara sırasına göre dizilir. **Ders bölümleri `bolum-1`,
+`bolum-2`, ... diye devam eder; ders dışı bölümler sona sabitlenmiştir:**
+`bolum-90` = Ödevler (`numara: Ö`), `bolum-91` = Kapsam Dışı (`numara: K`).
+Yeni bir ders bölümü eklerken sıradaki küçük numarayı kullan (Bölüm 4 ->
+`bolum-4`); 90/91'e dokunma.
+
+## Dış kaynak klasörü
+
+Kullanıcı ham içerikleri `Desktop\ders-icerik\` altına atar: `konular/`,
+`odevler/`, `vize/`. "Yeni dosya var" dendiğinde oradan oku, eksik çözümleri
+tamamla, `icerik/` altına parça dosya olarak yaz, `python build.py` çalıştır.
+Ham dosyaları silme.
+
 ## Yeni içerik eklerken
 
 1. İlgili `icerik/diferansiyel/bolum-N/` klasörüne **yeni bir `.md` dosyası** yaz.

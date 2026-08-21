@@ -95,3 +95,90 @@ function updateThemeUI(isDark) {
     }
     updateThemeUI(isDark);
 })();
+
+/* ---- KaTeX: sadece görünür bölümleri render et ----
+   Eskiden renderMathInElement(document.body) açılışta TÜM formülleri işliyordu;
+   içerik büyüdükçe ana iş parçacığını saniyelerce kilitliyordu. Artık her .section
+   ekrana yaklaştığında tek tek render ediliyor.
+
+   IntersectionObserver yerine bilerek getBoundingClientRect kullanıldı: gözlemci
+   bazı ortamlarda (gizli sekme, arka plan render) hiç tetiklenmiyor ve o durumda
+   sayfada ham $...$ kalıyordu. Konum hesabı her yerde çalışır, 126 bölüm için
+   maliyeti ihmal edilebilir. */
+(function () {
+    function katexHazirOlunca(cb) {
+        if (typeof renderMathInElement === 'function') { cb(); return; }
+        var deneme = 0;
+        var t = setInterval(function () {
+            if (typeof renderMathInElement === 'function') { clearInterval(t); cb(); }
+            else if (++deneme > 150) { clearInterval(t); }   /* ~15 sn sonra vazgec */
+        }, 100);
+    }
+
+    function kur() {
+        var opts = {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                /* .js dosyasinda tek ters bolu kacis sayilmaz: '\(' == '('
+                   olur ve KaTeX duz parantezli metni formule cevirmeye
+                   calisir. Ters bolunun kendisi icin '\\(' yazilmali. */
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        };
+
+        var bekleyen = Array.prototype.slice.call(document.querySelectorAll('.section'));
+        if (!bekleyen.length) { renderMathInElement(document.body, opts); return; }
+
+        function render(el) {
+            if (!el || el.dataset.mathDone) return;
+            el.dataset.mathDone = '1';
+            renderMathInElement(el, opts);
+        }
+
+        var PAY = 1200;   /* ekranin bu kadar disindakiler de hazirlanir */
+
+        function tara() {
+            var h = window.innerHeight;
+            for (var i = bekleyen.length - 1; i >= 0; i--) {
+                var r = bekleyen[i].getBoundingClientRect();
+                if (r.bottom > -PAY && r.top < h + PAY) {
+                    render(bekleyen[i]);
+                    bekleyen.splice(i, 1);
+                }
+            }
+            if (!bekleyen.length) {
+                window.removeEventListener('scroll', planla);
+                window.removeEventListener('resize', planla);
+            }
+        }
+
+        var zaman = null;
+        function planla() {
+            if (zaman) return;
+            zaman = setTimeout(function () { zaman = null; tara(); }, 120);
+        }
+
+        window.addEventListener('scroll', planla, { passive: true });
+        window.addEventListener('resize', planla);
+
+        /* Dogrudan #capa ile gelindiyse o bolum beklemeden render edilsin */
+        function hashRender() {
+            if (!location.hash) return;
+            var hedef = document.querySelector(location.hash);
+            if (hedef) { render(hedef); hedef.scrollIntoView(); planla(); }
+        }
+
+        tara();
+        hashRender();
+        window.addEventListener('hashchange', hashRender);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () { katexHazirOlunca(kur); });
+    } else {
+        katexHazirOlunca(kur);
+    }
+})();

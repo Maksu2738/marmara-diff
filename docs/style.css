@@ -616,3 +616,12 @@ body.dark-mode .theme-toggle-btn {
     border-color: rgba(167, 139, 250, 0.4) !important;
     color: #ddd6fe !important;
 }
+
+/* ---- Performans: ekran dışı bölümler yerleştirilmesin ----
+   İçerik büyüdükçe tarayıcı görünmeyen bölümleri de yerleştirip boyuyordu.
+   content-visibility bunu atlar; contain-intrinsic-size kaydırma çubuğunun
+   doğru boyda kalmasını sağlar (auto = son ölçülen boyu hatırlar). */
+.section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+}

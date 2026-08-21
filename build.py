@@ -145,8 +145,8 @@ def bloklari_cevir(satirlar, girinti):
             i += 1
             continue
         if cip.startswith('### '):
-            # Bicim style.css'te; burada satir ici stil uretilmez
-            ekle('<h3>%s</h3>' % satir_ici(cip[4:].strip()))
+            ekle('<h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">%s</h3>'
+                 % satir_ici(cip[4:].strip()))
             i += 1
             continue
 
@@ -180,7 +180,7 @@ def bloklari_cevir(satirlar, girinti):
 
         # --- madde listesi
         if cip.startswith('- '):
-            ekle('<ul>')
+            ekle('<ul style="margin-left: 1rem;">')
             while i < n and satirlar[i].strip().startswith('- '):
                 ekle('<li>%s</li>' % satir_ici(satirlar[i].strip()[2:]), 4)
                 i += 1

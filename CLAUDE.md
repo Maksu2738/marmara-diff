@@ -102,30 +102,6 @@ Türkçe ekler kesme işaretiyle bağlanır: `THEoREM'i`, `THEoREM'ler`,
 `id:` satırlarına ve `$...$` matematiğine **dokunma** — çapa isimleri
 küçük harfli kalır (`bolum-4-6`, `teorem-...` gibi mevcut id'ler değişmez).
 
-## Arayüz (sablon/)
-
-Şablon, Apple'ın arayüz yaklaşımına göre yazıldı (`apple-design` skill'i:
-`~/.claude/skills/apple-design/SKILL.md`). İçerik yazarken buraya dokunmak
-gerekmez; ama düzenlersen şu kurallar bozulmasın:
-
-- **Renkler token.** Hepsi `style.css` başındaki `:root` / `body.dark-mode`
-  bloğunda. CSS'in içine çıplak renk yazma — gece modu kırılır.
-- **Hareket yay ile.** `app.js` içindeki `Motion` küçük bir yay motorudur:
-  her hareket kesilebilir, ekranda görünen değerden ve o anki hızdan devam
-  eder. Açılır kapanır alanlar, çekmece, ok dönüşü hep buradan gelir.
-  Jest içeren yerlerde CSS `transition` / `@keyframes` kullanma.
-- **Yükseklik animasyonu için sarmalayıcı.** `.answer` yalnız kırpma kabıdır;
-  dolgu `.answer-inner`'dadır ve ilk açılışta JS tarafından eklenir.
-- **Üst çubuk yüzen malzemedir** (`backdrop-filter`); içerik altından akar.
-  `--scrolled` değişkenini `app.js` sürer; kompakt başlık ve kenar gölgesi
-  ona bağlıdır.
-- **Satır içi stil üretme.** `build.py` artık `style="..."` çıkarmıyor;
-  biçim `style.css`'te. Eski `.html` parçalarındaki satır içi renkler
-  `style.css` sonundaki eşleme bloğuyla gece moduna çevriliyor — oraya yeni
-  bir renk eklersen o bloğa da ekle.
-- `prefers-reduced-motion` / `prefers-reduced-transparency` /
-  `prefers-contrast` karşılıkları yazılı; yeni efekt eklersen onları da güncelle.
-
 ## Dikkat
 
 - Matematik içindeki `<`, `_`, `\` karakterleri korunur; `$...$` dışında ham `<`

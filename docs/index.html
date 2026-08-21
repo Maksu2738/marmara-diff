@@ -2,24 +2,8 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0e0c14" media="(prefers-color-scheme: dark)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ders Çalışma Şablonu</title>
-
-    <!-- Tema, ilk boyamadan önce uygulanır — açılışta beyaz parlama olmasın -->
-    <script>
-        (function () {
-            try {
-                var t = localStorage.getItem('theme');
-                var dark = t === 'dark' || (!t && window.matchMedia &&
-                    window.matchMedia('(prefers-color-scheme: dark)').matches);
-                if (dark) document.documentElement.classList.add('pre-dark');
-            } catch (e) {}
-        })();
-    </script>
-    <style>html.pre-dark { background: #0d0c13; }</style>
 
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -39,11 +23,13 @@
 </head>
 <body>
 
-    <div class="sidebar-overlay"></div>
+    <!-- Hamburger (mobil) -->
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menü">&#9776;</button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     <div class="layout">
 
-        <nav class="sidebar" aria-label="Bölümler">
+        <nav class="sidebar">
             <div class="sidebar-header">
                 <h2>Ders Notları</h2>
                 <p>Diferansiyel Denklemler</p>
@@ -194,20 +180,16 @@
         </nav>
 
         <div class="main-wrapper">
-
-            <div class="topbar">
-                <div class="topbar-inner">
-                    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menü" aria-expanded="false">&#9776;</button>
-                    <span class="topbar-title">Ders Çalışma Şablonu</span>
-                    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Gece modunu aç/kapat">
+            <header>
+                <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; width: 100%;">
+                    <div style="text-align: left;">
+                        <h1>Ders Çalışma Şablonu</h1>
+                        <p>Konu Anlatımı &bull; Örnekler &bull; Sorular</p>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Gece Modu">
                         <span id="theme-icon">🌙</span> <span id="theme-text">Gece Modu</span>
                     </button>
                 </div>
-            </div>
-
-            <header class="hero">
-                <h1>Ders Çalışma Şablonu</h1>
-                <p>Konu Anlatımı &bull; Örnekler &bull; Sorular</p>
             </header>
 
             <main>
@@ -3515,7 +3497,7 @@
                         </tbody>
                         </table>
                         </div>
-                        <h3>Tanıma sırası</h3>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tanıma sırası</h3>
                         <p>Pratikte şu sırayla bakmak en hızlısıdır:</p>
                         <ol>
                             <li><strong>Değişkenler ayrışıyor mu?</strong> Ayrışıyorsa en kolay yol budur, başka bir şey deneme.</li>

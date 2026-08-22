@@ -1,6 +1,6 @@
 ---
 id: ozel-dd-bessel-ikinci
-menu: 6.3 İkinci Bağımsız Çözüm — $J_{-p}$ ve $Y_p$
+menu: 6.3 İkinci Bağımsız Çözüm — J₋ₚ ve Yₚ
 tip: konu
 baslik: 6.3 &nbsp;Bessel Denkleminin İkinci Bağımsız Çözümü
 ---

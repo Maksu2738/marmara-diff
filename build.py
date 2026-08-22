@@ -401,6 +401,11 @@ def bolumleri_topla(ders_yolu):
 
 
 def sidebar_uret(bolumler):
+    for _b in bolumler:
+        for _p in _b.get('parcalar', []):
+            _m = _p.get('basliklar', {}).get('menu', '')
+            if '$' in _m:
+                sys.stderr.write("  UYARI: menu: satirinda matematik var, sidebarda KaTeX calismaz -> " + _m[:60] + chr(10))
     s = ['                <ul>', '']
     for b in bolumler:
         s.append('                    <!-- ===== BÖLÜM %d ===== -->' % b['no'])

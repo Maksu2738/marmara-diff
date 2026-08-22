@@ -1,6 +1,6 @@
 ---
 id: ozel-dd-bessel-gama
-menu: 6.3 Gama Fonksiyonu ve $J_p$
+menu: 6.3 Gama Fonksiyonu ve Jₚ
 tip: konu
 baslik: 6.3 &nbsp;Gama Fonksiyonunun Özellikleri ve Birinci Tür Bessel Fonksiyonu
 ---

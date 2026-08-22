@@ -1,6 +1,6 @@
 ---
 id: laplace-oteleme
-menu: 4.1 Öteleme ve $t^n$ ile Çarpma
+menu: 4.1 Öteleme ve tⁿ ile Çarpma
 tip: konu
 baslik: 4.1 &nbsp;Öteleme Özelliği ve $t^n$ ile Çarpmanın Etkisi
 ---

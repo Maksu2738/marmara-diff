@@ -1,6 +1,6 @@
 ---
 id: ters-donusum-oteleme
-menu: 4.4 $e^{-as}F(s)$ Biçiminin Ters Dönüşümü
+menu: 4.4 Ötelenmiş Biçimin Ters Dönüşümü
 tip: konu
 baslik: 4.4 &nbsp;$e^{-as}F(s)$ Biçimindeki İfadelerin Ters Dönüşümü
 ---

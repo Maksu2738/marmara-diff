@@ -324,6 +324,19 @@ main {
     margin-bottom: 0.75rem;
 }
 
+/* Satir ici KaTeX kesir tasmasi: strut ile olculen kutunun
+   (dfrac/frac) birkac piksel disina cizilir. Kutu tasmadigi icin tarayici bilmez ve
+   hemen altindaki ogeye (cogunlukla "Cevabi Goster" butonu) biner -- ozellikle
+   telefon yatay modunda formul tek satira sigdiginda. Satir araligini acmak
+   tasmayi kucultur, butondaki ust bosluk da kalanini emer. */
+.question-block p {
+    line-height: 1.85;
+}
+
+.question-block p:last-of-type {
+    margin-bottom: 0.35rem;
+}
+
 .answer {
     display: none;
     background: #f3f0ff;
@@ -342,6 +355,7 @@ main {
 }
 
 .toggle-btn {
+    margin-top: 0.4rem;
     background: linear-gradient(135deg, #6d5ace, #8b5cf6);
     color: #fff;
     border: none;

@@ -1,2 +1,2 @@
 ad: Özel Diferansiyel Denklemler
-acik: hayir
+acik: evet

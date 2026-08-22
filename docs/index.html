@@ -157,6 +157,8 @@
                             <li><a href="#ornek-laplace-ikinci-mertebe">4.3 Örnekler — İkinci Mertebeden</a></li>
                             <li><a href="#ornek-laplace-ucuncu-mertebe">4.3 Örnek — Üçüncü Mertebeden</a></li>
                             <li><a href="#egzersizler-dd-cozumu">4.3 Egzersizler — Denklem Çözümü</a></li>
+                            <li><a href="#laplace-birim-basamak">4.4 Birim Basamak Fonksiyonu</a></li>
+                            <li><a href="#laplace-ikinci-oteleme">4.4 İkinci Öteleme THEoREM'i</a></li>
                         </ul>
                     </li>
 
@@ -9241,6 +9243,119 @@
                                     <p><strong>İpuçları.</strong> 6 ve 8 homojendir, 5 ve 7 ile aynı yapıda. 8'de payda $s^{2}+2s+5=(s+1)^{2}+4$ tamkareye gider, cevapta $e^{-t}\sin 2t$ ve $e^{-t}\cos 2t$ beklenir. 4'te $\mathcal{L}\{16t^{2}\}=\frac{32}{s^{3}}$ olur (7 numaralı girdi, $n!=2$). 10'da sağ taraf $\frac{36}{s+3}$, payda $s^{2}+9$ ile birleşince 9 ve 19 gibi karışık yapı çıkar.</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-birim-basamak" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.4 &nbsp;Süreksiz Zorlama ve Birim Basamak Fonksiyonu
+                        </div>
+                        <p>Şimdiye kadar zorlama terimi $b(t)$ hep sürekliydi. Gerçek problemlerde ise <span class="vurgu">zorlama aniden devreye girer ya da kesilir</span>: bir anahtarın açılması, bir yükün bırakılması, bir darbenin uygulanması.</p>
+                        <p>Bu bölümde, denklemdeki homojen olmayan terimin <strong>bir veya daha fazla sonlu süreksizliği</strong> olduğu başlangıç değer problemlerini çözeceğiz. Bunun için önce böyle fonksiyonların Laplace dönüşümünü bulmamız gerekiyor.</p>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> Her $a\ge 0$ gerçel sayısı için <strong>birim basamak fonksiyonu (unit step function)</strong> $u_{a}$, negatif olmayan $t$ için şöyle tanımlanır:</p>
+                            $$u_{a}(t)=\begin{cases}0, & t<a\\ 1, & t>a\end{cases} \tag{9.73}$$
+                        </div>
+                        <p>Özel olarak $a=0$ alınırsa biçimsel olarak</p>
+                        $$u_{0}(t)=\begin{cases}0, & t<0\\ 1, & t>0\end{cases}$$
+                        <p>olur; ama $u_{a}$ yalnızca negatif olmayan $t$ için tanımlandığından bu şuna iner:</p>
+                        $$u_{0}(t)=1\qquad (t>0) \tag{9.74}$$
+                        <p><span class="vurgu">Yani $u_{0}$, sabit $1$ fonksiyonudur.</span></p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Birim basamağın dönüşümü</h3>
+                        <p>$u_{a}$ fonksiyonu THEoREM 9.1'in hipotezlerini sağlar (parçalı sürekli ve sınırlı, dolayısıyla üstel mertebeden), o hâlde dönüşümü vardır. Doğrudan tanımdan hesaplayalım — <span class="vurgu">integral $t=a$'da ikiye bölünür:</span></p>
+                        $$\mathcal{L}\{u_{a}(t)\}=\int_{0}^{a}e^{-st}\cdot 0\,dt+\int_{a}^{\infty}e^{-st}\cdot 1\,dt=\lim_{R\to\infty}\left[\frac{-e^{-st}}{s}\right]_{a}^{R}$$
+                        $$=\lim_{R\to\infty}\frac{-e^{-sR}+e^{-as}}{s}$$
+                        <p>$s>0$ için $e^{-sR}\to 0$:</p>
+                        $$\boxed{\;\mathcal{L}\{u_{a}(t)\}=\frac{e^{-as}}{s}\qquad (s>0)\;} \tag{9.75}$$
+                        <div class="highlight">
+                            <p><strong>$e^{-as}$ çarpanı bu bölümün imzasıdır.</strong> Bundan sonra bir dönüşümde $e^{-as}$ görürseniz, arkasında <span class="vurgu">$t=a$ anında olan bir şey</span> vardır: bir açılma, bir kapanma, bir gecikme. $a=0$ konursa $\frac{1}{s}$ çıkar, yani $\mathcal{L}\{1\}$ — tutarlı.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Basamak fonksiyonlarını birim basamaklarla yazmak</h3>
+                        <p>Pek çok basamak fonksiyonu, $u_{a}$'ların uygun <strong>lineer birleşimi</strong> olarak yazılabilir. Sonra lineerlik özelliği (THEoREM 9.2) ve $(9.75)$ ile dönüşümü kolayca bulunur.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.30.</strong> &nbsp; Aşağıdaki basamak fonksiyonunun Laplace dönüşümünü bulunuz: $$f(t)=\begin{cases}0, & 0<t<2\\ 3, & 2<t<5\\ 0, & t>5\end{cases}$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Fonksiyonu iki parçanın farkı olarak gör.</strong></p>
+                                <p>Değerleri şöyle yeniden yazalım:</p>
+                                $$f(t)=\begin{cases}0-0, & 0<t<2\\ 3-0, & 2<t<5\\ 3-3, & t>5\end{cases}$$
+                                <p>Bu düzenleme şunu gösteriyor: $f$, değerleri</p>
+                                $$\begin{cases}0, & 0<t<2\\ 3, & t>2\end{cases}$$
+                                <p>olan fonksiyondan, değerleri</p>
+                                $$\begin{cases}0, & 0<t<5\\ 3, & t>5\end{cases}$$
+                                <p>olan fonksiyonun çıkarılmasıyla elde edilir.</p>
+                                <p><strong>Adım 2 — Birim basamaklar cinsinden yaz.</strong></p>
+                                <p>Birincisi $3u_{2}(t)$, ikincisi $3u_{5}(t)$:</p>
+                                $$f(t)=3u_{2}(t)-3u_{5}(t)$$
+                                <p><strong>Adım 3 — Lineerlik ve $(9.75)$.</strong></p>
+                                $$\mathcal{L}\{f(t)\}=3\cdot\frac{e^{-2s}}{s}-3\cdot\frac{e^{-5s}}{s}$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{3}{s}\left(e^{-2s}-e^{-5s}\right)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Genel kural — "aç ve kapat".</strong> Bir dikdörtgen darbe, iki basamağın farkıdır:</p>
+                                    $$\underbrace{c\,u_{a}(t)}_{t=a\text{'da aç}}-\underbrace{c\,u_{b}(t)}_{t=b\text{'de kapat}}\;=\;\begin{cases}0, & t<a\\ c, & a<t<b\\ 0, & t>b\end{cases}$$
+                                    <p>Bu kalıp bir kez oturunca, kaç basamaklı olursa olsun her merdiven fonksiyonu <span class="vurgu">aynı yöntemle</span> yazılır: her sıçramada bir $u$ terimi ekleyin, katsayısı o noktadaki <strong>sıçrama miktarı</strong> olsun.</p>
+                                    <p>Örneğin $t=2$'de $0\to 3$, $t=5$'te $3\to 0$ sıçramaları var; katsayılar sırasıyla $+3$ ve $-3$. Formül doğrudan buradan okunur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-ikinci-oteleme" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.4 &nbsp;Ötelenmiş Fonksiyonlar ve İkinci Öteleme THEoREM'i
+                        </div>
+                        <p>Birim basamağın ikinci kullanışlı özelliği, bir fonksiyonu <strong>pozitif yönde öteleme</strong> ile ilgilidir.</p>
+                        <p>$t>0$ için tanımlı bir $f$ fonksiyonu düşünelim. Bu fonksiyonu $a$ birim <strong>sağa</strong> kaydıralım ve $t<a$ için yeni fonksiyona $0$ değerini atayalım. Ortaya çıkan fonksiyon şudur:</p>
+                        $$\begin{cases}0, & 0<t<a\\ f(t-a), & t>a\end{cases} \tag{9.76}$$
+                        <p>Birim basamağın tanımı gereği bu fonksiyon tam olarak $u_{a}(t)f(t-a)$ çarpımıdır:</p>
+                        $$u_{a}(t)f(t-a)=\begin{cases}0, & 0<t<a\\ f(t-a), & t>a\end{cases} \tag{9.77}$$
+                        <div class="highlight">
+                            <p><strong>İki ayrı iş yapan tek çarpım.</strong> $u_{a}(t)$ çarpanı <span class="vurgu">makas gibi davranır</span>: $t<a$ bölgesini keser, sıfırlar. $f(t-a)$ ise <span class="vurgu">fonksiyonu geciktirir</span>: $f$'nin $t=0$'daki davranışı artık $t=a$'da başlar.</p>
+                            <p>Bir sistemde "$a$ saniye sonra devreye giren aynı etki" tam olarak budur.</p>
+                        </div>
+                        <hr>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.9 — İKİNCİ ÖTELEME THEoREM'i</strong></p>
+                            <p><strong>Hipotez.</strong> $f$, THEoREM 9.1'in hipotezlerini sağlayan ve Laplace dönüşümü $F$ olan bir fonksiyon olsun.</p>
+                            <p><strong>Sonuç.</strong></p>
+                            $$\mathcal{L}\{u_{a}(t)f(t-a)\}=e^{-as}\,\mathcal{L}\{f(t)\}=e^{-as}F(s) \tag{9.79}$$
+                        </div>
+                        <p><strong>İspat.</strong> Tanımdan başlayalım ve integrali $t=a$'da bölelim:</p>
+                        $$\mathcal{L}\{u_{a}(t)f(t-a)\}=\int_{0}^{a}e^{-st}\cdot 0\,dt+\int_{a}^{\infty}e^{-st}f(t-a)\,dt=\int_{a}^{\infty}e^{-st}f(t-a)\,dt$$
+                        <p>$t-a=\tau$ değişken değişimi yapalım. O zaman $t=\tau+a$, $dt=d\tau$; $t=a$ iken $\tau=0$, $t\to\infty$ iken $\tau\to\infty$:</p>
+                        $$=\int_{0}^{\infty}e^{-s(\tau+a)}f(\tau)\,d\tau$$
+                        <p>Üstel çarpanı ayıralım — <span class="vurgu">$e^{-as}$ integral değişkenine bağlı olmadığı için dışarı çıkar:</span></p>
+                        $$=e^{-as}\int_{0}^{\infty}e^{-s\tau}f(\tau)\,d\tau=e^{-as}\,\mathcal{L}\{f(t)\}\qquad\blacksquare$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">İki öteleme THEoREM'ini karıştırmayın</h3>
+                        <p>Laplace'ta "öteleme" adını taşıyan iki ayrı THEoREM var ve <span class="vurgu">sık karıştırılırlar:</span></p>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th></th><th>THEoREM 9.5 (birinci öteleme)</th><th>THEoREM 9.9 (ikinci öteleme)</th></tr>
+                        <tr><td>Kural</td><td>$\mathcal{L}\{e^{at}f(t)\}=F(s-a)$</td><td>$\mathcal{L}\{u_{a}(t)f(t-a)\}=e^{-as}F(s)$</td></tr>
+                        <tr><td>$t$ uzayında</td><td>üstelle çarpma</td><td>zamanda gecikme</td></tr>
+                        <tr><td>$s$ uzayında</td><td>$s$ ekseninde kaydırma</td><td>$e^{-as}$ ile çarpma</td></tr>
+                        <tr><td>İzi</td><td>paydada $(s-a)$ ya da tamkare</td><td>payda $e^{-as}$ çarpanı</td></tr>
+                        </table>
+                        </div>
+                        <p><strong>Hatırlama yolu:</strong> Hangi uzayda kaydırma olduğuna bakın. <span class="vurgu">$s$ kaydıysa birinci, $t$ kaydıysa ikinci.</span></p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ters yönde kullanım</h3>
+                        <p>Pratikte asıl ihtiyacımız olan biçim tersidir:</p>
+                        $$\mathcal{L}^{-1}\left\{e^{-as}F(s)\right\}=u_{a}(t)\,f(t-a)$$
+                        <p>Yani bir ters dönüşümde $e^{-as}$ çarpanı görürseniz:</p>
+                        <ol>
+                            <li>$e^{-as}$'yi ayırın, geriye kalan $F(s)$'nin ters dönüşümü $f(t)$'yi bulun.</li>
+                            <li>$f$ içindeki her $t$ yerine <span class="vurgu">$t-a$ yazın.</span></li>
+                            <li>Sonucu $u_{a}(t)$ ile çarpın.</li>
+                        </ol>
+                        <div class="highlight">
+                            <p><strong>En sık yapılan hata: 2. adımı atlamak.</strong> $\mathcal{L}^{-1}\left\{e^{-3s}\cdot\frac{1}{s^{2}}\right\}$ ifadesinin cevabı $u_{3}(t)\cdot t$ <strong>değil</strong>, $u_{3}(t)\cdot(t-3)$'tür. Çarpan yalnızca kesmez, aynı zamanda <span class="vurgu">geciktirir</span>; gecikme fonksiyonun argümanına yansımalıdır.</p>
+                            <p>Kontrol yolu: $t=a$ noktasında ne olduğuna bakın. Doğru cevapta $t=3$'te fonksiyon $0$'dan başlar ($f(0)=0$); yanlışında birdenbire $3$ değerine sıçrar.</p>
                         </div>
                     </div>
 

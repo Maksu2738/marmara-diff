@@ -30,10 +30,9 @@ docs/                        ÜRETİLEN site — elle düzenleme
 
 Bölüm klasörleri numara sırasına göre dizilir. **Ders bölümleri `bolum-1`,
 `bolum-2`, ... diye devam eder; ders dışı bölümler sona sabitlenmiştir:**
-`bolum-89` = Vize (`numara: V`), `bolum-90` = Ödevler (`numara: Ö`),
-`bolum-91` = Kapsam Dışı (`numara: K`).
+`bolum-89` = Vize (`numara: V`), `bolum-90` = Ödevler (`numara: Ö`).
 Yeni bir ders bölümü eklerken sıradaki küçük numarayı kullan (Bölüm 4 ->
-`bolum-4`); 89/90/91'e dokunma.
+`bolum-4`); 89/90'a dokunma.
 
 ## Dış kaynak klasörü
 
@@ -75,12 +74,11 @@ baslik: 5.1 &nbsp;Yay Üzerindeki Kütlenin Titreşim Diferansiyel Denklemi
   varsayılan metnin yerine o kullanılır (Ödevler bölümü böyle çalışıyor:
   rozet numarayı, başlık konuyu taşır).
 - `durum: bekliyor` — sidebar linkini soluk gösterir (içerik henüz yoksa)
-- `defterde: yok` — konu **kitapta var ama hocanın ders defterinde işlenmemiş**.
+- `defterde: yok` — konu **kitapta var ama hoca derste işlememiş**.
   Bölüme kırmızı zemin + "⚠ DERSTE İŞLENMEDİ" şeridi koyar, sidebar linkine
-  küçük kırmızı `yok` rozeti ekler. `bolum-91` (Kapsam Dışı) ile karıştırma:
-  orası hiç sorulmayacak konular, bu ise sorulabilecek ama derste geçmemiş
-  konular. Yalnızca defterin kapsadığı bölümlerde kullan — elimizdeki defter
-  vize sonrasını kapsıyor, dolayısıyla bölüm 1-3 için karar verilemez.
+  küçük kırmızı `yok` rozeti ekler. Yalnızca elimizdeki ders notunun
+  kapsadığı bölümlerde kullan — not vize sonrasını kapsıyor, dolayısıyla
+  bölüm 1-3 için karar verilemez.
 
 Gövde:
 

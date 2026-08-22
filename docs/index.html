@@ -145,11 +145,13 @@
                         <ul class="chapter-links open">
                             <li><a href="#laplace">Giriş</a></li>
                             <li><a href="#laplace-tanim">4.1 Tanım ve Temel Dönüşümler</a></li>
+                            <li><a href="#egzersizler-laplace-tanim">4.1 Egzersizler — Tanımdan Dönüşüm</a></li>
                             <li><a href="#laplace-varlik" class="defterde-yok">4.1 Dönüşüm Ne Zaman Vardır</a></li>
                             <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
                             <li><a href="#laplace-yuksek-turev">4.1 Yüksek Mertebeden Türevler</a></li>
                             <li><a href="#ornek-laplace-bdp">4.1 Örnek — İlk Başlangıç Değer Problemi</a></li>
                             <li><a href="#laplace-oteleme">4.1 Öteleme ve tⁿ ile Çarpma</a></li>
+                            <li><a href="#egzersizler-laplace-ozellikler">4.1 Egzersizler — Temel Özellikler</a></li>
                             <li><a href="#laplace-ters">4.2 Ters Laplace Dönüşümü</a></li>
                             <li><a href="#ornek-ters-donusum">4.2 Örnekler — Ters Dönüşüm Teknikleri</a></li>
                             <li><a href="#ornek-ters-kuadratik">4.2 Örnek — İndirgenemez Kuadratik Çarpan</a></li>
@@ -8203,6 +8205,92 @@
                         </div>
                     </div>
 
+                    <div id="egzersizler-laplace-tanim" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.1 &nbsp;Egzersizler — Tanımdan Laplace Dönüşümü
+                        </div>
+                        <p>Bu setin tamamında <strong>tablo kullanmak yasak</strong>: dönüşüm doğrudan tanımdan, yani integralle bulunacak.</p>
+                        $$\mathcal{L}\{f(t)\}=\int_{0}^{\infty}e^{-st}f(t)\,dt$$
+                        <div class="highlight">
+                            <p><strong>Parçalı fonksiyonlarda integrali bölün.</strong> Soruların çoğunda $f$ parçalı tanımlı. O zaman integral de <span class="vurgu">parça sayısı kadar bölünür</span>; sıfır olan parçalar hiç yazılmayabilir.</p>
+                            <p>$t\to\infty$ sınırında $e^{-st}$ sıfıra gider ($s&gt;0$); üstel azalma her polinomu yendiği için $t^{n}e^{-st}\to 0$ de geçerlidir. Bu, sonsuz sınırlı integrallerde köşeli parantezin üst ucunu <span class="vurgu">her seferinde sıfır</span> yapar.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; Tanımı kullanarak $f(t)=t^{2}$ için $\mathcal{L}\{f(t)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kısmi integrasyon, $u=t^{2}$, $dv=e^{-st}dt$:</p>
+                                $$\mathcal{L}\{t^{2}\}=\int_{0}^{\infty}t^{2}e^{-st}\,dt=\left[-\frac{t^{2}}{s}e^{-st}\right]_{0}^{\infty}+\frac{2}{s}\int_{0}^{\infty}te^{-st}\,dt$$
+                                <p>Köşeli parantez iki uçta da sıfırdır ($t=0$'da $t^{2}=0$; $t\to\infty$'da üstel kazanır). Kalan integral $\mathcal{L}\{t\}=\dfrac{1}{s^{2}}$:</p>
+                                $$=\frac{2}{s}\cdot\frac{1}{s^{2}}=\boxed{\;\frac{2}{s^{3}}\;}$$
+                                <p>Tablodaki $\mathcal{L}\{t^{n}\}=\dfrac{n!}{s^{n+1}}$ ile uyumlu: $n=2$ için $\dfrac{2!}{s^{3}}$. &#10003;</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $f(t)=5$ &nbsp;($0&lt;t&lt;2$), &nbsp;$f(t)=0$ &nbsp;($t&gt;2$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İkinci parça sıfır olduğundan integrale hiç katkı vermez:</p>
+                                $$\mathcal{L}\{f\}=\int_{0}^{2}5e^{-st}\,dt=5\left[\frac{-e^{-st}}{s}\right]_{0}^{2}=\boxed{\;\frac{5}{s}\left(1-e^{-2s}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $f(t)=t$ &nbsp;($0&lt;t&lt;2$), &nbsp;$f(t)=3$ &nbsp;($t&gt;2$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>İki parça, iki integral.</strong></p>
+                                $$\mathcal{L}\{f\}=\int_{0}^{2}te^{-st}\,dt+\int_{2}^{\infty}3e^{-st}\,dt$$
+                                <p><strong>Birinci integral</strong> (kısmi integrasyon, $u=t$):</p>
+                                $$\int_{0}^{2}te^{-st}\,dt=\left[-\frac{t}{s}e^{-st}\right]_{0}^{2}+\frac{1}{s}\int_{0}^{2}e^{-st}\,dt=-\frac{2}{s}e^{-2s}+\frac{1}{s^{2}}\left(1-e^{-2s}\right)$$
+                                <p><span class="vurgu">Burada üst sınır $2$ olduğu için köşeli parantez sıfır olmuyor</span>; sonlu aralıkta çalışıyoruz.</p>
+                                <p><strong>İkinci integral:</strong></p>
+                                $$\int_{2}^{\infty}3e^{-st}\,dt=3\left[\frac{-e^{-st}}{s}\right]_{2}^{\infty}=\frac{3}{s}e^{-2s}$$
+                                <p><strong>Topla.</strong> $e^{-2s}/s$ terimleri: $-\dfrac{2}{s}+\dfrac{3}{s}=+\dfrac{1}{s}$</p>
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{1}{s^{2}}+\frac{e^{-2s}}{s}-\frac{e^{-2s}}{s^{2}}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $f(t)=t$ &nbsp;($0\le t&lt;1$), &nbsp;$f(t)=2-t$ &nbsp;($1\le t&lt;2$), &nbsp;$f(t)=0$ &nbsp;($t\ge 2$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Bu bir <strong>üçgen darbedir (triangular pulse)</strong>: $0$'dan $1$'e çıkar, sonra $0$'a iner ve orada kalır.</p>
+                                $$\mathcal{L}\{f\}=\int_{0}^{1}te^{-st}\,dt+\int_{1}^{2}(2-t)e^{-st}\,dt$$
+                                <p><strong>Birinci integral:</strong></p>
+                                $$\left[-\frac{t}{s}e^{-st}\right]_{0}^{1}+\frac{1}{s}\int_{0}^{1}e^{-st}\,dt=-\frac{e^{-s}}{s}+\frac{1}{s^{2}}\left(1-e^{-s}\right)$$
+                                <p><strong>İkinci integral</strong> ($u=2-t$, $du=-dt$):</p>
+                                $$\left[-\frac{(2-t)e^{-st}}{s}\right]_{1}^{2}-\frac{1}{s}\int_{1}^{2}e^{-st}\,dt$$
+                                <p>Üst uçta $2-t=0$, alt uçta $2-t=1$; köşeli parantez $0-\left(-\dfrac{e^{-s}}{s}\right)=\dfrac{e^{-s}}{s}$:</p>
+                                $$=\frac{e^{-s}}{s}-\frac{e^{-s}-e^{-2s}}{s^{2}}$$
+                                <p><strong>Topla.</strong> $\dfrac{e^{-s}}{s}$ terimleri <span class="vurgu">birbirini götürüyor</span>:</p>
+                                $$\mathcal{L}\{f\}=\frac{1}{s^{2}}-\frac{e^{-s}}{s^{2}}-\frac{e^{-s}}{s^{2}}+\frac{e^{-2s}}{s^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{1}{s^{2}}\left(1-2e^{-s}+e^{-2s}\right)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Cevabın biçimine bakın:</strong> $1-2e^{-s}+e^{-2s}=\left(1-e^{-s}\right)^{2}$, yani</p>
+                                    $$\mathcal{L}\{f\}=\left(\frac{1-e^{-s}}{s}\right)^{2}$$
+                                    <p>Tam kare çıkması tesadüf değil: üçgen darbe, <span class="vurgu">kare darbenin kendisiyle konvolüsyonudur</span>. $\dfrac{1-e^{-s}}{s}$ ifadesi $[0,1]$ aralığındaki birim kare darbenin dönüşümüdür ve konvolüsyon THEoREM'i çarpımı verir. (Konvolüsyon 4.2'de.)</p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                        <p><strong>2.</strong> &nbsp; $f(t)=\sinh t$</p>
+                        <p><strong>4.</strong> &nbsp; $f(t)=4$ &nbsp;($0&lt;t&lt;3$), &nbsp;$2$ &nbsp;($t&gt;3$)</p>
+                        <p><strong>6.</strong> &nbsp; $f(t)=0$ &nbsp;($0&lt;t&lt;1$), &nbsp;$t$ &nbsp;($1&lt;t&lt;2$), &nbsp;$1$ &nbsp;($t&gt;2$)</p>
+                        <p><strong>8.</strong> &nbsp; $f(t)=2t$ &nbsp;($0\le t&lt;1$), &nbsp;$2$ &nbsp;($1\le t&lt;3$), &nbsp;$8-2t$ &nbsp;($t\ge 3$)</p>
+                        <div class="highlight">
+                            <p><strong>İpuçları.</strong> <strong>2</strong> tek gerçek "fonksiyon" sorusu: $\sinh t=\dfrac{e^{t}-e^{-t}}{2}$ yazıp iki üstel integral alın, $s&gt;1$ koşulunu unutmayın.</p>
+                            <p><strong>4</strong> → 3 gibi ama ikinci parça sıfır değil, $\int_{3}^{\infty}$ da hesaplanacak.</p>
+                            <p><strong>6</strong> ve <strong>8</strong> → 5 ve 7 gibi, sadece parça sayısı fazla. <strong>8</strong>'in cevabı da tam kare çıkar; 7'deki gibi bir yamuk/üçgen darbedir.</p>
+                            <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her sonuç sınanabilir: $s\to\infty$ iken $\mathcal{L}\{f\}\to 0$ olmalıdır (her Laplace dönüşümü için geçerli). Ayrıca <span class="vurgu">başlangıç değer THEoREM'i</span> $\lim_{s\to\infty}s\,\mathcal{L}\{f\}=f(0^{+})$ hızlı bir kontrol verir: 5. soruda $s\cdot\left(\tfrac{1}{s^{2}}+\cdots\right)\to 0=f(0^{+})$ &#10003;</p>
+                        </div>
+                    </div>
+
                     <div id="laplace-varlik" class="section konu defter-disi">
                         <div class="section-title">
                             <span class="badge">Konu</span>
@@ -8616,6 +8704,184 @@
                                 $$\boxed{\;\mathcal{L}\{t^{2}\sin bt\}=\frac{6bs^{2}-2b^{3}}{\left(s^{2}+b^{2}\right)^{3}}\;}$$
                                 <p><strong>Kontrol.</strong> $b$ ortak çarpan olarak çıkarılabilir: $\dfrac{2b\left(3s^{2}-b^{2}\right)}{\left(s^{2}+b^{2}\right)^{3}}$. Payda derecesi $6$, pay derecesi $2$ olduğundan $s\to\infty$ iken ifade $s^{-4}$ gibi söner — $t^{2}\sin bt$ gibi çarpımların dönüşümlerinden beklenen davranış budur.</p>
                             </div>
+                        </div>
+                    </div>
+
+                    <div id="egzersizler-laplace-ozellikler" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.1 &nbsp;Egzersizler — Temel Özellikler ve Türev THEoREM'leri
+                        </div>
+                        <p>Bu set 4.1'de kurulan bütün araçları tek tek yokluyor. Her soru hangi THEoREM'i kullanacağınızı söylüyor:</p>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th>THEoREM</th><th>Ne yapar</th><th>Sorular</th></tr>
+                        <tr><td>9.2</td><td>Doğrusallık — çarpımı özdeşlikle toplama çevir</td><td>1, 3</td></tr>
+                        <tr><td>9.3 / 9.4</td><td>Türevin dönüşümü — $\mathcal{L}\{f'\}=s\mathcal{L}\{f\}-f(0)$ ve yüksek mertebeleri</td><td>3, 5, 7, 9, 11</td></tr>
+                        <tr><td>9.5</td><td>Birinci öteleme — $e^{at}$ ile çarp, $s\to s-a$ ötele</td><td>13</td></tr>
+                        <tr><td>9.6</td><td>$t^{n}$ ile çarp, $n$ kez türet</td><td>15, 17</td></tr>
+                        </table>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\cos^{2}at\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Özdeşlikle doğrusal birleşime çevir.</strong></p>
+                                $$\cos^{2}at=\frac{1+\cos 2at}{2}$$
+                                <p><strong>Adım 2 — Doğrusallık ve tablo.</strong></p>
+                                $$\mathcal{L}\{\cos^{2}at\}=\frac{1}{2}\cdot\frac{1}{s}+\frac{1}{2}\cdot\frac{s}{s^{2}+4a^{2}}$$
+                                <p><strong>Adım 3 — Tek kesirde topla.</strong></p>
+                                $$=\frac{\left(s^{2}+4a^{2}\right)+s^{2}}{2s\left(s^{2}+4a^{2}\right)}=\frac{2s^{2}+4a^{2}}{2s\left(s^{2}+4a^{2}\right)}$$
+                                $$\boxed{\;\mathcal{L}\{\cos^{2}at\}=\frac{s^{2}+2a^{2}}{s\left(s^{2}+4a^{2}\right)}\;}$$
+                                <p><strong>Çapraz kontrol.</strong> Örnek 9.11'de $\mathcal{L}\{\sin^{2}at\}=\dfrac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}$ bulmuştuk. İkisini toplayalım:</p>
+                                $$\frac{s^{2}+2a^{2}+2a^{2}}{s\left(s^{2}+4a^{2}\right)}=\frac{s^{2}+4a^{2}}{s\left(s^{2}+4a^{2}\right)}=\frac{1}{s}=\mathcal{L}\{1\}$$
+                                <p>$\sin^{2}+\cos^{2}=1$ olduğu için tam da beklenen sonuç. &#10003;</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\sin^{3}at\}$ değerini bulunuz, sonra THEoREM 9.3'ü kullanarak $\mathcal{L}\{\sin^{2}at\cos at\}$ değerini elde ediniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Üçüncü kuvvet özdeşliği.</strong></p>
+                                $$\sin^{3}\theta=\frac{3\sin\theta-\sin 3\theta}{4}$$
+                                $$\mathcal{L}\{\sin^{3}at\}=\frac{3}{4}\cdot\frac{a}{s^{2}+a^{2}}-\frac{1}{4}\cdot\frac{3a}{s^{2}+9a^{2}}$$
+                                <p><span class="vurgu">İkinci terimde açısal frekans $3a$ olduğu için payda $s^{2}+9a^{2}$, pay da $3a$.</span></p>
+                                <p><strong>Adım 2 — Topla.</strong></p>
+                                $$=\frac{3a}{4}\left[\frac{1}{s^{2}+a^{2}}-\frac{1}{s^{2}+9a^{2}}\right]=\frac{3a}{4}\cdot\frac{\left(s^{2}+9a^{2}\right)-\left(s^{2}+a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+                                <p>Pay $8a^{2}$; $\dfrac{3a}{4}\cdot 8a^{2}=6a^{3}$:</p>
+                                $$\boxed{\;\mathcal{L}\{\sin^{3}at\}=\frac{6a^{3}}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}\;}$$
+                                <p><strong>Adım 3 — İkinci kısım: türev THEoREM'i.</strong> Zincir kuralıyla</p>
+                                $$\frac{d}{dt}\sin^{3}at=3\sin^{2}at\cdot a\cos at=3a\,\sin^{2}at\cos at$$
+                                <p>Yani aradığımız fonksiyon, dönüşümünü az önce bulduğumuz fonksiyonun türevidir. $f=\sin^{3}at$ için $f(0)=0$:</p>
+                                $$\mathcal{L}\{3a\,\sin^{2}at\cos at\}=s\,\mathcal{L}\{\sin^{3}at\}-0=\frac{6a^{3}s}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+                                <p>$3a$'ya bölelim:</p>
+                                $$\boxed{\;\mathcal{L}\{\sin^{2}at\cos at\}=\frac{2a^{2}s}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Bu tam olarak Ders Notu Örneği B'nin kalıbı.</strong> Orada $2a\sin at\cos at$'yi $\sin^{2}at$'nin türevi olarak tanımıştık; burada bir derece yukarı çıkıp $3a\sin^{2}at\cos at$'yi $\sin^{3}at$'nin türevi olarak tanıyoruz.</p>
+                                    <p><span class="vurgu">Genel kural:</span> $\sin^{n}$ ya da $\cos^{n}$ içeren bir çarpım görürsen, onun bir kuvvetin türevi olup olmadığına bak. Öyleyse doğrudan dönüştürmeye çalışma; kuvvetin dönüşümünü bul, $s$ ile çarp.</p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ olduğuna göre, THEoREM 9.3'ü kullanarak $\mathcal{L}\{t^{3}\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$f(t)=t^{3}$ alalım: $f'(t)=3t^{2}$ ve $f(0)=0$.</p>
+                                $$\mathcal{L}\{f'\}=s\,\mathcal{L}\{f\}-f(0)\;\Longrightarrow\;\mathcal{L}\{3t^{2}\}=s\,\mathcal{L}\{t^{3}\}$$
+                                $$3\cdot\frac{2}{s^{3}}=s\,\mathcal{L}\{t^{3}\}\;\Longrightarrow\;\boxed{\;\mathcal{L}\{t^{3}\}=\frac{6}{s^{4}}\;}$$
+                                <p><span class="vurgu">Hiç integral alınmadı.</span> Aynı basamağı bir kez daha çıkarsanız $\mathcal{L}\{t^{4}\}=\dfrac{24}{s^{5}}$ gelir; böylece $\mathcal{L}\{t^{n}\}=\dfrac{n!}{s^{n+1}}$ formülü tümevarımla üretilebilir.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $(9.11)$ ve $(9.18)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f''+3f'+2f=0$, &nbsp;$f(0)=1$, &nbsp;$f'(0)=2$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$F=\mathcal{L}\{f\}$ olsun.</p>
+                                $$\mathcal{L}\{f''\}=s^{2}F-s-2,\qquad \mathcal{L}\{f'\}=sF-1$$
+                                $$\left(s^{2}F-s-2\right)+3\left(sF-1\right)+2F=0$$
+                                <p>$F$ çarpanları $s^{2}+3s+2$; sabitler $-s-2-3=-s-5$:</p>
+                                $$\left(s^{2}+3s+2\right)F=s+5$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{s+5}{s^{2}+3s+2}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $(9.17)$ ve $(9.11)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f'''=f'$, &nbsp;$f''(0)=2$, &nbsp;$f'(0)=1$, &nbsp;$f(0)=0$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Üçüncü türev için $(9.17)$'yi $n=3$ ile yazalım:</strong></p>
+                                $$\mathcal{L}\{f'''\}=s^{3}F-s^{2}f(0)-s\,f'(0)-f''(0)=s^{3}F-s-2$$
+                                <p><span class="vurgu">$f(0)=0$ olduğu için $s^{2}$'li terim düştü.</span></p>
+                                <p><strong>Birinci türev:</strong></p>
+                                $$\mathcal{L}\{f'\}=sF-f(0)=sF$$
+                                <p><strong>Denklemi kur:</strong></p>
+                                $$s^{3}F-s-2=sF\;\Longrightarrow\;\left(s^{3}-s\right)F=s+2$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{s+2}{s^{3}-s}\;}$$
+                                <p>Payda $s^{3}-s=s(s-1)(s+1)$ diye çarpanlanır; ters dönüşüm alınırsa $f$'nin $1$, $e^{t}$ ve $e^{-t}$ karışımı olduğu görülür — nitekim $f'''=f'$ denkleminin karakteristik kökleri $0,\,1,\,-1$'dir.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>11.</strong> &nbsp; $(9.11)$, $(9.18)$ ve Örnek 9.3'ü kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $2f''+3f'+4f=e^{5t}$, &nbsp;$f(0)=-3$, &nbsp;$f'(0)=2$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Türevlerin dönüşümleri.</strong> $f(0)=-3$, <span class="vurgu">işaretlere dikkat</span>:</p>
+                                $$\mathcal{L}\{f''\}=s^{2}F-s(-3)-2=s^{2}F+3s-2,\qquad \mathcal{L}\{f'\}=sF+3$$
+                                <p><strong>Adım 2 — Denklemin dönüşümü.</strong> Sağ taraf Örnek 9.3'ten: $\mathcal{L}\{e^{5t}\}=\dfrac{1}{s-5}$.</p>
+                                $$2\left(s^{2}F+3s-2\right)+3\left(sF+3\right)+4F=\frac{1}{s-5}$$
+                                $$2s^{2}F+6s-4+3sF+9+4F=\frac{1}{s-5}$$
+                                <p><strong>Adım 3 — Topla.</strong> $F$ çarpanları $2s^{2}+3s+4$; sabitler $6s+5$ sağa geçer:</p>
+                                $$\left(2s^{2}+3s+4\right)F=\frac{1}{s-5}-6s-5=\frac{1+(-6s-5)(s-5)}{s-5}$$
+                                <p>$(-6s-5)(s-5)=-6s^{2}+25s+25$, buna $1$ eklenir:</p>
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{-6s^{2}+25s+26}{(s-5)\left(2s^{2}+3s+4\right)}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>13.</strong> &nbsp; THEoREM 9.5'i kullanarak $\mathcal{L}\{e^{at}t^{2}\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Birinci öteleme THEoREM'i: $e^{at}$ ile çarpmak, dönüşümde $s\to s-a$ ötelemesi demektir.</p>
+                                $$\mathcal{L}\{t^{2}\}=\frac{2}{s^{3}}\;\Longrightarrow\;\boxed{\;\mathcal{L}\{e^{at}t^{2}\}=\frac{2}{(s-a)^{3}}\;}$$
+                                <p><span class="vurgu">Tek satır.</span> Tanımdan integral almak (kısmi integrasyon, iki kez) çok daha uzun olurdu.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>15.</strong> &nbsp; THEoREM 9.6'yı kullanarak $\mathcal{L}\{t^{2}\cos bt\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mathcal{L}\{t^{n}f(t)\}=(-1)^{n}F^{(n)}(s)$; burada $n=2$, yani $(-1)^{2}F''=F''$ gerekiyor. $F(s)=\dfrac{s}{s^{2}+b^{2}}$, kısaltma $u=s^{2}+b^{2}$.</p>
+                                <p><strong>Birinci türev:</strong></p>
+                                $$F'=\frac{u-s(2s)}{u^{2}}=\frac{b^{2}-s^{2}}{u^{2}}$$
+                                <p><strong>İkinci türev:</strong></p>
+                                $$F''=\frac{(-2s)u^{2}-\left(b^{2}-s^{2}\right)(2u)(2s)}{u^{4}}=\frac{-2su-4s\left(b^{2}-s^{2}\right)}{u^{3}}$$
+                                <p>Payı açalım: $-2s\left(s^{2}+b^{2}\right)-4sb^{2}+4s^{3}=-2s^{3}-2sb^{2}-4sb^{2}+4s^{3}=2s^{3}-6sb^{2}$</p>
+                                $$\boxed{\;\mathcal{L}\{t^{2}\cos bt\}=\frac{2s\left(s^{2}-3b^{2}\right)}{\left(s^{2}+b^{2}\right)^{3}}\;}$$
+                                <p><strong>İşaret kontrolü.</strong> $n$ çift olduğu için $(-1)^{n}=+1$; sonuç $F''$'nin kendisidir. $n$ tek olsaydı başa eksi gelirdi (17. soruda öyle).</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>17.</strong> &nbsp; THEoREM 9.6'yı kullanarak $\mathcal{L}\{t^{3}e^{at}\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$n=3$, yani $(-1)^{3}F'''=-F'''$. Başlangıç: $F(s)=\dfrac{1}{s-a}$.</p>
+                                $$F'=-\frac{1}{(s-a)^{2}},\qquad F''=\frac{2}{(s-a)^{3}},\qquad F'''=-\frac{6}{(s-a)^{4}}$$
+                                $$\mathcal{L}\{t^{3}e^{at}\}=-F'''=\boxed{\;\frac{6}{(s-a)^{4}}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Aynı sonuca iki yoldan.</strong> 13. soruda birinci öteleme THEoREM'ini kullanmıştık. Bu soruyu da onunla çözebilirdik: $\mathcal{L}\{t^{3}\}=\dfrac{6}{s^{4}}$ (5. soru), ötelersek $\dfrac{6}{(s-a)^{4}}$ — <span class="vurgu">aynı cevap, üç satır daha kısa.</span></p>
+                                    <p>Soru THEoREM 9.6'yı istediği için türev yolunu izledik, ama sınavda serbestseniz öteleme çok daha hızlıdır. Genel kalıp: $\mathcal{L}\{t^{n}e^{at}\}=\dfrac{n!}{(s-a)^{n+1}}$.</p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                        <p><strong>2.</strong> &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\sin at\sin bt\}$</p>
+                        <p><strong>4.</strong> &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\cos^{3}at\}$, sonra THEoREM 9.3 ile $\mathcal{L}\{\cos^{2}at\sin at\}$</p>
+                        <p><strong>6.</strong> &nbsp; $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ verildiğine göre THEoREM 9.4 ile $\mathcal{L}\{t^{4}\}$</p>
+                        <p><strong>8.</strong> &nbsp; $f''+4f'-8f=0$, &nbsp;$f(0)=3$, &nbsp;$f'(0)=-1$</p>
+                        <p><strong>10.</strong> &nbsp; $f^{\mathrm{iv}}=f''$, &nbsp;$f'''(0)=1$, &nbsp;$f''(0)=0$, &nbsp;$f'(0)=0$, &nbsp;$f(0)=-1$</p>
+                        <p><strong>12.</strong> &nbsp; $3f''-5f'+7f=\sin 2t$, &nbsp;$f(0)=4$, &nbsp;$f'(0)=6$</p>
+                        <p><strong>14.</strong> &nbsp; THEoREM 9.5 ile $\mathcal{L}\{e^{at}\sin^{2}bt\}$</p>
+                        <p><strong>16.</strong> &nbsp; THEoREM 9.6 ile $\mathcal{L}\{t^{3}\sin bt\}$</p>
+                        <p><strong>18.</strong> &nbsp; THEoREM 9.6 ile $\mathcal{L}\{t^{4}e^{at}\}$</p>
+                        <div class="highlight">
+                            <p><strong>İpuçları.</strong></p>
+                            <p><strong>2</strong> → çarpımı toplama çeviren özdeşlik: $\sin A\sin B=\tfrac{1}{2}\left[\cos(A-B)-\cos(A+B)\right]$. Tekrar sorusu 3'teki $\cos at\cos bt$ ile aynı kalıp, yalnız işaret farklı.</p>
+                            <p><strong>4</strong> → $\cos^{3}\theta=\dfrac{3\cos\theta+\cos 3\theta}{4}$. İkinci kısımda $\dfrac{d}{dt}\cos^{3}at=-3a\cos^{2}at\sin at$; <span class="vurgu">baştaki eksiyi unutmayın.</span></p>
+                            <p><strong>6</strong> → THEoREM 9.4'ü $n=2$ ile $f=t^{4}$'e uygulayın: $f''=12t^{2}$, $f(0)=f'(0)=0$.</p>
+                            <p><strong>8, 12</strong> → 7 ve 11 ile birebir aynı kalıp, yalnız sayılar farklı.</p>
+                            <p><strong>10</strong> → 9 gibi ama dördüncü mertebe: $\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F-s^{3}f(0)-s^{2}f'(0)-s\,f''(0)-f'''(0)$. Dört başlangıç değeri de yerine konacak, $f(0)=-1$ olduğu için $+s^{3}$ terimi kalır.</p>
+                            <p><strong>14</strong> → önce Örnek 9.11'den $\mathcal{L}\{\sin^{2}bt\}$, sonra $s\to s-a$.</p>
+                            <p><strong>16, 18</strong> → 15 ve 17 gibi; <strong>18</strong> için öteleme yolu ($\mathcal{L}\{t^{4}\}=\tfrac{24}{s^{5}}$, sonra ötele) çok daha kısadır.</p>
+                            <p><strong>Doğrulama.</strong> Türev THEoREM'i soruları ($8$, $10$, $12$) kendi içinde sınanabilir: bulduğunuz $F(s)$'nin <span class="vurgu">paydası her zaman karakteristik polinomdur</span>. 8'de $s^{2}+4s-8$, 10'da $s^{4}-s^{2}$, 12'de $3s^{2}-5s+7$ çıkmalı. Payda tutmuyorsa dönüşüm adımında hata vardır.</p>
                         </div>
                     </div>
 

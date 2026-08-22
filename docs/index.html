@@ -170,6 +170,8 @@
                             <li><a href="#ornek-frobenius-cift">5.8 Örnek — İki Bağımsız Frobenius Çözümü</a></li>
                             <li><a href="#ornek-frobenius-tamsayi-fark">5.8 Örnek — Kök Farkı Tam Sayı</a></li>
                             <li><a href="#ornek-frobenius-logaritma">5.9 Örnek — Logaritmalı İkinci Çözüm</a></li>
+                            <li><a href="#frobenius-esit-kokler">5.10 Eşit Kökler Durumu</a></li>
+                            <li><a href="#egzersizler-frobenius">5.11 Egzersizler — Frobenius</a></li>
                         </ul>
                     </li>
 
@@ -8870,6 +8872,157 @@
                                     <p><strong>Katsayıların nasıl çıktığını takip etmek isterseniz:</strong> $x^{4}$ katsayısı üç ayrı çarpımdan gelir — $\frac{x^{5}}{2}\cdot\left(-\frac1x\right)=-\frac{x^{4}}{2}$, $x^{3}\cdot\frac{x}{6}=\frac{x^{4}}{6}$ ve $-\frac{x^{6}}{6}\cdot\left(-\frac{1}{2x^{2}}\right)=\frac{x^{4}}{12}$. Toplamı $-\frac12+\frac16+\frac1{12}=-\frac14$ eder. <span class="vurgu">Üçüncü katkıyı atlamak sık yapılan bir hatadır.</span></p>
                                 </div>
                                 <p><strong>Neden $y_{1}$'in kapalı biçimde çıkması şanstı?</strong> $y_{1}=x^{3}e^{-x}$ elde edebildiğimiz için mertebe indirgeme hesabı kolaydı. Kapalı biçim bulunamasaydı yöntem yine uygulanabilirdi, ama bütün adımlar $y_{1}$'in seri ifadesiyle yürütülecek ve hesap epey karmaşıklaşacaktı.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="frobenius-esit-kokler" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            5.10 &nbsp;Belirtici Denklemin Kökleri Eşit Olduğunda
+                        </div>
+                        <p>Örnek 5.11, 5.12 ve 5.13, THEoREM 5.3'ün sonuçlarındaki bütün olasılıkları gösterdi — <span class="vurgu">biri hariç:</span> köklerin eşit olduğu durum, yani $r_{1}-r_{2}=0$.</p>
+                        <p>Bu durumda ne olacağı zaten açıktır: <strong>iki kök de aynı sayı olduğuna göre, ikisi de aynı çözümü verir.</strong> $r$, $r_{1}$ ve $r_{2}$'nin ortak değeri olmak üzere $0<x-x_{0}<R$ için elimizde tek bir çözüm vardır:</p>
+                        $$y_{1}=(x-x_{0})^{r}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n}$$
+                        <p>İkinci dalı denemenin hiçbir anlamı yoktur; <span class="vurgu">aynı hesabı tekrarlamış olursunuz.</span> Örnek 5.12'deki gibi "küçük kökü deneyelim, belki genel çözümü verir" umudu da burada geçersizdir, çünkü küçük kök diye ayrı bir şey yoktur.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">İkinci çözümün biçimi</h3>
+                        <p>THEoREM 5.3'ün Sonuç 3'ü, bağımsız ikinci çözümün biçimini veriyor:</p>
+                        $$y_{2}=(x-x_{0})^{r+1}\sum_{n=0}^{\infty}c_{n}^{*}(x-x_{0})^{n}+y_{1}(x)\ln(x-x_{0})$$
+                        <div class="highlight">
+                            <p><strong>Bu biçimin iki özelliği dikkat çeker:</strong></p>
+                            <ol>
+                                <li><strong>Logaritmalı terim her zaman vardır.</strong> Sonuç 2'deki $C$ sabiti gibi "sıfır olabilir de olmayabilir de" değildir — burada katsayı doğrudan $1$'dir. Eşit köklerde <span class="vurgu">logaritmadan kaçış yoktur.</span></li>
+                            </ol>
+                            <ol>
+                                <li><strong>Üs $r$ değil, $r+1$'dir.</strong> Seri kısmı $y_{1}$'inkinden bir derece yukarıdan başlar. Bu, iki çözümün lineer bağımsız kalmasını sağlayan yapısal ayrımdır.</li>
+                            </ol>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Nasıl bulunur</h3>
+                        <p>$y_{1}(x)$ bulunduktan sonra $y_{2}$, <strong>mertebe indirgeme (reduction of order)</strong> ile elde edilir — Örnek 5.13'te ikinci çözümü bulurken izlediğimiz yolun aynısı:</p>
+                        <ol>
+                            <li>$y=y_{1}(x)\,v$ koy.</li>
+                            <li>Denkleme yerleştir; $y_{1}$ zaten çözüm olduğu için $v$'li terimler sıfırlanır, geriye $v''$ ve $v'$ içeren birinci mertebeden bir denklem kalır.</li>
+                            <li>$w=v'$ ile bu denklemi çöz, sonra integre ederek $v$'yi bul.</li>
+                            <li>Integrandın seri açılımındaki <span class="vurgu">$x^{-1}$ terimi</span> logaritmayı doğurur.</li>
+                        </ol>
+                        <p>Örnek 5.13'te bu adımlar $xv''+(3-x)v'=0$ denklemine, oradan $v=\int x^{-3}e^{x}\,dx$'e ve sonunda $\frac{1}{2}x^{3}e^{-x}\ln x$ terimine götürmüştü. Eşit kökler durumunda da mekanizma birebir aynıdır.</p>
+                        <div class="highlight">
+                            <p><strong>Nerede karşınıza çıkacak:</strong> Sıfırıncı mertebeden <strong>Bessel denklemi (Bessel's equation of order zero)</strong> tam olarak bu durumdadır — belirtici denklemin kökleri eşittir ve ikinci çözüm logaritma içerir. Bessel fonksiyonları fizik ve mühendislikte silindirik simetrili problemlerde sürekli karşımıza çıktığı için, bu durum teorik bir merak değil <span class="vurgu">pratikte en sık rastlanan hâldir.</span></p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Üç durumun tam özeti</h3>
+                        <p>| $r_{1}-r_{2}$ | Kaç Frobenius çözümü | İkinci çözüm | Logaritma | |---|---|---|---| | Tam sayı değil (kesirli/karmaşık) | 2 | $(x-x_{0})^{r_{2}}\sum c_{n}^{*}(x-x_{0})^{n}$ | Yok | | Pozitif tam sayı | 1 veya 2 | yukarıdaki $+\,C\,y_{1}\ln(x-x_{0})$ | $C=0$ ise yok, değilse var | | Sıfır | 1 | $(x-x_{0})^{r+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$ | <span class="vurgu">Kesinlikle var</span> |</p>
+                        <p>Örneklerimiz bu tablonun her satırını kapsıyor: Örnek 5.11 birinci satır ($\frac52$), Örnek 5.12 ikinci satırın $C=0$ hâli, Örnek 5.13 ikinci satırın $C\neq 0$ hâli. Üçüncü satır Bessel denkleminde ele alınacak.</p>
+                    </div>
+
+                    <div id="egzersizler-frobenius" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            5.11 &nbsp;Bölüm Sonu Egzersizleri — Tekil Noktalar ve Frobenius
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $\displaystyle 2xy''+y'+2y=0$ denkleminin $x=0$ yakınındaki çözümlerini Frobenius yöntemiyle bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — $x=0$ düzgün tekil nokta mı?</strong></p>
+                                <p>Normalleştirelim: $y''+\dfrac{1}{2x}y'+\dfrac{1}{x}y=0$, yani</p>
+                                $$P_{1}(x)=\frac{1}{2x},\qquad P_{2}(x)=\frac{1}{x}$$
+                                <p>İkisi de $x=0$'da analitik değil → tekil nokta. Çarpımları kuralım:</p>
+                                $$xP_{1}(x)=\frac{1}{2},\qquad x^{2}P_{2}(x)=x$$
+                                <p>İkisi de analitik → <span class="vurgu">$x=0$ düzgün tekil noktadır</span>, Frobenius uygulanabilir.</p>
+                                <p><strong>Adım 2 — Yerleştir.</strong></p>
+                                <p>$y=\displaystyle\sum_{n=0}^{\infty}c_{n}x^{n+r}$, $c_{0}\neq 0$ alalım.</p>
+                                $$2x\,y''=2\sum_{n=0}^{\infty}(n+r)(n+r-1)c_{n}x^{n+r-1}$$
+                                $$y'=\sum_{n=0}^{\infty}(n+r)c_{n}x^{n+r-1},\qquad 2y=2\sum_{n=0}^{\infty}c_{n}x^{n+r}$$
+                                <p>İlk iki toplamın üssü $x^{n+r-1}$, üçüncüsününki $x^{n+r}$. Üçüncüde $n\to n-1$ kaydırırsak hepsi $x^{n+r-1}$ olur:</p>
+                                $$\sum_{n=0}^{\infty}\Big[2(n+r)(n+r-1)+(n+r)\Big]c_{n}x^{n+r-1}+2\sum_{n=1}^{\infty}c_{n-1}x^{n+r-1}=0$$
+                                <p>Köşeli parantezi sadeleştirelim — $(n+r)$ ortak çarpandır:</p>
+                                $$(n+r)\Big[2(n+r-1)+1\Big]=(n+r)(2n+2r-1)$$
+                                <p><strong>Adım 3 — Belirtici denklem.</strong></p>
+                                <p>En düşük kuvvet $x^{r-1}$'in katsayısı ($n=0$):</p>
+                                $$r(2r-1)c_{0}=0\;\Longrightarrow\;r(2r-1)=0$$
+                                $$\boxed{\,r_{1}=\frac{1}{2},\qquad r_{2}=0\,}$$
+                                $$r_{1}-r_{2}=\frac{1}{2}$$
+                                <p>Tam sayı değil → <span class="vurgu">THEoREM 5.3 Sonuç 1</span>: iki dal da logaritmasız, bağımsız çözüm verecek.</p>
+                                <p><strong>Adım 4 — Özyineleme.</strong></p>
+                                <p>$n\ge 1$ için:</p>
+                                $$(n+r)(2n+2r-1)c_{n}+2c_{n-1}=0\;\Longrightarrow\;c_{n}=-\frac{2c_{n-1}}{(n+r)(2n+2r-1)}$$
+                                <hr>
+                                <p><strong>Büyük kök $r_{1}=\dfrac{1}{2}$:</strong></p>
+                                $$\left(n+\tfrac12\right)\left(2n+1-1\right)=\left(n+\tfrac12\right)(2n)=n(2n+1)$$
+                                $$c_{n}=-\frac{2c_{n-1}}{n(2n+1)}$$
+                                $$c_{1}=-\frac{2c_{0}}{1\cdot 3}=-\frac{2}{3}c_{0},\qquad c_{2}=-\frac{2c_{1}}{2\cdot 5}=\frac{2}{15}c_{0},\qquad c_{3}=-\frac{2c_{2}}{3\cdot 7}=-\frac{4}{315}c_{0}$$
+                                $$y_{1}(x)=c_{0}\,x^{1/2}\left(1-\frac{2}{3}x+\frac{2}{15}x^{2}-\frac{4}{315}x^{3}+\dots\right)$$
+                                <hr>
+                                <p><strong>Küçük kök $r_{2}=0$:</strong></p>
+                                $$n(2n-1)$$
+                                $$c_{n}=-\frac{2c_{n-1}}{n(2n-1)}$$
+                                $$c_{1}=-\frac{2c_{0}}{1\cdot 1}=-2c_{0},\qquad c_{2}=-\frac{2c_{1}}{2\cdot 3}=\frac{2}{3}c_{0},\qquad c_{3}=-\frac{2c_{2}}{3\cdot 5}=-\frac{4}{45}c_{0}$$
+                                $$y_{2}(x)=c_{0}\left(1-2x+\frac{2}{3}x^{2}-\frac{4}{45}x^{3}+\dots\right)$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$\boxed{\;y=C_{1}x^{1/2}\left(1-\frac{2x}{3}+\frac{2x^{2}}{15}-\frac{4x^{3}}{315}+\dots\right)+C_{2}\left(1-2x+\frac{2x^{2}}{3}-\frac{4x^{3}}{45}+\dots\right)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Bu soruda dikkat edilecek yer:</strong> $2xy''$ terimi $y''$'nün üssünü yalnızca <strong>bir</strong> birim yükseltiyor, bu yüzden belirtici denklem $x^{r}$'nin değil <span class="vurgu">$x^{r-1}$'in</span> katsayısından geliyor. Önceki örneklerde $x^{2}y''$ vardı ve en düşük kuvvet $x^{r}$ oluyordu. <span class="vurgu">En düşük kuvvetin hangisi olduğunu her problemde yeniden belirleyin</span>, ezberden $x^{r}$ demeyin.</p>
+                                </div>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tekil noktaları bulunuz ve sınıflandırınız (1-4)</h3>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{2}-3x\right)y''+(x+2)y'+y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{3}+x^{2}\right)y''+\left(x^{2}-2x\right)y'+4y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{4}-2x^{3}+x^{2}\right)y''+2(x-1)y'+x^{2}y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{5}+x^{4}-6x^{3}\right)y''+x^{2}y'+(x-2)y=0$</li>
+                                </ol>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (5-32)</h3>
+                                <ol>
+                                    <li>&nbsp; $2x^{2}y''+xy'+\left(x^{2}-1\right)y=0$ &nbsp;&nbsp;&nbsp; 6. &nbsp; $2x^{2}y''+xy'+\left(2x^{2}-3\right)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''-xy'+\left(x^{2}+\frac{8}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 8. &nbsp; $x^{2}y''-xy'+\left(2x^{2}+\frac{5}{9}\right)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 11. &nbsp; $3xy''-(x-2)y'-2y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $2x^{2}y''+5xy'+(2x-2)y=0$ &nbsp;&nbsp;&nbsp; 13. &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $\left(x^{3}+2x^{2}\right)y''+\left(x^{2}+x\right)y'-10y=0$ &nbsp;&nbsp;&nbsp; 15. &nbsp; $xy''+2y'+xy=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 17. &nbsp; $x^{2}y''+\left(x^{4}+x\right)y'-y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $xy''-\left(x^{2}+2\right)y'+xy=0$ &nbsp;&nbsp;&nbsp; 19. &nbsp; $x^{2}y''+x^{2}y'-2y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''-xy'+\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 21. &nbsp; $x^{2}y''+\left(2x^{2}+3x\right)y'+\left(x-\frac{5}{4}\right)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+\left(x^{2}+5x\right)y'+(2x+3)y=0$ &nbsp;&nbsp;&nbsp; 23. &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+2x^{3}y'-\left(x^{2}+\frac{15}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 25. &nbsp; $x^{2}y''+xy'+(x-1)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+\left(x^{3}-x\right)y'-3y=0$ &nbsp;&nbsp;&nbsp; 27. &nbsp; $x^{2}y''-xy'+8\left(x^{2}-1\right)y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''+x^{2}y'-\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 29. &nbsp; $xy''+y'+2y=0$</li>
+                                </ol>
+                                <ol>
+                                    <li>&nbsp; $x^{2}y''-xy'+\left(x^{2}+1\right)y=0$ &nbsp;&nbsp;&nbsp; 32. &nbsp; $x^{2}y''-xy'+\left(x^{2}-3\right)y=0$</li>
+                                </ol>
+                                <div class="highlight">
+                                    <p><strong>Kaynak metinde okunamayan iki soru.</strong> Tarama çıktısında 2. ve 30. sorular bozuk geldi: 2. soru `(x² − 2xy)′` biçiminde çıktı — yukarıya matematiksel olarak anlamlı olan $\left(x^{2}-2x\right)y'$ hâliyle yazıldı, ama kitaptan teyit edilmeli. 30. soru `2xy″ + 6y + y = 0` olarak okundu; ortadaki terimin $6y'$ olması gerektiği açık, ancak emin olunamadığı için listeye alınmadı.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

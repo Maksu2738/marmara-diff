@@ -210,19 +210,208 @@ Soru THEoREM 9.6'yı istediği için türev yolunu izledik, ama sınavda serbest
 
 ---
 
+### Kalan sorular — çözümler bize ait
+
+[KUTU]
+**Bu soruların cevabı kitabın anahtarında yok.** Aşağıdaki çözümler bize aittir; her biri ==ikinci bir bağımsız yoldan doğrulanmıştır==. Doğrulamalar da gösterildi, böylece adımları kendiniz izleyebilirsiniz.
+[/KUTU]
+
+[SORU] **2.** &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\sin at\sin bt\}$ değerini bulunuz.
+[CEVAP]
+**Adım 1 — Çarpımı toplama çevir.**
+
+$$\sin A\sin B=\frac{1}{2}\Big[\cos(A-B)-\cos(A+B)\Big]$$
+
+$$\sin at\sin bt=\frac{1}{2}\Big[\cos(a-b)t-\cos(a+b)t\Big]$$
+
+==1. soruda kosinüs çarpımında toplama işareti vardı, burada eksi.== Fark bu tek işaretten ibaret.
+
+**Adım 2 — Doğrusallık ve tablo.**
+
+$$\mathcal{L}\{\sin at\sin bt\}=\frac{1}{2}\left[\frac{s}{s^{2}+(a-b)^{2}}-\frac{s}{s^{2}+(a+b)^{2}}\right]$$
+
+**Adım 3 — Tek kesirde topla.**
+
+$$=\frac{s}{2}\cdot\frac{\left[s^{2}+(a+b)^{2}\right]-\left[s^{2}+(a-b)^{2}\right]}{\left[s^{2}+(a-b)^{2}\right]\left[s^{2}+(a+b)^{2}\right]}$$
+
+$(a+b)^{2}-(a-b)^{2}=4ab$ olduğundan pay $4ab$ olur ve $2$'ler sadeleşir:
+
+$$\boxed{\;\mathcal{L}\{\sin at\sin bt\}=\frac{2abs}{\left[s^{2}+(a-b)^{2}\right]\left[s^{2}+(a+b)^{2}\right]}\;}$$
+
+**Doğrulama (tekrar sorusu 3 ile).** Orada $\mathcal{L}\{\cos at\cos bt\}=\dfrac{s\left(s^{2}+a^{2}+b^{2}\right)}{D}$ bulmuştuk; $D$ aynı payda. Trigonometrik özdeşlik
+
+$$\cos at\cos bt-\sin at\sin bt=\cos(a+b)t$$
+
+olduğuna göre iki dönüşümün farkı $\mathcal{L}\{\cos(a+b)t\}$ vermeli:
+
+$$\frac{s\left(s^{2}+a^{2}+b^{2}\right)-2abs}{D}=\frac{s\left(s^{2}+(a-b)^{2}\right)}{D}=\frac{s}{s^{2}+(a+b)^{2}}$$
+
+$\left[s^{2}+(a-b)^{2}\right]$ çarpanı sadeleşti ve tam olarak $\mathcal{L}\{\cos(a+b)t\}$ kaldı. &#10003;
+[/CEVAP]
+
+[SORU] **4.** &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\cos^{3}at\}$ değerini bulunuz, sonra THEoREM 9.3'ü kullanarak $\mathcal{L}\{\cos^{2}at\sin at\}$ değerini elde ediniz.
+[CEVAP]
+**Adım 1 — Üçüncü kuvvet özdeşliği.**
+
+$$\cos^{3}\theta=\frac{3\cos\theta+\cos 3\theta}{4}$$
+
+==3. sorudaki sinüs karşılığında işaret eksiydi ($\sin^{3}\theta=\tfrac{3\sin\theta-\sin 3\theta}{4}$); kosinüste artı.==
+
+$$\mathcal{L}\{\cos^{3}at\}=\frac{3}{4}\cdot\frac{s}{s^{2}+a^{2}}+\frac{1}{4}\cdot\frac{s}{s^{2}+9a^{2}}$$
+
+**Adım 2 — Topla.**
+
+$$=\frac{s}{4}\cdot\frac{3\left(s^{2}+9a^{2}\right)+\left(s^{2}+a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}=\frac{s}{4}\cdot\frac{4s^{2}+28a^{2}}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+
+$$\boxed{\;\mathcal{L}\{\cos^{3}at\}=\frac{s\left(s^{2}+7a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}\;}$$
+
+**Adım 3 — İkinci kısım: türev THEoREM'i.**
+
+$$\frac{d}{dt}\cos^{3}at=3\cos^{2}at\cdot(-a\sin at)=-3a\,\cos^{2}at\sin at$$
+
+$f=\cos^{3}at$ için ==$f(0)=1$, sıfır değil==; 3. sorudaki sinüs halinde $f(0)=0$ olduğu için sabit terim düşmüştü, burada düşmüyor:
+
+$$\mathcal{L}\{-3a\cos^{2}at\sin at\}=s\,\mathcal{L}\{\cos^{3}at\}-1$$
+
+$$=\frac{s^{2}\left(s^{2}+7a^{2}\right)-\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+
+Payı açalım: $s^{4}+7a^{2}s^{2}-\left(s^{4}+10a^{2}s^{2}+9a^{4}\right)=-3a^{2}s^{2}-9a^{4}=-3a^{2}\left(s^{2}+3a^{2}\right)$
+
+**Adım 4 — $-3a$'ya böl.**
+
+$$\boxed{\;\mathcal{L}\{\cos^{2}at\sin at\}=\frac{a\left(s^{2}+3a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}\;}$$
+
+**Doğrulama (doğrudan özdeşlikle).** Türev yolunu hiç kullanmadan da bulabiliriz:
+
+$$\cos^{2}at\sin at=\frac{1+\cos 2at}{2}\sin at=\frac{\sin at}{2}+\frac{\cos 2at\sin at}{2}$$
+
+$\cos 2at\sin at=\tfrac{1}{2}\left[\sin 3at-\sin at\right]$ olduğundan
+
+$$=\frac{\sin at}{2}+\frac{\sin 3at-\sin at}{4}=\frac{\sin at}{4}+\frac{\sin 3at}{4}$$
+
+$$\mathcal{L}=\frac{1}{4}\cdot\frac{a}{s^{2}+a^{2}}+\frac{1}{4}\cdot\frac{3a}{s^{2}+9a^{2}}=\frac{a}{4}\cdot\frac{4s^{2}+12a^{2}}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+
+Aynı sonuç. &#10003; ==İki bağımsız yol.==
+[/CEVAP]
+
+[SORU] **6.** &nbsp; $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ olduğuna göre, THEoREM 9.4'ü kullanarak $\mathcal{L}\{t^{4}\}$ değerini bulunuz.
+[CEVAP]
+**Adım 1 — Uygun $f$ ve $n$ seç.** $f(t)=t^{4}$ alıp THEoREM'i $n=2$ ile kullanalım:
+
+$$f'(t)=4t^{3},\qquad f''(t)=12t^{2},\qquad f(0)=0,\qquad f'(0)=0$$
+
+**Adım 2 — $(9.18)$'e yerleştir.** Her iki başlangıç değeri sıfır olduğundan sağ taraf sade:
+
+$$\mathcal{L}\{f''\}=s^{2}\mathcal{L}\{t^{4}\}-s\cdot 0-0=s^{2}\mathcal{L}\{t^{4}\}$$
+
+Sol taraf $\mathcal{L}\{12t^{2}\}=12\cdot\dfrac{2}{s^{3}}=\dfrac{24}{s^{3}}$:
+
+$$\frac{24}{s^{3}}=s^{2}\,\mathcal{L}\{t^{4}\}$$
+
+$$\boxed{\;\mathcal{L}\{t^{4}\}=\frac{24}{s^{5}}\;}$$
+
+**Doğrulama (iki yoldan).**
+
+**(a)** Tablo formülü: $\mathcal{L}\{t^{n}\}=\dfrac{n!}{s^{n+1}}$; &nbsp;$n=4$ için $\dfrac{4!}{s^{5}}=\dfrac{24}{s^{5}}$ &#10003;
+
+**(b)** 5. sorudaki basamağı iki kez tırmanarak: $\mathcal{L}\{t^{3}\}=\dfrac{6}{s^{4}}$ bulunmuştu. $f=t^{4}$, $f'=4t^{3}$, $f(0)=0$ ile birinci türev THEoREM'i:
+
+$$4\cdot\frac{6}{s^{4}}=s\,\mathcal{L}\{t^{4}\}\;\Longrightarrow\;\mathcal{L}\{t^{4}\}=\frac{24}{s^{5}}\;\checkmark$$
+
+==$n=2$ ile bir hamlede ya da $n=1$ ile iki hamlede — aynı yere varıyor.==
+[/CEVAP]
+
+[SORU] **8.** &nbsp; $(9.11)$ ve $(9.18)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f''+4f'-8f=0$, &nbsp;$f(0)=3$, &nbsp;$f'(0)=-1$.
+[CEVAP]
+$F=\mathcal{L}\{f\}$ olsun.
+
+**Adım 1 — Türevlerin dönüşümleri.** ==$f'(0)=-1$ olduğuna dikkat; eksi işareti iki kez dönüyor:==
+
+$$\mathcal{L}\{f''\}=s^{2}F-s(3)-(-1)=s^{2}F-3s+1$$
+$$\mathcal{L}\{f'\}=sF-3$$
+
+**Adım 2 — Denklemin dönüşümü.**
+
+$$\left(s^{2}F-3s+1\right)+4\left(sF-3\right)-8F=0$$
+
+**Adım 3 — Topla.** $F$ çarpanları $s^{2}+4s-8$; sabitler $-3s+1-12=-3s-11$:
+
+$$\left(s^{2}+4s-8\right)F=3s+11$$
+
+$$\boxed{\;\mathcal{L}\{f(t)\}=\frac{3s+11}{s^{2}+4s-8}\;}$$
+
+**Doğrulama (başlangıç değer THEoREM'i ile).** İki bağımsız kontrol yapalım.
+
+**(a)** $\displaystyle\lim_{s\to\infty}sF(s)=f(0^{+})$ olmalı:
+
+$$sF=\frac{3s^{2}+11s}{s^{2}+4s-8}\;\xrightarrow{\;s\to\infty\;}\;3=f(0)\;\checkmark$$
+
+**(b)** $\displaystyle\lim_{s\to\infty}s\big[sF(s)-f(0)\big]=f'(0)$ olmalı:
+
+$$sF-3=\frac{3s^{2}+11s-3\left(s^{2}+4s-8\right)}{s^{2}+4s-8}=\frac{-s+24}{s^{2}+4s-8}$$
+
+$$s(sF-3)=\frac{-s^{2}+24s}{s^{2}+4s-8}\;\xrightarrow{\;s\to\infty\;}\;-1=f'(0)\;\checkmark$$
+
+Payda da beklendiği gibi ==karakteristik polinomun ta kendisi==: $s^{2}+4s-8$.
+[/CEVAP]
+
+[SORU] **10.** &nbsp; $(9.17)$ ve $(9.18)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f^{\mathrm{iv}}=f''$, &nbsp;$f'''(0)=1$, &nbsp;$f''(0)=0$, &nbsp;$f'(0)=0$, &nbsp;$f(0)=-1$.
+[CEVAP]
+**Adım 1 — Dördüncü türevin dönüşümü.** $(9.17)$'yi $n=4$ ile yazalım:
+
+$$\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F-s^{3}f(0)-s^{2}f'(0)-s\,f''(0)-f'''(0)$$
+
+$f(0)=-1$ olduğu için ilk terim ==işaret çevirip artıya dönüyor==; ortadaki ikisi sıfır:
+
+$$\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F+s^{3}-1$$
+
+**Adım 2 — İkinci türevin dönüşümü.**
+
+$$\mathcal{L}\{f''\}=s^{2}F-s\,f(0)-f'(0)=s^{2}F+s$$
+
+**Adım 3 — Denklemi kur.**
+
+$$s^{4}F+s^{3}-1=s^{2}F+s$$
+
+$$\left(s^{4}-s^{2}\right)F=s+1-s^{3}$$
+
+$$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1+s-s^{3}}{s^{2}\left(s^{2}-1\right)}\;}$$
+
+**Doğrulama — bu soru kendini çözdürüyor.** Adım 2'de bulduğumuz $\mathcal{L}\{f''\}$ ifadesine $F$'yi geri koyalım:
+
+$$\mathcal{L}\{f''\}=s^{2}F+s=\frac{1+s-s^{3}}{s^{2}-1}+s=\frac{\left(1+s-s^{3}\right)+s\left(s^{2}-1\right)}{s^{2}-1}=\frac{1}{s^{2}-1}$$
+
+Bu tablodan tanınıyor: $\mathcal{L}\{\sinh t\}=\dfrac{1}{s^{2}-1}$, yani ==$f''(t)=\sinh t$.==
+
+Buradan $f$'yi iki kez integralleyerek kapalı biçimde bulabiliriz:
+
+$$f'=\cosh t+C_{1},\qquad f'(0)=1+C_{1}=0\;\Rightarrow\;C_{1}=-1$$
+$$f=\sinh t-t+C_{2},\qquad f(0)=C_{2}=-1$$
+
+$$f(t)=\sinh t-t-1$$
+
+**Son kontrol.** Bu $f$'nin dönüşümünü doğrudan alalım:
+
+$$\mathcal{L}\{f\}=\frac{1}{s^{2}-1}-\frac{1}{s^{2}}-\frac{1}{s}=\frac{1}{s^{2}\left(s^{2}-1\right)}-\frac{1}{s}=\frac{1-s\left(s^{2}-1\right)}{s^{2}\left(s^{2}-1\right)}=\frac{1+s-s^{3}}{s^{2}\left(s^{2}-1\right)}$$
+
+Başlangıçta bulduğumuzla birebir aynı. &#10003;
+
+Kalan başlangıç koşulları da tutuyor: $f''=\sinh t\Rightarrow f''(0)=0$ &#10003;, &nbsp;$f'''=\cosh t\Rightarrow f'''(0)=1$ &#10003;
+
+[KUTU]
+**Bu sorunun öğrettiği.** Soru yalnızca $\mathcal{L}\{f\}$ istiyordu, ama $\mathcal{L}\{f''\}$'nin ==tablodan tanınabilir bir ifadeye sadeleşmesi== bize $f$'nin kendisini de verdi.
+
+Sebebi denklemin biçimi: $f^{\mathrm{iv}}=f''$, yani $g=f''$ dersek $g''=g$ — çözümü $\sinh$ ve $\cosh$ olan en basit denklem. Başlangıç koşulları da tam $\sinh t$'yi seçecek biçimde verilmiş.
+
+**Genel ders:** ara adımda çıkan bir ifade tabloda varsa, ona bakın. Çoğu zaman problemin yapısı hakkında bir şey söyler.
+[/KUTU]
+[/CEVAP]
+
+---
+
 ### Çalışma soruları
 
-Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Çözümleri size bırakıldı.==
-
-**2.** &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\sin at\sin bt\}$
-
-**4.** &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\cos^{3}at\}$, sonra THEoREM 9.3 ile $\mathcal{L}\{\cos^{2}at\sin at\}$
-
-**6.** &nbsp; $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ verildiğine göre THEoREM 9.4 ile $\mathcal{L}\{t^{4}\}$
-
-**8.** &nbsp; $f''+4f'-8f=0$, &nbsp;$f(0)=3$, &nbsp;$f'(0)=-1$
-
-**10.** &nbsp; $f^{\mathrm{iv}}=f''$, &nbsp;$f'''(0)=1$, &nbsp;$f''(0)=0$, &nbsp;$f'(0)=0$, &nbsp;$f(0)=-1$
+Aşağıdakiler henüz çözülmedi; sıraya alındı.
 
 **12.** &nbsp; $3f''-5f'+7f=\sin 2t$, &nbsp;$f(0)=4$, &nbsp;$f'(0)=6$
 
@@ -235,19 +424,11 @@ Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Çözümleri s
 [KUTU]
 **İpuçları.**
 
-**2** → çarpımı toplama çeviren özdeşlik: $\sin A\sin B=\tfrac{1}{2}\left[\cos(A-B)-\cos(A+B)\right]$. Tekrar sorusu 3'teki $\cos at\cos bt$ ile aynı kalıp, yalnız işaret farklı.
+**12** → 8 ve 11 ile aynı kalıp. Sağ tarafta $\mathcal{L}\{\sin 2t\}=\dfrac{2}{s^{2}+4}$ var; ortak paydaya alırken ==bu $2$'yi taşımayı unutmayın== (tekrar sorusu 6'da tam bu atlanmıştı).
 
-**4** → $\cos^{3}\theta=\dfrac{3\cos\theta+\cos 3\theta}{4}$. İkinci kısımda $\dfrac{d}{dt}\cos^{3}at=-3a\cos^{2}at\sin at$; ==baştaki eksiyi unutmayın.==
+**14** → önce Örnek 9.11'den $\mathcal{L}\{\sin^{2}bt\}=\dfrac{2b^{2}}{s\left(s^{2}+4b^{2}\right)}$, sonra $s\to s-a$ ötelemesi.
 
-**6** → THEoREM 9.4'ü $n=2$ ile $f=t^{4}$'e uygulayın: $f''=12t^{2}$, $f(0)=f'(0)=0$.
+**16, 18** → 15 ve 17 gibi. **18** için öteleme yolu çok daha kısa: $\mathcal{L}\{t^{4}\}=\tfrac{24}{s^{5}}$ (6. soru), sonra ötele.
 
-**8, 12** → 7 ve 11 ile birebir aynı kalıp, yalnız sayılar farklı.
-
-**10** → 9 gibi ama dördüncü mertebe: $\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F-s^{3}f(0)-s^{2}f'(0)-s\,f''(0)-f'''(0)$. Dört başlangıç değeri de yerine konacak, $f(0)=-1$ olduğu için $+s^{3}$ terimi kalır.
-
-**14** → önce Örnek 9.11'den $\mathcal{L}\{\sin^{2}bt\}$, sonra $s\to s-a$.
-
-**16, 18** → 15 ve 17 gibi; **18** için öteleme yolu ($\mathcal{L}\{t^{4}\}=\tfrac{24}{s^{5}}$, sonra ötele) çok daha kısadır.
-
-**Doğrulama.** Türev THEoREM'i soruları ($8$, $10$, $12$) kendi içinde sınanabilir: bulduğunuz $F(s)$'nin ==paydası her zaman karakteristik polinomdur==. 8'de $s^{2}+4s-8$, 10'da $s^{4}-s^{2}$, 12'de $3s^{2}-5s+7$ çıkmalı. Payda tutmuyorsa dönüşüm adımında hata vardır.
+**Doğrulama.** 12'de bulduğunuz $F(s)$'nin paydası ==karakteristik polinom== $3s^{2}-5s+7$ olmalı. 14, 16, 18'de $s\to\infty$ iken $F\to 0$ olmalı; ayrıca 18'in cevabı $\dfrac{4!}{(s-a)^{5}}$ genel kalıbına uymalı.
 [/KUTU]

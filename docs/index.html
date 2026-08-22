@@ -8947,27 +8947,143 @@
                             </div>
                         </div>
                         <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
+                        <div class="highlight">
+                            <p><strong>Bu soruların cevabı kitabın anahtarında yok.</strong> Aşağıdaki çözümler bize aittir; her biri <span class="vurgu">ikinci bir bağımsız yoldan doğrulanmıştır</span>. Doğrulamalar da gösterildi, böylece adımları kendiniz izleyebilirsiniz.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\sin at\sin bt\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpımı toplama çevir.</strong></p>
+                                $$\sin A\sin B=\frac{1}{2}\Big[\cos(A-B)-\cos(A+B)\Big]$$
+                                $$\sin at\sin bt=\frac{1}{2}\Big[\cos(a-b)t-\cos(a+b)t\Big]$$
+                                <p><span class="vurgu">1. soruda kosinüs çarpımında toplama işareti vardı, burada eksi.</span> Fark bu tek işaretten ibaret.</p>
+                                <p><strong>Adım 2 — Doğrusallık ve tablo.</strong></p>
+                                $$\mathcal{L}\{\sin at\sin bt\}=\frac{1}{2}\left[\frac{s}{s^{2}+(a-b)^{2}}-\frac{s}{s^{2}+(a+b)^{2}}\right]$$
+                                <p><strong>Adım 3 — Tek kesirde topla.</strong></p>
+                                $$=\frac{s}{2}\cdot\frac{\left[s^{2}+(a+b)^{2}\right]-\left[s^{2}+(a-b)^{2}\right]}{\left[s^{2}+(a-b)^{2}\right]\left[s^{2}+(a+b)^{2}\right]}$$
+                                <p>$(a+b)^{2}-(a-b)^{2}=4ab$ olduğundan pay $4ab$ olur ve $2$'ler sadeleşir:</p>
+                                $$\boxed{\;\mathcal{L}\{\sin at\sin bt\}=\frac{2abs}{\left[s^{2}+(a-b)^{2}\right]\left[s^{2}+(a+b)^{2}\right]}\;}$$
+                                <p><strong>Doğrulama (tekrar sorusu 3 ile).</strong> Orada $\mathcal{L}\{\cos at\cos bt\}=\dfrac{s\left(s^{2}+a^{2}+b^{2}\right)}{D}$ bulmuştuk; $D$ aynı payda. Trigonometrik özdeşlik</p>
+                                $$\cos at\cos bt-\sin at\sin bt=\cos(a+b)t$$
+                                <p>olduğuna göre iki dönüşümün farkı $\mathcal{L}\{\cos(a+b)t\}$ vermeli:</p>
+                                $$\frac{s\left(s^{2}+a^{2}+b^{2}\right)-2abs}{D}=\frac{s\left(s^{2}+(a-b)^{2}\right)}{D}=\frac{s}{s^{2}+(a+b)^{2}}$$
+                                <p>$\left[s^{2}+(a-b)^{2}\right]$ çarpanı sadeleşti ve tam olarak $\mathcal{L}\{\cos(a+b)t\}$ kaldı. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\cos^{3}at\}$ değerini bulunuz, sonra THEoREM 9.3'ü kullanarak $\mathcal{L}\{\cos^{2}at\sin at\}$ değerini elde ediniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Üçüncü kuvvet özdeşliği.</strong></p>
+                                $$\cos^{3}\theta=\frac{3\cos\theta+\cos 3\theta}{4}$$
+                                <p><span class="vurgu">3. sorudaki sinüs karşılığında işaret eksiydi ($\sin^{3}\theta=\tfrac{3\sin\theta-\sin 3\theta}{4}$); kosinüste artı.</span></p>
+                                $$\mathcal{L}\{\cos^{3}at\}=\frac{3}{4}\cdot\frac{s}{s^{2}+a^{2}}+\frac{1}{4}\cdot\frac{s}{s^{2}+9a^{2}}$$
+                                <p><strong>Adım 2 — Topla.</strong></p>
+                                $$=\frac{s}{4}\cdot\frac{3\left(s^{2}+9a^{2}\right)+\left(s^{2}+a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}=\frac{s}{4}\cdot\frac{4s^{2}+28a^{2}}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+                                $$\boxed{\;\mathcal{L}\{\cos^{3}at\}=\frac{s\left(s^{2}+7a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}\;}$$
+                                <p><strong>Adım 3 — İkinci kısım: türev THEoREM'i.</strong></p>
+                                $$\frac{d}{dt}\cos^{3}at=3\cos^{2}at\cdot(-a\sin at)=-3a\,\cos^{2}at\sin at$$
+                                <p>$f=\cos^{3}at$ için <span class="vurgu">$f(0)=1$, sıfır değil</span>; 3. sorudaki sinüs halinde $f(0)=0$ olduğu için sabit terim düşmüştü, burada düşmüyor:</p>
+                                $$\mathcal{L}\{-3a\cos^{2}at\sin at\}=s\,\mathcal{L}\{\cos^{3}at\}-1$$
+                                $$=\frac{s^{2}\left(s^{2}+7a^{2}\right)-\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+                                <p>Payı açalım: $s^{4}+7a^{2}s^{2}-\left(s^{4}+10a^{2}s^{2}+9a^{4}\right)=-3a^{2}s^{2}-9a^{4}=-3a^{2}\left(s^{2}+3a^{2}\right)$</p>
+                                <p><strong>Adım 4 — $-3a$'ya böl.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{\cos^{2}at\sin at\}=\frac{a\left(s^{2}+3a^{2}\right)}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}\;}$$
+                                <p><strong>Doğrulama (doğrudan özdeşlikle).</strong> Türev yolunu hiç kullanmadan da bulabiliriz:</p>
+                                $$\cos^{2}at\sin at=\frac{1+\cos 2at}{2}\sin at=\frac{\sin at}{2}+\frac{\cos 2at\sin at}{2}$$
+                                <p>$\cos 2at\sin at=\tfrac{1}{2}\left[\sin 3at-\sin at\right]$ olduğundan</p>
+                                $$=\frac{\sin at}{2}+\frac{\sin 3at-\sin at}{4}=\frac{\sin at}{4}+\frac{\sin 3at}{4}$$
+                                $$\mathcal{L}=\frac{1}{4}\cdot\frac{a}{s^{2}+a^{2}}+\frac{1}{4}\cdot\frac{3a}{s^{2}+9a^{2}}=\frac{a}{4}\cdot\frac{4s^{2}+12a^{2}}{\left(s^{2}+a^{2}\right)\left(s^{2}+9a^{2}\right)}$$
+                                <p>Aynı sonuç. &#10003; <span class="vurgu">İki bağımsız yol.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ olduğuna göre, THEoREM 9.4'ü kullanarak $\mathcal{L}\{t^{4}\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Uygun $f$ ve $n$ seç.</strong> $f(t)=t^{4}$ alıp THEoREM'i $n=2$ ile kullanalım:</p>
+                                $$f'(t)=4t^{3},\qquad f''(t)=12t^{2},\qquad f(0)=0,\qquad f'(0)=0$$
+                                <p><strong>Adım 2 — $(9.18)$'e yerleştir.</strong> Her iki başlangıç değeri sıfır olduğundan sağ taraf sade:</p>
+                                $$\mathcal{L}\{f''\}=s^{2}\mathcal{L}\{t^{4}\}-s\cdot 0-0=s^{2}\mathcal{L}\{t^{4}\}$$
+                                <p>Sol taraf $\mathcal{L}\{12t^{2}\}=12\cdot\dfrac{2}{s^{3}}=\dfrac{24}{s^{3}}$:</p>
+                                $$\frac{24}{s^{3}}=s^{2}\,\mathcal{L}\{t^{4}\}$$
+                                $$\boxed{\;\mathcal{L}\{t^{4}\}=\frac{24}{s^{5}}\;}$$
+                                <p><strong>Doğrulama (iki yoldan).</strong></p>
+                                <p><strong>(a)</strong> Tablo formülü: $\mathcal{L}\{t^{n}\}=\dfrac{n!}{s^{n+1}}$; &nbsp;$n=4$ için $\dfrac{4!}{s^{5}}=\dfrac{24}{s^{5}}$ &#10003;</p>
+                                <p><strong>(b)</strong> 5. sorudaki basamağı iki kez tırmanarak: $\mathcal{L}\{t^{3}\}=\dfrac{6}{s^{4}}$ bulunmuştu. $f=t^{4}$, $f'=4t^{3}$, $f(0)=0$ ile birinci türev THEoREM'i:</p>
+                                $$4\cdot\frac{6}{s^{4}}=s\,\mathcal{L}\{t^{4}\}\;\Longrightarrow\;\mathcal{L}\{t^{4}\}=\frac{24}{s^{5}}\;\checkmark$$
+                                <p><span class="vurgu">$n=2$ ile bir hamlede ya da $n=1$ ile iki hamlede — aynı yere varıyor.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $(9.11)$ ve $(9.18)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f''+4f'-8f=0$, &nbsp;$f(0)=3$, &nbsp;$f'(0)=-1$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$F=\mathcal{L}\{f\}$ olsun.</p>
+                                <p><strong>Adım 1 — Türevlerin dönüşümleri.</strong> <span class="vurgu">$f'(0)=-1$ olduğuna dikkat; eksi işareti iki kez dönüyor:</span></p>
+                                $$\mathcal{L}\{f''\}=s^{2}F-s(3)-(-1)=s^{2}F-3s+1$$
+                                $$\mathcal{L}\{f'\}=sF-3$$
+                                <p><strong>Adım 2 — Denklemin dönüşümü.</strong></p>
+                                $$\left(s^{2}F-3s+1\right)+4\left(sF-3\right)-8F=0$$
+                                <p><strong>Adım 3 — Topla.</strong> $F$ çarpanları $s^{2}+4s-8$; sabitler $-3s+1-12=-3s-11$:</p>
+                                $$\left(s^{2}+4s-8\right)F=3s+11$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{3s+11}{s^{2}+4s-8}\;}$$
+                                <p><strong>Doğrulama (başlangıç değer THEoREM'i ile).</strong> İki bağımsız kontrol yapalım.</p>
+                                <p><strong>(a)</strong> $\displaystyle\lim_{s\to\infty}sF(s)=f(0^{+})$ olmalı:</p>
+                                $$sF=\frac{3s^{2}+11s}{s^{2}+4s-8}\;\xrightarrow{\;s\to\infty\;}\;3=f(0)\;\checkmark$$
+                                <p><strong>(b)</strong> $\displaystyle\lim_{s\to\infty}s\big[sF(s)-f(0)\big]=f'(0)$ olmalı:</p>
+                                $$sF-3=\frac{3s^{2}+11s-3\left(s^{2}+4s-8\right)}{s^{2}+4s-8}=\frac{-s+24}{s^{2}+4s-8}$$
+                                $$s(sF-3)=\frac{-s^{2}+24s}{s^{2}+4s-8}\;\xrightarrow{\;s\to\infty\;}\;-1=f'(0)\;\checkmark$$
+                                <p>Payda da beklendiği gibi <span class="vurgu">karakteristik polinomun ta kendisi</span>: $s^{2}+4s-8$.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $(9.17)$ ve $(9.18)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f^{\mathrm{iv}}=f''$, &nbsp;$f'''(0)=1$, &nbsp;$f''(0)=0$, &nbsp;$f'(0)=0$, &nbsp;$f(0)=-1$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dördüncü türevin dönüşümü.</strong> $(9.17)$'yi $n=4$ ile yazalım:</p>
+                                $$\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F-s^{3}f(0)-s^{2}f'(0)-s\,f''(0)-f'''(0)$$
+                                <p>$f(0)=-1$ olduğu için ilk terim <span class="vurgu">işaret çevirip artıya dönüyor</span>; ortadaki ikisi sıfır:</p>
+                                $$\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F+s^{3}-1$$
+                                <p><strong>Adım 2 — İkinci türevin dönüşümü.</strong></p>
+                                $$\mathcal{L}\{f''\}=s^{2}F-s\,f(0)-f'(0)=s^{2}F+s$$
+                                <p><strong>Adım 3 — Denklemi kur.</strong></p>
+                                $$s^{4}F+s^{3}-1=s^{2}F+s$$
+                                $$\left(s^{4}-s^{2}\right)F=s+1-s^{3}$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1+s-s^{3}}{s^{2}\left(s^{2}-1\right)}\;}$$
+                                <p><strong>Doğrulama — bu soru kendini çözdürüyor.</strong> Adım 2'de bulduğumuz $\mathcal{L}\{f''\}$ ifadesine $F$'yi geri koyalım:</p>
+                                $$\mathcal{L}\{f''\}=s^{2}F+s=\frac{1+s-s^{3}}{s^{2}-1}+s=\frac{\left(1+s-s^{3}\right)+s\left(s^{2}-1\right)}{s^{2}-1}=\frac{1}{s^{2}-1}$$
+                                <p>Bu tablodan tanınıyor: $\mathcal{L}\{\sinh t\}=\dfrac{1}{s^{2}-1}$, yani <span class="vurgu">$f''(t)=\sinh t$.</span></p>
+                                <p>Buradan $f$'yi iki kez integralleyerek kapalı biçimde bulabiliriz:</p>
+                                $$f'=\cosh t+C_{1},\qquad f'(0)=1+C_{1}=0\;\Rightarrow\;C_{1}=-1$$
+                                $$f=\sinh t-t+C_{2},\qquad f(0)=C_{2}=-1$$
+                                $$f(t)=\sinh t-t-1$$
+                                <p><strong>Son kontrol.</strong> Bu $f$'nin dönüşümünü doğrudan alalım:</p>
+                                $$\mathcal{L}\{f\}=\frac{1}{s^{2}-1}-\frac{1}{s^{2}}-\frac{1}{s}=\frac{1}{s^{2}\left(s^{2}-1\right)}-\frac{1}{s}=\frac{1-s\left(s^{2}-1\right)}{s^{2}\left(s^{2}-1\right)}=\frac{1+s-s^{3}}{s^{2}\left(s^{2}-1\right)}$$
+                                <p>Başlangıçta bulduğumuzla birebir aynı. &#10003;</p>
+                                <p>Kalan başlangıç koşulları da tutuyor: $f''=\sinh t\Rightarrow f''(0)=0$ &#10003;, &nbsp;$f'''=\cosh t\Rightarrow f'''(0)=1$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>Bu sorunun öğrettiği.</strong> Soru yalnızca $\mathcal{L}\{f\}$ istiyordu, ama $\mathcal{L}\{f''\}$'nin <span class="vurgu">tablodan tanınabilir bir ifadeye sadeleşmesi</span> bize $f$'nin kendisini de verdi.</p>
+                                    <p>Sebebi denklemin biçimi: $f^{\mathrm{iv}}=f''$, yani $g=f''$ dersek $g''=g$ — çözümü $\sinh$ ve $\cosh$ olan en basit denklem. Başlangıç koşulları da tam $\sinh t$'yi seçecek biçimde verilmiş.</p>
+                                    <p><strong>Genel ders:</strong> ara adımda çıkan bir ifade tabloda varsa, ona bakın. Çoğu zaman problemin yapısı hakkında bir şey söyler.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                        <p><strong>2.</strong> &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\sin at\sin bt\}$</p>
-                        <p><strong>4.</strong> &nbsp; THEoREM 9.2 ile $\mathcal{L}\{\cos^{3}at\}$, sonra THEoREM 9.3 ile $\mathcal{L}\{\cos^{2}at\sin at\}$</p>
-                        <p><strong>6.</strong> &nbsp; $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ verildiğine göre THEoREM 9.4 ile $\mathcal{L}\{t^{4}\}$</p>
-                        <p><strong>8.</strong> &nbsp; $f''+4f'-8f=0$, &nbsp;$f(0)=3$, &nbsp;$f'(0)=-1$</p>
-                        <p><strong>10.</strong> &nbsp; $f^{\mathrm{iv}}=f''$, &nbsp;$f'''(0)=1$, &nbsp;$f''(0)=0$, &nbsp;$f'(0)=0$, &nbsp;$f(0)=-1$</p>
+                        <p>Aşağıdakiler henüz çözülmedi; sıraya alındı.</p>
                         <p><strong>12.</strong> &nbsp; $3f''-5f'+7f=\sin 2t$, &nbsp;$f(0)=4$, &nbsp;$f'(0)=6$</p>
                         <p><strong>14.</strong> &nbsp; THEoREM 9.5 ile $\mathcal{L}\{e^{at}\sin^{2}bt\}$</p>
                         <p><strong>16.</strong> &nbsp; THEoREM 9.6 ile $\mathcal{L}\{t^{3}\sin bt\}$</p>
                         <p><strong>18.</strong> &nbsp; THEoREM 9.6 ile $\mathcal{L}\{t^{4}e^{at}\}$</p>
                         <div class="highlight">
                             <p><strong>İpuçları.</strong></p>
-                            <p><strong>2</strong> → çarpımı toplama çeviren özdeşlik: $\sin A\sin B=\tfrac{1}{2}\left[\cos(A-B)-\cos(A+B)\right]$. Tekrar sorusu 3'teki $\cos at\cos bt$ ile aynı kalıp, yalnız işaret farklı.</p>
-                            <p><strong>4</strong> → $\cos^{3}\theta=\dfrac{3\cos\theta+\cos 3\theta}{4}$. İkinci kısımda $\dfrac{d}{dt}\cos^{3}at=-3a\cos^{2}at\sin at$; <span class="vurgu">baştaki eksiyi unutmayın.</span></p>
-                            <p><strong>6</strong> → THEoREM 9.4'ü $n=2$ ile $f=t^{4}$'e uygulayın: $f''=12t^{2}$, $f(0)=f'(0)=0$.</p>
-                            <p><strong>8, 12</strong> → 7 ve 11 ile birebir aynı kalıp, yalnız sayılar farklı.</p>
-                            <p><strong>10</strong> → 9 gibi ama dördüncü mertebe: $\mathcal{L}\{f^{\mathrm{iv}}\}=s^{4}F-s^{3}f(0)-s^{2}f'(0)-s\,f''(0)-f'''(0)$. Dört başlangıç değeri de yerine konacak, $f(0)=-1$ olduğu için $+s^{3}$ terimi kalır.</p>
-                            <p><strong>14</strong> → önce Örnek 9.11'den $\mathcal{L}\{\sin^{2}bt\}$, sonra $s\to s-a$.</p>
-                            <p><strong>16, 18</strong> → 15 ve 17 gibi; <strong>18</strong> için öteleme yolu ($\mathcal{L}\{t^{4}\}=\tfrac{24}{s^{5}}$, sonra ötele) çok daha kısadır.</p>
-                            <p><strong>Doğrulama.</strong> Türev THEoREM'i soruları ($8$, $10$, $12$) kendi içinde sınanabilir: bulduğunuz $F(s)$'nin <span class="vurgu">paydası her zaman karakteristik polinomdur</span>. 8'de $s^{2}+4s-8$, 10'da $s^{4}-s^{2}$, 12'de $3s^{2}-5s+7$ çıkmalı. Payda tutmuyorsa dönüşüm adımında hata vardır.</p>
+                            <p><strong>12</strong> → 8 ve 11 ile aynı kalıp. Sağ tarafta $\mathcal{L}\{\sin 2t\}=\dfrac{2}{s^{2}+4}$ var; ortak paydaya alırken <span class="vurgu">bu $2$'yi taşımayı unutmayın</span> (tekrar sorusu 6'da tam bu atlanmıştı).</p>
+                            <p><strong>14</strong> → önce Örnek 9.11'den $\mathcal{L}\{\sin^{2}bt\}=\dfrac{2b^{2}}{s\left(s^{2}+4b^{2}\right)}$, sonra $s\to s-a$ ötelemesi.</p>
+                            <p><strong>16, 18</strong> → 15 ve 17 gibi. <strong>18</strong> için öteleme yolu çok daha kısa: $\mathcal{L}\{t^{4}\}=\tfrac{24}{s^{5}}$ (6. soru), sonra ötele.</p>
+                            <p><strong>Doğrulama.</strong> 12'de bulduğunuz $F(s)$'nin paydası <span class="vurgu">karakteristik polinom</span> $3s^{2}-5s+7$ olmalı. 14, 16, 18'de $s\to\infty$ iken $F\to 0$ olmalı; ayrıca 18'in cevabı $\dfrac{4!}{(s-a)^{5}}$ genel kalıbına uymalı.</p>
                         </div>
                     </div>
 

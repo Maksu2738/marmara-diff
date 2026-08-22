@@ -15,10 +15,13 @@ Kullanim:  python build.py
 """
 
 import hashlib
+import json
 import os
 import re
 import shutil
 import sys
+
+import arama
 
 KOK = os.path.dirname(os.path.abspath(__file__))
 ICERIK = os.path.join(KOK, 'icerik')
@@ -341,8 +344,8 @@ def md_parcasi(basliklar, govde):
     pid = basliklar.get('id', '')
     baslik = basliklar.get('baslik', '')
 
-    # 'defterde: yok' -> konu kitapta var ama hocanin ders defterinde
-    # islenmemis. Bolume kirmizi zemin ve uyari seridi eklenir.
+    # 'defterde: yok' -> konu kitapta var ama hoca derste islememis.
+    # Bolume kirmizi zemin ve uyari seridi eklenir.
     defterde_yok = basliklar.get('defterde', '').strip().lower() == 'yok'
     sinif = 'section %s%s' % (tip, ' defter-disi' if defterde_yok else '')
 
@@ -365,7 +368,7 @@ def md_parcasi(basliklar, govde):
     if defterde_yok:
         satirlar.append(GIRINTI + '    <div class="defter-disi-uyari">')
         satirlar.append(GIRINTI + '        <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>')
-        satirlar.append(GIRINTI + '        <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>')
+        satirlar.append(GIRINTI + '        <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>')
         satirlar.append(GIRINTI + '    </div>')
 
     satirlar.extend(bloklari_cevir(govde.split('\n'), GIRINTI + '    '))
@@ -507,10 +510,23 @@ def derle(ders):
     # gosterebiliyor. Icerik degistikce degisen bir damga ekliyoruz.
     _damga = hashlib.md5(
         (dosya_oku(os.path.join(SABLON, 'style.css'))
-         + dosya_oku(os.path.join(SABLON, 'app.js'))).encode('utf-8')
+         + dosya_oku(os.path.join(SABLON, 'app.js'))
+         + dosya_oku(os.path.join(SABLON, 'arama-ui.js'))).encode('utf-8')
     ).hexdigest()[:8]
     sayfa = sayfa.replace('href="style.css"', 'href="style.css?v=%s"' % _damga)
     sayfa = sayfa.replace('src="app.js"', 'src="app.js?v=%s"' % _damga)
+
+    # Arama indeksi: her parca icin normalize edilmis metin.
+    # LaTeX ile kullanicinin yazacagi bicimi ayni yere indirger,
+    # boylece `y''-6y'+25y` aramasi kaynaktaki prime gosterimini bulur.
+    _kayit = arama.indeks(bolumler)
+    _js = 'window.ARAMA=' + json.dumps(_kayit, ensure_ascii=False,
+                                       separators=(',', ':')) + ';'
+    with open(os.path.join(CIKTI, 'arama.js'), 'w', encoding='utf-8') as f:
+        f.write(_js)
+    sayfa = sayfa.replace('<!--ARAMA_JS-->',
+                          '<script defer src="arama.js?v=%s"></script>'
+                          % hashlib.md5(_js.encode('utf-8')).hexdigest()[:8])
 
     hedef = os.path.join(CIKTI, ayar.get('cikti', '%s.html' % ders))
     with open(hedef, 'w', encoding='utf-8', newline='\n') as f:
@@ -531,7 +547,7 @@ def main():
         sys.exit('icerik/ klasoru yok.')
 
     os.makedirs(CIKTI, exist_ok=True)
-    for varlik in ('style.css', 'app.js'):
+    for varlik in ('style.css', 'app.js', 'arama-ui.js'):
         kaynak = os.path.join(SABLON, varlik)
         if os.path.exists(kaynak):
             shutil.copy2(kaynak, os.path.join(CIKTI, varlik))

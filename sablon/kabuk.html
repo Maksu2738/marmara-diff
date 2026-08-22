@@ -27,7 +27,34 @@
                 <p><!--SIDEBAR_ALTBASLIK--></p>
             </div>
 
+            <div class="arama-sar">
+                <div class="arama-satir">
+                    <input type="search" id="arama-kutu" class="arama-kutu"
+                           placeholder="Ara&hellip;  (konu, formul, y''-6y')"
+                           autocomplete="off" spellcheck="false"
+                           aria-label="Sitede ara">
+                    <button type="button" class="arama-temizle" id="arama-temizle"
+                            aria-label="Aramayi temizle" hidden>&times;</button>
+                </div>
+                <div class="arama-palet" id="arama-palet" aria-label="Matematik kisayollari">
+                    <button type="button" data-ek="y'">y&prime;</button>
+                    <button type="button" data-ek="y''">y&Prime;</button>
+                    <button type="button" data-ek="dy/dx">dy/dx</button>
+                    <button type="button" data-ek="L{">&#8466;{&nbsp;}</button>
+                    <button type="button" data-ek="^">x&#8319;</button>
+                    <button type="button" data-ek="sqrt">&radic;</button>
+                    <button type="button" data-ek="int">&int;</button>
+                    <button type="button" data-ek="sum">&Sigma;</button>
+                    <button type="button" data-ek="infty">&infin;</button>
+                    <button type="button" data-ek="pi">&pi;</button>
+                    <button type="button" data-ek="alpha">&alpha;</button>
+                    <button type="button" data-ek="lambda">&lambda;</button>
+                </div>
+                <p class="arama-ipucu" id="arama-ipucu"></p>
+            </div>
+
             <div class="sidebar-nav">
+                <div id="arama-sonuc" class="arama-sonuc" hidden></div>
 <!--SIDEBAR-->
             </div>
         </nav>
@@ -58,6 +85,8 @@
     </div>
 
 <!--EXTRA_JS-->
+<!--ARAMA_JS-->
     <script src="app.js"></script>
+    <script src="arama-ui.js"></script>
 </body>
 </html>

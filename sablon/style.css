@@ -787,3 +787,154 @@ body.dark-mode .defter-disi-rozet {
     background: #ef4444;
     color: #1a1010;
 }
+
+
+/* ==================== ARAMA ==================== */
+
+.arama-sar {
+    padding: 0.85rem 1rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.arama-satir { position: relative; }
+
+.arama-kutu {
+    width: 100%;
+    padding: 0.55rem 2rem 0.55rem 0.75rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 8px;
+    color: #efeaff;
+    font-family: inherit;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    -webkit-appearance: none;
+}
+
+.arama-kutu::placeholder { color: #8d84b4; }
+
+.arama-kutu:focus {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.13);
+}
+
+.arama-kutu::-webkit-search-cancel-button { display: none; }
+
+.arama-temizle {
+    position: absolute;
+    right: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #a99ed4;
+    font-size: 1.15rem;
+    line-height: 1;
+    padding: 0.15rem 0.4rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.arama-temizle:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+
+/* ---- matematik paleti ----
+   Kullanicinin klavyeden zor yazacagi seyleri tiklayarak sokabilmesi icin.
+   Her dugme, arama.py'nin normal bicimine denk gelen ASCII'yi ekler:
+   pi dugmesi "pi" yazar, int dugmesi "int" yazar. Boylece sembolu
+   yapistirmak, LaTeX yazmak ve palete tiklamak ayni yere duser. */
+.arama-palet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.arama-palet button {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #c9c1e6;
+    border-radius: 6px;
+    padding: 0.16rem 0.42rem;
+    font-size: 0.76rem;
+    font-family: 'Cambria Math', Georgia, serif;
+    cursor: pointer;
+    line-height: 1.5;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.arama-palet button:hover {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: #8b5cf6;
+    color: #fff;
+}
+
+.arama-palet button:active { transform: translateY(1px); }
+
+.arama-ipucu {
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+    color: #8d84b4;
+    min-height: 0.9rem;
+}
+
+/* ---- sonuclar ---- */
+
+.arama-sonuc { padding: 0.4rem 0 1rem; }
+
+.arama-sonuc-satir {
+    display: block;
+    padding: 0.5rem 1.1rem 0.55rem;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.arama-sonuc-satir:hover {
+    background: rgba(124, 58, 237, 0.14);
+    border-left-color: #8b5cf6;
+}
+
+.arama-bolum {
+    display: block;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #7f75a8;
+    margin-bottom: 0.1rem;
+}
+
+.arama-baslik {
+    display: block;
+    font-size: 0.81rem;
+    color: #ded7f5;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.arama-parca {
+    display: block;
+    font-size: 0.7rem;
+    color: #8d84b4;
+    line-height: 1.45;
+    margin-top: 0.2rem;
+    word-break: break-word;
+}
+
+.arama-bos {
+    padding: 1rem 1.1rem;
+    font-size: 0.8rem;
+    color: #a99ed4;
+    line-height: 1.6;
+}
+
+.arama-bos code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.05rem 0.28rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* Sidebar zaten koyu; gunduz modunda da ayni kaliyor.
+   Bu yuzden ayri bir body.dark-mode kurali gerekmiyor. */

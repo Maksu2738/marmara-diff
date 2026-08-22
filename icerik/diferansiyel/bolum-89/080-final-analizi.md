@@ -6,17 +6,17 @@ rozet: Analiz
 baslik: ★ &nbsp;Final Analizi — Neye Ne Kadar Çalışmalı
 ---
 
-Bu bölüm tahmin değil, ==sayım==. Üç kaynağa bakıyor: hocanın vize sonrası ders defterinin **28 sayfası**, sitedeki **yıldızlı sorular** (defterde bizzat geçtiği doğrulananlar) ve **ödevler**. Vize analizinden çıkan dersleri de kullanıyor.
+Bu bölüm tahmin değil, ==sayım==. Üç kaynağa bakıyor: hocanın vize sonrası derste işlediklerinin **28 sayfalık ders notu**, sitedeki **yıldızlı sorular** (derste bizzat çözüldüğü doğrulananlar) ve **ödevler**. Vize analizinden çıkan dersleri de kullanıyor.
 
 ---
 
 ### 1. Hoca hangi konuya kaç sayfa ayırdı?
 
-Ders defteri vize sonrasında şu dağılımı gösteriyor:
+Hocanın vize sonrası derste işledikleri şu dağılımı gösteriyor:
 
 <div class="tablo-sar">
 <table>
-<tr><th>Konu</th><th>Defter sayfası</th><th>Pay</th><th>Yorum</th></tr>
+<tr><th>Konu</th><th>Ders notu</th><th>Pay</th><th>Yorum</th></tr>
 <tr><td><a href="#laplace">4. Laplace Dönüşümü</a></td><td>9-17 &nbsp;(<strong>9 sayfa</strong>)</td><td>%32</td><td>Açık ara birinci</td></tr>
 <tr><td><a href="#ozel-dd">6. Özel Denklemler</a></td><td>24-28 &nbsp;(5 sayfa)</td><td>%18</td><td>Airy + Hermite; Bessel yarım kalmış</td></tr>
 <tr><td><a href="#bolum-4-5">3.4 Cauchy-Euler</a></td><td>5-8 &nbsp;(4 sayfa)</td><td>%14</td><td>Hocanın kendi gösterimiyle</td></tr>
@@ -28,16 +28,16 @@ Ders defteri vize sonrasında şu dağılımı gösteriyor:
 </div>
 
 [KUTU]
-**Tek cümlelik özet:** Defterin ==üçte biri Laplace==. Kuvvet serisi ve Frobenius birlikte alındığında %22 ile ikinci sırada; Cauchy-Euler ve özel denklemler onları izliyor.
+**Tek cümlelik özet:** Derste işlenenlerin ==üçte biri Laplace==. Kuvvet serisi ve Frobenius birlikte alındığında %22 ile ikinci sırada; Cauchy-Euler ve özel denklemler onları izliyor.
 
 Sayfa sayısı kaba bir ölçüdür ama tek elimizdeki nesnel veri — ve vize analizinde de bu ölçü işe yaramıştı.
 [/KUTU]
 
 ---
 
-### 2. Defterde bizzat geçen sorular
+### 2. Derste bizzat çözülen sorular
 
-Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **27 blok** var. Bunlar hocanın kendi defterinde çözdüğü sorular; ==finalde en olası tipler bunlardır.== Dağılımı:
+Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **27 blok** var. Bunlar hocanın derste tahtada çözdüğü sorular; ==finalde en olası tipler bunlardır.== Dağılımı:
 
 <div class="tablo-sar">
 <table>
@@ -73,7 +73,7 @@ Vize analizindeki en güçlü sinyal şuydu: ==vizede ödevden aynen soru çıkt
 </table>
 </div>
 
-Bu ikisi, ==defterdeki ağırlık dağılımıyla da örtüşüyor==: Laplace birinci, kuvvet serisi ikinci sırada. İki bağımsız kaynak aynı yeri gösteriyor.
+Bu ikisi, ==derste işlenenlerin ağırlık dağılımıyla da örtüşüyor==: Laplace birinci, kuvvet serisi ikinci sırada. İki bağımsız kaynak aynı yeri gösteriyor.
 
 [KUTU]
 **Ödevleri sayı değiştirerek yeniden çözebilecek düzeyde bilin.** Ezberlemek değil — $10e^{-t}$ yerine $6e^{-2t}$ konsa, ya da başlangıç koşulları değişse aynı akışı yürütebilmek. Vizede bu tam olarak işe yaramıştı.
@@ -87,7 +87,7 @@ Bu ikisi, ==defterdeki ağırlık dağılımıyla da örtüşüyor==: Laplace bi
 
 **Cauchy-Euler ünlem gösterimi** &nbsp;(<a href="#cauchy-euler-hoca-yolu">3.4 ★ Hocanın Yolu</a>)
 
-Hoca $x=e^{s}$ dönüşümünde $s$'e göre türevler için kendi kısaltmasını kullanıyor — defterde kendi eliyle "uydurma" diye işaretlemiş:
+Hoca $x=e^{s}$ dönüşümünde $s$'e göre türevler için kendi kısaltmasını kullanıyor — ders notunda kendi eliyle "uydurma" diye işaretlemiş:
 
 $$y'=\frac{y^{!}}{x},\qquad y''=\frac{1}{x^{2}}\left[y^{!!}-y^{!}\right],\qquad y'''=\frac{1}{x^{3}}\left[y^{!!!}-3y^{!!}+2y^{!}\right]$$
 
@@ -105,25 +105,25 @@ Kitap bunu vermez, üç adımı tek tek uygulatır.
 
 ### 5. Düşük öncelikliler
 
-Aşağıdakiler **kitapta var ve sorulabilir**, ama hocanın defterinde hiç geçmiyor. Sitede kırmızı **⚠ DERSTE İŞLENMEDİ** şeridiyle işaretli — toplam **25 bölüm**:
+Aşağıdakiler **kitapta var ve sorulabilir**, ama hoca bunları derste hiç işlememiş. Sitede kırmızı **⚠ DERSTE İŞLENMEDİ** şeridiyle işaretli — toplam **25 bölüm**:
 
 <div class="tablo-sar">
 <table>
 <tr><th>Konu</th><th>Nerede</th><th>Neden düşük öncelik</th></tr>
-<tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Defterde yok; ters dönüşümün alternatif yolu</td></tr>
-<tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı defterde yok</td></tr>
+<tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Derste işlenmedi; ters dönüşümün alternatif yolu</td></tr>
+<tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı derste işlenmedi</td></tr>
 <tr><td>Süreksiz zorlama, Dirac delta</td><td><a href="#laplace-dirac-delta">4.4</a></td><td>Aynı</td></tr>
-<tr><td>Laplace ile lineer sistemler</td><td><a href="#laplace-sistemler">4.5</a></td><td>Defterde yok</td></tr>
-<tr><td>Frobenius istisnaları (logaritmalı, eşit kökler)</td><td><a href="#frobenius-istisnalar">5.8-5.10</a></td><td>Defter yalnız kolay durumu yapıyor</td></tr>
-<tr><td>Bessel'in devamı ($J_{p}$, gama, $Y_{p}$)</td><td><a href="#ozel-dd-bessel-p">6.3</a></td><td>Defter $c_{2n}$ formülünde kesiliyor</td></tr>
-<tr><td>Yakınsaklık aralığı</td><td><a href="#seri-yakinsaklik">5.4</a></td><td>Defterde tartışılmıyor</td></tr>
+<tr><td>Laplace ile lineer sistemler</td><td><a href="#laplace-sistemler">4.5</a></td><td>Derste işlenmedi</td></tr>
+<tr><td>Frobenius istisnaları (logaritmalı, eşit kökler)</td><td><a href="#frobenius-istisnalar">5.8-5.10</a></td><td>Derste yalnız kolay durum yapıldı</td></tr>
+<tr><td>Bessel'in devamı ($J_{p}$, gama, $Y_{p}$)</td><td><a href="#ozel-dd-bessel-p">6.3</a></td><td>Derste $c_{2n}$ formülünde kesildi</td></tr>
+<tr><td>Yakınsaklık aralığı</td><td><a href="#seri-yakinsaklik">5.4</a></td><td>Derste tartışılmadı</td></tr>
 </table>
 </div>
 
 [KUTU]
 **"Düşük öncelik" ne demek değil.** Bunları ==atlayın== demiyoruz. Kitapta varlar, hoca kitaptan sınav yapabilir. Demek istediğimiz: **önce yıldızlı tipleri bitirin**, zaman kalırsa buraya geçin.
 
-Bir istisna: **Legendre denklemi.** Defterde hoca "Airy, Hermite, Bessel ve **Legendre**'yi kısaca göreceğiz" diyor ama elimizdeki 28 sayfada Legendre'ye hiç gelmemiş. ==Sonraki derslerde işlemiş olabilir==; sitede de henüz içerik yok. Ders arkadaşlarınıza sorup teyit etmeniz iyi olur.
+Bir istisna: **Legendre denklemi.** Hoca derste "Airy, Hermite, Bessel ve **Legendre**'yi kısaca göreceğiz" demiş ama elimizdeki 28 sayfalık notta Legendre'ye hiç gelmemiş. ==Sonraki derslerde işlemiş olabilir==; sitede de henüz içerik yok. Ders arkadaşlarınıza sorup teyit etmeniz iyi olur.
 [/KUTU]
 
 ---
@@ -134,11 +134,11 @@ Bir istisna: **Legendre denklemi.** Defterde hoca "Airy, Hermite, Bessel ve **Le
 <table>
 <tr><th>Sıra</th><th>Ne</th><th>Neden</th></tr>
 <tr><td><strong>1</strong></td><td><a href="#odev-5">Ödev 5</a> ve <a href="#odev-6">Ödev 6</a></td><td>Vizede ödevden aynen soru çıktı. En güçlü sinyal.</td></tr>
-<tr><td><strong>2</strong></td><td><a href="#laplace">4.1-4.3</a>: tanım, türev THEoREM'leri, ters dönüşüm, BDP</td><td>Defterin %32'si; 11 yıldızlı soru burada</td></tr>
+<tr><td><strong>2</strong></td><td><a href="#laplace">4.1-4.3</a>: tanım, türev THEoREM'leri, ters dönüşüm, BDP</td><td>Derste işlenenlerin %32'si; 11 yıldızlı soru burada</td></tr>
 <tr><td><strong>3</strong></td><td><a href="#bolum-4-5">3.4 Cauchy-Euler</a> + <a href="#cauchy-euler-hoca-yolu">hocanın yolu</a></td><td>4 yıldızlı soru; hocanın kendi gösterimi var</td></tr>
 <tr><td><strong>4</strong></td><td><a href="#ornek-seri-cozum">5.1-5.3 Kuvvet serisi</a></td><td>Ödev 6'nın konusu; indirgeme bağıntısı kurmak</td></tr>
 <tr><td><strong>5</strong></td><td><a href="#ornek-frobenius">5.6-5.7 Frobenius</a> — yalnız kolay durum</td><td>Tekil nokta sınıflandırması + indis denklemi</td></tr>
-<tr><td><strong>6</strong></td><td><a href="#ozel-dd-airy">6.1 Airy</a>, <a href="#ozel-dd-hermite">6.2 Hermite</a></td><td>Defterde var; seri çözüm kalıbı aynı</td></tr>
+<tr><td><strong>6</strong></td><td><a href="#ozel-dd-airy">6.1 Airy</a>, <a href="#ozel-dd-hermite">6.2 Hermite</a></td><td>Derste işlendi; seri çözüm kalıbı aynı</td></tr>
 <tr><td><strong>7</strong></td><td>Kırmızı işaretli bölümler</td><td>Zaman kalırsa</td></tr>
 </table>
 </div>
@@ -159,4 +159,4 @@ Aynı şekilde 2 ve 3. adımlar da bağlantılı: Cauchy-Euler dönüşümden so
 - <a href="#tekrar-donusum-bulma">4.6 tekrar 6</a> — payın sabit terimi bizde $154$, anahtarda $152$
 - <a href="#tekrar-ters-donusum">4.6 tekrar 21</a> — sinüs katsayısı bizde $\tfrac{5}{2}$, anahtarda $\tfrac{8}{5}$
 
-<p style="margin-bottom:0;">Bu analiz defterin <strong>vize sonrası 28 sayfasına</strong> dayanıyor. Hoca sonradan başka konu işlediyse ya da Bölüm 7 (lineer sistemler) notları eklenirse ==dağılım değişir== ve bu bölüm güncellenecektir.</p>
+<p style="margin-bottom:0;">Bu analiz hocanın vize sonrası derste işlediklerine (<strong>28 sayfalık ders notu</strong>) dayanıyor. Hoca sonradan başka konu işlediyse ya da Bölüm 7 (lineer sistemler) notları eklenirse ==dağılım değişir== ve bu bölüm güncellenecektir.</p>

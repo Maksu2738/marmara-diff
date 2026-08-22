@@ -10,7 +10,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
-    <link rel="stylesheet" href="style.css?v=651a1b84">
+    <link rel="stylesheet" href="style.css?v=f067a145">
 
 </head>
 <body>
@@ -27,7 +27,34 @@
                 <p>Diferansiyel Denklemler</p>
             </div>
 
+            <div class="arama-sar">
+                <div class="arama-satir">
+                    <input type="search" id="arama-kutu" class="arama-kutu"
+                           placeholder="Ara&hellip;  (konu, formul, y''-6y')"
+                           autocomplete="off" spellcheck="false"
+                           aria-label="Sitede ara">
+                    <button type="button" class="arama-temizle" id="arama-temizle"
+                            aria-label="Aramayi temizle" hidden>&times;</button>
+                </div>
+                <div class="arama-palet" id="arama-palet" aria-label="Matematik kisayollari">
+                    <button type="button" data-ek="y'">y&prime;</button>
+                    <button type="button" data-ek="y''">y&Prime;</button>
+                    <button type="button" data-ek="dy/dx">dy/dx</button>
+                    <button type="button" data-ek="L{">&#8466;{&nbsp;}</button>
+                    <button type="button" data-ek="^">x&#8319;</button>
+                    <button type="button" data-ek="sqrt">&radic;</button>
+                    <button type="button" data-ek="int">&int;</button>
+                    <button type="button" data-ek="sum">&Sigma;</button>
+                    <button type="button" data-ek="infty">&infin;</button>
+                    <button type="button" data-ek="pi">&pi;</button>
+                    <button type="button" data-ek="alpha">&alpha;</button>
+                    <button type="button" data-ek="lambda">&lambda;</button>
+                </div>
+                <p class="arama-ipucu" id="arama-ipucu"></p>
+            </div>
+
             <div class="sidebar-nav">
+                <div id="arama-sonuc" class="arama-sonuc" hidden></div>
                 <ul>
 
                     <!-- ===== BÖLÜM 1 ===== -->
@@ -7222,11 +7249,11 @@
                             3.4 &nbsp;★ Hocanın Ders Notundaki Yol — Cauchy-Euler İçin Kısayol Gösterimi
                         </div>
                         <div class="highlight">
-                            <p><strong>Bu bölüm kitapta yok.</strong> Yukarıdaki Örnek 4.43 ve 4.44 kitabın çözümüdür. Hoca ders notunda <span class="vurgu">aynı problemleri farklı bir gösterimle</span> çözüyor: her seferinde zincir kuralını yeniden kurmak yerine, üç dönüşüm formülünü hazır tutup doğrudan yerine koyuyor.</p>
+                            <p><strong>Bu bölüm kitapta yok.</strong> Yukarıdaki Örnek 4.43 ve 4.44 kitabın çözümüdür. Hoca derste <span class="vurgu">aynı problemleri farklı bir gösterimle</span> çözüyor: her seferinde zincir kuralını yeniden kurmak yerine, üç dönüşüm formülünü hazır tutup doğrudan yerine koyuyor.</p>
                             <p>İki yol da aynı sonuca varır. Ama sınavda hocanın gösterimi beklenebileceği için ikisi de burada.</p>
                         </div>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Hocanın gösterimi</h3>
-                        <p>$x=e^{s}$ dönüşümünde iki farklı değişkene göre türev dolaşıyor: $x$'e göre ve $s$'e göre. Kitap bunları $\dfrac{dy}{dx}$ ve $\dfrac{dy}{dt}$ diye uzun uzun yazıyor. Hoca ise <span class="vurgu">kendi kısaltmasını uyduruyor</span> (ders notunda kelimesi kelimesine "uydurma" diye işaretlenmiş):</p>
+                        <p>$x=e^{s}$ dönüşümünde iki farklı değişkene göre türev dolaşıyor: $x$'e göre ve $s$'e göre. Kitap bunları $\dfrac{dy}{dx}$ ve $\dfrac{dy}{dt}$ diye uzun uzun yazıyor. Hoca ise <span class="vurgu">kendi kısaltmasını uyduruyor</span> (ders notunda kelimesi kelimesine "uydurma" diye işaretlemiş):</p>
                         <div class="tablo-sar">
                         <table>
                         <tr><th>Yazım</th><th>Anlamı</th></tr>
@@ -8301,7 +8328,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Örneklerin hepsinde $(9.1)$ integralinin belirli bir $s$ aralığında var olduğunu <strong>doğrudan hesaplayarak</strong> gördük. Peki hesap yapmadan, hangi fonksiyonlar için bunun <span class="vurgu">her zaman</span> doğru olduğunu söyleyebiliriz?</p>
                         <p>Bunun için iki kavram gerekiyor.</p>
@@ -9303,7 +9330,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Tablo kullanırken işe yarayan ikinci önemli araç <strong>konvolüsyon (convolution)</strong> kavramıdır. Kısmi kesirlerin yetmediği durumlarda devreye girer.</p>
                         <div class="highlight">
@@ -9386,7 +9413,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Örnek 9.24'te konvolüsyon ile kısmi kesirler aynı sonucu vermişti. Şimdi <span class="vurgu">kısmi kesirlerin işe yaramadığı</span> bir durumu ele alıyoruz.</p>
                         <div class="question-block">
@@ -9442,7 +9469,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Bu setin tamamında ters dönüşüm <strong>konvolüsyonla (convolution)</strong> bulunacak. Kalıp her seferinde aynıdır:</p>
                         $$\mathcal{L}^{-1}\{F(s)G(s)\}=\int_{0}^{t}f(\tau)\,g(t-\tau)\,d\tau$$
@@ -10013,7 +10040,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Şimdiye kadar zorlama terimi $b(t)$ hep sürekliydi. Gerçek problemlerde ise <span class="vurgu">zorlama aniden devreye girer ya da kesilir</span>: bir anahtarın açılması, bir yükün bırakılması, bir darbenin uygulanması.</p>
                         <p>Bu bölümde, denklemdeki homojen olmayan terimin <strong>bir veya daha fazla sonlu süreksizliği</strong> olduğu başlangıç değer problemlerini çözeceğiz. Bunun için önce böyle fonksiyonların Laplace dönüşümünü bulmamız gerekiyor.</p>
@@ -10074,7 +10101,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Birim basamağın ikinci kullanışlı özelliği, bir fonksiyonu <strong>pozitif yönde öteleme</strong> ile ilgilidir.</p>
                         <p>$t&gt;0$ için tanımlı bir $f$ fonksiyonu düşünelim. Bu fonksiyonu $a$ birim <strong>sağa</strong> kaydıralım ve $t&lt;a$ için yeni fonksiyona $0$ değerini atayalım. Ortaya çıkan fonksiyon şudur:</p>
@@ -10134,7 +10161,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>THEoREM 9.9'u uygulamanın önündeki tek engel şudur: fonksiyonun <span class="vurgu">$f(t-a)$ biçiminde</span> yazılmış olması gerekir. Verilen ifade genelde bu biçimde değildir; önce dönüştürmek gerekir.</p>
                         <div class="question-block">
@@ -10188,7 +10215,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Bir $f$ fonksiyonu, tanımlı olduğu her $t$ için</p>
                         $$f(t+P)=f(t)\qquad (P&gt;0)$$
@@ -10250,7 +10277,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Aşağıdaki fonksiyonların $\mathcal{L}\{f(t)\}$ dönüşümlerini bulunuz.</p>
                         <div class="highlight">
@@ -10369,7 +10396,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Bu grup, öncekinden iki bakımdan zorlaşıyor: ifadeler <strong>trigonometrik</strong> ve son dördü <strong>periyodik</strong>.</p>
                         <div class="question-block">
@@ -10472,7 +10499,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Süreksiz zorlamalı denklemleri çözerken $Y(s)$ ifadesinde kaçınılmaz olarak $e^{-as}$ çarpanları belirir. Bu bölüm o çarpanların nasıl geri çevrileceğini kuruyor.</p>
                         <p>$(9.75)$'ten doğrudan:</p>
@@ -10537,7 +10564,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Bu setin tamamında $F(s)$ bir $e^{-as}$ çarpanı taşıyor. Yöntem <strong>ikinci öteleme THEoREM'idir</strong>:</p>
                         $$\mathcal{L}^{-1}\left\{e^{-as}G(s)\right\}=g(t-a)\,u_{a}(t)$$
@@ -10695,7 +10722,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Bölüm 4.4'ün bütün araçları burada bir araya geliyor. <span class="vurgu">Bu, Laplace yönteminin klasik yöntemlere karşı en belirgin üstünlük gösterdiği problem türüdür.</span></p>
                         <div class="question-block">
@@ -10760,7 +10787,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Aşağıdaki başlangıç değer problemlerini Laplace dönüşümüyle çözünüz.</p>
                         <div class="question-block">
@@ -10934,7 +10961,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Şimdiye kadarki zorlama terimleri bir süre boyunca etkiliydi. Peki <strong>anlık</strong> bir etki nasıl modellenir — bir çekiç darbesi, ani bir voltaj sıçraması?</p>
                         <p>Böyle bir etkiyi doğrudan yazamayız; <span class="vurgu">bir limit süreciyle yaklaşırız.</span></p>
@@ -11011,7 +11038,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Laplace yöntemi tek denklemle sınırlı değildir. <strong>Birinci mertebeden lineer sistemlere</strong> doğrudan genişler:</p>
                         $$a_{1}x'+a_{2}y'+a_{3}x+a_{4}y=\beta_{1}(t)$$
@@ -11097,7 +11124,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Aşağıdaki lineer sistemleri verilen başlangıç koşullarıyla Laplace dönüşümü kullanarak çözünüz.</p>
                         <div class="question-block">
@@ -12265,7 +12292,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Önceki örneklerde kuvvet serisi çözümleri bulduk ama bu serilerin <strong>nerede yakınsadığını (convergence)</strong> tartışmadık. THEoREM 5.1 yalnızca "$x_{0}$ etrafında bir $|x-x_{0}|&lt;R$ aralığında yakınsar" diyor; $R$'nin ne kadar büyük olduğunu söylemiyor. Bu bölüm o boşluğu dolduruyor.</p>
                         <hr>
@@ -12696,7 +12723,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Örnek 5.10'da şanslıydık: belirtici denklemin iki kökü de $(5.49)$ biçiminde birer çözüm verdi ve bunlar lineer bağımsız çıktı. Ama 5.7'de belirttiğimiz gibi <span class="vurgu">bu her zaman böyle olmaz</span>. İki soru sormamız gerekiyor:</p>
                         <ol>
@@ -12833,7 +12860,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <div class="question-block">
                             <p class="question-text"><strong>Örnek 5.12.</strong> &nbsp; Frobenius yöntemiyle $\displaystyle x^{2}y''-xy'-\left(x^{2}+\frac{5}{4}\right)y=0$ denkleminin $0&lt;x&lt;R$ aralığındaki çözümlerini bulunuz.</p>
@@ -12912,7 +12939,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Örnek 5.12'de kök farkı pozitif tam sayıydı ve şanslıydık: küçük kök çelişkiye düşmedi, hatta tek başına genel çözümü verdi. <span class="vurgu">Ama bu her zaman olmaz.</span> Aşağıdaki örnek, aynı koşullar altında çelişkinin çıktığı ve logaritmalı terimin kaçınılmaz olduğu durumu gösteriyor.</p>
                         <div class="question-block">
@@ -13007,7 +13034,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Örnek 5.11, 5.12 ve 5.13, THEoREM 5.3'ün sonuçlarındaki bütün olasılıkları gösterdi — <span class="vurgu">biri hariç:</span> köklerin eşit olduğu durum, yani $r_{1}-r_{2}=0$.</p>
                         <p>Bu durumda ne olacağı zaten açıktır: <strong>iki kök de aynı sayı olduğuna göre, ikisi de aynı çözümü verir.</strong> $r$, $r_{1}$ ve $r_{2}$'nin ortak değeri olmak üzere $0&lt;x-x_{0}&lt;R$ için elimizde tek bir çözüm vardır:</p>
@@ -13468,7 +13495,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$Y_{0}$ — ikinci tür Bessel fonksiyonu</h3>
                         <p>Önceki bölümde ikinci çözüm olarak seçilen özel lineer birleşime <strong>sıfırıncı mertebeden ikinci tür Bessel fonksiyonu (Bessel function of the second kind of order zero, Weber biçimi)</strong> denir ve $Y_{0}$ ile gösterilir:</p>
@@ -13535,7 +13562,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Gama fonksiyonunun özyineleme bağıntısı</h3>
                         <p>Gama fonksiyonu şu bağıntıyı sağlar:</p>
@@ -13596,7 +13623,7 @@
                         </div>
                         <div class="defter-disi-uyari">
                             <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>$p\ge 0$ için Bessel denkleminin bir çözümünü $J_{p}$ olarak bulduk. Peki <strong>lineer bağımsız ikinci çözüm</strong> nedir?</p>
                         <p>$p=0$ için bunu zaten bulmuştuk: $Y_{0}$. Şimdi $p&gt;0$ durumunu ele alalım. $2p$ pozitif tam sayı değilse, THEoREM 5.3 küçük kök $r_{2}=-p$'ye karşılık gelen bağımsız bir çözümün varlığını garanti ediyordu. Küçük kökle çalışalım.</p>
@@ -14374,13 +14401,13 @@
                             <span class="badge">Analiz</span>
                             ★ &nbsp;Final Analizi — Neye Ne Kadar Çalışmalı
                         </div>
-                        <p>Bu bölüm tahmin değil, <span class="vurgu">sayım</span>. Üç kaynağa bakıyor: hocanın vize sonrası ders defterinin <strong>28 sayfası</strong>, sitedeki <strong>yıldızlı sorular</strong> (defterde bizzat geçtiği doğrulananlar) ve <strong>ödevler</strong>. Vize analizinden çıkan dersleri de kullanıyor.</p>
+                        <p>Bu bölüm tahmin değil, <span class="vurgu">sayım</span>. Üç kaynağa bakıyor: hocanın vize sonrası derste işlediklerinin <strong>28 sayfalık ders notu</strong>, sitedeki <strong>yıldızlı sorular</strong> (derste bizzat çözüldüğü doğrulananlar) ve <strong>ödevler</strong>. Vize analizinden çıkan dersleri de kullanıyor.</p>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">1. Hoca hangi konuya kaç sayfa ayırdı?</h3>
-                        <p>Ders defteri vize sonrasında şu dağılımı gösteriyor:</p>
+                        <p>Hocanın vize sonrası derste işledikleri şu dağılımı gösteriyor:</p>
                         <div class="tablo-sar">
                         <table>
-                        <tr><th>Konu</th><th>Defter sayfası</th><th>Pay</th><th>Yorum</th></tr>
+                        <tr><th>Konu</th><th>Ders notu</th><th>Pay</th><th>Yorum</th></tr>
                         <tr><td><a href="#laplace">4. Laplace Dönüşümü</a></td><td>9-17 &nbsp;(<strong>9 sayfa</strong>)</td><td>%32</td><td>Açık ara birinci</td></tr>
                         <tr><td><a href="#ozel-dd">6. Özel Denklemler</a></td><td>24-28 &nbsp;(5 sayfa)</td><td>%18</td><td>Airy + Hermite; Bessel yarım kalmış</td></tr>
                         <tr><td><a href="#bolum-4-5">3.4 Cauchy-Euler</a></td><td>5-8 &nbsp;(4 sayfa)</td><td>%14</td><td>Hocanın kendi gösterimiyle</td></tr>
@@ -14391,12 +14418,12 @@
                         </table>
                         </div>
                         <div class="highlight">
-                            <p><strong>Tek cümlelik özet:</strong> Defterin <span class="vurgu">üçte biri Laplace</span>. Kuvvet serisi ve Frobenius birlikte alındığında %22 ile ikinci sırada; Cauchy-Euler ve özel denklemler onları izliyor.</p>
+                            <p><strong>Tek cümlelik özet:</strong> Derste işlenenlerin <span class="vurgu">üçte biri Laplace</span>. Kuvvet serisi ve Frobenius birlikte alındığında %22 ile ikinci sırada; Cauchy-Euler ve özel denklemler onları izliyor.</p>
                             <p>Sayfa sayısı kaba bir ölçüdür ama tek elimizdeki nesnel veri — ve vize analizinde de bu ölçü işe yaramıştı.</p>
                         </div>
                         <hr>
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">2. Defterde bizzat geçen sorular</h3>
-                        <p>Sitede <strong>★ Ders Notu Sorusu</strong> rozetiyle işaretli <strong>27 blok</strong> var. Bunlar hocanın kendi defterinde çözdüğü sorular; <span class="vurgu">finalde en olası tipler bunlardır.</span> Dağılımı:</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">2. Derste bizzat çözülen sorular</h3>
+                        <p>Sitede <strong>★ Ders Notu Sorusu</strong> rozetiyle işaretli <strong>27 blok</strong> var. Bunlar hocanın derste tahtada çözdüğü sorular; <span class="vurgu">finalde en olası tipler bunlardır.</span> Dağılımı:</p>
                         <div class="tablo-sar">
                         <table>
                         <tr><th>Tip</th><th>Sayı</th><th>Örnek</th></tr>
@@ -14424,7 +14451,7 @@
                         <tr><td><a href="#odev-6">Ödev 6</a></td><td>$\left(1+x^{2}\right)y''+2xy'+\left(x^{2}-2\right)y=0$ — rekürans + ilk beş terim</td><td><a href="#ornek-seri-cozum">5.2 Adım adım seri çözümü</a></td></tr>
                         </table>
                         </div>
-                        <p>Bu ikisi, <span class="vurgu">defterdeki ağırlık dağılımıyla da örtüşüyor</span>: Laplace birinci, kuvvet serisi ikinci sırada. İki bağımsız kaynak aynı yeri gösteriyor.</p>
+                        <p>Bu ikisi, <span class="vurgu">derste işlenenlerin ağırlık dağılımıyla da örtüşüyor</span>: Laplace birinci, kuvvet serisi ikinci sırada. İki bağımsız kaynak aynı yeri gösteriyor.</p>
                         <div class="highlight">
                             <p><strong>Ödevleri sayı değiştirerek yeniden çözebilecek düzeyde bilin.</strong> Ezberlemek değil — $10e^{-t}$ yerine $6e^{-2t}$ konsa, ya da başlangıç koşulları değişse aynı akışı yürütebilmek. Vizede bu tam olarak işe yaramıştı.</p>
                         </div>
@@ -14432,7 +14459,7 @@
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">4. Hocanın kendi gösterimi</h3>
                         <p>İki yerde hoca kitaptan ayrılıyor. Sınav kâğıdında <span class="vurgu">bu biçimler beklenebilir</span>:</p>
                         <p><strong>Cauchy-Euler ünlem gösterimi</strong> &nbsp;(<a href="#cauchy-euler-hoca-yolu">3.4 ★ Hocanın Yolu</a>)</p>
-                        <p>Hoca $x=e^{s}$ dönüşümünde $s$'e göre türevler için kendi kısaltmasını kullanıyor — defterde kendi eliyle "uydurma" diye işaretlemiş:</p>
+                        <p>Hoca $x=e^{s}$ dönüşümünde $s$'e göre türevler için kendi kısaltmasını kullanıyor — ders notunda kendi eliyle "uydurma" diye işaretlemiş:</p>
                         $$y'=\frac{y^{!}}{x},\qquad y''=\frac{1}{x^{2}}\left[y^{!!}-y^{!}\right],\qquad y'''=\frac{1}{x^{3}}\left[y^{!!!}-3y^{!!}+2y^{!}\right]$$
                         <p>Kitap her problemde zincir kuralını yeniden kuruyor; hoca bu üç formülü ezberletip doğrudan yerine koyuyor. <span class="vurgu">Sınavda hızlı olan bu.</span></p>
                         <p><strong>Laplace hazır kalıbı</strong> &nbsp;(<a href="#laplace-dd-cozumu">4.3 Diferansiyel Denklem Çözümü</a>)</p>
@@ -14441,22 +14468,22 @@
                         <p>Kitap bunu vermez, üç adımı tek tek uygulatır.</p>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">5. Düşük öncelikliler</h3>
-                        <p>Aşağıdakiler <strong>kitapta var ve sorulabilir</strong>, ama hocanın defterinde hiç geçmiyor. Sitede kırmızı <strong>⚠ DERSTE İŞLENMEDİ</strong> şeridiyle işaretli — toplam <strong>25 bölüm</strong>:</p>
+                        <p>Aşağıdakiler <strong>kitapta var ve sorulabilir</strong>, ama hoca bunları derste hiç işlememiş. Sitede kırmızı <strong>⚠ DERSTE İŞLENMEDİ</strong> şeridiyle işaretli — toplam <strong>25 bölüm</strong>:</p>
                         <div class="tablo-sar">
                         <table>
                         <tr><th>Konu</th><th>Nerede</th><th>Neden düşük öncelik</th></tr>
-                        <tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Defterde yok; ters dönüşümün alternatif yolu</td></tr>
-                        <tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı defterde yok</td></tr>
+                        <tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Derste işlenmedi; ters dönüşümün alternatif yolu</td></tr>
+                        <tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı derste işlenmedi</td></tr>
                         <tr><td>Süreksiz zorlama, Dirac delta</td><td><a href="#laplace-dirac-delta">4.4</a></td><td>Aynı</td></tr>
-                        <tr><td>Laplace ile lineer sistemler</td><td><a href="#laplace-sistemler">4.5</a></td><td>Defterde yok</td></tr>
-                        <tr><td>Frobenius istisnaları (logaritmalı, eşit kökler)</td><td><a href="#frobenius-istisnalar">5.8-5.10</a></td><td>Defter yalnız kolay durumu yapıyor</td></tr>
-                        <tr><td>Bessel'in devamı ($J_{p}$, gama, $Y_{p}$)</td><td><a href="#ozel-dd-bessel-p">6.3</a></td><td>Defter $c_{2n}$ formülünde kesiliyor</td></tr>
-                        <tr><td>Yakınsaklık aralığı</td><td><a href="#seri-yakinsaklik">5.4</a></td><td>Defterde tartışılmıyor</td></tr>
+                        <tr><td>Laplace ile lineer sistemler</td><td><a href="#laplace-sistemler">4.5</a></td><td>Derste işlenmedi</td></tr>
+                        <tr><td>Frobenius istisnaları (logaritmalı, eşit kökler)</td><td><a href="#frobenius-istisnalar">5.8-5.10</a></td><td>Derste yalnız kolay durum yapıldı</td></tr>
+                        <tr><td>Bessel'in devamı ($J_{p}$, gama, $Y_{p}$)</td><td><a href="#ozel-dd-bessel-p">6.3</a></td><td>Derste $c_{2n}$ formülünde kesildi</td></tr>
+                        <tr><td>Yakınsaklık aralığı</td><td><a href="#seri-yakinsaklik">5.4</a></td><td>Derste tartışılmadı</td></tr>
                         </table>
                         </div>
                         <div class="highlight">
                             <p><strong>"Düşük öncelik" ne demek değil.</strong> Bunları <span class="vurgu">atlayın</span> demiyoruz. Kitapta varlar, hoca kitaptan sınav yapabilir. Demek istediğimiz: <strong>önce yıldızlı tipleri bitirin</strong>, zaman kalırsa buraya geçin.</p>
-                            <p>Bir istisna: <strong>Legendre denklemi.</strong> Defterde hoca "Airy, Hermite, Bessel ve <strong>Legendre</strong>'yi kısaca göreceğiz" diyor ama elimizdeki 28 sayfada Legendre'ye hiç gelmemiş. <span class="vurgu">Sonraki derslerde işlemiş olabilir</span>; sitede de henüz içerik yok. Ders arkadaşlarınıza sorup teyit etmeniz iyi olur.</p>
+                            <p>Bir istisna: <strong>Legendre denklemi.</strong> Hoca derste "Airy, Hermite, Bessel ve <strong>Legendre</strong>'yi kısaca göreceğiz" demiş ama elimizdeki 28 sayfalık notta Legendre'ye hiç gelmemiş. <span class="vurgu">Sonraki derslerde işlemiş olabilir</span>; sitede de henüz içerik yok. Ders arkadaşlarınıza sorup teyit etmeniz iyi olur.</p>
                         </div>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">6. Çalışma sırası</h3>
@@ -14464,11 +14491,11 @@
                         <table>
                         <tr><th>Sıra</th><th>Ne</th><th>Neden</th></tr>
                         <tr><td><strong>1</strong></td><td><a href="#odev-5">Ödev 5</a> ve <a href="#odev-6">Ödev 6</a></td><td>Vizede ödevden aynen soru çıktı. En güçlü sinyal.</td></tr>
-                        <tr><td><strong>2</strong></td><td><a href="#laplace">4.1-4.3</a>: tanım, türev THEoREM'leri, ters dönüşüm, BDP</td><td>Defterin %32'si; 11 yıldızlı soru burada</td></tr>
+                        <tr><td><strong>2</strong></td><td><a href="#laplace">4.1-4.3</a>: tanım, türev THEoREM'leri, ters dönüşüm, BDP</td><td>Derste işlenenlerin %32'si; 11 yıldızlı soru burada</td></tr>
                         <tr><td><strong>3</strong></td><td><a href="#bolum-4-5">3.4 Cauchy-Euler</a> + <a href="#cauchy-euler-hoca-yolu">hocanın yolu</a></td><td>4 yıldızlı soru; hocanın kendi gösterimi var</td></tr>
                         <tr><td><strong>4</strong></td><td><a href="#ornek-seri-cozum">5.1-5.3 Kuvvet serisi</a></td><td>Ödev 6'nın konusu; indirgeme bağıntısı kurmak</td></tr>
                         <tr><td><strong>5</strong></td><td><a href="#ornek-frobenius">5.6-5.7 Frobenius</a> — yalnız kolay durum</td><td>Tekil nokta sınıflandırması + indis denklemi</td></tr>
-                        <tr><td><strong>6</strong></td><td><a href="#ozel-dd-airy">6.1 Airy</a>, <a href="#ozel-dd-hermite">6.2 Hermite</a></td><td>Defterde var; seri çözüm kalıbı aynı</td></tr>
+                        <tr><td><strong>6</strong></td><td><a href="#ozel-dd-airy">6.1 Airy</a>, <a href="#ozel-dd-hermite">6.2 Hermite</a></td><td>Derste işlendi; seri çözüm kalıbı aynı</td></tr>
                         <tr><td><strong>7</strong></td><td>Kırmızı işaretli bölümler</td><td>Zaman kalırsa</td></tr>
                         </table>
                         </div>
@@ -14484,7 +14511,7 @@
                             <li><a href="#tekrar-donusum-bulma">4.6 tekrar 6</a> — payın sabit terimi bizde $154$, anahtarda $152$</li>
                             <li><a href="#tekrar-ters-donusum">4.6 tekrar 21</a> — sinüs katsayısı bizde $\tfrac{5}{2}$, anahtarda $\tfrac{8}{5}$</li>
                         </ul>
-                        <p style="margin-bottom:0;">Bu analiz defterin <strong>vize sonrası 28 sayfasına</strong> dayanıyor. Hoca sonradan başka konu işlediyse ya da Bölüm 7 (lineer sistemler) notları eklenirse ==dağılım değişir== ve bu bölüm güncellenecektir.</p>
+                        <p style="margin-bottom:0;">Bu analiz hocanın vize sonrası derste işlediklerine (<strong>28 sayfalık ders notu</strong>) dayanıyor. Hoca sonradan başka konu işlediyse ya da Bölüm 7 (lineer sistemler) notları eklenirse ==dağılım değişir== ve bu bölüm güncellenecektir.</p>
                     </div>
 
 
@@ -15253,6 +15280,8 @@
     </div>
 
 
-    <script src="app.js?v=651a1b84"></script>
+<script defer src="arama.js?v=93fc2031"></script>
+    <script src="app.js?v=f067a145"></script>
+    <script src="arama-ui.js"></script>
 </body>
 </html>

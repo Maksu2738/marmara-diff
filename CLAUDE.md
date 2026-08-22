@@ -21,6 +21,9 @@ icerik/diferansiyel/
 sablon/
     kabuk.html  style.css  app.js
 build.py                     icerik/ -> docs/
+arama.py                     arama indeksi + matematik normalizasyonu
+                             (JS ikizi: sablon/arama-ui.js -- biri
+                              degisirse oteki de degismeli)
 bol.py                       tek seferlik taşıma script'i (tekrar çalıştırma)
 docs/                        ÜRETİLEN site — elle düzenleme
 ```

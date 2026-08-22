@@ -6,14 +6,14 @@ baslik: 3.4 &nbsp;★ Hocanın Ders Notundaki Yol — Cauchy-Euler İçin Kısay
 ---
 
 [KUTU]
-**Bu bölüm kitapta yok.** Yukarıdaki Örnek 4.43 ve 4.44 kitabın çözümüdür. Hoca ders notunda ==aynı problemleri farklı bir gösterimle== çözüyor: her seferinde zincir kuralını yeniden kurmak yerine, üç dönüşüm formülünü hazır tutup doğrudan yerine koyuyor.
+**Bu bölüm kitapta yok.** Yukarıdaki Örnek 4.43 ve 4.44 kitabın çözümüdür. Hoca derste ==aynı problemleri farklı bir gösterimle== çözüyor: her seferinde zincir kuralını yeniden kurmak yerine, üç dönüşüm formülünü hazır tutup doğrudan yerine koyuyor.
 
 İki yol da aynı sonuca varır. Ama sınavda hocanın gösterimi beklenebileceği için ikisi de burada.
 [/KUTU]
 
 ### Hocanın gösterimi
 
-$x=e^{s}$ dönüşümünde iki farklı değişkene göre türev dolaşıyor: $x$'e göre ve $s$'e göre. Kitap bunları $\dfrac{dy}{dx}$ ve $\dfrac{dy}{dt}$ diye uzun uzun yazıyor. Hoca ise ==kendi kısaltmasını uyduruyor== (ders notunda kelimesi kelimesine "uydurma" diye işaretlenmiş):
+$x=e^{s}$ dönüşümünde iki farklı değişkene göre türev dolaşıyor: $x$'e göre ve $s$'e göre. Kitap bunları $\dfrac{dy}{dx}$ ve $\dfrac{dy}{dt}$ diye uzun uzun yazıyor. Hoca ise ==kendi kısaltmasını uyduruyor== (ders notunda kelimesi kelimesine "uydurma" diye işaretlemiş):
 
 <div class="tablo-sar">
 <table>

@@ -35,6 +35,48 @@ Bu, özellikle **süreksiz zorlama terimlerinde** (4.4) belirleyici bir üstünl
 
 ---
 
+### ★ Hocanın ders notundaki yol — ikinci mertebe için hazır kalıp
+
+[KUTU]
+**Bu kalıp kitapta yok.** Kitap yukarıdaki üç adımı her problemde tek tek uygulatıyor. Hoca ders notunda ==ikinci mertebe için 1. ve 2. adımı bir kez toptan yapıp== sonucu hazır bir formüle bağlıyor. İki yol da aynı $Y(s)$'yi verir.
+[/KUTU]
+
+Genel ikinci mertebeden başlangıç değer problemi:
+
+$$a_{2}y''+a_{1}y'+a_{0}y=b(t),\qquad y(0)=c_{0},\quad y'(0)=c_{1}$$
+
+**Dönüşümü al.** $Y=\mathcal{L}\{y\}$ ve $F(s)=\mathcal{L}\{b(t)\}$ olsun:
+
+$$a_{2}\Big[s^{2}Y-s\,c_{0}-c_{1}\Big]+a_{1}\Big[sY-c_{0}\Big]+a_{0}Y=F(s)$$
+
+**$Y$'li terimleri topla, sabitleri sağa at.**
+
+$$\Big[a_{2}s^{2}+a_{1}s+a_{0}\Big]Y-\Big[a_{2}\left(s\,c_{0}+c_{1}\right)+a_{1}c_{0}\Big]=F(s)$$
+
+$$\boxed{\;Y(s)=\frac{F(s)+\Big[a_{2}\left(s\,c_{0}+c_{1}\right)+a_{1}c_{0}\Big]}{a_{2}s^{2}+a_{1}s+a_{0}}\;}$$
+
+Sonra tek iş kalır:
+
+$$y(t)=\mathcal{L}^{-1}\{Y(s)\}$$
+
+[KUTU]
+**Kalıbın okunuşu.**
+
+- **Payda** her zaman ==yardımcı denklemin sol tarafıdır==: $a_{2}s^{2}+a_{1}s+a_{0}$. Klasik yöntemdeki $a_{2}m^{2}+a_{1}m+a_{0}$ ile aynı polinom — $m$ yerine $s$ yazılmış hâli. Bu yüzden köklerin karakteri (reel/karmaşık/tekrarlı) çözümün biçimini burada da belirler.
+- **Payda iki parça** var: zorlamadan gelen $F(s)$ ve başlangıç koşullarından gelen köşeli parantez. ==Homojen problemde ($b=0$) $F(s)$ düşer==, geriye yalnız başlangıç koşulları kalır.
+- Köşeli parantezde $c_{1}$ yalnız $a_{2}$ ile çarpılır, $a_{1}$ ile çarpılmaz. Sebebi: $y'$ teriminin dönüşümünde yalnızca $y(0)$ geçer, $y'(0)$ geçmez.
+
+**Uyarı.** Kalıp yalnızca **ikinci mertebe** içindir. Üçüncü mertebede $a_{3}\left(s^{2}c_{0}+s\,c_{1}+c_{2}\right)$ gibi bir terim daha eklenir; ezberlemek yerine üç adımı uygulamak daha güvenlidir.
+[/KUTU]
+
+**Hızlı kontrol.** Aşağıdaki Örnek 9.26 birinci mertebeden olduğu için kalıba girmez ($a_{2}=0$), ama Örnek 9.27'yi ($y''-2y'-8y=0$, $y(0)=3$, $y'(0)=6$) deneyelim: $a_{2}=1$, $a_{1}=-2$, $a_{0}=-8$, $F=0$, $c_{0}=3$, $c_{1}=6$.
+
+$$Y(s)=\frac{0+\Big[1\cdot(3s+6)+(-2)(3)\Big]}{s^{2}-2s-8}=\frac{3s}{s^{2}-2s-8}$$
+
+Örnek 9.27'de adım adım bulunan $Y(s)$ ile aynı. &#10003;
+
+---
+
 [SORU*] **Örnek 9.26.** &nbsp; Aşağıdaki başlangıç değer problemini çözünüz:
 $$y'-2y=e^{5t},\qquad y(0)=3$$
 [CEVAP]

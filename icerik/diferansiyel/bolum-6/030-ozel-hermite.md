@@ -9,6 +9,10 @@ baslik: 6.2 &nbsp;Hermite Denklemi ve Hermite Polinomları
 
 $$y''-2xy'+\lambda y=0 \tag{6.4}$$
 
+[KUTU]
+**★ Bu bölüm hocanın ders notunu izliyor.** Özellikle ==serinin polinoma kesilmesi== ($\lambda=2n$) ve bunun kuantum harmonik salınıcıdaki enerji seviyeleriyle bağı hocanın anlattığı sıradır.
+[/KUTU]
+
 Burada $\lambda$ bir **parametredir**; denklemin karakteri onun değerine göre değişir. Kuantum mekaniğinde **harmonik salınıcı (quantum harmonic oscillator)** probleminin çözümü doğrudan bu denkleme indirgenir ve $\lambda$'nın alabileceği değerler ==enerji seviyelerini== verir.
 
 $x=0$ adi noktadır ($-2x$ ve $\lambda$ her yerde analitiktir), dolayısıyla yine standart kuvvet serisi yöntemi uygulanır.

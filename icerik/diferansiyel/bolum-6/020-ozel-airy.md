@@ -9,6 +9,10 @@ Bölüm 5'te kuvvet serisi yöntemini genel bir araç olarak kurduk. Bu bölümd
 
 $$y''-xy=0 \tag{6.1}$$
 
+[KUTU]
+**★ Bu bölüm hocanın ders notunu izliyor.** Kitap Airy denklemini yalnızca adıyla anıyor. Aşağıdaki ==dönüm noktası türetimi== ve sondaki ==yay sabiti zamanla azalan kütle-yay uygulaması== hocanın ders notundan alınmıştır; kitapta karşılığı yoktur.
+[/KUTU]
+
 Görünüşü aldatıcı biçimde sade: yalnızca tek bir değişken katsayı var, o da $x$'in kendisi. Ama bu tek değişiklik denklemin karakterini kökten değiştirir.
 
 ### Nereden çıkıyor: dönüm noktası

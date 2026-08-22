@@ -125,6 +125,7 @@
                             <li><a href="#bolum-4-5">3.4 Cauchy-Euler Denklemi</a></li>
                             <li><a href="#cauchy-euler-tanima">3.4 Denklemi Tanıma</a></li>
                             <li><a href="#ornekler-4-5">3.4 Örnekler</a></li>
+                            <li><a href="#cauchy-euler-hoca-yolu">3.4 ★ Hocanın Yolu — Kısayol Gösterimi</a></li>
                             <li><a href="#ornek-cauchy-euler-bdp">3.4 Örnek — Cauchy-Euler BDP</a></li>
                             <li><a href="#alistirma-4-5">3.4 Alıştırmalar</a></li>
                             <li><a href="#bolum-4-4">3.5 Parametrelerin Değişimi</a></li>
@@ -7203,7 +7204,105 @@
                         </div>
                     </div>
 
+                    <div class="highlight">
+                        <p><strong>★ Hocanın yolu bir sonraki bölümde.</strong> Yukarıdaki iki çözüm <strong>kitabın</strong> yoludur: her problemde zincir kuralı yeniden kurulur. Hoca ders notunda aynı iki problemi, üç dönüşüm formülünü hazır tutup doğrudan yerine koyarak çözüyor. Sınavda o gösterim beklenebileceği için ikisi de sitede.</p>
+                    </div>
+
                     <!-- ===== ALIŞTIRMALAR 4.5 ===== -->
+
+                    <div id="cauchy-euler-hoca-yolu" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            3.4 &nbsp;★ Hocanın Ders Notundaki Yol — Cauchy-Euler İçin Kısayol Gösterimi
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Bu bölüm kitapta yok.</strong> Yukarıdaki Örnek 4.43 ve 4.44 kitabın çözümüdür. Hoca ders notunda <span class="vurgu">aynı problemleri farklı bir gösterimle</span> çözüyor: her seferinde zincir kuralını yeniden kurmak yerine, üç dönüşüm formülünü hazır tutup doğrudan yerine koyuyor.</p>
+                            <p>İki yol da aynı sonuca varır. Ama sınavda hocanın gösterimi beklenebileceği için ikisi de burada.</p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Hocanın gösterimi</h3>
+                        <p>$x=e^{s}$ dönüşümünde iki farklı değişkene göre türev dolaşıyor: $x$'e göre ve $s$'e göre. Kitap bunları $\dfrac{dy}{dx}$ ve $\dfrac{dy}{dt}$ diye uzun uzun yazıyor. Hoca ise <span class="vurgu">kendi kısaltmasını uyduruyor</span> (ders notunda kelimesi kelimesine "uydurma" diye işaretlenmiş):</p>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th>Yazım</th><th>Anlamı</th></tr>
+                        <tr><td>$y'$</td><td>$\dfrac{dy}{dx}$ &nbsp; — asıl değişkene göre</td></tr>
+                        <tr><td>$y^{!}$</td><td>$\dfrac{dy}{ds}$ &nbsp; — yeni değişkene göre</td></tr>
+                        <tr><td>$y^{!!}$</td><td>$\dfrac{d^{2}y}{ds^{2}}$</td></tr>
+                        <tr><td>$y^{!!!}$</td><td>$\dfrac{d^{3}y}{ds^{3}}$</td></tr>
+                        </table>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Neden ayrı bir işaret gerekiyor?</strong> Çünkü dönüşüm sırasında $y''$ ile $\dfrac{d^{2}y}{ds^{2}}$ <span class="vurgu">aynı şey değildir</span>, ama ikisi de "y'nin ikinci türevi" diye okunur. Hocanın $!$ işareti bu karışıklığı tek hamlede kesiyor: üssünde $!$ olan her şey $s$'e göredir.</p>
+                            <p>Gösterim standart değildir, hoca da bunu belirtiyor. Sınav kâğıdında kullanacaksanız <span class="vurgu">ne anlama geldiğini bir kez yazın</span>.</p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ezberlenecek üç formül</h3>
+                        <p>Kitabın her problemde yeniden türettiği zincir kuralı sonuçları, hocada baştan hazır duruyor:</p>
+                        $$\boxed{\;y'=\frac{y^{!}}{x}\;}$$
+                        $$\boxed{\;y''=\frac{1}{x^{2}}\left[y^{!!}-y^{!}\right]\;}$$
+                        $$\boxed{\;y'''=\frac{1}{x^{3}}\left[y^{!!!}-3y^{!!}+2y^{!}\right]\;}$$
+                        <p><strong>Nereden geliyor?</strong> Üçü de tek bir kalıbın açılımıdır. $D=\dfrac{d}{ds}$ dersek:</p>
+                        $$x^{n}\,y^{(n)}=D(D-1)(D-2)\cdots\big(D-(n-1)\big)\,y$$
+                        <ul style="margin-left: 1rem;">
+                            <li>$n=1$: &nbsp; $x\,y'=D\,y$</li>
+                            <li>$n=2$: &nbsp; $x^{2}y''=D(D-1)y=D^{2}y-Dy$</li>
+                            <li>$n=3$: &nbsp; $x^{3}y'''=D(D-1)(D-2)y=D^{3}y-3D^{2}y+2Dy$</li>
+                        </ul>
+                        <p><span class="vurgu">Bu, 3.4'ün başındaki $r(r-1)(r-2)\cdots$ kuralının ta kendisidir</span>; hoca onu $r$ cinsinden bırakmak yerine doğrudan kullanıma hazır üç satıra çevirmiş.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Aynı problemler, hocanın yoluyla</h3>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 4.43 (hocanın yolu).</strong> &nbsp; $x^{2}y''-2xy'+2y=x^{3}$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Formülleri doğrudan yerine koy.</strong> Türetme yok, sadece yerleştirme:</p>
+                                $$x^{2}\cdot\frac{1}{x^{2}}\left[y^{!!}-y^{!}\right]-2x\cdot\frac{y^{!}}{x}+2y=x^{3}$$
+                                <p>$x$'ler <span class="vurgu">anında sadeleşiyor</span> — kalıbın bütün amacı bu:</p>
+                                $$\left[y^{!!}-y^{!}\right]-2y^{!}+2y=e^{3s}$$
+                                $$y^{!!}-3y^{!}+2y=e^{3s}$$
+                                <p>Sabit katsayılı denklem hazır.</p>
+                                <p><strong>Adım 2 — Yardımcı denklem.</strong></p>
+                                $$m^{2}-3m+2=(m-1)(m-2)=0\;\Longrightarrow\;m=1,\;2$$
+                                $$y_{c}=c_{1}e^{s}+c_{2}e^{2s}$$
+                                <p><strong>Adım 3 — Özel integral.</strong> $e^{3s}$, $y_{c}$'de yok; $y_{p}=Ae^{3s}$:</p>
+                                $$9A-3(3A)+2A=1\;\Longrightarrow\;2A=1\;\Longrightarrow\;A=\tfrac{1}{2}$$
+                                <p><strong>Adım 4 — $x$'e dön.</strong> $e^{s}=x$:</p>
+                                $$y=c_{1}e^{s}+c_{2}e^{2s}+\tfrac{1}{2}e^{3s}\;\Longrightarrow\;\boxed{\;y=c_{1}x+c_{2}x^{2}+\tfrac{1}{2}x^{3}\;}$$
+                                <p><span class="vurgu">Örnek 4.43'ün kitap çözümüyle birebir aynı sonuç.</span> Fark yalnız 1. adımda: kitap orada üç satırlık zincir kuralı türetmesi yapıyordu.</p>
+                            </div>
+                        </div>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 4.44 (hocanın yolu).</strong> &nbsp; $x^{3}y'''-4x^{2}y''+8xy'-8y=4\ln x$ denklemini çözünüz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Üç formülü birden yerine koy.</strong></p>
+                                $$x^{3}\cdot\frac{1}{x^{3}}\left[y^{!!!}-3y^{!!}+2y^{!}\right]-4x^{2}\cdot\frac{1}{x^{2}}\left[y^{!!}-y^{!}\right]+8x\cdot\frac{y^{!}}{x}-8y=4s$$
+                                <p>Bütün $x$'ler sadeleşir ($\ln x=s$):</p>
+                                $$\left[y^{!!!}-3y^{!!}+2y^{!}\right]-4\left[y^{!!}-y^{!}\right]+8y^{!}-8y=4s$$
+                                <p><strong>Adım 2 — Benzer terimleri topla.</strong></p>
+                                $$y^{!!}:\;-3-4=-7,\qquad y^{!}:\;2+4+8=14$$
+                                $$y^{!!!}-7y^{!!}+14y^{!}-8y=4s$$
+                                <p><strong>Adım 3 — Yardımcı denklem.</strong></p>
+                                $$m^{3}-7m^{2}+14m-8=(m-1)(m-2)(m-4)=0\;\Longrightarrow\;m=1,\;2,\;4$$
+                                $$y_{c}=c_{1}e^{s}+c_{2}e^{2s}+c_{3}e^{4s}$$
+                                <p><strong>Adım 4 — Özel integral.</strong> Sağ taraf $4s$ birinci dereceden polinom; $y_{p}=As+B$ alalım. O zaman $y_{p}^{!}=A$, $y_{p}^{!!}=y_{p}^{!!!}=0$:</p>
+                                $$0-0+14A-8(As+B)=4s$$
+                                $$-8As+(14A-8B)=4s\;\Longrightarrow\;A=-\tfrac{1}{2},\quad B=-\tfrac{7}{8}$$
+                                <p><strong>Adım 5 — $x$'e dön.</strong></p>
+                                $$\boxed{\;y=c_{1}x+c_{2}x^{2}+c_{3}x^{4}-\tfrac{1}{2}\ln x-\tfrac{7}{8}\;}$$
+                                <p>Örnek 4.44'ün kitap çözümüyle aynı. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Hangi yolu kullanmalı?</strong></p>
+                            <p><strong>Hocanın yolu</strong> ikinci ve üçüncü mertebede belirgin biçimde hızlıdır — üç formülü bilmek yeter, hiç türev almadan denklemi sabit katsayılıya çevirirsiniz. Sınavda zaman kazandırır.</p>
+                            <p><strong>Kitabın yolu</strong> ise formülü unuttuğunuzda <span class="vurgu">sizi kurtarır</span>: $x=e^{s}$ koyup zincir kuralını uygulamak her zaman çalışır, dördüncü mertebeye de aynı şekilde uzar.</p>
+                            <p>En sağlamı: formülleri ezberleyin ama <strong>nereden geldiğini</strong> de bilin. $D(D-1)(D-2)\cdots$ kalıbını hatırlarsanız üç formülü de yerinde yeniden üretebilirsiniz.</p>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Başlangıç koşulu varsa dikkat.</strong> Bir sonraki bölümdeki Örnek 4.44a'da olduğu gibi problem başlangıç değerli ise, koşullar <strong>$x$ cinsinden</strong> verilir ($y(1)=1$ gibi). Yani $s$'e dönüp çözdükten sonra <span class="vurgu">önce $x$'e geri dönün</span>, koşulları ondan sonra uygulayın. Koşulları $s$ uzayında uygulamaya çalışmak sık yapılan bir hatadır.</p>
+                        </div>
+                    </div>
 
                     <div id="ornek-cauchy-euler-bdp" class="section ornek">
                         <div class="section-title">
@@ -9084,6 +9183,32 @@
                             <p><strong>Klasik yöntemlerle farkı.</strong> Sabit katsayılı denklemleri karakteristik denklem + belirsiz katsayılar ile de çözebiliyorduk. Oradaki sıra şuydu: <strong>önce genel çözüm, sonra başlangıç koşulları.</strong> Laplace'ta sıra tersinedir — <span class="vurgu">başlangıç koşulları daha ilk adımda denkleme girer</span> ve doğrudan özel çözüme varılır. Homojen/özel çözüm ayrımı hiç yapılmaz.</p>
                             <p>Bu, özellikle <strong>süreksiz zorlama terimlerinde</strong> (4.4) belirleyici bir üstünlüğe dönüşecek; klasik yöntemler orada parça parça çözüp bağlantı koşulları yazmak zorunda kalır.</p>
                         </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">★ Hocanın ders notundaki yol — ikinci mertebe için hazır kalıp</h3>
+                        <div class="highlight">
+                            <p><strong>Bu kalıp kitapta yok.</strong> Kitap yukarıdaki üç adımı her problemde tek tek uygulatıyor. Hoca ders notunda <span class="vurgu">ikinci mertebe için 1. ve 2. adımı bir kez toptan yapıp</span> sonucu hazır bir formüle bağlıyor. İki yol da aynı $Y(s)$'yi verir.</p>
+                        </div>
+                        <p>Genel ikinci mertebeden başlangıç değer problemi:</p>
+                        $$a_{2}y''+a_{1}y'+a_{0}y=b(t),\qquad y(0)=c_{0},\quad y'(0)=c_{1}$$
+                        <p><strong>Dönüşümü al.</strong> $Y=\mathcal{L}\{y\}$ ve $F(s)=\mathcal{L}\{b(t)\}$ olsun:</p>
+                        $$a_{2}\Big[s^{2}Y-s\,c_{0}-c_{1}\Big]+a_{1}\Big[sY-c_{0}\Big]+a_{0}Y=F(s)$$
+                        <p><strong>$Y$'li terimleri topla, sabitleri sağa at.</strong></p>
+                        $$\Big[a_{2}s^{2}+a_{1}s+a_{0}\Big]Y-\Big[a_{2}\left(s\,c_{0}+c_{1}\right)+a_{1}c_{0}\Big]=F(s)$$
+                        $$\boxed{\;Y(s)=\frac{F(s)+\Big[a_{2}\left(s\,c_{0}+c_{1}\right)+a_{1}c_{0}\Big]}{a_{2}s^{2}+a_{1}s+a_{0}}\;}$$
+                        <p>Sonra tek iş kalır:</p>
+                        $$y(t)=\mathcal{L}^{-1}\{Y(s)\}$$
+                        <div class="highlight">
+                            <p><strong>Kalıbın okunuşu.</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Payda</strong> her zaman <span class="vurgu">yardımcı denklemin sol tarafıdır</span>: $a_{2}s^{2}+a_{1}s+a_{0}$. Klasik yöntemdeki $a_{2}m^{2}+a_{1}m+a_{0}$ ile aynı polinom — $m$ yerine $s$ yazılmış hâli. Bu yüzden köklerin karakteri (reel/karmaşık/tekrarlı) çözümün biçimini burada da belirler.</li>
+                                <li><strong>Payda iki parça</strong> var: zorlamadan gelen $F(s)$ ve başlangıç koşullarından gelen köşeli parantez. <span class="vurgu">Homojen problemde ($b=0$) $F(s)$ düşer</span>, geriye yalnız başlangıç koşulları kalır.</li>
+                                <li>Köşeli parantezde $c_{1}$ yalnız $a_{2}$ ile çarpılır, $a_{1}$ ile çarpılmaz. Sebebi: $y'$ teriminin dönüşümünde yalnızca $y(0)$ geçer, $y'(0)$ geçmez.</li>
+                            </ul>
+                            <p><strong>Uyarı.</strong> Kalıp yalnızca <strong>ikinci mertebe</strong> içindir. Üçüncü mertebede $a_{3}\left(s^{2}c_{0}+s\,c_{1}+c_{2}\right)$ gibi bir terim daha eklenir; ezberlemek yerine üç adımı uygulamak daha güvenlidir.</p>
+                        </div>
+                        <p><strong>Hızlı kontrol.</strong> Aşağıdaki Örnek 9.26 birinci mertebeden olduğu için kalıba girmez ($a_{2}=0$), ama Örnek 9.27'yi ($y''-2y'-8y=0$, $y(0)=3$, $y'(0)=6$) deneyelim: $a_{2}=1$, $a_{1}=-2$, $a_{0}=-8$, $F=0$, $c_{0}=3$, $c_{1}=6$.</p>
+                        $$Y(s)=\frac{0+\Big[1\cdot(3s+6)+(-2)(3)\Big]}{s^{2}-2s-8}=\frac{3s}{s^{2}-2s-8}$$
+                        <p>Örnek 9.27'de adım adım bulunan $Y(s)$ ile aynı. &#10003;</p>
                         <hr>
                         <div class="question-block yildizli">
                             <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
@@ -12157,6 +12282,9 @@
                         </div>
                         <p>Bölüm 5'te kuvvet serisi yöntemini genel bir araç olarak kurduk. Bu bölümde onu bilim ve mühendislikte tekrar tekrar karşımıza çıkan birkaç <strong>özel diferansiyel denkleme (special differential equation)</strong> uygulayacağız. İlki <strong>Airy denklemi (Airy equation)</strong>:</p>
                         $$y''-xy=0 \tag{6.1}$$
+                        <div class="highlight">
+                            <p><strong>★ Bu bölüm hocanın ders notunu izliyor.</strong> Kitap Airy denklemini yalnızca adıyla anıyor. Aşağıdaki <span class="vurgu">dönüm noktası türetimi</span> ve sondaki <span class="vurgu">yay sabiti zamanla azalan kütle-yay uygulaması</span> hocanın ders notundan alınmıştır; kitapta karşılığı yoktur.</p>
+                        </div>
                         <p>Görünüşü aldatıcı biçimde sade: yalnızca tek bir değişken katsayı var, o da $x$'in kendisi. Ama bu tek değişiklik denklemin karakterini kökten değiştirir.</p>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Nereden çıkıyor: dönüm noktası</h3>
                         <p>Airy denklemi kendiliğinden yazılmış bir denklem değildir; <span class="vurgu">genel bir denklemin belirli bir noktanın yakınındaki davranışıdır</span>. Şu biçimi düşünelim:</p>
@@ -12262,6 +12390,9 @@
                         </div>
                         <p><strong>Hermite denklemi (Hermite equation)</strong>:</p>
                         $$y''-2xy'+\lambda y=0 \tag{6.4}$$
+                        <div class="highlight">
+                            <p><strong>★ Bu bölüm hocanın ders notunu izliyor.</strong> Özellikle <span class="vurgu">serinin polinoma kesilmesi</span> ($\lambda=2n$) ve bunun kuantum harmonik salınıcıdaki enerji seviyeleriyle bağı hocanın anlattığı sıradır.</p>
+                        </div>
                         <p>Burada $\lambda$ bir <strong>parametredir</strong>; denklemin karakteri onun değerine göre değişir. Kuantum mekaniğinde <strong>harmonik salınıcı (quantum harmonic oscillator)</strong> probleminin çözümü doğrudan bu denkleme indirgenir ve $\lambda$'nın alabileceği değerler <span class="vurgu">enerji seviyelerini</span> verir.</p>
                         <p>$x=0$ adi noktadır ($-2x$ ve $\lambda$ her yerde analitiktir), dolayısıyla yine standart kuvvet serisi yöntemi uygulanır.</p>
                         <hr>

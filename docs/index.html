@@ -188,6 +188,8 @@
                             <li><a href="#ozel-dd-hermite" class="pending">6.2 Hermite Denklemi</a></li>
                             <li><a href="#ozel-dd-bessel">6.3 Bessel Denklemi</a></li>
                             <li><a href="#ozel-dd-bessel-p">6.3 Bessel — İkinci Tür ve p. Mertebe</a></li>
+                            <li><a href="#ozel-dd-bessel-gama">6.3 Gama Fonksiyonu ve $J_p$</a></li>
+                            <li><a href="#ozel-dd-bessel-ikinci">6.3 İkinci Bağımsız Çözüm — $J_{-p}$ ve $Y_p$</a></li>
                             <li><a href="#ozel-dd-legendre" class="pending">6.4 Legendre Denklemi</a></li>
                             <li><a href="#ozel-dd-chebyshev" class="pending">6.5 Chebyshev Denklemi</a></li>
                             <li><a href="#ozel-dd-laguerre" class="pending">6.6 Laguerre Denklemi</a></li>
@@ -9195,6 +9197,124 @@
                         $$N!=\Gamma(N+1) \tag{6.121}$$
                         <p>$N$ pozitif ama tam sayı değilse, $N!$ ifadesi <span class="vurgu">tanım olarak</span> $(6.121)$ ile verilir. Böylece $(6.119)$ biçimi her pozitif $p$ için anlamlı hâle gelir.</p>
                         <p><strong>Neden $N+1$?</strong> Kaydırma tanımın kendisinden gelir: kısmi integrasyonla $\Gamma(N+1)=N\,\Gamma(N)$ bağıntısı elde edilir ve $\Gamma(1)=\displaystyle\int_{0}^{\infty}e^{-x}dx=1$ olduğundan tümevarımla $\Gamma(N+1)=N!$ çıkar. <span class="vurgu">Gama fonksiyonu faktöriyelin bir adım kaydırılmış sürekli karşılığıdır.</span></p>
+                    </div>
+
+                    <div id="ozel-dd-bessel-gama" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            6.3 &nbsp;Gama Fonksiyonunun Özellikleri ve Birinci Tür Bessel Fonksiyonu
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Gama fonksiyonunun özyineleme bağıntısı</h3>
+                        <p>Gama fonksiyonu şu bağıntıyı sağlar:</p>
+                        $$\Gamma(N+1)=N\,\Gamma(N)\qquad (N>0) \tag{6.122}$$
+                        <p>$\Gamma(N)$ değerleri tablolanmıştır ve genellikle <span class="vurgu">yalnızca $1\le N\le 2$ aralığı için</span> verilir. Bu aralıktaki değerlerle, $(6.122)$'yi tekrar tekrar uygulayarak her $N>0$ için $\Gamma(N)$ hesaplanabilir.</p>
+                        <div class="highlight">
+                            <p><strong>Örnek hesap.</strong> $\left(\frac{3}{2}\right)!$ değerini bulalım.</p>
+                            <p>$(6.121)$ tanımından $\left(\frac{3}{2}\right)!=\Gamma\!\left(\frac{5}{2}\right)$ yazılır. $(6.122)$ ile bir adım aşağı inelim:</p>
+                            $$\Gamma\!\left(\frac{5}{2}\right)=\frac{3}{2}\,\Gamma\!\left(\frac{3}{2}\right)$$
+                            <p>$\frac32$ artık tablo aralığındadır: $\Gamma\!\left(\frac{3}{2}\right)\approx 0{,}8862$. Buradan</p>
+                            $$\left(\frac{3}{2}\right)!=\Gamma\!\left(\frac{5}{2}\right)\approx\frac{3}{2}\cdot 0{,}8862\approx 1{,}3293$$
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Negatif değerlere genişletme</h3>
+                        <p>$N<0$ için $(6.120)$ integrali <strong>ıraksar</strong>, dolayısıyla $\Gamma(N)$ negatif değerlerde integralle tanımlanamaz. Tanım şöyle genişletilir: <span class="vurgu">$(6.122)$ özyineleme bağıntısının negatif $N$ için de geçerli olması istenir.</span></p>
+                        $$\Gamma(N)=\frac{\Gamma(N+1)}{N}$$
+                        <p>Bu bağıntının tekrarlı kullanımı, tam sayı olmayan her negatif $N$ için $\Gamma(N)$'yi tanımlar. Böylece $\Gamma(N)$, $N\neq 0,-1,-2,-3,\dots$ olan bütün değerlerde tanımlıdır. Aynı şekilde $N!$ de $N\neq -1,-2,-3,\dots$ için $(6.121)$ ile tanımlanır.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$p$ tam sayı değilken çözümün gama biçimi</h3>
+                        <p>$(6.118)$ çözümüne dönelim ve $p$'nin pozitif tam sayı olmadığı durumu ele alalım. $(6.122)$'yi sırasıyla $N=n+p,\;n+p-1,\;\dots,\;p+1$ için uygularsak:</p>
+                        $$\Gamma(n+p+1)=(n+p)(n+p-1)\cdots(p+1)\,\Gamma(p+1)$$
+                        <p>Yani $(6.118)$'deki paydada duran çarpım, iki gama değerinin oranıdır:</p>
+                        $$(1+p)(2+p)\cdots(n+p)=\frac{\Gamma(n+p+1)}{\Gamma(p+1)}$$
+                        <p>Yerine koyarsak:</p>
+                        $$y_{1}(x)=c_{0}\,2^{p}\,\Gamma(p+1)\sum_{n=0}^{\infty}\frac{(-1)^{n}}{n!\,\Gamma(n+p+1)}\left(\frac{x}{2}\right)^{2n+p} \tag{6.123}$$
+                        <p>$(6.121)$'i $N=p$ ve $N=n+p$ için kullanırsak bu ifade tam olarak $(6.119)$ biçimine döner. <span class="vurgu">Yani $p$ tam sayı olsun olmasın aynı formül geçerlidir</span>; $p!$ ve $(n+p)!$ sembolleri, $p$ tam sayı değilse sırasıyla $\Gamma(p+1)$ ve $\Gamma(n+p+1)$ anlamına gelir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Birinci tür Bessel fonksiyonu $J_{p}$</h3>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $(6.119)$'daki keyfi sabit $c_{0}$, $\dfrac{1}{2^{p}p!}$ seçilirse elde edilen özel çözüme <strong>$p$. mertebeden birinci tür Bessel fonksiyonu (Bessel function of the first kind of order $p$)</strong> denir ve $J_{p}$ ile gösterilir:</p>
+                            $$J_{p}(x)=\sum_{n=0}^{\infty}\frac{(-1)^{n}}{n!\,(n+p)!}\left(\frac{x}{2}\right)^{2n+p} \tag{6.124}$$
+                            <p>Burada $p$ pozitif tam sayı değilse $(n+p)!$ ifadesi $\Gamma(n+p+1)$ ile tanımlanır.</p>
+                        </div>
+                        <p><strong>Tutarlılık kontrolü.</strong> $p=0$ alınırsa $(6.101)$ denklemi $(6.102)$'ye, $(6.124)$ çözümü de $(6.107)$'deki $J_{0}$'a indirgenir. Yani $J_{0}$, $J_{p}$ ailesinin özel bir üyesidir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Birinci mertebeden Bessel denklemi</h3>
+                        <p>$p=1$ alırsak denklem</p>
+                        $$x^{2}y''+xy'+\left(x^{2}-1\right)y=0 \tag{6.125}$$
+                        <p>hâlini alır; buna <strong>birinci mertebeden Bessel denklemi</strong> denir. $(6.124)$'te $p=1$ koyarsak <strong>birinci mertebeden birinci tür Bessel fonksiyonu</strong> çıkar:</p>
+                        $$J_{1}(x)=\sum_{n=0}^{\infty}\frac{(-1)^{n}}{n!\,(n+1)!}\left(\frac{x}{2}\right)^{2n+1} \tag{6.126}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$J_{p}$ fonksiyonlarının davranışı</h3>
+                        <div class="highlight">
+                            <p>$J_{0}$ ve $J_{1}$ grafikleri iki önemli özelliği gösterir; ikisi de her $p\ge 0$ için geçerlidir:</p>
+                            <ol>
+                                <li><strong>Sönümlü salınım (damped oscillatory behavior).</strong> $x\to\infty$ iken $J_{p}$ salınır ama genliği azalarak sıfıra yaklaşır. Trigonometrik fonksiyonlara benzer, ancak genlikleri sabit değildir.</li>
+                            </ol>
+                            <ol>
+                                <li><strong>Sıfırların birbirini ayırması.</strong> $J_{p}$ ile $J_{p+1}$'in pozitif sıfırları <span class="vurgu">birbirini ayırır</span>: $J_{p}$'nin ardışık iki sıfırı arasında $J_{p+1}$'in tam olarak bir sıfırı bulunur. $\sin$ ile $\cos$ arasındaki ilişkinin karşılığıdır.</li>
+                            </ol>
+                        </div>
+                        <p>Bu özellikler, Bessel fonksiyonlarının silindirik simetrili titreşim ve ısı iletimi problemlerinde neden doğal olarak ortaya çıktığını da açıklar: bu problemlerin özdeğerleri $J_{p}$'nin sıfırlarıdır.</p>
+                    </div>
+
+                    <div id="ozel-dd-bessel-ikinci" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            6.3 &nbsp;Bessel Denkleminin İkinci Bağımsız Çözümü
+                        </div>
+                        <p>$p\ge 0$ için Bessel denkleminin bir çözümünü $J_{p}$ olarak bulduk. Peki <strong>lineer bağımsız ikinci çözüm</strong> nedir?</p>
+                        <p>$p=0$ için bunu zaten bulmuştuk: $Y_{0}$. Şimdi $p>0$ durumunu ele alalım. $2p$ pozitif tam sayı değilse, THEoREM 5.3 küçük kök $r_{2}=-p$'ye karşılık gelen bağımsız bir çözümün varlığını garanti ediyordu. Küçük kökle çalışalım.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Küçük kök $r_{2}=-p$</h3>
+                        <p>$r=-p$ koyduğumuzda iki koşul şu hâle gelir:</p>
+                        $$(-2p+1)c_{1}=0 \tag{6.127}$$
+                        $$n(n-2p)c_{n}+c_{n-2}=0,\quad n\ge 2\;\Longrightarrow\;c_{n}=-\frac{c_{n-2}}{n(n-2p)},\quad n\neq 2p \tag{6.129}$$
+                        <p><span class="vurgu">Payda $n=2p$ olduğunda sıfırlanır.</span> Bu yüzden $2p$'nin tam sayı olup olmadığına göre üç ayrı durum doğar.</p>
+                        <div class="highlight">
+                            <p><strong>Durum 1 — $2p$ pozitif tam sayı değil.</strong></p>
+                            $$y_{2}(x)=c_{0}x^{-p}\left(1+\sum_{n=1}^{\infty}\alpha_{2n}x^{2n}\right) \tag{6.130}$$
+                            <p>$c_{0}$ keyfi, $\alpha_{2n}$ belirli sabitlerdir. Bu çözüm <span class="vurgu">$J_{p}$'den lineer bağımsızdır.</span></p>
+                            <p><strong>Durum 2 — $2p$ tek pozitif tam sayı.</strong></p>
+                            $$y_{2}(x)=c_{0}x^{-p}\left(1+\sum_{n=1}^{\infty}\beta_{2n}x^{2n}\right)+c_{2p}\,x^{p}\left(1+\sum_{n=1}^{\infty}\gamma_{2n}x^{2n}\right) \tag{6.131}$$
+                            <p>$c_{0}$ ve $c_{2p}$ keyfidir. $c_{2p}=0$ alınırsa geriye kalan kısım <span class="vurgu">yine $J_{p}$'den bağımsızdır.</span></p>
+                            <p><strong>Durum 3 — $2p$ çift pozitif tam sayı</strong> (yani $p$ tam sayı).</p>
+                            $$y_{2}(x)=c_{2p}\,x^{p}\left(1+\sum_{n=1}^{\infty}\delta_{2n}x^{2n}\right) \tag{6.132}$$
+                            <p>Bu ifade <span class="vurgu">$J_{p}(x)$'in yalnızca bir sabit katıdır</span>; yeni bir çözüm vermez.</p>
+                        </div>
+                        <p><strong>Sonuç:</strong> $2p$ çift pozitif tam sayı <strong>değilse</strong> — yani $p$ pozitif tam sayı değilse — küçük köke karşılık gelen bağımsız bir çözüm vardır:</p>
+                        $$y_{2}(x)=\sum_{n=0}^{\infty}c_{2n}x^{2n-p} \tag{6.133}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$J_{-p}$ — kısayol</h3>
+                        <p>Katsayıları hesaplamak için baştan uğraşmaya gerek yok. Şunu fark edelim:</p>
+                        <p><span class="vurgu">Küçük köke ait $(6.129)$ özyinelemesi, büyük köke ait $(6.117)$ özyinelemesinde $p$ yerine $-p$ yazılarak elde edilir.</span></p>
+                        $$c_{n}=-\frac{c_{n-2}}{n(n+2p)}\quad\xrightarrow{\;p\to -p\;}\quad c_{n}=-\frac{c_{n-2}}{n(n-2p)}$$
+                        <p>Dolayısıyla $(6.133)$ biçimindeki çözüm de, $J_{p}$ tanımında $p$ yerine $-p$ yazılarak bulunur:</p>
+                        $$\boxed{\;J_{-p}(x)=\sum_{n=0}^{\infty}\frac{(-1)^{n}}{n!\,(n-p)!}\left(\frac{x}{2}\right)^{2n-p}\;} \tag{6.134}$$
+                        <p>Burada $(n-p)!$ ifadesi $\Gamma(n-p+1)$ ile tanımlanır — <span class="vurgu">gama fonksiyonunun negatif değerlere genişletilmesinin işe yaradığı yer tam olarak burasıdır.</span></p>
+                        <p><strong>Genel çözüm ($p>0$ tam sayı değilse):</strong></p>
+                        $$y=C_{1}J_{p}(x)+C_{2}J_{-p}(x)$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$p$ tam sayıysa: $Y_{p}$</h3>
+                        <p>$p$ pozitif tam sayıysa Durum 3 geçerlidir ve $J_{-p}$, $J_{p}$'den bağımsız değildir. O zaman bağımsız çözüm logaritmalı biçimde olmak zorundadır:</p>
+                        $$y_{p}(x)=x^{-p}\sum_{n=0}^{\infty}c_{n}^{*}x^{n}+C\,J_{p}(x)\ln x,\qquad C\neq 0$$
+                        <p>Bu çözüm mertebe indirgemeyle bulunabilir. Ancak sıfırıncı mertebede olduğu gibi, ikinci çözüm olarak doğrudan $y_{p}$ değil, belirli bir <strong>özel lineer birleşim</strong> seçilir. Bu birleşim $Y_{p}$ ile gösterilir ve <strong>$p$. mertebeden ikinci tür Bessel fonksiyonu (Weber biçimi)</strong> adını alır:</p>
+                        $$Y_{p}(x)=\frac{2}{\pi}\left\{\left(\ln\frac{x}{2}+\gamma\right)J_{p}(x)-\frac{1}{2}\sum_{n=0}^{p-1}\frac{(p-n-1)!}{n!}\left(\frac{x}{2}\right)^{2n-p}\right.$$
+                        $$\left.+\frac{1}{2}\sum_{n=0}^{\infty}(-1)^{n+1}\left(\sum_{k=1}^{n}\frac{1}{k}+\sum_{k=1}^{n+p}\frac{1}{k}\right)\left[\frac{1}{n!\,(n+p)!}\left(\frac{x}{2}\right)^{2n+p}\right]\right\} \tag{6.135}$$
+                        <p>Burada $\gamma$ Euler sabitidir.</p>
+                        <p><strong>Genel çözüm ($p$ pozitif tam sayıysa):</strong></p>
+                        $$y=C_{1}J_{p}(x)+C_{2}Y_{p}(x)$$
+                        <div class="highlight">
+                            <p><strong>$(6.135)$'in yapısını tanımak.</strong> Korkutucu görünse de üç parçadan oluşur ve her parçanın nereden geldiği bellidir:</p>
+                            <ol>
+                                <li>$\left(\ln\frac{x}{2}+\gamma\right)J_{p}(x)$ — logaritmalı terim, $Y_{0}$'dakiyle aynı yapıda.</li>
+                                <li>Sonlu toplam $\sum_{n=0}^{p-1}$ — $x^{-p}$ ile başlayan, <span class="vurgu">$x\to 0^{+}$ iken ıraksayan</span> kısım. $p=0$ için bu toplam boştur ve terim yok olur; nitekim $(6.110)$'daki $Y_{0}$'da böyle bir terim yoktur.</li>
+                                <li>Sonsuz toplam — içindeki iki harmonik toplam $\sum\frac1k$, $Y_{0}$'da tek harmonik toplam olarak görünüyordu; $p=0$ için ikisi çakışıp o biçime iner.</li>
+                            </ol>
+                            <p>Yani $(6.135)$, $Y_{0}$'ın doğrudan genelleştirmesidir. <span class="vurgu">$p=0$ koyup $(6.110)$'u geri elde etmek, formülü doğru hatırladığınızın en hızlı kontrolüdür.</span></p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Özet tablo</h3>
+                        <p>| $p$ | İkinci bağımsız çözüm | Logaritma | |---|---|---| | $p=0$ | $Y_{0}$ | Var | | $p>0$, tam sayı değil | $J_{-p}$ | Yok | | $p$ pozitif tam sayı | $Y_{p}$ | Var |</p>
+                        <p>$J_{-p}$'nin işe yaradığı tek durum ortadaki satırdır; $p$ tam sayı olduğunda $J_{-p}$ yeni bilgi vermez ve logaritmalı $Y_{p}$'ye başvurulur.</p>
                     </div>
 
                     <div id="ozel-dd-legendre" class="section placeholder">

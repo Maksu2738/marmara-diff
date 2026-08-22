@@ -14,6 +14,7 @@ sirayi belirler. Sidebar bu yapidan otomatik uretilir.
 Kullanim:  python build.py
 """
 
+import hashlib
 import os
 import re
 import shutil
@@ -486,6 +487,15 @@ def derle(ders):
                    sayfa, count=1)
 
     os.makedirs(CIKTI, exist_ok=True)
+    # Tarayici style.css / app.js'i onbellekte tutup eski surumu
+    # gosterebiliyor. Icerik degistikce degisen bir damga ekliyoruz.
+    _damga = hashlib.md5(
+        (dosya_oku(os.path.join(SABLON, 'style.css'))
+         + dosya_oku(os.path.join(SABLON, 'app.js'))).encode('utf-8')
+    ).hexdigest()[:8]
+    sayfa = sayfa.replace('href="style.css"', 'href="style.css?v=%s"' % _damga)
+    sayfa = sayfa.replace('src="app.js"', 'src="app.js?v=%s"' % _damga)
+
     hedef = os.path.join(CIKTI, ayar.get('cikti', '%s.html' % ders))
     with open(hedef, 'w', encoding='utf-8', newline='\n') as f:
         f.write(sayfa)

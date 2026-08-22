@@ -10,7 +10,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=107d95bb">
 
 </head>
 <body>
@@ -170,9 +170,10 @@
                             <li><a href="#egzersizler-sureksiz">4.4 Egzersizler — Süreksiz Zorlama</a></li>
                             <li><a href="#laplace-dirac-delta">4.4 Dirac Delta Fonksiyonu</a></li>
                             <li><a href="#laplace-sistemler">4.5 Sistemlerin Çözümü</a></li>
+                            <li><a href="#egzersizler-sistemler">4.5 Egzersizler — Sistemler</a></li>
+                            <li><a href="#tekrar-donusum-bulma">4.6 Bölüm Tekrarı — Dönüşüm Bulma</a></li>
                             <li><a href="#tekrar-ters-donusum">4.6 Bölüm Tekrarı — Ters Dönüşüm</a></li>
                             <li><a href="#tekrar-bdp">4.6 Bölüm Tekrarı — Başlangıç Değer Problemleri</a></li>
-                            <li><a href="#egzersizler-sistemler">4.5 Egzersizler — Sistemler</a></li>
                         </ul>
                     </li>
 
@@ -10291,6 +10292,351 @@
                         </div>
                     </div>
 
+                    <div id="egzersizler-sistemler" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.5 &nbsp;Egzersizler — Lineer Sistemlerin Laplace ile Çözümü
+                        </div>
+                        <p>Aşağıdaki lineer sistemleri verilen başlangıç koşullarıyla Laplace dönüşümü kullanarak çözünüz.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $x'+y=3e^{2t}$, &nbsp; $y'+x=0$, &nbsp; $x(0)=2,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümleri al.</strong></p>
+                                $$sX-2+Y=\frac{3}{s-2}$$
+                                $$sY+X=0$$
+                                <p><strong>Adım 2 — İkinci denklemden $X$'i çek, birinciye koy.</strong></p>
+                                <p>İkinci denklem çok sade: $\;X=-sY$</p>
+                                $$s(-sY)-2+Y=\frac{3}{s-2}\;\Longrightarrow\;\left(1-s^{2}\right)Y=\frac{3}{s-2}+2=\frac{2s-1}{s-2}$$
+                                $$Y=\frac{2s-1}{(s-2)\left(1-s^{2}\right)}=\frac{-(2s-1)}{(s-2)(s-1)(s+1)}$$
+                                <p><strong>Adım 3 — Kısmi kesirler.</strong></p>
+                                $$-(2s-1)=A(s-1)(s+1)+B(s-2)(s+1)+C(s-2)(s-1)$$
+                                <p>$s=2$: $-3=3A\Rightarrow A=-1$</p>
+                                <p>$s=1$: $-1=-2B\Rightarrow B=\tfrac{1}{2}$</p>
+                                <p>$s=-1$: $3=6C\Rightarrow C=\tfrac{1}{2}$</p>
+                                $$y=-e^{2t}+\frac{1}{2}e^{t}+\frac{1}{2}e^{-t}$$
+                                <p><strong>Adım 4 — $x$'i geri yerleştirmeyle bul.</strong></p>
+                                <p>İkinci orijinal denklemden $x=-y'$:</p>
+                                $$y'=-2e^{2t}+\frac{1}{2}e^{t}-\frac{1}{2}e^{-t}$$
+                                $$\boxed{\;x=-\frac{e^{t}}{2}+\frac{e^{-t}}{2}+2e^{2t},\qquad y=\frac{e^{t}}{2}+\frac{e^{-t}}{2}-e^{2t}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=-\tfrac12+\tfrac12+2=2\;\checkmark$, &nbsp; $y(0)=\tfrac12+\tfrac12-1=0\;\checkmark$</p>
+                                $$x'+y=\left(-\tfrac{e^{t}}{2}-\tfrac{e^{-t}}{2}+4e^{2t}\right)+\left(\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}-e^{2t}\right)=3e^{2t}\;\checkmark$$
+                                $$y'+x=\left(\tfrac{e^{t}}{2}-\tfrac{e^{-t}}{2}-2e^{2t}\right)+\left(-\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}+2e^{2t}\right)=0\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <div class="highlight">
+                                    <p><strong>Adım 4'teki kısayolu benimseyin.</strong> $Y$ bulunduktan sonra $X$'i de elemeyle aramak yerine <span class="vurgu">orijinal denklemlerden en sadesine geri koymak</span> çok daha kısadır. Burada ikinci denklem doğrudan $x=-y'$ verdi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $x'-5x+2y=3e^{4t}$, &nbsp; $y'-4x+y=0$, &nbsp; $x(0)=3,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$(s-5)X+2Y=\frac{3}{s-4}+3,\qquad -4X+(s+1)Y=0$$
+                                <p>İkinci denklemden $Y=\dfrac{4X}{s+1}$; birinciye koyup $X$ çekilir, ardından kısmi kesirlerle geri çevrilir.</p>
+                                $$\boxed{\;x=-2e^{t}+5e^{4t},\qquad y=-4e^{t}+4e^{4t}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=-2+5=3\;\checkmark$, &nbsp; $y(0)=-4+4=0\;\checkmark$</p>
+                                <p>Birinci denklem, katsayı katsayı:</p>
+                                $$e^{t}:\;-2+10-8=0,\qquad e^{4t}:\;20-25+8=3\;\checkmark$$
+                                <p>İkinci denklem:</p>
+                                $$e^{t}:\;-4+8-4=0,\qquad e^{4t}:\;16-20+4=0\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $x'-4x+2y=2t$, &nbsp; $y'-8x+4y=1$, &nbsp; $x(0)=3,\;y(0)=5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$(s-4)X+2Y=\frac{2}{s^{2}}+3,\qquad -8X+(s+4)Y=\frac{1}{s}+5$$
+                                <p><span class="vurgu">Bu sistemde ilginç bir şey var:</span> ikinci denklemin katsayıları birincinin iki katına yakın ($-8=2\cdot(-4)$, $4=2\cdot 2$). Bu, elemede paydanın beklenenden düşük dereceli çıkmasına ve çözümün <strong>polinom</strong> olmasına yol açar.</p>
+                                $$\boxed{\;x=3+2t+\frac{4}{3}t^{3},\qquad y=5+5t-2t^{2}+\frac{8}{3}t^{3}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=3\;\checkmark$, &nbsp; $y(0)=5\;\checkmark$</p>
+                                <p>$x'=2+4t^{2}$ ile birinci denklem:</p>
+                                $$\text{sabit}:\;2-12+10=0,\quad t:\;-8+10=2,\quad t^{2}:\;4-4=0,\quad t^{3}:\;-\tfrac{16}{3}+\tfrac{16}{3}=0$$
+                                $$\Longrightarrow\;2t\;\checkmark$$
+                                <p>$y'=5-4t+8t^{2}$ ile ikinci denklem:</p>
+                                $$\text{sabit}:\;5-24+20=1,\quad t:\;-4-16+20=0,\quad t^{2}:\;8-8=0,\quad t^{3}:\;-\tfrac{32}{3}+\tfrac{32}{3}=0$$
+                                $$\Longrightarrow\;1\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $2x'+y'-x-y=e^{-t}$, &nbsp; $x'+y'+2x+y=e^{t}$, &nbsp; $x(0)=2,\;y(0)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><span class="vurgu">Bu sistemde her iki denklemde de hem $x'$ hem $y'$ var</span>, yani normal biçimde değil. Laplace bundan etkilenmez; dönüşüm alındığında yine iki bilinmeyenli cebirsel sistem çıkar.</p>
+                                $$\boxed{\;x=8\sin t+2\cos t,\qquad y=-13\sin t+\cos t+\frac{e^{t}}{2}-\frac{e^{-t}}{2}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=2\;\checkmark$, &nbsp; $y(0)=1+\tfrac12-\tfrac12=1\;\checkmark$</p>
+                                <p>$x'=8\cos t-2\sin t$, &nbsp; $y'=-13\cos t-\sin t+\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}$</p>
+                                <p><strong>Birinci denklem</strong> ($2x'+y'-x-y$):</p>
+                                $$\cos t:\;16-13-2-1=0,\qquad \sin t:\;-4-1-8+13=0$$
+                                $$e^{t}:\;\tfrac12-\tfrac12=0,\qquad e^{-t}:\;\tfrac12+\tfrac12=1\;\Longrightarrow\;e^{-t}\;\checkmark$$
+                                <p><strong>İkinci denklem</strong> ($x'+y'+2x+y$):</p>
+                                $$\cos t:\;8-13+4+1=0,\qquad \sin t:\;-2-1+16-13=0$$
+                                $$e^{t}:\;\tfrac12+\tfrac12=1,\qquad e^{-t}:\;\tfrac12-\tfrac12=0\;\Longrightarrow\;e^{t}\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $2x'+4y'+x-y=3e^{t}$, &nbsp; $x'+y'+2x+2y=e^{t}$, &nbsp; $x(0)=1,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$\boxed{\;x=e^{-2t}-te^{t},\qquad y=\frac{1}{3}e^{t}-\frac{1}{3}e^{-2t}+te^{t}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=1\;\checkmark$, &nbsp; $y(0)=\tfrac13-\tfrac13=0\;\checkmark$</p>
+                                $$x'=-2e^{-2t}-e^{t}-te^{t},\qquad y'=\frac{4}{3}e^{t}+\frac{2}{3}e^{-2t}+te^{t}$$
+                                <p><strong>Birinci denklem</strong> ($2x'+4y'+x-y$):</p>
+                                $$e^{-2t}:\;-4+\tfrac83+1+\tfrac13=0,\qquad e^{t}:\;-2+\tfrac{16}{3}-\tfrac13=3,\qquad te^{t}:\;-2+4-1-1=0$$
+                                $$\Longrightarrow\;3e^{t}\;\checkmark$$
+                                <p><strong>İkinci denklem</strong> ($x'+y'+2x+2y$):</p>
+                                $$e^{-2t}:\;-2+\tfrac23+2-\tfrac23=0,\qquad e^{t}:\;-1+\tfrac43+\tfrac23=1,\qquad te^{t}:\;-1+1-2+2=0$$
+                                $$\Longrightarrow\;e^{t}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>$te^{t}$ yine belirdi.</strong> Sebebi 30. tekrar sorusundakiyle aynı: zorlamadaki $e^{t}$, elemeden çıkan paydanın $(s-1)$ çarpanıyla çakışıyor ve $(s-1)^{2}$ oluşuyor. <span class="vurgu">Sistemlerde de rezonans aynı biçimde görünür.</span></p>
+                                    <p>Dikkat çeken şey, $te^{t}$'nin $x$ ve $y$'de <strong>ters işaretlerle</strong> çıkması: $x$'te $-te^{t}$, $y$'de $+te^{t}$. Toplandıklarında götürüyorlar; nitekim ikinci denklemdeki $2x+2y$ terimi bu yüzden $te^{t}$ katkısı vermiyor.</p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                                <p><strong>2.</strong> &nbsp; $x'-2y=0$, &nbsp; $y'+x-3y=2$, &nbsp; $x(0)=3,\;y(0)=0$</p>
+                                <p><strong>4.</strong> &nbsp; $x'-2x-3y=0$, &nbsp; $y'+x+2y=t$, &nbsp; $x(0)=-1,\;y(0)=0$</p>
+                                <p><strong>6.</strong> &nbsp; $x'+x+y=5e^{2t}$, &nbsp; $y'-5x-y=-3e^{2t}$, &nbsp; $x(0)=3,\;y(0)=2$</p>
+                                <p><strong>8.</strong> &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$</p>
+                                <p><strong>10.</strong> &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$</p>
+                                <div class="highlight">
+                                    <p><strong>İpuçları.</strong> 2 ve 4 → soru 1 ve 3 gibi; bir denklemden bir bilinmeyeni çekip ötekine koyun.</p>
+                                    <p>6 ve 8 → soru 7 ve 9 gibi, her iki denklemde de türevler karışık. Dönüşüm alıp $X$ ve $Y$ için iki bilinmeyenli sistem kurun.</p>
+                                    <p><strong>10 farklı:</strong> içinde $x''$ var, dolayısıyla <span class="vurgu">üç başlangıç koşulu verilmiş</span>. $\mathcal{L}\{x''\}=s^{2}X-s\,x(0)-x'(0)$ kullanın. Geri kalanı aynıdır.</p>
+                                    <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözüm sınanabilir: bulduğunuz $x$ ve $y$'yi <span class="vurgu">her iki denkleme birden</span> koyun ve başlangıç koşullarını kontrol edin. Yukarıdaki çözümlerde tam olarak bu yapıldı — katsayıları terim türüne göre grupladığınızda hata anında görünür.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tekrar-donusum-bulma" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.6 &nbsp;Bölüm Tekrarı — Dönüşüm Bulma (1-12)
+                        </div>
+                        <p>Bölüm tekrarının ilk bölümü, $\mathcal{L}\{f(t)\}$ <strong>bulma</strong> yönündeki bütün araçları tek tek yokluyor: tanımdan integral, doğrusallık, türev THEoREM'leri, öteleme ve birim basamak gösterimi.</p>
+                        <div class="highlight">
+                            <p><strong>9-12 numaralı sorulara dikkat.</strong> Bunlarda 1, 2 ve benzeri fonksiyonlar <span class="vurgu">bilerek tekrar ediliyor</span>: aynı sonucu bir kez tanımdan integralle, bir kez de 9.4A'daki birim basamak gösterimiyle bulmanız isteniyor. İki yolun aynı cevabı vermesi, basamak gösteriminin doğru kurulduğunun en iyi kontrolüdür.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; Laplace dönüşümünün tanımını kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f(t)=6$ &nbsp;($0&lt;t&lt;2$), &nbsp;$f(t)=3$ &nbsp;($2&lt;t&lt;4$), &nbsp;$f(t)=0$ &nbsp;($t&gt;4$).</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Tanım gereği integral, fonksiyonun tanımlı olduğu parçalara bölünür. $t&gt;4$ parçası sıfır olduğundan katkı vermez:</p>
+                                $$\mathcal{L}\{f\}=\int_{0}^{2}6e^{-st}\,dt+\int_{2}^{4}3e^{-st}\,dt$$
+                                $$=6\left[\frac{-e^{-st}}{s}\right]_{0}^{2}+3\left[\frac{-e^{-st}}{s}\right]_{2}^{4}=\frac{6}{s}\left(1-e^{-2s}\right)+\frac{3}{s}\left(e^{-2s}-e^{-4s}\right)$$
+                                <p>$e^{-2s}$ terimlerini toplayalım: $-6+3=-3$.</p>
+                                $$=\frac{1}{s}\left(6-3e^{-2s}-3e^{-4s}\right)=\boxed{\;\frac{3}{s}\left(2-e^{-2s}-e^{-4s}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; Tanımı kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f(t)=2-t$ &nbsp;($0&lt;t&lt;2$), &nbsp;$f(t)=0$ &nbsp;($t&gt;2$).</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$\mathcal{L}\{f\}=\int_{0}^{2}(2-t)e^{-st}\,dt=2\int_{0}^{2}e^{-st}\,dt-\int_{0}^{2}te^{-st}\,dt$$
+                                <p><strong>Birinci integral:</strong></p>
+                                $$2\int_{0}^{2}e^{-st}\,dt=\frac{2}{s}\left(1-e^{-2s}\right)$$
+                                <p><strong>İkinci integral</strong> (kısmi integrasyon, $u=t$, $dv=e^{-st}dt$):</p>
+                                $$\int_{0}^{2}te^{-st}\,dt=\left[\frac{-t}{s}e^{-st}\right]_{0}^{2}+\frac{1}{s}\int_{0}^{2}e^{-st}\,dt=-\frac{2}{s}e^{-2s}+\frac{1}{s^{2}}\left(1-e^{-2s}\right)$$
+                                <p><strong>Çıkaralım:</strong></p>
+                                $$\mathcal{L}\{f\}=\frac{2}{s}-\frac{2}{s}e^{-2s}+\frac{2}{s}e^{-2s}-\frac{1}{s^{2}}+\frac{1}{s^{2}}e^{-2s}$$
+                                <p><span class="vurgu">$\tfrac{2}{s}e^{-2s}$ terimleri götürüyor</span>:</p>
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s}+\frac{1}{s^{2}}\left(e^{-2s}-1\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; THEoREM 9.2 ve Tablo 9.1'i kullanarak $\mathcal{L}\{\cos at\cos bt\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpımı toplama çevir.</strong> Doğrudan dönüştürülebilen bir çarpım kuralı yoktur; <span class="vurgu">çarpımı önce toplama indirgemek gerekir</span>:</p>
+                                $$\cos A\cos B=\frac{1}{2}\Big[\cos(A-B)+\cos(A+B)\Big]$$
+                                $$\cos at\cos bt=\frac{1}{2}\Big[\cos(a-b)t+\cos(a+b)t\Big]$$
+                                <p><strong>Adım 2 — Doğrusallık (THEoREM 9.2) ve Tablo 9.1.</strong></p>
+                                $$\mathcal{L}\{\cos at\cos bt\}=\frac{1}{2}\left[\frac{s}{s^{2}+(a-b)^{2}}+\frac{s}{s^{2}+(a+b)^{2}}\right]$$
+                                <p><strong>Adım 3 — Tek kesirde topla.</strong></p>
+                                $$=\frac{s}{2}\cdot\frac{\left[s^{2}+(a+b)^{2}\right]+\left[s^{2}+(a-b)^{2}\right]}{\left[s^{2}+(a-b)^{2}\right]\left[s^{2}+(a+b)^{2}\right]}$$
+                                <p>$(a+b)^{2}+(a-b)^{2}=2a^{2}+2b^{2}$ olduğundan pay $2s^{2}+2a^{2}+2b^{2}$ olur ve $2$'ler sadeleşir:</p>
+                                $$\boxed{\;\mathcal{L}\{\cos at\cos bt\}=\frac{s\left(s^{2}+a^{2}+b^{2}\right)}{\left[s^{2}+(a-b)^{2}\right]\left[s^{2}+(a+b)^{2}\right]}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; THEoREM 9.4'ü kullanarak $\mathcal{L}\{t^{3}\}$'ü $\mathcal{L}\{t\}$ cinsinden ifade ediniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$f(t)=t^{3}$ alalım ve THEoREM 9.4'ü $n=2$ ile kullanalım.</p>
+                                <p><strong>Adım 1 — Gerekli değerler.</strong></p>
+                                $$f'(t)=3t^{2},\qquad f''(t)=6t,\qquad f(0)=0,\qquad f'(0)=0$$
+                                <p><strong>Adım 2 — $(9.18)$'e yerleştir.</strong></p>
+                                $$\mathcal{L}\{f''\}=s^{2}\mathcal{L}\{f\}-s\,f(0)-f'(0)=s^{2}\mathcal{L}\{t^{3}\}$$
+                                <p>Sol taraf $\mathcal{L}\{6t\}=6\mathcal{L}\{t\}$ olduğundan:</p>
+                                $$6\,\mathcal{L}\{t\}=s^{2}\,\mathcal{L}\{t^{3}\}$$
+                                $$\boxed{\;\mathcal{L}\{t^{3}\}=\frac{6\,\mathcal{L}\{t\}}{s^{2}}\;}$$
+                                <p><span class="vurgu">Her iki başlangıç değerinin sıfır olması</span> bu soruyu tek satıra indirdi. Kontrol: $\mathcal{L}\{t\}=\tfrac{1}{s^{2}}$ konursa $\mathcal{L}\{t^{3}\}=\tfrac{6}{s^{4}}$ çıkar — Tablo 9.1'deki $\mathcal{L}\{t^{n}\}=\tfrac{n!}{s^{n+1}}$ ile birebir aynı. &#10003;</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $(9.11)$, $(9.18)$ ve Tablo 9.1'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $f''+2f'+3f=e^{4t}$, &nbsp;$f(0)=5$, &nbsp;$f'(0)=6$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$F=\mathcal{L}\{f\}$ diyelim.</p>
+                                <p><strong>Adım 1 — Türevlerin dönüşümleri.</strong></p>
+                                $$\mathcal{L}\{f''\}=s^{2}F-5s-6,\qquad \mathcal{L}\{f'\}=sF-5$$
+                                <p><strong>Adım 2 — Denklemin dönüşümü.</strong></p>
+                                $$\left(s^{2}F-5s-6\right)+2\left(sF-5\right)+3F=\frac{1}{s-4}$$
+                                <p><strong>Adım 3 — Topla.</strong> $F$ çarpanları $s^{2}+2s+3$; sabitler $-5s-6-10=-5s-16$:</p>
+                                $$\left(s^{2}+2s+3\right)F=\frac{1}{s-4}+5s+16=\frac{1+(5s+16)(s-4)}{s-4}$$
+                                <p>$(5s+16)(s-4)=5s^{2}-4s-64$, buna $1$ eklenir:</p>
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{5s^{2}-4s-63}{(s-4)\left(s^{2}+2s+3\right)}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $(9.11)$, $(9.18)$ ve Tablo 9.1'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $3f''-5f'=\sin 2t$, &nbsp;$f(0)=-4$, &nbsp;$f'(0)=6$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Türevlerin dönüşümleri.</strong> $f(0)=-4$ olduğuna, yani <span class="vurgu">işaretin eksi olduğuna</span> dikkat:</p>
+                                $$\mathcal{L}\{f''\}=s^{2}F-s(-4)-6=s^{2}F+4s-6$$
+                                $$\mathcal{L}\{f'\}=sF-(-4)=sF+4$$
+                                <p><strong>Adım 2 — Denklemin dönüşümü.</strong></p>
+                                $$3\left(s^{2}F+4s-6\right)-5\left(sF+4\right)=\frac{2}{s^{2}+4}$$
+                                $$3s^{2}F+12s-18-5sF-20=\frac{2}{s^{2}+4}$$
+                                <p><strong>Adım 3 — Topla.</strong> $F$ çarpanları $3s^{2}-5s=s(3s-5)$; sabitler $12s-38$:</p>
+                                $$s(3s-5)\,F=\frac{2}{s^{2}+4}-12s+38=\frac{2+(38-12s)\left(s^{2}+4\right)}{s^{2}+4}$$
+                                <p>$(38-12s)(s^{2}+4)=-12s^{3}+38s^{2}-48s+152$, buna $2$ eklenir:</p>
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{-12s^{3}+38s^{2}-48s+154}{s\left(s^{2}+4\right)(3s-5)}\;}$$
+                                <div class="highlight">
+                                    <p><strong>&#9888; Cevap anahtarıyla uyuşmuyor — sabit terim.</strong> Kitabın cevap anahtarı payda sabit terimi <strong>152</strong> veriyor:</p>
+                                    $$\frac{-12s^{3}+38s^{2}-48s+152}{s\left(s^{2}+4\right)(3s-5)}$$
+                                    <p>Fark tam olarak $2$'dir ve bu $2$, <span class="vurgu">$\mathcal{L}\{\sin 2t\}=\dfrac{2}{s^{2}+4}$ kesrinin payından</span> gelir. Payı ortak paydaya taşırken $\dfrac{2}{s^{2}+4}$ terimi de $s^{2}+4$ ile çarpılmaz — payında $2$ olarak kalır:</p>
+                                    $$\frac{2}{s^{2}+4}+\frac{(38-12s)\left(s^{2}+4\right)}{s^{2}+4}=\frac{2+(38-12s)\left(s^{2}+4\right)}{s^{2}+4}$$
+                                    <p>$(38-12s)(s^{2}+4)$ çarpımının sabit terimi $38\cdot 4=152$; üzerine bu $2$ eklenince $154$ olur. Anahtardaki değer, sağ taraftaki $\sin 2t$ katkısının unutulduğunu düşündürüyor.</p>
+                                    <p><strong>Payda ve diğer üç terim anahtarla birebir aynı.</strong> Yine de kitabı bir kontrol edin; sınavda anahtardaki biçim beklenebilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; THEoREM 9.5 ve Tablo 9.1'i kullanarak $\mathcal{L}\{e^{3t}\,t\sin 2t\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Önce $e^{3t}$'yi bir kenara bırak, $\mathcal{L}\{t\sin 2t\}$'yi bul.</strong></p>
+                                <p>$\mathcal{L}\{t\,f(t)\}=-F'(s)$ kuralıyla, $F(s)=\dfrac{2}{s^{2}+4}$:</p>
+                                $$\mathcal{L}\{t\sin 2t\}=-\frac{d}{ds}\left(\frac{2}{s^{2}+4}\right)=-2\cdot\frac{-2s}{\left(s^{2}+4\right)^{2}}=\frac{4s}{\left(s^{2}+4\right)^{2}}$$
+                                <p><strong>Adım 2 — Birinci öteleme THEoREM'ini uygula.</strong> $e^{3t}$ ile çarpmak $s\to s-3$ ötelemesi demektir:</p>
+                                $$\mathcal{L}\{e^{3t}\,t\sin 2t\}=\frac{4(s-3)}{\left[(s-3)^{2}+4\right]^{2}}$$
+                                <p><strong>Adım 3 — Paydayı aç.</strong> $(s-3)^{2}+4=s^{2}-6s+9+4=s^{2}-6s+13$:</p>
+                                $$\boxed{\;\mathcal{L}\{e^{3t}\,t\sin 2t\}=\frac{4(s-3)}{\left(s^{2}-6s+13\right)^{2}}\;}$$
+                                <p><span class="vurgu">Sıralama önemli:</span> önce $t$ ile çarpma (türev), sonra $e^{3t}$ ile çarpma (öteleme). Ters sırada da aynı sonuç çıkar ama hesap uzar.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; THEoREM 9.6'yı kullanarak $\mathcal{L}\{t^{3}\cos 3t\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$\mathcal{L}\{t^{n}f(t)\}=(-1)^{n}F^{(n)}(s)$ kuralında $n=3$, yani $-F'''(s)$ gerekiyor. $F(s)=\dfrac{s}{s^{2}+9}$; kısaltma olarak $u=s^{2}+9$.</p>
+                                <p><strong>Birinci türev.</strong></p>
+                                $$F'=\frac{u-s(2s)}{u^{2}}=\frac{9-s^{2}}{u^{2}}$$
+                                <p><strong>İkinci türev.</strong></p>
+                                $$F''=\frac{(-2s)u^{2}-\left(9-s^{2}\right)(2u)(2s)}{u^{4}}=\frac{-2su-4s\left(9-s^{2}\right)}{u^{3}}$$
+                                <p>$-2s(s^{2}+9)-36s+4s^{3}=-2s^{3}-18s-36s+4s^{3}=2s^{3}-54s$:</p>
+                                $$F''=\frac{2s^{3}-54s}{u^{3}}$$
+                                <p><strong>Üçüncü türev.</strong></p>
+                                $$F'''=\frac{\left(6s^{2}-54\right)u^{3}-\left(2s^{3}-54s\right)\left(3u^{2}\right)(2s)}{u^{6}}=\frac{\left(6s^{2}-54\right)u-6s\left(2s^{3}-54s\right)}{u^{4}}$$
+                                <p>$\left(6s^{2}-54\right)\left(s^{2}+9\right)=6s^{4}-486$ &nbsp;($54s^{2}$ terimleri götürüyor), ikinci parça $-12s^{4}+324s^{2}$:</p>
+                                $$F'''=\frac{-6s^{4}+324s^{2}-486}{\left(s^{2}+9\right)^{4}}$$
+                                <p><strong>Sonuç.</strong> $\mathcal{L}\{t^{3}\cos 3t\}=-F'''$:</p>
+                                $$\boxed{\;\mathcal{L}\{t^{3}\cos 3t\}=\frac{6\left(s^{4}-54s^{2}+81\right)}{\left(s^{2}+9\right)^{4}}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">9-12: aynı fonksiyonlar, bu kez birim basamakla</h3>
+                        <p>Aşağıdaki dört soruda 9.4A'daki <strong>birim basamak (unit step)</strong> gösterimi kullanılacak. Kurulum kuralı hep aynıdır: <span class="vurgu">her sıçrama noktasında, "yeni değer eksi eski değer" kadarlık bir basamak eklenir.</span></p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $f(t)=6$ &nbsp;($0&lt;t&lt;2$), &nbsp;$3$ &nbsp;($2&lt;t&lt;4$), &nbsp;$0$ &nbsp;($t&gt;4$). &nbsp; 9.4A sonuçlarıyla $\mathcal{L}\{f(t)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıçramaları tablola.</strong></p>
+                                <div class="tablo-sar">
+                                <table>
+                                    <tr><th>Nokta</th><th>Eski → Yeni</th><th>Sıçrama</th></tr>
+                                    <tr><td>$t=0$</td><td>$0\to 6$</td><td>$+6$</td></tr>
+                                    <tr><td>$t=2$</td><td>$6\to 3$</td><td>$-3$</td></tr>
+                                    <tr><td>$t=4$</td><td>$3\to 0$</td><td>$-3$</td></tr>
+                                </table>
+                                </div>
+                                <p><strong>Adım 2 — Basamak gösterimi.</strong></p>
+                                $$f(t)=6\,u_{0}(t)-3\,u_{2}(t)-3\,u_{4}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong> $\mathcal{L}\{u_{a}(t)\}=\dfrac{e^{-as}}{s}$:</p>
+                                $$\mathcal{L}\{f\}=\frac{6}{s}-\frac{3e^{-2s}}{s}-\frac{3e^{-4s}}{s}=\boxed{\;\frac{3}{s}\left(2-e^{-2s}-e^{-4s}\right)\;}$$
+                                <p><span class="vurgu">1. sorunun cevabının aynısı.</span> Orada üç integral aldık, burada bir tablo kurup tablodan okuduk.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $f(t)=2-t$ &nbsp;($0&lt;t&lt;2$), &nbsp;$0$ &nbsp;($t&gt;2$). &nbsp; 9.4A sonuçlarıyla $\mathcal{L}\{f(t)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Kapatma biçiminde yaz.</strong> Fonksiyon $t=2$'de kapanıyor:</p>
+                                $$f(t)=(2-t)-(2-t)\,u_{2}(t)$$
+                                <p><strong>Adım 2 — İkinci terimi $(t-2)$ cinsinden yaz.</strong> İkinci öteleme THEoREM'i, çarpanın <span class="vurgu">$t-a$ cinsinden</span> olmasını ister. Burada $a=2$ ve</p>
+                                $$2-t=-(t-2)$$
+                                $$f(t)=(2-t)+(t-2)\,u_{2}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong></p>
+                                $$\mathcal{L}\{2-t\}=\frac{2}{s}-\frac{1}{s^{2}},\qquad \mathcal{L}\{(t-2)u_{2}(t)\}=e^{-2s}\,\mathcal{L}\{t\}=\frac{e^{-2s}}{s^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s}+\frac{1}{s^{2}}\left(e^{-2s}-1\right)\;}$$
+                                <ol>
+                                    <li>sorunun cevabının aynısı. &#10003;</li>
+                                </ol>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>11.</strong> &nbsp; $f(t)=-1$ &nbsp;($0&lt;t&lt;3$), &nbsp;$2t-7$ &nbsp;($3&lt;t&lt;5$), &nbsp;$3$ &nbsp;($t&gt;5$). &nbsp; $\mathcal{L}\{f(t)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Fark yöntemiyle kur.</strong> Her düğümde "yeni ifade eksi eski ifade" eklenir:</p>
+                                $$f(t)=-1+\Big[(2t-7)-(-1)\Big]u_{3}(t)+\Big[3-(2t-7)\Big]u_{5}(t)$$
+                                $$=-1+(2t-6)\,u_{3}(t)+(10-2t)\,u_{5}(t)$$
+                                <p><strong>Adım 2 — Çarpanları $t-a$ cinsine sok.</strong> <span class="vurgu">Bu adım atlanırsa öteleme THEoREM'i uygulanamaz.</span></p>
+                                $$2t-6=2(t-3),\qquad 10-2t=-2(t-5)$$
+                                $$f(t)=-1+2(t-3)\,u_{3}(t)-2(t-5)\,u_{5}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong></p>
+                                $$\mathcal{L}\{f\}=-\frac{1}{s}+2\cdot\frac{e^{-3s}}{s^{2}}-2\cdot\frac{e^{-5s}}{s^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{f\}=-\frac{1}{s}+\frac{2}{s^{2}}\left(e^{-3s}-e^{-5s}\right)\;}$$
+                                <p><strong>Doğrulama (süreklilik).</strong> $t=3$'te eski ifade $-1$, yeni ifade $2(3)-7=-1$ — <span class="vurgu">fonksiyon burada sürekli</span>, sıçrama yok; nitekim eklenen terim $2(t-3)$ de $t=3$'te sıfır. $t=5$'te de $2(5)-7=3$, yine sürekli. &#10003;</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>12.</strong> &nbsp; $f(t)=0$ &nbsp;($0&lt;t&lt;\pi$), &nbsp;$-\sin t$ &nbsp;($t&gt;\pi$). &nbsp; $\mathcal{L}\{f(t)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Basamak gösterimi.</strong></p>
+                                $$f(t)=-\sin t\cdot u_{\pi}(t)$$
+                                <p><strong>Adım 2 — Çarpanı $t-\pi$ cinsine sok.</strong> Doğrudan $-\sin t$ yazamayız; öteleme THEoREM'i $g(t-\pi)$ biçimini ister. Trigonometrik özdeşlik işi çözer:</p>
+                                $$\sin(t-\pi)=\sin t\cos\pi-\cos t\sin\pi=-\sin t$$
+                                <p>Yani <span class="vurgu">$-\sin t$ zaten $\sin(t-\pi)$'dir</span>:</p>
+                                $$f(t)=\sin(t-\pi)\,u_{\pi}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong></p>
+                                $$\mathcal{L}\{f\}=e^{-\pi s}\,\mathcal{L}\{\sin t\}=\boxed{\;\frac{e^{-\pi s}}{s^{2}+1}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>12. sorudaki hamle neden bu kadar temiz çıktı?</strong> Çünkü $\sin$ fonksiyonunun periyodu $2\pi$ ve $\pi$ kadar öteleme sadece işaret çeviriyor. Kesme noktası $\pi$ yerine örneğin $\tfrac{\pi}{2}$ olsaydı $\sin t=\cos\left(t-\tfrac{\pi}{2}\right)$ yazmak gerekirdi — <span class="vurgu">fonksiyonun kendisi değişirdi</span>. Sınavda kesme noktasının hangi özdeşliğe denk geldiğine bakın.</p>
+                        </div>
+                    </div>
+
                     <div id="tekrar-ters-donusum" class="section sorular">
                         <div class="section-title">
                             <span class="badge">Sorular</span>
@@ -10576,127 +10922,6 @@
                                 <div class="highlight">
                                     <p><strong>Süreksiz zorlamalı sorularda değişmeyen denetim.</strong> 32, 33 ve 34'te cevabın doğruluğunu <span class="vurgu">süreklilikten</span> sınadık: $t=a$ noktasında iki ifadenin değeri eşit olmalı. Bu kontrol cevap anahtarından bağımsızdır ve neredeyse her hatayı yakalar; öteleme atlanmışsa ya da katsayı yanlışsa iki taraf tutmaz.</p>
                                     <p>Daha da güçlü bir denetim için $y'$'nin de sürekli olduğunu kontrol edin — basamak zorlamada hem $y$ hem $y'$ süreklidir, yalnızca $y''$ sıçrar.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="egzersizler-sistemler" class="section sorular">
-                        <div class="section-title">
-                            <span class="badge">Sorular</span>
-                            4.5 &nbsp;Egzersizler — Lineer Sistemlerin Laplace ile Çözümü
-                        </div>
-                        <p>Aşağıdaki lineer sistemleri verilen başlangıç koşullarıyla Laplace dönüşümü kullanarak çözünüz.</p>
-                        <div class="question-block">
-                            <p class="question-text"><strong>1.</strong> &nbsp; $x'+y=3e^{2t}$, &nbsp; $y'+x=0$, &nbsp; $x(0)=2,\;y(0)=0$</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p><strong>Adım 1 — Dönüşümleri al.</strong></p>
-                                $$sX-2+Y=\frac{3}{s-2}$$
-                                $$sY+X=0$$
-                                <p><strong>Adım 2 — İkinci denklemden $X$'i çek, birinciye koy.</strong></p>
-                                <p>İkinci denklem çok sade: $\;X=-sY$</p>
-                                $$s(-sY)-2+Y=\frac{3}{s-2}\;\Longrightarrow\;\left(1-s^{2}\right)Y=\frac{3}{s-2}+2=\frac{2s-1}{s-2}$$
-                                $$Y=\frac{2s-1}{(s-2)\left(1-s^{2}\right)}=\frac{-(2s-1)}{(s-2)(s-1)(s+1)}$$
-                                <p><strong>Adım 3 — Kısmi kesirler.</strong></p>
-                                $$-(2s-1)=A(s-1)(s+1)+B(s-2)(s+1)+C(s-2)(s-1)$$
-                                <p>$s=2$: $-3=3A\Rightarrow A=-1$</p>
-                                <p>$s=1$: $-1=-2B\Rightarrow B=\tfrac{1}{2}$</p>
-                                <p>$s=-1$: $3=6C\Rightarrow C=\tfrac{1}{2}$</p>
-                                $$y=-e^{2t}+\frac{1}{2}e^{t}+\frac{1}{2}e^{-t}$$
-                                <p><strong>Adım 4 — $x$'i geri yerleştirmeyle bul.</strong></p>
-                                <p>İkinci orijinal denklemden $x=-y'$:</p>
-                                $$y'=-2e^{2t}+\frac{1}{2}e^{t}-\frac{1}{2}e^{-t}$$
-                                $$\boxed{\;x=-\frac{e^{t}}{2}+\frac{e^{-t}}{2}+2e^{2t},\qquad y=\frac{e^{t}}{2}+\frac{e^{-t}}{2}-e^{2t}\;}$$
-                                <p><strong>Doğrulama.</strong> $x(0)=-\tfrac12+\tfrac12+2=2\;\checkmark$, &nbsp; $y(0)=\tfrac12+\tfrac12-1=0\;\checkmark$</p>
-                                $$x'+y=\left(-\tfrac{e^{t}}{2}-\tfrac{e^{-t}}{2}+4e^{2t}\right)+\left(\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}-e^{2t}\right)=3e^{2t}\;\checkmark$$
-                                $$y'+x=\left(\tfrac{e^{t}}{2}-\tfrac{e^{-t}}{2}-2e^{2t}\right)+\left(-\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}+2e^{2t}\right)=0\;\checkmark$$
-                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
-                                <div class="highlight">
-                                    <p><strong>Adım 4'teki kısayolu benimseyin.</strong> $Y$ bulunduktan sonra $X$'i de elemeyle aramak yerine <span class="vurgu">orijinal denklemlerden en sadesine geri koymak</span> çok daha kısadır. Burada ikinci denklem doğrudan $x=-y'$ verdi.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text"><strong>3.</strong> &nbsp; $x'-5x+2y=3e^{4t}$, &nbsp; $y'-4x+y=0$, &nbsp; $x(0)=3,\;y(0)=0$</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                $$(s-5)X+2Y=\frac{3}{s-4}+3,\qquad -4X+(s+1)Y=0$$
-                                <p>İkinci denklemden $Y=\dfrac{4X}{s+1}$; birinciye koyup $X$ çekilir, ardından kısmi kesirlerle geri çevrilir.</p>
-                                $$\boxed{\;x=-2e^{t}+5e^{4t},\qquad y=-4e^{t}+4e^{4t}\;}$$
-                                <p><strong>Doğrulama.</strong> $x(0)=-2+5=3\;\checkmark$, &nbsp; $y(0)=-4+4=0\;\checkmark$</p>
-                                <p>Birinci denklem, katsayı katsayı:</p>
-                                $$e^{t}:\;-2+10-8=0,\qquad e^{4t}:\;20-25+8=3\;\checkmark$$
-                                <p>İkinci denklem:</p>
-                                $$e^{t}:\;-4+8-4=0,\qquad e^{4t}:\;16-20+4=0\;\checkmark$$
-                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
-                            </div>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text"><strong>5.</strong> &nbsp; $x'-4x+2y=2t$, &nbsp; $y'-8x+4y=1$, &nbsp; $x(0)=3,\;y(0)=5$</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                $$(s-4)X+2Y=\frac{2}{s^{2}}+3,\qquad -8X+(s+4)Y=\frac{1}{s}+5$$
-                                <p><span class="vurgu">Bu sistemde ilginç bir şey var:</span> ikinci denklemin katsayıları birincinin iki katına yakın ($-8=2\cdot(-4)$, $4=2\cdot 2$). Bu, elemede paydanın beklenenden düşük dereceli çıkmasına ve çözümün <strong>polinom</strong> olmasına yol açar.</p>
-                                $$\boxed{\;x=3+2t+\frac{4}{3}t^{3},\qquad y=5+5t-2t^{2}+\frac{8}{3}t^{3}\;}$$
-                                <p><strong>Doğrulama.</strong> $x(0)=3\;\checkmark$, &nbsp; $y(0)=5\;\checkmark$</p>
-                                <p>$x'=2+4t^{2}$ ile birinci denklem:</p>
-                                $$\text{sabit}:\;2-12+10=0,\quad t:\;-8+10=2,\quad t^{2}:\;4-4=0,\quad t^{3}:\;-\tfrac{16}{3}+\tfrac{16}{3}=0$$
-                                $$\Longrightarrow\;2t\;\checkmark$$
-                                <p>$y'=5-4t+8t^{2}$ ile ikinci denklem:</p>
-                                $$\text{sabit}:\;5-24+20=1,\quad t:\;-4-16+20=0,\quad t^{2}:\;8-8=0,\quad t^{3}:\;-\tfrac{32}{3}+\tfrac{32}{3}=0$$
-                                $$\Longrightarrow\;1\;\checkmark$$
-                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
-                            </div>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text"><strong>7.</strong> &nbsp; $2x'+y'-x-y=e^{-t}$, &nbsp; $x'+y'+2x+y=e^{t}$, &nbsp; $x(0)=2,\;y(0)=1$</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                <p><span class="vurgu">Bu sistemde her iki denklemde de hem $x'$ hem $y'$ var</span>, yani normal biçimde değil. Laplace bundan etkilenmez; dönüşüm alındığında yine iki bilinmeyenli cebirsel sistem çıkar.</p>
-                                $$\boxed{\;x=8\sin t+2\cos t,\qquad y=-13\sin t+\cos t+\frac{e^{t}}{2}-\frac{e^{-t}}{2}\;}$$
-                                <p><strong>Doğrulama.</strong> $x(0)=2\;\checkmark$, &nbsp; $y(0)=1+\tfrac12-\tfrac12=1\;\checkmark$</p>
-                                <p>$x'=8\cos t-2\sin t$, &nbsp; $y'=-13\cos t-\sin t+\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}$</p>
-                                <p><strong>Birinci denklem</strong> ($2x'+y'-x-y$):</p>
-                                $$\cos t:\;16-13-2-1=0,\qquad \sin t:\;-4-1-8+13=0$$
-                                $$e^{t}:\;\tfrac12-\tfrac12=0,\qquad e^{-t}:\;\tfrac12+\tfrac12=1\;\Longrightarrow\;e^{-t}\;\checkmark$$
-                                <p><strong>İkinci denklem</strong> ($x'+y'+2x+y$):</p>
-                                $$\cos t:\;8-13+4+1=0,\qquad \sin t:\;-2-1+16-13=0$$
-                                $$e^{t}:\;\tfrac12+\tfrac12=1,\qquad e^{-t}:\;\tfrac12-\tfrac12=0\;\Longrightarrow\;e^{t}\;\checkmark$$
-                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
-                            </div>
-                        </div>
-                        <div class="question-block">
-                            <p class="question-text"><strong>9.</strong> &nbsp; $2x'+4y'+x-y=3e^{t}$, &nbsp; $x'+y'+2x+2y=e^{t}$, &nbsp; $x(0)=1,\;y(0)=0$</p>
-                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
-                            <div class="answer">
-                                $$\boxed{\;x=e^{-2t}-te^{t},\qquad y=\frac{1}{3}e^{t}-\frac{1}{3}e^{-2t}+te^{t}\;}$$
-                                <p><strong>Doğrulama.</strong> $x(0)=1\;\checkmark$, &nbsp; $y(0)=\tfrac13-\tfrac13=0\;\checkmark$</p>
-                                $$x'=-2e^{-2t}-e^{t}-te^{t},\qquad y'=\frac{4}{3}e^{t}+\frac{2}{3}e^{-2t}+te^{t}$$
-                                <p><strong>Birinci denklem</strong> ($2x'+4y'+x-y$):</p>
-                                $$e^{-2t}:\;-4+\tfrac83+1+\tfrac13=0,\qquad e^{t}:\;-2+\tfrac{16}{3}-\tfrac13=3,\qquad te^{t}:\;-2+4-1-1=0$$
-                                $$\Longrightarrow\;3e^{t}\;\checkmark$$
-                                <p><strong>İkinci denklem</strong> ($x'+y'+2x+2y$):</p>
-                                $$e^{-2t}:\;-2+\tfrac23+2-\tfrac23=0,\qquad e^{t}:\;-1+\tfrac43+\tfrac23=1,\qquad te^{t}:\;-1+1-2+2=0$$
-                                $$\Longrightarrow\;e^{t}\;\checkmark$$
-                                <div class="highlight">
-                                    <p><strong>$te^{t}$ yine belirdi.</strong> Sebebi 30. tekrar sorusundakiyle aynı: zorlamadaki $e^{t}$, elemeden çıkan paydanın $(s-1)$ çarpanıyla çakışıyor ve $(s-1)^{2}$ oluşuyor. <span class="vurgu">Sistemlerde de rezonans aynı biçimde görünür.</span></p>
-                                    <p>Dikkat çeken şey, $te^{t}$'nin $x$ ve $y$'de <strong>ters işaretlerle</strong> çıkması: $x$'te $-te^{t}$, $y$'de $+te^{t}$. Toplandıklarında götürüyorlar; nitekim ikinci denklemdeki $2x+2y$ terimi bu yüzden $te^{t}$ katkısı vermiyor.</p>
-                                </div>
-                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
-                                <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                                <p><strong>2.</strong> &nbsp; $x'-2y=0$, &nbsp; $y'+x-3y=2$, &nbsp; $x(0)=3,\;y(0)=0$</p>
-                                <p><strong>4.</strong> &nbsp; $x'-2x-3y=0$, &nbsp; $y'+x+2y=t$, &nbsp; $x(0)=-1,\;y(0)=0$</p>
-                                <p><strong>6.</strong> &nbsp; $x'+x+y=5e^{2t}$, &nbsp; $y'-5x-y=-3e^{2t}$, &nbsp; $x(0)=3,\;y(0)=2$</p>
-                                <p><strong>8.</strong> &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$</p>
-                                <p><strong>10.</strong> &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$</p>
-                                <div class="highlight">
-                                    <p><strong>İpuçları.</strong> 2 ve 4 → soru 1 ve 3 gibi; bir denklemden bir bilinmeyeni çekip ötekine koyun.</p>
-                                    <p>6 ve 8 → soru 7 ve 9 gibi, her iki denklemde de türevler karışık. Dönüşüm alıp $X$ ve $Y$ için iki bilinmeyenli sistem kurun.</p>
-                                    <p><strong>10 farklı:</strong> içinde $x''$ var, dolayısıyla <span class="vurgu">üç başlangıç koşulu verilmiş</span>. $\mathcal{L}\{x''\}=s^{2}X-s\,x(0)-x'(0)$ kullanın. Geri kalanı aynıdır.</p>
-                                    <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözüm sınanabilir: bulduğunuz $x$ ve $y$'yi <span class="vurgu">her iki denkleme birden</span> koyun ve başlangıç koşullarını kontrol edin. Yukarıdaki çözümlerde tam olarak bu yapıldı — katsayıları terim türüne göre grupladığınızda hata anında görünür.</p>
                                 </div>
                             </div>
                         </div>
@@ -13868,6 +14093,6 @@
     </div>
 
 
-    <script src="app.js"></script>
+    <script src="app.js?v=107d95bb"></script>
 </body>
 </html>

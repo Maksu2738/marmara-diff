@@ -140,7 +140,7 @@
                             <span class="chevron">&#9654;</span>
                         </button>
                         <ul class="chapter-links open">
-                            <li><a href="#laplace" class="pending">Giriş</a></li>
+                            <li><a href="#laplace">Giriş</a></li>
                             <li><a href="#laplace-tanim">4.1 Tanım ve Temel Dönüşümler</a></li>
                             <li><a href="#laplace-varlik">4.1 Dönüşüm Ne Zaman Vardır</a></li>
                             <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
@@ -7865,7 +7865,32 @@
                         <div class="section-title">
                             BÖLÜM 4: Laplace Dönüşümü
                         </div>
-                        <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
+                        <p><strong>Laplace dönüşümü (Laplace transform)</strong>, başlangıç değer problemlerinin çözümünde özellikle kullanışlı bir araçtır. Bir $f$ fonksiyonunu ($t$ değişkenli) başka bir $F$ fonksiyonuna ($s$ değişkenli) çevirir.</p>
+                        <p>Yöntemin bütün fikri şu tek gözlemde saklıdır:</p>
+                        $$\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\{f(t)\}-f(0)$$
+                        <p><span class="vurgu">Türev almak, $s$ ile çarpmaya dönüşüyor.</span> Bu yüzden bir diferansiyel denklem, dönüşüm alındığında <strong>cebirsel denkleme</strong> iner. Cebirsel denklem çözülür, sonra geri çevrilir.</p>
+                        <div class="highlight">
+                            <p><strong>Klasik yöntemlerden temel farkı.</strong> Sabit katsayılı denklemleri karakteristik denklem ve belirsiz katsayılarla da çözebiliyorduk. Oradaki sıra şuydu: <strong>önce genel çözüm, sonra başlangıç koşulları.</strong></p>
+                            <p>Laplace'ta sıra tersinedir — yukarıdaki formüldeki $-f(0)$ terimi sayesinde <span class="vurgu">başlangıç koşulları daha ilk adımda denkleme girer</span> ve doğrudan özel çözüme varılır. Homojen/özel çözüm ayrımı hiç yapılmaz.</p>
+                            <p>Bu fark, süreksiz zorlama terimlerinde belirleyici bir üstünlüğe dönüşür: klasik yöntemler orada parça parça çözüp bağlantı koşulları yazmak zorunda kalırken, Laplace tek hamlede sonuca gider.</p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bölümün akışı</h3>
+                        <p><strong>4.1 — Temeller.</strong> Dönüşümün tanımı, hangi fonksiyonlar için var olduğu (parçalı süreklilik ve üstel mertebe), temel dönüşümler ve türev kuralı. Ayrıca iki üretken özellik: <strong>öteleme</strong> ($e^{at}$ ile çarpma) ve <strong>$t^n$ ile çarpma</strong>. Bu ikisi sayesinde birkaç temel dönüşümden çok daha fazlası elde edilir.</p>
+                        <p><strong>4.2 — Ters dönüşüm.</strong> Asıl zorluk burada. $Y(s)$ bulunduktan sonra $y(t)$'yi geri çıkarmak gerekir. Araçlar: <strong>dönüşüm tablosu</strong>, <strong>kısmi kesirler</strong>, <strong>tamkareye tamamlama</strong> ve tabloların yetmediği yerde <strong>konvolüsyon</strong>.</p>
+                        <p><strong>4.3 — Denklem çözümü.</strong> Üç adımlık yöntemin tam uygulaması; birinci, ikinci ve üçüncü mertebeden örnekler.</p>
+                        <p><strong>4.4 — Süreksiz zorlama.</strong> <strong>Birim basamak fonksiyonu</strong> ile süreksiz terimlerin nasıl ifade edileceği, <strong>ikinci öteleme THEoREM'i</strong> ve periyodik fonksiyonların dönüşümü.</p>
+                        <p><strong>4.5 — Sistemler.</strong> İki bilinmeyenli lineer sistemlerin Laplace ile çözümü.</p>
+                        <div class="highlight">
+                            <p><strong>Çalışırken izlenecek sıra:</strong></p>
+                            <ol>
+                                <li>Denklemin her iki tarafının dönüşümünü al; türev kuralıyla başlangıç koşulları kendiliğinden girer.</li>
+                                <li>Çıkan cebirsel denklemi $\mathcal{L}\{y\}$ için çöz.</li>
+                                <li>Sonucu tablonun tanıyacağı biçime sok — kısmi kesir, tamkare, gerekirse konvolüsyon.</li>
+                                <li>Ters dönüşümle $y(t)$'yi bul.</li>
+                            </ol>
+                            <p>İlk iki adım mekaniktir. <span class="vurgu">Zaman ve dikkat üçüncü adımda harcanır</span>; bu bölümün örneklerinin çoğu da orayı çalıştırmak içindir.</p>
+                        </div>
+                        <p><strong>Bir uyarı.</strong> Laplace'ta "öteleme" adını taşıyan <strong>iki ayrı</strong> THEoREM vardır ve sürekli karıştırılırlar. Ayrım şudur: <span class="vurgu">$s$ kaydıysa birinci (4.1), $t$ kaydıysa ikinci (4.4).</span> İkisinin karşılaştırmalı tablosu 4.4'tedir.</p>
                     </div>
 
                     <div id="laplace-tanim" class="section konu">

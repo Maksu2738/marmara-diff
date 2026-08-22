@@ -167,6 +167,7 @@
                             <li><a href="#ornek-sureksiz-zorlama">4.4 Örnek — Süreksiz Zorlamalı Problem</a></li>
                             <li><a href="#egzersizler-sureksiz">4.4 Egzersizler — Süreksiz Zorlama</a></li>
                             <li><a href="#laplace-dirac-delta">4.4 Dirac Delta Fonksiyonu</a></li>
+                            <li><a href="#laplace-sistemler">4.5 Sistemlerin Çözümü</a></li>
                         </ul>
                     </li>
 
@@ -9976,6 +9977,88 @@
                                     <p><strong>Darbenin etkisi nasıl görünüyor?</strong> $t<\frac{\pi}{2}$ aralığında sistem serbest sönümlü salınım yapıyor. $t=\frac{\pi}{2}$'de darbe geliyor ve <span class="vurgu">çözüme yeni bir salınım bileşeni ekliyor.</span></p>
                                     <p>$y$'nin kendisi $t=\frac{\pi}{2}$'de süreklidir (çünkü $\sin 2t$ orada sıfırdır), ama <strong>türevi sıçrar</strong> — darbenin anlık momentum aktarması budur. Süreksiz basamak zorlamada ($4.4$'teki Örnek 9.36) hem $y$ hem $y'$ sürekliydi; delta ile $y'$ süreksiz hâle geliyor.</p>
                                     <p><span class="vurgu">Genel kural: $\delta$ zorlaması, çözümün bir mertebe düşük türevinde sıçrama yaratır.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-sistemler" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.5 &nbsp;Lineer Sistemlerin Laplace ile Çözümü
+                        </div>
+                        <p>Laplace yöntemi tek denklemle sınırlı değildir. <strong>Birinci mertebeden lineer sistemlere</strong> doğrudan genişler:</p>
+                        $$a_{1}x'+a_{2}y'+a_{3}x+a_{4}y=\beta_{1}(t)$$
+                        $$b_{1}x'+b_{2}y'+b_{3}x+b_{4}y=\beta_{2}(t) \tag{9.112}$$
+                        <p>Katsayılar sabit, $\beta_{1}$ ve $\beta_{2}$ bilinen fonksiyonlar. Başlangıç koşulları:</p>
+                        $$x(0)=c_{1},\qquad y(0)=c_{2} \tag{9.113}$$
+                        <p>$\mathcal{L}\{x\}=X(s)$ ve $\mathcal{L}\{y\}=Y(s)$ diyelim.</p>
+                        <div class="highlight">
+                            <p><strong>YÖNTEMİN ÖZETİ</strong></p>
+                            <ol>
+                                <li>Sistemin <strong>her iki denkleminin</strong> Laplace dönüşümünü al; THEoREM 9.3'ü ve başlangıç koşullarını uygula. Sonuçta bilinmeyenleri $X(s)$ ve $Y(s)$ olan <strong>iki cebirsel denklem</strong> elde edilir.</li>
+                            </ol>
+                            <ol>
+                                <li>Bu iki bilinmeyenli cebirsel sistemi çözerek $X(s)$ ve $Y(s)$'yi belirle.</li>
+                            </ol>
+                            <ol>
+                                <li>Dönüşüm tablosuyla $x=\mathcal{L}^{-1}\{X(s)\}$ ve $y=\mathcal{L}^{-1}\{Y(s)\}$ çözümlerini bul.</li>
+                            </ol>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Bölüm 7'deki operatör yöntemiyle karşılaştırma.</strong> İki yöntem de aynı fikre dayanır: bilinmeyenlerden birini eleyip cebirsel bir denkleme inmek. Ama önemli bir fark var.</p>
+                            <p><strong>Operatör yönteminde</strong> $x$ ve $y$ ayrı ayrı çözülür, sonuçta $2N$ keyfi sabit çıkar ve <span class="vurgu">bunların arasındaki bağıntıları bulmak için çözümleri sisteme geri koymak gerekir</span> (bkz. 7.4).</p>
+                            <p><strong>Laplace'ta böyle bir adım yoktur.</strong> Başlangıç koşulları daha ilk adımda denkleme girdiği için keyfi sabit hiç ortaya çıkmaz; doğrudan özel çözüme varılır. <span class="vurgu">Başlangıç değer problemlerinde Laplace belirgin biçimde daha kısadır.</span></p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.38.</strong> &nbsp; Aşağıdaki sistemi verilen başlangıç koşullarıyla çözünüz: $$x'-6x+3y=8e^{t},\qquad y'-2x-y=4e^{t}$$ $$x(0)=-1,\qquad y(0)=0$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Her iki denklemin dönüşümünü al.</strong></p>
+                                $$\mathcal{L}\{x'\}=sX(s)-x(0)=sX(s)+1,\qquad \mathcal{L}\{y'\}=sY(s)-y(0)=sY(s)$$
+                                <p><strong>Birinci denklem:</strong></p>
+                                $$sX+1-6X+3Y=\frac{8}{s-1}$$
+                                $$(s-6)X+3Y=\frac{8}{s-1}-1=\frac{8-(s-1)}{s-1}=\frac{-s+9}{s-1}$$
+                                <p><strong>İkinci denklem:</strong></p>
+                                $$sY-2X-Y=\frac{4}{s-1}\;\Longrightarrow\;-2X+(s-1)Y=\frac{4}{s-1}$$
+                                <p><span class="vurgu">İki bilinmeyenli sıradan bir cebirsel sistem elde ettik.</span></p>
+                                <p><strong>Adım 2 — $Y$'yi ele.</strong></p>
+                                <p>Birinci denklemi $(s-1)$ ile, ikinciyi $3$ ile çarpalım — <span class="vurgu">$Y$ katsayıları eşitlensin:</span></p>
+                                $$(s-1)(s-6)X+3(s-1)Y=-s+9$$
+                                $$-6X+3(s-1)Y=\frac{12}{s-1}$$
+                                <p>Çıkaralım:</p>
+                                $$\Big[(s-1)(s-6)+6\Big]X=-s+9-\frac{12}{s-1}$$
+                                <p>Köşeli parantez: $\;s^{2}-7s+6+6=s^{2}-7s+12$</p>
+                                <p>Sağ tarafı ortak paydada birleştirelim:</p>
+                                $$\frac{(-s+9)(s-1)-12}{s-1}=\frac{-s^{2}+10s-9-12}{s-1}=\frac{-s^{2}+10s-21}{s-1}$$
+                                $$X(s)=\frac{-s^{2}+10s-21}{(s-1)\left(s^{2}-7s+12\right)}=\frac{-s^{2}+10s-21}{(s-1)(s-3)(s-4)}$$
+                                <p><strong>Sadeleşme.</strong> Payı çarpanlarına ayıralım:</p>
+                                $$-s^{2}+10s-21=-\left(s^{2}-10s+21\right)=-(s-3)(s-7)$$
+                                <p><span class="vurgu">$(s-3)$ çarpanı pay ve paydada sadeleşiyor:</span></p>
+                                $$X(s)=\frac{-(s-3)(s-7)}{(s-1)(s-3)(s-4)}=\frac{-s+7}{(s-1)(s-4)}$$
+                                <p><strong>Adım 3 — $x$'i bul.</strong></p>
+                                $$\frac{-s+7}{(s-1)(s-4)}=\frac{A}{s-1}+\frac{B}{s-4},\qquad -s+7=A(s-4)+B(s-1)$$
+                                <p>$s=1$: $6=-3A\Rightarrow A=-2$. &nbsp;&nbsp; $s=4$: $3=3B\Rightarrow B=1$.</p>
+                                $$\boxed{\;x=-2e^{t}+e^{4t}\;}$$
+                                <p><strong>Adım 4 — $y$'yi bul.</strong></p>
+                                <p>$X$ bilindiğine göre ikinci denklemden doğrudan çekelim:</p>
+                                $$(s-1)Y=\frac{4}{s-1}+2X=\frac{4}{s-1}+\frac{2(-s+7)}{(s-1)(s-4)}$$
+                                $$=\frac{4(s-4)+2(-s+7)}{(s-1)(s-4)}=\frac{4s-16-2s+14}{(s-1)(s-4)}=\frac{2s-2}{(s-1)(s-4)}$$
+                                <p>Pay $2(s-1)$'dir; <span class="vurgu">$(s-1)$ sadeleşiyor:</span></p>
+                                $$(s-1)Y=\frac{2(s-1)}{(s-1)(s-4)}=\frac{2}{s-4}\;\Longrightarrow\;Y(s)=\frac{2}{(s-1)(s-4)}$$
+                                $$2=A(s-4)+B(s-1)$$
+                                <p>$s=1$: $2=-3A\Rightarrow A=-\frac{2}{3}$. &nbsp;&nbsp; $s=4$: $2=3B\Rightarrow B=\frac{2}{3}$.</p>
+                                $$\boxed{\;y=-\frac{2}{3}e^{t}+\frac{2}{3}e^{4t}\;}$$
+                                <p><strong>Doğrulama.</strong></p>
+                                <p>Başlangıç koşulları: $x(0)=-2+1=-1\;\checkmark$, &nbsp; $y(0)=-\frac23+\frac23=0\;\checkmark$</p>
+                                <p>Birinci denklem ($x'=-2e^{t}+4e^{4t}$):</p>
+                                $$x'-6x+3y:\quad e^{t}\text{ katsayıları}\;-2+12-2=8\;\checkmark,\qquad e^{4t}\text{ katsayıları}\;4-6+2=0\;\checkmark$$
+                                <p>İkinci denklem ($y'=-\frac23 e^{t}+\frac83 e^{4t}$):</p>
+                                $$y'-2x-y:\quad e^{t}:\;-\tfrac23+4+\tfrac23=4\;\checkmark,\qquad e^{4t}:\;\tfrac83-2-\tfrac23=0\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Adım 4'teki kısayol.</strong> $Y$'yi de $X$ gibi elemeyle bulabilirdik, ama gerek yok: $X$ zaten bilindiğine göre <span class="vurgu">orijinal denklemlerden birine koyup $Y$'yi çekmek daha kısadır.</span> Nitekim bu yolda $(s-1)$ çarpanı kendiliğinden sadeleşti.</p>
+                                    <p>Genel kural: sistemlerde <strong>bir</strong> bilinmeyeni elemeyle bulun, ötekini geri yerleştirmeyle. İkisini birden elemek gereksiz iş üretir.</p>
                                 </div>
                             </div>
                         </div>

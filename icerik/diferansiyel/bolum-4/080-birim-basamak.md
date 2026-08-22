@@ -3,6 +3,7 @@ id: laplace-birim-basamak
 menu: 4.4 Birim Basamak Fonksiyonu
 tip: konu
 baslik: 4.4 &nbsp;Süreksiz Zorlama ve Birim Basamak Fonksiyonu
+defterde: yok
 ---
 
 Şimdiye kadar zorlama terimi $b(t)$ hep sürekliydi. Gerçek problemlerde ise ==zorlama aniden devreye girer ya da kesilir==: bir anahtarın açılması, bir yükün bırakılması, bir darbenin uygulanması.

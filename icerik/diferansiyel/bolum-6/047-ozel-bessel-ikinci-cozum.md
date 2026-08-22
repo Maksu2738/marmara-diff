@@ -3,6 +3,7 @@ id: ozel-dd-bessel-ikinci
 menu: 6.3 İkinci Bağımsız Çözüm — J₋ₚ ve Yₚ
 tip: konu
 baslik: 6.3 &nbsp;Bessel Denkleminin İkinci Bağımsız Çözümü
+defterde: yok
 ---
 
 $p\ge 0$ için Bessel denkleminin bir çözümünü $J_{p}$ olarak bulduk. Peki **lineer bağımsız ikinci çözüm** nedir?

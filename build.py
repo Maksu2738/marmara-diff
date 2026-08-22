@@ -341,7 +341,12 @@ def md_parcasi(basliklar, govde):
     pid = basliklar.get('id', '')
     baslik = basliklar.get('baslik', '')
 
-    satirlar = [GIRINTI + '<div id="%s" class="section %s">' % (pid, tip)]
+    # 'defterde: yok' -> konu kitapta var ama hocanin ders defterinde
+    # islenmemis. Bolume kirmizi zemin ve uyari seridi eklenir.
+    defterde_yok = basliklar.get('defterde', '').strip().lower() == 'yok'
+    sinif = 'section %s%s' % (tip, ' defter-disi' if defterde_yok else '')
+
+    satirlar = [GIRINTI + '<div id="%s" class="%s">' % (pid, sinif)]
 
     if baslik:
         satirlar.append(GIRINTI + '    <div class="section-title">')
@@ -355,6 +360,12 @@ def md_parcasi(basliklar, govde):
         if rozet:
             satirlar.append(GIRINTI + '        <span class="badge">%s</span>' % rozet)
         satirlar.append(GIRINTI + '        ' + satir_ici(baslik))
+        satirlar.append(GIRINTI + '    </div>')
+
+    if defterde_yok:
+        satirlar.append(GIRINTI + '    <div class="defter-disi-uyari">')
+        satirlar.append(GIRINTI + '        <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>')
+        satirlar.append(GIRINTI + '        <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>')
         satirlar.append(GIRINTI + '    </div>')
 
     satirlar.extend(bloklari_cevir(govde.split('\n'), GIRINTI + '    '))
@@ -422,7 +433,12 @@ def sidebar_uret(bolumler):
             menu = p['basliklar'].get('menu')
             if not menu:
                 continue
-            sinif = ' class="pending"' if p['basliklar'].get('durum') == 'bekliyor' else ''
+            _s = []
+            if p['basliklar'].get('durum') == 'bekliyor':
+                _s.append('pending')
+            if p['basliklar'].get('defterde', '').strip().lower() == 'yok':
+                _s.append('defterde-yok')
+            sinif = ' class="%s"' % ' '.join(_s) if _s else ''
             s.append('                            <li><a href="#%s"%s>%s</a></li>'
                      % (p['basliklar'].get('id', ''), sinif, menu))
         s.append('                        </ul>')

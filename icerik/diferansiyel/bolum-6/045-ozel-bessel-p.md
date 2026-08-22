@@ -3,6 +3,7 @@ id: ozel-dd-bessel-p
 menu: 6.3 Bessel — İkinci Tür ve p. Mertebe
 tip: konu
 baslik: 6.3 &nbsp;İkinci Tür Bessel Fonksiyonu ve p. Mertebeden Bessel Denklemi
+defterde: yok
 ---
 
 ### $Y_{0}$ — ikinci tür Bessel fonksiyonu

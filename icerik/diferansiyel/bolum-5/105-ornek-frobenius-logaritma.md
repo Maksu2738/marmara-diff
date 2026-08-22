@@ -3,6 +3,7 @@ id: ornek-frobenius-logaritma
 menu: 5.9 Örnek — Logaritmalı İkinci Çözüm
 tip: ornek
 baslik: 5.9 &nbsp;Çözümlü Örnek — Logaritmanın Kaçınılmaz Olduğu Durum
+defterde: yok
 ---
 
 Örnek 5.12'de kök farkı pozitif tam sayıydı ve şanslıydık: küçük kök çelişkiye düşmedi, hatta tek başına genel çözümü verdi. ==Ama bu her zaman olmaz.== Aşağıdaki örnek, aynı koşullar altında çelişkinin çıktığı ve logaritmalı terimin kaçınılmaz olduğu durumu gösteriyor.

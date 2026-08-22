@@ -3,6 +3,7 @@ id: egzersizler-basamak
 menu: 4.4 Egzersizler — Basamak Fonksiyonları
 tip: sorular
 baslik: 4.4 &nbsp;Egzersizler — Basamak ve Ötelenmiş Fonksiyonların Dönüşümü
+defterde: yok
 ---
 
 Aşağıdaki fonksiyonların $\mathcal{L}\{f(t)\}$ dönüşümlerini bulunuz.

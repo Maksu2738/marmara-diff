@@ -3,6 +3,7 @@ id: ornek-sureksiz-zorlama
 menu: 4.4 Örnek — Süreksiz Zorlamalı Problem
 tip: ornek
 baslik: 4.4 &nbsp;Çözümlü Örnek — Süreksiz Zorlamalı Başlangıç Değer Problemi
+defterde: yok
 ---
 
 Bölüm 4.4'ün bütün araçları burada bir araya geliyor. ==Bu, Laplace yönteminin klasik yöntemlere karşı en belirgin üstünlük gösterdiği problem türüdür.==

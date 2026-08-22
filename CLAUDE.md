@@ -72,6 +72,12 @@ baslik: 5.1 &nbsp;Yay Üzerindeki Kütlenin Titreşim Diferansiyel Denklemi
   varsayılan metnin yerine o kullanılır (Ödevler bölümü böyle çalışıyor:
   rozet numarayı, başlık konuyu taşır).
 - `durum: bekliyor` — sidebar linkini soluk gösterir (içerik henüz yoksa)
+- `defterde: yok` — konu **kitapta var ama hocanın ders defterinde işlenmemiş**.
+  Bölüme kırmızı zemin + "⚠ DERSTE İŞLENMEDİ" şeridi koyar, sidebar linkine
+  küçük kırmızı `yok` rozeti ekler. `bolum-91` (Kapsam Dışı) ile karıştırma:
+  orası hiç sorulmayacak konular, bu ise sorulabilecek ama derste geçmemiş
+  konular. Yalnızca defterin kapsadığı bölümlerde kullan — elimizdeki defter
+  vize sonrasını kapsıyor, dolayısıyla bölüm 1-3 için karar verilemez.
 
 Gövde:
 

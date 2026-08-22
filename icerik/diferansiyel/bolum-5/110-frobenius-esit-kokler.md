@@ -3,6 +3,7 @@ id: frobenius-esit-kokler
 menu: 5.10 Eşit Kökler Durumu
 tip: konu
 baslik: 5.10 &nbsp;Belirtici Denklemin Kökleri Eşit Olduğunda
+defterde: yok
 ---
 
 Örnek 5.11, 5.12 ve 5.13, THEoREM 5.3'ün sonuçlarındaki bütün olasılıkları gösterdi — ==biri hariç:== köklerin eşit olduğu durum, yani $r_{1}-r_{2}=0$.

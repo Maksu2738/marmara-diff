@@ -713,3 +713,77 @@ body.dark-mode .question-block.yildizli p.question-text {
         animation: none;
     }
 }
+
+/* ============ DERSTE ISLENMEDI (kitapta var, defterde yok) ============
+   `defterde: yok` yazan parcalar. Kirmizi zemin + uyari seridi; calisirken
+   "burasi derste gecmedi" bilgisi bir bakista gorulsun diye. bolum-91
+   (Kapsam Disi) ile karistirmayin: orasi hic sorulmayacak konular, burasi
+   kitapta olan ve sorulabilecek ama derste islenmemis konular. */
+
+.section.defter-disi {
+    background: #fffafa;
+    border: 1px solid #f6d5d5;
+    border-left: 5px solid #dc2626;
+}
+
+.defter-disi-uyari {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    margin-bottom: 1.1rem;
+    font-size: 0.88rem;
+    color: #7f1d1d;
+    line-height: 1.55;
+}
+
+.defter-disi-rozet {
+    flex-shrink: 0;
+    background: #dc2626;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    padding: 0.22rem 0.6rem;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+/* Sidebar'da da belli olsun */
+.sidebar-nav a.defterde-yok::after {
+    content: "yok";
+    float: right;
+    margin-left: 0.4rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fca5a5;
+    border: 1px solid rgba(220, 38, 38, 0.45);
+    border-radius: 4px;
+    padding: 0 0.28rem;
+    line-height: 1.5;
+}
+
+/* ---- gece modu ----
+   Mevcut `body.dark-mode .section` kurali !important ile yaziyor;
+   defter-disi varyantinin ezilmemesi icin burada da sart. */
+body.dark-mode .section.defter-disi {
+    background-color: #2a1b1b !important;
+    border-color: #5c2b2b !important;
+    border-left-color: #ef4444 !important;
+}
+
+body.dark-mode .defter-disi-uyari {
+    background: #3a1f1f;
+    border-color: #6b3030;
+    color: #fecaca;
+}
+
+body.dark-mode .defter-disi-rozet {
+    background: #ef4444;
+    color: #1a1010;
+}

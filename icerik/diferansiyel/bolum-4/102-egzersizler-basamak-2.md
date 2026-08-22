@@ -3,6 +3,7 @@ id: egzersizler-basamak-2
 menu: 4.4 Egzersizler — Trigonometrik ve Periyodik
 tip: sorular
 baslik: 4.4 &nbsp;Egzersizler — Trigonometrik Öteleme ve Periyodik Fonksiyonlar
+defterde: yok
 ---
 
 Bu grup, öncekinden iki bakımdan zorlaşıyor: ifadeler **trigonometrik** ve son dördü **periyodik**.

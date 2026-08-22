@@ -3,6 +3,7 @@ id: ornek-konvolusyon
 menu: 4.2 Örnek — Konvolüsyonun Vazgeçilmez Olduğu Durum
 tip: ornek
 baslik: 4.2 &nbsp;Çözümlü Örnek — Tablo Girdisinin Konvolüsyonla Türetilmesi
+defterde: yok
 ---
 
 Örnek 9.24'te konvolüsyon ile kısmi kesirler aynı sonucu vermişti. Şimdi ==kısmi kesirlerin işe yaramadığı== bir durumu ele alıyoruz.

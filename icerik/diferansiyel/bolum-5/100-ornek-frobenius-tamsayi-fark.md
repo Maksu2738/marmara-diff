@@ -3,6 +3,7 @@ id: ornek-frobenius-tamsayi-fark
 menu: 5.8 Örnek — Kök Farkı Tam Sayı
 tip: ornek
 baslik: 5.8 &nbsp;Çözümlü Örnek — Kök Farkı Pozitif Tam Sayı Olduğunda
+defterde: yok
 ---
 
 [SORU] **Örnek 5.12.** &nbsp; Frobenius yöntemiyle $\displaystyle x^{2}y''-xy'-\left(x^{2}+\frac{5}{4}\right)y=0$ denkleminin $0<x<R$ aralığındaki çözümlerini bulunuz.

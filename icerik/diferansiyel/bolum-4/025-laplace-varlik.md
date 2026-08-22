@@ -3,6 +3,7 @@ id: laplace-varlik
 menu: 4.1 Dönüşüm Ne Zaman Vardır
 tip: konu
 baslik: 4.1 &nbsp;Varlık Koşulları — Parçalı Süreklilik ve Üstel Mertebe
+defterde: yok
 ---
 
 Örneklerin hepsinde $(9.1)$ integralinin belirli bir $s$ aralığında var olduğunu **doğrudan hesaplayarak** gördük. Peki hesap yapmadan, hangi fonksiyonlar için bunun ==her zaman== doğru olduğunu söyleyebiliriz?

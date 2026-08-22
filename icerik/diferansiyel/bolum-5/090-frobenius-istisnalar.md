@@ -3,6 +3,7 @@ id: frobenius-istisnalar
 menu: 5.8 Frobenius — İkinci Çözüm ve İstisnai Durumlar
 tip: konu
 baslik: 5.8 &nbsp;İkinci Lineer Bağımsız Çözüm — THEoREM 5.3
+defterde: yok
 ---
 
 Örnek 5.10'da şanslıydık: belirtici denklemin iki kökü de $(5.49)$ biçiminde birer çözüm verdi ve bunlar lineer bağımsız çıktı. Ama 5.7'de belirttiğimiz gibi ==bu her zaman böyle olmaz==. İki soru sormamız gerekiyor:

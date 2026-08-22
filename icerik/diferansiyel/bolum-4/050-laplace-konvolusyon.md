@@ -3,6 +3,7 @@ id: laplace-konvolusyon
 menu: 4.2 Konvolüsyon
 tip: konu
 baslik: 4.2 &nbsp;Konvolüsyon ve Konvolüsyon THEoREM'i
+defterde: yok
 ---
 
 Tablo kullanırken işe yarayan ikinci önemli araç **konvolüsyon (convolution)** kavramıdır. Kısmi kesirlerin yetmediği durumlarda devreye girer.

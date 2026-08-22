@@ -3,6 +3,7 @@ id: seri-yakinsaklik
 menu: 5.4 Çözümün Yakınsaklık Aralığı
 tip: konu
 baslik: 5.4 &nbsp;Seri Çözümün Yakınsaklık Aralığı
+defterde: yok
 ---
 
 Önceki örneklerde kuvvet serisi çözümleri bulduk ama bu serilerin **nerede yakınsadığını (convergence)** tartışmadık. THEoREM 5.1 yalnızca "$x_{0}$ etrafında bir $|x-x_{0}|<R$ aralığında yakınsar" diyor; $R$'nin ne kadar büyük olduğunu söylemiyor. Bu bölüm o boşluğu dolduruyor.

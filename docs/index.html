@@ -149,6 +149,8 @@
                             <li><a href="#laplace-oteleme">4.1 Öteleme ve $t^n$ ile Çarpma</a></li>
                             <li><a href="#laplace-ters">4.2 Ters Laplace Dönüşümü</a></li>
                             <li><a href="#ornek-ters-donusum">4.2 Örnekler — Ters Dönüşüm Teknikleri</a></li>
+                            <li><a href="#ornek-ters-kuadratik">4.2 Örnek — İndirgenemez Kuadratik Çarpan</a></li>
+                            <li><a href="#laplace-konvolusyon">4.2 Konvolüsyon</a></li>
                         </ul>
                     </li>
 
@@ -8457,6 +8459,140 @@
                                 $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{s^{2}+5s-3}{(s+2)(s-1)^{2}}\right\}=-e^{-2t}+2e^{t}+te^{t}\;}$$
                                 <div class="highlight">
                                     <p><strong>Tekrarlı çarpanın izi çözümde görünür.</strong> $(s-1)^{2}$ paydası, cevapta $te^{t}$ terimini doğurdu. Genel kural: <span class="vurgu">$(s-a)^{k}$ paydası, $t^{k-1}e^{at}$'ye kadar olan terimleri üretir.</span> Bu, sabit katsayılı denklemlerde tekrarlı karakteristik köklerin $t$, $t^{2}$ çarpanları üretmesiyle aynı olgudur — Laplace bunu payda kuvvetleri olarak görür.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-ters-kuadratik" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.2 &nbsp;Çözümlü Örnek — Paydada İndirgenemez Kuadratik Çarpan
+                        </div>
+                        <p>Örnek 9.21 ve 9.22'de payda hep <strong>doğrusal çarpanlara</strong> ayrılıyordu. Payda çarpanlarına ayrılamayan ikinci dereceden bir ifade içerdiğinde kısmi kesir kurulumu değişir.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.23.</strong> &nbsp; Tablo 9.1'i kullanarak $\displaystyle\mathcal{L}^{-1}\left\{\frac{5s^{2}-s-2}{(s+2)\left(s^{2}+1\right)}\right\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Doğru kurulumu seç.</strong></p>
+                                <p>Payda, $s+2$ <strong>doğrusal çarpanı</strong> ile $s^{2}+1$ <strong>indirgenemez kuadratik çarpanından (irreducible quadratic factor)</strong> oluşuyor; ikisi de tekrarlı değil.</p>
+                                <p><span class="vurgu">Kuadratik çarpanın üstünde sabit değil, birinci dereceden bir ifade durur:</span></p>
+                                $$\frac{5s^{2}-s-2}{(s+2)\left(s^{2}+1\right)}=\frac{A}{s+2}+\frac{Bs+C}{s^{2}+1}$$
+                                <div class="highlight">
+                                    <p><strong>Neden $Bs+C$?</strong> Kısmi kesirlerde her terimin payı, paydasından <strong>bir derece düşük</strong> olmalıdır. Payda $s+2$ (birinci derece) ise pay sabittir; payda $s^{2}+1$ (ikinci derece) ise pay birinci derecedendir. $\frac{A}{s^{2}+1}$ yazmak yetersiz kalır ve denklem çözümsüz çıkar.</p>
+                                </div>
+                                <p><strong>Adım 2 — Ortak paydayla çarp.</strong></p>
+                                $$5s^{2}-s-2=A\left(s^{2}+1\right)+(Bs+C)(s+2) \tag{9.29}$$
+                                <p><strong>Adım 3 — Katsayıları bul.</strong></p>
+                                <p>Kök koyma yöntemi burada <strong>kısmen</strong> işe yarar: yalnızca $s=-2$ gerçel kök verir.</p>
+                                <p>$s=-2$: $\;20+2-2=20=A(5)\;\Longrightarrow\;A=4$</p>
+                                <p>Kalan iki bilinmeyen için katsayı eşlemeye geçelim. $(9.29)$'u açalım:</p>
+                                $$5s^{2}-s-2=(A+B)s^{2}+(2B+C)s+(A+2C)$$
+                                $$A+B=5,\qquad 2B+C=-1,\qquad A+2C=-2$$
+                                <p>$A=4$ olduğundan:</p>
+                                $$B=5-4=1,\qquad C=-1-2B=-3$$
+                                <p><strong>Kontrol.</strong> Üçüncü denklem: $A+2C=4+2(-3)=-2\;\checkmark$</p>
+                                <p><strong>Adım 4 — Tablodan oku.</strong></p>
+                                $$\frac{5s^{2}-s-2}{(s+2)\left(s^{2}+1\right)}=\frac{4}{s+2}+\frac{s-3}{s^{2}+1}$$
+                                <p>İkinci terimi <span class="vurgu">tablodaki iki ayrı girdiye bölmek gerekir:</span></p>
+                                $$\frac{s-3}{s^{2}+1}=\frac{s}{s^{2}+1}-3\cdot\frac{1}{s^{2}+1}$$
+                                <ul style="margin-left: 1rem;">
+                                    <li>$\dfrac{4}{s+2}$ → 2 numara, $a=-2$: $\;4e^{-2t}$</li>
+                                    <li>$\dfrac{s}{s^{2}+1}$ → 4 numara, $b=1$: $\;\cos t$</li>
+                                    <li>$\dfrac{1}{s^{2}+1}$ → 3 numara, $b=1$: $\;\sin t$</li>
+                                </ul>
+                                $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{5s^{2}-s-2}{(s+2)\left(s^{2}+1\right)}\right\}=4e^{-2t}+\cos t-3\sin t\;}$$
+                                <div class="highlight">
+                                    <p><strong>Kuadratik terimi ikiye bölme alışkanlığı edinin.</strong> $\dfrac{Bs+C}{s^{2}+b^{2}}$ biçimindeki her terim, tabloda tek bir girdiye karşılık gelmez; <span class="vurgu">$\cos$ (payda $s$) ve $\sin$ (payda sabit) olmak üzere iki parçaya ayrılır.</span> Payda tamkare içeriyorsa ($\left(s+a\right)^{2}+b^{2}$) aynı bölme yapılır, sonuçta $e^{-at}\cos bt$ ve $e^{-at}\sin bt$ çıkar.</p>
+                                </div>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kısmi kesir kurulumu — özet</h3>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Paydadaki çarpan</th><th>Yazılacak terim(ler)</th></tr>
+                                <tr><td>$s-a$ (tekrarsız doğrusal)</td><td>$\dfrac{A}{s-a}$</td></tr>
+                                <tr><td>$(s-a)^{k}$ (tekrarlı doğrusal)</td><td>$\dfrac{A_{1}}{s-a}+\dfrac{A_{2}}{(s-a)^{2}}+\dots+\dfrac{A_{k}}{(s-a)^{k}}$</td></tr>
+                                <tr><td>$s^{2}+bs+c$ (indirgenemez)</td><td>$\dfrac{Bs+C}{s^{2}+bs+c}$</td></tr>
+                                <tr><td>$\left(s^{2}+bs+c\right)^{k}$</td><td>Her kuvvet için ayrı bir $\dfrac{B_{i}s+C_{i}}{\left(s^{2}+bs+c\right)^{i}}$</td></tr>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-konvolusyon" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.2 &nbsp;Konvolüsyon ve Konvolüsyon THEoREM'i
+                        </div>
+                        <p>Tablo kullanırken işe yarayan ikinci önemli araç <strong>konvolüsyon (convolution)</strong> kavramıdır. Kısmi kesirlerin yetmediği durumlarda devreye girer.</p>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $f$ ve $g$, her sonlu kapalı $0\le t\le b$ aralığında parçalı sürekli ve üstel mertebeden iki fonksiyon olsun. $f*g$ ile gösterilen ve</p>
+                            $$f(t)*g(t)=\int_{0}^{t}f(\tau)\,g(t-\tau)\,d\tau \tag{9.30}$$
+                            <p>ile tanımlanan fonksiyona, $f$ ile $g$'nin <strong>konvolüsyonu</strong> denir.</p>
+                        </div>
+                        <p>İntegralin yapısına dikkat edin: <span class="vurgu">integral değişkeni $\tau$, üst sınır ise $t$'dir.</span> İki fonksiyonun argümanları $\tau$ ve $t-\tau$ olduğundan toplamları hep $t$'ye eşittir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Konvolüsyon değişmelidir</h3>
+                        <p>$(9.30)$'da $u=t-\tau$ değişken değişimi yapalım. O zaman $\tau=t-u$, $d\tau=-du$ olur; $\tau=0$ iken $u=t$, $\tau=t$ iken $u=0$:</p>
+                        $$f(t)*g(t)=\int_{0}^{t}f(\tau)g(t-\tau)\,d\tau=-\int_{t}^{0}f(t-u)g(u)\,du=\int_{0}^{t}g(u)f(t-u)\,du$$
+                        <p>Sağdaki ifade $g(t)*f(t)$ tanımının ta kendisidir:</p>
+                        $$\boxed{\;f*g=g*f\;} \tag{9.31}$$
+                        <p><span class="vurgu">Bu pratikte doğrudan işe yarar:</span> iki integralden hangisi kolaysa onu hesaplarsınız.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Konvolüsyon THEoREM'i</h3>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.8</strong></p>
+                            <p><strong>Hipotez.</strong> $f$ ve $g$, her sonlu kapalı $0\le t\le b$ aralığında parçalı sürekli ve $e^{at}$ mertebesinden olsun.</p>
+                            <p><strong>Sonuç.</strong></p>
+                            $$\mathcal{L}\{f*g\}=\mathcal{L}\{f\}\,\mathcal{L}\{g\} \tag{9.32}$$
+                        </div>
+                        <p><span class="vurgu">Bu THEoREM'in söylediği şey çarpıcıdır:</span> $s$ uzayındaki <strong>çarpma</strong>, $t$ uzayındaki <strong>konvolüsyona</strong> karşılık gelir. Sıradan çarpımın karşılığı değildir — yani $\mathcal{L}\{f\cdot g\}\neq\mathcal{L}\{f\}\mathcal{L}\{g\}$.</p>
+                        <p><strong>İspatın fikri.</strong> Tanımdan</p>
+                        $$\mathcal{L}\{f*g\}=\int_{0}^{\infty}e^{-st}\left[\int_{0}^{t}f(\tau)g(t-\tau)\,d\tau\right]dt$$
+                        <p>Bu ardışık integral, $\tau=0$ ve $t=\tau$ doğrularıyla sınırlı $45^{\circ}$'lik kama bölgesi $R_{1}$ üzerinde bir <strong>iki katlı integraldir</strong>. Şu değişken değişimini yapalım:</p>
+                        $$u=t-\tau,\qquad v=\tau \tag{9.36}$$
+                        <p>Bu dönüşümün <strong>Jacobiyeni 1'dir</strong> ve $R_{1}$ kama bölgesini $u>0$, $v>0$ çeyrek düzlemine taşır. İntegral şuna dönüşür:</p>
+                        $$\iint_{R_{2}}e^{-s(u+v)}f(v)g(u)\,du\,dv$$
+                        <p>$e^{-s(u+v)}=e^{-sv}e^{-su}$ olduğundan ve bölge çeyrek düzlem olduğundan integral <strong>ayrışır</strong>:</p>
+                        $$\int_{0}^{\infty}e^{-sv}f(v)\,dv\cdot\int_{0}^{\infty}e^{-su}g(u)\,du=\mathcal{L}\{f\}\,\mathcal{L}\{g\}$$
+                        <p>İntegraller $s>a$ için mutlak yakınsak olduğundan yapılan işlemler meşrudur. $\blacksquare$</p>
+                        <div class="highlight">
+                            <p><strong>İspatın can alıcı adımı değişken değişimidir.</strong> Orijinal bölge bir kamadır ($0\le\tau\le t$), yani iki değişken birbirine bağlıdır ve integral ayrışamaz. $(9.36)$ dönüşümü bölgeyi çeyrek düzleme çevirir; orada $u$ ile $v$ <span class="vurgu">bağımsız hâle gelir</span> ve integral iki ayrı integralin çarpımına ayrılır. Konvolüsyonun tanımındaki tuhaf $g(t-\tau)$ ifadesinin sebebi tam olarak budur — o biçim, dönüşümden sonra ayrışmayı mümkün kılar.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ters dönüşümde kullanımı</h3>
+                        <p>$\mathcal{L}\{f\}=F$ ve $\mathcal{L}\{g\}=G$ yazarsak $(9.32)$ şu hâle gelir:</p>
+                        $$\mathcal{L}\{f(t)*g(t)\}=F(s)G(s)$$
+                        <p>Ters yönde okursak — <span class="vurgu">asıl kullanacağımız biçim budur:</span></p>
+                        $$\mathcal{L}^{-1}\{F(s)G(s)\}=f(t)*g(t)=\int_{0}^{t}f(\tau)g(t-\tau)\,d\tau \tag{9.40}$$
+                        <p>$(9.31)$ sayesinde şu da geçerlidir:</p>
+                        $$\mathcal{L}^{-1}\{F(s)G(s)\}=g(t)*f(t)=\int_{0}^{t}g(\tau)f(t-\tau)\,d\tau \tag{9.41}$$
+                        <p><strong>Yani:</strong> elinizdeki $F(s)$ ifadesini, ters dönüşümlerini bildiğiniz iki parçanın <strong>çarpımı</strong> olarak yazabiliyorsanız, cevabı bir integralle bulabilirsiniz.</p>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.24.</strong> &nbsp; Konvolüsyon ve Tablo 9.1'i kullanarak $\displaystyle\mathcal{L}^{-1}\left\{\frac{1}{s\left(s^{2}+1\right)}\right\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong></p>
+                                $$\frac{1}{s\left(s^{2}+1\right)}=F(s)\,G(s),\qquad F(s)=\frac{1}{s},\quad G(s)=\frac{1}{s^{2}+1}$$
+                                <p><strong>Adım 2 — Her parçanın ters dönüşümünü tablodan oku.</strong></p>
+                                <p>1 numara: $f(t)=\mathcal{L}^{-1}\left\{\frac{1}{s}\right\}=1$</p>
+                                <p>3 numara ($b=1$): $g(t)=\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+1}\right\}=\sin t$</p>
+                                <p><strong>Adım 3 — İki integralden kolayını seç.</strong></p>
+                                <p>$(9.40)$ ile:</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{1}{s\left(s^{2}+1\right)}\right\}=\int_{0}^{t}1\cdot\sin(t-\tau)\,d\tau$$
+                                <p>$(9.41)$ ile:</p>
+                                $$=\int_{0}^{t}\sin\tau\cdot 1\,d\tau$$
+                                <p><span class="vurgu">İkincisi belirgin biçimde kolay</span>, onu hesaplayalım:</p>
+                                $$\int_{0}^{t}\sin\tau\,d\tau=\Big[-\cos\tau\Big]_{0}^{t}=-\cos t+1$$
+                                $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{1}{s\left(s^{2}+1\right)}\right\}=1-\cos t\;}$$
+                                <p><strong>Not.</strong> Bu sonuç kısmi kesirlerle de bulunabilirdi: $\frac{1}{s(s^{2}+1)}=\frac{1}{s}-\frac{s}{s^{2}+1}$, ters dönüşümü $1-\cos t$. <span class="vurgu">İki yol da aynı cevabı verir.</span></p>
+                                <div class="highlight">
+                                    <p><strong>Peki konvolüsyon ne zaman vazgeçilmez olur?</strong> Kısmi kesirlerin uygulanamadığı durumlarda. Örneğin</p>
+                                    $$\mathcal{L}^{-1}\left\{\frac{1}{\left(s^{2}+b^{2}\right)^{2}}\right\}$$
+                                    <p>ifadesinde payda tekrarlı <strong>indirgenemez</strong> kuadratiktir; kısmi kesir açılımı yeni bir şey vermez, çünkü ifade zaten en sade hâlindedir. Ama $\frac{1}{s^{2}+b^{2}}$'nin kendisiyle çarpımı olarak görülüp konvolüsyonla hesaplanabilir ve Tablo 9.1'in 13 numaralı girdisi olan</p>
+                                    $$\frac{\sin bt-bt\cos bt}{2b^{3}}$$
+                                    <p>sonucuna ulaşılır. <span class="vurgu">Tablodaki o tuhaf görünen girdinin kaynağı budur.</span></p>
                                 </div>
                             </div>
                         </div>

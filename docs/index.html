@@ -154,6 +154,7 @@
                             <li><a href="#ornek-konvolusyon">4.2 Örnek — Konvolüsyonun Vazgeçilmez Olduğu Durum</a></li>
                             <li><a href="#laplace-dd-cozumu">4.3 Diferansiyel Denklem Çözümü</a></li>
                             <li><a href="#ornek-laplace-ikinci-mertebe">4.3 Örnekler — İkinci Mertebeden</a></li>
+                            <li><a href="#ornek-laplace-ucuncu-mertebe">4.3 Örnek — Üçüncü Mertebeden</a></li>
                         </ul>
                     </li>
 
@@ -8802,6 +8803,79 @@
                                     <p><strong>Adım 4'teki pay ötelemesi en sık atlanan hamledir.</strong> Payda $(s+2)^{2}+1$ hâline getirildiğinde payın da $s+2$ cinsinden yazılması gerekir. $\frac{s}{(s+2)^{2}+1}$ ifadesi tabloda <span class="vurgu">yoktur</span>; $s=(s+2)-2$ yazarak tablodaki iki girdiye bölünür. Aynı hamle, tamkare içeren her ters dönüşümde tekrarlanır.</p>
                                 </div>
                                 <p><strong>Çözümün yapısı.</strong> İlk iki terim ($\cos t$, $\sin t$) homojen denklemin çözümünden, son ikisi ($e^{-2t}\cos t$, $e^{-2t}\sin t$) zorlama teriminden gelir. <span class="vurgu">Laplace bu ikisini ayırmadan, tek hamlede birlikte üretti.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-laplace-ucuncu-mertebe" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.3 &nbsp;Çözümlü Örnek — Üçüncü Mertebeden ve Karışık Çarpanlı
+                        </div>
+                        <p>Bu örnek yöntemin <strong>ölçeklenebilirliğini</strong> gösteriyor: mertebe yükseldiğinde 1. ve 2. adımlar aynı kalır, yalnızca 3. adım ağırlaşır.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.29.</strong> &nbsp; Aşağıdaki başlangıç değer problemini çözünüz: $$y'''+4y''+5y'+2y=10\cos t,\qquad y(0)=0,\quad y'(0)=0,\quad y''(0)=3$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong></p>
+                                $$\mathcal{L}\{y'''\}+4\mathcal{L}\{y''\}+5\mathcal{L}\{y'\}+2\mathcal{L}\{y\}=10\,\mathcal{L}\{\cos t\}$$
+                                <p>THEoREM 9.4'ü $n=3,2,1$ için uygulayalım:</p>
+                                $$\mathcal{L}\{y'''\}=s^{3}Y(s)-s^{2}y(0)-s\,y'(0)-y''(0)$$
+                                $$\mathcal{L}\{y''\}=s^{2}Y(s)-s\,y(0)-y'(0)$$
+                                $$\mathcal{L}\{y'\}=s\,Y(s)-y(0)$$
+                                <p>$y(0)=0$ ve $y'(0)=0$ olduğundan çoğu terim düşer; yalnızca $y''(0)=3$ kalır:</p>
+                                $$\mathcal{L}\{y'''\}=s^{3}Y(s)-3,\qquad \mathcal{L}\{y''\}=s^{2}Y(s),\qquad \mathcal{L}\{y'\}=s\,Y(s)$$
+                                <p>Sağ taraf Tablo 9.1, 4 numara ($b=1$): $\;10\cdot\dfrac{s}{s^{2}+1}$</p>
+                                $$s^{3}Y(s)-3+4s^{2}Y(s)+5sY(s)+2Y(s)=\frac{10s}{s^{2}+1}$$
+                                <p><strong>Adım 2 — $Y(s)$'yi çöz.</strong></p>
+                                $$\left(s^{3}+4s^{2}+5s+2\right)Y(s)=3+\frac{10s}{s^{2}+1}=\frac{3\left(s^{2}+1\right)+10s}{s^{2}+1}=\frac{3s^{2}+10s+3}{s^{2}+1}$$
+                                $$Y(s)=\frac{3s^{2}+10s+3}{\left(s^{2}+1\right)\left(s^{3}+4s^{2}+5s+2\right)}$$
+                                <p><strong>Adım 3 — Paydayı çarpanlarına ayır.</strong></p>
+                                <p>$s^{3}+4s^{2}+5s+2$ için kök deneyelim: $s=-1$ koyarsak $-1+4-5+2=0$, yani $s+1$ bir çarpandır. Bölme yaparsak $s^{2}+3s+2=(s+1)(s+2)$ çıkar:</p>
+                                $$s^{3}+4s^{2}+5s+2=(s+1)^{2}(s+2)$$
+                                <p><strong>Kontrol.</strong> $(s+1)^{2}(s+2)=\left(s^{2}+2s+1\right)(s+2)=s^{3}+4s^{2}+5s+2\;\checkmark$</p>
+                                <p><strong>Adım 4 — Kısmi kesir kurulumu.</strong></p>
+                                <p>Paydada <span class="vurgu">üç farklı türde çarpan</span> var: tekrarlı doğrusal $(s+1)^{2}$, tekrarsız doğrusal $(s+2)$ ve indirgenemez kuadratik $(s^{2}+1)$. Her biri kendi kuralına göre yazılır:</p>
+                                $$\frac{3s^{2}+10s+3}{\left(s^{2}+1\right)(s+1)^{2}(s+2)}=\frac{A}{s+2}+\frac{B}{s+1}+\frac{C}{(s+1)^{2}}+\frac{Ds+E}{s^{2}+1}$$
+                                <p>Ortak paydayla çarpalım:</p>
+                                $$3s^{2}+10s+3=A(s+1)^{2}\left(s^{2}+1\right)+B(s+2)(s+1)\left(s^{2}+1\right)+C(s+2)\left(s^{2}+1\right)+(Ds+E)(s+2)(s+1)^{2}$$
+                                <p><strong>Adım 5 — Katsayıları bul.</strong></p>
+                                <p>Önce kök koyalım — <span class="vurgu">iki bilinmeyen bedavaya gelir:</span></p>
+                                <p>$s=-1$: $\;3-10+3=-4=C(1)(2)=2C\;\Longrightarrow\;C=-2$</p>
+                                <p>$s=-2$: $\;12-20+3=-5=A(1)(5)=5A\;\Longrightarrow\;A=-1$</p>
+                                <p>Kalan $B$, $D$, $E$ için katsayı eşlemeye geçelim. $s$ kuvvetlerine göre düzenlersek beş denklem çıkar; ihtiyacımız olan üçünü seçelim:</p>
+                                $$s^{4}:\quad A+B+D=0\;\Longrightarrow\;B+D=1$$
+                                $$s^{0}:\quad A+2B+2C+2E=3\;\Longrightarrow\;-1+2B-4+2E=3\;\Longrightarrow\;B+E=4$$
+                                $$s^{3}:\quad 2A+3B+C+4D+E=0\;\Longrightarrow\;3B+4D+E=4$$
+                                <p>İlk ikisinden $D=1-B$ ve $E=4-B$. Üçüncüye koyalım:</p>
+                                $$3B+4(1-B)+(4-B)=4\;\Longrightarrow\;-2B+8=4\;\Longrightarrow\;B=2$$
+                                $$D=-1,\qquad E=2$$
+                                <p><strong>Kontrol — kullanmadığımız iki denklem:</strong></p>
+                                $$s^{2}:\;2A+3B+2C+5D+4E=-2+6-4-5+8=3\;\checkmark$$
+                                $$s^{1}:\;2A+3B+C+2D+5E=-2+6-2-2+10=10\;\checkmark$$
+                                <p><strong>Adım 6 — Ters dönüşüm.</strong></p>
+                                $$Y(s)=\frac{-1}{s+2}+\frac{2}{s+1}+\frac{-2}{(s+1)^{2}}+\frac{-s+2}{s^{2}+1}$$
+                                <p>Son kesri ikiye bölelim:</p>
+                                $$\frac{-s+2}{s^{2}+1}=-\frac{s}{s^{2}+1}+2\cdot\frac{1}{s^{2}+1}$$
+                                <p>Tablo 9.1 girdileri — sırasıyla 2, 2, 8 ($n=1$, $a=-1$), 4 ve 3:</p>
+                                $$\boxed{\;y=-e^{-2t}+2e^{-t}-2te^{-t}-\cos t+2\sin t\;}$$
+                                <p><strong>Doğrulama — üç başlangıç koşulu.</strong></p>
+                                $$y(0)=-1+2-0-1+0=0\;\checkmark$$
+                                $$y'=2e^{-2t}-4e^{-t}+2te^{-t}+\sin t+2\cos t$$
+                                <p>($-2te^{-t}$ teriminin türevi çarpım kuralıyla $-2e^{-t}+2te^{-t}$ verir.)</p>
+                                $$y'(0)=2-4+0+0+2=0\;\checkmark$$
+                                $$y''=-4e^{-2t}+6e^{-t}-2te^{-t}+\cos t-2\sin t$$
+                                $$y''(0)=-4+6-0+1-0=3\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Mertebe yükseldiğinde ne değişir?</strong></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li><strong>Adım 1-2 aynı kalır</strong>, sadece daha çok başlangıç değeri girer. Burada $y(0)$ ve $y'(0)$ sıfır olduğu için ifade beklenenden sade çıktı; sıfır olmasalardı payda beşinci dereceden bir polinom belirecekti.</li>
+                                        <li><strong>Adım 3 ağırlaşır.</strong> Payda üçüncü dereceden çıktı, çarpanlarına ayırmak için kök aramak gerekti. Bu, <span class="vurgu">klasik yöntemdeki karakteristik denklemi çözmenin karşılığıdır</span> — iş kaybolmaz, yer değiştirir.</li>
+                                        <li><strong>Kısmi kesirde bilinmeyen sayısı arttı</strong> (5 tane). Kök koyma yöntemi ikisini bedavaya verdi, kalan üçü için denklem sistemi kuruldu.</li>
+                                    </ul>
+                                    <p><strong>Zaman kazandıran alışkanlık:</strong> Önce kök koyun, sonra katsayı eşleyin. Doğrudan beş denklemli sisteme girmek gereksiz zahmettir.</p>
+                                </div>
+                                <p><strong>Çözümün okunması.</strong> $(s+1)^{2}$ tekrarlı çarpanı $te^{-t}$ terimini doğurdu; $s^{2}+1$ kuadratiği $\cos t$ ve $\sin t$ verdi. <span class="vurgu">Paydanın çarpanlarına bakarak çözümün biçimi daha ters dönüşüm yapılmadan tahmin edilebilir.</span></p>
                             </div>
                         </div>
                     </div>

@@ -158,6 +158,7 @@
                             <li><a href="#egzersizler-ters-donusum">4.2 Egzersizler — Ters Dönüşüm</a></li>
                             <li><a href="#laplace-konvolusyon" class="defterde-yok">4.2 Konvolüsyon</a></li>
                             <li><a href="#ornek-konvolusyon" class="defterde-yok">4.2 Örnek — Konvolüsyonun Vazgeçilmez Olduğu Durum</a></li>
+                            <li><a href="#egzersizler-konvolusyon" class="defterde-yok">4.2 Egzersizler — Konvolüsyon</a></li>
                             <li><a href="#laplace-dd-cozumu">4.3 Diferansiyel Denklem Çözümü</a></li>
                             <li><a href="#ornek-laplace-ikinci-mertebe">4.3 Örnekler — İkinci Mertebeden</a></li>
                             <li><a href="#ornek-laplace-ucuncu-mertebe">4.3 Örnek — Üçüncü Mertebeden</a></li>
@@ -9429,6 +9430,105 @@
                                     <p><strong>Tablodaki "tuhaf" girdilerin kaynağı budur.</strong> 13 ve 14 numaralı girdiler ilk bakışta akılda kalması zor ifadelerdir. Ama ikisi de $\frac{1}{s^{2}+b^{2}}$'nin kendisiyle konvolüsyonundan gelir; <span class="vurgu">$t\cos bt$ teriminin ortaya çıkması, integralde $\tau$'nun doğrusal olarak birikmesinin sonucudur.</span> Sınavda tablo verilmezse bu türetme ile üretebilirsiniz.</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div id="egzersizler-konvolusyon" class="section sorular defter-disi">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.2 &nbsp;Egzersizler — Konvolüsyon ile Ters Dönüşüm
+                        </div>
+                        <div class="defter-disi-uyari">
+                            <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hocanın ders defterinde geçmiyor. Sorulabilir; önceliği düşük tutun.</span>
+                        </div>
+                        <p>Bu setin tamamında ters dönüşüm <strong>konvolüsyonla (convolution)</strong> bulunacak. Kalıp her seferinde aynıdır:</p>
+                        $$\mathcal{L}^{-1}\{F(s)G(s)\}=\int_{0}^{t}f(\tau)\,g(t-\tau)\,d\tau$$
+                        <p><strong>Üç adım:</strong></p>
+                        <ol>
+                            <li>$H(s)$'yi <span class="vurgu">tablodan okunabilen iki çarpana</span> ayır: $H=F\cdot G$.</li>
+                            <li>Her birinin ters dönüşümünü al: $f(t)$ ve $g(t)$.</li>
+                            <li>İntegrali kur ve hesapla. $g$'nin argümanı $t-\tau$ olur.</li>
+                        </ol>
+                        <div class="highlight">
+                            <p><strong>Hangi çarpan hangisi olsun?</strong> Konvolüsyon <span class="vurgu">değişmelidir</span>: $f*g=g*f$. Yani ikisini de deneyebilirsiniz, sonuç aynıdır. Ama integralin zorluğu değişir: <strong>sabit ya da $t$'nin kuvveti olan çarpanı $f$ yapın</strong>, üstel/trigonometrik olanı $g$ yapın. O zaman $g(t-\tau)$'daki $t$ integralin dışına çıkarılabilir ve iş kolaylaşır.</p>
+                            <p>Aşağıdaki 1. ve 5. soruda tam olarak bu yapılıyor: $e^{-3(t-\tau)}=e^{-3t}e^{3\tau}$ yazılıp $e^{-3t}$ integral dışına alınıyor.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; Konvolüsyon ve Tablo 9.1'i kullanarak $H(s)=\dfrac{1}{s^{2}+5s+6}$ için $\mathcal{L}^{-1}\{H(s)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong></p>
+                                $$H(s)=\frac{1}{(s+2)(s+3)}=\underbrace{\frac{1}{s+2}}_{F(s)}\cdot\underbrace{\frac{1}{s+3}}_{G(s)}$$
+                                $$f(t)=e^{-2t},\qquad g(t)=e^{-3t}$$
+                                <p><strong>Adım 2 — İntegrali kur.</strong></p>
+                                $$h(t)=\int_{0}^{t}e^{-2\tau}\,e^{-3(t-\tau)}\,d\tau$$
+                                <p><strong>Adım 3 — $t$'ye bağlı kısmı dışarı al.</strong> $e^{-3(t-\tau)}=e^{-3t}e^{3\tau}$ ve $e^{-3t}$ <span class="vurgu">integral değişkeni $\tau$'ya bağlı olmadığı için</span> dışarı çıkar:</p>
+                                $$=e^{-3t}\int_{0}^{t}e^{-2\tau}e^{3\tau}\,d\tau=e^{-3t}\int_{0}^{t}e^{\tau}\,d\tau=e^{-3t}\left[e^{\tau}\right]_{0}^{t}$$
+                                $$=e^{-3t}\left(e^{t}-1\right)$$
+                                $$\boxed{\;h(t)=e^{-2t}-e^{-3t}\;}$$
+                                <p><strong>Çapraz kontrol (kısmi kesirler).</strong> $\dfrac{1}{(s+2)(s+3)}=\dfrac{1}{s+2}-\dfrac{1}{s+3}$ olduğundan ters dönüşüm doğrudan $e^{-2t}-e^{-3t}$. &#10003; <span class="vurgu">Aynı sonuç, daha kısa yoldan.</span></p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $H(s)=\dfrac{1}{s\left(s^{2}+9\right)}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong></p>
+                                $$H(s)=\underbrace{\frac{1}{s}}_{F(s)}\cdot\underbrace{\frac{1}{s^{2}+9}}_{G(s)}$$
+                                $$f(t)=1,\qquad g(t)=\frac{1}{3}\sin 3t$$
+                                <p><span class="vurgu">Paydaki $3$'ü tamamlamayı unutmayın</span>: tabloda $\mathcal{L}\{\sin 3t\}=\dfrac{3}{s^{2}+9}$ yazar, dolayısıyla $\dfrac{1}{s^{2}+9}$ ifadesinin karşılığı $\dfrac{1}{3}\sin 3t$'dir.</p>
+                                <p><strong>Adım 2 — İntegrali kur.</strong></p>
+                                $$h(t)=\int_{0}^{t}1\cdot\frac{1}{3}\sin 3(t-\tau)\,d\tau$$
+                                <p><strong>Adım 3 — Değişken değiştir.</strong> $u=t-\tau$, $du=-d\tau$; sınırlar $\tau:0\to t$ iken $u:t\to 0$ olur ve eksi işareti sınırları geri çevirir:</p>
+                                $$=\frac{1}{3}\int_{0}^{t}\sin 3u\,du=\frac{1}{3}\left[-\frac{\cos 3u}{3}\right]_{0}^{t}=\frac{1}{3}\cdot\frac{1-\cos 3t}{3}$$
+                                $$\boxed{\;h(t)=\frac{1-\cos 3t}{9}\;}$$
+                                <p><strong>Çapraz kontrol (kısmi kesirler).</strong> $\dfrac{1}{s\left(s^{2}+9\right)}=\dfrac{1/9}{s}-\dfrac{s/9}{s^{2}+9}$ &nbsp;$\to$&nbsp; $\dfrac{1}{9}-\dfrac{1}{9}\cos 3t$. &#10003;</p>
+                                <p><strong>Başlangıç kontrolü.</strong> $h(0)=\dfrac{1-1}{9}=0$; $H(s)$'nin paydası $s$ ile başladığı için bu beklenen sonuç.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $H(s)=\dfrac{1}{s^{2}(s+3)}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong></p>
+                                $$H(s)=\underbrace{\frac{1}{s^{2}}}_{F(s)}\cdot\underbrace{\frac{1}{s+3}}_{G(s)}\;\Longrightarrow\;f(t)=t,\qquad g(t)=e^{-3t}$$
+                                <p><strong>Adım 2 — İntegrali kur ve $e^{-3t}$'yi dışarı al.</strong></p>
+                                $$h(t)=\int_{0}^{t}\tau\,e^{-3(t-\tau)}\,d\tau=e^{-3t}\int_{0}^{t}\tau e^{3\tau}\,d\tau$$
+                                <p><strong>Adım 3 — Kısmi integrasyon.</strong> $u=\tau$, $dv=e^{3\tau}d\tau$, $v=\dfrac{e^{3\tau}}{3}$:</p>
+                                $$\int_{0}^{t}\tau e^{3\tau}\,d\tau=\left[\frac{\tau e^{3\tau}}{3}\right]_{0}^{t}-\frac{1}{3}\int_{0}^{t}e^{3\tau}\,d\tau=\frac{te^{3t}}{3}-\frac{e^{3t}-1}{9}$$
+                                <p><strong>Adım 4 — $e^{-3t}$ ile çarp.</strong></p>
+                                $$h(t)=e^{-3t}\left[\frac{te^{3t}}{3}-\frac{e^{3t}}{9}+\frac{1}{9}\right]=\frac{t}{3}-\frac{1}{9}+\frac{e^{-3t}}{9}$$
+                                $$\boxed{\;h(t)=\frac{-1+3t+e^{-3t}}{9}\;}$$
+                                <p><strong>Çapraz kontrol (kısmi kesirler).</strong> $\dfrac{1}{s^{2}(s+3)}=-\dfrac{1/9}{s}+\dfrac{1/3}{s^{2}}+\dfrac{1/9}{s+3}$ &nbsp;$\to$&nbsp; $-\dfrac{1}{9}+\dfrac{t}{3}+\dfrac{e^{-3t}}{9}$. &#10003;</p>
+                                <p><strong>Başlangıç kontrolü.</strong> $h(0)=\dfrac{-1+0+1}{9}=0$ &#10003;</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Üç soruda da kısmi kesirler daha kısaydı. O zaman konvolüsyon niye?</strong></p>
+                            <p>Çünkü bu setteki $H(s)$'lerin hepsi <span class="vurgu">rasyonel</span> ve paydaları kolayca çarpanlanıyor. Konvolüsyonun vazgeçilmez olduğu yer başkadır:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Payda çarpanlanamıyorsa</strong> ya da tekrarlı indirgenemez kuadratik varsa, örneğin $\dfrac{1}{\left(s^{2}+b^{2}\right)^{2}}$ — kısmi kesirler burada hiçbir şey kazandırmaz, konvolüsyon çözer (4.2'deki çözümlü örnek bu).</li>
+                                <li><strong>Çarpanlardan biri bilinmiyorsa.</strong> $Y(s)=G(s)F(s)$ biçiminde bir denklemde $F$ genel bir zorlama ise, cevabı <span class="vurgu">$\int_{0}^{t}g(\tau)f(t-\tau)d\tau$ olarak kapalı biçimde</span> yazabilirsiniz. Kısmi kesirler bunu yapamaz çünkü $F$ somut değildir.</li>
+                            </ul>
+                            <p>Yani bu set konvolüsyonun <strong>mekaniğini</strong> çalıştırmak için; gücü başka yerde ortaya çıkıyor. Yine de her sonucu kısmi kesirlerle sınamak iyi bir alışkanlık — yukarıda üçünde de yapıldı.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                        <p><strong>2.</strong> &nbsp; $H(s)=\dfrac{1}{s^{2}+3s-4}$</p>
+                        <p><strong>4.</strong> &nbsp; $H(s)=\dfrac{1}{s\left(s^{2}+4s+13\right)}$</p>
+                        <p><strong>6.</strong> &nbsp; $H(s)=\dfrac{1}{(s+2)\left(s^{2}+1\right)}$</p>
+                        <div class="highlight">
+                            <p><strong>İpuçları.</strong></p>
+                            <p><strong>2</strong> → 1 ile birebir aynı kalıp: $s^{2}+3s-4=(s+4)(s-1)$, iki üstelin konvolüsyonu. Genel sonuç $\dfrac{e^{at}-e^{bt}}{a-b}$ biçimindedir.</p>
+                            <p><strong>4</strong> → 3 gibi ama ikinci çarpan tamkareye tamamlanmalı: $s^{2}+4s+13=(s+2)^{2}+9$, yani $g(t)=\dfrac{1}{3}e^{-2t}\sin 3t$. İntegral $\int_{0}^{t}e^{-2(t-\tau)}\sin 3(t-\tau)\,d\tau$ olur; üstel-trigonometrik integral iki kez kısmi integrasyon ister.</p>
+                            <p><strong>6</strong> → $f(t)=e^{-2t}$, $g(t)=\sin t$. Yine üstel çarpı trigonometrik; $\int e^{a\tau}\sin b\tau\,d\tau$ standart integralini kullanın.</p>
+                            <p><strong>Doğrulama.</strong> Üçünde de kısmi kesirlerle çapraz kontrol yapabilirsiniz. Ayrıca <span class="vurgu">$h(0)=0$ olmalıdır</span>: her üç $H(s)$'de payın derecesi paydanınkinden en az iki eksik, bu da $t=0$'da fonksiyonun sıfır olmasını gerektirir. Hızlı bir ilk kontrol.</p>
                         </div>
                     </div>
 

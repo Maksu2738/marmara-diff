@@ -209,6 +209,9 @@
                             <li><a href="#operator-sistem-turleri">7.1 Lineer Sistem Türleri</a></li>
                             <li><a href="#operator-tanim">7.2 Diferansiyel Operatörler</a></li>
                             <li><a href="#operator-yontem">7.3 Operatör Yöntemi</a></li>
+                            <li><a href="#operator-sabit-sayisi">7.4 Kaç Bağımsız Sabit Olmalı</a></li>
+                            <li><a href="#ornek-operator-cozum">7.4 Örnek — Operatör Yöntemiyle Sistem Çözümü</a></li>
+                            <li><a href="#operator-alternatif">7.5 Alternatif Yöntem</a></li>
                         </ul>
                     </li>
 
@@ -9551,6 +9554,168 @@
                             <li><span class="vurgu">Bulunanları orijinal sisteme geri koyup fazla keyfi sabitleri ele.</span></li>
                         </ol>
                         <p><strong>Yöntemin sınırı.</strong> $L_{5}$ sıfır ya da sıfırdan farklı bir sabit çıkarsa yöntem kullanılamaz. Bu, sistemin ya çözümsüz ya da beklenenden farklı yapıda olduğunun işaretidir.</p>
+                    </div>
+
+                    <div id="operator-sabit-sayisi" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            7.4 &nbsp;Genel Çözümdeki Bağımsız Sabitlerin Sayısı
+                        </div>
+                        <p>7.3'te $x$ ve $y$'yi ayrı ayrı çözmüştük:</p>
+                        $$x=c_{1}u_{1}+\dots+c_{N}u_{N}+U_{1},\qquad y=k_{1}u_{1}+\dots+k_{N}u_{N}+U_{2}$$
+                        <p>Dikkat edilecek nokta: her iki çözümde de <span class="vurgu">aynı $u_{1},\dots,u_{N}$ fonksiyonları</span> görünür, çünkü ikisi de aynı $L_{5}$ operatörünün homojen denkleminden gelir. Yalnızca sabitler farklıdır.</p>
+                        <p>Ortada $2N$ tane keyfi sabit var. Ama burada bir tuzak vardır.</p>
+                        <div class="highlight">
+                            <p><strong>Bu $2N$ sabit bağımsız DEĞİLDİR.</strong> $(7.14)$ ve $(7.16)$ ile verilen fonksiyon çiftleri, sabitlerin <span class="vurgu">her seçimi için</span> $(7.11)$ sistemini sağlamaz. Yani $x$ ve $y$ ayrı ayrı kendi denklemlerini sağlar, ama ikisi birlikte orijinal sistemin <strong>her iki denklemini birden</strong> sağlamayabilir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kaç tanesi bağımsız?</h3>
+                        <p>Kural şudur: lineer sistemin genel çözümündeki bağımsız sabit sayısı,</p>
+                        $$L_{1}L_{4}-L_{2}L_{3}=\begin{vmatrix} L_{1} & L_{2} \\ L_{3} & L_{4} \end{vmatrix}$$
+                        <p>determinantından elde edilen operatörün <strong>mertebesine</strong> eşittir (determinant sıfır olmamak koşuluyla).</p>
+                        <p>Bu operatörün mertebesi $N$ ise, <span class="vurgu">$2N$ sabitin yalnızca $N$ tanesi bağımsız olabilir.</span> Kalan $N$ tanesi seçilen bağımsız olanlara bağlıdır.</p>
+                        <div class="highlight">
+                            <p><strong>Neden determinant?</strong> $(7.11)$ sistemini, katsayıları operatör olan iki bilinmeyenli bir denklem sistemi gibi düşünün:</p>
+                            $$\begin{pmatrix} L_{1} & L_{2} \\ L_{3} & L_{4} \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix}=\begin{pmatrix} f_{1} \\ f_{2} \end{pmatrix}$$
+                            <p>Lineer cebirde katsayı matrisinin determinantı çözümün varlığını ve tekliğini belirler. Burada da aynı rolü oynar — tek fark, çıkan şeyin bir sayı değil <span class="vurgu">bir operatör</span> olması. O operatörün mertebesi, sistemin "serbestlik derecesini" verir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bağıntılar nasıl bulunur</h3>
+                        <p>Hangi sabitlerin bağımsız seçilebileceğini ve kalanların onlara nasıl bağlandığını bulmak için tek yol vardır:</p>
+                        <p><span class="vurgu">Bulunan $x$ ve $y$ ifadelerini orijinal sisteme geri koymak.</span></p>
+                        <p>Yerine koyunca, $e^{rt}$ gibi lineer bağımsız fonksiyonların katsayıları ayrı ayrı sıfıra eşitlenir; bu, sabitler arasındaki bağıntıları verir. Sonra bağımsız olarak seçilenler bırakılıp diğerleri onlar cinsinden yazılır.</p>
+                        <p>Bu adım tamamlandığında elde edilen çift, gereken sayıda ($N$ tane) keyfi sabit içerir ve <span class="vurgu">gerçekten genel çözümdür.</span></p>
+                        <p><strong>Bu adım atlanırsa</strong> elinizde $2N$ sabitli, sistemi sağlamayan bir ifade kalır. Operatör yönteminde en sık yapılan hata budur; bir sonraki bölümdeki örnekte tam olarak nasıl işlediğini göreceğiz.</p>
+                    </div>
+
+                    <div id="ornek-operator-cozum" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            7.4 &nbsp;Çözümlü Örnek — Operatör Yöntemi ve Sabitlerin Elenmesi
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 7.3.</strong> &nbsp; Aşağıdaki sistemi operatör yöntemiyle çözünüz: $$2x'-2y'-3x=t,\qquad 2x'+2y'+3x+8y=2$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Operatör gösterimine geç.</strong></p>
+                                <p>Her denklemde $x$'li ve $y$'li terimleri gruplayalım:</p>
+                                $$(2D-3)x-2Dy=t$$
+                                $$(2D+3)x+(2D+8)y=2$$
+                                <p>Yani $L_{1}\equiv 2D-3$, $L_{2}\equiv -2D$, $L_{3}\equiv 2D+3$, $L_{4}\equiv 2D+8$.</p>
+                                <p><strong>Adım 2 — $y$'yi ele.</strong></p>
+                                <p>Birinci denkleme $(2D+8)$, ikinciye $2D$ uygulayalım:</p>
+                                $$(2D+8)(2D-3)x-(2D+8)(2D)y=(2D+8)t$$
+                                $$2D(2D+3)x+2D(2D+8)y=(2D)2$$
+                                <p>Bu ikisini <strong>toplayalım</strong>. $(2D+8)$ ile $2D$ yer değiştirdiğinden ($7.2$'deki özellik) $y$'li terimler birbirini götürür:</p>
+                                $$\Big[(2D+8)(2D-3)+2D(2D+3)\Big]x=(2D+8)t+(2D)2$$
+                                <p><strong>Sol tarafı açalım</strong> — operatörler polinom gibi çarpılır:</p>
+                                $$(2D+8)(2D-3)=4D^{2}-6D+16D-24=4D^{2}+10D-24$$
+                                $$2D(2D+3)=4D^{2}+6D$$
+                                $$\text{Toplam}=8D^{2}+16D-24$$
+                                <p><strong>Sağ tarafı hesaplayalım:</strong> $(2D+8)t=2\cdot 1+8t=2+8t$ ve $(2D)2=0$ (sabitin türevi sıfır).</p>
+                                $$\left(8D^{2}+16D-24\right)x=2+8t$$
+                                <p>$8$'e bölelim:</p>
+                                $$\left(D^{2}+2D-3\right)x=t+\frac{1}{4}$$
+                                <p><strong>Adım 3 — Bu denklemi çöz.</strong></p>
+                                <p>Karakteristik denklem $r^{2}+2r-3=(r+3)(r-1)=0$, kökler $r=1$ ve $r=-3$:</p>
+                                $$x_{h}=c_{1}e^{t}+c_{2}e^{-3t}$$
+                                <p>Özel çözüm için $x_{p}=At+B$ deneyelim ($x_{p}'=A$, $x_{p}''=0$):</p>
+                                $$0+2A-3(At+B)=-3At+(2A-3B)=t+\frac{1}{4}$$
+                                <p>Katsayıları eşleyelim:</p>
+                                $$-3A=1\;\Longrightarrow\;A=-\frac{1}{3}$$
+                                $$2A-3B=\frac{1}{4}\;\Longrightarrow\;-\frac{2}{3}-3B=\frac{1}{4}\;\Longrightarrow\;3B=-\frac{1}{4}-\frac{2}{3}=-\frac{11}{12}\;\Longrightarrow\;B=-\frac{11}{36}$$
+                                $$\boxed{\;x=c_{1}e^{t}+c_{2}e^{-3t}-\frac{1}{3}t-\frac{11}{36}\;} \tag{7.20}$$
+                                <p><strong>Adım 4 — $x$'i ele, $y$'yi bul.</strong></p>
+                                <p>Benzer biçimde $x$ elenirse $y$ için aynı $L_{5}$ operatörüyle bir denklem çıkar ve</p>
+                                $$y=k_{1}e^{t}+k_{2}e^{-3t}+\dots \tag{7.22}$$
+                                <p>biçiminde bir çözüm elde edilir. <span class="vurgu">Buradaki $k_{1},k_{2}$ sabitleri $c_{1},c_{2}$'den bağımsız değildir.</span></p>
+                                <p><strong>Adım 5 — Sabitler arasındaki bağıntıyı bul.</strong></p>
+                                <p>$(7.20)$ ve $(7.22)$'yi orijinal sistemin <strong>birinci</strong> denklemine koyalım:</p>
+                                $$\left[2c_{1}e^{t}-6c_{2}e^{-3t}-\frac{5}{3}\right]-\left[2k_{1}e^{t}-6k_{2}e^{-3t}+\frac{1}{4}\right]-\left[3c_{1}e^{t}+3c_{2}e^{-3t}-t-\frac{11}{12}\right]=t$$
+                                <p>Sabit ve $t$'li terimler birbirini götürür, geriye üstel terimler kalır:</p>
+                                $$\left(-c_{1}-2k_{1}\right)e^{t}+\left(-9c_{2}+6k_{2}\right)e^{-3t}=0$$
+                                <p>$e^{t}$ ve $e^{-3t}$ <span class="vurgu">lineer bağımsız olduğundan</span> her iki katsayı ayrı ayrı sıfır olmalıdır:</p>
+                                $$-c_{1}-2k_{1}=0,\qquad -9c_{2}+6k_{2}=0 \tag{7.23}$$
+                                <p>İkinci denkleme koymak da bunlara <strong>denk</strong> bağıntılar verir; yeni bilgi çıkmaz.</p>
+                                <p><strong>Adım 6 — Bağımsız sabitleri seç.</strong></p>
+                                <p>Dört sabitten ikisi bağımsız seçilir. $c_{1}$ ve $c_{2}$'yi seçersek:</p>
+                                $$k_{1}=-\frac{1}{2}c_{1},\qquad k_{2}=\frac{3}{2}c_{2}$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$\boxed{\;x=c_{1}e^{t}+c_{2}e^{-3t}-\frac{1}{3}t-\frac{11}{36},\qquad y=-\frac{1}{2}c_{1}e^{t}+\frac{3}{2}c_{2}e^{-3t}+\frac{1}{8}t+\frac{5}{12}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Kaç sabit olmalıydı?</strong> $L_{5}=8D^{2}+16D-24$ ikinci mertebeden, yani $N=2$. 7.4'teki kural gereği genel çözümde <span class="vurgu">tam olarak 2 bağımsız sabit</span> bulunmalı. Sonuçta $c_{1}$ ve $c_{2}$ kaldı — kural tuttu.</p>
+                                    <p>Eğer Adım 5-6 atlanıp dört sabit de bırakılsaydı, elde edilen çift sistemi sağlamazdı.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="operator-alternatif" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            7.5 &nbsp;Sabit Bağıntılarından Kaçınan Alternatif Yöntem
+                        </div>
+                        <p>Örnek 7.3'te en zahmetli kısım, dört sabit arasındaki bağıntıları bulmaktı. <span class="vurgu">Bu adımdan tamamen kaçınmanın bir yolu var.</span></p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Fikir</h3>
+                        <p>$x$'i bulmaya kadar her şey aynıdır: $L_{5}x=g_{1}$ çözülür ve</p>
+                        $$x=c_{1}u_{1}+\dots+c_{N}u_{N}+U_{1}$$
+                        <p>elde edilir. Bundan sonrası farklıdır.</p>
+                        <p>Sistemden $y$'nin <strong>türevlerini içeren bütün terimleri</strong> eleyecek bir bağıntı $R$ elde etmeye çalışırız. $R$, bilinmeyen $y$'yi içerir ama <span class="vurgu">$y'$, $y''$ gibi hiçbir türevini içermez</span>. $R$ içinde $x$ ve türevleri bulunabilir — ama $x$ zaten bilinmektedir, türevleri de doğrudan alınabilir.</p>
+                        <p>$x$ ve türevlerini $R$'ye koyunca geriye <span class="vurgu">tek bilinmeyenli, tek bir cebirsel denklem</span> kalır. Onu çözerek $y$ doğrudan bulunur.</p>
+                        <div class="highlight">
+                            <p><strong>Kazanç:</strong> $L_{5}y=g_{2}$ denklemini çözmeye gerek kalmaz, $k_{i}$ sabitleri hiç ortaya çıkmaz, dolayısıyla <span class="vurgu">sabitler arasında bağıntı kurmaya da gerek kalmaz.</span> $x$'ten gelen $N$ sabit zaten doğru sayıdadır.</p>
+                            <p><strong>Sınırı:</strong> Bu yol, $L_{1},L_{2},L_{3},L_{4}$ operatörlerinin <span class="vurgu">hepsi birinci mertebedense</span> her zaman kolayca uygulanır. Daha yüksek mertebeli operatör varsa $y$'nin bütün türevlerini elemek genelde zordur.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Birinci mertebeli durum için açık formül</h3>
+                        <p>Operatörler şu biçimde olsun:</p>
+                        $$L_{1}\equiv a_{0}D+a_{1},\quad L_{2}\equiv b_{0}D+b_{1},\quad L_{3}\equiv \alpha_{0}D+\alpha_{1},\quad L_{4}\equiv \beta_{0}D+\beta_{1}$$
+                        <p>Birinci denklemi $\beta_{0}$ ile, ikinciyi $b_{0}$ ile çarpıp çıkarırsak $y$'nin türevli terimleri gider ve şu bağıntı kalır:</p>
+                        $$\Big[\left(a_{0}\beta_{0}-b_{0}\alpha_{0}\right)D+\left(a_{1}\beta_{0}-b_{0}\alpha_{1}\right)\Big]x+\left(b_{1}\beta_{0}-b_{0}\beta_{1}\right)y=\beta_{0}f_{1}(t)-b_{0}f_{2}(t)$$
+                        <p>Bu ifade $y$'yi içerir ama <span class="vurgu">$y$'nin hiçbir türevini içermez.</span> Buradan $y$ çekilir:</p>
+                        $$\boxed{\;y=\frac{\left(b_{0}\alpha_{0}-a_{0}\beta_{0}\right)Dx+\left(b_{0}\alpha_{1}-a_{1}\beta_{0}\right)x+\beta_{0}f_{1}(t)-b_{0}f_{2}(t)}{b_{1}\beta_{0}-b_{0}\beta_{1}}\;} \tag{7.25}$$
+                        <p>Bu, $b_{1}\beta_{0}-b_{0}\beta_{1}\neq 0$ varsayımıyla geçerlidir.</p>
+                        <p>$x$ bilindiğine göre $Dx$ de basit türevle bulunur; ikisini $(7.25)$'e koyunca $y$ doğrudan çıkar.</p>
+                        <div class="highlight">
+                            <p><strong>Formülü ezberlemeye gerek yok.</strong> Uygulamada yapılan şey basittir: iki denklemi, $y'$ terimleri birbirini götürecek biçimde çarpıp toplayın (ya da çıkarın). Aşağıdaki örnekte bu, iki denklemi <span class="vurgu">doğrudan toplamak</span> kadar kolay çıkıyor.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 7.4.</strong> &nbsp; Örnek 7.3'teki sistemi alternatif yöntemle çözünüz: $$2x'-2y'-3x=t,\qquad 2x'+2y'+3x+8y=2$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Operatör gösterimi.</strong></p>
+                                $$(2D-3)x-2Dy=t$$
+                                $$(2D+3)x+(2D+8)y=2$$
+                                <p><strong>Adım 2 — $y$'nin türevlerini ele.</strong></p>
+                                <p>Bu sistemde işimiz kolay: iki denklemi <span class="vurgu">doğrudan toplayalım</span>. $-2Dy$ ile $2Dy$ birbirini götürür:</p>
+                                $$\Big[(2D-3)+(2D+3)\Big]x+\Big[-2D+(2D+8)\Big]y=t+2$$
+                                $$4Dx+8y=t+2$$
+                                <p><span class="vurgu">Bu bağıntı $y$'yi içeriyor ama $y'$ içermiyor.</span> Aradığımız $R$ bağıntısı budur. $y$'yi çekelim:</p>
+                                $$y=\frac{t+2-4Dx}{8} \tag{7.26}$$
+                                <p><strong>Adım 3 — $x$ ve $Dx$'i yerine koy.</strong></p>
+                                <p>Örnek 7.3'ten $x=c_{1}e^{t}+c_{2}e^{-3t}-\dfrac{1}{3}t-\dfrac{11}{36}$ biliniyor. Türevi:</p>
+                                $$Dx=c_{1}e^{t}-3c_{2}e^{-3t}-\frac{1}{3}$$
+                                <p>$(7.26)$'ya koyalım:</p>
+                                $$y=\frac{1}{8}\left[t+2-4\left(c_{1}e^{t}-3c_{2}e^{-3t}-\frac{1}{3}\right)\right]$$
+                                $$=\frac{1}{8}\left[t+2-4c_{1}e^{t}+12c_{2}e^{-3t}+\frac{4}{3}\right]$$
+                                <p>Terim terim bölelim — sabit kısım $\dfrac{1}{8}\left(2+\dfrac{4}{3}\right)=\dfrac{1}{8}\cdot\dfrac{10}{3}=\dfrac{5}{12}$:</p>
+                                $$\boxed{\;y=-\frac{1}{2}c_{1}e^{t}+\frac{3}{2}c_{2}e^{-3t}+\frac{1}{8}t+\frac{5}{12}\;}$$
+                                <p><strong>Genel çözüm:</strong></p>
+                                $$x=c_{1}e^{t}+c_{2}e^{-3t}-\frac{1}{3}t-\frac{11}{36},\qquad y=-\frac{1}{2}c_{1}e^{t}+\frac{3}{2}c_{2}e^{-3t}+\frac{1}{8}t+\frac{5}{12}$$
+                                <p>$c_{1}$ ve $c_{2}$ keyfi sabitlerdir.</p>
+                                <div class="highlight">
+                                    <p><strong>İki yöntemin karşılaştırması.</strong> Sonuç Örnek 7.3'tekiyle <span class="vurgu">birebir aynı</span>. Ama bu yolda:</p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li>$L_{5}y=g_{2}$ denklemi hiç çözülmedi</li>
+                                        <li>$k_{1},k_{2}$ sabitleri hiç ortaya çıkmadı</li>
+                                        <li>$(7.23)$ gibi bağıntılar kurulmadı</li>
+                                        <li>Sabit sayısı baştan doğru çıktı ($c_{1}$ ve $c_{2}$)</li>
+                                    </ul>
+                                    <p>Birinci mertebeli operatörlerden oluşan sistemlerde <span class="vurgu">her zaman bu yolu tercih edin.</span></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 

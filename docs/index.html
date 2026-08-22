@@ -169,6 +169,7 @@
                             <li><a href="#laplace-dirac-delta">4.4 Dirac Delta Fonksiyonu</a></li>
                             <li><a href="#laplace-sistemler">4.5 Sistemlerin Çözümü</a></li>
                             <li><a href="#tekrar-ters-donusum">4.6 Bölüm Tekrarı — Ters Dönüşüm</a></li>
+                            <li><a href="#tekrar-bdp">4.6 Bölüm Tekrarı — Başlangıç Değer Problemleri</a></li>
                         </ul>
                     </li>
 
@@ -10195,6 +10196,162 @@
                                     <p><strong>Sonuç:</strong> Yukarıdaki çözüm doğru görünüyor. Anahtardaki fark ya tarama hatası ya kitap dizgi hatası olabilir; <span class="vurgu">kitaptan teyit etmeniz iyi olur.</span> Yöntem her hâlükârda aynıdır.</p>
                                 </div>
                                 <p><strong>Kullanılan girdiler:</strong> 3, 9 ve 13 numara. <span class="vurgu">Tekrarlı kuadratik paydalarda bu üçlü hep birlikte çalışır;</span> payı $As^{2}+Bs+C$ biçimindeyse önce $A(s^{2}+b^{2})$ ayrılır, kalan $Bs$ ve sabit terimler 9 ve 13 numaralara gider.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tekrar-bdp" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.6 &nbsp;Bölüm Tekrar Soruları — Başlangıç Değer Problemleri
+                        </div>
+                        <p>Laplace dönüşümüyle çözünüz.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>25.</strong> &nbsp; $y''-6y'-7y=0,\qquad y(0)=7,\;\; y'(0)=9$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$s^{2}Y-7s-9-6(sY-7)-7Y=0\;\Longrightarrow\;\left(s^{2}-6s-7\right)Y=7s-33$$
+                                <p>$s^{2}-6s-7=(s-7)(s+1)$:</p>
+                                $$7s-33=A(s+1)+B(s-7)$$
+                                <p>$s=7$: $16=8A\Rightarrow A=2$. &nbsp;&nbsp; $s=-1$: $-40=-8B\Rightarrow B=5$.</p>
+                                $$\boxed{\;y=2e^{7t}+5e^{-t}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>26.</strong> &nbsp; $y''-4y=16\cos 2t,\qquad y(0)=0,\;\; y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Başlangıç koşulları sıfır olduğundan sol taraf sade:</p>
+                                $$\left(s^{2}-4\right)Y=\frac{16s}{s^{2}+4}\;\Longrightarrow\;Y=\frac{16s}{\left(s^{2}-4\right)\left(s^{2}+4\right)}$$
+                                <p><span class="vurgu">Paydayı $s^{2}$ cinsinden kısmi kesire ayırmak en kısa yol:</span></p>
+                                $$\frac{1}{\left(s^{2}-4\right)\left(s^{2}+4\right)}=\frac{1}{8}\left[\frac{1}{s^{2}-4}-\frac{1}{s^{2}+4}\right]$$
+                                $$Y=16s\cdot\frac{1}{8}\left[\frac{1}{s^{2}-4}-\frac{1}{s^{2}+4}\right]=\frac{2s}{s^{2}-4}-\frac{2s}{s^{2}+4}$$
+                                <p>6 numara (hiperbolik) ve 4 numara:</p>
+                                $$y=2\cosh 2t-2\cos 2t$$
+                                <p>$\cosh 2t=\dfrac{e^{2t}+e^{-2t}}{2}$ yazarsak:</p>
+                                $$\boxed{\;y=e^{2t}+e^{-2t}-2\cos 2t\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>27.</strong> &nbsp; $y''-y'-2y=20\sin 2t,\qquad y(0)=0,\;\; y'(0)=-2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y(0)=0$ ama $y'(0)=-2$ olduğundan $\mathcal{L}\{y''\}=s^{2}Y+2$:</p>
+                                $$s^{2}Y+2-sY-2Y=\frac{40}{s^{2}+4}$$
+                                $$(s-2)(s+1)Y=\frac{-2\left(s^{2}+4\right)+40}{s^{2}+4}=\frac{-2s^{2}+32}{s^{2}+4}$$
+                                $$Y=\frac{-2\left(s^{2}-16\right)}{(s-2)(s+1)\left(s^{2}+4\right)}$$
+                                <p>Kısmi kesirlere ayrılıp Tablo 9.1'in 2, 4 ve 3 numaralı girdileriyle geri çevrilir:</p>
+                                $$\boxed{\;y=e^{2t}-2e^{-t}+\cos 2t-3\sin 2t\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=1-2+1=0\;\checkmark$; &nbsp; $y'=2e^{2t}+2e^{-t}-2\sin 2t-6\cos 2t\Rightarrow y'(0)=2+2-6=-2\;\checkmark$</p>
+                                <p>Denklemde katsayı katsayı: $e^{2t}$: $4-2-2=0$; &nbsp; $e^{-t}$: $-2-2+4=0$; &nbsp; $\cos 2t$: $-4+6-2=0$; &nbsp; $\sin 2t$: $12+2+6=20\;\checkmark$</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>28.</strong> &nbsp; $y''+4y=6\sin 4t-3\cos 4t,\qquad y(0)=1,\;\; y'(0)=-2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$s^{2}Y-s+2+4Y=\frac{24}{s^{2}+16}-\frac{3s}{s^{2}+16}$$
+                                $$\left(s^{2}+4\right)Y=s-2+\frac{24-3s}{s^{2}+16}$$
+                                <p><span class="vurgu">Zorlama frekansı ($4$) ile doğal frekans ($2$) farklı olduğundan rezonans yok</span>; çözüm iki ayrı frekansta salınım içerir.</p>
+                                $$\boxed{\;y=\frac{3}{4}\cos 2t+\frac{1}{4}\cos 4t-\frac{1}{2}\sin 4t\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=\frac34+\frac14=1\;\checkmark$; &nbsp; $y'=-\frac32\sin 2t-\sin 4t-2\cos 4t\Rightarrow y'(0)=-2\;\checkmark$</p>
+                                <p>$y''=-3\cos 2t-4\cos 4t+8\sin 4t$ olduğundan</p>
+                                $$y''+4y=(-3+3)\cos 2t+(-4+1)\cos 4t+(8-2)\sin 4t=-3\cos 4t+6\sin 4t\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>29.</strong> &nbsp; $y''+6y'+13y=5e^{-2t},\qquad y(0)=3,\;\; y'(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$\left(s^{2}+6s+13\right)Y-3s-2-18=\frac{5}{s+2}$$
+                                <p>$s^{2}+6s+13=(s+3)^{2}+4$ — <span class="vurgu">tamkare, cevapta $e^{-3t}\cos 2t$ ve $e^{-3t}\sin 2t$ bekleriz.</span></p>
+                                $$\boxed{\;y=e^{-3t}\left(2\cos 2t+5\sin 2t\right)+e^{-2t}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=2+1=3\;\checkmark$</p>
+                                $$y'=-3e^{-3t}(2\cos 2t+5\sin 2t)+e^{-3t}(-4\sin 2t+10\cos 2t)-2e^{-2t}$$
+                                $$y'(0)=-6+10-2=2\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>30.</strong> &nbsp; $y''+y'-2y=6e^{t}+8,\qquad y(0)=-3,\;\; y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$s^{2}+s-2=(s-1)(s+2)$. <span class="vurgu">Zorlamadaki $6e^{t}$, paydadaki $(s-1)$ ile çakışıyor</span> — bu yüzden çözümde $te^{t}$ terimi çıkacak.</p>
+                                $$\boxed{\;y=e^{-2t}+2te^{t}-4\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=1+0-4=-3\;\checkmark$; &nbsp; $y'=-2e^{-2t}+2e^{t}+2te^{t}\Rightarrow y'(0)=-2+2=0\;\checkmark$</p>
+                                <p>$y''=4e^{-2t}+4e^{t}+2te^{t}$ ile:</p>
+                                $$e^{-2t}:\;4-2-2=0;\qquad e^{t}:\;4+2=6;\qquad te^{t}:\;2+2-4=0;\qquad \text{sabit}:\;+8$$
+                                $$y''+y'-2y=6e^{t}+8\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>$te^{t}$ nereden geldi?</strong> Zorlamanın dönüşümü $\frac{6}{s-1}$, sol taraftaki operatörün paydası ise $(s-1)(s+2)$. İkisi çarpılınca $(s-1)^{2}$ oluşuyor ve tekrarlı çarpan $te^{t}$ üretiyor. <span class="vurgu">Klasik yöntemdeki "rezonans durumu"nun Laplace'taki karşılığı budur.</span></p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>31.</strong> &nbsp; $2y''+y'=5\cos t,\qquad y(0)=3,\;\; y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><span class="vurgu">Dikkat: $y$ terimi yok</span>, dolayısıyla payda $2s^{2}+s=s(2s+1)$ olur ve bir kökü sıfırdır. Bu, çözümde bir <strong>sabit</strong> terim doğurur.</p>
+                                $$\boxed{\;y=3+2e^{-t/2}+\sin t-2\cos t\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=3+2-2=3\;\checkmark$; &nbsp; $y'=-e^{-t/2}+\cos t+2\sin t\Rightarrow y'(0)=-1+1=0\;\checkmark$</p>
+                                <p>$y''=\frac12 e^{-t/2}-\sin t+2\cos t$ ile:</p>
+                                $$2y''+y'=e^{-t/2}-2\sin t+4\cos t-e^{-t/2}+\cos t+2\sin t=5\cos t\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>32.</strong> &nbsp; $y'-3y=h(t)$, &nbsp; $h(t)=\begin{cases}0, & 0<t<5\\ 2, & t>5\end{cases}$, &nbsp; $y(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Zorlama <strong>sonradan başlıyor</strong>, yani $h(t)=2u_{5}(t)$ ve $\mathcal{L}\{h\}=\dfrac{2e^{-5s}}{s}$.</p>
+                                $$(s-3)Y=4+\frac{2e^{-5s}}{s}\;\Longrightarrow\;Y=\frac{4}{s-3}+e^{-5s}\underbrace{\frac{2}{s(s-3)}}_{F(s)}$$
+                                $$2=A(s-3)+Bs;\qquad s=0:\;A=-\tfrac{2}{3},\qquad s=3:\;B=\tfrac{2}{3}$$
+                                $$f(t)=-\frac{2}{3}+\frac{2}{3}e^{3t}$$
+                                $$y=4e^{3t}+u_{5}(t)\,f(t-5)$$
+                                $$\boxed{\;y=\begin{cases}4e^{3t}, & 0<t<5\\ 4e^{3t}-\dfrac{2}{3}+\dfrac{2}{3}e^{3t-15}, & t>5\end{cases}\;}$$
+                                <p><span class="vurgu">$e^{3(t-5)}=e^{3t-15}$ olduğuna dikkat;</span> öteleme üstel içinde de yapılmalıdır.</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>33.</strong> &nbsp; $y''+2y'+5y=h(t)$, &nbsp; $h(t)=\begin{cases}0, & 0<t<2\pi\\ 10, & t>2\pi\end{cases}$, &nbsp; $y(0)=0,\;y'(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$\left(s^{2}+2s+5\right)Y-4=\frac{10e^{-2\pi s}}{s}$$
+                                <p>$s^{2}+2s+5=(s+1)^{2}+4$:</p>
+                                $$Y=\underbrace{\frac{4}{(s+1)^{2}+4}}_{\to\,2e^{-t}\sin 2t}+e^{-2\pi s}\cdot\frac{10}{s\left[(s+1)^{2}+4\right]}$$
+                                $$\boxed{\;y=\begin{cases}2e^{-t}\sin 2t, & 0<t<2\pi\\ 2+\left(2-e^{2\pi}\right)e^{-t}\sin 2t-2e^{2\pi-t}\cos 2t, & t>2\pi\end{cases}\;}$$
+                                <p><strong>Süreklilik kontrolü</strong> ($t=2\pi$'de iki ifade eşit olmalı):</p>
+                                <p>Üstteki: $2e^{-2\pi}\sin 4\pi=0$</p>
+                                <p>Alttaki: $2+\left(2-e^{2\pi}\right)e^{-2\pi}\underbrace{\sin 4\pi}_{0}-2\underbrace{e^{0}}_{1}\underbrace{\cos 4\pi}_{1}=2-2=0\;\checkmark$</p>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>34.</strong> &nbsp; $y''+5y'+6y=h(t)$, &nbsp; $h(t)=\begin{cases}12, & 0<t<2\\ 0, & t>2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$s^{2}+5s+6=(s+2)(s+3)$, &nbsp; $\mathcal{L}\{h\}=\dfrac{12\left(1-e^{-2s}\right)}{s}$</p>
+                                $$\boxed{\;y=\begin{cases}-e^{-2t}+2, & 0<t<2\\ \left(6e^{4}-1\right)e^{-2t}-4e^{6-3t}, & t>2\end{cases}\;}$$
+                                <p><strong>Doğrulama (ilk aralık).</strong> $y(0)=-1+2=1\;\checkmark$; &nbsp; $y'=2e^{-2t}\Rightarrow y'(0)=2\;\checkmark$</p>
+                                <p>$y''=-4e^{-2t}$ ile: $\;-4e^{-2t}+10e^{-2t}-6e^{-2t}+12=12\;\checkmark$</p>
+                                <p><strong>Süreklilik kontrolü</strong> ($t=2$):</p>
+                                <p>Üstteki: $-e^{-4}+2$</p>
+                                <p>Alttaki: $\left(6e^{4}-1\right)e^{-4}-4e^{6-6}=6-e^{-4}-4=2-e^{-4}\;\checkmark$</p>
+                                <div class="highlight">
+                                    <p><strong>İlk aralıkta neden yalnızca $e^{-2t}$ var?</strong> Karakteristik kökler $-2$ ve $-3$ olduğuna göre genel çözümde ikisi de beklenirdi. <span class="vurgu">Başlangıç koşulları $e^{-3t}$ teriminin katsayısını sıfır yaptı.</span> İkinci aralıkta zorlama kesilince $e^{-3t}$ terimi ($e^{6-3t}$ biçiminde) ortaya çıkıyor — kesilme anı sistemi yeni bir duruma sokuyor.</p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <hr>
+                                <div class="highlight">
+                                    <p><strong>Süreksiz zorlamalı sorularda değişmeyen denetim.</strong> 32, 33 ve 34'te cevabın doğruluğunu <span class="vurgu">süreklilikten</span> sınadık: $t=a$ noktasında iki ifadenin değeri eşit olmalı. Bu kontrol cevap anahtarından bağımsızdır ve neredeyse her hatayı yakalar; öteleme atlanmışsa ya da katsayı yanlışsa iki taraf tutmaz.</p>
+                                    <p>Daha da güçlü bir denetim için $y'$'nin de sürekli olduğunu kontrol edin — basamak zorlamada hem $y$ hem $y'$ süreklidir, yalnızca $y''$ sıçrar.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

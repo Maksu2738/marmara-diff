@@ -170,6 +170,7 @@
                             <li><a href="#laplace-sistemler">4.5 Sistemlerin Çözümü</a></li>
                             <li><a href="#tekrar-ters-donusum">4.6 Bölüm Tekrarı — Ters Dönüşüm</a></li>
                             <li><a href="#tekrar-bdp">4.6 Bölüm Tekrarı — Başlangıç Değer Problemleri</a></li>
+                            <li><a href="#egzersizler-sistemler">4.5 Egzersizler — Sistemler</a></li>
                         </ul>
                     </li>
 
@@ -10351,6 +10352,127 @@
                                 <div class="highlight">
                                     <p><strong>Süreksiz zorlamalı sorularda değişmeyen denetim.</strong> 32, 33 ve 34'te cevabın doğruluğunu <span class="vurgu">süreklilikten</span> sınadık: $t=a$ noktasında iki ifadenin değeri eşit olmalı. Bu kontrol cevap anahtarından bağımsızdır ve neredeyse her hatayı yakalar; öteleme atlanmışsa ya da katsayı yanlışsa iki taraf tutmaz.</p>
                                     <p>Daha da güçlü bir denetim için $y'$'nin de sürekli olduğunu kontrol edin — basamak zorlamada hem $y$ hem $y'$ süreklidir, yalnızca $y''$ sıçrar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="egzersizler-sistemler" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.5 &nbsp;Egzersizler — Lineer Sistemlerin Laplace ile Çözümü
+                        </div>
+                        <p>Aşağıdaki lineer sistemleri verilen başlangıç koşullarıyla Laplace dönüşümü kullanarak çözünüz.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $x'+y=3e^{2t}$, &nbsp; $y'+x=0$, &nbsp; $x(0)=2,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümleri al.</strong></p>
+                                $$sX-2+Y=\frac{3}{s-2}$$
+                                $$sY+X=0$$
+                                <p><strong>Adım 2 — İkinci denklemden $X$'i çek, birinciye koy.</strong></p>
+                                <p>İkinci denklem çok sade: $\;X=-sY$</p>
+                                $$s(-sY)-2+Y=\frac{3}{s-2}\;\Longrightarrow\;\left(1-s^{2}\right)Y=\frac{3}{s-2}+2=\frac{2s-1}{s-2}$$
+                                $$Y=\frac{2s-1}{(s-2)\left(1-s^{2}\right)}=\frac{-(2s-1)}{(s-2)(s-1)(s+1)}$$
+                                <p><strong>Adım 3 — Kısmi kesirler.</strong></p>
+                                $$-(2s-1)=A(s-1)(s+1)+B(s-2)(s+1)+C(s-2)(s-1)$$
+                                <p>$s=2$: $-3=3A\Rightarrow A=-1$</p>
+                                <p>$s=1$: $-1=-2B\Rightarrow B=\tfrac{1}{2}$</p>
+                                <p>$s=-1$: $3=6C\Rightarrow C=\tfrac{1}{2}$</p>
+                                $$y=-e^{2t}+\frac{1}{2}e^{t}+\frac{1}{2}e^{-t}$$
+                                <p><strong>Adım 4 — $x$'i geri yerleştirmeyle bul.</strong></p>
+                                <p>İkinci orijinal denklemden $x=-y'$:</p>
+                                $$y'=-2e^{2t}+\frac{1}{2}e^{t}-\frac{1}{2}e^{-t}$$
+                                $$\boxed{\;x=-\frac{e^{t}}{2}+\frac{e^{-t}}{2}+2e^{2t},\qquad y=\frac{e^{t}}{2}+\frac{e^{-t}}{2}-e^{2t}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=-\tfrac12+\tfrac12+2=2\;\checkmark$, &nbsp; $y(0)=\tfrac12+\tfrac12-1=0\;\checkmark$</p>
+                                $$x'+y=\left(-\tfrac{e^{t}}{2}-\tfrac{e^{-t}}{2}+4e^{2t}\right)+\left(\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}-e^{2t}\right)=3e^{2t}\;\checkmark$$
+                                $$y'+x=\left(\tfrac{e^{t}}{2}-\tfrac{e^{-t}}{2}-2e^{2t}\right)+\left(-\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}+2e^{2t}\right)=0\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <div class="highlight">
+                                    <p><strong>Adım 4'teki kısayolu benimseyin.</strong> $Y$ bulunduktan sonra $X$'i de elemeyle aramak yerine <span class="vurgu">orijinal denklemlerden en sadesine geri koymak</span> çok daha kısadır. Burada ikinci denklem doğrudan $x=-y'$ verdi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $x'-5x+2y=3e^{4t}$, &nbsp; $y'-4x+y=0$, &nbsp; $x(0)=3,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$(s-5)X+2Y=\frac{3}{s-4}+3,\qquad -4X+(s+1)Y=0$$
+                                <p>İkinci denklemden $Y=\dfrac{4X}{s+1}$; birinciye koyup $X$ çekilir, ardından kısmi kesirlerle geri çevrilir.</p>
+                                $$\boxed{\;x=-2e^{t}+5e^{4t},\qquad y=-4e^{t}+4e^{4t}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=-2+5=3\;\checkmark$, &nbsp; $y(0)=-4+4=0\;\checkmark$</p>
+                                <p>Birinci denklem, katsayı katsayı:</p>
+                                $$e^{t}:\;-2+10-8=0,\qquad e^{4t}:\;20-25+8=3\;\checkmark$$
+                                <p>İkinci denklem:</p>
+                                $$e^{t}:\;-4+8-4=0,\qquad e^{4t}:\;16-20+4=0\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $x'-4x+2y=2t$, &nbsp; $y'-8x+4y=1$, &nbsp; $x(0)=3,\;y(0)=5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$(s-4)X+2Y=\frac{2}{s^{2}}+3,\qquad -8X+(s+4)Y=\frac{1}{s}+5$$
+                                <p><span class="vurgu">Bu sistemde ilginç bir şey var:</span> ikinci denklemin katsayıları birincinin iki katına yakın ($-8=2\cdot(-4)$, $4=2\cdot 2$). Bu, elemede paydanın beklenenden düşük dereceli çıkmasına ve çözümün <strong>polinom</strong> olmasına yol açar.</p>
+                                $$\boxed{\;x=3+2t+\frac{4}{3}t^{3},\qquad y=5+5t-2t^{2}+\frac{8}{3}t^{3}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=3\;\checkmark$, &nbsp; $y(0)=5\;\checkmark$</p>
+                                <p>$x'=2+4t^{2}$ ile birinci denklem:</p>
+                                $$\text{sabit}:\;2-12+10=0,\quad t:\;-8+10=2,\quad t^{2}:\;4-4=0,\quad t^{3}:\;-\tfrac{16}{3}+\tfrac{16}{3}=0$$
+                                $$\Longrightarrow\;2t\;\checkmark$$
+                                <p>$y'=5-4t+8t^{2}$ ile ikinci denklem:</p>
+                                $$\text{sabit}:\;5-24+20=1,\quad t:\;-4-16+20=0,\quad t^{2}:\;8-8=0,\quad t^{3}:\;-\tfrac{32}{3}+\tfrac{32}{3}=0$$
+                                $$\Longrightarrow\;1\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $2x'+y'-x-y=e^{-t}$, &nbsp; $x'+y'+2x+y=e^{t}$, &nbsp; $x(0)=2,\;y(0)=1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><span class="vurgu">Bu sistemde her iki denklemde de hem $x'$ hem $y'$ var</span>, yani normal biçimde değil. Laplace bundan etkilenmez; dönüşüm alındığında yine iki bilinmeyenli cebirsel sistem çıkar.</p>
+                                $$\boxed{\;x=8\sin t+2\cos t,\qquad y=-13\sin t+\cos t+\frac{e^{t}}{2}-\frac{e^{-t}}{2}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=2\;\checkmark$, &nbsp; $y(0)=1+\tfrac12-\tfrac12=1\;\checkmark$</p>
+                                <p>$x'=8\cos t-2\sin t$, &nbsp; $y'=-13\cos t-\sin t+\tfrac{e^{t}}{2}+\tfrac{e^{-t}}{2}$</p>
+                                <p><strong>Birinci denklem</strong> ($2x'+y'-x-y$):</p>
+                                $$\cos t:\;16-13-2-1=0,\qquad \sin t:\;-4-1-8+13=0$$
+                                $$e^{t}:\;\tfrac12-\tfrac12=0,\qquad e^{-t}:\;\tfrac12+\tfrac12=1\;\Longrightarrow\;e^{-t}\;\checkmark$$
+                                <p><strong>İkinci denklem</strong> ($x'+y'+2x+y$):</p>
+                                $$\cos t:\;8-13+4+1=0,\qquad \sin t:\;-2-1+16-13=0$$
+                                $$e^{t}:\;\tfrac12+\tfrac12=1,\qquad e^{-t}:\;\tfrac12-\tfrac12=0\;\Longrightarrow\;e^{t}\;\checkmark$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $2x'+4y'+x-y=3e^{t}$, &nbsp; $x'+y'+2x+2y=e^{t}$, &nbsp; $x(0)=1,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$\boxed{\;x=e^{-2t}-te^{t},\qquad y=\frac{1}{3}e^{t}-\frac{1}{3}e^{-2t}+te^{t}\;}$$
+                                <p><strong>Doğrulama.</strong> $x(0)=1\;\checkmark$, &nbsp; $y(0)=\tfrac13-\tfrac13=0\;\checkmark$</p>
+                                $$x'=-2e^{-2t}-e^{t}-te^{t},\qquad y'=\frac{4}{3}e^{t}+\frac{2}{3}e^{-2t}+te^{t}$$
+                                <p><strong>Birinci denklem</strong> ($2x'+4y'+x-y$):</p>
+                                $$e^{-2t}:\;-4+\tfrac83+1+\tfrac13=0,\qquad e^{t}:\;-2+\tfrac{16}{3}-\tfrac13=3,\qquad te^{t}:\;-2+4-1-1=0$$
+                                $$\Longrightarrow\;3e^{t}\;\checkmark$$
+                                <p><strong>İkinci denklem</strong> ($x'+y'+2x+2y$):</p>
+                                $$e^{-2t}:\;-2+\tfrac23+2-\tfrac23=0,\qquad e^{t}:\;-1+\tfrac43+\tfrac23=1,\qquad te^{t}:\;-1+1-2+2=0$$
+                                $$\Longrightarrow\;e^{t}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>$te^{t}$ yine belirdi.</strong> Sebebi 30. tekrar sorusundakiyle aynı: zorlamadaki $e^{t}$, elemeden çıkan paydanın $(s-1)$ çarpanıyla çakışıyor ve $(s-1)^{2}$ oluşuyor. <span class="vurgu">Sistemlerde de rezonans aynı biçimde görünür.</span></p>
+                                    <p>Dikkat çeken şey, $te^{t}$'nin $x$ ve $y$'de <strong>ters işaretlerle</strong> çıkması: $x$'te $-te^{t}$, $y$'de $+te^{t}$. Toplandıklarında götürüyorlar; nitekim ikinci denklemdeki $2x+2y$ terimi bu yüzden $te^{t}$ katkısı vermiyor.</p>
+                                </div>
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                                <p><strong>2.</strong> &nbsp; $x'-2y=0$, &nbsp; $y'+x-3y=2$, &nbsp; $x(0)=3,\;y(0)=0$</p>
+                                <p><strong>4.</strong> &nbsp; $x'-2x-3y=0$, &nbsp; $y'+x+2y=t$, &nbsp; $x(0)=-1,\;y(0)=0$</p>
+                                <p><strong>6.</strong> &nbsp; $x'+x+y=5e^{2t}$, &nbsp; $y'-5x-y=-3e^{2t}$, &nbsp; $x(0)=3,\;y(0)=2$</p>
+                                <p><strong>8.</strong> &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$</p>
+                                <p><strong>10.</strong> &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$</p>
+                                <div class="highlight">
+                                    <p><strong>İpuçları.</strong> 2 ve 4 → soru 1 ve 3 gibi; bir denklemden bir bilinmeyeni çekip ötekine koyun.</p>
+                                    <p>6 ve 8 → soru 7 ve 9 gibi, her iki denklemde de türevler karışık. Dönüşüm alıp $X$ ve $Y$ için iki bilinmeyenli sistem kurun.</p>
+                                    <p><strong>10 farklı:</strong> içinde $x''$ var, dolayısıyla <span class="vurgu">üç başlangıç koşulu verilmiş</span>. $\mathcal{L}\{x''\}=s^{2}X-s\,x(0)-x'(0)$ kullanın. Geri kalanı aynıdır.</p>
+                                    <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözüm sınanabilir: bulduğunuz $x$ ve $y$'yi <span class="vurgu">her iki denkleme birden</span> koyun ve başlangıç koşullarını kontrol edin. Yukarıdaki çözümlerde tam olarak bu yapıldı — katsayıları terim türüne göre grupladığınızda hata anında görünür.</p>
                                 </div>
                             </div>
                         </div>

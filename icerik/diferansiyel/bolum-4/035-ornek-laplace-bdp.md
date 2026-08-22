@@ -7,7 +7,7 @@ baslik: 4.1 &nbsp;Çözümlü Örnek — Laplace ile İlk Başlangıç Değer Pr
 
 Buraya kadar dönüşümün tanımını, varlığını ve türev kuralını kurduk. Şimdi ==bütün bunların ne işe yaradığını== bir örnekle görelim. Yöntemin tam ve sistematik anlatımı 4.3'te yapılacak; buradaki amaç fikri göstermektir.
 
-[SORU] **Örnek 9.13.** &nbsp; Aşağıdaki başlangıç değer problemini Laplace dönüşümüyle çözünüz:
+[SORU*] **Örnek 9.13.** &nbsp; Aşağıdaki başlangıç değer problemini Laplace dönüşümüyle çözünüz:
 $$y'-3y=4e^{5t},\qquad y(0)=6$$
 [CEVAP]
 **Adım 1 — Denklemin her iki tarafının dönüşümünü al.**

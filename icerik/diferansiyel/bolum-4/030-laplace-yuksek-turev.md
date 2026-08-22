@@ -68,7 +68,7 @@ $$\boxed{\;\mathcal{L}\{\sin bt\}=\frac{b}{s^{2}+b^{2}}\;}$$
 
 ==$(9.5)$ ile birebir aynı.== Dikkat çekici olan şudur: burada **hiç integral almadık**. $\sin bt$'nin ikinci türevinin yine kendisiyle orantılı olması ($f''=-b^{2}f$), dönüşümü cebirsel olarak çözmemizi sağladı.
 
-[SORU] **Örnek 9.15.** &nbsp; $f''-6f'+5f=0$, $f(0)=3$, $f'(0)=7$ koşullarını sağlayan $f$ için $\mathcal{L}\{f(t)\}$ ifadesini bulunuz.
+[SORU*] **Örnek 9.15.** &nbsp; $f''-6f'+5f=0$, $f(0)=3$, $f'(0)=7$ koşullarını sağlayan $f$ için $\mathcal{L}\{f(t)\}$ ifadesini bulunuz.
 [CEVAP]
 **Adım 1 — Türevlerin dönüşümlerini yaz.**
 
@@ -100,4 +100,68 @@ $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{3s-11}{s^{2}-6s+5}\;}$$
 Bu **ters dönüşüm (inverse transform)** işlemidir ve 4.2'de ele alınacaktır. Laplace yönteminin en zahmetli kısmı da genelde burasıdır.
 
 Bu örnekte payda $s^{2}-6s+5=(s-1)(s-5)$ çarpanlarına ayrılır; kısmi kesirlere açılıp tablodan geri okunabilir.
+[/KUTU]
+
+---
+
+### Türev THEoREM'inin iki yönlü kullanımı
+
+Örnek 9.14'te THEoREM'i **bilinmeyen dönüşümü bulmak** için kullandık. Aynı THEoREM ters yönde de çalışır: ==zor bir fonksiyonun, dönüşümü kolay bir fonksiyonun türevi olduğunu fark edersek== hesap tek satıra iner.
+
+[SORU*] **Ders Notu Örneği A.** &nbsp; $(9.11)$'i kullanarak $\mathcal{L}\{1\}=\dfrac{1}{s}$ olduğunu, $\mathcal{L}\{t\}$ üzerinden gösteriniz.
+[CEVAP]
+**Adım 1 — Uygun $f$'yi seç.**
+
+$f'(t)=1$ olmasını istiyoruz; buna karşılık gelen fonksiyon $f(t)=t$'dir ve $f(0)=0$.
+
+**Adım 2 — $(9.11)$'i yaz.**
+
+$$\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\{f(t)\}-f(0)\;\Longrightarrow\;\mathcal{L}\{1\}=s\,\mathcal{L}\{t\}-0$$
+
+**Adım 3 — $\mathcal{L}\{t\}$'yi kısmi integrasyonla bul.**
+
+$$\mathcal{L}\{t\}=\int_{0}^{\infty}e^{-st}\,t\,dt$$
+
+$u=t$, $dv=e^{-st}dt$ &nbsp;($du=dt$, $v=-\tfrac{1}{s}e^{-st}$):
+
+$$=\left[-\frac{t}{s}e^{-st}\right]_{0}^{\infty}+\frac{1}{s}\int_{0}^{\infty}e^{-st}\,dt$$
+
+$s>0$ için köşeli parantez her iki uçta da sıfırdır ($t\to\infty$'da üstel azalma doğrusal büyümeyi yener):
+
+$$\mathcal{L}\{t\}=0+\frac{1}{s}\cdot\frac{1}{s}=\frac{1}{s^{2}}$$
+
+**Adım 4 — Geri yerleştir.**
+
+$$\mathcal{L}\{1\}=s\cdot\frac{1}{s^{2}}=\boxed{\frac{1}{s}}$$
+
+Örnek 9.1'de doğrudan integralle bulduğumuz sonucun aynısı. &#10003;
+[/CEVAP]
+
+[SORU*] **Ders Notu Örneği B.** &nbsp; $\mathcal{L}\{2a\sin at\cos at\}$ değerini, $(9.11)$ ve $(9.10)$'u kullanarak bulunuz.
+[CEVAP]
+**Adım 1 — Çarpımı bir türev olarak tanı.**
+
+Zincir kuralıyla:
+
+$$\frac{d}{dt}\sin^{2}at=2\sin at\cdot\frac{d}{dt}(\sin at)=2a\sin at\cos at$$
+
+Yani aradığımız fonksiyon, $f(t)=\sin^{2}at$'nin türevidir. ==Püf nokta bu: çarpımı doğrudan dönüştürmeye çalışmak yerine, dönüşümü bilinen bir fonksiyonun türevi olduğunu görmek.==
+
+**Adım 2 — $(9.11)$'i uygula.**
+
+$f(0)=\sin^{2}0=0$ olduğuna dikkat edin:
+
+$$\mathcal{L}\{2a\sin at\cos at\}=\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\left\{\sin^{2}at\right\}-\underbrace{f(0)}_{=\,0}$$
+
+**Adım 3 — $(9.10)$'dan oku ve sadeleştir.**
+
+Örnek 9.11'de $\mathcal{L}\{\sin^{2}at\}=\dfrac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}$ bulmuştuk:
+
+$$=s\cdot\frac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}=\boxed{\;\frac{2a^{2}}{s^{2}+4a^{2}}\;}$$
+
+**Doğrulama.** $2a\sin at\cos at=a\sin 2at$ olduğundan, sonucu $(9.5)$'ten de okuyabiliriz: $\mathcal{L}\{a\sin 2at\}=a\cdot\dfrac{2a}{s^{2}+(2a)^{2}}=\dfrac{2a^{2}}{s^{2}+4a^{2}}$. &#10003;
+[/CEVAP]
+
+[KUTU]
+**İki yolun karşılaştırması.** Doğrulamada gördüğümüz gibi bu örnek $\sin 2at$ özdeşliğiyle de çözülebilirdi. Ama sınavda her zaman böyle bir özdeşlik olmaz; ==türev THEoREM'i özdeşliğe ihtiyaç duymadan çalışır==. $f(0)=0$ olması da çoğu zaman işi kolaylaştırır — sabit terim düşer.
 [/KUTU]

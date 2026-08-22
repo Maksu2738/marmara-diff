@@ -5,7 +5,7 @@ tip: ornek
 baslik: 5.6 &nbsp;Çözümlü Örnekler — Düzgün ve Düzgün Olmayan Tekil Noktalar
 ---
 
-[SORU] **Örnek 5.7.** &nbsp; $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin tekil noktalarını bulunuz ve türlerini belirleyiniz.
+[SORU*] **Örnek 5.7.** &nbsp; $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin tekil noktalarını bulunuz ve türlerini belirleyiniz.
 [CEVAP]
 **Adım 1 — Normalleştirilmiş biçime geç.**
 
@@ -39,7 +39,7 @@ $$|x|^{r}\sum_{n=0}^{\infty}c_{n}x^{n}$$
 
 biçiminde, $0<|x|<R$ delinmiş aralığında geçerli, aşikâr olmayan en az bir çözümü vardır.
 
-[SORU] **Örnek 5.8.** &nbsp; $\displaystyle x^{2}(x-2)^{2}y''+2(x-2)y'+(x+1)y=0$ denkleminin tekil noktalarını bulunuz ve **her birini ayrı ayrı** sınıflandırınız.
+[SORU*] **Örnek 5.8.** &nbsp; $\displaystyle x^{2}(x-2)^{2}y''+2(x-2)y'+(x+1)y=0$ denkleminin tekil noktalarını bulunuz ve **her birini ayrı ayrı** sınıflandırınız.
 [CEVAP]
 **Adım 1 — Normalleştir.**
 

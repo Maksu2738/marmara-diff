@@ -5,7 +5,7 @@ tip: ornek
 baslik: 5.2 &nbsp;Çözümlü Örnek — Kuvvet Serisi Çözümünün Bulunması
 ---
 
-[SORU] **Örnek 5.4.** &nbsp; $\displaystyle y''+xy'+(x^{2}+2)y=0$ denkleminin $x$ kuvvetlerinde (yani $x_{0}=0$ etrafında) kuvvet serisi çözümünü bulunuz.
+[SORU*] **Örnek 5.4.** &nbsp; $\displaystyle y''+xy'+(x^{2}+2)y=0$ denkleminin $x$ kuvvetlerinde (yani $x_{0}=0$ etrafında) kuvvet serisi çözümünü bulunuz.
 [CEVAP]
 Örnek 5.1'de bu denklemin bütün noktalarının adi nokta olduğunu görmüştük; özel olarak $x_{0}=0$ da adi noktadır. THEoREM 5.1 gereği aranan türden lineer bağımsız iki çözüm mevcuttur. ==Aşağıdaki yöntem ikisini birden aynı anda verir.==
 

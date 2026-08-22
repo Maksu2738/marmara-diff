@@ -9,7 +9,7 @@ Tablodaki bir girdiye doğrudan uyan $F(s)$ ifadesi nadiren karşınıza çıkar
 
 ---
 
-[SORU] **Örnek 9.20.** &nbsp; Tablo 9.1'i kullanarak $\displaystyle\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+6s+13}\right\}$ değerini bulunuz.
+[SORU*] **Örnek 9.20.** &nbsp; Tablo 9.1'i kullanarak $\displaystyle\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+6s+13}\right\}$ değerini bulunuz.
 [CEVAP]
 **Adım 1 — Tabloda ne arayacağımızı belirle.**
 

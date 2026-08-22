@@ -133,3 +133,86 @@ $$y(0)=\frac{1}{8}\left(-1+0+1+0\right)=0\;\checkmark$$
 [/KUTU]
 
 **Çözümün yapısı.** İlk iki terim ($\cos t$, $\sin t$) homojen denklemin çözümünden, son ikisi ($e^{-2t}\cos t$, $e^{-2t}\sin t$) zorlama teriminden gelir. ==Laplace bu ikisini ayırmadan, tek hamlede birlikte üretti.==
+
+---
+
+Son örnek, zorlama teriminin homojen çözümle **çakıştığı** durumu gösteriyor. Klasik yöntemde bu, UC kümesini $x$ ile çarpmayı gerektiren özel bir haldi; ==Laplace'ta ise hiçbir özel kural gerekmez==, çakışma kendiliğinden paydada bir kare çarpanı olarak belirir.
+
+[SORU*] **Ders Notu Örneği C.** &nbsp; Aşağıdaki başlangıç değer problemini Laplace dönüşümüyle çözünüz:
+$$y''+4y'+3y=6e^{-t},\qquad y(0)=1,\qquad y'(0)=0$$
+[CEVAP]
+**Adım 1 — Dönüşümü al.**
+
+$\mathcal{L}\{y\}=Y(s)$ diyelim. $(9.18)$ ve $(9.11)$ ile:
+
+$$\mathcal{L}\{y''\}=s^{2}Y-s\,y(0)-y'(0)=s^{2}Y-s$$
+$$\mathcal{L}\{y'\}=sY-y(0)=sY-1$$
+
+Sağ taraf $(9.4)$'ten: $\mathcal{L}\{6e^{-t}\}=\dfrac{6}{s+1}$.
+
+$$\left(s^{2}Y-s\right)+4\left(sY-1\right)+3Y=\frac{6}{s+1}$$
+
+**Adım 2 — $Y$'yi yalnız bırak.**
+
+$Y$ çarpanları: $s^{2}+4s+3$. Sabit terimler sağa geçer:
+
+$$\left(s^{2}+4s+3\right)Y=\frac{6}{s+1}+(s+4)$$
+
+$s^{2}+4s+3=(s+1)(s+3)$ olduğuna dikkat edelim:
+
+$$Y(s)=\frac{6}{(s+1)^{2}(s+3)}+\frac{s+4}{(s+1)(s+3)}=\frac{6+(s+4)(s+1)}{(s+1)^{2}(s+3)}$$
+
+Payı açalım: $(s+4)(s+1)=s^{2}+5s+4$, buna $6$ eklenir:
+
+$$\boxed{\;Y(s)=\frac{s^{2}+5s+10}{(s+1)^{2}(s+3)}\;}$$
+
+==Paydadaki $(s+1)^{2}$ karesi rezonansın izidir:== zorlamadaki $e^{-t}$, homojen çözümün $e^{-t}$ parçasıyla aynı; ikisi çarpıldığında $(s+1)$ çarpanı iki kez belirdi.
+
+**Adım 3 — Kısmi kesirlere ayır.**
+
+Tekrarlı çarpan için üç terim gerekir:
+
+$$\frac{s^{2}+5s+10}{(s+1)^{2}(s+3)}=\frac{A}{s+1}+\frac{B}{(s+1)^{2}}+\frac{C}{s+3}$$
+
+$(s+1)^{2}(s+3)$ ile çarpalım:
+
+$$s^{2}+5s+10=A(s+1)(s+3)+B(s+3)+C(s+1)^{2}$$
+
+$s=-1$: &nbsp; $1-5+10=2B\;\Longrightarrow\;6=2B\;\Longrightarrow\;B=3$
+
+$s=-3$: &nbsp; $9-15+10=4C\;\Longrightarrow\;4=4C\;\Longrightarrow\;C=1$
+
+$A$ için $s^{2}$ katsayılarını karşılaştıralım: solda $1$, sağda $A+C$:
+
+$$1=A+C=A+1\;\Longrightarrow\;A=0$$
+
+==$A=0$ çıkması dikkate değer:== sade $\dfrac{1}{s+1}$ terimi yok, yalnızca karesi var.
+
+$$Y(s)=\frac{3}{(s+1)^{2}}+\frac{1}{s+3}$$
+
+**Adım 4 — Tablodan geri oku.**
+
+Birinci öteleme THEoREM'i ile $\mathcal{L}\{t\,e^{-at}\}=\dfrac{1}{(s+a)^{2}}$ ve $\mathcal{L}\{e^{-at}\}=\dfrac{1}{s+a}$:
+
+$$\boxed{\;y(t)=3t\,e^{-t}+e^{-3t}\;}$$
+
+**Doğrulama.**
+
+$$y(0)=0+1=1\;\checkmark$$
+
+$$y'=3e^{-t}-3t\,e^{-t}-3e^{-3t}\;\Longrightarrow\;y'(0)=3-0-3=0\;\checkmark$$
+
+$$y''=-3e^{-t}-3e^{-t}+3t\,e^{-t}+9e^{-3t}=-6e^{-t}+3t\,e^{-t}+9e^{-3t}$$
+
+Denkleme koyalım, terim türüne göre gruplayarak:
+
+$$e^{-t}:\;-6+4\cdot 3=6,\qquad t\,e^{-t}:\;3-12+9=0,\qquad e^{-3t}:\;9-12+3=0$$
+
+$$\Longrightarrow\;6e^{-t}\;\checkmark$$
+[/CEVAP]
+
+[KUTU]
+**$t\,e^{-t}$ nereden geldi?** Klasik yöntemde $6e^{-t}$ için $y_{p}=Ae^{-t}$ denenir, ama $e^{-t}$ zaten homojen çözümde olduğu için bu deneme sıfır verir ve küme $x$ ile çarpılıp $y_{p}=Ate^{-t}$ yapılır (Bölüm 3.3, Adım 3 revizyonu).
+
+Laplace'ta böyle bir "kural hatırlama" adımı yok: çakışma ==paydada $(s+1)^{2}$ olarak kendiliğinden görünür== ve $\dfrac{1}{(s+a)^{2}}\to t\,e^{-at}$ tablosu gerisini halleder. Yöntemin sistematikliği en çok burada belli olur.
+[/KUTU]

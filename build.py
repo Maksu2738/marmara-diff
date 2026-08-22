@@ -200,6 +200,12 @@ def bloklari_cevir(satirlar, girinti):
             i = soru_blogu(satirlar, i, cikti, girinti)
             continue
 
+        # --- markdown tablosu
+        if (cip.startswith('|') and i + 1 < n
+                and tablo_ayraci(satirlar[i + 1].strip())):
+            i = tablo_blogu(satirlar, i, cikti, girinti)
+            continue
+
         # --- siralanmis liste
         if re.match(r'^\d+\.\s', cip):
             ekle('<ol>')
@@ -242,11 +248,47 @@ def bloklari_cevir(satirlar, girinti):
 
 def _blok_basi(cip):
     return (cip.startswith('<') or cip.startswith('$$') or cip.startswith('- ')
+            or cip.startswith('|')
             or cip.startswith('#') or cip.startswith('[SORU]')
             or cip.startswith('[SORU*]')
             or cip.startswith('[CEVAP]') or cip.startswith('[/CEVAP]')
             or cip.startswith('[KUTU]') or cip.startswith('[/KUTU]')
             or cip in ('---', '***') or re.match(r'^\d+\.\s', cip) is not None)
+
+
+def tablo_ayraci(cip):
+    """|---|---| gibi bir markdown tablo ayrac satiri mi?"""
+    if not cip.startswith('|'):
+        return False
+    govde = cip.strip('|').replace(' ', '')
+    return bool(govde) and set(govde) <= set('-:|')
+
+
+def _hucreler(cip):
+    return [h.strip() for h in cip.strip().strip('|').split('|')]
+
+
+def tablo_blogu(satirlar, i, cikti, girinti):
+    """Markdown tablosunu <div class="tablo-sar"><table> blogua cevirir.
+
+    Dar ekranda yatay kaydirma icin sarmalayici sart (bkz. CLAUDE.md).
+    Ayrac satiri yoksa tablo sayilmaz; cagiran taraf kontrol eder.
+    """
+    g = girinti
+    basliklar = _hucreler(satirlar[i])
+    i += 2                                  # baslik + ayrac satiri
+    cikti.append(g + '<div class="tablo-sar">')
+    cikti.append(g + '<table>')
+    cikti.append(g + '    <tr>' + ''.join(
+        '<th>%s</th>' % satir_ici(h) for h in basliklar) + '</tr>')
+    while i < len(satirlar) and satirlar[i].strip().startswith('|'):
+        h = _hucreler(satirlar[i])
+        cikti.append(g + '    <tr>' + ''.join(
+            '<td>%s</td>' % satir_ici(x) for x in h) + '</tr>')
+        i += 1
+    cikti.append(g + '</table>')
+    cikti.append(g + '</div>')
+    return i
 
 
 def soru_blogu(satirlar, i, cikti, girinti):

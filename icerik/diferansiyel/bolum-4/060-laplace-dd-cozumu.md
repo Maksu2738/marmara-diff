@@ -35,7 +35,7 @@ Bu, özellikle **süreksiz zorlama terimlerinde** (4.4) belirleyici bir üstünl
 
 ---
 
-[SORU] **Örnek 9.26.** &nbsp; Aşağıdaki başlangıç değer problemini çözünüz:
+[SORU*] **Örnek 9.26.** &nbsp; Aşağıdaki başlangıç değer problemini çözünüz:
 $$y'-2y=e^{5t},\qquad y(0)=3$$
 [CEVAP]
 **Adım 1 — Her iki tarafın dönüşümünü al.**

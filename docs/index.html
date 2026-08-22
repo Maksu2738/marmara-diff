@@ -123,7 +123,9 @@
                             <li><a href="#ornekler-4-3">3.3 Örnekler</a></li>
                             <li><a href="#alistirma-4-3">3.3 Alıştırmalar</a></li>
                             <li><a href="#bolum-4-5">3.4 Cauchy-Euler Denklemi</a></li>
+                            <li><a href="#cauchy-euler-tanima">3.4 Denklemi Tanıma</a></li>
                             <li><a href="#ornekler-4-5">3.4 Örnekler</a></li>
+                            <li><a href="#ornek-cauchy-euler-bdp">3.4 Örnek — Cauchy-Euler BDP</a></li>
                             <li><a href="#alistirma-4-5">3.4 Alıştırmalar</a></li>
                             <li><a href="#bolum-4-4">3.5 Parametrelerin Değişimi</a></li>
                             <li><a href="#ornekler-4-4">3.5 Örnekler</a></li>
@@ -212,8 +214,8 @@
                         </button>
                         <ul class="chapter-links open">
                             <li><a href="#ozel-dd" class="pending">Giriş</a></li>
-                            <li><a href="#ozel-dd-airy" class="pending">6.1 Airy Denklemi</a></li>
-                            <li><a href="#ozel-dd-hermite" class="pending">6.2 Hermite Denklemi</a></li>
+                            <li><a href="#ozel-dd-airy">6.1 Airy Denklemi</a></li>
+                            <li><a href="#ozel-dd-hermite">6.2 Hermite Denklemi</a></li>
                             <li><a href="#ozel-dd-bessel">6.3 Bessel Denklemi</a></li>
                             <li><a href="#ozel-dd-bessel-p">6.3 Bessel — İkinci Tür ve p. Mertebe</a></li>
                             <li><a href="#ozel-dd-bessel-gama">6.3 Gama Fonksiyonu ve $J_p$</a></li>
@@ -5160,7 +5162,8 @@
                             </div>
                         </div>
 
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text">Örnek 4.26 &mdash; Karmaşık Kökler</p>
                             <p>$y^{\prime\prime}-6y^{\prime}+25y=0$ denkleminin genel çözümünü bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
@@ -5183,7 +5186,8 @@
                             </div>
                         </div>
 
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text">Örnek 4.28 &mdash; Başlangıç Değer Problemi</p>
                             <p>$y^{\prime\prime}-6y^{\prime}+25y=0,\quad y(0)=-3,\quad y^{\prime}(0)=-1$ problemini çözünüz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
@@ -7098,13 +7102,65 @@
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.43 – 4.44 ===== -->
 
+                    <div id="cauchy-euler-tanima" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            3.4 &nbsp;Bir Denklemin Cauchy-Euler Olup Olmadığını Anlamak
+                        </div>
+                        <p>Cauchy-Euler denkleminin çözüm yöntemi kısa; asıl hata, denklemin <span class="vurgu">Cauchy-Euler olup olmadığına yanlış karar vermekten</span> çıkar. Ölçüt tektir:</p>
+                        <div class="highlight">
+                            <p><strong>Tanıma ölçütü.</strong> Sol taraftaki her terim $x^{k}y^{(k)}$ biçiminde olmalıdır: <span class="vurgu">türevin mertebesi, $x$'in üssüne eşit</span>. Sağ taraf ($F(x)$) serbesttir, herhangi bir fonksiyon olabilir.</p>
+                        </div>
+                        <p>Terim terim bakıldığında:</p>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th>Terim</th><th>$x$'in üssü</th><th>Türev mertebesi</th><th>Uygun mu?</th></tr>
+                        <tr><td>$x^{2}y''$</td><td>$2$</td><td>$2$</td><td>&#10003;</td></tr>
+                        <tr><td>$xy'$</td><td>$1$</td><td>$1$</td><td>&#10003;</td></tr>
+                        <tr><td>$y$</td><td>$0$</td><td>$0$</td><td>&#10003;</td></tr>
+                        <tr><td>$xy''$</td><td>$1$</td><td>$2$</td><td>&#10007;</td></tr>
+                        <tr><td>$x^{2}y'$</td><td>$2$</td><td>$1$</td><td>&#10007;</td></tr>
+                        </table>
+                        </div>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 4.42a.</strong> &nbsp; Aşağıdaki denklemlerin hangileri Cauchy-Euler denklemidir? <ol style="margin-left:1rem"> <li>$2x^{2}y''+5xy'-2y=0$</li> <li>$xy'+2y=x^{2}$</li> <li>$xy''+xy'=0$</li> <li>$5xy''-y'=4x^{2}$</li> </ol></p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(1)</strong> &nbsp; $2x^{2}y''+5xy'-2y=0$</p>
+                                <p>Terimler: $x^{2}y''$ &#10003;, &nbsp;$xy'$ &#10003;, &nbsp;$y$ &#10003;.</p>
+                                $$\Longrightarrow\;\textbf{Cauchy-Euler.}$$
+                                <hr>
+                                <p><strong>(2)</strong> &nbsp; $xy'+2y=x^{2}$</p>
+                                <p>Terimler: $xy'$ &#10003;, &nbsp;$y$ &#10003;. Sağ taraftaki $x^{2}$ ölçütü bozmaz — <span class="vurgu">$F(x)$ serbesttir.</span></p>
+                                $$\Longrightarrow\;\textbf{Cauchy-Euler}\;(\text{birinci mertebeden}).$$
+                                <hr>
+                                <p><strong>(3)</strong> &nbsp; $xy''+xy'=0$</p>
+                                <p>$xy''$ teriminde $x$'in üssü $1$, türev mertebesi $2$. <span class="vurgu">Uyuşmuyor.</span> İkinci terim ($xy'$) uygun olsa da bir terimin bozması yeter.</p>
+                                $$\Longrightarrow\;\textbf{Cauchy-Euler değil.}$$
+                                <p>Peki $x$ ile çarparsak düzelir mi? $x^{2}y''+x^{2}y'=0$ — bu kez ikinci terim bozulur. <strong>Düzelmiyor.</strong></p>
+                                <hr>
+                                <p><strong>(4)</strong> &nbsp; $5xy''-y'=4x^{2}$</p>
+                                <p>İlk bakışta bozuk görünür: $xy''$ uyuşmuyor. <span class="vurgu">Ama denklemin tümünü $x$ ile çarpma hakkımız var:</span></p>
+                                $$5x^{2}y''-xy'=4x^{3}$$
+                                <p>Şimdi $x^{2}y''$ &#10003; ve $xy'$ &#10003;.</p>
+                                $$\Longrightarrow\;\textbf{Cauchy-Euler.}$$
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>(3) ile (4) arasındaki fark neden önemli?</strong> İkisi de ham hâlde ölçütü bozuyor, ama yalnızca (4) bir çarpanla düzeliyor. Sebep: <span class="vurgu">(4)'te terimlerin "üs eksiği" aynı</span> ($xy''$ bir eksik, $y'$ bir eksik), dolayısıyla tek bir $x$ çarpanı ikisini birden yerine oturtur. (3)'te ise $xy''$ bir eksik, $xy'$ ise tam — ortak bir çarpan ikisini aynı anda düzeltemez.</p>
+                            <p><strong>Pratik kural:</strong> her terimde (türev mertebesi $-$ $x$'in üssü) farkını hesaplayın. Bütün terimlerde bu fark <span class="vurgu">aynı sayıysa</span> denklem uygun bir $x^{m}$ çarpanıyla Cauchy-Euler'e getirilebilir; farklıysa getirilemez.</p>
+                        </div>
+                    </div>
+
                     <div id="ornekler-4-5" class="section ornek">
                         <div class="section-title">
                             <span class="badge">Örnek</span>
                             Çözümlü Örnekler 4.43 &ndash; 4.44
                         </div>
 
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text">Örnek 4.43 &mdash; İkinci Mertebe</p>
                             <p>$x^{2}\dfrac{d^{2}y}{dx^{2}}-2x\dfrac{dy}{dx}+2y=x^{3}$ denklemini çözünüz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
@@ -7124,7 +7180,8 @@
                             </div>
                         </div>
 
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text">Örnek 4.44 &mdash; Üçüncü Mertebe (Logaritmik Sağ Taraf)</p>
                             <p>$x^{3}\dfrac{d^{3}y}{dx^{3}}-4x^{2}\dfrac{d^{2}y}{dx^{2}}+8x\dfrac{dy}{dx}-8y=4\ln x$ denklemini çözünüz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
@@ -7146,6 +7203,58 @@
                     </div>
 
                     <!-- ===== ALIŞTIRMALAR 4.5 ===== -->
+
+                    <div id="ornek-cauchy-euler-bdp" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            3.4 &nbsp;Çözümlü Örnek — Cauchy-Euler Başlangıç Değer Problemi
+                        </div>
+                        <p>Örnek 4.44'te $x^{3}y'''-4x^{2}y''+8xy'-8y=4\ln x$ denkleminin <strong>genel çözümünü</strong> bulduk. Şimdi aynı denkleme üç başlangıç koşulu ekleyip <span class="vurgu">keyfi sabitleri belirleyelim</span>. Üçüncü mertebeden bir denklem olduğu için üç koşul gerekiyor.</p>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 4.44a.</strong> &nbsp; Aşağıdaki başlangıç değer problemini çözünüz: $$x^{3}y'''-4x^{2}y''+8xy'-8y=4\ln x,\qquad y(1)=1,\quad y'(1)=0,\quad y''(1)=-1$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Genel çözümü hatırla.</strong></p>
+                                <p>Örnek 4.44'te $x=e^{t}$ dönüşümüyle denklem $\dfrac{d^{3}y}{dt^{3}}-7\dfrac{d^{2}y}{dt^{2}}+14\dfrac{dy}{dt}-8y=4t$ hâline gelmiş, oradan</p>
+                                $$y=c_{1}x+c_{2}x^{2}+c_{3}x^{4}-\frac{1}{2}\ln x-\frac{7}{8} \tag{$\ast$}$$
+                                <p>bulunmuştu. Başlangıç koşulları $x=1$'de veriliyor; <span class="vurgu">bu iyi haber</span>, çünkü $\ln 1=0$ ve $x$'in bütün kuvvetleri $1$ olur.</p>
+                                <p><strong>Adım 2 — Türevleri al.</strong></p>
+                                $$y'=c_{1}+2c_{2}x+4c_{3}x^{3}-\frac{1}{2x}$$
+                                $$y''=2c_{2}+12c_{3}x^{2}+\frac{1}{2x^{2}}$$
+                                <div class="highlight">
+                                    <p><strong>Burada iki işaret hatası çok sık yapılır.</strong></p>
+                                    <ol>
+                                        <li>$-\dfrac{7}{8}$ <strong>sabittir</strong>; türev alınca kaybolur. $y'$ ve $y''$ ifadelerinde ona yer yoktur.</li>
+                                        <li>$-\dfrac{1}{2}\ln x$ teriminin türevi $-\dfrac{1}{2x}$, ikinci türevi ise <span class="vurgu">$+\dfrac{1}{2x^{2}}$</span>. Bir kez daha türev alırken işaret döner.</li>
+                                    </ol>
+                                </div>
+                                <p><strong>Adım 3 — Koşulları yerleştir ($x=1$).</strong></p>
+                                $$y(1)=c_{1}+c_{2}+c_{3}-0-\frac{7}{8}=1\;\Longrightarrow\;c_{1}+c_{2}+c_{3}=\frac{15}{8} \tag{I}$$
+                                $$y'(1)=c_{1}+2c_{2}+4c_{3}-\frac{1}{2}=0\;\Longrightarrow\;c_{1}+2c_{2}+4c_{3}=\frac{1}{2} \tag{II}$$
+                                $$y''(1)=2c_{2}+12c_{3}+\frac{1}{2}=-1\;\Longrightarrow\;2c_{2}+12c_{3}=-\frac{3}{2} \tag{III}$$
+                                <p><strong>Adım 4 — Sistemi çöz.</strong></p>
+                                <p>$(\mathrm{II})-(\mathrm{I})$:</p>
+                                $$c_{2}+3c_{3}=\frac{1}{2}-\frac{15}{8}=-\frac{11}{8}$$
+                                <p>$(\mathrm{III})$'ü ikiye bölelim:</p>
+                                $$c_{2}+6c_{3}=-\frac{3}{4}=-\frac{6}{8}$$
+                                <p>İkisini çıkaralım:</p>
+                                $$3c_{3}=-\frac{6}{8}+\frac{11}{8}=\frac{5}{8}\;\Longrightarrow\;\boxed{c_{3}=\frac{5}{24}}$$
+                                $$c_{2}=-\frac{11}{8}-3\cdot\frac{5}{24}=-\frac{11}{8}-\frac{5}{8}=-2$$
+                                $$c_{1}=\frac{15}{8}-c_{2}-c_{3}=\frac{15}{8}+2-\frac{5}{24}=\frac{45+48-5}{24}=\frac{88}{24}=\frac{11}{3}$$
+                                <p><strong>Adım 5 — Çözüm.</strong></p>
+                                $$\boxed{\;y=\frac{11}{3}x-2x^{2}+\frac{5}{24}x^{4}-\frac{1}{2}\ln x-\frac{7}{8}\;}$$
+                                <p><strong>Doğrulama.</strong></p>
+                                $$y(1)=\frac{11}{3}-2+\frac{5}{24}-0-\frac{7}{8}=\frac{88-48+5-21}{24}=\frac{24}{24}=1\;\checkmark$$
+                                $$y'(1)=\frac{11}{3}+2(-2)+4\cdot\frac{5}{24}-\frac{1}{2}=\frac{22}{6}-4+\frac{5}{6}-\frac{3}{6}=\frac{24}{6}-4=0\;\checkmark$$
+                                $$y''(1)=2(-2)+12\cdot\frac{5}{24}+\frac{1}{2}=-4+\frac{5}{2}+\frac{1}{2}=-1\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Neden koşullar $x=1$'de veriliyor?</strong> Cauchy-Euler denkleminde en yüksek dereceli katsayı $a_{0}x^{n}$, $x=0$'da sıfırdır; dolayısıyla temel varlık THEoREM'inin geçerli olduğu aralık $x=0$'ı <span class="vurgu">içeremez</span>. Koşullar $x&gt;0$ tarafında verilmelidir ve $x=1$ hem bu şartı sağlar hem de $\ln 1=0$ sayesinde aritmetiği en sade hâle getirir.</p>
+                            <p>Koşullar $x=-1$'de verilseydi $x=-e^{t}$ dönüşümüyle $x&lt;0$ aralığında çalışılırdı; genel çözümde $\ln x$ yerine $\ln|x|$ yazılır.</p>
+                        </div>
+                    </div>
 
                     <div id="alistirma-4-5" class="section sorular">
                         <div class="section-title">
@@ -7917,7 +8026,8 @@
                         $$F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt=\lim_{R\to\infty}\int_{0}^{R}e^{-st}f(t)\,dt$$
                         <p><span class="vurgu">Bu limitin var olması gerekir</span>; dönüşümün tanımlı olduğu $s$ değerleri de buna göre belirlenir. Aşağıdaki her örnekte, sonucun geçerli olduğu $s$ aralığına dikkat edin.</p>
                         <hr>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.1.</strong> &nbsp; $f(t)=1$ ($t&gt;0$) fonksiyonunun Laplace dönüşümünü bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -7928,7 +8038,8 @@
                                 <p><span class="vurgu">$s\le 0$ için $e^{-sR}$ sınırsız büyür ve integral ıraksar</span>; kısıtın kaynağı budur.</p>
                             </div>
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.2.</strong> &nbsp; $f(t)=t$ fonksiyonunun Laplace dönüşümünü bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -7940,7 +8051,8 @@
                                 $$\boxed{\;\mathcal{L}\{t\}=\frac{1}{s^{2}}\qquad (s&gt;0)\;} \tag{9.3}$$
                             </div>
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.3.</strong> &nbsp; $f(t)=e^{at}$ fonksiyonunun Laplace dönüşümünü bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -8108,7 +8220,8 @@
                         </div>
                         <p><strong>İspat.</strong> Doğrudan tanım $(9.1)$'den çıkar — integral lineer bir işlemdir. $\blacksquare$</p>
                         <p>Bu özellik, dönüşümü doğrudan hesaplamak yerine <span class="vurgu">bilinen dönüşümleri birleştirerek</span> yeni dönüşümler elde etmemizi sağlar. Aşağıdaki örnek tipik kullanımıdır.</p>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.11.</strong> &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\sin^{2}at\}$ değerini bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -8195,7 +8308,8 @@
                                 <p><span class="vurgu">$(9.5)$ ile birebir aynı.</span> Dikkat çekici olan şudur: burada <strong>hiç integral almadık</strong>. $\sin bt$'nin ikinci türevinin yine kendisiyle orantılı olması ($f''=-b^{2}f$), dönüşümü cebirsel olarak çözmemizi sağladı.</p>
                             </div>
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.15.</strong> &nbsp; $f''-6f'+5f=0$, $f(0)=3$, $f'(0)=7$ koşullarını sağlayan $f$ için $\mathcal{L}\{f(t)\}$ ifadesini bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -8216,7 +8330,51 @@
                                     <p>Bu <strong>ters dönüşüm (inverse transform)</strong> işlemidir ve 4.2'de ele alınacaktır. Laplace yönteminin en zahmetli kısmı da genelde burasıdır.</p>
                                     <p>Bu örnekte payda $s^{2}-6s+5=(s-1)(s-5)$ çarpanlarına ayrılır; kısmi kesirlere açılıp tablodan geri okunabilir.</p>
                                 </div>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Türev THEoREM'inin iki yönlü kullanımı</h3>
+                                <p>Örnek 9.14'te THEoREM'i <strong>bilinmeyen dönüşümü bulmak</strong> için kullandık. Aynı THEoREM ters yönde de çalışır: <span class="vurgu">zor bir fonksiyonun, dönüşümü kolay bir fonksiyonun türevi olduğunu fark edersek</span> hesap tek satıra iner.</p>
                             </div>
+                        </div>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Ders Notu Örneği A.</strong> &nbsp; $(9.11)$'i kullanarak $\mathcal{L}\{1\}=\dfrac{1}{s}$ olduğunu, $\mathcal{L}\{t\}$ üzerinden gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Uygun $f$'yi seç.</strong></p>
+                                <p>$f'(t)=1$ olmasını istiyoruz; buna karşılık gelen fonksiyon $f(t)=t$'dir ve $f(0)=0$.</p>
+                                <p><strong>Adım 2 — $(9.11)$'i yaz.</strong></p>
+                                $$\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\{f(t)\}-f(0)\;\Longrightarrow\;\mathcal{L}\{1\}=s\,\mathcal{L}\{t\}-0$$
+                                <p><strong>Adım 3 — $\mathcal{L}\{t\}$'yi kısmi integrasyonla bul.</strong></p>
+                                $$\mathcal{L}\{t\}=\int_{0}^{\infty}e^{-st}\,t\,dt$$
+                                <p>$u=t$, $dv=e^{-st}dt$ &nbsp;($du=dt$, $v=-\tfrac{1}{s}e^{-st}$):</p>
+                                $$=\left[-\frac{t}{s}e^{-st}\right]_{0}^{\infty}+\frac{1}{s}\int_{0}^{\infty}e^{-st}\,dt$$
+                                <p>$s&gt;0$ için köşeli parantez her iki uçta da sıfırdır ($t\to\infty$'da üstel azalma doğrusal büyümeyi yener):</p>
+                                $$\mathcal{L}\{t\}=0+\frac{1}{s}\cdot\frac{1}{s}=\frac{1}{s^{2}}$$
+                                <p><strong>Adım 4 — Geri yerleştir.</strong></p>
+                                $$\mathcal{L}\{1\}=s\cdot\frac{1}{s^{2}}=\boxed{\frac{1}{s}}$$
+                                <p>Örnek 9.1'de doğrudan integralle bulduğumuz sonucun aynısı. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Ders Notu Örneği B.</strong> &nbsp; $\mathcal{L}\{2a\sin at\cos at\}$ değerini, $(9.11)$ ve $(9.10)$'u kullanarak bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpımı bir türev olarak tanı.</strong></p>
+                                <p>Zincir kuralıyla:</p>
+                                $$\frac{d}{dt}\sin^{2}at=2\sin at\cdot\frac{d}{dt}(\sin at)=2a\sin at\cos at$$
+                                <p>Yani aradığımız fonksiyon, $f(t)=\sin^{2}at$'nin türevidir. <span class="vurgu">Püf nokta bu: çarpımı doğrudan dönüştürmeye çalışmak yerine, dönüşümü bilinen bir fonksiyonun türevi olduğunu görmek.</span></p>
+                                <p><strong>Adım 2 — $(9.11)$'i uygula.</strong></p>
+                                <p>$f(0)=\sin^{2}0=0$ olduğuna dikkat edin:</p>
+                                $$\mathcal{L}\{2a\sin at\cos at\}=\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\left\{\sin^{2}at\right\}-\underbrace{f(0)}_{=\,0}$$
+                                <p><strong>Adım 3 — $(9.10)$'dan oku ve sadeleştir.</strong></p>
+                                <p>Örnek 9.11'de $\mathcal{L}\{\sin^{2}at\}=\dfrac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}$ bulmuştuk:</p>
+                                $$=s\cdot\frac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}=\boxed{\;\frac{2a^{2}}{s^{2}+4a^{2}}\;}$$
+                                <p><strong>Doğrulama.</strong> $2a\sin at\cos at=a\sin 2at$ olduğundan, sonucu $(9.5)$'ten de okuyabiliriz: $\mathcal{L}\{a\sin 2at\}=a\cdot\dfrac{2a}{s^{2}+(2a)^{2}}=\dfrac{2a^{2}}{s^{2}+4a^{2}}$. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>İki yolun karşılaştırması.</strong> Doğrulamada gördüğümüz gibi bu örnek $\sin 2at$ özdeşliğiyle de çözülebilirdi. Ama sınavda her zaman böyle bir özdeşlik olmaz; <span class="vurgu">türev THEoREM'i özdeşliğe ihtiyaç duymadan çalışır</span>. $f(0)=0$ olması da çoğu zaman işi kolaylaştırır — sabit terim düşer.</p>
                         </div>
                     </div>
 
@@ -8226,7 +8384,8 @@
                             4.1 &nbsp;Çözümlü Örnek — Laplace ile İlk Başlangıç Değer Problemi
                         </div>
                         <p>Buraya kadar dönüşümün tanımını, varlığını ve türev kuralını kurduk. Şimdi <span class="vurgu">bütün bunların ne işe yaradığını</span> bir örnekle görelim. Yöntemin tam ve sistematik anlatımı 4.3'te yapılacak; buradaki amaç fikri göstermektir.</p>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.13.</strong> &nbsp; Aşağıdaki başlangıç değer problemini Laplace dönüşümüyle çözünüz: $$y'-3y=4e^{5t},\qquad y(0)=6$$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -8324,7 +8483,14 @@
                                 <p><span class="vurgu">İşaretin kaynağı görülüyor:</span> $e^{-st}$'nin $s$'ye göre türevi $-t\,e^{-st}$'dir, yani her türev bir $-t$ çarpanı düşürür. $(-1)^{n}$ bunu düzeltmek içindir.</p>
                                 <div class="highlight">
                                     <p><strong>İki kuralın karşılaştırması:</strong></p>
-                                    <p>| $t$ uzayında | $s$ uzayında | |---|---| | $e^{at}$ ile çarp | $s\to s-a$ ötele | | $t^{n}$ ile çarp | $n$ kez türet, $(-1)^{n}$ ile çarp | | türev al | $s$ ile çarp, başlangıç değerini çıkar |</p>
+                                    <div class="tablo-sar">
+                                    <table>
+                                        <tr><th>$t$ uzayında</th><th>$s$ uzayında</th></tr>
+                                        <tr><td>$e^{at}$ ile çarp</td><td>$s\to s-a$ ötele</td></tr>
+                                        <tr><td>$t^{n}$ ile çarp</td><td>$n$ kez türet, $(-1)^{n}$ ile çarp</td></tr>
+                                        <tr><td>türev al</td><td>$s$ ile çarp, başlangıç değerini çıkar</td></tr>
+                                    </table>
+                                    </div>
                                     <p>Üçü de "bir uzaydaki zor işlemi öbür uzayda kolay işleme çevirme" örneğidir.</p>
                                 </div>
                             </div>
@@ -8429,7 +8595,8 @@
                         </div>
                         <p>Tablodaki bir girdiye doğrudan uyan $F(s)$ ifadesi nadiren karşınıza çıkar. Genelde önce <span class="vurgu">ifadeyi tablonun tanıyacağı biçime sokmak</span> gerekir. İki temel teknik vardır: <strong>tamkareye tamamlama</strong> ve <strong>kısmi kesirlere ayırma</strong>.</p>
                         <hr>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.20.</strong> &nbsp; Tablo 9.1'i kullanarak $\displaystyle\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+6s+13}\right\}$ değerini bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -8917,7 +9084,8 @@
                             <p>Bu, özellikle <strong>süreksiz zorlama terimlerinde</strong> (4.4) belirleyici bir üstünlüğe dönüşecek; klasik yöntemler orada parça parça çözüp bağlantı koşulları yazmak zorunda kalır.</p>
                         </div>
                         <hr>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 9.26.</strong> &nbsp; Aşağıdaki başlangıç değer problemini çözünüz: $$y'-2y=e^{5t},\qquad y(0)=3$$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -9035,7 +9203,55 @@
                                     <p><strong>Adım 4'teki pay ötelemesi en sık atlanan hamledir.</strong> Payda $(s+2)^{2}+1$ hâline getirildiğinde payın da $s+2$ cinsinden yazılması gerekir. $\frac{s}{(s+2)^{2}+1}$ ifadesi tabloda <span class="vurgu">yoktur</span>; $s=(s+2)-2$ yazarak tablodaki iki girdiye bölünür. Aynı hamle, tamkare içeren her ters dönüşümde tekrarlanır.</p>
                                 </div>
                                 <p><strong>Çözümün yapısı.</strong> İlk iki terim ($\cos t$, $\sin t$) homojen denklemin çözümünden, son ikisi ($e^{-2t}\cos t$, $e^{-2t}\sin t$) zorlama teriminden gelir. <span class="vurgu">Laplace bu ikisini ayırmadan, tek hamlede birlikte üretti.</span></p>
+                                <hr>
+                                <p>Son örnek, zorlama teriminin homojen çözümle <strong>çakıştığı</strong> durumu gösteriyor. Klasik yöntemde bu, UC kümesini $x$ ile çarpmayı gerektiren özel bir haldi; <span class="vurgu">Laplace'ta ise hiçbir özel kural gerekmez</span>, çakışma kendiliğinden paydada bir kare çarpanı olarak belirir.</p>
                             </div>
+                        </div>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Ders Notu Örneği C.</strong> &nbsp; Aşağıdaki başlangıç değer problemini Laplace dönüşümüyle çözünüz: $$y''+4y'+3y=6e^{-t},\qquad y(0)=1,\qquad y'(0)=0$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong></p>
+                                <p>$\mathcal{L}\{y\}=Y(s)$ diyelim. $(9.18)$ ve $(9.11)$ ile:</p>
+                                $$\mathcal{L}\{y''\}=s^{2}Y-s\,y(0)-y'(0)=s^{2}Y-s$$
+                                $$\mathcal{L}\{y'\}=sY-y(0)=sY-1$$
+                                <p>Sağ taraf $(9.4)$'ten: $\mathcal{L}\{6e^{-t}\}=\dfrac{6}{s+1}$.</p>
+                                $$\left(s^{2}Y-s\right)+4\left(sY-1\right)+3Y=\frac{6}{s+1}$$
+                                <p><strong>Adım 2 — $Y$'yi yalnız bırak.</strong></p>
+                                <p>$Y$ çarpanları: $s^{2}+4s+3$. Sabit terimler sağa geçer:</p>
+                                $$\left(s^{2}+4s+3\right)Y=\frac{6}{s+1}+(s+4)$$
+                                <p>$s^{2}+4s+3=(s+1)(s+3)$ olduğuna dikkat edelim:</p>
+                                $$Y(s)=\frac{6}{(s+1)^{2}(s+3)}+\frac{s+4}{(s+1)(s+3)}=\frac{6+(s+4)(s+1)}{(s+1)^{2}(s+3)}$$
+                                <p>Payı açalım: $(s+4)(s+1)=s^{2}+5s+4$, buna $6$ eklenir:</p>
+                                $$\boxed{\;Y(s)=\frac{s^{2}+5s+10}{(s+1)^{2}(s+3)}\;}$$
+                                <p><span class="vurgu">Paydadaki $(s+1)^{2}$ karesi rezonansın izidir:</span> zorlamadaki $e^{-t}$, homojen çözümün $e^{-t}$ parçasıyla aynı; ikisi çarpıldığında $(s+1)$ çarpanı iki kez belirdi.</p>
+                                <p><strong>Adım 3 — Kısmi kesirlere ayır.</strong></p>
+                                <p>Tekrarlı çarpan için üç terim gerekir:</p>
+                                $$\frac{s^{2}+5s+10}{(s+1)^{2}(s+3)}=\frac{A}{s+1}+\frac{B}{(s+1)^{2}}+\frac{C}{s+3}$$
+                                <p>$(s+1)^{2}(s+3)$ ile çarpalım:</p>
+                                $$s^{2}+5s+10=A(s+1)(s+3)+B(s+3)+C(s+1)^{2}$$
+                                <p>$s=-1$: &nbsp; $1-5+10=2B\;\Longrightarrow\;6=2B\;\Longrightarrow\;B=3$</p>
+                                <p>$s=-3$: &nbsp; $9-15+10=4C\;\Longrightarrow\;4=4C\;\Longrightarrow\;C=1$</p>
+                                <p>$A$ için $s^{2}$ katsayılarını karşılaştıralım: solda $1$, sağda $A+C$:</p>
+                                $$1=A+C=A+1\;\Longrightarrow\;A=0$$
+                                <p><span class="vurgu">$A=0$ çıkması dikkate değer:</span> sade $\dfrac{1}{s+1}$ terimi yok, yalnızca karesi var.</p>
+                                $$Y(s)=\frac{3}{(s+1)^{2}}+\frac{1}{s+3}$$
+                                <p><strong>Adım 4 — Tablodan geri oku.</strong></p>
+                                <p>Birinci öteleme THEoREM'i ile $\mathcal{L}\{t\,e^{-at}\}=\dfrac{1}{(s+a)^{2}}$ ve $\mathcal{L}\{e^{-at}\}=\dfrac{1}{s+a}$:</p>
+                                $$\boxed{\;y(t)=3t\,e^{-t}+e^{-3t}\;}$$
+                                <p><strong>Doğrulama.</strong></p>
+                                $$y(0)=0+1=1\;\checkmark$$
+                                $$y'=3e^{-t}-3t\,e^{-t}-3e^{-3t}\;\Longrightarrow\;y'(0)=3-0-3=0\;\checkmark$$
+                                $$y''=-3e^{-t}-3e^{-t}+3t\,e^{-t}+9e^{-3t}=-6e^{-t}+3t\,e^{-t}+9e^{-3t}$$
+                                <p>Denkleme koyalım, terim türüne göre gruplayarak:</p>
+                                $$e^{-t}:\;-6+4\cdot 3=6,\qquad t\,e^{-t}:\;3-12+9=0,\qquad e^{-3t}:\;9-12+3=0$$
+                                $$\Longrightarrow\;6e^{-t}\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>$t\,e^{-t}$ nereden geldi?</strong> Klasik yöntemde $6e^{-t}$ için $y_{p}=Ae^{-t}$ denenir, ama $e^{-t}$ zaten homojen çözümde olduğu için bu deneme sıfır verir ve küme $x$ ile çarpılıp $y_{p}=Ate^{-t}$ yapılır (Bölüm 3.3, Adım 3 revizyonu).</p>
+                            <p>Laplace'ta böyle bir "kural hatırlama" adımı yok: çakışma <span class="vurgu">paydada $(s+1)^{2}$ olarak kendiliğinden görünür</span> ve $\dfrac{1}{(s+a)^{2}}\to t\,e^{-at}$ tablosu gerisini halleder. Yöntemin sistematikliği en çok burada belli olur.</p>
                         </div>
                     </div>
 
@@ -9550,7 +9766,15 @@
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
                                 <p><span class="vurgu">Dört sıçrama var, dördünü de ayrı ayrı yazalım:</span></p>
-                                <p>| Nokta | Eski → Yeni | Sıçrama | |---|---|---| | $t=0$ | $0\to 1$ | $+1$ | | $t=2$ | $1\to 2$ | $+1$ | | $t=4$ | $2\to 3$ | $+1$ | | $t=6$ | $3\to 0$ | $-3$ |</p>
+                                <div class="tablo-sar">
+                                <table>
+                                    <tr><th>Nokta</th><th>Eski → Yeni</th><th>Sıçrama</th></tr>
+                                    <tr><td>$t=0$</td><td>$0\to 1$</td><td>$+1$</td></tr>
+                                    <tr><td>$t=2$</td><td>$1\to 2$</td><td>$+1$</td></tr>
+                                    <tr><td>$t=4$</td><td>$2\to 3$</td><td>$+1$</td></tr>
+                                    <tr><td>$t=6$</td><td>$3\to 0$</td><td>$-3$</td></tr>
+                                </table>
+                                </div>
                                 $$f(t)=u_{0}(t)+u_{2}(t)+u_{4}(t)-3u_{6}(t)$$
                                 $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1+e^{-2s}+e^{-4s}-3e^{-6s}}{s}\;}$$
                                 <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
@@ -10677,7 +10901,8 @@
                             <span class="badge">Örnek</span>
                             5.2 &nbsp;Çözümlü Örnek — Kuvvet Serisi Çözümünün Bulunması
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 5.4.</strong> &nbsp; $\displaystyle y''+xy'+(x^{2}+2)y=0$ denkleminin $x$ kuvvetlerinde (yani $x_{0}=0$ etrafında) kuvvet serisi çözümünü bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -10736,7 +10961,8 @@
                             <span class="badge">Örnek</span>
                             5.3 &nbsp;Çözümlü Örnek — Seri Yöntemiyle Başlangıç Değer Problemi
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 5.5.</strong> &nbsp; Aşağıdaki başlangıç değer problemini kuvvet serisi yöntemiyle çözünüz: $$(x^{2}-1)y''+3xy'+xy=0,\qquad y(0)=4,\qquad y'(0)=6$$</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -11002,7 +11228,14 @@
                             <p>biçiminde, aşikâr olmayan <strong>en az bir</strong> çözümü vardır. Buradaki $r$, belirlenebilen kesin bir (reel ya da karmaşık) sabittir ve bu çözüm $x_{0}$ etrafındaki bir <strong>delinmiş aralıkta (deleted interval)</strong> $0&lt;|x-x_{0}|&lt;R$ ($R&gt;0$) geçerlidir.</p>
                         </div>
                         <p>İki farkı THEoREM 5.1 ile karşılaştırarak görmek gerekir:</p>
-                        <p>| | THEoREM 5.1 (adi nokta) | THEoREM 5.2 (düzgün tekil nokta) | |---|---|---| | Kaç çözüm garanti edilir | <strong>İki</strong> lineer bağımsız çözüm | <strong>En az bir</strong> çözüm | | Çözümün biçimi | $\sum c_{n}(x-x_{0})^{n}$ | $\vert x-x_{0}\vert^{r}\sum c_{n}(x-x_{0})^{n}$ | | Geçerlilik aralığı | $\vert x-x_{0}\vert&lt;R$ ($x_{0}$ dahil) | $0&lt;\vert x-x_{0}\vert&lt;R$ (<span class="vurgu">$x_{0}$ hariç</span>) |</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th></th><th>THEoREM 5.1 (adi nokta)</th><th>THEoREM 5.2 (düzgün tekil nokta)</th></tr>
+                            <tr><td>Kaç çözüm garanti edilir</td><td><strong>İki</strong> lineer bağımsız çözüm</td><td><strong>En az bir</strong> çözüm</td></tr>
+                            <tr><td>Çözümün biçimi</td><td>$\sum c_{n}(x-x_{0})^{n}$</td><td>$\vert x-x_{0}\vert^{r}\sum c_{n}(x-x_{0})^{n}$</td></tr>
+                            <tr><td>Geçerlilik aralığı</td><td>$\vert x-x_{0}\vert&lt;R$ ($x_{0}$ dahil)</td><td>$0&lt;\vert x-x_{0}\vert&lt;R$ (<span class="vurgu">$x_{0}$ hariç</span>)</td></tr>
+                        </table>
+                        </div>
                         <p><span class="vurgu">İki fark da önemlidir.</span> Tekil noktada yalnızca bir çözüm garanti edilir — ikincisini bulmak ayrı bir iştir. Ayrıca aralık deliktir: çözüm $x_{0}$'ın kendisinde tanımlı olmayabilir, ki bu $r&lt;0$ olduğunda gerçekten böyledir.</p>
                         <p><strong>Düzgün olmayan tekil noktalar için bu THEoREM hiçbir şey söylemez.</strong> O durumda $(5.49)$ biçiminde bir çözüm bulunabilir de bulunamayabilir de.</p>
                     </div>
@@ -11012,7 +11245,8 @@
                             <span class="badge">Örnek</span>
                             5.6 &nbsp;Çözümlü Örnekler — Düzgün ve Düzgün Olmayan Tekil Noktalar
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 5.7.</strong> &nbsp; $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin tekil noktalarını bulunuz ve türlerini belirleyiniz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -11034,7 +11268,8 @@
                                 <p>biçiminde, $0&lt;|x|&lt;R$ delinmiş aralığında geçerli, aşikâr olmayan en az bir çözümü vardır.</p>
                             </div>
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 5.8.</strong> &nbsp; $\displaystyle x^{2}(x-2)^{2}y''+2(x-2)y'+(x+1)y=0$ denkleminin tekil noktalarını bulunuz ve <strong>her birini ayrı ayrı</strong> sınıflandırınız.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -11138,7 +11373,17 @@
                         </div>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Özet: adi nokta ile karşılaştırma</h3>
-                        <p>| | Adi nokta (5.2) | Düzgün tekil nokta (Frobenius) | |---|---|---| | Varsayılan biçim | $\sum c_{n}(x-x_{0})^{n}$ | $\sum c_{n}(x-x_{0})^{n+r}$ | | Ek bilinmeyen | yok | $r$ | | $r$ nereden gelir | — | belirtici denklem (Adım 5) | | Türevde alt sınır | yükselir | $n=0$'da kalır | | Ek koşul | yok | $c_{0}\neq 0$ | | Garanti edilen çözüm | 2 tane, bağımsız | en az 1 tane |</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th></th><th>Adi nokta (5.2)</th><th>Düzgün tekil nokta (Frobenius)</th></tr>
+                            <tr><td>Varsayılan biçim</td><td>$\sum c_{n}(x-x_{0})^{n}$</td><td>$\sum c_{n}(x-x_{0})^{n+r}$</td></tr>
+                            <tr><td>Ek bilinmeyen</td><td>yok</td><td>$r$</td></tr>
+                            <tr><td>$r$ nereden gelir</td><td>—</td><td>belirtici denklem (Adım 5)</td></tr>
+                            <tr><td>Türevde alt sınır</td><td>yükselir</td><td>$n=0$'da kalır</td></tr>
+                            <tr><td>Ek koşul</td><td>yok</td><td>$c_{0}\neq 0$</td></tr>
+                            <tr><td>Garanti edilen çözüm</td><td>2 tane, bağımsız</td><td>en az 1 tane</td></tr>
+                        </table>
+                        </div>
                     </div>
 
                     <div id="ornek-frobenius" class="section ornek">
@@ -11146,7 +11391,8 @@
                             <span class="badge">Örnek</span>
                             5.7 &nbsp;Çözümlü Örnek — Frobenius Yönteminin Tam Uygulaması
                         </div>
-                        <div class="question-block">
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
                             <p class="question-text"><strong>Örnek 5.10.</strong> &nbsp; Frobenius yöntemiyle $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin $0&lt;x&lt;R$ aralığındaki çözümlerini bulunuz.</p>
                             <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
                             <div class="answer">
@@ -11240,7 +11486,14 @@
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Üç durumun karşılaştırması</h3>
                         <p>$0&lt;x-x_{0}&lt;R$ aralığında çalışıyorsak $|x-x_{0}|$ sadece $x-x_{0}$'dır. Bu aralıkta THEoREM'in söyledikleri şöyle özetlenir:</p>
-                        <p>| Durum | $y_{2}$'nin biçimi | Logaritma var mı? | |---|---|---| | $r_{1}-r_{2}$ tam sayı <strong>değil</strong> | $(x-x_{0})^{r_{2}}\sum c_{n}^{*}(x-x_{0})^{n}$ | Hayır | | $r_{1}-r_{2}$ <strong>pozitif tam sayı</strong> | yukarıdaki $+\;C\,y_{1}\ln(x-x_{0})$ | <span class="vurgu">Belki</span> ($C=0$ olabilir) | | $r_{1}-r_{2}=0$ | $(x-x_{0})^{r_{1}+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$ | <span class="vurgu">Evet, kesin</span> |</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>Durum</th><th>$y_{2}$'nin biçimi</th><th>Logaritma var mı?</th></tr>
+                            <tr><td>$r_{1}-r_{2}$ tam sayı <strong>değil</strong></td><td>$(x-x_{0})^{r_{2}}\sum c_{n}^{*}(x-x_{0})^{n}$</td><td>Hayır</td></tr>
+                            <tr><td>$r_{1}-r_{2}$ <strong>pozitif tam sayı</strong></td><td>yukarıdaki $+\;C\,y_{1}\ln(x-x_{0})$</td><td><span class="vurgu">Belki</span> ($C=0$ olabilir)</td></tr>
+                            <tr><td>$r_{1}-r_{2}=0$</td><td>$(x-x_{0})^{r_{1}+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$</td><td><span class="vurgu">Evet, kesin</span></td></tr>
+                        </table>
+                        </div>
                         <p><strong>Her durumda ortak olan:</strong> Büyük kök $r_{1}$'e karşılık gelen</p>
                         $$y_{1}(x)=(x-x_{0})^{r_{1}}\sum_{n=0}^{\infty}c_{n}(x-x_{0})^{n}$$
                         <p>çözümü <span class="vurgu">her zaman vardır</span>. Sorun hep ikinci çözümdedir. Bu yüzden Frobenius yönteminde <span class="vurgu">önce daima büyük kökle başlanır</span>; o dal hiçbir zaman boşa çıkmaz.</p>
@@ -11539,7 +11792,14 @@
                         </div>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Üç durumun tam özeti</h3>
-                        <p>| $r_{1}-r_{2}$ | Kaç Frobenius çözümü | İkinci çözüm | Logaritma | |---|---|---|---| | Tam sayı değil (kesirli/karmaşık) | 2 | $(x-x_{0})^{r_{2}}\sum c_{n}^{*}(x-x_{0})^{n}$ | Yok | | Pozitif tam sayı | 1 veya 2 | yukarıdaki $+\,C\,y_{1}\ln(x-x_{0})$ | $C=0$ ise yok, değilse var | | Sıfır | 1 | $(x-x_{0})^{r+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$ | <span class="vurgu">Kesinlikle var</span> |</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>$r_{1}-r_{2}$</th><th>Kaç Frobenius çözümü</th><th>İkinci çözüm</th><th>Logaritma</th></tr>
+                            <tr><td>Tam sayı değil (kesirli/karmaşık)</td><td>2</td><td>$(x-x_{0})^{r_{2}}\sum c_{n}^{*}(x-x_{0})^{n}$</td><td>Yok</td></tr>
+                            <tr><td>Pozitif tam sayı</td><td>1 veya 2</td><td>yukarıdaki $+\,C\,y_{1}\ln(x-x_{0})$</td><td>$C=0$ ise yok, değilse var</td></tr>
+                            <tr><td>Sıfır</td><td>1</td><td>$(x-x_{0})^{r+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$</td><td><span class="vurgu">Kesinlikle var</span></td></tr>
+                        </table>
+                        </div>
                         <p>Örneklerimiz bu tablonun her satırını kapsıyor: Örnek 5.11 birinci satır ($\frac52$), Örnek 5.12 ikinci satırın $C=0$ hâli, Örnek 5.13 ikinci satırın $C\neq 0$ hâli. Üçüncü satır Bessel denkleminde ele alınacak.</p>
                     </div>
 
@@ -11665,18 +11925,205 @@
                         <p class="placeholder-note">Hoca bu denklemleri detaylı işlemedi, yalnızca adlarından söz etti. Her biri için kısa tanıtım ve standart form eklenecek.</p>
                     </div>
 
-                    <div id="ozel-dd-airy" class="section placeholder">
+                    <div id="ozel-dd-airy" class="section konu">
                         <div class="section-title">
-                            6.1 &nbsp;Airy Denklemi
+                            <span class="badge">Konu</span>
+                            6.1 &nbsp;Airy Denklemi ve Airy Fonksiyonları
                         </div>
-                        <p class="placeholder-note">İçerik eklenecek.</p>
+                        <p>Bölüm 5'te kuvvet serisi yöntemini genel bir araç olarak kurduk. Bu bölümde onu bilim ve mühendislikte tekrar tekrar karşımıza çıkan birkaç <strong>özel diferansiyel denkleme (special differential equation)</strong> uygulayacağız. İlki <strong>Airy denklemi (Airy equation)</strong>:</p>
+                        $$y''-xy=0 \tag{6.1}$$
+                        <p>Görünüşü aldatıcı biçimde sade: yalnızca tek bir değişken katsayı var, o da $x$'in kendisi. Ama bu tek değişiklik denklemin karakterini kökten değiştirir.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Nereden çıkıyor: dönüm noktası</h3>
+                        <p>Airy denklemi kendiliğinden yazılmış bir denklem değildir; <span class="vurgu">genel bir denklemin belirli bir noktanın yakınındaki davranışıdır</span>. Şu biçimi düşünelim:</p>
+                        $$y''+Q(x)\,y=0$$
+                        <p>$Q(x)&gt;0$ olduğu bölgede çözümler <strong>salınır</strong> (sinüs-kosinüs gibi), $Q(x)&lt;0$ olduğu bölgede ise <strong>üstel</strong> biçimde büyür ya da söner. $Q$'nun işaret değiştirdiği nokta, yani $Q(x_{0})=0$ olan $x_{0}$, <strong>dönüm noktası (turning point)</strong> adını alır: çözümün karakteri tam orada değişir.</p>
+                        <p>$x_{0}$ civarında $Q$'yu Taylor açalım. $Q(x_{0})=0$ olduğu için ilk terim düşer ve geriye <strong>doğrusal</strong> bir yaklaşım kalır:</p>
+                        $$Q(x)\approx Q'(x_{0})\,(x-x_{0})=\alpha\,(x-x_{0})$$
+                        $$y''+\alpha\,(x-x_{0})\,y=0$$
+                        <p>Şimdi $z=-\alpha^{1/3}(x-x_{0})$ dönüşümünü yapalım. Zincir kuralıyla $\dfrac{d^{2}}{dx^{2}}=\alpha^{2/3}\dfrac{d^{2}}{dz^{2}}$ ve $\alpha(x-x_{0})=-\alpha^{2/3}z$ olur:</p>
+                        $$\alpha^{2/3}\frac{d^{2}y}{dz^{2}}-\alpha^{2/3}z\,y=0\;\Longrightarrow\;\boxed{\;\frac{d^{2}y}{dz^{2}}-z\,y=0\;}$$
+                        <p><span class="vurgu">Yani her dönüm noktasının yakınında, ölçek doğru ayarlandığında, aynı denklem çıkar.</span> Airy denkleminin bu kadar çok yerde görünmesinin sebebi budur: kuantum mekaniğinde klasik dönüm noktası, optikte kostik yüzey, dalga yayılımında yansıma sınırı — hepsi aynı yerel denkleme indirgenir.</p>
+                        <div class="highlight">
+                            <p><strong>Dikkat — küp kök unutulmamalı.</strong> Dönüşüm $z=-\alpha(x-x_{0})$ <strong>değil</strong>, $z=-\alpha^{1/3}(x-x_{0})$'dır. $\alpha^{1/3}$ yerine $\alpha$ yazılırsa $y_{zz}$ ile $zy$ terimlerinin katsayıları eşitlenmez ve denklem Airy biçimine gelmez. Yukarıdaki hesapta $\alpha^{2/3}$'lerin sadeleşmesi tam olarak bu yüzden çalışıyor.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Seri çözüm</h3>
+                        <p>$x=0$ Airy denkleminin <strong>adi noktasıdır</strong> ($x$ katsayısı her yerde analitiktir), dolayısıyla Bölüm 5'in standart yöntemi doğrudan uygulanır.</p>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 6.1.</strong> &nbsp; $y''-xy=0$ Airy denkleminin $x_{0}=0$ etrafındaki kuvvet serisi çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Seriyi yerleştir.</strong></p>
+                                $$y=\sum_{n=0}^{\infty}c_{n}x^{n},\qquad y''=\sum_{n=0}^{\infty}(n+1)(n+2)\,c_{n+2}\,x^{n}$$
+                                <p>$xy$ terimini de $x^{n}$ kuvvetlerine göre yazalım:</p>
+                                $$xy=\sum_{n=0}^{\infty}c_{n}x^{n+1}=\sum_{n=1}^{\infty}c_{n-1}x^{n}$$
+                                <p><strong>Adım 2 — Katsayıları eşitle.</strong></p>
+                                $$\sum_{n=0}^{\infty}\Big[(n+1)(n+2)c_{n+2}-c_{n-1}\Big]x^{n}=0$$
+                                <p>$1,x,x^{2},\dots$ doğrusal bağımsız olduğundan her köşeli parantez ayrı ayrı sıfırdır.</p>
+                                <p>$n=0$ terimi ayrıcalıklıdır ($c_{-1}$ diye bir katsayı yoktur):</p>
+                                $$2c_{2}=0\;\Longrightarrow\;\boxed{c_{2}=0}$$
+                                <p>$n\ge 1$ için <strong>indirgeme bağıntısı (recurrence relation)</strong>:</p>
+                                $$c_{n+2}=\frac{c_{n-1}}{(n+1)(n+2)} \tag{6.2}$$
+                                <p><strong>Adım 3 — Katsayıları üret.</strong></p>
+                                <p>Bağıntı indisi <span class="vurgu">üçer üçer</span> atlatıyor. Bu yüzden katsayılar üç aileye ayrılır:</p>
+                                $$c_{3}=\frac{c_{0}}{2\cdot 3}=\frac{c_{0}}{6},\qquad c_{6}=\frac{c_{3}}{5\cdot 6}=\frac{c_{0}}{180},\qquad c_{9}=\frac{c_{6}}{8\cdot 9}=\frac{c_{0}}{12960}$$
+                                $$c_{4}=\frac{c_{1}}{3\cdot 4}=\frac{c_{1}}{12},\qquad c_{7}=\frac{c_{4}}{6\cdot 7}=\frac{c_{1}}{504},\qquad c_{10}=\frac{c_{7}}{9\cdot 10}=\frac{c_{1}}{45360}$$
+                                $$c_{2}=0\;\Longrightarrow\;c_{5}=c_{8}=c_{11}=\dots=0$$
+                                <p><strong>Adım 4 — Çözümü topla.</strong></p>
+                                $$\boxed{\;y=c_{0}\left[1+\frac{x^{3}}{6}+\frac{x^{6}}{180}+\frac{x^{9}}{12960}+\cdots\right]+c_{1}\left[x+\frac{x^{4}}{12}+\frac{x^{7}}{504}+\frac{x^{10}}{45360}+\cdots\right]\;}$$
+                                <p>Genel terimleriyle:</p>
+                                $$y_{1}(x)=1+\sum_{k=1}^{\infty}\frac{x^{3k}}{\displaystyle\prod_{j=1}^{k}(3j-1)(3j)},\qquad y_{2}(x)=x+\sum_{k=1}^{\infty}\frac{x^{3k+1}}{\displaystyle\prod_{j=1}^{k}(3j)(3j+1)}$$
+                                <p><strong>Doğrulama.</strong> $y_{1}$'in ilk terimlerini denkleme koyalım. $y_{1}=1+\tfrac{x^{3}}{6}+\tfrac{x^{6}}{180}+\cdots$ için</p>
+                                $$y_{1}''=x+\frac{x^{4}}{6}+\cdots,\qquad xy_{1}=x+\frac{x^{4}}{6}+\cdots$$
+                                <p>Fark sıfır. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Üç adımlık indirgemenin anlamı.</strong> Bölüm 5'teki çoğu örnekte bağıntı $c_{n+2}\leftrightarrow c_{n}$ idi ve çözüm <strong>çift/tek</strong> diye ikiye ayrılıyordu. Burada bağıntı $c_{n+2}\leftrightarrow c_{n-1}$, yani <span class="vurgu">üç adım atlıyor</span>; sonuç çift/tek değil, üsleri $3k$ ve $3k+1$ olan iki aile. Üçüncü aile ($3k+2$) $c_{2}=0$ yüzünden tümüyle yok olur.</p>
+                            <p>$c_{2}=0$ sonucu denklemde $x=0$ konarak da doğrudan görülür: $y''(0)=0\cdot y(0)=0$ ve $y''(0)=2c_{2}$.</p>
+                        </div>
+                        <p>Her iki seri de <strong>her $x$ için yakınsar</strong>: Bölüm 5'in yakınsaklık THEoREM'ine göre yakınsaklık yarıçapı, $x_{0}$'ın en yakın tekil noktaya uzaklığından küçük olamaz; Airy denkleminin sonlu düzlemde hiç tekil noktası yoktur, dolayısıyla yarıçap sonsuzdur.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Airy fonksiyonları</h3>
+                        <p>Uygulamada $y_{1}$ ve $y_{2}$ yerine, bunların belirli doğrusal birleşimleri olan <strong>Airy fonksiyonları (Airy functions)</strong> $\mathrm{Ai}(x)$ ve $\mathrm{Bi}(x)$ kullanılır. Bunları özel kılan, işaretin iki yanındaki davranışlarıdır:</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$x&lt;0$ tarafında ikisi de <strong>salınır</strong>; $|x|$ büyüdükçe genlikleri yavaşça azalır, salınım sıklaşır.</li>
+                            <li>$x&gt;0$ tarafında $\mathrm{Ai}(x)$ <strong>üstel olarak söner</strong>, $\mathrm{Bi}(x)$ ise <strong>üstel olarak büyür</strong>.</li>
+                        </ul>
+                        <p>Bu asimetri fizikte sınır koşulunu seçmeyi kolaylaştırır: sonsuzda sınırlı kalması gereken bir çözüm için $\mathrm{Ai}$ alınır, $\mathrm{Bi}$ atılır.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Uygulama: yay sabiti zamanla azalan kütle-yay sistemi</h3>
+                        <p>Aşağıdaki mekanik problem, Airy denkleminin <span class="vurgu">nereden doğal olarak çıktığını</span> gösteren temiz bir örnektir.</p>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 6.2.</strong> &nbsp; Bir kütle-yay sisteminde yayın <strong>sertliği (stiffness)</strong> $k$ zamanla doğrusal olarak azalıyor: $k(t)=k_{0}-\alpha t$ &nbsp; ($k_{0},\alpha&gt;0$). Hareket denklemini yazınız, Airy biçimine indirgeyiniz ve sonucu fiziksel olarak yorumlayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Hareket denklemi.</strong></p>
+                                <p>Newton'ın ikinci yasası ve yay kuvveti:</p>
+                                $$F=m\ddot{x},\qquad F=-k\,x\;\Longrightarrow\;m\ddot{x}+k(t)\,x=0$$
+                                <p>$k(t)=k_{0}-\alpha t$ konursa:</p>
+                                $$\ddot{x}+\left(\frac{k_{0}}{m}-\frac{\alpha}{m}\,t\right)x=0 \tag{6.3}$$
+                                <p><span class="vurgu">Bu sabit katsayılı bir denklem değildir</span> — katsayı $t$'ye bağlı. Dolayısıyla $e^{mt}$ denemesi işe yaramaz, yardımcı denklem kurulamaz.</p>
+                                <p><strong>Adım 2 — Airy biçimine indirge.</strong></p>
+                                <p>Kısaltma olarak $\beta=\dfrac{\alpha}{m}$ ve $\omega_{0}^{2}=\dfrac{k_{0}}{m}$ alalım; denklem $\ddot{x}+\left(\omega_{0}^{2}-\beta t\right)x=0$ olur. Yeni değişken:</p>
+                                $$z=\left(\frac{m}{\alpha}\right)^{2/3}\left(\frac{\alpha}{m}\,t-\frac{k_{0}}{m}\right)=\beta^{-2/3}\left(\beta t-\omega_{0}^{2}\right)$$
+                                <p>Buradan $\dfrac{dz}{dt}=\beta^{1/3}$, yani</p>
+                                $$\frac{d}{dt}=\beta^{1/3}\frac{d}{dz},\qquad \frac{d^{2}}{dt^{2}}=\beta^{2/3}\frac{d^{2}}{dz^{2}}$$
+                                <p>Katsayı terimi de $\omega_{0}^{2}-\beta t=-\beta^{2/3}z$ olur. Yerine koyalım:</p>
+                                $$\beta^{2/3}\frac{d^{2}x}{dz^{2}}-\beta^{2/3}z\,x=0\;\Longrightarrow\;\boxed{\;\frac{d^{2}x}{dz^{2}}-z\,x=0\;}$$
+                                <p>Tam olarak Airy denklemi. Çözüm $x(z)=A\,\mathrm{Ai}(z)+B\,\mathrm{Bi}(z)$'dir.</p>
+                                <p><strong>Adım 3 — Fiziksel yorum.</strong></p>
+                                <p>$z$'nin işaretine dikkat: $z=0$ olması $\beta t=\omega_{0}^{2}$, yani $\alpha t=k_{0}$ demektir. Bu da tam olarak</p>
+                                $$k(t_{0})=0,\qquad t_{0}=\frac{k_{0}}{\alpha}$$
+                                <p>anıdır — <span class="vurgu">yayın tümüyle gevşediği an</span>. Dönüm noktası budur.</p>
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>$t&lt;t_{0}$</strong> ($z&lt;0$, $k&gt;0$): yay hâlâ geri çağırıcı kuvvet üretiyor. Airy fonksiyonları bu tarafta salınımlıdır, kütle titreşir. Ama $k$ küçüldükçe frekans düşer, <span class="vurgu">salınımlar giderek yayvanlaşır</span>. <strong>Kararlı bölge.</strong></li>
+                                    <li><strong>$t&gt;t_{0}$</strong> ($z&gt;0$, $k&lt;0$): kuvvet artık geri çağırıcı değil, <strong>iticidir</strong>. Airy fonksiyonlarının bu taraftaki üstel davranışı devreye girer; $\mathrm{Bi}$ bileşeni büyür ve genlik sınırsız artar. <strong>Kararsız bölge.</strong></li>
+                                </ul>
+                                <p>Sistem $t_{0}$ anında salınımdan üstel kaçışa geçer. Bu geçişi <span class="vurgu">tek bir düzgün fonksiyonla</span> ifade edebilen şey Airy fonksiyonudur; ne saf sinüs ne saf üstel bunu tek başına yapabilir.</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Neden bu örnek önemli?</strong> Sabit katsayılı denklemlerde (Bölüm 3) yardımcı denklemin kökleri çözümün karakterini <strong>bir kez ve tümüyle</strong> belirler: ya salınım, ya üstel. Değişken katsayıda ise karakter <span class="vurgu">zaman içinde değişebilir</span>. Airy denklemi bu değişimin en yalın örneğidir; seri yönteminin sabit katsayılı yöntemlere göre asıl üstünlüğü de buradadır.</p>
+                        </div>
                     </div>
 
-                    <div id="ozel-dd-hermite" class="section placeholder">
+                    <div id="ozel-dd-hermite" class="section konu">
                         <div class="section-title">
-                            6.2 &nbsp;Hermite Denklemi
+                            <span class="badge">Konu</span>
+                            6.2 &nbsp;Hermite Denklemi ve Hermite Polinomları
                         </div>
-                        <p class="placeholder-note">İçerik eklenecek.</p>
+                        <p><strong>Hermite denklemi (Hermite equation)</strong>:</p>
+                        $$y''-2xy'+\lambda y=0 \tag{6.4}$$
+                        <p>Burada $\lambda$ bir <strong>parametredir</strong>; denklemin karakteri onun değerine göre değişir. Kuantum mekaniğinde <strong>harmonik salınıcı (quantum harmonic oscillator)</strong> probleminin çözümü doğrudan bu denkleme indirgenir ve $\lambda$'nın alabileceği değerler <span class="vurgu">enerji seviyelerini</span> verir.</p>
+                        <p>$x=0$ adi noktadır ($-2x$ ve $\lambda$ her yerde analitiktir), dolayısıyla yine standart kuvvet serisi yöntemi uygulanır.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Seri çözüm</h3>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 6.3.</strong> &nbsp; $y''-2xy'+\lambda y=0$ Hermite denkleminin $x_{0}=0$ etrafındaki kuvvet serisi çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Seriyi yerleştir.</strong></p>
+                                $$y=\sum_{n=0}^{\infty}a_{n}x^{n},\qquad y'=\sum_{n=1}^{\infty}n\,a_{n}x^{n-1},\qquad y''=\sum_{n=0}^{\infty}(n+1)(n+2)\,a_{n+2}x^{n}$$
+                                <p>Orta terim doğrudan $x^{n}$ kuvvetlerinde çıkar:</p>
+                                $$-2xy'=-2\sum_{n=0}^{\infty}n\,a_{n}x^{n}$$
+                                <p><strong>Adım 2 — Katsayıları eşitle.</strong></p>
+                                $$\sum_{n=0}^{\infty}\Big[(n+1)(n+2)a_{n+2}-2n\,a_{n}+\lambda\,a_{n}\Big]x^{n}=0$$
+                                <p>Her köşeli parantez sıfırdır; $a_{n+2}$ için çözelim:</p>
+                                $$\boxed{\;a_{n+2}=\frac{2n-\lambda}{(n+1)(n+2)}\,a_{n}\;} \tag{6.5}$$
+                                <p><span class="vurgu">Bu bağıntı ikişer adım atlıyor</span>, dolayısıyla çift indisliler $a_{0}$'a, tek indisliler $a_{1}$'e bağlıdır: çözüm bir <strong>çift</strong> ve bir <strong>tek</strong> parçaya ayrılır.</p>
+                                <p><strong>Adım 3 — Katsayıları üret.</strong></p>
+                                <p>Çift aile ($a_{0}$'dan):</p>
+                                $$a_{2}=\frac{-\lambda}{1\cdot 2}a_{0}=-\frac{\lambda}{2!}\,a_{0}$$
+                                $$a_{4}=\frac{4-\lambda}{3\cdot 4}a_{2}=-\frac{\lambda(4-\lambda)}{4!}\,a_{0}$$
+                                $$a_{6}=\frac{8-\lambda}{5\cdot 6}a_{4}=-\frac{\lambda(4-\lambda)(8-\lambda)}{6!}\,a_{0}$$
+                                <p>Tek aile ($a_{1}$'den):</p>
+                                $$a_{3}=\frac{2-\lambda}{2\cdot 3}a_{1}=\frac{2-\lambda}{3!}\,a_{1}$$
+                                $$a_{5}=\frac{6-\lambda}{4\cdot 5}a_{3}=\frac{(2-\lambda)(6-\lambda)}{5!}\,a_{1}$$
+                                <p><strong>Adım 4 — Çözümü topla.</strong></p>
+                                $$y=a_{0}\left[1-\frac{\lambda}{2!}x^{2}-\frac{\lambda(4-\lambda)}{4!}x^{4}-\frac{\lambda(4-\lambda)(8-\lambda)}{6!}x^{6}-\cdots\right]$$
+                                $$\qquad+\;a_{1}\left[x+\frac{2-\lambda}{3!}x^{3}+\frac{(2-\lambda)(6-\lambda)}{5!}x^{5}+\cdots\right] \tag{6.6}$$
+                                <p><strong>Doğrulama.</strong> $(6.5)$'i $n=0$ için sınayalım: $a_{2}=\dfrac{0-\lambda}{1\cdot 2}a_{0}=-\dfrac{\lambda}{2}a_{0}$. Öte yandan denklemde $x=0$ konursa $y''(0)-0+\lambda y(0)=0$, yani $2a_{2}+\lambda a_{0}=0$ — aynı sonuç. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Payda $4!$, $6!$ diye gidiyor ama pay öyle değil.</strong> $(6.6)$'daki paydaların faktöriyel olması bir tesadüf değil: $(n+1)(n+2)$ çarpanları ardışık olduğu için üst üste bindiklerinde faktöriyel oluşur. Paydaki $\lambda(4-\lambda)(8-\lambda)$ çarpanları ise <span class="vurgu">dörder dörder</span> artan bir dizidir; $2n-\lambda$ ifadesinde $n$ ikişer adım atladığı için.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Serinin polinoma dönüşmesi</h3>
+                        <p>$(6.5)$'e tekrar bakalım: pay $2n-\lambda$'dır. <span class="vurgu">Eğer $\lambda$ bir çift tam sayının iki katıysa</span>, yani</p>
+                        $$\lambda=2n \quad\text{(bir } n \text{ tam sayısı için)}$$
+                        <p>o zaman $a_{n+2}=0$ olur ve ondan sonraki bütün katsayılar sıfırlanır. Serilerden biri <strong>kesilir</strong> ve geriye <span class="vurgu">sonlu dereceli bir polinom</span> kalır.</p>
+                        <p>Bu, fizik açısından belirleyici bir olaydır: sonsuz seriler $|x|$ büyüdüğünde $e^{x^{2}}$ gibi patlar ve fiziksel olarak kabul edilemez; ancak kesilen (polinom) çözüm sınırlı kalır. Kuantum harmonik salınıcıda <span class="vurgu">enerjinin kesikli (quantized) olmasının sebebi tam olarak budur</span>.</p>
+                        <p>$(6.6)$'da birkaç $\lambda$ değerini yerine koyalım:</p>
+                        <div class="tablo-sar">
+                        <table>
+                        <tr><th>$\lambda$</th><th>Çift parça</th><th>Tek parça</th></tr>
+                        <tr><td>$0$</td><td>$1$ &nbsp;<strong>(kesildi)</strong></td><td>$x+\tfrac{2}{3!}x^{3}+\tfrac{12}{5!}x^{5}+\cdots$</td></tr>
+                        <tr><td>$2$</td><td>$1-x^{2}-\tfrac{1}{6}x^{4}-\tfrac{1}{30}x^{6}-\cdots$</td><td>$x$ &nbsp;<strong>(kesildi)</strong></td></tr>
+                        <tr><td>$4$</td><td>$1-2x^{2}$ &nbsp;<strong>(kesildi)</strong></td><td>$x-\tfrac{1}{3}x^{3}-\tfrac{1}{30}x^{5}-\cdots$</td></tr>
+                        <tr><td>$6$</td><td>$1-3x^{2}+\tfrac{1}{2}x^{4}+\cdots$</td><td>$x-\tfrac{2}{3}x^{3}$ &nbsp;<strong>(kesildi)</strong></td></tr>
+                        </table>
+                        </div>
+                        <p>Kesilen parçalar sırasıyla</p>
+                        $$1,\qquad x,\qquad 1-2x^{2},\qquad x-\frac{2}{3}x^{3}$$
+                        <p>polinomlarıdır. Bunlar, uygun sabitlerle çarpıldığında <strong>Hermite polinomlarını (Hermite polynomials)</strong> verir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Hermite polinomları</h3>
+                        <p>$H_{n}(x)$ ile $n$. mertebeden Hermite polinomu gösterilir. İlk birkaçı:</p>
+                        $$H_{0}(x)=1,\qquad H_{1}(x)=2x,\qquad H_{2}(x)=4x^{2}-2,\qquad H_{3}(x)=8x^{3}-12x$$
+                        $$H_{4}(x)=16x^{4}-48x^{2}+12,\qquad H_{5}(x)=32x^{5}-160x^{3}+120x$$
+                        <p>Yukarıdaki tabloyla karşılaştırın: $1-2x^{2}$ ile $H_{2}=4x^{2}-2$ arasındaki fark yalnızca $-2$ çarpanıdır; $x-\tfrac{2}{3}x^{3}$ ile $H_{3}=8x^{3}-12x$ arasında ise $-12$. <span class="vurgu">Normalleştirme sabiti dışında aynı polinomlar.</span> Standart seçim, $x^{n}$'nin katsayısının $2^{n}$ olmasıdır.</p>
+                        <h4>Rodrigues formülü</h4>
+                        <p>Polinomları indirgeme bağıntısıyla tek tek üretmek yerine kapalı bir formülle de yazabiliriz — <strong>Rodrigues formülü (Rodrigues' formula)</strong>:</p>
+                        $$\boxed{\;H_{n}(x)=(-1)^{n}\,e^{x^{2}}\,\frac{d^{n}}{dx^{n}}\,e^{-x^{2}}\;} \tag{6.7}$$
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 6.4.</strong> &nbsp; Rodrigues formülünü kullanarak $H_{0}$, $H_{1}$ ve $H_{2}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>$n=0$:</strong> Türev alınmıyor.</p>
+                                $$H_{0}=(-1)^{0}e^{x^{2}}\cdot e^{-x^{2}}=1$$
+                                <p><strong>$n=1$:</strong></p>
+                                $$\frac{d}{dx}e^{-x^{2}}=-2x\,e^{-x^{2}}$$
+                                $$H_{1}=(-1)^{1}e^{x^{2}}\left(-2x\,e^{-x^{2}}\right)=2x$$
+                                <p><strong>$n=2$:</strong></p>
+                                $$\frac{d^{2}}{dx^{2}}e^{-x^{2}}=\frac{d}{dx}\left(-2x\,e^{-x^{2}}\right)=-2e^{-x^{2}}+4x^{2}e^{-x^{2}}=\left(4x^{2}-2\right)e^{-x^{2}}$$
+                                $$H_{2}=(-1)^{2}e^{x^{2}}\left(4x^{2}-2\right)e^{-x^{2}}=4x^{2}-2$$
+                                <p>Üçü de yukarıdaki listeyle uyuşuyor. &#10003;</p>
+                            </div>
+                        </div>
+                        <h4>Sağladıkları denklem</h4>
+                        <p>Hermite polinomları, $\lambda=2n$ alınmış Hermite denkleminin çözümleridir:</p>
+                        $$H_{n}''-2x\,H_{n}'+2n\,H_{n}=0 \tag{6.8}$$
+                        <p><strong>Hızlı doğrulama ($n=2$).</strong> $H_{2}=4x^{2}-2$ için $H_{2}'=8x$, $H_{2}''=8$:</p>
+                        $$8-2x(8x)+4\left(4x^{2}-2\right)=8-16x^{2}+16x^{2}-8=0\;\checkmark$$
+                        <div class="highlight">
+                            <p><strong>$\lambda=2n$ koşulunun okunuşu.</strong> $(6.5)$'te pay $2n-\lambda$ idi. $\lambda=2n$ seçmek, <span class="vurgu">tam $n$. adımda payı sıfırlamak</span> demektir; böylece $a_{n+2}=0$ ve seri $x^{n}$ terimiyle biter. Dolayısıyla $\lambda=2n$ ile elde edilen polinomun derecesi tam olarak $n$'dir.</p>
+                            <p>Kuantum harmonik salınıcıda enerji $E_{n}=\left(n+\tfrac{1}{2}\right)\hbar\omega$ biçiminde çıkar; buradaki $n$ ile bu $n$ aynı $n$'dir. <span class="vurgu">Fizikteki kesikli enerji seviyeleri, seri çözümün kesilme koşulundan doğar.</span></p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-bessel" class="section konu">
@@ -11936,7 +12383,14 @@
                         </div>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Özet tablo</h3>
-                        <p>| $p$ | İkinci bağımsız çözüm | Logaritma | |---|---|---| | $p=0$ | $Y_{0}$ | Var | | $p&gt;0$, tam sayı değil | $J_{-p}$ | Yok | | $p$ pozitif tam sayı | $Y_{p}$ | Var |</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>$p$</th><th>İkinci bağımsız çözüm</th><th>Logaritma</th></tr>
+                            <tr><td>$p=0$</td><td>$Y_{0}$</td><td>Var</td></tr>
+                            <tr><td>$p&gt;0$, tam sayı değil</td><td>$J_{-p}$</td><td>Yok</td></tr>
+                            <tr><td>$p$ pozitif tam sayı</td><td>$Y_{p}$</td><td>Var</td></tr>
+                        </table>
+                        </div>
                         <p>$J_{-p}$'nin işe yaradığı tek durum ortadaki satırdır; $p$ tam sayı olduğunda $J_{-p}$ yeni bilgi vermez ve logaritmalı $Y_{p}$'ye başvurulur.</p>
                     </div>
 

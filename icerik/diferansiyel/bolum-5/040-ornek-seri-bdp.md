@@ -5,7 +5,7 @@ tip: ornek
 baslik: 5.3 &nbsp;Çözümlü Örnek — Seri Yöntemiyle Başlangıç Değer Problemi
 ---
 
-[SORU] **Örnek 5.5.** &nbsp; Aşağıdaki başlangıç değer problemini kuvvet serisi yöntemiyle çözünüz:
+[SORU*] **Örnek 5.5.** &nbsp; Aşağıdaki başlangıç değer problemini kuvvet serisi yöntemiyle çözünüz:
 $$(x^{2}-1)y''+3xy'+xy=0,\qquad y(0)=4,\qquad y'(0)=6$$
 [CEVAP]
 **Adım 1 — Hangi nokta etrafında seri arayacağımıza karar ver.**

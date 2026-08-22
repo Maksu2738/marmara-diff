@@ -27,7 +27,7 @@ $$F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt=\lim_{R\to\infty}\int_{0}^{R}e^{-st}f(t)
 
 ---
 
-[SORU] **Örnek 9.1.** &nbsp; $f(t)=1$ ($t>0$) fonksiyonunun Laplace dönüşümünü bulunuz.
+[SORU*] **Örnek 9.1.** &nbsp; $f(t)=1$ ($t>0$) fonksiyonunun Laplace dönüşümünü bulunuz.
 [CEVAP]
 $$\mathcal{L}\{1\}=\int_{0}^{\infty}e^{-st}\cdot 1\,dt=\lim_{R\to\infty}\int_{0}^{R}e^{-st}\,dt=\lim_{R\to\infty}\left[\frac{-e^{-st}}{s}\right]_{0}^{R}$$
 
@@ -39,7 +39,7 @@ $$\boxed{\;\mathcal{L}\{1\}=\frac{1}{s}\qquad (s>0)\;} \tag{9.2}$$
 
 ==$s\le 0$ için $e^{-sR}$ sınırsız büyür ve integral ıraksar==; kısıtın kaynağı budur.
 
-[SORU] **Örnek 9.2.** &nbsp; $f(t)=t$ fonksiyonunun Laplace dönüşümünü bulunuz.
+[SORU*] **Örnek 9.2.** &nbsp; $f(t)=t$ fonksiyonunun Laplace dönüşümünü bulunuz.
 [CEVAP]
 Kısmi integrasyonla ilkel fonksiyon bulunur:
 
@@ -53,7 +53,7 @@ $s>0$ için $e^{-sR}(sR+1)\to 0$ olur — ==üstel azalma, doğrusal büyümeyi 
 
 $$\boxed{\;\mathcal{L}\{t\}=\frac{1}{s^{2}}\qquad (s>0)\;} \tag{9.3}$$
 
-[SORU] **Örnek 9.3.** &nbsp; $f(t)=e^{at}$ fonksiyonunun Laplace dönüşümünü bulunuz.
+[SORU*] **Örnek 9.3.** &nbsp; $f(t)=e^{at}$ fonksiyonunun Laplace dönüşümünü bulunuz.
 [CEVAP]
 İki üstel birleşir:
 

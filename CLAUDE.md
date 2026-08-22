@@ -84,11 +84,14 @@ Gövde:
 | `---` | `<hr>` |
 | `**kalın**` `*eğik*` `==vurgulu==` `__altı çizili__` | `<strong>` `<em>` `<span class="vurgu">` `<u>` |
 | `[KUTU]` … `[/KUTU]` | `<div class="highlight">` — "Not:", tanım vb. için kutu |
-
-Tablo yazımı yok; ham `<table>` kullan ve **mutlaka** `<div class="tablo-sar">` içine al
-(dar ekranda yatay kaydırma sağlar). `th`/`td` stilleri hazır, satır içi stil yazma.
-| `$...$` ve `$$...$$` | **hiç dokunulmaz**, KaTeX'e gider |
+| `\| a \| b \|` + `\|---\|---\|` | `<table>` — otomatik `<div class="tablo-sar">` içine alınır |
+| `$...$` ve `$$...$$` | içerik korunur, yalnız `& < >` HTML kaçışına çevrilir |
 | `<` ile başlayan satır | ham HTML, aynen geçer (kaçış kapısı) |
+
+Tablo: ilk satır başlık, ikinci satır `|---|---|` ayracı olmak zorunda (ayraç yoksa
+tablo sayılmaz, paragraf olur). `th`/`td` stilleri hazır, satır içi stil yazma.
+Sarmalayıcı `tablo-sar` dar ekranda yatay kaydırma sağlar ve build otomatik ekler.
+Hücre içinde `|` gerekiyorsa `\vert` yaz.
 
 Soru blokları:
 
@@ -100,6 +103,11 @@ Soru blokları:
 
 [SORU] 2. &nbsp; Cevapsız soru — örnek bloğu gibi görünür
 ```
+
+`[SORU*]` yazılırsa soru **ders notu sorusu** olarak işaretlenir: bloğa yıldız
+rozeti eklenir, kenarı parlar ve yıldız zıplar. Yalnızca hocanın ders defterinde
+geçtiği doğrulanmış sorulara ver. `.html` parçalarda karşılığı elle yazılır:
+`<div class="question-block yildizli">` + rozet `<span>`i.
 
 **Soru metni tek satır olmalı.** `[SORU]` satırı ilk boş satırda biter; araya boş
 satır koyarsan `[CEVAP]` sahipsiz kalır. Denklemi `$\displaystyle ...$` ile satır
@@ -123,8 +131,12 @@ küçük harfli kalır (`bolum-4-6`, `teorem-...` gibi mevcut id'ler değişmez)
 
 ## Dikkat
 
-- Matematik içindeki `<`, `_`, `\` karakterleri korunur; `$...$` dışında ham `<`
-  kullanacaksan `&lt;` yaz.
+- Matematik içindeki `<`, `>`, `&` karakterlerini **olduğu gibi yaz** — `build.py`
+  bunları HTML kaçışına çevirir (KaTeX metni `textContent`'ten okuduğu için
+  görüntüde fark olmaz). Elle `&lt;` yazmak da çalışır ama gereksizdir.
+  Kaçış olmadan `$0<t<2$` gibi bir ifadede `<t<2$ ... $` parçası tarayıcı
+  tarafından etiket sanılıp yutulur ve formül ham metin olarak görünür.
+- `$...$` dışında ham `<` kullanacaksan (metin içinde) `&lt;` yaz.
 - `.highlight` **blok kutusudur**, satır içi vurgu için değil. Satır içi vurgu
   `.vurgu` sınıfıdır (`==...==` bunu üretir). Karıştırma — `<span class="highlight">`
   yazarsan metnin üstüne taşan bir kutu çıkar.

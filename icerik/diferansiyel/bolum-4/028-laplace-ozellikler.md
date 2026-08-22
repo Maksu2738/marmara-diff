@@ -19,7 +19,7 @@ $$\mathcal{L}\{c_{1}f_{1}(t)+c_{2}f_{2}(t)\}=c_{1}\mathcal{L}\{f_{1}(t)\}+c_{2}\
 
 Bu özellik, dönüşümü doğrudan hesaplamak yerine ==bilinen dönüşümleri birleştirerek== yeni dönüşümler elde etmemizi sağlar. Aşağıdaki örnek tipik kullanımıdır.
 
-[SORU] **Örnek 9.11.** &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\sin^{2}at\}$ değerini bulunuz.
+[SORU*] **Örnek 9.11.** &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\sin^{2}at\}$ değerini bulunuz.
 [CEVAP]
 **Adım 1 — Trigonometrik özdeşlikle lineer birleşime çevir.**
 

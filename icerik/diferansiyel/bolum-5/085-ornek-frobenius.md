@@ -5,7 +5,7 @@ tip: ornek
 baslik: 5.7 &nbsp;Çözümlü Örnek — Frobenius Yönteminin Tam Uygulaması
 ---
 
-[SORU] **Örnek 5.10.** &nbsp; Frobenius yöntemiyle $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin $0<x<R$ aralığındaki çözümlerini bulunuz.
+[SORU*] **Örnek 5.10.** &nbsp; Frobenius yöntemiyle $\displaystyle 2x^{2}y''-xy'+(x-5)y=0$ denkleminin $0<x<R$ aralığındaki çözümlerini bulunuz.
 [CEVAP]
 Örnek 5.7'de $x=0$'ın bu denklemin **düzgün tekil noktası** olduğunu göstermiştik, dolayısıyla THEoREM 5.2 uygulanır.
 

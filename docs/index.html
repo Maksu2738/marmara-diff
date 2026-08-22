@@ -166,6 +166,7 @@
                             <li><a href="#ters-donusum-oteleme">4.4 $e^{-as}F(s)$ Biçiminin Ters Dönüşümü</a></li>
                             <li><a href="#ornek-sureksiz-zorlama">4.4 Örnek — Süreksiz Zorlamalı Problem</a></li>
                             <li><a href="#egzersizler-sureksiz">4.4 Egzersizler — Süreksiz Zorlama</a></li>
+                            <li><a href="#laplace-dirac-delta">4.4 Dirac Delta Fonksiyonu</a></li>
                         </ul>
                     </li>
 
@@ -9902,6 +9903,79 @@
                                     <p><strong>10</strong> → zorlama zaten $u_{a}$ cinsinden verilmiş, dönüştürmeye gerek yok. Payda $s^{2}+6s+25=(s+3)^{2}+16$ tamkareye gider.</p>
                                     <p><strong>12</strong> → $h(t)=4-2t-u_{2}(t)\left[4-2t\right]$ ifadesini $t-2$ cinsinden yazın: $4-2t=-2(t-2)$, yani $h(t)=(4-2t)+2u_{2}(t)(t-2)$.</p>
                                     <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözümü sınayabilirsiniz: bulduğunuz $y$'yi <span class="vurgu">her iki aralıkta ayrı ayrı</span> denkleme koyun, ayrıca $t=a$ noktasında $y$ ve $y'$'nin sürekli olduğunu kontrol edin. Süreksiz zorlamada çözümün kendisi ve türevi süreklidir; sıçrayan yalnızca ikinci türevdir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-dirac-delta" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.4 &nbsp;Dirac Delta Fonksiyonu ve Anlık Etkiler
+                        </div>
+                        <p>Şimdiye kadarki zorlama terimleri bir süre boyunca etkiliydi. Peki <strong>anlık</strong> bir etki nasıl modellenir — bir çekiç darbesi, ani bir voltaj sıçraması?</p>
+                        <p>Böyle bir etkiyi doğrudan yazamayız; <span class="vurgu">bir limit süreciyle yaklaşırız.</span></p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yaklaşan fonksiyon</h3>
+                        <p>$\varepsilon$ küçük bir pozitif sayı, $t_{0}>0$ ve $t_{0}-\varepsilon>0$ olmak üzere şu fonksiyonu tanımlayalım:</p>
+                        $$\delta_{\varepsilon}(t-t_{0})=\frac{1}{2\varepsilon}\left[u_{t_{0}-\varepsilon}(t)-u_{t_{0}+\varepsilon}(t)\right] \tag{9.97}$$
+                        <p>Bu, $t_{0}$ etrafında <strong>genişliği $2\varepsilon$, yüksekliği $\frac{1}{2\varepsilon}$</strong> olan bir dikdörtgen darbedir.</p>
+                        <p><span class="vurgu">Kritik özellik: alanı her zaman $1$'dir.</span></p>
+                        $$\int_{-\infty}^{\infty}\delta_{\varepsilon}(t-t_{0})\,dt=\int_{t_{0}-\varepsilon}^{t_{0}+\varepsilon}\frac{1}{2\varepsilon}\,dt=\frac{1}{2\varepsilon}\cdot 2\varepsilon=1 \tag{9.98}$$
+                        <div class="highlight">
+                            <p><strong>Fiziksel karşılığı.</strong> Yay üzerindeki kütle gibi mekanik bir sistemde bu integral, $\delta_{\varepsilon}$ kuvvetinin ilgili aralıktaki <strong>toplam impulsudur (impulse)</strong>.</p>
+                            <p>$\varepsilon$ küçüldükçe darbe daralıp yükselir, ama <span class="vurgu">impuls sabit kalır.</span> Yani "aynı toplam etkiyi giderek daha kısa sürede uygulamak" demektir.</p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Limit</h3>
+                        <p>$\varepsilon\to 0$ alalım:</p>
+                        $$\delta(t-t_{0})=\lim_{\varepsilon\to 0}\delta_{\varepsilon}(t-t_{0}) \tag{9.99}$$
+                        <p>Limitte $\delta(t-t_{0})$, $t=t_{0}$ dışında sıfırdır ve $t=t_{0}$'da "sonsuza gider". $(9.98)$ her $\varepsilon>0$ için geçerli olduğundan alan da korunur.</p>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> <strong>Dirac delta fonksiyonu</strong>, şu iki özellikle karakterize edilir:</p>
+                            $$\delta(t-t_{0})=\begin{cases}\infty, & t=t_{0}\\ 0, & t\neq t_{0}\end{cases} \tag{9.100}$$
+                            $$\int_{-\infty}^{\infty}\delta(t-t_{0})\,dt=1 \tag{9.101}$$
+                        </div>
+                        <p><strong>Önemli uyarı.</strong> $\delta(t-t_{0})$, <span class="vurgu">temel analiz anlamında bir fonksiyon değildir.</span> Hiçbir sıradan fonksiyon tek bir noktada sonsuz olup sonlu bir integrale sahip olamaz. Bu, <strong>genelleştirilmiş fonksiyon (generalized function)</strong> denen daha geniş bir sınıfın örneğidir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Dönüşümü</h3>
+                        <p>Önce yaklaşan fonksiyonun dönüşümünü bulalım. $t_{0}-\varepsilon>0$ varsayımı altında $\delta_{\varepsilon}$, THEoREM 9.1'in hipotezlerini sağlar:</p>
+                        $$\mathcal{L}\left\{\delta_{\varepsilon}(t-t_{0})\right\}=\frac{1}{2\varepsilon}\int_{t_{0}-\varepsilon}^{t_{0}+\varepsilon}e^{-st}\,dt=\frac{1}{2\varepsilon}\cdot\frac{1}{-s}\left[e^{-s(t_{0}+\varepsilon)}-e^{-s(t_{0}-\varepsilon)}\right]$$
+                        <p>$e^{-st_{0}}$ ortak çarpanını çekelim:</p>
+                        $$\mathcal{L}\left\{\delta_{\varepsilon}(t-t_{0})\right\}=\frac{e^{-st_{0}}\left(e^{s\varepsilon}-e^{-s\varepsilon}\right)}{2\varepsilon s} \tag{9.102}$$
+                        <p>$\delta$ ise THEoREM 9.1'in hipotezlerini <strong>sağlamaz</strong>; dönüşümünün varlığı garanti değildir. Tanımı bir limit olduğu için dönüşümünü de <span class="vurgu">biçimsel olarak</span> limitle alırız:</p>
+                        $$\mathcal{L}\left\{\delta(t-t_{0})\right\}=\lim_{\varepsilon\to 0}\frac{e^{-st_{0}}\left(e^{s\varepsilon}-e^{-s\varepsilon}\right)}{2\varepsilon s}$$
+                        <p>Parantez içi $2\sinh(s\varepsilon)$'dir, dolayısıyla ifade $e^{-st_{0}}\dfrac{\sinh(s\varepsilon)}{s\varepsilon}$ olur. $\varepsilon\to 0$ iken $\dfrac{\sinh u}{u}\to 1$:</p>
+                        $$\boxed{\;\mathcal{L}\left\{\delta(t-t_{0})\right\}=e^{-st_{0}}\;} \tag{9.103}$$
+                        <div class="highlight">
+                            <p><strong>Bu sonucun sadeliği dikkat çekicidir.</strong> Birim basamağın dönüşümü $\frac{e^{-as}}{s}$ iken, delta'nınki yalnızca $e^{-as}$. <span class="vurgu">Aradaki $\frac{1}{s}$ farkı tesadüf değil:</span> delta, basamağın türevidir. $\mathcal{L}\{f'\}=s\mathcal{L}\{f\}-f(0)$ kuralıyla türev alınca $s$ ile çarpılır, payda gider.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.37.</strong> &nbsp; Aşağıdaki başlangıç değer problemini çözünüz: $$y''+2y'+5y=\delta\!\left(t-\tfrac{\pi}{2}\right),\qquad y(0)=1,\quad y'(0)=-1$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong></p>
+                                $$\mathcal{L}\{y''\}=s^{2}Y(s)-s\,y(0)-y'(0)=s^{2}Y(s)-s+1$$
+                                $$\mathcal{L}\{y'\}=s\,Y(s)-1$$
+                                <p>$(9.103)$ ile sağ taraf $e^{-\pi s/2}$:</p>
+                                $$s^{2}Y-s+1+2(sY-1)+5Y=e^{-\pi s/2}$$
+                                $$\left(s^{2}+2s+5\right)Y=e^{-\pi s/2}+s+1$$
+                                <p><strong>Adım 2 — $Y(s)$'yi ayır.</strong></p>
+                                $$Y(s)=\underbrace{\frac{s+1}{s^{2}+2s+5}}_{\text{başlangıç koşullarından}}+\underbrace{\frac{e^{-\pi s/2}}{s^{2}+2s+5}}_{\text{darbeden}}$$
+                                <p><strong>Adım 3 — Birinci terim.</strong></p>
+                                <p>$s^{2}+2s+5=(s+1)^{2}+2^{2}$ olduğundan pay zaten $s+1$; Tablo 9.1, 12 numara ($a=1$, $b=2$):</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{s+1}{(s+1)^{2}+2^{2}}\right\}=e^{-t}\cos 2t$$
+                                <p><strong>Adım 4 — İkinci terim.</strong></p>
+                                $$F(s)=\frac{1}{s^{2}+2s+5}=\frac{1}{2}\cdot\frac{2}{(s+1)^{2}+2^{2}}\;\Longrightarrow\;f(t)=\frac{1}{2}e^{-t}\sin 2t$$
+                                <p>$(9.86)$ ile $a=\frac{\pi}{2}$:</p>
+                                $$\mathcal{L}^{-1}\left\{e^{-\pi s/2}F(s)\right\}=u_{\pi/2}(t)\,f\!\left(t-\tfrac{\pi}{2}\right)=u_{\pi/2}(t)\cdot\frac{1}{2}e^{-(t-\pi/2)}\sin 2\!\left(t-\tfrac{\pi}{2}\right)$$
+                                <p>Sinüsü sadeleştirelim — <span class="vurgu">$\sin(2t-\pi)=-\sin 2t$:</span></p>
+                                $$=-\frac{1}{2}e^{\pi/2}e^{-t}\sin 2t\cdot u_{\pi/2}(t)$$
+                                <p><strong>Sonuç:</strong></p>
+                                $$\boxed{\;y=\begin{cases}e^{-t}\cos 2t, & 0<t<\dfrac{\pi}{2}\\[2ex] e^{-t}\left(\cos 2t-\dfrac{e^{\pi/2}}{2}\sin 2t\right), & t>\dfrac{\pi}{2}\end{cases}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Darbenin etkisi nasıl görünüyor?</strong> $t<\frac{\pi}{2}$ aralığında sistem serbest sönümlü salınım yapıyor. $t=\frac{\pi}{2}$'de darbe geliyor ve <span class="vurgu">çözüme yeni bir salınım bileşeni ekliyor.</span></p>
+                                    <p>$y$'nin kendisi $t=\frac{\pi}{2}$'de süreklidir (çünkü $\sin 2t$ orada sıfırdır), ama <strong>türevi sıçrar</strong> — darbenin anlık momentum aktarması budur. Süreksiz basamak zorlamada ($4.4$'teki Örnek 9.36) hem $y$ hem $y'$ sürekliydi; delta ile $y'$ süreksiz hâle geliyor.</p>
+                                    <p><span class="vurgu">Genel kural: $\delta$ zorlaması, çözümün bir mertebe düşük türevinde sıçrama yaratır.</span></p>
                                 </div>
                             </div>
                         </div>

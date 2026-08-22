@@ -146,7 +146,9 @@
                             <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
                             <li><a href="#laplace-yuksek-turev">4.1 Yüksek Mertebeden Türevler</a></li>
                             <li><a href="#ornek-laplace-bdp">4.1 Örnek — İlk Başlangıç Değer Problemi</a></li>
-                            <li><a href="#laplace-ters" class="pending">4.2 Ters Laplace Dönüşümü</a></li>
+                            <li><a href="#laplace-oteleme">4.1 Öteleme ve $t^n$ ile Çarpma</a></li>
+                            <li><a href="#laplace-ters">4.2 Ters Laplace Dönüşümü</a></li>
+                            <li><a href="#ornek-ters-donusum">4.2 Örnekler — Ters Dönüşüm Teknikleri</a></li>
                         </ul>
                     </li>
 
@@ -8229,11 +8231,235 @@
                         </div>
                     </div>
 
-                    <div id="laplace-ters" class="section placeholder">
+                    <div id="laplace-oteleme" class="section konu">
                         <div class="section-title">
-                            4.2 &nbsp;Ters Laplace Dönüşümü
+                            <span class="badge">Konu</span>
+                            4.1 &nbsp;Öteleme Özelliği ve $t^n$ ile Çarpmanın Etkisi
                         </div>
-                        <p class="placeholder-note">İçerik eklenecek.</p>
+                        <p>Tablodaki temel dönüşümlerden çok daha fazlasını elde etmemizi sağlayan iki kural var. İkisi de <span class="vurgu">yeni integral almadan</span> yeni dönüşümler üretir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Öteleme özelliği</h3>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.5 — ÖTELEME ÖZELLİĞİ (translation property)</strong></p>
+                            <p><strong>Hipotez.</strong> $\mathcal{L}\{f\}=F$ dönüşümü $s>\alpha$ için var olsun.</p>
+                            <p><strong>Sonuç.</strong> Her $a$ sabiti için</p>
+                            $$\mathcal{L}\{e^{at}f(t)\}=F(s-a) \tag{9.22}$$
+                        </div>
+                        <p>Kuralın söylediği şudur: <strong>$t$ uzayında $e^{at}$ ile çarpmak, $s$ uzayında dönüşümü $a$ kadar ötelemekle aynıdır.</strong></p>
+                        $$e^{at}\cdot f(t)\quad\longleftrightarrow\quad F(s)\;\text{grafiğini }a\text{ kadar sağa kaydır}$$
+                        <p>Geçerlilik aralığı da ötelenir: $F$, $s>\alpha$ için geçerliyse $F(s-a)$, $s>\alpha+a$ için geçerlidir.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.17.</strong> &nbsp; $\mathcal{L}\{e^{at}\sin bt\}$ dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$f(t)=\sin bt$ alalım. THEoREM 9.5 gereği $\mathcal{L}\{e^{at}\sin bt\}=F(s-a)$, burada</p>
+                                $$F(s)=\mathcal{L}\{\sin bt\}=\frac{b}{s^{2}+b^{2}}\qquad (s>0)$$
+                                <p>$F$'de $s$ yerine $s-a$ yazalım:</p>
+                                $$F(s-a)=\frac{b}{(s-a)^{2}+b^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{e^{at}\sin bt\}=\frac{b}{(s-a)^{2}+b^{2}}\qquad (s>a)\;} \tag{9.24}$$
+                                <p><span class="vurgu">İntegral almadık</span>; yalnızca bilinen bir dönüşümde değişken kaydırdık.</p>
+                                <div class="highlight">
+                                    <p><strong>Ters yönde okumak daha da önemli.</strong> Bir ters dönüşüm ararken paydada $(s+3)^{2}+4$ gibi bir <strong>tamkare</strong> görürseniz, bu öteleme özelliğinin izidir ve cevapta mutlaka bir $e^{-3t}$ çarpanı olacaktır. Bir sonraki bölümde bunu kullanacağız.</p>
+                                </div>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$t^n$ ile çarpma</h3>
+                                <div class="highlight">
+                                    <p><strong>THEoREM 9.6</strong></p>
+                                    <p><strong>Hipotez.</strong> $f$, THEoREM 9.1'in hipotezlerini sağlasın ve Laplace dönüşümü</p>
+                                    $$F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt \tag{9.25}$$
+                                    <p>olsun.</p>
+                                    <p><strong>Sonuç.</strong></p>
+                                    $$\mathcal{L}\{t^{n}f(t)\}=(-1)^{n}\frac{d^{n}}{ds^{n}}\big[F(s)\big] \tag{9.26}$$
+                                </div>
+                                <p><strong>İspat.</strong> $(9.25)$'in her iki tarafının $s$'ye göre $n$ kez türevi alınır. Bu durumda türev ile integralin yer değiştirmesi meşrudur ve</p>
+                                $$\frac{d^{n}}{ds^{n}}F(s)=\int_{0}^{\infty}(-t)^{n}e^{-st}f(t)\,dt=(-1)^{n}\int_{0}^{\infty}e^{-st}\,t^{n}f(t)\,dt=(-1)^{n}\mathcal{L}\{t^{n}f(t)\}$$
+                                <p>verir. $\blacksquare$</p>
+                                <p><span class="vurgu">İşaretin kaynağı görülüyor:</span> $e^{-st}$'nin $s$'ye göre türevi $-t\,e^{-st}$'dir, yani her türev bir $-t$ çarpanı düşürür. $(-1)^{n}$ bunu düzeltmek içindir.</p>
+                                <div class="highlight">
+                                    <p><strong>İki kuralın karşılaştırması:</strong></p>
+                                    <p>| $t$ uzayında | $s$ uzayında | |---|---| | $e^{at}$ ile çarp | $s\to s-a$ ötele | | $t^{n}$ ile çarp | $n$ kez türet, $(-1)^{n}$ ile çarp | | türev al | $s$ ile çarp, başlangıç değerini çıkar |</p>
+                                    <p>Üçü de "bir uzaydaki zor işlemi öbür uzayda kolay işleme çevirme" örneğidir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.18.</strong> &nbsp; $\mathcal{L}\{t^{2}\sin bt\}$ dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$f(t)=\sin bt$ için $(9.5)$'ten</p>
+                                $$F(s)=\frac{b}{s^{2}+b^{2}}$$
+                                <p><strong>Birinci türev.</strong> Zincir kuralıyla:</p>
+                                $$\frac{d}{ds}\big[F(s)\big]=b\cdot(-1)\left(s^{2}+b^{2}\right)^{-2}(2s)=-\frac{2bs}{\left(s^{2}+b^{2}\right)^{2}}$$
+                                <p><strong>İkinci türev.</strong> Çarpım kuralıyla:</p>
+                                $$\frac{d^{2}}{ds^{2}}\big[F(s)\big]=-2b\left(s^{2}+b^{2}\right)^{-2}+(-2bs)(-2)\left(s^{2}+b^{2}\right)^{-3}(2s)$$
+                                $$=\frac{-2b\left(s^{2}+b^{2}\right)+8bs^{2}}{\left(s^{2}+b^{2}\right)^{3}}=\frac{-2bs^{2}-2b^{3}+8bs^{2}}{\left(s^{2}+b^{2}\right)^{3}}$$
+                                $$=\frac{6bs^{2}-2b^{3}}{\left(s^{2}+b^{2}\right)^{3}}$$
+                                <p><strong>$(9.26)$'yı uygula.</strong> $n=2$ olduğundan $(-1)^{2}=1$:</p>
+                                $$\boxed{\;\mathcal{L}\{t^{2}\sin bt\}=\frac{6bs^{2}-2b^{3}}{\left(s^{2}+b^{2}\right)^{3}}\;}$$
+                                <p><strong>Kontrol.</strong> $b$ ortak çarpan olarak çıkarılabilir: $\dfrac{2b\left(3s^{2}-b^{2}\right)}{\left(s^{2}+b^{2}\right)^{3}}$. Payda derecesi $6$, pay derecesi $2$ olduğundan $s\to\infty$ iken ifade $s^{-4}$ gibi söner — $t^{2}\sin bt$ gibi çarpımların dönüşümlerinden beklenen davranış budur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-ters" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.2 &nbsp;Ters Laplace Dönüşümü ve Dönüşüm Tablosu
+                        </div>
+                        <p>Şimdiye kadarki soru şuydu: <em>$f$ verildiğinde dönüşümü $\mathcal{L}\{f\}=F$ nedir?</em> Şimdi <strong>ters problemi</strong> ele alıyoruz:</p>
+                        <p>> <em>$F$ verildiğinde, dönüşümü $F$ olan $f$ fonksiyonu hangisidir?</em></p>
+                        <p>Böyle bir $f$ fonksiyonuna $F$'nin <strong>ters dönüşümü (inverse transform)</strong> denir ve $\mathcal{L}^{-1}\{F\}$ ile gösterilir:</p>
+                        $$\mathcal{L}\{f\}=F\quad\Longleftrightarrow\quad f=\mathcal{L}^{-1}\{F\}$$
+                        <p>Örnek 9.13'te gördüğümüz gibi, Laplace yönteminin <span class="vurgu">en zahmetli adımı burasıdır.</span></p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ters dönüşüm tek midir?</h3>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.7</strong></p>
+                            <p><strong>Hipotez.</strong> $f$ ve $g$, $t\ge 0$ için <strong>sürekli</strong> iki fonksiyon olsun ve <strong>aynı</strong> Laplace dönüşümü $F$'ye sahip olsunlar.</p>
+                            <p><strong>Sonuç.</strong> Her $t\ge 0$ için $f(t)=g(t)$.</p>
+                        </div>
+                        <p>Yani bir $F$ fonksiyonunun <strong>sürekli</strong> bir ters dönüşümü varsa, <span class="vurgu">o tektir.</span></p>
+                        <p>Ama "sürekli" koşulu vazgeçilmezdir; süreksiz ters dönüşümler pekâlâ vardır.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.19.</strong> &nbsp; $F(s)=\dfrac{1}{s}$ fonksiyonunun ters dönüşümünün tek olmadığını, ancak sürekli olanının tek olduğunu gösteriniz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(9.2)$'den $\mathcal{L}\{1\}=\dfrac{1}{s}$ olduğunu biliyoruz; yani $f(t)=1$ bir ters dönüşümdür ve süreklidir.</p>
+                                <p>Şimdi şu <strong>süreksiz</strong> fonksiyonu ele alalım:</p>
+                                $$g(t)=\begin{cases}1, & 0<t<3\\ 2, & t=3\\ 1, & t>3\end{cases}$$
+                                <p>Dönüşümünü hesaplayalım — integrali $t=3$'te bölelim:</p>
+                                $$\mathcal{L}\{g(t)\}=\int_{0}^{3}e^{-st}\,dt+\int_{3}^{\infty}e^{-st}\,dt=\left[-\frac{e^{-st}}{s}\right]_{0}^{3}+\lim_{R\to\infty}\left[-\frac{e^{-st}}{s}\right]_{3}^{R}$$
+                                $$=\left(\frac{1}{s}-\frac{e^{-3s}}{s}\right)+\frac{e^{-3s}}{s}=\frac{1}{s}\qquad (s>0)$$
+                                <p><span class="vurgu">Aynı dönüşümü verdi.</span> Demek ki $g$ de $F(s)=\frac{1}{s}$'nin bir ters dönüşümüdür.</p>
+                                <p><strong>Neden fark etmedi?</strong> Tek bir noktadaki ($t=3$) değer değişikliği integrali etkilemez — bir noktanın "genişliği" sıfırdır.</p>
+                                <p>THEoREM 9.7 gereği <strong>sürekli</strong> ters dönüşüm yalnızca $f(t)=1$'dir. Bu yüzden</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{1}{s}\right\}=1$$
+                                <p>yazarız; buradaki eşitlik <span class="vurgu">tek sürekli ters dönüşümü kastetmektedir.</span></p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ters dönüşüm nasıl bulunur?</h3>
+                                <p>Doğrudan belirleme (karmaşık düzlemde integral gerektirir) bu derste ele alınmaz. Bizim yolumuz <strong>dönüşüm tablosu</strong> kullanmaktır.</p>
+                                <p>Tabloyu kullanabilmek için genelde verilen $F(s)$ üzerinde <span class="vurgu">bir miktar hazırlık işlemi</span> yapmak gerekir: tamkareye tamamlama, kısmi kesirlere ayırma, sabit çarpanları düzenleme. Bir sonraki bölüm bu tekniklere ayrılmıştır.</p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tablo 9.1 — Laplace Dönüşümleri</h3>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>#</th><th>$f(t)=\mathcal{L}^{-1}\{F(s)\}$</th><th>$F(s)=\mathcal{L}\{f(t)\}$</th></tr>
+                                <tr><td>1</td><td>$1$</td><td>$\dfrac{1}{s}$</td></tr>
+                                <tr><td>2</td><td>$e^{at}$</td><td>$\dfrac{1}{s-a}$</td></tr>
+                                <tr><td>3</td><td>$\sin bt$</td><td>$\dfrac{b}{s^{2}+b^{2}}$</td></tr>
+                                <tr><td>4</td><td>$\cos bt$</td><td>$\dfrac{s}{s^{2}+b^{2}}$</td></tr>
+                                <tr><td>5</td><td>$\sinh bt$</td><td>$\dfrac{b}{s^{2}-b^{2}}$</td></tr>
+                                <tr><td>6</td><td>$\cosh bt$</td><td>$\dfrac{s}{s^{2}-b^{2}}$</td></tr>
+                                <tr><td>7</td><td>$t^{n}\;(n=1,2,\dots)$</td><td>$\dfrac{n!}{s^{n+1}}$</td></tr>
+                                <tr><td>8</td><td>$t^{n}e^{at}\;(n=1,2,\dots)$</td><td>$\dfrac{n!}{(s-a)^{n+1}}$</td></tr>
+                                <tr><td>9</td><td>$t\sin bt$</td><td>$\dfrac{2bs}{\left(s^{2}+b^{2}\right)^{2}}$</td></tr>
+                                <tr><td>10</td><td>$t\cos bt$</td><td>$\dfrac{s^{2}-b^{2}}{\left(s^{2}+b^{2}\right)^{2}}$</td></tr>
+                                <tr><td>11</td><td>$e^{-at}\sin bt$</td><td>$\dfrac{b}{(s+a)^{2}+b^{2}}$</td></tr>
+                                <tr><td>12</td><td>$e^{-at}\cos bt$</td><td>$\dfrac{s+a}{(s+a)^{2}+b^{2}}$</td></tr>
+                                <tr><td>13</td><td>$\dfrac{\sin bt-bt\cos bt}{2b^{3}}$</td><td>$\dfrac{1}{\left(s^{2}+b^{2}\right)^{2}}$</td></tr>
+                                <tr><td>14</td><td>$\dfrac{t\sin bt}{2b}$</td><td>$\dfrac{s}{\left(s^{2}+b^{2}\right)^{2}}$</td></tr>
+                                <tr><td>15</td><td>$u_{a}(t)$ (birim basamak)</td><td>$\dfrac{e^{-as}}{s}$</td></tr>
+                                <tr><td>16</td><td>$u_{a}(t)f(t-a)$</td><td>$e^{-as}F(s)$</td></tr>
+                                </table>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>Tabloyu okurken dikkat edilecekler:</strong></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li><strong>3-4 ile 5-6 karışır.</strong> Trigonometrik olanların paydası $s^{2}+b^{2}$, hiperbolik olanlarınki $s^{2}-b^{2}$. <span class="vurgu">İşaret tek ayrımdır.</span></li>
+                                        <li><strong>11-12'deki $a$ işareti.</strong> Tabloda $e^{-at}$ ve $(s+a)$ birlikte yazılmıştır. Elinizdeki ifadede $(s-3)^{2}$ varsa $a=-3$ demektir ve cevapta $e^{3t}$ çıkar.</li>
+                                        <li><strong>7 numaradaki $n!$.</strong> $\mathcal{L}\{t^{n}\}=\frac{n!}{s^{n+1}}$; paydaki faktöriyeli unutmak sık yapılan hatadır. $n=1$ için $\frac{1}{s^{2}}$ çıkar, $(9.3)$ ile tutar.</li>
+                                        <li><strong>15-16 numaralar</strong> birim basamak fonksiyonuyla ilgilidir ve süreksiz zorlamalı problemlerde (4.4) kullanılacaktır.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-ters-donusum" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.2 &nbsp;Çözümlü Örnekler — Tamkare ve Kısmi Kesirler
+                        </div>
+                        <p>Tablodaki bir girdiye doğrudan uyan $F(s)$ ifadesi nadiren karşınıza çıkar. Genelde önce <span class="vurgu">ifadeyi tablonun tanıyacağı biçime sokmak</span> gerekir. İki temel teknik vardır: <strong>tamkareye tamamlama</strong> ve <strong>kısmi kesirlere ayırma</strong>.</p>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.20.</strong> &nbsp; Tablo 9.1'i kullanarak $\displaystyle\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+6s+13}\right\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Tabloda ne arayacağımızı belirle.</strong></p>
+                                <p>Önce $F(s)=\dfrac{1}{as^{2}+bs+c}$ biçiminde bir girdi ararız — <span class="vurgu">böyle bir girdi yoktur.</span> Ama 11 numaralı girdi var:</p>
+                                $$F(s)=\frac{b}{(s+a)^{2}+b^{2}}\qquad\longleftrightarrow\qquad e^{-at}\sin bt$$
+                                <p>Demek ki paydayı $(s+a)^{2}+b^{2}$ biçimine sokmalıyız.</p>
+                                <p><strong>Adım 2 — Tamkareye tamamla.</strong></p>
+                                $$s^{2}+6s+13=\underbrace{s^{2}+6s+9}_{(s+3)^{2}}+4=(s+3)^{2}+4$$
+                                <p>$6$'nın yarısı $3$, karesi $9$; $13=9+4$ olduğundan geriye $4$ kalır.</p>
+                                $$\frac{1}{s^{2}+6s+13}=\frac{1}{(s+3)^{2}+2^{2}}$$
+                                <p><strong>Adım 3 — Payı tabloya uydur.</strong></p>
+                                <p>11 numaralı girdide pay $b$'dir, bizde ise $1$. $b=2$ olduğuna göre payda $2$ olmalı; <span class="vurgu">eksik çarpanı dışarıdan telafi ederiz:</span></p>
+                                $$\frac{1}{(s+3)^{2}+2^{2}}=\frac{1}{2}\cdot\frac{2}{(s+3)^{2}+2^{2}}$$
+                                <p><strong>Adım 4 — Tablodan oku.</strong></p>
+                                <p>$a=3$, $b=2$ ile 11 numara:</p>
+                                $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+6s+13}\right\}=\frac{1}{2}e^{-3t}\sin 2t\;}$$
+                                <div class="highlight">
+                                    <p><strong>Paydada çarpanlarına ayrılamayan ikinci dereceden bir ifade görürseniz tamkareye tamamlayın.</strong> Diskriminant negatifse ($6^{2}-4\cdot 13=-16<0$) gerçel kök yoktur, kısmi kesir işe yaramaz; cevapta <span class="vurgu">sinüs/kosinüs</span> çıkacaktır. Diskriminant pozitifse çarpanlara ayrılır ve kısmi kesirlere gidilir; cevapta üsteller çıkar.</p>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.21.</strong> &nbsp; $\displaystyle\mathcal{L}^{-1}\left\{\frac{7s+2}{(s+2)(s-1)(s-2)}\right\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Kısmi kesir kurulumu.</strong></p>
+                                <p>Payda üç <strong>farklı doğrusal çarpandan</strong> oluştuğu için:</p>
+                                $$\frac{7s+2}{(s+2)(s-1)(s-2)}=\frac{A}{s+2}+\frac{B}{s-1}+\frac{C}{s-2}$$
+                                <p>Ortak paydayla çarpalım:</p>
+                                $$7s+2=A(s-1)(s-2)+B(s+2)(s-2)+C(s+2)(s-1) \tag{9.27}$$
+                                <p><strong>Adım 2 — Katsayıları bul (kısa yol).</strong></p>
+                                <p>$(9.27)$ <strong>her</strong> $s$ için geçerli olduğundan, paydaları sıfırlayan değerleri koyarız — <span class="vurgu">her seferinde iki terim birden düşer:</span></p>
+                                <p>$s=-2$: $-14+2=-12=A(-3)(-4)=12A\;\Longrightarrow\;A=-1$</p>
+                                <p>$s=1$: $7+2=9=B(3)(-1)=-3B\;\Longrightarrow\;B=-3$</p>
+                                <p>$s=2$: $14+2=16=C(4)(1)=4C\;\Longrightarrow\;C=4$</p>
+                                <p><strong>Uzun yol (kontrol).</strong> $(9.27)$'yi açıp $s$ kuvvetlerine göre toplarsak:</p>
+                                $$7s+2=(A+B+C)s^{2}+(-3A+C)s+(2A-4B-2C)$$
+                                <p>Katsayıları eşleyelim:</p>
+                                $$A+B+C=0,\qquad -3A+C=7,\qquad 2A-4B-2C=2$$
+                                <p>Bulduğumuz değerlerle: $-1-3+4=0\;\checkmark$, $\;3+4=7\;\checkmark$, $\;-2+12-8=2\;\checkmark$</p>
+                                <p><strong>Adım 3 — Tablodan oku.</strong></p>
+                                $$\frac{7s+2}{(s+2)(s-1)(s-2)}=\frac{-1}{s+2}+\frac{-3}{s-1}+\frac{4}{s-2}$$
+                                <p>2 numaralı girdi ($\frac{1}{s-a}\leftrightarrow e^{at}$) ile — <span class="vurgu">$\frac{1}{s+2}$'nin $a=-2$ demek olduğuna dikkat:</span></p>
+                                $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{7s+2}{(s+2)(s-1)(s-2)}\right\}=-e^{-2t}-3e^{t}+4e^{2t}\;}$$
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.22.</strong> &nbsp; $\displaystyle\mathcal{L}^{-1}\left\{\frac{s^{2}+5s-3}{(s+2)(s-1)^{2}}\right\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Tekrarlı çarpan için kurulum.</strong></p>
+                                <p>Payda, $s+2$ çarpanını <strong>birinci</strong>, $s-1$ çarpanını <strong>ikinci</strong> kuvvetten içeriyor. <span class="vurgu">Tekrarlı çarpan için her kuvvetten bir terim yazılır:</span></p>
+                                $$\frac{s^{2}+5s-3}{(s+2)(s-1)^{2}}=\frac{A}{s+2}+\frac{B}{s-1}+\frac{C}{(s-1)^{2}}$$
+                                <p>Ortak paydayla çarpalım:</p>
+                                $$s^{2}+5s-3=A(s-1)^{2}+B(s+2)(s-1)+C(s+2) \tag{9.28}$$
+                                <p><strong>Adım 2 — Katsayıları bul.</strong></p>
+                                <p>$s=-2$: $4-10-3=-9=A(9)\;\Longrightarrow\;A=-1$</p>
+                                <p>$s=1$: $1+5-3=3=C(3)\;\Longrightarrow\;C=1$</p>
+                                <p>$B$ için kök yok — <span class="vurgu">tekrarlı çarpanda bu normaldir.</span> Başka bir $s$ değeri seçelim, $s=0$:</p>
+                                $$-3=A(1)+B(2)(-1)+C(2)=-1-2B+2=1-2B\;\Longrightarrow\;B=2$$
+                                <p><strong>Kontrol (katsayı eşleme).</strong> $(9.28)$ açılırsa:</p>
+                                $$s^{2}+5s-3=(A+B)s^{2}+(-2A+B+C)s+(A-2B+2C)$$
+                                $$A+B=-1+2=1\;\checkmark,\qquad -2A+B+C=2+2+1=5\;\checkmark,\qquad A-2B+2C=-1-4+2=-3\;\checkmark$$
+                                <p><strong>Adım 3 — Tablodan oku.</strong></p>
+                                $$\frac{s^{2}+5s-3}{(s+2)(s-1)^{2}}=\frac{-1}{s+2}+\frac{2}{s-1}+\frac{1}{(s-1)^{2}}$$
+                                <p>İlk iki terim 2 numaralı girdiden. Üçüncü terim için 8 numaralı girdi gerekir:</p>
+                                $$\frac{n!}{(s-a)^{n+1}}\;\longleftrightarrow\;t^{n}e^{at}$$
+                                <p>$n=1$, $a=1$ için $\dfrac{1!}{(s-1)^{2}}=\dfrac{1}{(s-1)^{2}}\;\longleftrightarrow\;te^{t}$</p>
+                                $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{s^{2}+5s-3}{(s+2)(s-1)^{2}}\right\}=-e^{-2t}+2e^{t}+te^{t}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Tekrarlı çarpanın izi çözümde görünür.</strong> $(s-1)^{2}$ paydası, cevapta $te^{t}$ terimini doğurdu. Genel kural: <span class="vurgu">$(s-a)^{k}$ paydası, $t^{k-1}e^{at}$'ye kadar olan terimleri üretir.</span> Bu, sabit katsayılı denklemlerde tekrarlı karakteristik köklerin $t$, $t^{2}$ çarpanları üretmesiyle aynı olgudur — Laplace bunu payda kuvvetleri olarak görür.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 

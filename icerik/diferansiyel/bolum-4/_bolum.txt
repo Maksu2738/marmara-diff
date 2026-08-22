@@ -1,2 +1,2 @@
 ad: Laplace Dönüşümü
-acik: hayir
+acik: evet

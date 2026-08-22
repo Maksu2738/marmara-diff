@@ -134,14 +134,16 @@
 
                     <!-- ===== BÖLÜM 4 ===== -->
                     <li>
-                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
                             <span class="chapter-num">4</span>
                             <span class="chapter-name">Laplace Dönüşümü</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links">
+                        <ul class="chapter-links open">
                             <li><a href="#laplace" class="pending">Giriş</a></li>
-                            <li><a href="#laplace-tanim" class="pending">4.1 Tanım ve Temel Özellikler</a></li>
+                            <li><a href="#laplace-tanim">4.1 Tanım ve Temel Dönüşümler</a></li>
+                            <li><a href="#laplace-varlik">4.1 Dönüşüm Ne Zaman Vardır</a></li>
+                            <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
                             <li><a href="#laplace-ters" class="pending">4.2 Ters Laplace Dönüşümü</a></li>
                         </ul>
                     </li>
@@ -7847,11 +7849,255 @@
                         <p class="placeholder-note">Bölüm giriş metni buraya eklenecek.</p>
                     </div>
 
-                    <div id="laplace-tanim" class="section placeholder">
+                    <div id="laplace-tanim" class="section konu">
                         <div class="section-title">
-                            4.1 &nbsp;Tanım ve Temel Özellikler
+                            <span class="badge">Konu</span>
+                            4.1 &nbsp;Laplace Dönüşümünün Tanımı ve Temel Dönüşümler
                         </div>
-                        <p class="placeholder-note">İçerik eklenecek.</p>
+                        <p><strong>Laplace dönüşümü (Laplace transform)</strong>, gerçel değişkenli uygun bir $f$ fonksiyonunu, gerçel değişkenli bir $F$ fonksiyonuna dönüştürür. Bir lineer diferansiyel denklemin <strong>başlangıç değer problemine (initial-value problem)</strong> uygulandığında, problemi <span class="vurgu">$s$ değişkenli cebirsel bir probleme</span> çevirir.</p>
+                        <p>Fikir şudur: türev almak $s$ ile çarpmaya dönüşür, dolayısıyla diferansiyel denklem cebirsel denkleme iner; cebirsel denklem çözülür ve sonuç geri çevrilir.</p>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $f$, $t>0$ için tanımlı, gerçel değişkenli gerçel değerli bir fonksiyon olsun. $s$ gerçel bir değişken olmak üzere</p>
+                            $$F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt \tag{9.1}$$
+                            <p>integrali ile tanımlanan $F$ fonksiyonuna, $f$ fonksiyonunun <strong>Laplace dönüşümü</strong> denir. Gösterimi:</p>
+                            $$\mathcal{L}\{f\}=F,\qquad \mathcal{L}\{f(t)\}=F(s)$$
+                        </div>
+                        <p>$(9.1)$ bir <strong>has olmayan integraldir (improper integral)</strong>; analiz dersinden hatırlayacağınız gibi bir limit olarak tanımlanır:</p>
+                        $$F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt=\lim_{R\to\infty}\int_{0}^{R}e^{-st}f(t)\,dt$$
+                        <p><span class="vurgu">Bu limitin var olması gerekir</span>; dönüşümün tanımlı olduğu $s$ değerleri de buna göre belirlenir. Aşağıdaki her örnekte, sonucun geçerli olduğu $s$ aralığına dikkat edin.</p>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.1.</strong> &nbsp; $f(t)=1$ ($t>0$) fonksiyonunun Laplace dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$\mathcal{L}\{1\}=\int_{0}^{\infty}e^{-st}\cdot 1\,dt=\lim_{R\to\infty}\int_{0}^{R}e^{-st}\,dt=\lim_{R\to\infty}\left[\frac{-e^{-st}}{s}\right]_{0}^{R}$$
+                                $$=\lim_{R\to\infty}\left[\frac{1}{s}-\frac{e^{-sR}}{s}\right]$$
+                                <p>$s>0$ ise $e^{-sR}\to 0$ olur ve limit vardır:</p>
+                                $$\boxed{\;\mathcal{L}\{1\}=\frac{1}{s}\qquad (s>0)\;} \tag{9.2}$$
+                                <p><span class="vurgu">$s\le 0$ için $e^{-sR}$ sınırsız büyür ve integral ıraksar</span>; kısıtın kaynağı budur.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.2.</strong> &nbsp; $f(t)=t$ fonksiyonunun Laplace dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Kısmi integrasyonla ilkel fonksiyon bulunur:</p>
+                                $$\int e^{-st}t\,dt=-\frac{e^{-st}}{s^{2}}(st+1)$$
+                                <p>Buradan</p>
+                                $$\mathcal{L}\{t\}=\lim_{R\to\infty}\left[-\frac{e^{-st}}{s^{2}}(st+1)\right]_{0}^{R}=\lim_{R\to\infty}\left[\frac{1}{s^{2}}-\frac{e^{-sR}}{s^{2}}(sR+1)\right]$$
+                                <p>$s>0$ için $e^{-sR}(sR+1)\to 0$ olur — <span class="vurgu">üstel azalma, doğrusal büyümeyi yener</span>:</p>
+                                $$\boxed{\;\mathcal{L}\{t\}=\frac{1}{s^{2}}\qquad (s>0)\;} \tag{9.3}$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.3.</strong> &nbsp; $f(t)=e^{at}$ fonksiyonunun Laplace dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İki üstel birleşir:</p>
+                                $$\mathcal{L}\{e^{at}\}=\int_{0}^{\infty}e^{-st}e^{at}\,dt=\lim_{R\to\infty}\int_{0}^{R}e^{(a-s)t}\,dt=\lim_{R\to\infty}\left[\frac{e^{(a-s)t}}{a-s}\right]_{0}^{R}$$
+                                $$=\lim_{R\to\infty}\left[\frac{e^{(a-s)R}}{a-s}-\frac{1}{a-s}\right]$$
+                                <p>$s>a$ ise $a-s<0$ olur, $e^{(a-s)R}\to 0$ ve limit vardır:</p>
+                                $$\boxed{\;\mathcal{L}\{e^{at}\}=-\frac{1}{a-s}=\frac{1}{s-a}\qquad (s>a)\;} \tag{9.4}$$
+                                <p><span class="vurgu">Kısıt bu kez $s>0$ değil $s>a$.</span> $a=0$ konursa Örnek 9.1'e indirgenir.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.4.</strong> &nbsp; $f(t)=\sin bt$ fonksiyonunun Laplace dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İlkel fonksiyon (iki kez kısmi integrasyonla bulunur):</p>
+                                $$\int e^{-st}\sin bt\,dt=-\frac{e^{-st}}{s^{2}+b^{2}}\left(s\sin bt+b\cos bt\right)$$
+                                $$\mathcal{L}\{\sin bt\}=\lim_{R\to\infty}\left[\frac{b}{s^{2}+b^{2}}-\frac{e^{-sR}}{s^{2}+b^{2}}\left(s\sin bR+b\cos bR\right)\right]$$
+                                <p>Parantez içindeki ifade <span class="vurgu">sınırlıdır</span> ($\sin$ ve $\cos$ $[-1,1]$ arasında), $e^{-sR}$ ise $s>0$ için sıfıra gider; çarpım sıfırdır:</p>
+                                $$\boxed{\;\mathcal{L}\{\sin bt\}=\frac{b}{s^{2}+b^{2}}\qquad (s>0)\;} \tag{9.5}$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.5.</strong> &nbsp; $f(t)=\cos bt$ fonksiyonunun Laplace dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Aynı yolla:</p>
+                                $$\mathcal{L}\{\cos bt\}=\lim_{R\to\infty}\left[\frac{s}{s^{2}+b^{2}}+\frac{e^{-sR}}{s^{2}+b^{2}}\left(-s\cos bR+b\sin bR\right)\right]$$
+                                $$\boxed{\;\mathcal{L}\{\cos bt\}=\frac{s}{s^{2}+b^{2}}\qquad (s>0)\;} \tag{9.6}$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Temel dönüşümler tablosu</h3>
+                                <p>Buraya kadar bulduklarımız:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>$f(t)$</th><th>$\mathcal{L}\{f(t)\}$</th><th>Geçerlilik</th></tr>
+                                <tr><td>$1$</td><td>$\dfrac{1}{s}$</td><td>$s>0$</td></tr>
+                                <tr><td>$t$</td><td>$\dfrac{1}{s^{2}}$</td><td>$s>0$</td></tr>
+                                <tr><td>$e^{at}$</td><td>$\dfrac{1}{s-a}$</td><td>$s>a$</td></tr>
+                                <tr><td>$\sin bt$</td><td>$\dfrac{b}{s^{2}+b^{2}}$</td><td>$s>0$</td></tr>
+                                <tr><td>$\cos bt$</td><td>$\dfrac{s}{s^{2}+b^{2}}$</td><td>$s>0$</td></tr>
+                                </table>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>$\sin$ ile $\cos$ arasındaki simetriye dikkat.</strong> Paydaları aynıdır ($s^{2}+b^{2}$); paylarda $\sin$ için $b$, $\cos$ için $s$ vardır. Bu ikisini karıştırmak sınavda en sık yapılan hatadır. Hatırlama yolu: $t=0$'da $\cos 0=1$ olduğu için $\cos$'un dönüşümü $s\to\infty$ iken $\frac{1}{s}$ gibi davranmalıdır — payında $s$ olan odur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-varlik" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.1 &nbsp;Varlık Koşulları — Parçalı Süreklilik ve Üstel Mertebe
+                        </div>
+                        <p>Örneklerin hepsinde $(9.1)$ integralinin belirli bir $s$ aralığında var olduğunu <strong>doğrudan hesaplayarak</strong> gördük. Peki hesap yapmadan, hangi fonksiyonlar için bunun <span class="vurgu">her zaman</span> doğru olduğunu söyleyebiliriz?</p>
+                        <p>Bunun için iki kavram gerekiyor.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Parçalı süreklilik</h3>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> Bir $f$ fonksiyonu, sonlu bir $a\le t\le b$ aralığında <strong>parçalı sürekli (piecewise continuous / sectionally continuous)</strong> denir; eğer bu aralık sonlu sayıda alt aralığa bölünebiliyorsa ve</p>
+                            <ol>
+                                <li>$f$, bu alt aralıkların her birinin <strong>içinde sürekliyse</strong>,</li>
+                                <li>$f(t)$, her alt aralığın uç noktalarına içeriden yaklaşırken <strong>sonlu limitlere</strong> yaklaşıyorsa.</li>
+                            </ol>
+                        </div>
+                        <p>$t_{0}$ böyle bir uç nokta olsun. $f(t)$'nin $t_{0}$'a <strong>soldan</strong> yaklaşırken (küçük $t$ değerlerinden) yaklaştığı sonlu limite <strong>sol limit</strong> denir:</p>
+                        $$\lim_{t\to t_{0}^{-}}f(t)\qquad\text{ya da}\qquad f(t_{0}-)$$
+                        <p>Benzer şekilde <strong>sağ limit</strong> $f(t_{0}+)$ tanımlanır.</p>
+                        <p><span class="vurgu">Bu noktada $f(t_{0}-)$ ve $f(t_{0}+)$ ikisi de sonludur, ama genelde eşit değildir.</span> Fark, fonksiyonun oradaki sıçramasıdır.</p>
+                        <p><strong>İki basit sonuç:</strong></p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$f$ sürekliyse zaten parçalı süreklidir.</li>
+                            <li>$f$ parçalı sürekliyse <strong>integrallenebilir</strong>. Laplace dönüşümü bir integral olduğuna göre bu bize gereken şeydir.</li>
+                        </ul>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.6.</strong> &nbsp; Aşağıdaki fonksiyonun parçalı sürekli olduğunu gösterip $t=2$'deki tek yönlü limitlerini bulunuz. $$f(t)=\begin{cases}-1, & 0<t<2\\ 1, & t>2\end{cases}$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Her pozitif $b$ sayısı için $f$, sonlu $0\le t\le b$ aralığında parçalı süreklidir: aralık $t=2$'de ikiye bölünür, her parçanın içinde $f$ sabittir (dolayısıyla sürekli) ve uç noktalarda sonlu limitlere yaklaşır.</p>
+                                $$f(2-)=\lim_{t\to 2^{-}}f(t)=-1$$
+                                $$f(2+)=\lim_{t\to 2^{+}}f(t)=+1$$
+                                <p><span class="vurgu">İki limit de sonlu ama eşit değil</span>; $t=2$'de birim büyüklüğünde bir sıçrama vardır. Tanım bunu yasaklamaz, yalnızca limitlerin sonlu olmasını ister.</p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Üstel mertebe</h3>
+                                <div class="highlight">
+                                    <p><strong>TANIM.</strong> Bir $f$ fonksiyonuna, öyle bir $\alpha$ sabiti ve $t_{0}>0$, $M>0$ pozitif sabitleri varsa ki</p>
+                                    $$|f(t)|\le M e^{\alpha t} \tag{9.7}$$
+                                    <p>eşitsizliği $f(t)$'nin tanımlı olduğu bütün $t>t_{0}$ değerleri için sağlanıyorsa, <strong>üstel mertebeden (of exponential order)</strong> denir. Belirli bir $\alpha$ için sağlanıyorsa, $f$ <span class="vurgu">$e^{\alpha t}$ mertebesindendir</span> denir.</p>
+                                </div>
+                                <p>$(9.7)$'yi yeniden yazarsak anlamı netleşir:</p>
+                                $$e^{-\alpha t}|f(t)|\le M \tag{9.8}$$
+                                <p>Yani: <strong>$f$ üstel mertebedendir ⟺ öyle bir $\alpha$ vardır ki $e^{-\alpha t}|f(t)|$ çarpımı yeterince büyük $t$ için sınırlıdır.</strong></p>
+                                <p>Sezgisel karşılığı şudur: $f(t)$ değerleri $t\to\infty$ iken sonsuza gidebilir, ama <span class="vurgu">bir üstel fonksiyonun katından daha hızlı büyüyemez.</span></p>
+                                <p><strong>Not:</strong> $f$, $e^{\alpha t}$ mertebesindense, $\beta>\alpha$ olan her $\beta$ için $e^{\beta t}$ mertebesinden de sayılır. Yani $\alpha$ tek değildir, bir alt sınır gibidir.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.8.</strong> &nbsp; $f(t)=e^{at}\sin bt$ üstel mertebeden midir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$|\sin bt|\le 1$ olduğundan</p>
+                                $$|f(t)|=e^{at}|\sin bt|\le e^{at}$$
+                                <p>Yani $M\ge 1$ ve $\alpha=a$ seçimiyle $(9.7)$ sağlanır. <span class="vurgu">Evet, $e^{at}$ mertebesindendir.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.9.</strong> &nbsp; $f(t)=t^{n}$ ($n>0$) üstel mertebeden midir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Herhangi bir $\alpha>0$ için</p>
+                                $$\lim_{t\to\infty}e^{-\alpha t}t^{n}=0$$
+                                <p>çünkü <span class="vurgu">üstel azalma her polinom büyümesini yener.</span> Limit sıfır olduğuna göre, öyle $M>0$ ve $t_{0}>0$ vardır ki $t>t_{0}$ için $e^{-\alpha t}t^{n}\le M$ olur. Bu da $(9.8)$'in ta kendisidir:</p>
+                                $$|f(t)|\le Me^{\alpha t},\qquad t>t_{0}$$
+                                $$\boxed{\;t^{n}\text{ üstel mertebedendir; }\alpha\text{ herhangi bir pozitif sayı olabilir.}\;}$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.10.</strong> &nbsp; $f(t)=e^{t^{2}}$ üstel mertebeden midir?</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$e^{-\alpha t}|f(t)|=e^{t^{2}-\alpha t}$$
+                                <p>Üsteki $t^{2}-\alpha t$ ifadesi, <span class="vurgu">$\alpha$ ne seçilirse seçilsin</span> $t\to\infty$ iken $+\infty$'a gider (kare terimi doğrusal terimi bastırır). Dolayısıyla çarpım sınırsızdır.</p>
+                                $$\boxed{\;e^{t^{2}}\text{ üstel mertebeden DEĞİLDİR.}\;}$$
+                                <p><span class="vurgu">Bu, koşulun boş bir koşul olmadığını gösteren örnektir</span>: gerçekten dışarıda kalan fonksiyonlar vardır.</p>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Varlık THEoREM'i</h3>
+                                <div class="highlight">
+                                    <p><strong>THEoREM 9.1</strong></p>
+                                    <p><strong>Hipotez.</strong> $f$ gerçel fonksiyonu şu iki özelliği sağlasın:</p>
+                                    <ol>
+                                        <li>Her sonlu kapalı $0\le t\le b$ ($b>0$) aralığında <strong>parçalı sürekli</strong>;</li>
+                                        <li><strong>Üstel mertebeden</strong>, yani öyle $\alpha$, $M>0$, $t_{0}>0$ vardır ki $|f(t)|\le Me^{\alpha t}$ ($t>t_{0}$).</li>
+                                    </ol>
+                                    <p><strong>Sonuç.</strong> $f$'nin Laplace dönüşümü</p>
+                                    $$\int_{0}^{\infty}e^{-st}f(t)\,dt$$
+                                    <p><span class="vurgu">$s>\alpha$ için vardır.</span></p>
+                                </div>
+                                <p><strong>İspatın fikri.</strong> İntegrali ikiye bölelim:</p>
+                                $$\int_{0}^{\infty}e^{-st}f(t)\,dt=\int_{0}^{t_{0}}e^{-st}f(t)\,dt+\int_{t_{0}}^{\infty}e^{-st}f(t)\,dt$$
+                                <ul style="margin-left: 1rem;">
+                                    <li><strong>Birinci integral</strong> sonlu aralıktadır; Hipotez 1 (parçalı süreklilik integrallenebilirlik verir) sayesinde vardır.</li>
+                                    <li><strong>İkinci integral</strong> için Hipotez 2'yi kullanalım:</li>
+                                </ul>
+                                $$e^{-st}|f(t)|\le e^{-st}Me^{\alpha t}=Me^{-(s-\alpha)t}$$
+                                <p>$s>\alpha$ ise sağdaki ifade <span class="vurgu">azalan bir üsteldir</span> ve $\int_{t_{0}}^{\infty}Me^{-(s-\alpha)t}dt$ yakınsar. Karşılaştırma testi gereği $\int_{t_{0}}^{\infty}e^{-st}|f(t)|dt$ de vardır; mutlak değerli integral varsa integralin kendisi de vardır.</p>
+                                <p>İki parça da var olduğuna göre Laplace dönüşümü $s>\alpha$ için vardır. $\blacksquare$</p>
+                                <div class="highlight">
+                                    <p><strong>Koşullar yeterlidir, gerekli değildir.</strong> THEoREM 9.1 "bu iki koşul sağlanıyorsa dönüşüm vardır" der; tersini söylemez. Bu koşulları sağlamayan bazı fonksiyonların da Laplace dönüşümü olabilir. Ama pratikte karşılaşılan hemen her fonksiyon bu sınıfa girer.</p>
+                                    <p><span class="vurgu">Ayrıca $\alpha$'nın rolüne dikkat edin:</span> dönüşümün geçerli olduğu aralığın alt sınırını o belirler. Örnek 9.3'te $\mathcal{L}\{e^{at}\}$ için çıkan $s>a$ koşulu tam olarak budur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-ozellikler" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.1 &nbsp;Laplace Dönüşümünün Temel Özellikleri
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Lineerlik</h3>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.2 — LİNEERLİK ÖZELLİĞİ (the linear property)</strong></p>
+                            <p>$f_{1}$ ve $f_{2}$, Laplace dönüşümleri var olan fonksiyonlar, $c_{1}$ ve $c_{2}$ sabitler olsun. O zaman:</p>
+                            $$\mathcal{L}\{c_{1}f_{1}(t)+c_{2}f_{2}(t)\}=c_{1}\mathcal{L}\{f_{1}(t)\}+c_{2}\mathcal{L}\{f_{2}(t)\} \tag{9.9}$$
+                        </div>
+                        <p><strong>İspat.</strong> Doğrudan tanım $(9.1)$'den çıkar — integral lineer bir işlemdir. $\blacksquare$</p>
+                        <p>Bu özellik, dönüşümü doğrudan hesaplamak yerine <span class="vurgu">bilinen dönüşümleri birleştirerek</span> yeni dönüşümler elde etmemizi sağlar. Aşağıdaki örnek tipik kullanımıdır.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.11.</strong> &nbsp; THEoREM 9.2'yi kullanarak $\mathcal{L}\{\sin^{2}at\}$ değerini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Trigonometrik özdeşlikle lineer birleşime çevir.</strong></p>
+                                $$\sin^{2}at=\frac{1-\cos 2at}{2}$$
+                                $$\mathcal{L}\{\sin^{2}at\}=\mathcal{L}\left\{\frac{1}{2}-\frac{1}{2}\cos 2at\right\}$$
+                                <p><span class="vurgu">İşin püf noktası bu adımdır:</span> $\sin^{2}$ doğrudan tablodan okunamaz, ama özdeşlikle tablodaki iki fonksiyonun lineer birleşimine dönüşür.</p>
+                                <p><strong>Adım 2 — Lineerliği uygula.</strong></p>
+                                $$=\frac{1}{2}\mathcal{L}\{1\}-\frac{1}{2}\mathcal{L}\{\cos 2at\}$$
+                                <p><strong>Adım 3 — Tablodan oku.</strong></p>
+                                <p>$(9.2)$'den $\mathcal{L}\{1\}=\dfrac{1}{s}$, $(9.6)$'dan ($b=2a$ ile) $\mathcal{L}\{\cos 2at\}=\dfrac{s}{s^{2}+4a^{2}}$:</p>
+                                $$\mathcal{L}\{\sin^{2}at\}=\frac{1}{2}\cdot\frac{1}{s}-\frac{1}{2}\cdot\frac{s}{s^{2}+4a^{2}}$$
+                                <p><strong>Adım 4 — Sadeleştir.</strong></p>
+                                $$=\frac{1}{2}\cdot\frac{\left(s^{2}+4a^{2}\right)-s^{2}}{s\left(s^{2}+4a^{2}\right)}=\frac{1}{2}\cdot\frac{4a^{2}}{s\left(s^{2}+4a^{2}\right)}$$
+                                $$\boxed{\;\mathcal{L}\{\sin^{2}at\}=\frac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}\;} \tag{9.10}$$
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Türevin dönüşümü — yöntemin kalbi</h3>
+                                <p>Laplace dönüşümünü diferansiyel denklem çözmekte kullanışlı kılan asıl özellik budur.</p>
+                                <div class="highlight">
+                                    <p><strong>THEoREM 9.3</strong></p>
+                                    <p><strong>Hipotez</strong></p>
+                                    <ol>
+                                        <li>$f$, $t\ge 0$ için <strong>sürekli</strong> ve $e^{\alpha t}$ mertebesinden olsun;</li>
+                                        <li>$f'$ (türevi), her sonlu kapalı $0\le t\le b$ aralığında <strong>parçalı sürekli</strong> olsun.</li>
+                                    </ol>
+                                    <p><strong>Sonuç.</strong> $\mathcal{L}\{f'\}$, $s>\alpha$ için vardır ve</p>
+                                    $$\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\{f(t)\}-f(0) \tag{9.11}$$
+                                </div>
+                                <p><span class="vurgu">Bu formül, türev almayı "$s$ ile çarpma" işlemine çevirir.</span> Diferansiyel denklemin cebirsel denkleme dönüşmesinin sebebi tam olarak budur.</p>
+                                <p>$-f(0)$ terimi de kritiktir: <strong>başlangıç koşulu denkleme kendiliğinden girer.</strong> Klasik yöntemlerde önce genel çözüm bulunup sonra başlangıç koşulu uygulanırken, Laplace yönteminde koşul <span class="vurgu">daha ilk adımda</span> hesaba katılır.</p>
+                                <div class="highlight">
+                                    <p><strong>Hipotezlerdeki asimetriye dikkat.</strong> $f$'nin <strong>sürekli</strong>, $f'$'nün ise yalnızca <strong>parçalı sürekli</strong> olması isteniyor. Yani fonksiyonun kendisi kırılamaz ama türevi sıçrayabilir — köşeli grafikler (mesela üçgen dalga) bu sınıfa girer. Bu esneklik, süreksiz zorlamalı problemlerde işe yarayacak.</p>
+                                </div>
+                                <p><strong>İspatın fikri.</strong> Tanımdan</p>
+                                $$\mathcal{L}\{f'(t)\}=\lim_{R\to\infty}\int_{0}^{R}e^{-st}f'(t)\,dt$$
+                                <p>Kapalı $0\le t\le R$ aralığında $f'$ en fazla sonlu sayıda süreksizliğe sahiptir; bunlara $t_{1},t_{2},\dots,t_{n}$ diyelim:</p>
+                                $$0\le t_{1}<t_{2}<\dots<t_{n}\le R$$
+                                <p>İntegral bu noktalarda parçalara ayrılır, her parçada kısmi integrasyon uygulanır ve sınır terimleri toplanır. Süreklilik sayesinde ara noktalardaki katkılar birbirini götürür; geriye $t=0$ ve $t=R$ uçlarından gelenler kalır. $s>\alpha$ olduğunda $R$ ucundaki terim sıfıra gider ve $(9.11)$ elde edilir. $\blacksquare$</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="laplace-ters" class="section placeholder">

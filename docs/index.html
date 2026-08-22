@@ -151,6 +151,8 @@
                             <li><a href="#ornek-ters-donusum">4.2 Örnekler — Ters Dönüşüm Teknikleri</a></li>
                             <li><a href="#ornek-ters-kuadratik">4.2 Örnek — İndirgenemez Kuadratik Çarpan</a></li>
                             <li><a href="#laplace-konvolusyon">4.2 Konvolüsyon</a></li>
+                            <li><a href="#ornek-konvolusyon">4.2 Örnek — Konvolüsyonun Vazgeçilmez Olduğu Durum</a></li>
+                            <li><a href="#laplace-dd-cozumu">4.3 Diferansiyel Denklem Çözümü</a></li>
                         </ul>
                     </li>
 
@@ -8593,6 +8595,127 @@
                                     <p>ifadesinde payda tekrarlı <strong>indirgenemez</strong> kuadratiktir; kısmi kesir açılımı yeni bir şey vermez, çünkü ifade zaten en sade hâlindedir. Ama $\frac{1}{s^{2}+b^{2}}$'nin kendisiyle çarpımı olarak görülüp konvolüsyonla hesaplanabilir ve Tablo 9.1'in 13 numaralı girdisi olan</p>
                                     $$\frac{\sin bt-bt\cos bt}{2b^{3}}$$
                                     <p>sonucuna ulaşılır. <span class="vurgu">Tablodaki o tuhaf görünen girdinin kaynağı budur.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-konvolusyon" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.2 &nbsp;Çözümlü Örnek — Tablo Girdisinin Konvolüsyonla Türetilmesi
+                        </div>
+                        <p>Örnek 9.24'te konvolüsyon ile kısmi kesirler aynı sonucu vermişti. Şimdi <span class="vurgu">kısmi kesirlerin işe yaramadığı</span> bir durumu ele alıyoruz.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.25.</strong> &nbsp; Tablo 9.1'in 13 numaralı girdisi şunu söylüyor: $$\mathcal{L}^{-1}\left\{\frac{1}{\left(s^{2}+b^{2}\right)^{2}}\right\}=\frac{\sin bt-bt\cos bt}{2b^{3}}$$ Bunu konvolüsyon kullanarak doğrulayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Neden kısmi kesir işe yaramaz?</strong> Payda $\left(s^{2}+b^{2}\right)^{2}$, <span class="vurgu">tekrarlı ve indirgenemez</span> bir kuadratiktir. Kısmi kesir açılımı</p>
+                                $$\frac{1}{\left(s^{2}+b^{2}\right)^{2}}=\frac{B_{1}s+C_{1}}{s^{2}+b^{2}}+\frac{B_{2}s+C_{2}}{\left(s^{2}+b^{2}\right)^{2}}$$
+                                <p>biçiminde olurdu; çözünce $B_{1}=C_{1}=B_{2}=0$, $C_{2}=1$ çıkar — yani <span class="vurgu">başladığımız yere döneriz.</span> İfade zaten en sade hâlindedir.</p>
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong></p>
+                                $$\frac{1}{\left(s^{2}+b^{2}\right)^{2}}=F(s)\,G(s),\qquad F(s)=G(s)=\frac{1}{s^{2}+b^{2}}$$
+                                <p>Tablo 9.1'in 3 numaralı girdisinden ($\frac{b}{s^{2}+b^{2}}\leftrightarrow\sin bt$), payda $b$ olmadığı için $\frac{1}{b}$ çarpanı düşer:</p>
+                                $$f(t)=g(t)=\mathcal{L}^{-1}\left\{\frac{1}{s^{2}+b^{2}}\right\}=\frac{\sin bt}{b}$$
+                                <p><strong>Adım 2 — Konvolüsyon integralini kur.</strong></p>
+                                <p>$(9.40)$ ile:</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{1}{\left(s^{2}+b^{2}\right)^{2}}\right\}=\int_{0}^{t}\frac{\sin b\tau}{b}\cdot\frac{\sin b(t-\tau)}{b}\,d\tau=\frac{1}{b^{2}}\int_{0}^{t}\sin b\tau\,\sin b(t-\tau)\,d\tau \tag{9.42}$$
+                                <p><strong>Adım 3 — Çarpımı toplama çevir.</strong></p>
+                                <p>İkinci sinüsü açıp çarpmak yerine trigonometrik özdeşlik kullanmak çok daha kolaydır. Şu iki formülü ele alalım:</p>
+                                $$\cos(A+B)=\cos A\cos B-\sin A\sin B$$
+                                $$\cos(A-B)=\cos A\cos B+\sin A\sin B$$
+                                <p>Birinciyi ikinciden çıkarırsak:</p>
+                                $$\sin A\sin B=\frac{\cos(A-B)-\cos(A+B)}{2}$$
+                                <p>$A=b\tau$ ve $B=b(t-\tau)$ alalım. O zaman</p>
+                                $$A-B=b\tau-bt+b\tau=b(2\tau-t),\qquad A+B=b\tau+bt-b\tau=bt$$
+                                $$\sin b\tau\,\sin b(t-\tau)=\frac{1}{2}\Big[\cos b(2\tau-t)-\cos bt\Big]$$
+                                <div class="highlight">
+                                    <p><strong>Bu adımın kritikliği.</strong> $A+B$ toplamında $\tau$ <span class="vurgu">tamamen düşüyor</span>; geriye yalnızca $\cos bt$ kalıyor, bu da integral açısından sabittir. İntegre edilecek tek $\tau$'lu terim $\cos b(2\tau-t)$ olur. Çarpımı doğrudan açsaydınız $\sin\tau\cos\tau$ türü terimlerle uğraşacaktınız.</p>
+                                </div>
+                                <p><strong>Adım 4 — İntegre et.</strong></p>
+                                $$=\frac{1}{2b^{2}}\int_{0}^{t}\Big[\cos b(2\tau-t)-\cos bt\Big]d\tau$$
+                                <p>Birinci terimin ilkeli $\dfrac{\sin b(2\tau-t)}{2b}$ (içteki $2\tau$ yüzünden $2b$ bölen), ikincisininki $-(\cos bt)\,\tau$:</p>
+                                $$=\frac{1}{2b^{2}}\left[\frac{\sin b(2\tau-t)}{2b}-(\cos bt)\,\tau\right]_{0}^{t}$$
+                                <p><strong>Üst sınır</strong> $\tau=t$: $\;\dfrac{\sin bt}{2b}-t\cos bt$</p>
+                                <p><strong>Alt sınır</strong> $\tau=0$: $\;\dfrac{\sin(-bt)}{2b}-0=-\dfrac{\sin bt}{2b}$</p>
+                                <p>Farkı alalım — <span class="vurgu">$\sin$ tek fonksiyon olduğu için iki terim toplanıyor:</span></p>
+                                $$=\frac{1}{2b^{2}}\left[\frac{\sin bt}{2b}-t\cos bt+\frac{\sin bt}{2b}\right]=\frac{1}{2b^{2}}\left[\frac{\sin bt}{b}-t\cos bt\right]$$
+                                <p><strong>Adım 5 — Sadeleştir.</strong></p>
+                                <p>Köşeli parantezi $\dfrac{1}{b}$ ortak paydasında yazalım:</p>
+                                $$=\frac{1}{2b^{2}}\cdot\frac{\sin bt-bt\cos bt}{b}$$
+                                $$\boxed{\;\mathcal{L}^{-1}\left\{\frac{1}{\left(s^{2}+b^{2}\right)^{2}}\right\}=\frac{\sin bt-bt\cos bt}{2b^{3}}\;}$$
+                                <p>Tablo 9.1'in 13 numaralı girdisi doğrulanmış oldu.</p>
+                                <div class="highlight">
+                                    <p><strong>Tablodaki "tuhaf" girdilerin kaynağı budur.</strong> 13 ve 14 numaralı girdiler ilk bakışta akılda kalması zor ifadelerdir. Ama ikisi de $\frac{1}{s^{2}+b^{2}}$'nin kendisiyle konvolüsyonundan gelir; <span class="vurgu">$t\cos bt$ teriminin ortaya çıkması, integralde $\tau$'nun doğrusal olarak birikmesinin sonucudur.</span> Sınavda tablo verilmezse bu türetme ile üretebilirsiniz.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-dd-cozumu" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.3 &nbsp;Sabit Katsayılı Denklemlerin Laplace ile Çözümü
+                        </div>
+                        <p>Buraya kadar kurduğumuz araçları bir araya getiriyoruz. Amaç, sabit katsayılı $n$. mertebeden lineer bir denklemden oluşan <strong>başlangıç değer problemini</strong> çözmek:</p>
+                        $$a_{0}y^{(n)}+a_{1}y^{(n-1)}+\dots+a_{n-1}y'+a_{n}y=b(t) \tag{9.43}$$
+                        $$y(0)=c_{0},\quad y'(0)=c_{1},\quad\dots,\quad y^{(n-1)}(0)=c_{n-1} \tag{9.44}$$
+                        <div class="highlight">
+                            <p><strong>YÖNTEMİN ÖZETİ</strong></p>
+                            <ol>
+                                <li>Diferansiyel denklemin <strong>her iki tarafının</strong> Laplace dönüşümünü al. Bu sırada THEoREM 9.4'ü uygula ve $(9.44)$ başlangıç koşullarını kullan. Sonuçları eşitleyerek, bilinmeyeni $Y(s)$ olan <strong>cebirsel denklemi</strong> elde et.</li>
+                            </ol>
+                            <ol>
+                                <li>Bu cebirsel denklemi çözerek $Y(s)$'yi belirle.</li>
+                            </ol>
+                            <ol>
+                                <li>$Y(s)$ bulununca, dönüşüm tablosunu kullanarak $y=\mathcal{L}^{-1}\{Y(s)\}$ çözümünü elde et.</li>
+                            </ol>
+                        </div>
+                        <p>Üç adımın karakteri birbirinden farklıdır:</p>
+                        <ul style="margin-left: 1rem;">
+                            <li><strong>1. adım mekaniktir.</strong> Türev kuralını uygularsınız, başlangıç koşulları kendiliğinden yerleşir.</li>
+                            <li><strong>2. adım cebirdir.</strong> $Y(s)$'yi yalnız bırakırsınız.</li>
+                            <li><strong>3. adım gerçek iştir.</strong> Kısmi kesirler, tamkareye tamamlama, gerekirse konvolüsyon.</li>
+                        </ul>
+                        <div class="highlight">
+                            <p><strong>Klasik yöntemlerle farkı.</strong> Sabit katsayılı denklemleri karakteristik denklem + belirsiz katsayılar ile de çözebiliyorduk. Oradaki sıra şuydu: <strong>önce genel çözüm, sonra başlangıç koşulları.</strong> Laplace'ta sıra tersinedir — <span class="vurgu">başlangıç koşulları daha ilk adımda denkleme girer</span> ve doğrudan özel çözüme varılır. Homojen/özel çözüm ayrımı hiç yapılmaz.</p>
+                            <p>Bu, özellikle <strong>süreksiz zorlama terimlerinde</strong> (4.4) belirleyici bir üstünlüğe dönüşecek; klasik yöntemler orada parça parça çözüp bağlantı koşulları yazmak zorunda kalır.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.26.</strong> &nbsp; Aşağıdaki başlangıç değer problemini çözünüz: $$y'-2y=e^{5t},\qquad y(0)=3$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Her iki tarafın dönüşümünü al.</strong></p>
+                                $$\mathcal{L}\{y'\}-2\mathcal{L}\{y\}=\mathcal{L}\{e^{5t}\}$$
+                                <p>$\mathcal{L}\{y\}$ yerine kısaca $Y(s)$ yazalım. THEoREM 9.4'ü $n=1$ ile (ya da doğrudan THEoREM 9.3) uygulayalım:</p>
+                                $$\mathcal{L}\{y'\}=sY(s)-y(0)$$
+                                <p>$y(0)=3$ başlangıç koşulunu koyalım:</p>
+                                $$\mathcal{L}\{y'\}=sY(s)-3$$
+                                <p>Sağ taraf Tablo 9.1'in 2 numaralı girdisinden $\dfrac{1}{s-5}$. Denklem şu hâle gelir:</p>
+                                $$sY(s)-3-2Y(s)=\frac{1}{s-5}$$
+                                <p><strong>Adım 2 — Cebirsel denklemi çöz.</strong></p>
+                                <p>$Y(s)$ parantezine alalım:</p>
+                                $$(s-2)Y(s)=3+\frac{1}{s-5}$$
+                                <p>Sağ tarafı ortak paydada birleştirelim:</p>
+                                $$(s-2)Y(s)=\frac{3(s-5)+1}{s-5}=\frac{3s-15+1}{s-5}=\frac{3s-14}{s-5}$$
+                                $$Y(s)=\frac{3s-14}{(s-2)(s-5)}$$
+                                <p><strong>Adım 3 — Ters dönüşüm.</strong></p>
+                                <p>Kısmi kesirlere ayıralım:</p>
+                                $$\frac{3s-14}{(s-2)(s-5)}=\frac{A}{s-2}+\frac{B}{s-5}\;\Longrightarrow\;3s-14=A(s-5)+B(s-2)$$
+                                <p>$s=2$: $\;6-14=-8=A(-3)\;\Longrightarrow\;A=\dfrac{8}{3}$</p>
+                                <p>$s=5$: $\;15-14=1=B(3)\;\Longrightarrow\;B=\dfrac{1}{3}$</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{3s-14}{(s-2)(s-5)}\right\}=\frac{8}{3}\mathcal{L}^{-1}\left\{\frac{1}{s-2}\right\}+\frac{1}{3}\mathcal{L}^{-1}\left\{\frac{1}{s-5}\right\}$$
+                                <p>Tablo 9.1, 2 numara:</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{1}{s-2}\right\}=e^{2t},\qquad \mathcal{L}^{-1}\left\{\frac{1}{s-5}\right\}=e^{5t}$$
+                                $$\boxed{\;y=\frac{8}{3}e^{2t}+\frac{1}{3}e^{5t}\;}$$
+                                <p><strong>Doğrulama.</strong></p>
+                                $$y(0)=\frac{8}{3}+\frac{1}{3}=\frac{9}{3}=3\;\checkmark$$
+                                $$y'=\frac{16}{3}e^{2t}+\frac{5}{3}e^{5t}$$
+                                $$y'-2y=\frac{16}{3}e^{2t}+\frac{5}{3}e^{5t}-\frac{16}{3}e^{2t}-\frac{2}{3}e^{5t}=\frac{3}{3}e^{5t}=e^{5t}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Adım 2'deki ortak payda hamlesine dikkat.</strong> $3+\frac{1}{s-5}$ ifadesini olduğu gibi bırakıp $Y(s)=\frac{3}{s-2}+\frac{1}{(s-2)(s-5)}$ yazmak da doğrudur ve Örnek 9.13'te öyle yapmıştık. <span class="vurgu">İki yol da aynı sonuca varır</span>; hangisinin daha az işlem gerektirdiği probleme göre değişir. Burada birleştirmek tek bir kısmi kesir açılımıyla bitirmeyi sağladı.</p>
                                 </div>
                             </div>
                         </div>

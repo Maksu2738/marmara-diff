@@ -89,9 +89,40 @@ def matematigi_sakla(metin, kasa):
     return MATEMATIK.sub(degistir, metin)
 
 
+def matematik_kacir(m):
+    """Matematik icindeki &, <, > karakterlerini HTML kacisina cevirir.
+
+    Tarayici HTML'i KaTeX'ten ONCE ayristirir; $0<t<2$ gibi bir ifadede
+    "<t<2$ ... $" parcasi etiket sanilip yutulur, KaTeX de geriye kalan
+    bozuk LaTeX yuzunden ham metni gosterir. KaTeX icerigi textContent
+    uzerinden okudugu icin kacislar cozulmus halde ona ulasir --
+    goruntude hicbir fark olmaz.
+    """
+    return m.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+
+ETIKET_BASI = re.compile(r'</?[A-Za-z][A-Za-z0-9]*[\s/>]')
+
+
+def ham_html_matematigi_kacir(satir):
+    """Ham HTML satirindaki (orn. <td>$s>0$</td>) matematigi kacirir.
+
+    Yalnizca $...$ araliklarina dokunur; gercek etiketler oldugu gibi
+    kalir. Icinde etiket baslangici gibi gorunen bir sey barindiran
+    aralik -- tek sayida '$' yuzunden yanlis eslesmis olabilir --
+    guvenlik icin atlanir.
+    """
+    def degistir(m):
+        t = m.group(0)
+        if ETIKET_BASI.search(t):
+            return t
+        return t.replace('<', '&lt;').replace('>', '&gt;')
+    return MATEMATIK.sub(degistir, satir)
+
+
 def matematigi_geri_koy(metin, kasa):
     for i, m in enumerate(kasa):
-        metin = metin.replace('\x00M%d\x00' % i, m)
+        metin = metin.replace('\x00M%d\x00' % i, matematik_kacir(m))
     return metin
 
 
@@ -129,7 +160,8 @@ def bloklari_cevir(satirlar, girinti):
 
         # --- ham HTML ya da $$ blok matematigi: aynen gecir
         if cip.startswith('<') or cip.startswith('$$'):
-            ekle(cip)
+            ekle(matematik_kacir(cip) if cip.startswith('$$')
+                 else ham_html_matematigi_kacir(cip))
             i += 1
             continue
 

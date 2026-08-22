@@ -8288,17 +8288,92 @@
                             </div>
                         </div>
                         <hr>
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                        <p><strong>2.</strong> &nbsp; $f(t)=\sinh t$</p>
-                        <p><strong>4.</strong> &nbsp; $f(t)=4$ &nbsp;($0&lt;t&lt;3$), &nbsp;$2$ &nbsp;($t&gt;3$)</p>
-                        <p><strong>6.</strong> &nbsp; $f(t)=0$ &nbsp;($0&lt;t&lt;1$), &nbsp;$t$ &nbsp;($1&lt;t&lt;2$), &nbsp;$1$ &nbsp;($t&gt;2$)</p>
-                        <p><strong>8.</strong> &nbsp; $f(t)=2t$ &nbsp;($0\le t&lt;1$), &nbsp;$2$ &nbsp;($1\le t&lt;3$), &nbsp;$8-2t$ &nbsp;($t\ge 3$)</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
                         <div class="highlight">
-                            <p><strong>İpuçları.</strong> <strong>2</strong> tek gerçek "fonksiyon" sorusu: $\sinh t=\dfrac{e^{t}-e^{-t}}{2}$ yazıp iki üstel integral alın, $s&gt;1$ koşulunu unutmayın.</p>
-                            <p><strong>4</strong> → 3 gibi ama ikinci parça sıfır değil, $\int_{3}^{\infty}$ da hesaplanacak.</p>
-                            <p><strong>6</strong> ve <strong>8</strong> → 5 ve 7 gibi, sadece parça sayısı fazla. <strong>8</strong>'in cevabı da tam kare çıkar; 7'deki gibi bir yamuk/üçgen darbedir.</p>
-                            <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her sonuç sınanabilir: $s\to\infty$ iken $\mathcal{L}\{f\}\to 0$ olmalıdır (her Laplace dönüşümü için geçerli). Ayrıca <span class="vurgu">başlangıç değer THEoREM'i</span> $\lim_{s\to\infty}s\,\mathcal{L}\{f\}=f(0^{+})$ hızlı bir kontrol verir: 5. soruda $s\cdot\left(\tfrac{1}{s^{2}}+\cdots\right)\to 0=f(0^{+})$ &#10003;</p>
+                            <p><strong>Bu dört sorunun cevabı kitabın anahtarında yok.</strong> Aşağıdaki çözümler bize aittir; her biri <span class="vurgu">ikinci bir yoldan bağımsız olarak doğrulanmıştır</span> (birim basamak gösterimi ya da türev THEoREM'i ile). Yine de kitabın cevabıyla karşılaştırma imkânınız olursa iyi olur.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; Tanımı kullanarak $f(t)=\sinh t$ için $\mathcal{L}\{f(t)\}$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Üstel biçime aç.</strong> $\sinh$ tabloda doğrudan yok; tanımını yazalım:</p>
+                                $$\sinh t=\frac{e^{t}-e^{-t}}{2}$$
+                                <p><strong>Adım 2 — İntegrali kur.</strong></p>
+                                $$\mathcal{L}\{\sinh t\}=\int_{0}^{\infty}e^{-st}\cdot\frac{e^{t}-e^{-t}}{2}\,dt=\frac{1}{2}\int_{0}^{\infty}\left(e^{-(s-1)t}-e^{-(s+1)t}\right)dt$$
+                                <p><strong>Adım 3 — İki üstel integral.</strong></p>
+                                $$=\frac{1}{2}\left[\frac{1}{s-1}-\frac{1}{s+1}\right]=\frac{1}{2}\cdot\frac{(s+1)-(s-1)}{(s-1)(s+1)}=\frac{1}{2}\cdot\frac{2}{s^{2}-1}$$
+                                $$\boxed{\;\mathcal{L}\{\sinh t\}=\frac{1}{s^{2}-1}\qquad (s&gt;1)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Yakınsaklık koşuluna dikkat.</strong> Birinci integralin yakınsaması için $s-1&gt;0$, yani <span class="vurgu">$s&gt;1$</span> gerekir. Bu setteki tek soru burada koşulun $s&gt;0$'dan farklı çıktığı sorudur; $e^{t}$ terimi $e^{-st}$'yi yenmemelidir.</p>
+                                    <p>Genel olarak $\mathcal{L}\{\sinh bt\}=\dfrac{b}{s^{2}-b^{2}}$ ve $\mathcal{L}\{\cosh bt\}=\dfrac{s}{s^{2}-b^{2}}$, her ikisi de $s&gt;|b|$ için.</p>
+                                </div>
+                                <p><strong>Doğrulama.</strong> $\sinh t$ ile $\sin t$ arasındaki bağ: $\mathcal{L}\{\sin bt\}=\dfrac{b}{s^{2}+b^{2}}$ formülünde $b\to ib$ konursa payda $s^{2}-b^{2}$ olur — beklenen sonuç. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $f(t)=4$ &nbsp;($0&lt;t&lt;3$), &nbsp;$f(t)=2$ &nbsp;($t&gt;3$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — İki parça, iki integral.</strong> <span class="vurgu">Bu kez ikinci parça sıfır değil</span>, sonsuza kadar süren integrali de hesaplamak gerekir.</p>
+                                $$\mathcal{L}\{f\}=\int_{0}^{3}4e^{-st}\,dt+\int_{3}^{\infty}2e^{-st}\,dt$$
+                                <p><strong>Adım 2 — Hesapla.</strong></p>
+                                $$\int_{0}^{3}4e^{-st}\,dt=\frac{4}{s}\left(1-e^{-3s}\right),\qquad \int_{3}^{\infty}2e^{-st}\,dt=\frac{2}{s}e^{-3s}$$
+                                <p><strong>Adım 3 — Topla.</strong> $e^{-3s}$ katsayıları: $-4+2=-2$</p>
+                                $$\mathcal{L}\{f\}=\frac{4}{s}-\frac{2e^{-3s}}{s}$$
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s}\left(2-e^{-3s}\right)\;}$$
+                                <p><strong>Doğrulama (birim basamakla).</strong> Sıçramalar: $t=0$'da $0\to 4$ &nbsp;($+4$), &nbsp;$t=3$'te $4\to 2$ &nbsp;($-2$). Yani $f(t)=4u_{0}(t)-2u_{3}(t)$:</p>
+                                $$\mathcal{L}\{f\}=\frac{4}{s}-\frac{2e^{-3s}}{s}\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $f(t)=0$ &nbsp;($0&lt;t&lt;1$), &nbsp;$t$ &nbsp;($1&lt;t&lt;2$), &nbsp;$1$ &nbsp;($t&gt;2$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıfır parçayı at, kalan ikisini yaz.</strong></p>
+                                $$\mathcal{L}\{f\}=\int_{1}^{2}te^{-st}\,dt+\int_{2}^{\infty}e^{-st}\,dt$$
+                                <p><strong>Adım 2 — Birinci integral</strong> (kısmi integrasyon, $u=t$):</p>
+                                $$\int_{1}^{2}te^{-st}\,dt=\left[-\frac{t}{s}e^{-st}\right]_{1}^{2}+\frac{1}{s}\int_{1}^{2}e^{-st}\,dt$$
+                                $$=-\frac{2e^{-2s}}{s}+\frac{e^{-s}}{s}+\frac{e^{-s}-e^{-2s}}{s^{2}}$$
+                                <p><strong>Adım 3 — İkinci integral.</strong></p>
+                                $$\int_{2}^{\infty}e^{-st}\,dt=\frac{e^{-2s}}{s}$$
+                                <p><strong>Adım 4 — Topla.</strong> $\dfrac{e^{-2s}}{s}$ katsayıları: $-2+1=-1$</p>
+                                $$\mathcal{L}\{f\}=\frac{e^{-s}-e^{-2s}}{s}+\frac{e^{-s}-e^{-2s}}{s^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{f\}=\left(e^{-s}-e^{-2s}\right)\left(\frac{1}{s}+\frac{1}{s^{2}}\right)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Çarpanlara ayrılması tesadüf değil.</strong> $\left(e^{-s}-e^{-2s}\right)$ çarpanı, fonksiyonun <span class="vurgu">$1&lt;t&lt;2$ penceresinde açık</span> olduğunu söyler; $\left(\tfrac{1}{s}+\tfrac{1}{s^{2}}\right)$ ise o pencerede ne olduğunu ($1+t$ biçimli bir davranış). Pencere çarpanı her zaman $e^{-as}-e^{-bs}$ biçiminde çıkar.</p>
+                                </div>
+                                <p><strong>Doğrulama (birim basamakla).</strong></p>
+                                $$f(t)=t\,u_{1}(t)-t\,u_{2}(t)+u_{2}(t)$$
+                                <p>$t-1$ ve $t-2$ cinsine sokalım: $t\,u_{1}=(t-1)u_{1}+u_{1}$ &nbsp;ve&nbsp; $t\,u_{2}=(t-2)u_{2}+2u_{2}$</p>
+                                $$\mathcal{L}\{f\}=\left(\frac{e^{-s}}{s^{2}}+\frac{e^{-s}}{s}\right)-\left(\frac{e^{-2s}}{s^{2}}+\frac{2e^{-2s}}{s}\right)+\frac{e^{-2s}}{s}$$
+                                <p>$e^{-2s}/s$ katsayıları: $-2+1=-1$. Sonuç yukarıdakiyle aynı. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $f(t)=2t$ &nbsp;($0\le t&lt;1$), &nbsp;$2$ &nbsp;($1\le t&lt;3$), &nbsp;$8-2t$ &nbsp;($t\ge 3$)</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Bu bir <strong>yamuk darbedir (trapezoidal pulse)</strong>: $0$'dan $2$'ye çıkar, iki birim sabit kalır, sonra iner.</p>
+                                <p><strong>Adım 1 — Fark yöntemiyle basamak gösterimi.</strong> Her düğümde "yeni ifade eksi eski ifade":</p>
+                                $$f(t)=2t+u_{1}(t)\big[2-2t\big]+u_{3}(t)\big[(8-2t)-2\big]=2t+u_{1}(t)(2-2t)+u_{3}(t)(6-2t)$$
+                                <p><strong>Adım 2 — Çarpanları $t-a$ cinsine sok.</strong> <span class="vurgu">Bu adım olmadan öteleme THEoREM'i uygulanamaz:</span></p>
+                                $$2-2t=-2(t-1),\qquad 6-2t=-2(t-3)$$
+                                $$f(t)=2t-2(t-1)u_{1}(t)-2(t-3)u_{3}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong></p>
+                                $$\mathcal{L}\{f\}=\frac{2}{s^{2}}-\frac{2e^{-s}}{s^{2}}-\frac{2e^{-3s}}{s^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s^{2}}\left(1-e^{-s}-e^{-3s}\right)\;}$$
+                                <p><strong>Doğrulama (türev THEoREM'i ile).</strong> $f'$ parçalı sabittir: $(0,1)$'de $2$, $(1,3)$'te $0$, $t&gt;3$'te $-2$. Sıçramalar $t=1$'de $-2$, $t=3$'te $-2$:</p>
+                                $$f'(t)=2-2u_{1}(t)-2u_{3}(t)\;\Longrightarrow\;\mathcal{L}\{f'\}=\frac{2}{s}-\frac{2e^{-s}}{s}-\frac{2e^{-3s}}{s}$$
+                                <p>$f(0)=0$ olduğundan $\mathcal{L}\{f'\}=s\,\mathcal{L}\{f\}$, yani</p>
+                                $$\mathcal{L}\{f\}=\frac{1}{s}\left[\frac{2}{s}-\frac{2e^{-s}}{s}-\frac{2e^{-3s}}{s}\right]=\frac{2}{s^{2}}\left(1-e^{-s}-e^{-3s}\right)\;\checkmark$$
+                                <p><span class="vurgu">İki bağımsız yol aynı sonucu verdi.</span></p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Bu dört sorunun ortak dersi.</strong> Tanımdan integral almak her zaman çalışır ama parçalı fonksiyonlarda uzundur. <strong>Birim basamak gösterimi</strong> (4.4) aynı işi tabloyla yapar ve <span class="vurgu">çapraz kontrol için idealdir</span>: bir yolla çöz, öbürüyle doğrula.</p>
+                            <ol>
+                                <li>sorudaki <strong>türev hilesi</strong> üçüncü bir yoldur ve parçalı <strong>doğrusal</strong> fonksiyonlarda en hızlısıdır: türev parçalı sabit olur, onun dönüşümü de tek satırdır.</li>
+                            </ol>
                         </div>
                     </div>
 
@@ -9528,17 +9603,78 @@
                             <p>Yani bu set konvolüsyonun <strong>mekaniğini</strong> çalıştırmak için; gücü başka yerde ortaya çıkıyor. Yine de her sonucu kısmi kesirlerle sınamak iyi bir alışkanlık — yukarıda üçünde de yapıldı.</p>
                         </div>
                         <hr>
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                        <p><strong>2.</strong> &nbsp; $H(s)=\dfrac{1}{s^{2}+3s-4}$</p>
-                        <p><strong>4.</strong> &nbsp; $H(s)=\dfrac{1}{s\left(s^{2}+4s+13\right)}$</p>
-                        <p><strong>6.</strong> &nbsp; $H(s)=\dfrac{1}{(s+2)\left(s^{2}+1\right)}$</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
                         <div class="highlight">
-                            <p><strong>İpuçları.</strong></p>
-                            <p><strong>2</strong> → 1 ile birebir aynı kalıp: $s^{2}+3s-4=(s+4)(s-1)$, iki üstelin konvolüsyonu. Genel sonuç $\dfrac{e^{at}-e^{bt}}{a-b}$ biçimindedir.</p>
-                            <p><strong>4</strong> → 3 gibi ama ikinci çarpan tamkareye tamamlanmalı: $s^{2}+4s+13=(s+2)^{2}+9$, yani $g(t)=\dfrac{1}{3}e^{-2t}\sin 3t$. İntegral $\int_{0}^{t}e^{-2(t-\tau)}\sin 3(t-\tau)\,d\tau$ olur; üstel-trigonometrik integral iki kez kısmi integrasyon ister.</p>
-                            <p><strong>6</strong> → $f(t)=e^{-2t}$, $g(t)=\sin t$. Yine üstel çarpı trigonometrik; $\int e^{a\tau}\sin b\tau\,d\tau$ standart integralini kullanın.</p>
-                            <p><strong>Doğrulama.</strong> Üçünde de kısmi kesirlerle çapraz kontrol yapabilirsiniz. Ayrıca <span class="vurgu">$h(0)=0$ olmalıdır</span>: her üç $H(s)$'de payın derecesi paydanınkinden en az iki eksik, bu da $t=0$'da fonksiyonun sıfır olmasını gerektirir. Hızlı bir ilk kontrol.</p>
+                            <p><strong>Bu üç sorunun cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir ve her biri <span class="vurgu">kısmi kesirlerle bağımsız olarak doğrulanmıştır</span>.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $H(s)=\dfrac{1}{s^{2}+3s-4}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong> $s^{2}+3s-4=(s+4)(s-1)$</p>
+                                $$f(t)=e^{-4t},\qquad g(t)=e^{t}$$
+                                <p><strong>Adım 2 — İntegrali kur ve $e^{t}$'yi dışarı al.</strong></p>
+                                $$h(t)=\int_{0}^{t}e^{-4\tau}\,e^{t-\tau}\,d\tau=e^{t}\int_{0}^{t}e^{-5\tau}\,d\tau$$
+                                <p><strong>Adım 3 — Hesapla.</strong></p>
+                                $$=e^{t}\left[\frac{-e^{-5\tau}}{5}\right]_{0}^{t}=e^{t}\cdot\frac{1-e^{-5t}}{5}$$
+                                $$\boxed{\;h(t)=\frac{e^{t}-e^{-4t}}{5}\;}$$
+                                <p><strong>Çapraz kontrol (kısmi kesirler).</strong> $\dfrac{1}{(s+4)(s-1)}=\dfrac{-1/5}{s+4}+\dfrac{1/5}{s-1}$ &nbsp;$\to$&nbsp; $\dfrac{e^{t}-e^{-4t}}{5}$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>Genel kalıp.</strong> İki farklı üstelin konvolüsyonu her zaman</p>
+                                    $$\mathcal{L}^{-1}\left\{\frac{1}{(s-a)(s-b)}\right\}=\frac{e^{at}-e^{bt}}{a-b}\qquad (a\neq b)$$
+                                    <p>verir. Burada $a=1$, $b=-4$, $a-b=5$. <span class="vurgu">Payda çarpanlandığı anda cevabı yazabilirsiniz.</span></p>
+                                    <p>$a=b$ olsaydı bu formül tanımsızlaşırdı; o durumda sonuç $t\,e^{at}$ olur — limitini alarak da görülebilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $H(s)=\dfrac{1}{s\left(s^{2}+4s+13\right)}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — İkinci çarpanı tamkareye tamamla.</strong></p>
+                                $$s^{2}+4s+13=(s+2)^{2}+9$$
+                                $$F(s)=\frac{1}{s}\;\to\;f(t)=1,\qquad G(s)=\frac{1}{(s+2)^{2}+9}\;\to\;g(t)=\frac{1}{3}e^{-2t}\sin 3t$$
+                                <p><span class="vurgu">Paydaki $3$'ü tamamlamayı unutmayın.</span></p>
+                                <p><strong>Adım 2 — İntegrali kur ve değişken değiştir.</strong> $u=t-\tau$ koyalım:</p>
+                                $$h(t)=\int_{0}^{t}1\cdot\frac{1}{3}e^{-2(t-\tau)}\sin 3(t-\tau)\,d\tau=\frac{1}{3}\int_{0}^{t}e^{-2u}\sin 3u\,du$$
+                                <p><strong>Adım 3 — Üstel-trigonometrik integral.</strong> Standart sonuç:</p>
+                                $$\int e^{au}\sin bu\,du=\frac{e^{au}\left(a\sin bu-b\cos bu\right)}{a^{2}+b^{2}}$$
+                                <p>$a=-2$, $b=3$, $a^{2}+b^{2}=13$:</p>
+                                $$\int_{0}^{t}e^{-2u}\sin 3u\,du=\left[\frac{e^{-2u}\left(-2\sin 3u-3\cos 3u\right)}{13}\right]_{0}^{t}=\frac{3-e^{-2t}\left(2\sin 3t+3\cos 3t\right)}{13}$$
+                                <p><strong>Adım 4 — $\tfrac13$ ile çarp.</strong></p>
+                                $$\boxed{\;h(t)=\frac{1}{39}\Big[3-e^{-2t}\left(3\cos 3t+2\sin 3t\right)\Big]\;}$$
+                                <p><strong>Çapraz kontrol (kısmi kesirler).</strong></p>
+                                $$\frac{1}{s\left(s^{2}+4s+13\right)}=\frac{1/13}{s}-\frac{1}{13}\cdot\frac{s+4}{(s+2)^{2}+9}$$
+                                <p>Payı ötelersek $s+4=(s+2)+2$, yani $e^{-2t}\cos 3t+\tfrac{2}{3}e^{-2t}\sin 3t$:</p>
+                                $$h(t)=\frac{1}{13}\left[1-e^{-2t}\cos 3t-\frac{2}{3}e^{-2t}\sin 3t\right]=\frac{1}{39}\Big[3-3e^{-2t}\cos 3t-2e^{-2t}\sin 3t\Big]\;\checkmark$$
+                                <p><strong>Başlangıç kontrolü.</strong> $h(0)=\dfrac{3-3}{39}=0$ &#10003; — $H(s)$'nin paydası $s$ ile başladığı için beklenen sonuç.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $H(s)=\dfrac{1}{(s+2)\left(s^{2}+1\right)}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanları seç.</strong></p>
+                                $$f(t)=e^{-2t},\qquad g(t)=\sin t$$
+                                <p><strong>Adım 2 — Sırayı akıllıca seç.</strong> Konvolüsyon değişmeli olduğu için $f*g=g*f$; <span class="vurgu">üstel olanı dışarı çıkarabileceğimiz sırayı seçelim:</span></p>
+                                $$h(t)=\int_{0}^{t}\sin\tau\;e^{-2(t-\tau)}\,d\tau=e^{-2t}\int_{0}^{t}e^{2\tau}\sin\tau\,d\tau$$
+                                <p><strong>Adım 3 — İntegrali al.</strong> $a=2$, $b=1$, $a^{2}+b^{2}=5$:</p>
+                                $$\int_{0}^{t}e^{2\tau}\sin\tau\,d\tau=\left[\frac{e^{2\tau}\left(2\sin\tau-\cos\tau\right)}{5}\right]_{0}^{t}=\frac{e^{2t}\left(2\sin t-\cos t\right)+1}{5}$$
+                                <p><strong>Adım 4 — $e^{-2t}$ ile çarp.</strong> <span class="vurgu">$e^{-2t}\cdot e^{2t}=1$ olduğu için ilk parça sadeleşiyor:</span></p>
+                                $$\boxed{\;h(t)=\frac{2\sin t-\cos t+e^{-2t}}{5}\;}$$
+                                <p><strong>Çapraz kontrol (kısmi kesirler).</strong></p>
+                                $$\frac{1}{(s+2)\left(s^{2}+1\right)}=\frac{1/5}{s+2}+\frac{-\tfrac{1}{5}s+\tfrac{2}{5}}{s^{2}+1}\;\to\;\frac{1}{5}e^{-2t}-\frac{1}{5}\cos t+\frac{2}{5}\sin t\;\checkmark$$
+                                <p><strong>Başlangıç kontrolü.</strong> $h(0)=\dfrac{0-1+1}{5}=0$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Üç sorunun ortak dersi: sırayı seçmek.</strong> Konvolüsyon değişmelidir ama <span class="vurgu">integralin zorluğu sıraya göre değişir</span>. Kural şu: $t$'ye bağlı kısmı integral dışına çıkarabileceğiniz sırayı seçin.</p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>2'de</strong> $e^{t-\tau}=e^{t}e^{-\tau}$ yazıldı, $e^{t}$ dışarı çıktı, geriye tek üstel integral kaldı.</li>
+                                <li><strong>6'da</strong> ters sıra seçildi ($\sin$ içeride, üstel dışarıda); böylece $e^{-2t}$ dışarı çıktı ve sonunda $e^{2t}$ ile sadeleşti.</li>
+                                <li><strong>4'te</strong> $u=t-\tau$ değişken değişimi aynı işi gördü.</li>
+                            </ul>
+                            <p>Üçünde de sonuç kısmi kesirlerle doğrulandı. Bu setteki gibi rasyonel $H(s)$'lerde kısmi kesirler genelde daha kısadır; konvolüsyonun asıl gücü paydanın çarpanlanamadığı ya da zorlamanın somut verilmediği durumlardadır.</p>
                         </div>
                     </div>
 
@@ -14943,7 +15079,7 @@
     </div>
 
 
-<script defer src="arama.js?v=4b436fa5"></script>
+<script defer src="arama.js?v=53dd6592"></script>
     <script src="app.js?v=f067a145"></script>
     <script src="arama-ui.js"></script>
 </body>

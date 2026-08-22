@@ -99,24 +99,128 @@ Tam kare çıkması tesadüf değil: üçgen darbe, ==kare darbenin kendisiyle k
 
 ---
 
-### Çalışma soruları
-
-Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Çözümleri size bırakıldı.==
-
-**2.** &nbsp; $f(t)=\sinh t$
-
-**4.** &nbsp; $f(t)=4$ &nbsp;($0<t<3$), &nbsp;$2$ &nbsp;($t>3$)
-
-**6.** &nbsp; $f(t)=0$ &nbsp;($0<t<1$), &nbsp;$t$ &nbsp;($1<t<2$), &nbsp;$1$ &nbsp;($t>2$)
-
-**8.** &nbsp; $f(t)=2t$ &nbsp;($0\le t<1$), &nbsp;$2$ &nbsp;($1\le t<3$), &nbsp;$8-2t$ &nbsp;($t\ge 3$)
+### Kalan sorular — çözümler bize ait
 
 [KUTU]
-**İpuçları.** **2** tek gerçek "fonksiyon" sorusu: $\sinh t=\dfrac{e^{t}-e^{-t}}{2}$ yazıp iki üstel integral alın, $s>1$ koşulunu unutmayın.
+**Bu dört sorunun cevabı kitabın anahtarında yok.** Aşağıdaki çözümler bize aittir; her biri ==ikinci bir yoldan bağımsız olarak doğrulanmıştır== (birim basamak gösterimi ya da türev THEoREM'i ile). Yine de kitabın cevabıyla karşılaştırma imkânınız olursa iyi olur.
+[/KUTU]
 
-**4** → 3 gibi ama ikinci parça sıfır değil, $\int_{3}^{\infty}$ da hesaplanacak.
+[SORU] **2.** &nbsp; Tanımı kullanarak $f(t)=\sinh t$ için $\mathcal{L}\{f(t)\}$'yi bulunuz.
+[CEVAP]
+**Adım 1 — Üstel biçime aç.** $\sinh$ tabloda doğrudan yok; tanımını yazalım:
 
-**6** ve **8** → 5 ve 7 gibi, sadece parça sayısı fazla. **8**'in cevabı da tam kare çıkar; 7'deki gibi bir yamuk/üçgen darbedir.
+$$\sinh t=\frac{e^{t}-e^{-t}}{2}$$
 
-**Doğrulama.** Cevap anahtarı olmasa da her sonuç sınanabilir: $s\to\infty$ iken $\mathcal{L}\{f\}\to 0$ olmalıdır (her Laplace dönüşümü için geçerli). Ayrıca ==başlangıç değer THEoREM'i== $\lim_{s\to\infty}s\,\mathcal{L}\{f\}=f(0^{+})$ hızlı bir kontrol verir: 5. soruda $s\cdot\left(\tfrac{1}{s^{2}}+\cdots\right)\to 0=f(0^{+})$ &#10003;
+**Adım 2 — İntegrali kur.**
+
+$$\mathcal{L}\{\sinh t\}=\int_{0}^{\infty}e^{-st}\cdot\frac{e^{t}-e^{-t}}{2}\,dt=\frac{1}{2}\int_{0}^{\infty}\left(e^{-(s-1)t}-e^{-(s+1)t}\right)dt$$
+
+**Adım 3 — İki üstel integral.**
+
+$$=\frac{1}{2}\left[\frac{1}{s-1}-\frac{1}{s+1}\right]=\frac{1}{2}\cdot\frac{(s+1)-(s-1)}{(s-1)(s+1)}=\frac{1}{2}\cdot\frac{2}{s^{2}-1}$$
+
+$$\boxed{\;\mathcal{L}\{\sinh t\}=\frac{1}{s^{2}-1}\qquad (s>1)\;}$$
+
+[KUTU]
+**Yakınsaklık koşuluna dikkat.** Birinci integralin yakınsaması için $s-1>0$, yani ==$s>1$== gerekir. Bu setteki tek soru burada koşulun $s>0$'dan farklı çıktığı sorudur; $e^{t}$ terimi $e^{-st}$'yi yenmemelidir.
+
+Genel olarak $\mathcal{L}\{\sinh bt\}=\dfrac{b}{s^{2}-b^{2}}$ ve $\mathcal{L}\{\cosh bt\}=\dfrac{s}{s^{2}-b^{2}}$, her ikisi de $s>|b|$ için.
+[/KUTU]
+
+**Doğrulama.** $\sinh t$ ile $\sin t$ arasındaki bağ: $\mathcal{L}\{\sin bt\}=\dfrac{b}{s^{2}+b^{2}}$ formülünde $b\to ib$ konursa payda $s^{2}-b^{2}$ olur — beklenen sonuç. &#10003;
+[/CEVAP]
+
+[SORU] **4.** &nbsp; $f(t)=4$ &nbsp;($0<t<3$), &nbsp;$f(t)=2$ &nbsp;($t>3$)
+[CEVAP]
+**Adım 1 — İki parça, iki integral.** ==Bu kez ikinci parça sıfır değil==, sonsuza kadar süren integrali de hesaplamak gerekir.
+
+$$\mathcal{L}\{f\}=\int_{0}^{3}4e^{-st}\,dt+\int_{3}^{\infty}2e^{-st}\,dt$$
+
+**Adım 2 — Hesapla.**
+
+$$\int_{0}^{3}4e^{-st}\,dt=\frac{4}{s}\left(1-e^{-3s}\right),\qquad \int_{3}^{\infty}2e^{-st}\,dt=\frac{2}{s}e^{-3s}$$
+
+**Adım 3 — Topla.** $e^{-3s}$ katsayıları: $-4+2=-2$
+
+$$\mathcal{L}\{f\}=\frac{4}{s}-\frac{2e^{-3s}}{s}$$
+
+$$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s}\left(2-e^{-3s}\right)\;}$$
+
+**Doğrulama (birim basamakla).** Sıçramalar: $t=0$'da $0\to 4$ &nbsp;($+4$), &nbsp;$t=3$'te $4\to 2$ &nbsp;($-2$). Yani $f(t)=4u_{0}(t)-2u_{3}(t)$:
+
+$$\mathcal{L}\{f\}=\frac{4}{s}-\frac{2e^{-3s}}{s}\;\checkmark$$
+[/CEVAP]
+
+[SORU] **6.** &nbsp; $f(t)=0$ &nbsp;($0<t<1$), &nbsp;$t$ &nbsp;($1<t<2$), &nbsp;$1$ &nbsp;($t>2$)
+[CEVAP]
+**Adım 1 — Sıfır parçayı at, kalan ikisini yaz.**
+
+$$\mathcal{L}\{f\}=\int_{1}^{2}te^{-st}\,dt+\int_{2}^{\infty}e^{-st}\,dt$$
+
+**Adım 2 — Birinci integral** (kısmi integrasyon, $u=t$):
+
+$$\int_{1}^{2}te^{-st}\,dt=\left[-\frac{t}{s}e^{-st}\right]_{1}^{2}+\frac{1}{s}\int_{1}^{2}e^{-st}\,dt$$
+
+$$=-\frac{2e^{-2s}}{s}+\frac{e^{-s}}{s}+\frac{e^{-s}-e^{-2s}}{s^{2}}$$
+
+**Adım 3 — İkinci integral.**
+
+$$\int_{2}^{\infty}e^{-st}\,dt=\frac{e^{-2s}}{s}$$
+
+**Adım 4 — Topla.** $\dfrac{e^{-2s}}{s}$ katsayıları: $-2+1=-1$
+
+$$\mathcal{L}\{f\}=\frac{e^{-s}-e^{-2s}}{s}+\frac{e^{-s}-e^{-2s}}{s^{2}}$$
+
+$$\boxed{\;\mathcal{L}\{f\}=\left(e^{-s}-e^{-2s}\right)\left(\frac{1}{s}+\frac{1}{s^{2}}\right)\;}$$
+
+[KUTU]
+**Çarpanlara ayrılması tesadüf değil.** $\left(e^{-s}-e^{-2s}\right)$ çarpanı, fonksiyonun ==$1<t<2$ penceresinde açık== olduğunu söyler; $\left(\tfrac{1}{s}+\tfrac{1}{s^{2}}\right)$ ise o pencerede ne olduğunu ($1+t$ biçimli bir davranış). Pencere çarpanı her zaman $e^{-as}-e^{-bs}$ biçiminde çıkar.
+[/KUTU]
+
+**Doğrulama (birim basamakla).**
+
+$$f(t)=t\,u_{1}(t)-t\,u_{2}(t)+u_{2}(t)$$
+
+$t-1$ ve $t-2$ cinsine sokalım: $t\,u_{1}=(t-1)u_{1}+u_{1}$ &nbsp;ve&nbsp; $t\,u_{2}=(t-2)u_{2}+2u_{2}$
+
+$$\mathcal{L}\{f\}=\left(\frac{e^{-s}}{s^{2}}+\frac{e^{-s}}{s}\right)-\left(\frac{e^{-2s}}{s^{2}}+\frac{2e^{-2s}}{s}\right)+\frac{e^{-2s}}{s}$$
+
+$e^{-2s}/s$ katsayıları: $-2+1=-1$. Sonuç yukarıdakiyle aynı. &#10003;
+[/CEVAP]
+
+[SORU] **8.** &nbsp; $f(t)=2t$ &nbsp;($0\le t<1$), &nbsp;$2$ &nbsp;($1\le t<3$), &nbsp;$8-2t$ &nbsp;($t\ge 3$)
+[CEVAP]
+Bu bir **yamuk darbedir (trapezoidal pulse)**: $0$'dan $2$'ye çıkar, iki birim sabit kalır, sonra iner.
+
+**Adım 1 — Fark yöntemiyle basamak gösterimi.** Her düğümde "yeni ifade eksi eski ifade":
+
+$$f(t)=2t+u_{1}(t)\big[2-2t\big]+u_{3}(t)\big[(8-2t)-2\big]=2t+u_{1}(t)(2-2t)+u_{3}(t)(6-2t)$$
+
+**Adım 2 — Çarpanları $t-a$ cinsine sok.** ==Bu adım olmadan öteleme THEoREM'i uygulanamaz:==
+
+$$2-2t=-2(t-1),\qquad 6-2t=-2(t-3)$$
+
+$$f(t)=2t-2(t-1)u_{1}(t)-2(t-3)u_{3}(t)$$
+
+**Adım 3 — Dönüştür.**
+
+$$\mathcal{L}\{f\}=\frac{2}{s^{2}}-\frac{2e^{-s}}{s^{2}}-\frac{2e^{-3s}}{s^{2}}$$
+
+$$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s^{2}}\left(1-e^{-s}-e^{-3s}\right)\;}$$
+
+**Doğrulama (türev THEoREM'i ile).** $f'$ parçalı sabittir: $(0,1)$'de $2$, $(1,3)$'te $0$, $t>3$'te $-2$. Sıçramalar $t=1$'de $-2$, $t=3$'te $-2$:
+
+$$f'(t)=2-2u_{1}(t)-2u_{3}(t)\;\Longrightarrow\;\mathcal{L}\{f'\}=\frac{2}{s}-\frac{2e^{-s}}{s}-\frac{2e^{-3s}}{s}$$
+
+$f(0)=0$ olduğundan $\mathcal{L}\{f'\}=s\,\mathcal{L}\{f\}$, yani
+
+$$\mathcal{L}\{f\}=\frac{1}{s}\left[\frac{2}{s}-\frac{2e^{-s}}{s}-\frac{2e^{-3s}}{s}\right]=\frac{2}{s^{2}}\left(1-e^{-s}-e^{-3s}\right)\;\checkmark$$
+
+==İki bağımsız yol aynı sonucu verdi.==
+[/CEVAP]
+
+[KUTU]
+**Bu dört sorunun ortak dersi.** Tanımdan integral almak her zaman çalışır ama parçalı fonksiyonlarda uzundur. **Birim basamak gösterimi** (4.4) aynı işi tabloyla yapar ve ==çapraz kontrol için idealdir==: bir yolla çöz, öbürüyle doğrula.
+
+8. sorudaki **türev hilesi** üçüncü bir yoldur ve parçalı **doğrusal** fonksiyonlarda en hızlısıdır: türev parçalı sabit olur, onun dönüşümü de tek satırdır.
 [/KUTU]

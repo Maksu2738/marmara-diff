@@ -1,2 +1,2 @@
 ad: Diferansiyel Operatörler
-acik: hayir
+acik: evet

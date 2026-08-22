@@ -199,13 +199,16 @@
 
                     <!-- ===== BÖLÜM 7 ===== -->
                     <li>
-                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
                             <span class="chapter-num">7</span>
                             <span class="chapter-name">Diferansiyel Operatörler</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links">
-                            <li><a href="#operator" class="pending">Giriş</a></li>
+                        <ul class="chapter-links open">
+                            <li><a href="#operator">Giriş</a></li>
+                            <li><a href="#operator-sistem-turleri">7.1 Lineer Sistem Türleri</a></li>
+                            <li><a href="#operator-tanim">7.2 Diferansiyel Operatörler</a></li>
+                            <li><a href="#operator-yontem">7.3 Operatör Yöntemi</a></li>
                         </ul>
                     </li>
 
@@ -9352,9 +9355,202 @@
 
                     <div id="operator" class="section chapter-head">
                         <div class="section-title">
-                            BÖLÜM 7: Diferansiyel Operatörler
+                            BÖLÜM 7: Lineer Sistemler ve Diferansiyel Operatörler
                         </div>
-                        <p class="placeholder-note">Derste yeni başlandı; işlendikçe eklenecek.</p>
+                        <p>Şimdiye kadar hep <strong>tek bilinmeyenli tek bir denklemle</strong> uğraştık. Bu bölümde iki bilinmeyenli iki denklemden oluşan sistemleri, daha genel olarak $n$ bilinmeyenli $n$ denklemden oluşan <strong>lineer sistemleri (linear systems)</strong> ele alacağız.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bölümün akışı</h3>
+                        <p><strong>7.1 Sistem türleri.</strong> Önce hangi biçimlerle karşılaşacağımızı tanıyoruz: genel biçim, <strong>normal biçim (normal form)</strong> ve bunlar arasındaki ilişki. Burada önemli bir bağlantı ortaya çıkıyor: <span class="vurgu">tek bir $n$. mertebeden denklem, $n$ tane birinci mertebeden denklemden oluşan bir sisteme dönüştürülebilir.</span> Bu, iki konuyu birbirine bağlayan köprüdür.</p>
+                        <p><strong>7.2 Diferansiyel operatörler.</strong> Türev almayı bir çarpan gibi yazmayı sağlayan $D$ gösterimini kuruyoruz. Sabit katsayılı lineer diferansiyel operatörlerin <span class="vurgu">tıpkı polinomlar gibi çarpılıp çarpanlara ayrılabildiğini</span> göreceğiz; bu, yöntemin gücünün kaynağıdır.</p>
+                        <p><strong>7.3 Operatör yöntemi.</strong> Sabit katsayılı sistemleri çözmek için sembolik bir yöntem: bilinmeyenlerden birini yok edip geriye tek bilinmeyenli, bildiğimiz türden bir denklem bırakıyoruz.</p>
+                        <div class="highlight">
+                            <p><strong>Yöntemin özü tek cümlede:</strong> Lineer cebirde iki bilinmeyenli denklem sistemini çözerken bir bilinmeyeni yok ederiz. Burada da aynısını yapıyoruz — tek fark, katsayıların sayı değil <span class="vurgu">diferansiyel operatör</span> olması. Operatörler polinom gibi davrandığı için aynı eleme hamlesi işe yarıyor.</p>
+                        </div>
+                    </div>
+
+                    <div id="operator-sistem-turleri" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            7.1 &nbsp;Lineer Sistem Türleri ve Normal Biçim
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Genel lineer sistem</h3>
+                        <p>İki bilinmeyenli ($x$ ve $y$) iki birinci mertebeden denklemden oluşan <strong>genel lineer sistem</strong> şu biçimdedir:</p>
+                        $$a_{1}(t)x'+a_{2}(t)y'+a_{3}(t)x+a_{4}(t)y=F_{1}(t)$$
+                        $$b_{1}(t)x'+b_{2}(t)y'+b_{3}(t)x+b_{4}(t)y=F_{2}(t) \tag{7.1}$$
+                        <p>Üsler bağımsız değişken $t$'ye göre türevi gösterir. Biz <strong>sabit katsayılı</strong> sistemlerle ilgileneceğiz. Örnek:</p>
+                        $$2x'+3y'-2x+y=t^{2},\qquad x'-2y'+3x+4y=e^{t}$$
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $(7.1)$ sisteminin bir <strong>çözümü</strong>, öyle bir sıralı gerçel fonksiyon çifti $(f,g)$'dir ki $x=f(t)$, $y=g(t)$ yazıldığında sistemin <span class="vurgu">her iki denklemi de</span> bir $a\le t\le b$ aralığında <strong>eşzamanlı olarak</strong> sağlanır.</p>
+                        </div>
+                        <p>Üç bilinmeyenli ($x,y,z$) durumda genel biçim benzer şekilde uzar:</p>
+                        $$a_{1}(t)x'+a_{2}(t)y'+a_{3}(t)z'+a_{4}(t)x+a_{5}(t)y+a_{6}(t)z=F_{1}(t)$$
+                        $$b_{1}(t)x'+b_{2}(t)y'+b_{3}(t)z'+b_{4}(t)x+b_{5}(t)y+b_{6}(t)z=F_{2}(t) \tag{7.2}$$
+                        $$c_{1}(t)x'+c_{2}(t)y'+c_{3}(t)z'+c_{4}(t)x+c_{5}(t)y+c_{6}(t)z=F_{3}(t)$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Normal biçim</h3>
+                        <p>Genel biçimin özel bir hâli vardır ve teoride asıl kullanılan odur:</p>
+                        $$x'=a_{11}(t)x+a_{12}(t)y+F_{1}(t)$$
+                        $$y'=a_{21}(t)x+a_{22}(t)y+F_{2}(t) \tag{7.4}$$
+                        <p>Buna iki bilinmeyenli durumda <strong>normal biçim (normal form)</strong> denir.</p>
+                        <p><span class="vurgu">Ayırt edici özelliği türevlerin nasıl göründüğüdür:</span> her denklemde tek bir türev vardır ve o türev denklemin sol tarafında yalnız bırakılmıştır. Genel biçimde ise $x'$ ve $y'$ aynı denklemde karışık durabilir.</p>
+                        <p><strong>Değişken katsayılı örnek:</strong></p>
+                        $$x'=t^{2}x+(t+1)y+t^{3},\qquad y'=te^{t}x+t^{3}y-e^{t}$$
+                        <p><strong>Sabit katsayılı örnek:</strong></p>
+                        $$x'=5x+7y+t^{2},\qquad y'=2x-3y+2t$$
+                        <p>Üç bilinmeyenli normal biçim de aynı mantıkla yazılır: her denklemin solunda tek bir türev, sağında bilinmeyenlerin lineer birleşimi.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$n$. mertebeden tek denklem ile sistem arasındaki köprü</h3>
+                        <p>Bu bölümün en önemli yapısal gözlemi budur. Tek bilinmeyenli $n$. mertebeden bir lineer denklem alalım:</p>
+                        $$x^{(n)}+a_{1}(t)x^{(n-1)}+\dots+a_{n-1}(t)x'+a_{n}(t)x=F(t) \tag{7.6}$$
+                        <p>Şu yeni bilinmeyenleri tanımlayalım — <span class="vurgu">her biri bir öncekinin türevi olacak biçimde:</span></p>
+                        $$x_{1}=x,\quad x_{2}=x',\quad x_{3}=x'',\quad\dots,\quad x_{n}=x^{(n-1)} \tag{7.7}$$
+                        <p>Bu tanımlardan doğrudan şunlar çıkar:</p>
+                        $$x'=x_{1}',\quad x''=x_{2}',\quad\dots,\quad x^{(n)}=x_{n}' \tag{7.8}$$
+                        <p>$(7.7)$ ve $(7.8)$'i birlikte kullanırsak, tek bir $n$. mertebeden denklem şu <strong>birinci mertebeden $n$ denkleme</strong> dönüşür:</p>
+                        $$x_{1}'=x_{2}$$
+                        $$x_{2}'=x_{3}$$
+                        $$\vdots$$
+                        $$x_{n-1}'=x_{n}$$
+                        $$x_{n}'=-a_{n}(t)x_{1}-a_{n-1}(t)x_{2}-\dots-a_{1}(t)x_{n}+F(t) \tag{7.9}$$
+                        <div class="highlight">
+                            <p><strong>Bu dönüşüm neden önemli?</strong></p>
+                            <p>İlk $n-1$ denklem yalnızca tanımların kendisidir — bilgi taşımazlar, sadece "her yeni değişken bir öncekinin türevidir" der. <span class="vurgu">Bütün bilgi son denklemdedir</span>; orijinal denklem oraya taşınmıştır.</p>
+                            <p>Sonuç: <strong>tek bir $n$. mertebeden denklem ile $n$ bilinmeyenli normal lineer sistem aslında aynı nesnedir.</strong> Bu yüzden sistemler için geliştirilen her yöntem, tek yüksek mertebeli denklemlere de uygulanabilir; tersi de doğrudur. Sayısal çözüm yazılımlarının hepsi yüksek mertebeli denklemleri önce bu biçime çevirir.</p>
+                        </div>
+                    </div>
+
+                    <div id="operator-tanim" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            7.2 &nbsp;Sabit Katsayılı Lineer Diferansiyel Operatörler
+                        </div>
+                        <p>Sabit katsayılı lineer sistemleri çözmek için sembolik bir yöntem kuracağız. Yöntem <strong>diferansiyel operatörlerin (differential operators)</strong> kullanımına dayanır.</p>
+                        <p>$D$ sembolü "$t$'ye göre türev al" işlemini göstersin: $Dx=x'$, $D^{2}x=x''$, genel olarak $D^{k}x=x^{(k)}$.</p>
+                        <p>Bu gösterimle, sabit $a_{0},a_{1},\dots,a_{n}$ katsayılı genel lineer diferansiyel ifade</p>
+                        $$a_{0}x^{(n)}+a_{1}x^{(n-1)}+\dots+a_{n-1}x'+a_{n}x$$
+                        <p>şöyle yazılır:</p>
+                        $$\left(a_{0}D^{n}+a_{1}D^{n-1}+\dots+a_{n-1}D+a_{n}\right)x$$
+                        <div class="highlight">
+                            <p><strong>Dikkat — bu bir çarpım değildir.</strong> İfadedeki $D^{n},D^{n-1},\dots,D$ sembolleri $x$ fonksiyonuyla <strong>çarpılacak nicelikler değildir</strong>; bu fonksiyon üzerinde <span class="vurgu">yapılacak işlemleri (türev almaları)</span> gösterirler.</p>
+                            $$a_{0}D^{n}+a_{1}D^{n-1}+\dots+a_{n-1}D+a_{n}$$
+                            <p>ifadesinin kendisine (bir fonksiyona uygulanmadan) <strong>sabit katsayılı lineer diferansiyel operatör</strong> denir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Operatörlerin polinom gibi davranması</h3>
+                        <p>$L_{1}$ ve $L_{2}$ iki sabit katsayılı lineer diferansiyel operatör olsun:</p>
+                        $$L_{1}\equiv a_{0}D^{m}+a_{1}D^{m-1}+\dots+a_{m},\qquad L_{2}\equiv b_{0}D^{n}+b_{1}D^{n-1}+\dots+b_{n}$$
+                        <p>Bu operatörlerde $D$ yerine biçimsel olarak $r$ yazarak elde edilen polinomları $L_{1}(r)$ ve $L_{2}(r)$ ile gösterelim, çarpımlarını da $L(r)=L_{1}(r)L_{2}(r)$ diyelim.</p>
+                        <p>O zaman, $f$ fonksiyonu $n+m$ türevlenebiliyorsa şu gösterilebilir:</p>
+                        $$\boxed{\;L_{1}L_{2}f=L_{2}L_{1}f=Lf\;} \tag{7.10}$$
+                        <p>Burada $L$, "çarpım polinomu" $L(r)$'de $r$ yerine yine biçimsel olarak $D$ yazılarak elde edilen operatördür.</p>
+                        <p>$(7.10)$ iki önemli özelliği birden söylüyor:</p>
+                        <ol>
+                            <li><strong>Sıra önemsizdir (değişme özelliği).</strong> Önce $L_{2}$ uygulayıp sonuca $L_{1}$ uygulamak ile önce $L_{1}$ uygulayıp sonuca $L_{2}$ uygulamak <span class="vurgu">aynı sonucu verir.</span></li>
+                            <li><strong>Çarpım operatörüyle aynıdır.</strong> Bu ardışık uygulamaların ikisi de, doğrudan "çarpım operatörü" $L$'yi uygulamakla aynıdır.</li>
+                        </ol>
+                        <div class="highlight">
+                            <p><strong>Uyarı: bu özellik sabit katsayılara özeldir.</strong> Katsayılar $t$'ye bağlıysa operatörler genelde <span class="vurgu">yer değiştirmez</span>. Örneğin $D$ ile $t$ (yani "$t$ ile çarp" operatörü) için $D(tf)=f+tf'$ ama $t(Df)=tf'$ — eşit değiller. Bu bölümdeki bütün yöntem sabit katsayı varsayımına dayanır.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çarpanlara ayırma</h3>
+                        <p>$L\equiv a_{0}D^{n}+a_{1}D^{n-1}+\dots+a_{n}$ operatörüne karşılık gelen polinom $L(r)$ olsun ve $r_{1},r_{2},\dots,r_{n}$, $L(r)=0$ denkleminin kökleri olsun. O zaman</p>
+                        $$L(r)=a_{0}(r-r_{1})(r-r_{2})\cdots(r-r_{n})$$
+                        <p>Sağ tarafta $r$ yerine biçimsel olarak $D$ yazarsak operatörün çarpanlara ayrılmış biçimini elde ederiz:</p>
+                        $$L=a_{0}(D-r_{1})(D-r_{2})\cdots(D-r_{n})$$
+                        <p><span class="vurgu">Yani sabit katsayılı lineer diferansiyel operatörler, cebirsel bir $D$ niceliğinin polinomlarıymış gibi biçimsel olarak çarpılabilir ve çarpanlara ayrılabilir.</span> Yöntemin bütün gücü bu gözlemden gelir.</p>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 7.1.</strong> &nbsp; $3D^{2}+5D-2$ operatörünü $x=t^{3}$ fonksiyonuna uygulayınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$x$ iki kez türevlenebilir bir $t$ fonksiyonuysa</p>
+                                $$\left(3D^{2}+5D-2\right)x\quad\text{ifadesi}\quad 3x''+5x'-2x$$
+                                <p>anlamına gelir. $x=t^{3}$ için:</p>
+                                $$\left(3D^{2}+5D-2\right)t^{3}=3\frac{d^{2}}{dt^{2}}\left(t^{3}\right)+5\frac{d}{dt}\left(t^{3}\right)-2t^{3}$$
+                                $$=3(6t)+5\left(3t^{2}\right)-2t^{3}$$
+                                $$\boxed{\;=18t+15t^{2}-2t^{3}\;}$$
+                                <p><span class="vurgu">Sabit terim $-2$'nin "türev alma" değil "fonksiyonun kendisiyle çarp" anlamına geldiğine dikkat edin</span>; $D^{0}=1$ olarak düşünülür.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 7.2.</strong> &nbsp; $L_{1}\equiv D^{2}+1$, $L_{2}\equiv 3D+2$ ve $f(t)=t^{3}$ için $L_{1}L_{2}f$ ile $L_{2}L_{1}f$'yi hesaplayıp karşılaştırınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Önce $L_{2}$, sonra $L_{1}$:</strong></p>
+                                $$L_{2}f=(3D+2)t^{3}=3\left(3t^{2}\right)+2t^{3}=9t^{2}+2t^{3}$$
+                                $$L_{1}L_{2}f=\left(D^{2}+1\right)\left(9t^{2}+2t^{3}\right)=9\left(D^{2}+1\right)t^{2}+2\left(D^{2}+1\right)t^{3}$$
+                                $$=9\left(2+t^{2}\right)+2\left(6t+t^{3}\right)=18+9t^{2}+12t+2t^{3}$$
+                                $$L_{1}L_{2}f=2t^{3}+9t^{2}+12t+18$$
+                                <p><strong>Önce $L_{1}$, sonra $L_{2}$:</strong></p>
+                                $$L_{1}f=\left(D^{2}+1\right)t^{3}=6t+t^{3}$$
+                                $$L_{2}L_{1}f=(3D+2)\left(6t+t^{3}\right)=6(3D+2)t+(3D+2)t^{3}$$
+                                $$=6(3+2t)+\left(9t^{2}+2t^{3}\right)=18+12t+9t^{2}+2t^{3}$$
+                                $$L_{2}L_{1}f=2t^{3}+9t^{2}+12t+18$$
+                                <p><strong>Sonuç:</strong> İkisi aynı çıktı. $(7.10)$'un öngördüğü gibi</p>
+                                $$\boxed{\;L_{1}L_{2}f=L_{2}L_{1}f\;}$$
+                                <p><strong>Çarpım operatörüyle kontrol.</strong> $L(r)=\left(r^{2}+1\right)(3r+2)=3r^{3}+2r^{2}+3r+2$, yani $L\equiv 3D^{3}+2D^{2}+3D+2$. Bunu doğrudan $t^{3}$'e uygularsak:</p>
+                                $$3(6)+2(6t)+3\left(3t^{2}\right)+2t^{3}=18+12t+9t^{2}+2t^{3}$$
+                                <p><span class="vurgu">Üçü de aynı.</span> $(7.10)$'un ikinci iddiası da doğrulanmış oldu.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="operator-yontem" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            7.3 &nbsp;Sabit Katsayılı Sistemler için Operatör Yöntemi
+                        </div>
+                        <p>Şimdi sabit katsayılı lineer sistemleri çözen sembolik yöntemi kuruyoruz. Yöntem <span class="vurgu">tamamen biçimsel</span> olarak anlatılacak; gerekçelendirmesine girilmeyecektir.</p>
+                        <p>Şu biçimdeki sistemi ele alalım:</p>
+                        $$L_{1}x+L_{2}y=f_{1}(t)$$
+                        $$L_{3}x+L_{4}y=f_{2}(t) \tag{7.11}$$
+                        <p>Burada $L_{1},L_{2},L_{3},L_{4}$ sabit katsayılı lineer diferansiyel operatörlerdir:</p>
+                        $$L_{1}\equiv a_{0}D^{m}+\dots+a_{m},\qquad L_{2}\equiv b_{0}D^{n}+\dots+b_{n}$$
+                        $$L_{3}\equiv \alpha_{0}D^{p}+\dots+\alpha_{p},\qquad L_{4}\equiv \beta_{0}D^{q}+\dots+\beta_{q}$$
+                        <div class="highlight">
+                            <p><strong>Bir sistemi $(7.11)$ biçimine sokmak.</strong> Örnek:</p>
+                            $$2x'-2y'-3x=t,\qquad 2x'+2y'+3x+8y=2$$
+                            <p>Her denklemde $x$'li ve $y$'li terimleri ayrı gruplayıp $D$ cinsinden yazarız:</p>
+                            $$\underbrace{(2D-3)}_{L_{1}}x+\underbrace{(-2D)}_{L_{2}}y=t,\qquad \underbrace{(2D+3)}_{L_{3}}x+\underbrace{(2D+8)}_{L_{4}}y=2$$
+                            <p>Yani $L_{1}\equiv 2D-3$, $L_{2}\equiv -2D$, $L_{3}\equiv 2D+3$, $L_{4}\equiv 2D+8$.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$y$'yi eleme</h3>
+                        <p>Genel sisteme dönelim. Birinci denkleme $L_{4}$, ikinci denkleme $L_{2}$ operatörünü uygulayalım:</p>
+                        $$L_{4}L_{1}x+L_{4}L_{2}y=L_{4}f_{1}$$
+                        $$L_{2}L_{3}x+L_{2}L_{4}y=L_{2}f_{2}$$
+                        <p>İkinciyi birinciden çıkaralım. <span class="vurgu">Burada 7.2'deki değişme özelliği devreye giriyor:</span> $L_{4}L_{2}y=L_{2}L_{4}y$ olduğundan $y$'li terimler birbirini götürür:</p>
+                        $$\left(L_{1}L_{4}-L_{2}L_{3}\right)x=L_{4}f_{1}-L_{2}f_{2} \tag{7.12}$$
+                        <p>Sol taraftaki $L_{1}L_{4}-L_{2}L_{3}$ ifadesi kendisi de sabit katsayılı lineer bir diferansiyel operatördür. Bunun ne sıfır ne de sıfırdan farklı bir sabit olduğunu varsayıp $L_{5}$ diyelim. Sağ taraf da bir $g_{1}(t)$ fonksiyonu olsun. O zaman:</p>
+                        $$\boxed{\,L_{5}x=g_{1}\,} \tag{7.13}$$
+                        <div class="highlight">
+                            <p><strong>Ne kazandık?</strong> $(7.13)$, <span class="vurgu">tek bilinmeyenli</span> sabit katsayılı lineer bir diferansiyel denklemdir. Diğer bilinmeyen $y$ elenmiştir. Artık bildiğimiz yöntemlerle çözülebilir.</p>
+                            <p>$L_{1}L_{4}-L_{2}L_{3}$ ifadesinin, katsayı matrisinin <strong>determinantına</strong> benzediğine dikkat edin. Lineer cebirdeki eleme ile birebir aynı hamledir; tek fark çarpılan şeylerin sayı değil operatör olmasıdır.</p>
+                        </div>
+                        <p>$(7.13)$ denklemi $N$. mertebedense genel çözümü şu biçimdedir:</p>
+                        $$x=c_{1}u_{1}+c_{2}u_{2}+\dots+c_{N}u_{N}+U_{1} \tag{7.14}$$
+                        <p>Burada $u_{1},\dots,u_{N}$ homojen denklem $L_{5}x=0$'ın lineer bağımsız çözümleri, $c_{1},\dots,c_{N}$ keyfi sabitler ve $U_{1}$ ise $L_{5}x=g_{1}$'in bir özel çözümüdür.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$x$'i eleme</h3>
+                        <p>Aynı sisteme dönüp bu kez birinci denkleme $L_{3}$, ikinci denkleme $L_{1}$ uygulayalım:</p>
+                        $$L_{3}L_{1}x+L_{3}L_{2}y=L_{3}f_{1}$$
+                        $$L_{1}L_{3}x+L_{1}L_{4}y=L_{1}f_{2}$$
+                        <p>Birinciyi ikinciden çıkarırsak, $L_{3}L_{1}x=L_{1}L_{3}x$ olduğundan bu kez <span class="vurgu">$x$'li terimler götürür</span> ve $y$ için benzer bir denklem kalır:</p>
+                        $$\left(L_{1}L_{4}-L_{2}L_{3}\right)y=L_{1}f_{2}-L_{3}f_{1}$$
+                        <p>Yani $L_{5}y=g_{2}$ biçiminde, <strong>soldaki operatörü $x$ denklemiyle aynı olan</strong> bir denklem.</p>
+                        <div class="highlight">
+                            <p><strong>Kritik uyarı — sabitler bağımsız değildir.</strong> $x$ ve $y$ ayrı ayrı çözüldüğünde her biri kendi keyfi sabitlerini getirir; toplamda $2N$ sabit görünür. Ama sistemin genel çözümünde <span class="vurgu">yalnızca $N$ tanesi bağımsızdır.</span></p>
+                            <p>Fazla sabitleri elemek için bulunan $x$ ve $y$ ifadeleri <strong>orijinal sistemin denklemlerinden birine geri konur</strong> ve sabitler arasındaki bağıntılar çıkarılır. Bu adım atlanırsa çözüm yanlış olur — operatör yönteminde en sık yapılan hata budur.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yöntemin özeti</h3>
+                        <ol>
+                            <li>Sistemi $L_{1}x+L_{2}y=f_{1}$, $L_{3}x+L_{4}y=f_{2}$ biçimine sok.</li>
+                            <li>$L_{5}=L_{1}L_{4}-L_{2}L_{3}$ operatörünü hesapla (determinant benzeri).</li>
+                            <li>$L_{5}x=L_{4}f_{1}-L_{2}f_{2}$ denklemini çöz.</li>
+                            <li>$L_{5}y=L_{1}f_{2}-L_{3}f_{1}$ denklemini çöz.</li>
+                            <li><span class="vurgu">Bulunanları orijinal sisteme geri koyup fazla keyfi sabitleri ele.</span></li>
+                        </ol>
+                        <p><strong>Yöntemin sınırı.</strong> $L_{5}$ sıfır ya da sıfırdan farklı bir sabit çıkarsa yöntem kullanılamaz. Bu, sistemin ya çözümsüz ya da beklenenden farklı yapıda olduğunun işaretidir.</p>
                     </div>
 
 

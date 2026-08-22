@@ -164,6 +164,8 @@
                             <li><a href="#egzersizler-basamak">4.4 Egzersizler — Basamak Fonksiyonları</a></li>
                             <li><a href="#egzersizler-basamak-2">4.4 Egzersizler — Trigonometrik ve Periyodik</a></li>
                             <li><a href="#ters-donusum-oteleme">4.4 $e^{-as}F(s)$ Biçiminin Ters Dönüşümü</a></li>
+                            <li><a href="#ornek-sureksiz-zorlama">4.4 Örnek — Süreksiz Zorlamalı Problem</a></li>
+                            <li><a href="#egzersizler-sureksiz">4.4 Egzersizler — Süreksiz Zorlama</a></li>
                         </ul>
                     </li>
 
@@ -9759,6 +9761,147 @@
                                         <li><strong>Yanlış cevap:</strong> $2(4)+5=13$ — hiçbir yerden gelmeyen bir sıçrama.</li>
                                     </ul>
                                     <p><span class="vurgu">Kontrol yolu:</span> $t=a$ koyduğunuzda $f(0)$ değerini almalısınız. Almıyorsanız ötelemeyi atlamışsınızdır.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-sureksiz-zorlama" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.4 &nbsp;Çözümlü Örnek — Süreksiz Zorlamalı Başlangıç Değer Problemi
+                        </div>
+                        <p>Bölüm 4.4'ün bütün araçları burada bir araya geliyor. <span class="vurgu">Bu, Laplace yönteminin klasik yöntemlere karşı en belirgin üstünlük gösterdiği problem türüdür.</span></p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.36.</strong> &nbsp; Aşağıdaki başlangıç değer problemini çözünüz: $$y''+2y'+5y=h(t),\qquad h(t)=\begin{cases}1, & 0<t<\pi\\ 0, & t>\pi\end{cases}$$ $$y(0)=0,\qquad y'(0)=0$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sol tarafın dönüşümü.</strong></p>
+                                <p>Her iki başlangıç koşulu sıfır olduğundan türev terimleri sadeleşir:</p>
+                                $$\mathcal{L}\{y''\}+2\mathcal{L}\{y'\}+5\mathcal{L}\{y\}=\left[s^{2}+2s+5\right]Y(s)$$
+                                <p><strong>Adım 2 — Sağ tarafın dönüşümü.</strong></p>
+                                <p>$h$ bir dikdörtgen darbedir. Sıçrama kuralıyla ($t=0$'da $+1$, $t=\pi$'de $-1$):</p>
+                                $$h(t)=u_{0}(t)-u_{\pi}(t)$$
+                                $$\mathcal{L}\{h(t)\}=\frac{1}{s}-\frac{e^{-\pi s}}{s}=\frac{1-e^{-\pi s}}{s}$$
+                                <p><strong>Adım 3 — Cebirsel denklemi çöz.</strong></p>
+                                $$\left[s^{2}+2s+5\right]Y(s)=\frac{1-e^{-\pi s}}{s}$$
+                                $$Y(s)=\frac{1}{s\left(s^{2}+2s+5\right)}-e^{-\pi s}\cdot\frac{1}{s\left(s^{2}+2s+5\right)}$$
+                                <p><span class="vurgu">İki terim de aynı $F(s)$ çarpanını içeriyor;</span> yalnızca ikincisinde $e^{-\pi s}$ var. Demek ki bir kez $F$'nin ters dönüşümünü bulmak yeterli.</p>
+                                <p><strong>Adım 4 — $F(s)$'nin ters dönüşümü.</strong></p>
+                                $$F(s)=\frac{1}{s\left(s^{2}+2s+5\right)}=\frac{A}{s}+\frac{Bs+C}{s^{2}+2s+5}$$
+                                $$1=A\left(s^{2}+2s+5\right)+(Bs+C)s$$
+                                <p>$s=0$: $1=5A\Rightarrow A=\frac{1}{5}$. &nbsp; $s^{2}$: $0=A+B\Rightarrow B=-\frac{1}{5}$. &nbsp; $s^{1}$: $0=2A+C\Rightarrow C=-\frac{2}{5}$.</p>
+                                $$F(s)=\frac{1}{5}\cdot\frac{1}{s}-\frac{1}{5}\cdot\frac{s+2}{s^{2}+2s+5}$$
+                                <p>Paydayı tamkareye tamamlayalım: $s^{2}+2s+5=(s+1)^{2}+4$. Payı da öteleyelim: $s+2=(s+1)+1$.</p>
+                                $$\frac{s+2}{(s+1)^{2}+4}=\frac{s+1}{(s+1)^{2}+4}+\frac{1}{2}\cdot\frac{2}{(s+1)^{2}+4}$$
+                                <p>Tablo 9.1'in 1, 12 ve 11 numaralı girdileriyle:</p>
+                                $$f(t)=\frac{1}{5}-\frac{1}{5}e^{-t}\cos 2t-\frac{1}{10}e^{-t}\sin 2t$$
+                                <p><strong>Adım 5 — İkinci terimi öteleyerek yaz.</strong></p>
+                                <p>$(9.86)$ ile $a=\pi$:</p>
+                                $$y=f(t)-u_{\pi}(t)\,f(t-\pi)$$
+                                <p><strong>Adım 6 — Parçalı biçimde ver.</strong></p>
+                                <p><strong>$0<t<\pi$ için</strong> $u_{\pi}=0$, geriye yalnızca $f(t)$ kalır:</p>
+                                $$y=\frac{1}{5}\left[1-e^{-t}\left(\cos 2t+\frac{1}{2}\sin 2t\right)\right]$$
+                                <p><strong>$t>\pi$ için</strong> $f(t)-f(t-\pi)$ hesaplanır. Burada <span class="vurgu">$2\pi$ periyodikliği işi kolaylaştırıyor:</span></p>
+                                $$\cos 2(t-\pi)=\cos(2t-2\pi)=\cos 2t,\qquad \sin 2(t-\pi)=\sin 2t$$
+                                $$f(t-\pi)=\frac{1}{5}-\frac{1}{5}e^{\pi}e^{-t}\cos 2t-\frac{1}{10}e^{\pi}e^{-t}\sin 2t$$
+                                <p>Farkı alalım — <span class="vurgu">sabit $\frac15$ terimleri birbirini götürüyor:</span></p>
+                                $$y=\frac{e^{-t}}{5}\left[\left(e^{\pi}-1\right)\cos 2t+\frac{e^{\pi}-1}{2}\sin 2t\right]$$
+                                <p><strong>Sonuç:</strong></p>
+                                $$\boxed{\;y=\begin{cases}\dfrac{1}{5}\left[1-e^{-t}\left(\cos 2t+\dfrac{1}{2}\sin 2t\right)\right], & 0<t<\pi\\[2ex] \dfrac{e^{-t}}{5}\left[\left(e^{\pi}-1\right)\cos 2t+\dfrac{e^{\pi}-1}{2}\sin 2t\right], & t>\pi\end{cases}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Çözümün fiziksel okunuşu.</strong> $0<t<\pi$ aralığında sistem sabit bir kuvvetle sürülüyor; çözüm $\frac{1}{5}$ değerine doğru sönümlü salınımla yaklaşıyor.</p>
+                                    <p>$t=\pi$'de zorlama kesiliyor. Ondan sonra sabit terim kayboluyor ve geriye <span class="vurgu">yalnızca sönümlü serbest salınım</span> kalıyor: $e^{-t}$ çarpanı genliği sürekli küçültüyor, sistem sıfıra dönüyor.</p>
+                                    <p>$e^{\pi}-1$ katsayısı, kesilme anında sistemde biriken enerjinin ölçüsüdür.</p>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>Klasik yöntemle çözülseydi ne olurdu?</strong> İki ayrı problem kurmak gerekirdi:</p>
+                                    <ol>
+                                        <li>$0<t<\pi$ için $y''+2y'+5y=1$, verilen başlangıç koşullarıyla.</li>
+                                        <li>$t>\pi$ için $y''+2y'+5y=0$, <strong>birinci çözümün $t=\pi$'deki değeri ve türevi</strong> yeni başlangıç koşulu olarak.</li>
+                                    </ol>
+                                    <p>Yani bağlantı koşullarını elle taşımak gerekirdi. <span class="vurgu">Laplace bunu kendiliğinden yaptı;</span> $u_{\pi}(t)f(t-\pi)$ terimi süreklilik ve türev sürekliliğini otomatik sağlıyor.</p>
+                                    <p>Zorlama iki değil de beş parçalı olsaydı, klasik yöntemde beş ayrı problem ve dört bağlantı adımı gerekirdi; Laplace'ta yalnızca birkaç $u_{a}$ terimi daha eklenirdi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="egzersizler-sureksiz" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.4 &nbsp;Egzersizler — Süreksiz Zorlamalı Başlangıç Değer Problemleri
+                        </div>
+                        <p>Aşağıdaki başlangıç değer problemlerini Laplace dönüşümüyle çözünüz.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $y'+2y=h(t)$, &nbsp; $h(t)=\begin{cases}4, & 0<t<6\\ 0, & t>6\end{cases}$, &nbsp; $y(0)=5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümler.</strong></p>
+                                <p>$h(t)=4u_{0}(t)-4u_{6}(t)$ olduğundan $\mathcal{L}\{h\}=\dfrac{4\left(1-e^{-6s}\right)}{s}$.</p>
+                                $$sY-5+2Y=\frac{4\left(1-e^{-6s}\right)}{s}$$
+                                $$Y=\frac{5}{s+2}+\underbrace{\frac{4}{s(s+2)}}_{F(s)}-e^{-6s}\underbrace{\frac{4}{s(s+2)}}_{F(s)}$$
+                                <p><strong>Adım 2 — $F(s)$'nin ters dönüşümü.</strong></p>
+                                $$\frac{4}{s(s+2)}=\frac{A}{s}+\frac{B}{s+2},\qquad 4=A(s+2)+Bs$$
+                                <p>$s=0$: $4=2A\Rightarrow A=2$. &nbsp; $s=-2$: $4=-2B\Rightarrow B=-2$.</p>
+                                $$f(t)=2-2e^{-2t}$$
+                                <p><strong>Adım 3 — Birleştir.</strong></p>
+                                $$y=5e^{-2t}+f(t)-u_{6}(t)f(t-6)$$
+                                <p><strong>$0<t<6$:</strong> &nbsp; $y=5e^{-2t}+2-2e^{-2t}=3e^{-2t}+2$</p>
+                                <p><strong>$t>6$:</strong> &nbsp; $f(t-6)=2-2e^{-2(t-6)}$ olduğundan <span class="vurgu">sabit $2$'ler götürüyor:</span></p>
+                                $$y=3e^{-2t}+2-\left[2-2e^{-2(t-6)}\right]=3e^{-2t}+2e^{-2(t-6)}$$
+                                $$\boxed{\;y=\begin{cases}3e^{-2t}+2, & 0<t<6\\ 3e^{-2t}+2e^{-2(t-6)}, & t>6\end{cases}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $y''-3y'+2y=h(t)$, &nbsp; $h(t)=\begin{cases}2, & 0<t<4\\ 0, & t>4\end{cases}$, &nbsp; $y(0)=0,\;\; y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümler.</strong></p>
+                                <p>Başlangıç koşulları sıfır olduğundan sol taraf sade:</p>
+                                $$\left(s^{2}-3s+2\right)Y=\frac{2\left(1-e^{-4s}\right)}{s}$$
+                                <p>$s^{2}-3s+2=(s-1)(s-2)$:</p>
+                                $$Y=\left(1-e^{-4s}\right)\underbrace{\frac{2}{s(s-1)(s-2)}}_{F(s)}$$
+                                <p><strong>Adım 2 — $F(s)$'nin ters dönüşümü.</strong></p>
+                                $$2=A(s-1)(s-2)+Bs(s-2)+Cs(s-1)$$
+                                <p>$s=0$: $2=A(-1)(-2)=2A\Rightarrow A=1$</p>
+                                <p>$s=1$: $2=B(1)(-1)=-B\Rightarrow B=-2$</p>
+                                <p>$s=2$: $2=C(2)(1)=2C\Rightarrow C=1$</p>
+                                $$f(t)=1-2e^{t}+e^{2t}$$
+                                <p><strong>Adım 3 — Birleştir.</strong></p>
+                                $$y=f(t)-u_{4}(t)f(t-4)$$
+                                <p><strong>$0<t<4$:</strong></p>
+                                $$y=-2e^{t}+e^{2t}+1$$
+                                <p><strong>$t>4$:</strong> &nbsp; $f(t-4)=1-2e^{t-4}+e^{2(t-4)}=1-2e^{-4}e^{t}+e^{-8}e^{2t}$</p>
+                                $$y=\left(1-2e^{t}+e^{2t}\right)-\left(1-2e^{-4}e^{t}+e^{-8}e^{2t}\right)$$
+                                <p><span class="vurgu">Sabit $1$'ler götürüyor</span>, üstel terimler katsayı toplanıyor:</p>
+                                $$y=2\left(e^{-4}-1\right)e^{t}+\left(1-e^{-8}\right)e^{2t}$$
+                                $$\boxed{\;y=\begin{cases}-2e^{t}+e^{2t}+1, & 0<t<4\\ 2\left(e^{-4}-1\right)e^{t}+\left(1-e^{-8}\right)e^{2t}, & t>4\end{cases}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <div class="highlight">
+                                    <p><strong>Bu iki soruda tekrar eden yapı.</strong> İkisinde de $Y(s)$ şu biçimde çıktı:</p>
+                                    $$Y(s)=\underbrace{(\text{başlangıç koşullarından gelen})}_{e^{-as}\text{ içermez}}+\left(1-e^{-as}\right)F(s)$$
+                                    <p>Dolayısıyla çözüm hep</p>
+                                    $$y=(\text{başlangıç kısmı})+f(t)-u_{a}(t)f(t-a)$$
+                                    <p>biçiminde olur. <span class="vurgu">Tek bir $F$'nin ters dönüşümünü bulmak yeterlidir</span>; ikinci parça onun ötelenmişidir. Zorlama kaç parçalı olursa olsun bu yapı korunur, yalnızca $u_{a}$ terimlerinin sayısı artar.</p>
+                                    <p><strong>Sadeleşme deseni:</strong> $t>a$ bölgesinde $f(t)$ ile $f(t-a)$'nın <strong>sabit terimleri</strong> her zaman birbirini götürür, çünkü ikisi de aynı sabiti içerir. Geriye yalnızca üstel/trigonometrik kısımlar kalır.</p>
+                                </div>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                                <p><strong>2.</strong> &nbsp; $3y'-5y=h(t)$, &nbsp; $h(t)=\begin{cases}0, & 0<t<6\\ 10, & t>6\end{cases}$, &nbsp; $y(0)=4$</p>
+                                <p><strong>4.</strong> &nbsp; $y''+5y'+6y=h(t)$, &nbsp; $h(t)=\begin{cases}6, & 0<t<2\\ 0, & t>2\end{cases}$, &nbsp; $y(0)=0,\;y'(0)=0$</p>
+                                <p><strong>8.</strong> &nbsp; $y''+y=h(t)$, &nbsp; $h(t)=\begin{cases}t, & 0<t<\pi\\ \pi, & t>\pi\end{cases}$, &nbsp; $y(0)=2,\;y'(0)=3$</p>
+                                <p><strong>10.</strong> &nbsp; $y''+6y'+25y=25\left[u_{2}(t)-u_{4}(t)\right]$, &nbsp; $y(0)=3,\;y'(0)=-9$</p>
+                                <p><strong>12.</strong> &nbsp; $y''-y'=h(t)$, &nbsp; $h(t)=\begin{cases}4-2t, & 0\le t\le 2\\ 0, & t>2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-2$</p>
+                                <div class="highlight">
+                                    <p><strong>İpuçları.</strong></p>
+                                    <p><strong>2</strong> ve <strong>4</strong> → soru 1 ve 3 ile aynı yapıda. 2'de zorlama sonradan <strong>başlıyor</strong>, yani $\mathcal{L}\{h\}=\frac{10e^{-6s}}{s}$; $(1-e^{-as})$ değil yalnız $e^{-as}$ çarpanı çıkar.</p>
+                                    <p><strong>8</strong> → zorlama sabit değil, rampa. $h(t)=t-u_{\pi}(t)(t-\pi)$ yazın (4.4 egzersiz 13'teki doyum kalıbı).</p>
+                                    <p><strong>10</strong> → zorlama zaten $u_{a}$ cinsinden verilmiş, dönüştürmeye gerek yok. Payda $s^{2}+6s+25=(s+3)^{2}+16$ tamkareye gider.</p>
+                                    <p><strong>12</strong> → $h(t)=4-2t-u_{2}(t)\left[4-2t\right]$ ifadesini $t-2$ cinsinden yazın: $4-2t=-2(t-2)$, yani $h(t)=(4-2t)+2u_{2}(t)(t-2)$.</p>
+                                    <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözümü sınayabilirsiniz: bulduğunuz $y$'yi <span class="vurgu">her iki aralıkta ayrı ayrı</span> denkleme koyun, ayrıca $t=a$ noktasında $y$ ve $y'$'nin sürekli olduğunu kontrol edin. Süreksiz zorlamada çözümün kendisi ve türevi süreklidir; sıçrayan yalnızca ikinci türevdir.</p>
                                 </div>
                             </div>
                         </div>

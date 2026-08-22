@@ -144,6 +144,8 @@
                             <li><a href="#laplace-tanim">4.1 Tanım ve Temel Dönüşümler</a></li>
                             <li><a href="#laplace-varlik">4.1 Dönüşüm Ne Zaman Vardır</a></li>
                             <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
+                            <li><a href="#laplace-yuksek-turev">4.1 Yüksek Mertebeden Türevler</a></li>
+                            <li><a href="#ornek-laplace-bdp">4.1 Örnek — İlk Başlangıç Değer Problemi</a></li>
                             <li><a href="#laplace-ters" class="pending">4.2 Ters Laplace Dönüşümü</a></li>
                         </ul>
                     </li>
@@ -8096,6 +8098,133 @@
                                 <p>Kapalı $0\le t\le R$ aralığında $f'$ en fazla sonlu sayıda süreksizliğe sahiptir; bunlara $t_{1},t_{2},\dots,t_{n}$ diyelim:</p>
                                 $$0\le t_{1}<t_{2}<\dots<t_{n}\le R$$
                                 <p>İntegral bu noktalarda parçalara ayrılır, her parçada kısmi integrasyon uygulanır ve sınır terimleri toplanır. Süreklilik sayesinde ara noktalardaki katkılar birbirini götürür; geriye $t=0$ ve $t=R$ uçlarından gelenler kalır. $s>\alpha$ olduğunda $R$ ucundaki terim sıfıra gider ve $(9.11)$ elde edilir. $\blacksquare$</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-yuksek-turev" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.1 &nbsp;Yüksek Mertebeden Türevlerin Dönüşümü
+                        </div>
+                        <p>THEoREM 9.3 birinci türevi $s$ ile çarpmaya çevirdi. İkinci, üçüncü ve daha yüksek türevler için de benzer bir kural gerekiyor — çünkü çözeceğimiz denklemler genelde ikinci mertebeden.</p>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.4</strong></p>
+                            <p>Uygun koşullar altında ($f$, $f'$, ..., $f^{(n-1)}$ sürekli ve üstel mertebeden; $f^{(n)}$ parçalı sürekli) $\mathcal{L}\{f^{(n)}\}$, $s>\alpha$ için vardır ve</p>
+                            $$\mathcal{L}\{f^{(n)}(t)\}=s^{n}\mathcal{L}\{f(t)\}-s^{n-1}f(0)-s^{n-2}f'(0)-\dots-f^{(n-1)}(0) \tag{9.17}$$
+                        </div>
+                        <p><strong>İspatın fikri.</strong> Önce THEoREM 9.3'teki gibi ilerlenerek</p>
+                        $$\mathcal{L}\{f^{(n)}\}=s\,\mathcal{L}\{f^{(n-1)}\}-f^{(n-1)}(0)$$
+                        <p>gösterilir — yani <span class="vurgu">her türev alma bir basamak aşağı iner</span>. Sonra <strong>tümevarımla (mathematical induction)</strong> genel formüle ulaşılır. $\blacksquare$</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">En çok kullanılan iki özel durum</h3>
+                        <p>$n=1$ (THEoREM 9.3'te bulunmuştu):</p>
+                        $$\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\{f(t)\}-f(0) \tag{9.11}$$
+                        <p>$n=2$:</p>
+                        $$\boxed{\;\mathcal{L}\{f''(t)\}=s^{2}\mathcal{L}\{f(t)\}-s\,f(0)-f'(0)\;} \tag{9.18}$$
+                        <div class="highlight">
+                            <p><strong>Yapıyı ezberlemenin kolay yolu.</strong> $s$'nin kuvveti ile türev mertebesi <span class="vurgu">ters sırada</span> ilerler: en yüksek $s$ kuvveti $f(0)$'ın yanında, en düşüğü ($s^{0}=1$) en yüksek türevin başlangıç değerinin yanındadır.</p>
+                            <p>$n=2$ için: $s^{2}\mathcal{L}\{f\}$, sonra $s^{1}f(0)$, sonra $s^{0}f'(0)$. Hepsi eksi işaretli.</p>
+                            <p><span class="vurgu">$n$. mertebeden bir denklem için $n$ tane başlangıç değeri gerekir</span> — formül bunu kendiliğinden talep eder.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.14.</strong> &nbsp; THEoREM 9.4'ü $n=2$ ile kullanarak $\mathcal{L}\{\sin bt\}$ değerini bulunuz (bunu $(9.5)$'te doğrudan integralle bulmuştuk).</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$f(t)=\sin bt$ fonksiyonu THEoREM'in hipotezlerini $\alpha=0$ ile sağlar.</p>
+                                <p><strong>Adım 1 — Gerekli değerleri hesapla.</strong></p>
+                                $$f'(t)=b\cos bt,\qquad f''(t)=-b^{2}\sin bt$$
+                                $$f(0)=0,\qquad f'(0)=b$$
+                                <p><strong>Adım 2 — $(9.18)$'e yerleştir.</strong></p>
+                                $$\mathcal{L}\{f''(t)\}=s^{2}\mathcal{L}\{f(t)\}-s\cdot 0-b$$
+                                $$\mathcal{L}\{-b^{2}\sin bt\}=s^{2}\mathcal{L}\{\sin bt\}-b$$
+                                <p><strong>Adım 3 — Lineerlikle sol tarafı aç ve çöz.</strong></p>
+                                $$-b^{2}\mathcal{L}\{\sin bt\}=s^{2}\mathcal{L}\{\sin bt\}-b$$
+                                <p>$\mathcal{L}\{\sin bt\}$ terimlerini bir tarafa toplayalım:</p>
+                                $$b=s^{2}\mathcal{L}\{\sin bt\}+b^{2}\mathcal{L}\{\sin bt\}=\left(s^{2}+b^{2}\right)\mathcal{L}\{\sin bt\}$$
+                                $$\boxed{\;\mathcal{L}\{\sin bt\}=\frac{b}{s^{2}+b^{2}}\;}$$
+                                <p><span class="vurgu">$(9.5)$ ile birebir aynı.</span> Dikkat çekici olan şudur: burada <strong>hiç integral almadık</strong>. $\sin bt$'nin ikinci türevinin yine kendisiyle orantılı olması ($f''=-b^{2}f$), dönüşümü cebirsel olarak çözmemizi sağladı.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.15.</strong> &nbsp; $f''-6f'+5f=0$, $f(0)=3$, $f'(0)=7$ koşullarını sağlayan $f$ için $\mathcal{L}\{f(t)\}$ ifadesini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Türevlerin dönüşümlerini yaz.</strong></p>
+                                <p>$(9.18)$ ile:</p>
+                                $$\mathcal{L}\{f''(t)\}=s^{2}\mathcal{L}\{f(t)\}-s\,f(0)-f'(0)=s^{2}\mathcal{L}\{f(t)\}-3s-7$$
+                                <p>$(9.11)$ ile:</p>
+                                $$\mathcal{L}\{f'(t)\}=s\,\mathcal{L}\{f(t)\}-f(0)=s\,\mathcal{L}\{f(t)\}-3$$
+                                <p><strong>Adım 2 — Denklemin dönüşümünü al.</strong></p>
+                                $$s^{2}\mathcal{L}\{f(t)\}-3s-7-6\Big[s\,\mathcal{L}\{f(t)\}-3\Big]+5\mathcal{L}\{f(t)\}=0$$
+                                <p><strong>Adım 3 — Benzer terimleri topla.</strong></p>
+                                <p>$\mathcal{L}\{f(t)\}$ çarpanları: $s^{2}-6s+5$. Sabit terimler: $-3s-7+18=-3s+11$.</p>
+                                $$\left[s^{2}-6s+5\right]\mathcal{L}\{f(t)\}-3s+11=0$$
+                                <p><strong>Adım 4 — Çöz.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{3s-11}{s^{2}-6s+5}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Buraya kadar geldik ama iş bitmedi.</strong> Elimizde $f$'nin kendisi değil, <span class="vurgu">dönüşümü</span> var. $f(t)$'yi bulmak için "dönüşümü bu olan fonksiyon hangisidir" sorusunu yanıtlamamız gerekiyor.</p>
+                                    <p>Bu <strong>ters dönüşüm (inverse transform)</strong> işlemidir ve 4.2'de ele alınacaktır. Laplace yönteminin en zahmetli kısmı da genelde burasıdır.</p>
+                                    <p>Bu örnekte payda $s^{2}-6s+5=(s-1)(s-5)$ çarpanlarına ayrılır; kısmi kesirlere açılıp tablodan geri okunabilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ornek-laplace-bdp" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.1 &nbsp;Çözümlü Örnek — Laplace ile İlk Başlangıç Değer Problemi
+                        </div>
+                        <p>Buraya kadar dönüşümün tanımını, varlığını ve türev kuralını kurduk. Şimdi <span class="vurgu">bütün bunların ne işe yaradığını</span> bir örnekle görelim. Yöntemin tam ve sistematik anlatımı 4.3'te yapılacak; buradaki amaç fikri göstermektir.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.13.</strong> &nbsp; Aşağıdaki başlangıç değer problemini Laplace dönüşümüyle çözünüz: $$y'-3y=4e^{5t},\qquad y(0)=6$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Denklemin her iki tarafının dönüşümünü al.</strong></p>
+                                $$\mathcal{L}\{y'(t)-3y(t)\}=\mathcal{L}\{4e^{5t}\}$$
+                                <p>Sol tarafa THEoREM 9.2'yi (lineerlik) uygulayalım:</p>
+                                $$\mathcal{L}\{y'(t)\}-3\mathcal{L}\{y(t)\}=4\mathcal{L}\{e^{5t}\} \tag{9.14}$$
+                                <p><strong>Adım 2 — Türev kuralını ve başlangıç koşulunu uygula.</strong></p>
+                                <p>THEoREM 9.3 gereği $\mathcal{L}\{y'(t)\}=s\mathcal{L}\{y(t)\}-y(0)$. <span class="vurgu">Başlangıç koşulu $y(0)=6$ tam burada devreye giriyor:</span></p>
+                                $$\mathcal{L}\{y'(t)\}=s\,\mathcal{L}\{y(t)\}-6$$
+                                <p><strong>Adım 3 — Sağ tarafı tablodan oku.</strong></p>
+                                <p>Örnek 9.3'ten $\mathcal{L}\{e^{5t}\}=\dfrac{1}{s-5}$, dolayısıyla sağ taraf $\dfrac{4}{s-5}$ olur.</p>
+                                <p><strong>Adım 4 — Cebirsel denklemi kur.</strong></p>
+                                $$s\,\mathcal{L}\{y(t)\}-6-3\mathcal{L}\{y(t)\}=\frac{4}{s-5}$$
+                                $$(s-3)\mathcal{L}\{y(t)\}-6=\frac{4}{s-5}$$
+                                <div class="highlight">
+                                    <p><strong>Dönüşüm tamamlandı.</strong> Başlangıç değer problemi, bilinmeyeni $\mathcal{L}\{y(t)\}$ olan <span class="vurgu">sıradan bir cebirsel denkleme</span> indi. Türev yok, integral yok, başlangıç koşulu da zaten içeride.</p>
+                                </div>
+                                <p><strong>Adım 5 — Cebirsel denklemi çöz.</strong></p>
+                                $$\mathcal{L}\{y(t)\}=\frac{1}{s-3}\left[6+\frac{4}{s-5}\right]=\frac{6}{s-3}+\frac{4}{(s-3)(s-5)}$$
+                                <p>İkinci terimi <strong>kısmi kesirlere</strong> ayıralım:</p>
+                                $$\frac{4}{(s-3)(s-5)}=\frac{A}{s-3}+\frac{B}{s-5}\;\Longrightarrow\;4=A(s-5)+B(s-3)$$
+                                <p>$s=5$ koyarsak $4=2B$, yani $B=2$. $s=3$ koyarsak $4=-2A$, yani $A=-2$.</p>
+                                $$\mathcal{L}\{y(t)\}=\frac{6}{s-3}-\frac{2}{s-3}+\frac{2}{s-5}$$
+                                $$\mathcal{L}\{y(t)\}=\frac{4}{s-3}+\frac{2}{s-5} \tag{9.16}$$
+                                <p><strong>Adım 6 — Ters dönüşüm: "bunun dönüşümü olan fonksiyon hangisi?"</strong></p>
+                                <p>Şimdi işlemin <span class="vurgu">tersini</span> yapmalıyız. Dönüşümü $\dfrac{4}{s-3}$ olan ve dönüşümü $\dfrac{2}{s-5}$ olan fonksiyonları arıyoruz.</p>
+                                <p>Örnek 9.3'ten $\mathcal{L}\{e^{at}\}=\dfrac{1}{s-a}$ olduğunu biliyoruz; lineerlikle:</p>
+                                $$\mathcal{L}\{4e^{3t}\}=\frac{4}{s-3},\qquad \mathcal{L}\{2e^{5t}\}=\frac{2}{s-5}$$
+                                <p>Böylece $(9.16)$ şu hâle gelir:</p>
+                                $$\mathcal{L}\{y(t)\}=\mathcal{L}\{4e^{3t}\}+\mathcal{L}\{2e^{5t}\}=\mathcal{L}\{4e^{3t}+2e^{5t}\}$$
+                                $$\boxed{\;y=4e^{3t}+2e^{5t}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=4+2=6\;\checkmark$</p>
+                                $$y'=12e^{3t}+10e^{5t}$$
+                                $$y'-3y=12e^{3t}+10e^{5t}-12e^{3t}-6e^{5t}=4e^{5t}\;\checkmark$$
+                                <hr>
+                                <div class="highlight">
+                                    <p><strong>Bu problem başka yollarla da çözülebilirdi.</strong> Birinci mertebeden lineer denklem olduğu için integral çarpanı yöntemi ya da belirsiz katsayılar da işe yarardı. Laplace ile çözmemizin sebebi <span class="vurgu">yöntemi göstermekti.</span></p>
+                                    <p><strong>Asıl zorluk nerede?</strong> $\mathcal{L}\{y(t)\}$ bulunup sadeleştirildikten <strong>sonra</strong> başlıyor: elimizdeki $s$ fonksiyonundan $y(t)$'yi geri çıkarmak. Bu örnekte kolaydı çünkü kısmi kesirler doğrudan tablodaki biçimlere düştü. Genel durumda bu adım — <strong>ters dönüşüm</strong> — çok daha uğraştırıcıdır ve 4.2'nin konusudur.</p>
+                                </div>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yöntemin üç adımlık iskeleti</h3>
+                                <ol>
+                                    <li><strong>Dönüştür.</strong> Denklemin her iki tarafının Laplace dönüşümünü al; türev kuralı sayesinde başlangıç koşulları kendiliğinden girer.</li>
+                                    <li><strong>Çöz.</strong> Ortaya çıkan cebirsel denklemi $\mathcal{L}\{y\}$ için çöz, kısmi kesirlerle sadeleştir.</li>
+                                    <li><strong>Geri dön.</strong> Ters dönüşümle $y(t)$'yi bul.</li>
+                                </ol>
+                                <p><span class="vurgu">Zorluk üçüncü adımdadır</span>; ilk ikisi mekaniktir.</p>
                             </div>
                         </div>
                     </div>

@@ -187,6 +187,7 @@
                             <li><a href="#ozel-dd-airy" class="pending">6.1 Airy Denklemi</a></li>
                             <li><a href="#ozel-dd-hermite" class="pending">6.2 Hermite Denklemi</a></li>
                             <li><a href="#ozel-dd-bessel">6.3 Bessel Denklemi</a></li>
+                            <li><a href="#ozel-dd-bessel-p">6.3 Bessel — İkinci Tür ve p. Mertebe</a></li>
                             <li><a href="#ozel-dd-legendre" class="pending">6.4 Legendre Denklemi</a></li>
                             <li><a href="#ozel-dd-chebyshev" class="pending">6.5 Chebyshev Denklemi</a></li>
                             <li><a href="#ozel-dd-laguerre" class="pending">6.6 Laguerre Denklemi</a></li>
@@ -9131,6 +9132,69 @@
                         <p>Buradaki $\gamma$, <strong>Euler-Mascheroni sabitidir</strong>:</p>
                         $$\gamma=\lim_{n\to\infty}\left(1+\frac{1}{2}+\frac{1}{3}+\dots+\frac{1}{n}-\ln n\right)\approx 0{,}5772$$
                         <p>Bu özel birleşim, <span class="vurgu">büyük $x$ değerlerinde $J_{0}$ ile aynı asimptotik davranışı vermek üzere</span> seçilmiştir; tablolar ve uygulamalar bu normalleştirmeye göre hazırlanır.</p>
+                    </div>
+
+                    <div id="ozel-dd-bessel-p" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            6.3 &nbsp;İkinci Tür Bessel Fonksiyonu ve p. Mertebeden Bessel Denklemi
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$Y_{0}$ — ikinci tür Bessel fonksiyonu</h3>
+                        <p>Önceki bölümde ikinci çözüm olarak seçilen özel lineer birleşime <strong>sıfırıncı mertebeden ikinci tür Bessel fonksiyonu (Bessel function of the second kind of order zero, Weber biçimi)</strong> denir ve $Y_{0}$ ile gösterilir:</p>
+                        $$Y_{0}(x)=\frac{2}{\pi}\left[J_{0}(x)\ln x+\sum_{n=1}^{\infty}\frac{(-1)^{n+1}x^{2n}}{2^{2n}(n!)^{2}}\left(1+\frac{1}{2}+\dots+\frac{1}{n}\right)+(\gamma-\ln 2)J_{0}(x)\right]$$
+                        <p>Logaritmalı terimleri birleştirirsek daha derli toplu bir biçim çıkar. $\ln x+\gamma-\ln 2=\ln\dfrac{x}{2}+\gamma$ olduğundan:</p>
+                        $$\boxed{\;Y_{0}(x)=\frac{2}{\pi}\left[\left(\ln\frac{x}{2}+\gamma\right)J_{0}(x)+\sum_{n=1}^{\infty}\frac{(-1)^{n+1}x^{2n}}{2^{2n}(n!)^{2}}\left(1+\frac{1}{2}+\dots+\frac{1}{n}\right)\right]\;} \tag{6.110}$$
+                        <p>İkinci çözüm olarak $Y_{0}$ seçilirse, $(6.102)$ denkleminin $0<x<R$ aralığındaki <strong>genel çözümü</strong>:</p>
+                        $$y=c_{1}J_{0}(x)+c_{2}Y_{0}(x) \tag{6.111}$$
+                        <p>$J_{0}$ ve $Y_{0}$ fonksiyonları ayrıntılı biçimde incelenmiş ve tablolanmıştır.</p>
+                        <div class="highlight">
+                            <p><strong>Davranış farkı.</strong> $J_{0}$, $x=0$'da sonlu ve $J_{0}(0)=1$'dir. $Y_{0}$ ise logaritmalı terim yüzünden $x\to 0^{+}$ iken $-\infty$'a gider. <span class="vurgu">Fiziksel problemlerde çözümün merkezde sonlu kalması isteniyorsa $c_{2}=0$ alınır</span> ve yalnızca $J_{0}$ kullanılır; bu, sınır koşullarının seçimini belirleyen en yaygın gerekçedir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$p$. mertebeden Bessel denklemi</h3>
+                        <p>Şimdi $p$ reel ve pozitif olmak üzere genel denklemi ele alalım:</p>
+                        $$x^{2}y''+xy'+\left(x^{2}-p^{2}\right)y=0 \tag{6.101}$$
+                        <p>$x=0$ düzgün tekil noktadır. $y=\displaystyle\sum_{n=0}^{\infty}c_{n}x^{n+r}$, $c_{0}\neq 0$ varsayıp yerleştirir ve düzenlersek:</p>
+                        $$\left(r^{2}-p^{2}\right)c_{0}x^{r}+\Big[(r+1)^{2}-p^{2}\Big]c_{1}x^{r+1}+\sum_{n=2}^{\infty}\Big\{\Big[(n+r)^{2}-p^{2}\Big]c_{n}+c_{n-2}\Big\}x^{n+r}=0$$
+                        <p>Katsayıları sıfıra eşitlersek üç koşul çıkar:</p>
+                        $$r^{2}-p^{2}=0,\qquad \Big[(r+1)^{2}-p^{2}\Big]c_{1}=0,\qquad \Big[(n+r)^{2}-p^{2}\Big]c_{n}+c_{n-2}=0\;\;(n\ge 2)$$
+                        <p><strong>Belirtici denklem</strong> birincisidir; kökleri:</p>
+                        $$\boxed{\,r_{1}=p>0,\qquad r_{2}=-p\,}$$
+                        $$r_{1}-r_{2}=2p$$
+                        <div class="highlight">
+                            <p><strong>Hangi durumda olduğumuz $p$'ye bağlı:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$2p$ <strong>pozitif tam sayı değilse</strong> → THEoREM 5.3 Sonuç 1: her iki köke karşılık gelen, lineer bağımsız iki Frobenius çözümü vardır.</li>
+                                <li>$2p$ <strong>pozitif tam sayıysa</strong> → yalnızca büyük kök $r_{1}=p$'ye karşılık gelen çözümden emin olabiliriz.</li>
+                            </ul>
+                            <p>Yani $p=\frac12,1,\frac32,2,\dots$ değerleri "tehlikeli" değerlerdir. Her durumda <span class="vurgu">büyük kökün çözümü daima vardır</span>; aşağıda onu buluyoruz.</p>
+                        </div>
+                        <p><strong>Büyük kök $r=p$:</strong></p>
+                        <p>İkinci koşulda $(p+1)^{2}-p^{2}=2p+1$ olur, yani $(2p+1)c_{1}=0$. $p>0$ olduğundan $2p+1\neq 0$ ve <span class="vurgu">$c_{1}=0$</span> çıkar.</p>
+                        <p>Özyineleme koşulunda $(n+p)^{2}-p^{2}=n^{2}+2np=n(n+2p)$ olur:</p>
+                        $$n(n+2p)c_{n}+c_{n-2}=0\;\Longrightarrow\;\boxed{\,c_{n}=-\frac{c_{n-2}}{n(n+2p)},\quad n\ge 2\,} \tag{6.117}$$
+                        <p>$c_{1}=0$ olduğundan bütün tek indisli katsayılar sıfırdır. Genel çift katsayı:</p>
+                        $$c_{2n}=\frac{(-1)^{n}c_{0}}{\big[2\cdot 4\cdots(2n)\big]\big[(2+2p)(4+2p)\cdots(2n+2p)\big]}=\frac{(-1)^{n}c_{0}}{2^{2n}\,n!\,\big[(1+p)(2+p)\cdots(n+p)\big]}$$
+                        <p>İkinci eşitlikte her iki köşeli parantezden $2^{n}$ çarpanı çekilmiştir. Böylece büyük köke karşılık gelen çözüm:</p>
+                        $$y_{1}(x)=c_{0}\sum_{n=0}^{\infty}\frac{(-1)^{n}x^{2n+p}}{2^{2n}\,n!\,\big[(1+p)(2+p)\cdots(n+p)\big]} \tag{6.118}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">$p$ pozitif tam sayıysa</h3>
+                        <p>Bu durumda paydadaki çarpım faktöriyele iner:</p>
+                        $$(1+p)(2+p)\cdots(n+p)=\frac{(n+p)!}{p!}$$
+                        <p>Yerine koyup düzenlersek:</p>
+                        $$y_{1}(x)=c_{0}\,2^{p}\,p!\sum_{n=0}^{\infty}\frac{(-1)^{n}}{n!\,(n+p)!}\left(\frac{x}{2}\right)^{2n+p} \tag{6.119}$$
+                        <p><span class="vurgu">Bu biçim $J_{0}$'ınkiyle aynı yapıdadır</span> ve $p=0$ için ona indirgenir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Gama fonksiyonu — $p$ tam sayı değilken</h3>
+                        <p>$p$ pozitif bir tam sayı değilse $(6.119)$'daki $p!$ ve $(n+p)!$ ifadeleri anlamsızdır. Faktöriyeli tam sayı olmayan değerlere genişletmek gerekir; bunu <strong>gama fonksiyonu (gamma function)</strong> sağlar.</p>
+                        <div class="highlight">
+                            <p><strong>TANIM.</strong> $N>0$ için gama fonksiyonu, yakınsak has olmayan integralle tanımlanır:</p>
+                            $$\Gamma(N)=\int_{0}^{\infty}e^{-x}x^{N-1}\,dx \tag{6.120}$$
+                        </div>
+                        <p>$N$ pozitif bir tam sayıysa şu bağıntı gösterilebilir:</p>
+                        $$N!=\Gamma(N+1) \tag{6.121}$$
+                        <p>$N$ pozitif ama tam sayı değilse, $N!$ ifadesi <span class="vurgu">tanım olarak</span> $(6.121)$ ile verilir. Böylece $(6.119)$ biçimi her pozitif $p$ için anlamlı hâle gelir.</p>
+                        <p><strong>Neden $N+1$?</strong> Kaydırma tanımın kendisinden gelir: kısmi integrasyonla $\Gamma(N+1)=N\,\Gamma(N)$ bağıntısı elde edilir ve $\Gamma(1)=\displaystyle\int_{0}^{\infty}e^{-x}dx=1$ olduğundan tümevarımla $\Gamma(N+1)=N!$ çıkar. <span class="vurgu">Gama fonksiyonu faktöriyelin bir adım kaydırılmış sürekli karşılığıdır.</span></p>
                     </div>
 
                     <div id="ozel-dd-legendre" class="section placeholder">

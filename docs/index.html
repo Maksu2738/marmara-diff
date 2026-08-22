@@ -159,6 +159,9 @@
                             <li><a href="#egzersizler-dd-cozumu">4.3 Egzersizler — Denklem Çözümü</a></li>
                             <li><a href="#laplace-birim-basamak">4.4 Birim Basamak Fonksiyonu</a></li>
                             <li><a href="#laplace-ikinci-oteleme">4.4 İkinci Öteleme THEoREM'i</a></li>
+                            <li><a href="#ornek-oteleme">4.4 Örnekler — Ötelenmiş Biçime Sokma</a></li>
+                            <li><a href="#laplace-periyodik">4.4 Periyodik Fonksiyonlar</a></li>
+                            <li><a href="#egzersizler-basamak">4.4 Egzersizler — Basamak Fonksiyonları</a></li>
                         </ul>
                     </li>
 
@@ -9356,6 +9359,221 @@
                         <div class="highlight">
                             <p><strong>En sık yapılan hata: 2. adımı atlamak.</strong> $\mathcal{L}^{-1}\left\{e^{-3s}\cdot\frac{1}{s^{2}}\right\}$ ifadesinin cevabı $u_{3}(t)\cdot t$ <strong>değil</strong>, $u_{3}(t)\cdot(t-3)$'tür. Çarpan yalnızca kesmez, aynı zamanda <span class="vurgu">geciktirir</span>; gecikme fonksiyonun argümanına yansımalıdır.</p>
                             <p>Kontrol yolu: $t=a$ noktasında ne olduğuna bakın. Doğru cevapta $t=3$'te fonksiyon $0$'dan başlar ($f(0)=0$); yanlışında birdenbire $3$ değerine sıçrar.</p>
+                        </div>
+                    </div>
+
+                    <div id="ornek-oteleme" class="section ornek">
+                        <div class="section-title">
+                            <span class="badge">Örnek</span>
+                            4.4 &nbsp;Çözümlü Örnekler — Fonksiyonu $t-a$ Cinsinden Yazmak
+                        </div>
+                        <p>THEoREM 9.9'u uygulamanın önündeki tek engel şudur: fonksiyonun <span class="vurgu">$f(t-a)$ biçiminde</span> yazılmış olması gerekir. Verilen ifade genelde bu biçimde değildir; önce dönüştürmek gerekir.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.31.</strong> &nbsp; Aşağıdaki fonksiyonun Laplace dönüşümünü bulunuz: $$g(t)=\begin{cases}0, & 0<t<5\\ t-3, & t>5\end{cases}$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — İfadeyi $t-5$ cinsinden yaz.</strong></p>
+                                <p>Sıçrama $t=5$'te olduğuna göre $a=5$'tir. Ama elimizdeki ifade $t-3$; <span class="vurgu">$t-5$ cinsinden değil.</span> Şöyle düzenleyelim:</p>
+                                $$t-3=(t-5)+2$$
+                                $$g(t)=\begin{cases}0, & 0<t<5\\ (t-5)+2, & t>5\end{cases}$$
+                                <p><strong>Adım 2 — Hangi $f$ olduğunu tanı.</strong></p>
+                                <p>Bu artık $(9.78)$ biçimindedir:</p>
+                                $$g(t)=u_{5}(t)\,f(t-5),\qquad f(t)=t+2$$
+                                <p><span class="vurgu">Püf noktası şu:</span> $f$'yi bulmak için, $(t-5)+2$ ifadesinde $t-5$ yerine $t$ yazarsınız; geriye $t+2$ kalır.</p>
+                                <p><strong>Adım 3 — $F(s)$'yi hesapla.</strong></p>
+                                $$F(s)=\mathcal{L}\{t+2\}=\mathcal{L}\{t\}+2\mathcal{L}\{1\}=\frac{1}{s^{2}}+\frac{2}{s}$$
+                                <p><strong>Adım 4 — THEoREM 9.9'u uygula ($a=5$).</strong></p>
+                                $$\boxed{\;\mathcal{L}\{g(t)\}=e^{-5s}\left(\frac{1}{s^{2}}+\frac{2}{s}\right)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Neden doğrudan $\mathcal{L}\{t-3\}$ yazamıyoruz?</strong> Çünkü THEoREM 9.9'un istediği şey, $t>a$ bölgesindeki ifadenin <span class="vurgu">$a$ noktasından itibaren yeniden başlayan</span> bir fonksiyon olarak görülmesidir. $t-3$ ifadesi $t=5$'te $2$ değerindedir, $0$ değil; bu yüzden "kaydırılmış $t$" değil, "kaydırılmış $t+2$"dir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.32.</strong> &nbsp; Aşağıdaki fonksiyonun Laplace dönüşümünü bulunuz: $$g(t)=\begin{cases}0, & 0<t<\frac{\pi}{2}\\ \sin t, & t>\frac{\pi}{2}\end{cases}$$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — $\sin t$'yi $t-\frac{\pi}{2}$ cinsinden yaz.</strong></p>
+                                <p>Burada cebirsel düzenleme yetmez; <span class="vurgu">trigonometrik özdeşlik gerekir.</span> Toplam formülünü açalım:</p>
+                                $$\cos\left(t-\frac{\pi}{2}\right)=\cos t\cos\frac{\pi}{2}+\sin t\sin\frac{\pi}{2}=0+\sin t=\sin t$$
+                                <p>Yani her $t$ için</p>
+                                $$\sin t=\cos\left(t-\frac{\pi}{2}\right)$$
+                                <p><strong>Adım 2 — Ötelenmiş biçime sok.</strong></p>
+                                $$g(t)=u_{\pi/2}(t)\,f\!\left(t-\frac{\pi}{2}\right),\qquad f(t)=\cos t$$
+                                <p><strong>Adım 3 — $F(s)$ ve sonuç.</strong></p>
+                                $$F(s)=\mathcal{L}\{\cos t\}=\frac{s}{s^{2}+1}$$
+                                $$\boxed{\;\mathcal{L}\{g(t)\}=\frac{s\,e^{-(\pi/2)s}}{s^{2}+1}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Trigonometrik kaydırmalarda genel yol.</strong> $\sin$ veya $\cos$ içeren bir ifadeyi $t-a$ cinsinden yazmak için toplam formüllerini kullanın:</p>
+                                    $$\sin t=\sin\big[(t-a)+a\big]=\sin(t-a)\cos a+\cos(t-a)\sin a$$
+                                    <p>$a=\frac{\pi}{2}$ için $\cos a=0$, $\sin a=1$ olduğundan ifade tek terime iner ve $\cos(t-a)$ kalır. <span class="vurgu">Bu kadar temiz çıkması $\frac{\pi}{2}$'ye özgüdür;</span> başka bir $a$ için iki terim birden kalır ve dönüşüm iki parçalı olur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laplace-periyodik" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            4.4 &nbsp;Periyodik Fonksiyonların Laplace Dönüşümü
+                        </div>
+                        <p>Bir $f$ fonksiyonu, tanımlı olduğu her $t$ için</p>
+                        $$f(t+P)=f(t)\qquad (P>0)$$
+                        <p>sağlıyorsa <strong>$P$ periyotlu periyodik (periodic of period $P$)</strong> denir. Örneğin $\sin bt$ ve $\cos bt$ fonksiyonları $\frac{2\pi}{b}$ periyotludur.</p>
+                        <p>Periyodik fonksiyonların dönüşümünü hesaplamak için sonsuz integrali baştan sona almaya gerek yoktur — <span class="vurgu">tek bir periyot yeter.</span></p>
+                        <div class="highlight">
+                            <p><strong>THEoREM 9.10</strong></p>
+                            <p><strong>Hipotez.</strong> $f$, THEoREM 9.1'in hipotezlerini sağlayan $P$ periyotlu bir fonksiyon olsun.</p>
+                            <p><strong>Sonuç.</strong></p>
+                            $$\mathcal{L}\{f(t)\}=\frac{\displaystyle\int_{0}^{P}e^{-st}f(t)\,dt}{1-e^{-Ps}} \tag{9.80}$$
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">İspat — geometrik seri</h3>
+                        <p>Tanımdan başlayalım ve integrali periyotlara bölelim:</p>
+                        $$\mathcal{L}\{f(t)\}=\int_{0}^{\infty}e^{-st}f(t)\,dt=\int_{0}^{P}+\int_{P}^{2P}+\int_{2P}^{3P}+\dots+\int_{nP}^{(n+1)P}+\dots$$
+                        <p>Her integralde $t=u+nP$ değişken değişimi yapalım. Periyodiklik gereği $f(u+nP)=f(u)$, ayrıca $e^{-st}=e^{-s(u+nP)}=e^{-nPs}e^{-su}$:</p>
+                        $$\int_{nP}^{(n+1)P}e^{-st}f(t)\,dt=e^{-nPs}\int_{0}^{P}e^{-su}f(u)\,du$$
+                        <p><span class="vurgu">Bütün integraller aynı çıktı;</span> yalnızca önlerindeki üstel çarpan değişiyor. Toplam:</p>
+                        $$\left[1+e^{-Ps}+e^{-2Ps}+\dots+e^{-nPs}+\dots\right]\int_{0}^{P}e^{-su}f(u)\,du$$
+                        <p>Köşeli parantezdeki seri, ilk terimi $1$ ve ortak oranı $r=e^{-Ps}$ olan bir <strong>geometrik seridir</strong>. $s>0$ için $r<1$ olduğundan seri yakınsar:</p>
+                        $$1+r+r^{2}+\dots=\frac{1}{1-r}=\frac{1}{1-e^{-Ps}}$$
+                        <p>Buradan $(9.80)$ elde edilir. $\blacksquare$</p>
+                        <div class="highlight">
+                            <p><strong>İspatın fikri tek cümlede:</strong> Periyodiklik sayesinde <span class="vurgu">sonsuz sayıda integral birbirinin aynısı çıkıyor</span>, aralarındaki tek fark bir üstel çarpan. Bu da toplamı geometrik seriye indirgiyor ve kapalı biçimde toplanabiliyor.</p>
+                            <p>$\frac{1}{1-e^{-Ps}}$ paydası, "bu desen sonsuza kadar tekrarlıyor" bilgisinin cebirsel karşılığıdır.</p>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 9.33.</strong> &nbsp; $0\le t<4$ üzerinde $$f(t)=\begin{cases}1, & 0\le t<2\\ -1, & 2\le t<4\end{cases}$$ ve diğer pozitif $t$ için $f(t+4)=f(t)$ ile tanımlanan <strong>kare dalganın</strong> Laplace dönüşümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Periyodu belirle.</strong></p>
+                                <p>$f(t+4)=f(t)$ verildiğine göre $P=4$.</p>
+                                <p><strong>Adım 2 — Tek periyot üzerinde integre et.</strong></p>
+                                $$\mathcal{L}\{f(t)\}=\frac{1}{1-e^{-4s}}\left[\int_{0}^{2}e^{-st}(1)\,dt+\int_{2}^{4}e^{-st}(-1)\,dt\right]$$
+                                $$=\frac{1}{1-e^{-4s}}\left[\left(\frac{-e^{-st}}{s}\right)\Bigg|_{0}^{2}+\left(\frac{e^{-st}}{s}\right)\Bigg|_{2}^{4}\right]$$
+                                <p>Sınırları yerleştirelim:</p>
+                                $$=\frac{1}{1-e^{-4s}}\cdot\frac{1}{s}\left[\left(-e^{-2s}+1\right)+\left(e^{-4s}-e^{-2s}\right)\right]$$
+                                $$=\frac{1-2e^{-2s}+e^{-4s}}{s\left(1-e^{-4s}\right)}$$
+                                <p><strong>Adım 3 — Sadeleştir.</strong></p>
+                                <p><span class="vurgu">Pay tamkare, payda iki kare farkı:</span></p>
+                                $$1-2e^{-2s}+e^{-4s}=\left(1-e^{-2s}\right)^{2}$$
+                                $$1-e^{-4s}=\left(1-e^{-2s}\right)\left(1+e^{-2s}\right)$$
+                                <p>Ortak çarpan sadeleşir:</p>
+                                $$\frac{\left(1-e^{-2s}\right)^{2}}{s\left(1-e^{-2s}\right)\left(1+e^{-2s}\right)}$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1-e^{-2s}}{s\left(1+e^{-2s}\right)}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Sadeleşmeyi kaçırmayın.</strong> $e^{-2s}$ ifadesine geçici olarak $x$ derseniz pay $1-2x+x^{2}=(1-x)^{2}$, payda $s(1-x^{2})=s(1-x)(1+x)$ olur; sadeleşme anında görünür. <span class="vurgu">Üstel ifadeleri tek bir değişken gibi düşünmek, bu bölümdeki hesapları belirgin biçimde kolaylaştırır.</span></p>
+                                    <p>Sonuçtaki payda $1+e^{-2s}$ (artı işaretli) olması, dalganın <span class="vurgu">yarım periyotta işaret değiştirdiğinin</span> izidir; sabit bir kare dalgada payda $1-e^{-Ps}$ kalırdı.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="egzersizler-basamak" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.4 &nbsp;Egzersizler — Basamak ve Ötelenmiş Fonksiyonların Dönüşümü
+                        </div>
+                        <p>Aşağıdaki fonksiyonların $\mathcal{L}\{f(t)\}$ dönüşümlerini bulunuz.</p>
+                        <div class="highlight">
+                            <p><strong>Bu setin çözüm anahtarı: "sıçrama kuralı".</strong> 4.4'te kurduğumuz kalıp bütün basamak sorularını tek hamlede çözer:</p>
+                            <p>> Her sıçrama noktası için bir $u_{a}$ terimi yaz; katsayısı <span class="vurgu">o noktadaki sıçrama miktarı</span> olsun (yeni değer eksi eski değer).</p>
+                            <p>Sonra $\mathcal{L}\{u_{a}\}=\dfrac{e^{-as}}{s}$ ile doğrudan yazılır.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $f(t)=\begin{cases}0, & 0<t<6\\ 5, & t>6\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Tek sıçrama: $t=6$'da $0\to 5$, yani $+5$.</p>
+                                $$f(t)=5u_{6}(t)\;\Longrightarrow\;\boxed{\;\mathcal{L}\{f(t)\}=\frac{5e^{-6s}}{s}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $f(t)=\begin{cases}4, & 0<t<6\\ 0, & t>6\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sıçramalar: $t=0$'da $0\to 4$ ($+4$), $t=6$'da $4\to 0$ ($-4$).</p>
+                                $$f(t)=4u_{0}(t)-4u_{6}(t)$$
+                                <p>$u_{0}$'ın dönüşümü $\frac{1}{s}$ ($a=0$):</p>
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{4}{s}\left(1-e^{-6s}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $f(t)=\begin{cases}0, & 0<t<5\\ 2, & 5<t<7\\ 0, & t>7\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Dikdörtgen darbe — $t=5$'te aç ($+2$), $t=7$'de kapat ($-2$):</p>
+                                $$f(t)=2u_{5}(t)-2u_{7}(t)$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{2}{s}\left(e^{-5s}-e^{-7s}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $f(t)=\begin{cases}1, & 0<t<2\\ 2, & 2<t<4\\ 3, & 4<t<6\\ 0, & t>6\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><span class="vurgu">Dört sıçrama var, dördünü de ayrı ayrı yazalım:</span></p>
+                                <p>| Nokta | Eski → Yeni | Sıçrama | |---|---|---| | $t=0$ | $0\to 1$ | $+1$ | | $t=2$ | $1\to 2$ | $+1$ | | $t=4$ | $2\to 3$ | $+1$ | | $t=6$ | $3\to 0$ | $-3$ |</p>
+                                $$f(t)=u_{0}(t)+u_{2}(t)+u_{4}(t)-3u_{6}(t)$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1+e^{-2s}+e^{-4s}-3e^{-6s}}{s}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <p><strong>Kontrol:</strong> Katsayılar toplamı $1+1+1-3=0$ olmalı, çünkü fonksiyon $t\to\infty$ iken sıfıra dönüyor. <span class="vurgu">Bu toplam sıfır çıkmıyorsa bir sıçramayı kaçırmışsınızdır.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $f(t)=\begin{cases}2, & 0<t<3\\ 0, & 3<t<6\\ 2, & t>6\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sıçramalar: $t=0$'da $+2$, $t=3$'te $-2$, $t=6$'da $+2$.</p>
+                                $$f(t)=2u_{0}(t)-2u_{3}(t)+2u_{6}(t)$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{2\left(1-e^{-3s}+e^{-6s}\right)}{s}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <p><strong>Not:</strong> Katsayılar toplamı $2-2+2=2\neq 0$; doğrusu bu, çünkü fonksiyon $t\to\infty$ iken $2$'ye gidiyor.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>11.</strong> &nbsp; $f(t)=\begin{cases}0, & 0<t<2\\ t, & t>2\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><span class="vurgu">Burada sabit değil, $t$'ye bağlı bir ifade var</span>; sıçrama kuralı yetmez, THEoREM 9.9 gerekir.</p>
+                                <p>$t$'yi $t-2$ cinsinden yazalım: $\;t=(t-2)+2$</p>
+                                $$f(t)=u_{2}(t)\,g(t-2),\qquad g(t)=t+2$$
+                                $$G(s)=\mathcal{L}\{t+2\}=\frac{1}{s^{2}}+\frac{2}{s}$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=e^{-2s}\left(\frac{1}{s^{2}}+\frac{2}{s}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>13.</strong> &nbsp; $f(t)=\begin{cases}t, & 0<t<3\\ 3, & t>3\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Bu fonksiyon $t=3$'e kadar doğrusal artıyor, sonra sabitleniyor. <span class="vurgu">Farkı düşünelim:</span> eğer hiç sabitlenmeseydi $t$ olarak devam edecekti; sabitlenmesi, $t=3$'ten sonra fazlalığın çıkarılması demektir.</p>
+                                <p>$t>3$ için fazlalık $t-3$'tür:</p>
+                                $$f(t)=t-u_{3}(t)\,(t-3)$$
+                                <p><strong>Kontrol:</strong> $t<3$ için $u_{3}=0$, geriye $t$ kalır $\checkmark$. &nbsp; $t>3$ için $t-(t-3)=3$ $\checkmark$</p>
+                                <p>İkinci terim tam olarak $(9.78)$ biçimindedir ($g(t)=t$, $a=3$):</p>
+                                $$\mathcal{L}\{f(t)\}=\frac{1}{s^{2}}-e^{-3s}\cdot\frac{1}{s^{2}}$$
+                                $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1}{s^{2}}\left(1-e^{-3s}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                                <div class="highlight">
+                                    <p><strong>11 ile 13 arasındaki fark önemlidir.</strong> 11'de fonksiyon $t=2$'den <strong>sonra başlıyor</strong>, o yüzden ifadeyi tümüyle $t-2$ cinsine çevirdik. 13'te ise fonksiyon baştan var ve $t=3$'te <strong>davranış değiştiriyor</strong>; bu yüzden "olsaydı" ifadesinden fazlalığı çıkardık.</p>
+                                    <p><span class="vurgu">Sorulacak soru şu: fonksiyon $a$ noktasında mı başlıyor, yoksa orada mı değişiyor?</span></p>
+                                </div>
+                                <hr>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
+                                <p><strong>2.</strong> &nbsp; $f(t)=\begin{cases}0, & 0<t<10\\ -3, & t>10\end{cases}$ &nbsp;&nbsp;&nbsp; <strong>4.</strong> &nbsp; $f(t)=\begin{cases}2, & 0<t<5\\ 0, & t>5\end{cases}$</p>
+                                <p><strong>6.</strong> &nbsp; $f(t)=\begin{cases}0, & 0<t<3\\ -6, & 3<t<9\\ 0, & t>9\end{cases}$</p>
+                                <p><strong>8.</strong> &nbsp; $f(t)=\begin{cases}9, & 0<t<5\\ 6, & 5<t<10\\ 3, & 10<t<15\\ 0, & t>15\end{cases}$</p>
+                                <p><strong>10.</strong> &nbsp; $f(t)=\begin{cases}4, & 0<t<5\\ 0, & 5<t<10\\ 3, & t>10\end{cases}$</p>
+                                <p><strong>12.</strong> &nbsp; $f(t)=\begin{cases}0, & 0<t<4\\ 3t, & t>4\end{cases}$ &nbsp;&nbsp;&nbsp; <strong>14.</strong> &nbsp; $f(t)=\begin{cases}2t, & 0<t<5\\ 10, & t>5\end{cases}$</p>
+                                <div class="highlight">
+                                    <p><strong>Eşleştirme.</strong> 2 ve 4 → soru 1 ve 3 ile aynı. 6 → soru 5 ile aynı (yalnızca katsayı negatif). 8 ve 10 → soru 7 ve 9 ile aynı, sıçrama tablosunu kurun. 12 → soru 11 ile aynı; $3t=3(t-4)+12$ yazın. 14 → soru 13 ile aynı; $t=5$'ten sonraki fazlalık $2t-10=2(t-5)$'tir.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

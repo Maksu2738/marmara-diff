@@ -168,6 +168,7 @@
                             <li><a href="#egzersizler-sureksiz">4.4 Egzersizler — Süreksiz Zorlama</a></li>
                             <li><a href="#laplace-dirac-delta">4.4 Dirac Delta Fonksiyonu</a></li>
                             <li><a href="#laplace-sistemler">4.5 Sistemlerin Çözümü</a></li>
+                            <li><a href="#tekrar-ters-donusum">4.6 Bölüm Tekrarı — Ters Dönüşüm</a></li>
                         </ul>
                     </li>
 
@@ -10060,6 +10061,140 @@
                                     <p><strong>Adım 4'teki kısayol.</strong> $Y$'yi de $X$ gibi elemeyle bulabilirdik, ama gerek yok: $X$ zaten bilindiğine göre <span class="vurgu">orijinal denklemlerden birine koyup $Y$'yi çekmek daha kısadır.</span> Nitekim bu yolda $(s-1)$ çarpanı kendiliğinden sadeleşti.</p>
                                     <p>Genel kural: sistemlerde <strong>bir</strong> bilinmeyeni elemeyle bulun, ötekini geri yerleştirmeyle. İkisini birden elemek gereksiz iş üretir.</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tekrar-ters-donusum" class="section sorular">
+                        <div class="section-title">
+                            <span class="badge">Sorular</span>
+                            4.6 &nbsp;Bölüm Tekrar Soruları — Ters Dönüşüm
+                        </div>
+                        <p>Bu set bölümün bütün ters dönüşüm tekniklerini bir arada sınıyor: tablo okuma, tamkare, pay ötelemesi, kısmi kesirler ve tekrarlı kuadratik çarpanlar.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>13.</strong> &nbsp; $F(s)=\dfrac{4}{s+3}+\dfrac{5s+6}{s^{2}+3}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Birinci terim doğrudan 2 numaralı girdi: $\;4e^{-3t}$</p>
+                                <p>İkinci terimi ikiye bölelim. Payda $s^{2}+3$, yani $b=\sqrt{3}$:</p>
+                                $$\frac{5s}{s^{2}+3}\;\to\;5\cos\sqrt{3}\,t$$
+                                $$\frac{6}{s^{2}+3}=\frac{6}{\sqrt{3}}\cdot\frac{\sqrt{3}}{s^{2}+3}\;\to\;\frac{6}{\sqrt{3}}\sin\sqrt{3}\,t=2\sqrt{3}\sin\sqrt{3}\,t$$
+                                $$\boxed{\;4e^{-3t}+5\cos\sqrt{3}\,t+2\sqrt{3}\sin\sqrt{3}\,t\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>14.</strong> &nbsp; $F(s)=\dfrac{2s+3}{s^{3}}+\dfrac{1}{(2s+3)^{2}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Birinci terim</strong> — payı terim terim bölelim:</p>
+                                $$\frac{2s+3}{s^{3}}=\frac{2}{s^{2}}+\frac{3}{s^{3}}$$
+                                <p>7 numara ($\frac{n!}{s^{n+1}}\to t^{n}$): $\;\frac{2}{s^{2}}\to 2t$, &nbsp; $\frac{3}{s^{3}}=\frac{3}{2}\cdot\frac{2}{s^{3}}\to\frac{3}{2}t^{2}$</p>
+                                <p><strong>İkinci terim</strong> — baştaki katsayıyı temizleyelim:</p>
+                                $$(2s+3)^{2}=4\left(s+\tfrac{3}{2}\right)^{2}\;\Longrightarrow\;\frac{1}{(2s+3)^{2}}=\frac{1}{4}\cdot\frac{1}{\left(s+\frac{3}{2}\right)^{2}}$$
+                                <p>8 numara ($n=1$, $a=-\frac32$): $\;\frac{1}{\left(s+\frac32\right)^{2}}\to te^{-3t/2}$</p>
+                                $$\boxed{\;2t+\frac{3t^{2}}{2}+\frac{t}{4}e^{-3t/2}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>15.</strong> &nbsp; $F(s)=\dfrac{s+3}{s^{2}+4s+6}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Tamkare: $s^{2}+4s+6=(s+2)^{2}+2$, yani $b=\sqrt{2}$.</p>
+                                <p>Payı öteleyelim: $s+3=(s+2)+1$</p>
+                                $$F(s)=\frac{s+2}{(s+2)^{2}+2}+\frac{1}{(s+2)^{2}+2}$$
+                                <p>İkinci terimde payı $\sqrt{2}$ yapalım:</p>
+                                $$\frac{1}{(s+2)^{2}+\left(\sqrt{2}\right)^{2}}=\frac{1}{\sqrt{2}}\cdot\frac{\sqrt{2}}{(s+2)^{2}+\left(\sqrt{2}\right)^{2}}$$
+                                <p>12 ve 11 numara ($a=2$, $b=\sqrt{2}$), ve $\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}$:</p>
+                                $$\boxed{\;e^{-2t}\left[\cos\sqrt{2}\,t+\frac{\sqrt{2}}{2}\sin\sqrt{2}\,t\right]\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>16.</strong> &nbsp; $F(s)=\dfrac{2s+3}{s^{2}+4s+4}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$s^{2}+4s+4=(s+2)^{2}$ — tekrarlı doğrusal çarpan.</p>
+                                <p>Payı öteleyelim: $2s+3=2(s+2)-1$</p>
+                                $$F(s)=\frac{2}{s+2}-\frac{1}{(s+2)^{2}}$$
+                                $$\boxed{\;2e^{-2t}-te^{-2t}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>17.</strong> &nbsp; $F(s)=\dfrac{7s+11}{s^{2}+4s+3}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Payda çarpanlarına ayrılır: $s^{2}+4s+3=(s+1)(s+3)$ — <span class="vurgu">diskriminant pozitif, kısmi kesire gidiyoruz.</span></p>
+                                $$7s+11=A(s+3)+B(s+1)$$
+                                <p>$s=-1$: $4=2A\Rightarrow A=2$. &nbsp;&nbsp; $s=-3$: $-10=-2B\Rightarrow B=5$.</p>
+                                $$\boxed{\;2e^{-t}+5e^{-3t}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>18.</strong> &nbsp; $F(s)=\dfrac{2s+4}{s^{2}+4s+1}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Tamkare: $s^{2}+4s+1=(s+2)^{2}-3$</p>
+                                <p><span class="vurgu">İşarete dikkat: eksi çıktı</span>, yani trigonometrik değil <strong>hiperbolik</strong> girdi kullanılacak.</p>
+                                <p>Pay tam olarak $2(s+2)$'dir:</p>
+                                $$F(s)=\frac{2(s+2)}{(s+2)^{2}-\left(\sqrt{3}\right)^{2}}$$
+                                <p>6 numara ($\frac{s}{s^{2}-b^{2}}\to\cosh bt$) ve öteleme özelliğiyle:</p>
+                                $$2e^{-2t}\cosh\sqrt{3}\,t$$
+                                <p>$\cosh u=\frac{e^{u}+e^{-u}}{2}$ olduğundan:</p>
+                                $$\boxed{\;e^{-2t}\left(e^{\sqrt{3}\,t}+e^{-\sqrt{3}\,t}\right)\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>19.</strong> &nbsp; $F(s)=\dfrac{5s^{2}-25s+27}{s^{3}-6s^{2}+9s}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Paydayı çarpanlarına ayıralım:</p>
+                                $$s^{3}-6s^{2}+9s=s\left(s^{2}-6s+9\right)=s(s-3)^{2}$$
+                                <p>Doğrusal çarpan + tekrarlı doğrusal çarpan:</p>
+                                $$\frac{A}{s}+\frac{B}{s-3}+\frac{C}{(s-3)^{2}}$$
+                                $$5s^{2}-25s+27=A(s-3)^{2}+Bs(s-3)+Cs$$
+                                <p>$s=0$: $27=9A\Rightarrow A=3$</p>
+                                <p>$s=3$: $45-75+27=-3=3C\Rightarrow C=-1$</p>
+                                <p>$s^{2}$ katsayısı: $5=A+B\Rightarrow B=2$</p>
+                                $$\boxed{\;3+2e^{3t}-te^{3t}\;}$$
+                                <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>20.</strong> &nbsp; $F(s)=\dfrac{3s^{2}+2s+9}{\left(s^{2}+9\right)^{2}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Payda <strong>tekrarlı indirgenemez kuadratiktir</strong>; kısmi kesir yeni bir şey vermez. Bunun yerine <span class="vurgu">payı, paydanın çarpanını içerecek biçimde bölelim:</span></p>
+                                $$3s^{2}+2s+9=3\left(s^{2}+9\right)+2s+9-27=3\left(s^{2}+9\right)+2s-18$$
+                                $$F(s)=\frac{3}{s^{2}+9}+\frac{2s}{\left(s^{2}+9\right)^{2}}-\frac{18}{\left(s^{2}+9\right)^{2}}$$
+                                <p><strong>Birinci terim.</strong> $b=3$ için $\frac{3}{s^{2}+9}$ tam olarak 3 numaralı girdidir: $\;\sin 3t$</p>
+                                <p><strong>İkinci terim.</strong> 9 numara: $\frac{2bs}{\left(s^{2}+b^{2}\right)^{2}}\to t\sin bt$. $b=3$ için pay $6s$ olmalı:</p>
+                                $$\frac{2s}{\left(s^{2}+9\right)^{2}}=\frac{1}{3}\cdot\frac{6s}{\left(s^{2}+9\right)^{2}}\;\to\;\frac{1}{3}\,t\sin 3t$$
+                                <p><strong>Üçüncü terim.</strong> 13 numara: $\frac{1}{\left(s^{2}+b^{2}\right)^{2}}\to\frac{\sin bt-bt\cos bt}{2b^{3}}$. $b=3$ için $2b^{3}=54$:</p>
+                                $$-\frac{18}{\left(s^{2}+9\right)^{2}}\;\to\;-18\cdot\frac{\sin 3t-3t\cos 3t}{54}=-\frac{1}{3}\sin 3t+t\cos 3t$$
+                                <p><strong>Topla:</strong></p>
+                                $$\sin 3t+\frac{1}{3}t\sin 3t-\frac{1}{3}\sin 3t+t\cos 3t$$
+                                $$\boxed{\;\frac{2}{3}\sin 3t+\frac{1}{3}t\sin 3t+t\cos 3t\;}$$
+                                <div class="highlight">
+                                    <p><strong>Kitabın cevabıyla UYUŞMUYOR — dikkat.</strong></p>
+                                    <p>Cevap anahtarında şu yazıyor:</p>
+                                    $$\frac{t}{3}\sin 3t-t\cos 3t+\frac{4}{3}\sin 3t$$
+                                    <p>İki terim farklı: $\sin 3t$ katsayısı ($\frac23$ yerine $\frac43$) ve $t\cos 3t$ işareti ($+$ yerine $-$).</p>
+                                    <p><strong>Hangisi doğru?</strong> Kontrol için her iki cevabın Laplace dönüşümünü geri aldım.</p>
+                                    <p><em>Yukarıdaki çözüm için:</em></p>
+                                    $$\mathcal{L}\left\{\frac{2}{3}\sin 3t+\frac{1}{3}t\sin 3t+t\cos 3t\right\}=\frac{2}{s^{2}+9}+\frac{2s}{\left(s^{2}+9\right)^{2}}+\frac{s^{2}-9}{\left(s^{2}+9\right)^{2}}$$
+                                    $$=\frac{2\left(s^{2}+9\right)+2s+s^{2}-9}{\left(s^{2}+9\right)^{2}}=\frac{3s^{2}+2s+9}{\left(s^{2}+9\right)^{2}}\;\checkmark$$
+                                    <p><span class="vurgu">Sorudaki $F(s)$'nin ta kendisi.</span></p>
+                                    <p><em>Anahtardaki cevap için:</em></p>
+                                    $$\frac{2s}{\left(s^{2}+9\right)^{2}}-\frac{s^{2}-9}{\left(s^{2}+9\right)^{2}}+\frac{4}{s^{2}+9}=\frac{2s-s^{2}+9+4\left(s^{2}+9\right)}{\left(s^{2}+9\right)^{2}}=\frac{3s^{2}+2s+45}{\left(s^{2}+9\right)^{2}}$$
+                                    <p>Payda $9$ yerine $45$ çıkıyor — <span class="vurgu">soruyla uyuşmuyor.</span></p>
+                                    <p><strong>Sonuç:</strong> Yukarıdaki çözüm doğru görünüyor. Anahtardaki fark ya tarama hatası ya kitap dizgi hatası olabilir; <span class="vurgu">kitaptan teyit etmeniz iyi olur.</span> Yöntem her hâlükârda aynıdır.</p>
+                                </div>
+                                <p><strong>Kullanılan girdiler:</strong> 3, 9 ve 13 numara. <span class="vurgu">Tekrarlı kuadratik paydalarda bu üçlü hep birlikte çalışır;</span> payı $As^{2}+Bs+C$ biçimindeyse önce $A(s^{2}+b^{2})$ ayrılır, kalan $Bs$ ve sabit terimler 9 ve 13 numaralara gider.</p>
                             </div>
                         </div>
                     </div>

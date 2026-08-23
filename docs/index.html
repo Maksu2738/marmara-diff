@@ -184,7 +184,7 @@
                             <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
                             <li><a href="#laplace-yuksek-turev">4.1 Yüksek Mertebeden Türevler</a></li>
                             <li><a href="#ornek-laplace-bdp">4.1 Örnek — İlk Başlangıç Değer Problemi</a></li>
-                            <li><a href="#laplace-oteleme">4.1 Öteleme ve tⁿ ile Çarpma</a></li>
+                            <li><a href="#laplace-oteleme" class="defterde-yok">4.1 Öteleme ve tⁿ ile Çarpma</a></li>
                             <li><a href="#egzersizler-laplace-ozellikler">4.1 Egzersizler — Temel Özellikler</a></li>
                             <li><a href="#laplace-ters">4.2 Ters Laplace Dönüşümü</a></li>
                             <li><a href="#ornek-ters-donusum">4.2 Örnekler — Ters Dönüşüm Teknikleri</a></li>
@@ -8725,10 +8725,14 @@
                         </div>
                     </div>
 
-                    <div id="laplace-oteleme" class="section konu">
+                    <div id="laplace-oteleme" class="section konu defter-disi">
                         <div class="section-title">
                             <span class="badge">Konu</span>
                             4.1 &nbsp;Öteleme Özelliği ve $t^n$ ile Çarpmanın Etkisi
+                        </div>
+                        <div class="defter-disi-uyari">
+                            <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
+                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Tablodaki temel dönüşümlerden çok daha fazlasını elde etmemizi sağlayan iki kural var. İkisi de <span class="vurgu">yeni integral almadan</span> yeni dönüşümler üretir.</p>
                         <hr>
@@ -15411,7 +15415,7 @@
                         </table>
                         </div>
                         <div class="highlight">
-                            <p><strong>Buradan çıkan en net desen:</strong> Laplace'ta <strong>13 yıldızlı soru</strong> var ve bunların hepsi <span class="vurgu">4.1-4.3 aralığında</span>. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş.</p>
+                            <p><strong>Buradan çıkan en net desen:</strong> Laplace'ta <strong>13 yıldızlı soru</strong> var ve bunların hepsi <span class="vurgu">4.1-4.3 aralığında</span>. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş. 4.1'de de tek bir parça dışarda kalmış: <strong>öteleme özelliği ve $t^{n}$ ile çarpma</strong>.</p>
                             <p>Yani "Laplace ağır" demek, <strong>bütün Laplace ağır</strong> demek değil. Ağır olan kısım şu: tanım, doğrusallık, türev THEoREM'leri, ters dönüşüm ve düz başlangıç değer problemi.</p>
                         </div>
                         <hr>
@@ -15441,10 +15445,11 @@
                         <p>Kitap bunu vermez, üç adımı tek tek uygulatır.</p>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">5. Düşük öncelikliler</h3>
-                        <p>Aşağıdakiler <strong>kitapta var ve sorulabilir</strong>, ama hoca bunları derste hiç işlememiş. Sitede kırmızı <strong>⚠ DERSTE İŞLENMEDİ</strong> şeridiyle işaretli — toplam <strong>25 bölüm</strong>:</p>
+                        <p>Aşağıdakiler <strong>kitapta var ve sorulabilir</strong>, ama hoca bunları derste hiç işlememiş. Sitede kırmızı <strong>⚠ DERSTE İŞLENMEDİ</strong> şeridiyle işaretli — toplam <strong>26 bölüm</strong>:</p>
                         <div class="tablo-sar">
                         <table>
                         <tr><th>Konu</th><th>Nerede</th><th>Neden düşük öncelik</th></tr>
+                        <tr><td>Öteleme özelliği ve $t^{n}$ ile çarpma</td><td><a href="#laplace-oteleme">4.1</a></td><td>4.1’in tek işlenmeyen parçası; tablo büyütme kuralı</td></tr>
                         <tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Derste işlenmedi; ters dönüşümün alternatif yolu</td></tr>
                         <tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı derste işlenmedi</td></tr>
                         <tr><td>Süreksiz zorlama, Dirac delta</td><td><a href="#laplace-dirac-delta">4.4</a></td><td>Aynı</td></tr>
@@ -15945,7 +15950,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=9bd03d41"></script>
+<script defer src="arama.js?v=d10c5b3c"></script>
     <script src="app.js?v=78c3f45b"></script>
     <script src="arama-ui.js"></script>
 </body>

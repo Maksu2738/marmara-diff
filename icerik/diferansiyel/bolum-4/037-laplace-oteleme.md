@@ -2,6 +2,7 @@
 id: laplace-oteleme
 menu: 4.1 Öteleme ve tⁿ ile Çarpma
 tip: konu
+defterde: yok
 baslik: 4.1 &nbsp;Öteleme Özelliği ve $t^n$ ile Çarpmanın Etkisi
 ---
 

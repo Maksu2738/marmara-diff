@@ -10457,19 +10457,165 @@
                                 <p><strong>Başlangıç koşulları.</strong> $y(0)=3-3=0\;\checkmark$; $\;y'=-e^{t}-4te^{t}+\cos t+3\sin t\Rightarrow y'(0)=-1+1=0\;\checkmark$; $\;y''=-5e^{t}-4te^{t}-\sin t+3\cos t\Rightarrow y''(0)=-5+3=-2\;\checkmark$</p>
                                 <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
                                 <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                                <p><strong>2.</strong> &nbsp; $y'+y=2\sin t,\quad y(0)=-1$</p>
-                                <p><strong>4.</strong> &nbsp; $y'+2y=16t^{2},\quad y(0)=7$</p>
-                                <p><strong>6.</strong> &nbsp; $y''+y'-12y=0,\quad y(0)=4,\; y'(0)=-1$</p>
-                                <p><strong>8.</strong> &nbsp; $y''+2y'+5y=0,\quad y(0)=2,\; y'(0)=4$</p>
-                                <p><strong>10.</strong> &nbsp; $y''+9y=36e^{-3t},\quad y(0)=2,\; y'(0)=3$</p>
-                                <p><strong>12.</strong> &nbsp; $2y''+y'=5e^{2t}$</p>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
                                 <div class="highlight">
-                                    <p><strong>Kendi çözümünüzü nasıl denetlersiniz?</strong> Cevap anahtarı olmasa da her çözüm <strong>kendi içinde sınanabilir</strong>: bulduğunuz $y$'yi denklemde yerine koyun ve başlangıç koşullarını kontrol edin. Yukarıdaki 15, 17, 19 ve 21'de tam olarak bunu yaptık. <span class="vurgu">Bu denetim, cevap anahtarından bağımsız ve en az onun kadar güvenilirdir.</span></p>
-                                    <p><strong>İpuçları.</strong> 6 ve 8 homojendir, 5 ve 7 ile aynı yapıda. 8'de payda $s^{2}+2s+5=(s+1)^{2}+4$ tamkareye gider, cevapta $e^{-t}\sin 2t$ ve $e^{-t}\cos 2t$ beklenir. 4'te $\mathcal{L}\{16t^{2}\}=\frac{32}{s^{3}}$ olur (7 numaralı girdi, $n!=2$). 10'da sağ taraf $\frac{36}{s+3}$, payda $s^{2}+9$ ile birleşince 9 ve 19 gibi karışık yapı çıkar.</p>
+                                    <p><strong>Bu altı sorunun cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir. Doğrulama yolu her seferinde aynı ve <span class="vurgu">cevap anahtarından bağımsız olarak en az onun kadar güvenilir</span>: bulunan $y$ hem <strong>denkleme geri konuyor</strong> hem de <strong>başlangıç koşulları</strong> sınanıyor. Bir çözüm bu iki testi geçiyorsa doğrudur.</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $y'+y=2\sin t$, &nbsp; $y(0)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong> $y(0)=-1$ olduğuna dikkat; $-y(0)=+1$ olur:</p>
+                                $$\left(sY+1\right)+Y=\frac{2}{s^{2}+1}$$
+                                <p><strong>Adım 2 — $Y$'yi yalnız bırak.</strong></p>
+                                $$(s+1)Y=\frac{2}{s^{2}+1}-1=\frac{2-\left(s^{2}+1\right)}{s^{2}+1}=\frac{1-s^{2}}{s^{2}+1}$$
+                                <p><strong>Adım 3 — Sadeleştir.</strong> <span class="vurgu">Kısmi kesirlere hiç gerek yok:</span> pay çarpanlanıyor ve $(s+1)$ götürüyor.</p>
+                                $$Y=\frac{1-s^{2}}{(s+1)\left(s^{2}+1\right)}=\frac{-(s-1)(s+1)}{(s+1)\left(s^{2}+1\right)}=\frac{1-s}{s^{2}+1}$$
+                                $$Y=\frac{1}{s^{2}+1}-\frac{s}{s^{2}+1}$$
+                                $$\boxed{\;y=\sin t-\cos t\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=0-1=-1\;\checkmark$</p>
+                                <p>$y'=\cos t+\sin t$ olduğundan</p>
+                                $$y'+y=(\cos t+\sin t)+(\sin t-\cos t)=2\sin t\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Payın çarpanlanması tesadüf mü?</strong> Değil. Zorlama $2\sin t$'nin frekansı, homojen çözümün sönüm hızıyla <span class="vurgu">öyle denk gelmiş ki</span> geçici terim ($e^{-t}$) hiç doğmamış. Başlangıç koşulu $y(0)=-1$ tam olarak bunu sağlayan değer; başka bir değer verilseydi cevapta $ce^{-t}$ terimi de olurdu.</p>
+                                    <p>Sınavda böyle bir sadeleşme görürseniz <span class="vurgu">şüphelenmeyin, devam edin</span> — soru bilerek öyle kurulmuş olabilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $y'+2y=16t^{2}$, &nbsp; $y(0)=7$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong> $\mathcal{L}\{16t^{2}\}=16\cdot\dfrac{2!}{s^{3}}=\dfrac{32}{s^{3}}$:</p>
+                                $$(sY-7)+2Y=\frac{32}{s^{3}}\;\Longrightarrow\;(s+2)Y=\frac{32}{s^{3}}+7$$
+                                $$Y=\frac{32}{s^{3}(s+2)}+\frac{7}{s+2}$$
+                                <p><strong>Adım 2 — Tekrarlı çarpan için dört terimli açılım.</strong></p>
+                                $$\frac{32}{s^{3}(s+2)}=\frac{A}{s}+\frac{B}{s^{2}}+\frac{C}{s^{3}}+\frac{D}{s+2}$$
+                                $$32=As^{2}(s+2)+Bs(s+2)+C(s+2)+Ds^{3}$$
+                                <p>$s=0$: &nbsp; $32=2C\Rightarrow C=16$</p>
+                                <p>$s=-2$: &nbsp; $32=-8D\Rightarrow D=-4$</p>
+                                <p>$s^{3}$ katsayısı: &nbsp; $A+D=0\Rightarrow A=4$</p>
+                                <p>$s^{2}$ katsayısı: &nbsp; $2A+B=0\Rightarrow B=-8$</p>
+                                <p><strong>Ara kontrol.</strong> $s^{1}$ katsayısı $2B+C=-16+16=0$ olmalı (solda $s$'li terim yok) &#10003;</p>
+                                <p><strong>Adım 3 — Topla ve geri oku.</strong> $\dfrac{-4}{s+2}$ ile $\dfrac{7}{s+2}$ birleşince $\dfrac{3}{s+2}$:</p>
+                                $$Y=\frac{4}{s}-\frac{8}{s^{2}}+\frac{16}{s^{3}}+\frac{3}{s+2}$$
+                                <p>$\dfrac{16}{s^{3}}\to 8t^{2}$ (payı ikiye bölmeyi unutmayın):</p>
+                                $$\boxed{\;y=8t^{2}-8t+4+3e^{-2t}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=4+3=7\;\checkmark$</p>
+                                <p>$y'=16t-8-6e^{-2t}$:</p>
+                                $$y'+2y=\left(16t-8-6e^{-2t}\right)+\left(16t^{2}-16t+8+6e^{-2t}\right)=16t^{2}\;\checkmark$$
+                                <p><span class="vurgu">Bütün ara terimler götürdü, geriye tam olarak zorlama kaldı.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $y''+y'-12y=0$, &nbsp; $y(0)=4$, &nbsp; $y'(0)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong></p>
+                                $$\left(s^{2}Y-4s+1\right)+\left(sY-4\right)-12Y=0$$
+                                <p><strong>Adım 2 — Topla.</strong> $Y$ çarpanları $s^{2}+s-12$; sabitler $-4s+1-4=-4s-3$:</p>
+                                $$\left(s^{2}+s-12\right)Y=4s+3$$
+                                <p><strong>Adım 3 — Kısmi kesirler.</strong> $s^{2}+s-12=(s+4)(s-3)$:</p>
+                                $$\frac{4s+3}{(s+4)(s-3)}=\frac{A}{s+4}+\frac{B}{s-3}$$
+                                <p>$s=-4$: &nbsp; $A=\dfrac{-16+3}{-7}=\dfrac{13}{7}$ &nbsp;&nbsp;&nbsp; $s=3$: &nbsp; $B=\dfrac{12+3}{7}=\dfrac{15}{7}$</p>
+                                $$\boxed{\;y=\frac{13}{7}e^{-4t}+\frac{15}{7}e^{3t}\;}$$
+                                <p><strong>Doğrulama.</strong></p>
+                                <p>$y(0)=\dfrac{13+15}{7}=\dfrac{28}{7}=4\;\checkmark$</p>
+                                <p>$y'=-\dfrac{52}{7}e^{-4t}+\dfrac{45}{7}e^{3t}$, &nbsp; $y'(0)=\dfrac{-52+45}{7}=-1\;\checkmark$</p>
+                                <p>Denklemi <span class="vurgu">terim türüne göre</span> sınayalım:</p>
+                                $$e^{-4t}:\;16-4-12=0,\qquad e^{3t}:\;9+3-12=0$$
+                                <p>İkisi de sıfır, denklem sağlanıyor. &#10003; <span class="vurgu">Homojen denklemde bu kontrol, üslerin karakteristik kök olduğunu doğrular.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $y''+2y'+5y=0$, &nbsp; $y(0)=2$, &nbsp; $y'(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong></p>
+                                $$\left(s^{2}Y-2s-4\right)+2\left(sY-2\right)+5Y=0$$
+                                $$\left(s^{2}+2s+5\right)Y=2s+4+4=2s+8$$
+                                <p><strong>Adım 2 — Tamkareye tamamla, payı da aynı cinse sok.</strong></p>
+                                $$s^{2}+2s+5=(s+1)^{2}+4,\qquad 2s+8=2(s+1)+6$$
+                                $$Y=\frac{2(s+1)}{(s+1)^{2}+4}+3\cdot\frac{2}{(s+1)^{2}+4}$$
+                                <p><span class="vurgu">Sinüs teriminde payı $2$'ye tamamladık</span> ($b=2$).</p>
+                                $$\boxed{\;y=e^{-t}\left(2\cos 2t+3\sin 2t\right)\;}$$
+                                <p><strong>Doğrulama (denkleme koyarak).</strong> $u=2\cos 2t+3\sin 2t$ diyelim. Bu $u$ için $u''=-4u$ olduğuna dikkat edin (açısal frekans $2$).</p>
+                                $$y=e^{-t}u,\qquad y'=e^{-t}\left(u'-u\right),\qquad y''=e^{-t}\left(u''-2u'+u\right)=e^{-t}\left(-3u-2u'\right)$$
+                                $$y''+2y'+5y=e^{-t}\Big[\left(-3u-2u'\right)+2\left(u'-u\right)+5u\Big]=e^{-t}\big[0\big]=0\;\checkmark$$
+                                <p>$u'$ terimleri götürdü, $u$ katsayıları $-3-2+5=0$. <span class="vurgu">$u$'nun ne olduğunu hiç açmadan doğruladık.</span></p>
+                                <p><strong>Başlangıç koşulları.</strong> $y(0)=2\;\checkmark$; &nbsp; $y'(0)=-u(0)+u'(0)=-2+6=4\;\checkmark$</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $y''+9y=36e^{-3t}$, &nbsp; $y(0)=2$, &nbsp; $y'(0)=3$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüşümü al.</strong></p>
+                                $$\left(s^{2}Y-2s-3\right)+9Y=\frac{36}{s+3}$$
+                                $$Y=\underbrace{\frac{36}{(s+3)\left(s^{2}+9\right)}}_{\text{zorlamadan}}+\underbrace{\frac{2s+3}{s^{2}+9}}_{\text{başlangıç koşullarından}}$$
+                                <p><strong>Adım 2 — Birinci parçayı aç.</strong></p>
+                                $$\frac{36}{(s+3)\left(s^{2}+9\right)}=\frac{A}{s+3}+\frac{Bs+C}{s^{2}+9}$$
+                                $$36=A\left(s^{2}+9\right)+(Bs+C)(s+3)$$
+                                <p>$s=-3$: &nbsp; $36=18A\Rightarrow A=2$</p>
+                                <p>$s^{2}$ katsayısı: &nbsp; $A+B=0\Rightarrow B=-2$</p>
+                                <p>Sabit terim: &nbsp; $9A+3C=36\Rightarrow 18+3C=36\Rightarrow C=6$</p>
+                                $$\frac{36}{(s+3)\left(s^{2}+9\right)}=\frac{2}{s+3}+\frac{-2s+6}{s^{2}+9}$$
+                                <p><strong>Adım 3 — İki parçayı topla.</strong> <span class="vurgu">Burada güzel bir şey oluyor:</span></p>
+                                $$\frac{-2s+6}{s^{2}+9}+\frac{2s+3}{s^{2}+9}=\frac{9}{s^{2}+9}$$
+                                <p>$s$'li terimler tamamen götürdü.</p>
+                                $$Y=\frac{2}{s+3}+\frac{9}{s^{2}+9}=\frac{2}{s+3}+3\cdot\frac{3}{s^{2}+9}$$
+                                $$\boxed{\;y=2e^{-3t}+3\sin 3t\;}$$
+                                <p><strong>Doğrulama.</strong> $y(0)=2+0=2\;\checkmark$</p>
+                                <p>$y'=-6e^{-3t}+9\cos 3t$, &nbsp; $y'(0)=-6+9=3\;\checkmark$</p>
+                                <p>$y''=18e^{-3t}-27\sin 3t$:</p>
+                                $$y''+9y=\left(18e^{-3t}-27\sin 3t\right)+\left(18e^{-3t}+27\sin 3t\right)=36e^{-3t}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Kosinüsün kaybolması ne anlama geliyor?</strong> Genel çözümde hem $\cos 3t$ hem $\sin 3t$ beklenirdi. Kosinüs teriminin sıfırlanması, <span class="vurgu">başlangıç koşullarının tam olarak onu iptal edecek biçimde seçilmiş olmasından</span> kaynaklanıyor.</p>
+                                    <p>Nitekim $y(0)=2$ koşulu, zorlamanın getirdiği $2e^{-3t}$ teriminin başlangıç değerine birebir eşit; geriye salınım için serbest genlik olarak yalnız sinüs kalıyor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>12.</strong> &nbsp; $2y''+y'=5e^{2t}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <div class="highlight">
+                                    <p><strong>Bu soruda başlangıç koşulu verilmemiş.</strong> Diğerlerinin hepsinde $y(0)$ ve gerekiyorsa $y'(0)$ vardı; burada yok. Dolayısıyla istenen <span class="vurgu">genel çözümdür</span>. Laplace yöntemi bunu da yapabilir: başlangıç değerlerini $y(0)=c_{0}$, $y'(0)=c_{1}$ diye <strong>harf olarak</strong> taşıyıp sonunda keyfi sabitlere dönüştürürüz.</p>
+                                </div>
+                                <p><strong>Adım 1 — Dönüşümü harflerle al.</strong></p>
+                                $$2\left(s^{2}Y-s\,c_{0}-c_{1}\right)+\left(sY-c_{0}\right)=\frac{5}{s-2}$$
+                                $$\left(2s^{2}+s\right)Y=\frac{5}{s-2}+2c_{0}s+\left(2c_{1}+c_{0}\right)$$
+                                <p>Payda $2s^{2}+s=s(2s+1)$.</p>
+                                <p><strong>Adım 2 — Zorlamadan gelen parça.</strong></p>
+                                $$\frac{5}{s(2s+1)(s-2)}=\frac{5}{2s\left(s+\tfrac{1}{2}\right)(s-2)}$$
+                                <p>Örtme yöntemiyle:</p>
+                                <p>$s=0$: &nbsp; $\dfrac{1}{\left(\tfrac{1}{2}\right)(-2)}=-1$ &nbsp;&nbsp; $s=-\tfrac{1}{2}$: &nbsp; $\dfrac{1}{\left(-\tfrac{1}{2}\right)\left(-\tfrac{5}{2}\right)}=\dfrac{4}{5}$ &nbsp;&nbsp; $s=2$: &nbsp; $\dfrac{1}{2\cdot\tfrac{5}{2}}=\dfrac{1}{5}$</p>
+                                $$\frac{5}{2}\left[-\frac{1}{s}+\frac{4/5}{s+\tfrac{1}{2}}+\frac{1/5}{s-2}\right]=-\frac{5}{2s}+\frac{2}{s+\tfrac{1}{2}}+\frac{1}{2(s-2)}$$
+                                $$\to\;-\frac{5}{2}+2e^{-t/2}+\frac{1}{2}e^{2t}$$
+                                <p><strong>Adım 3 — Başlangıç koşullarından gelen parça.</strong></p>
+                                $$\frac{2c_{0}s+\left(2c_{1}+c_{0}\right)}{s(2s+1)}=\frac{P}{s}+\frac{Q}{s+\tfrac{1}{2}}$$
+                                <p>$s=0$: &nbsp; $P=2c_{1}+c_{0}$ &nbsp;&nbsp;&nbsp; $s=-\tfrac{1}{2}$: &nbsp; $Q=-2c_{1}$</p>
+                                $$\to\;\left(2c_{1}+c_{0}\right)-2c_{1}e^{-t/2}$$
+                                <p><strong>Adım 4 — Topla ve keyfi sabitlere geç.</strong> Sabit terimler ve $e^{-t/2}$ katsayıları <span class="vurgu">$c_{0}$, $c_{1}$ keyfi olduğu için keyfidir</span>; onlara $A$ ve $B$ diyelim:</p>
+                                $$\boxed{\;y=A+B\,e^{-t/2}+\frac{1}{2}e^{2t}\;}$$
+                                <p><strong>Doğrulama (denkleme koyarak).</strong></p>
+                                $$y'=-\frac{B}{2}e^{-t/2}+e^{2t},\qquad y''=\frac{B}{4}e^{-t/2}+2e^{2t}$$
+                                $$2y''+y'=\left(\frac{B}{2}e^{-t/2}+4e^{2t}\right)+\left(-\frac{B}{2}e^{-t/2}+e^{2t}\right)=5e^{2t}\;\checkmark$$
+                                <p>$B$'li terimler götürdü ve $A$ hiç görünmedi — <span class="vurgu">her iki keyfi sabit de homojen çözüme ait olduğu için beklenen davranış bu.</span></p>
+                                <p><strong>İkinci doğrulama (klasik yöntemle).</strong> Yardımcı denklem $2m^{2}+m=m(2m+1)=0$, kökler $m=0$ ve $m=-\tfrac{1}{2}$:</p>
+                                $$y_{c}=A+Be^{-t/2}$$
+                                <p>Özel integral $y_{p}=ke^{2t}$: &nbsp; $2(4k)+2k=10k=5\Rightarrow k=\tfrac{1}{2}$</p>
+                                $$y=A+Be^{-t/2}+\tfrac{1}{2}e^{2t}$$
+                                <p>Laplace ile bulduğumuzun aynısı. &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Setin tamamı bitti.</strong> 12 sorunun 12'si çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar <span class="vurgu">denkleme geri koyma + başlangıç koşulu kontrolü</span> ile doğrulanmıştır.</p>
+                            <p><strong>İki gözlem:</strong></p>
+                            <p><strong>Sadeleşmeler rastlantı değil.</strong> 2. soruda $(s+1)$ çarpanı, 10. soruda kosinüs terimi tamamen götürdü. Her ikisinde de sebep aynı: başlangıç koşulları, zorlamanın getirdiği terimi tam olarak dengeleyecek biçimde seçilmiş. Kitap soruları çoğu zaman böyle "temiz" cevap verecek şekilde kurgulanır.</p>
+                            <p><strong>Başlangıç koşulu yoksa panik yok.</strong> 12. soruda olduğu gibi koşullar verilmemişse, Laplace yöntemi yine çalışır: $c_{0}$ ve $c_{1}$'i harf olarak taşıyın, sonunda keyfi sabite dönüşürler. Sonuç klasik yöntemin verdiği genel çözümle aynıdır.</p>
                         </div>
                     </div>
 
@@ -15402,7 +15548,7 @@
     </div>
 
 
-<script defer src="arama.js?v=ffa3ddaa"></script>
+<script defer src="arama.js?v=e1d3eb8f"></script>
     <script src="app.js?v=f067a145"></script>
     <script src="arama-ui.js"></script>
 </body>

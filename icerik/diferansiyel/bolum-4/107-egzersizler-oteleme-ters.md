@@ -187,13 +187,81 @@ $1-e^{-\pi/2}\approx 0{,}79$ olduğundan ikinci kaynak burada genliği ==azaltı
 
 ---
 
+### Kalan sorular — çözümler bize ait
+
+[KUTU]
+**Bu soruların cevabı kitabın anahtarında yok.** Çözümler bize aittir; her biri ==ikinci bir bağımsız yolla doğrulanmıştır==. Bu sette en kullanışlı kontrol şu:
+
+$$f(a^{+})=g(0)$$
+
+Ötelenmiş fonksiyon $t=a$ anında, ötelenmemiş $g$'nin başlangıç değerinden başlar. ==Tek satırda hem kısmi kesirleri hem öteleme sadeleştirmesini sınar.==
+[/KUTU]
+
+[SORU] **2.** &nbsp; $F(s)=\dfrac{3s+1}{(s-2)^{2}}\,e^{-5s}$
+[CEVAP]
+**Adım 1 — Tekrarlı çarpan: payı $s-2$ cinsine sok.**
+
+$$3s+1=3(s-2)+7$$
+
+$$G(s)=\frac{3(s-2)+7}{(s-2)^{2}}=\frac{3}{s-2}+\frac{7}{(s-2)^{2}}$$
+
+**Adım 2 — Tablodan oku.** $\mathcal{L}^{-1}\left\{\dfrac{1}{(s-a)^{2}}\right\}=t\,e^{at}$:
+
+$$g(t)=3e^{2t}+7t\,e^{2t}$$
+
+**Adım 3 — Ötele.** $a=5$; ==üstel çarpanda öteleme sadeleşmez, hem $e^{2(t-5)}$ hem $(t-5)$ olduğu gibi kalır:==
+
+$$\boxed{\;f(t)=\begin{cases}0, & 0<t<5\\[4pt] \left[3+7(t-5)\right]e^{2(t-5)}, & t>5\end{cases}\;}$$
+
+**Doğrulama (ileri dönüşüm).** Adım 1'i tersine çevirelim:
+
+$$\frac{3}{s-2}+\frac{7}{(s-2)^{2}}=\frac{3(s-2)+7}{(s-2)^{2}}=\frac{3s+1}{(s-2)^{2}}\;\checkmark$$
+
+**Başlangıç kontrolü.** $f(5^{+})=\left[3+0\right]e^{0}=3$ ve $g(0)=3e^{0}+0=3$ &#10003;
+[/CEVAP]
+
+[SORU] **4.** &nbsp; $F(s)=\dfrac{12}{s^{2}+s-2}\,e^{-4s}$
+[CEVAP]
+**Adım 1 — Paydayı çarpanlara ayır.**
+
+$$s^{2}+s-2=(s+2)(s-1)$$
+
+**Adım 2 — Kısmi kesirler.**
+
+$$\frac{12}{(s+2)(s-1)}=\frac{A}{s+2}+\frac{B}{s-1}$$
+
+$s=-2$: &nbsp; $A=\dfrac{12}{-3}=-4$ &nbsp;&nbsp;&nbsp; $s=1$: &nbsp; $B=\dfrac{12}{3}=4$
+
+$$g(t)=4e^{t}-4e^{-2t}$$
+
+**Adım 3 — Ötele.** $a=4$:
+
+$$\boxed{\;f(t)=\begin{cases}0, & 0<t<4\\[4pt] 4e^{t-4}-4e^{-2(t-4)}, & t>4\end{cases}\;}$$
+
+**Doğrulama (genel kalıpla).** 4.2'deki konvolüsyon setinde şu kalıbı çıkarmıştık:
+
+$$\mathcal{L}^{-1}\left\{\frac{1}{(s-a)(s-b)}\right\}=\frac{e^{at}-e^{bt}}{a-b}$$
+
+Burada $a=1$, $b=-2$, $a-b=3$ ve pay $12$:
+
+$$g(t)=12\cdot\frac{e^{t}-e^{-2t}}{3}=4\left(e^{t}-e^{-2t}\right)\;\checkmark$$
+
+Kısmi kesirlerle bulduğumuzun aynısı. ==İki bağımsız yol.==
+
+**Başlangıç kontrolü.** $f(4^{+})=4-4=0$ ve $g(0)=4-4=0$ &#10003;
+
+[KUTU]
+**Sıfırdan başlaması ne anlama geliyor?** $F(s)$'nin payı sabit, paydası ikinci dereceden — yani ==derece farkı $2$==. Böyle bir dönüşümün ters dönüşümü $t=0$'da her zaman sıfırdır (başlangıç değer THEoREM'i: $\lim sG=0$).
+
+2. soruda derece farkı $1$ idi ve $f(5^{+})=3\neq 0$ çıkmıştı. ==Derece farkına bakarak başlangıç değerini önceden kestirebilirsiniz.==
+[/KUTU]
+[/CEVAP]
+
+---
+
 ### Çalışma soruları
 
-Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Çözümleri size bırakıldı.==
-
-**2.** &nbsp; $F(s)=\dfrac{3s+1}{(s-2)^{2}}\,e^{-5s}$
-
-**4.** &nbsp; $F(s)=\dfrac{12}{s^{2}+s-2}\,e^{-4s}$
+Aşağıdakiler henüz çözülmedi; sıraya alındı.
 
 **6.** &nbsp; $F(s)=\dfrac{s+10}{s^{2}+2s-8}\,e^{-2s}$
 
@@ -208,17 +276,15 @@ Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Çözümleri s
 [KUTU]
 **İpuçları.**
 
-**2** → tekrarlı çarpan: payı $s-2$ cinsinden yazın ($3s+1=3(s-2)+7$), sonuç $e^{2(t-5)}$ ve $(t-5)e^{2(t-5)}$ karışımı olur.
+**6** → 4 gibi: $s^{2}+2s-8=(s+4)(s-2)$, kısmi kesirler.
 
-**4, 6** → 3 gibi: paydayı çarpanlarına ayırıp kısmi kesirlere geçin. $s^{2}+s-2=(s+2)(s-1)$, $s^{2}+2s-8=(s+4)(s-2)$.
+**8** → 7 gibi tamkare: $s^{2}+4s+13=(s+2)^{2}+9$. Ama dikkat — $a=3$ ve açısal frekans $3$; çarpım $9$, ==$\pi$'nin katı değil==, dolayısıyla sadeleşme olmaz, cevap $\cos 3(t-3)$ ve $\sin 3(t-3)$ cinsinden kalır.
 
-**8** → 7 gibi tamkare, ama $a=3$ ve $3$ ile açısal frekans $3$'ün çarpımı $9$; ==$\pi$'nin katı değil==, dolayısıyla açı toplama formülünü açıkça yazmanız gerekir. Sadeleşme olmaz, cevap $\cos 3(t-3)$ ve $\sin 3(t-3)$ cinsinden kalır.
+**10** → 9 gibi ama $\dfrac{1}{s^{3}}\to\dfrac{t^{2}}{2}$; üç parçalı cevap çıkar ve son parça sabit değil **doğrusal** olur.
 
-**10** → 9 gibi ama $1/s^{3}\to t^{2}/2$; üç parçalı cevap çıkar, son parça sabit değil doğrusal olur.
-
-**12** → 11 gibi ama katsayılar farklı ($2$ ve $-1$) ve $a=3$, frekans $3$; $ba=9$ yine $\pi$ katı değil.
+**12** → 11 gibi ama katsayılar $2$ ve $-1$, $a=3$, frekans $3$; yine $\pi$ katı değil.
 
 **14** → önce kısmi kesirlere ayırın: $\dfrac{4}{s\left(s^{2}+4\right)}=\dfrac{1}{s}-\dfrac{s}{s^{2}+4}$. İşarete dikkat, parantez $e^{-2s}-1$ yani ==ötelenmemiş parça eksi işaretli==.
 
-**Doğrulama.** Hepsinde $t=a$ noktasında ==$f(a^{+})=g(0)$== olmalıdır (11, 12 ve 14 gibi ötelenmemiş parçası da olanlarda: $f(a^{+})=g(a)+g(0)$). Bu tek satırlık kontrol, öteleme sadeleştirmesindeki işaret hatalarını anında yakalar.
+**Doğrulama.** Hepsinde $f(a^{+})=g(0)$ kontrolünü yapın; 12 ve 14'te ötelenmemiş parça da olduğu için $f(a^{+})=g(a)+g(0)$ biçiminde olur.
 [/KUTU]

@@ -14255,69 +14255,237 @@
                                 $$y''-xy'-y=\left(1+x^{2}\right)e^{x^{2}/2}-x^{2}e^{x^{2}/2}-e^{x^{2}/2}=0\;\checkmark$$
                                 <p>Başlangıç koşulları da sağlanıyor: $y(0)=e^{0}=1$ ve $y'(0)=0\cdot e^{0}=0$. $\checkmark$</p>
                                 <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözülmeyi bekleyen egzersizler</h3>
-                                <p>Aşağıdakiler kitabın bölüm sonu listesindedir. Yöntem yukarıdaki iki çözümdekiyle aynıdır.</p>
-                                <p><strong>$x$ kuvvetlerinde kuvvet serisi çözümü bulunuz (1-14):</strong></p>
-                                <ol>
-                                    <li>&nbsp; $y''-y'+2xy=0$ &nbsp;&nbsp; 5. &nbsp; $y''+xy'+\left(2x^{2}+1\right)y=0$ &nbsp;&nbsp; 7. &nbsp; $y''+xy'+(3x+2)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $y''-\left(x^{3}+2\right)y'-6x^{2}y=0$ &nbsp;&nbsp; 10. &nbsp; $y''-\left(x^{2}+x\right)y'+y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{2}+1\right)y''+xy'+xy=0$ &nbsp;&nbsp; 12. &nbsp; $(x-1)y''-(3x-2)y'+2xy=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{3}-1\right)y''+x^{2}y'+xy=0$ &nbsp;&nbsp; 14. &nbsp; $(x+3)y''+(x+2)y'+y=0$</li>
-                                </ol>
-                                <p><strong>Başlangıç değer problemlerinin kuvvet serisi çözümünü bulunuz (16-20):</strong></p>
-                                <ol>
-                                    <li>&nbsp; $y''+xy'-2y=0,\quad y(0)=0,\quad y'(0)=1$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $y''+x^{2}y'+x^{2}y=0,\quad y(0)=2,\quad y'(0)=4$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{2}+1\right)y''+xy'+2xy=0,\quad y(0)=2,\quad y'(0)=3$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(2x^{2}-3\right)y''-2xy'+y=0,\quad y(0)=-1,\quad y'(0)=5$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{2}-1\right)y''+4xy'+2y=0,\quad y(0)=1,\quad y'(0)=-1$</li>
-                                </ol>
-                                <p><strong>$x-1$ kuvvetlerinde çözüm bulunuz (21-23):</strong></p>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+xy'+y=0$ &nbsp;&nbsp; 22. &nbsp; $x^{2}y''+3xy'-y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $xy''+y'+2y=0,\quad y(1)=2,\quad y'(1)=4$</li>
-                                </ol>
-                                <p><strong>24. &nbsp; Legendre denklemi.</strong> &nbsp; $n$ sabit olmak üzere</p>
-                                $$\left(1-x^{2}\right)y''-2xy'+n(n+1)y=0$$
-                                <p>denklemine <strong>Legendre diferansiyel denklemi (Legendre's differential equation)</strong> denir.</p>
-                                <ul style="margin-left: 1rem;">
-                                    <li><strong>(a)</strong> $x=0$'ın bu denklemin adi noktası olduğunu gösteriniz ve $x$ kuvvetlerinde lineer bağımsız iki kuvvet serisi çözümü bulunuz.</li>
-                                    <li><strong>(b)</strong> $n$ negatif olmayan bir tam sayıysa, (a)'da bulunan çözümlerden birinin $n$ dereceli bir <strong>polinom</strong> olduğunu gösteriniz.</li>
-                                </ul>
-                                <hr>
-                                <div class="claude-oneri">
-                                    <div class="claude-oneri-bas">
-                                        <span class="claude-oneri-rozet">Claude önerisi</span>
-                                        <span class="claude-oneri-baslik">Bu setteki soruların hepsi aynı beş adımdan geçer</span>
-                                    </div>
-                                    <p>Kuvvet serisi egzersizleri uzun görünür ama <span class="vurgu">her biri aynı iskelettir.</span> Bir soruya başlamadan önce şu beşi kafanızda sıralayın:</p>
-                                    <ol>
-                                        <li><strong>Noktayı sınıflandır</strong> — başkatsayıyı sıfırlayan $x$'ler tekil; $x_{0}$ onlardan biri değilse düz seri.</li>
-                                        <li><strong>Yerine koy ve hizala</strong> — bütün toplamları $x^{n}$ üssüne getirin.</li>
-                                        <li><strong>Alt sınırları eşitle</strong> — uyuşmayan ilk terimleri toplamın dışına çıkarın.</li>
-                                        <li><strong>İndirgeme bağıntısını yaz</strong> — $x^{n}$'in katsayısı sıfır.</li>
-                                        <li><strong>İki zinciri ayrı yürüt</strong> — $a_{0}$'dan gelenler bir çözüm, $a_{1}$'den gelenler öteki.</li>
-                                    </ol>
-                                    <p><strong>Zaman kazandıran karar:</strong> soru "ilk dört sıfırdan farklı terimi bulun" diyorsa <span class="vurgu">genel terimi aramayın.</span> İndirgeme bağıntısını bulup dört adım yürütmek yeterlidir; kapalı formül çıkarmak çoğu zaman gereksiz iştir.</p>
-                                    <p><strong>Sonucu sınamanın hızlı yolu.</strong> Bulduğunuz ilk birkaç terimi <span class="vurgu">denkleme geri koyup en düşük iki kuvvetin katsayısına bakın;</span> ikisi de sıfır çıkıyorsa indirgeme bağıntınız neredeyse kesin doğrudur. Bütün seriyi kontrol etmenize gerek yok.</p>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan egzersizler — çözümler bize ait</h3>
+                                <div class="highlight">
+                                    <p><strong>Bu soruların cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir; her biri <span class="vurgu">ikinci bir bağımsız yolla doğrulanmıştır</span>.</p>
+                                    <p>Kuvvet serilerinde kullandığımız doğrulama şu: bulunan katsayıları <span class="vurgu">denkleme geri koyup her $x$ kuvvetinin katsayısını ayrı ayrı sıfıra eşitlemek.</span> Her katsayı için bağımsız bir denklem çıktığından, indirgeme bağıntısında bir işaret hatası varsa ilk birkaç kuvvette hemen görünür.</p>
+                                    <p><strong>Gösterim.</strong> Her problemde $a_{0}$ ve $a_{1}$ serbest bırakılır; $y_{1}$ çözümü $a_{0}=1,\,a_{1}=0$, $y_{2}$ çözümü $a_{0}=0,\,a_{1}=1$ seçimine karşılık gelir. Genel çözüm $y=a_{0}y_{1}+a_{1}y_{2}$'dir.</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $y''-y'+2xy=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Nokta adi mi?</strong> Başkatsayı $1$, hiçbir yerde sıfırlanmıyor &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">$x=0$ adi nokta</span>, düz kuvvet serisi çalışır.</p>
+                                <p><strong>Adım 2 — Serileri $x^{n}$ üssüne hizala.</strong></p>
+                                $$y''=\sum_{n=0}^{\infty}(n+2)(n+1)a_{n+2}x^{n},\qquad -y'=-\sum_{n=0}^{\infty}(n+1)a_{n+1}x^{n}$$
+                                $$2xy=2\sum_{n=0}^{\infty}a_{n}x^{n+1}=2\sum_{n=1}^{\infty}a_{n-1}x^{n}$$
+                                <p><span class="vurgu">Son toplam $n=1$'den başlıyor</span>, o yüzden $n=0$ terimini ayrı yazacağız.</p>
+                                <p><strong>Adım 3 — Katsayıları sıfıra eşitle.</strong></p>
+                                <p>$x^{0}$: &nbsp; $2a_{2}-a_{1}=0\;\Longrightarrow\;a_{2}=\dfrac{a_{1}}{2}$</p>
+                                <p>$x^{n}$, $n\ge 1$: &nbsp; $(n+2)(n+1)a_{n+2}-(n+1)a_{n+1}+2a_{n-1}=0$</p>
+                                $$\boxed{\;a_{n+2}=\frac{(n+1)a_{n+1}-2a_{n-1}}{(n+2)(n+1)},\qquad n\ge 1\;}$$
+                                <p><strong>Adım 4 — Katsayıları üret.</strong></p>
+                                <div class="tablo-sar">
+                                <table>
+                                    <tr><th>$n$</th><th>$a_{n+2}$</th></tr>
+                                    <tr><td>—</td><td>$a_{2}=\dfrac{a_{1}}{2}$</td></tr>
+                                    <tr><td>$1$</td><td>$a_{3}=\dfrac{a_{1}}{6}-\dfrac{a_{0}}{3}$</td></tr>
+                                    <tr><td>$2$</td><td>$a_{4}=-\dfrac{a_{1}}{8}-\dfrac{a_{0}}{12}$</td></tr>
+                                    <tr><td>$3$</td><td>$a_{5}=-\dfrac{3a_{1}}{40}-\dfrac{a_{0}}{60}$</td></tr>
+                                </table>
+                                </div>
+                                <p><strong>Adım 5 — İki bağımsız çözüm.</strong></p>
+                                $$\boxed{\;y_{1}=1-\frac{x^{3}}{3}-\frac{x^{4}}{12}-\frac{x^{5}}{60}+\cdots\;}$$
+                                $$\boxed{\;y_{2}=x+\frac{x^{2}}{2}+\frac{x^{3}}{6}-\frac{x^{4}}{8}-\frac{3x^{5}}{40}+\cdots\;}$$
+                                <p><span class="vurgu">Bu denklemde $a_{2}$, $a_{0}$'a hiç bağlı değil</span> ($a_{2}=\tfrac{a_{1}}{2}$), bu yüzden $y_{1}$'de $x^{2}$ terimi yok.</p>
+                                <p><strong>Doğrulama — katsayıları denkleme geri koy.</strong> Her kuvvet için $(n+2)(n+1)a_{n+2}-(n+1)a_{n+1}+2a_{n-1}$ sıfır olmalı:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+                                <tr><td>$x^{0}$</td><td>$0-0=0$ &#10003;</td><td>$2\cdot\tfrac12-1=0$ &#10003;</td></tr>
+                                <tr><td>$x^{1}$</td><td>$-2-0+2=0$ &#10003;</td><td>$1-1+0=0$ &#10003;</td></tr>
+                                <tr><td>$x^{2}$</td><td>$-1+1+0=0$ &#10003;</td><td>$-\tfrac32-\tfrac12+2=0$ &#10003;</td></tr>
+                                <tr><td>$x^{3}$</td><td>$-\tfrac13+\tfrac13+0=0$ &#10003;</td><td>$-\tfrac32+\tfrac12+1=0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <p><span class="vurgu">Dört kuvvet, hesapladığımız dört katsayıyı da sınıyor.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $y''+xy'+\left(2x^{2}+1\right)y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Hizala.</strong></p>
+                                $$y''\to(n+2)(n+1)a_{n+2},\qquad xy'\to na_{n},\qquad y\to a_{n},\qquad 2x^{2}y\to 2a_{n-2}$$
+                                <p><strong>Adım 2 — Topla.</strong> $na_{n}+a_{n}=(n+1)a_{n}$ olduğuna dikkat edin:</p>
+                                $$(n+2)(n+1)a_{n+2}+(n+1)a_{n}+2a_{n-2}=0$$
+                                $$\boxed{\;a_{n+2}=-\frac{(n+1)a_{n}+2a_{n-2}}{(n+2)(n+1)}\;}$$
+                                <p><span class="vurgu">$a_{-1}=a_{-2}=0$ kabul edilirse bu tek formül $n=0$ ve $n=1$ için de doğrudur</span> — ayrı durum yazmaya gerek yok.</p>
+                                <p><strong>Adım 3 — Katsayılar.</strong></p>
+                                $$a_{2}=-\frac{a_{0}}{2},\quad a_{3}=-\frac{a_{1}}{3},\quad a_{4}=-\frac{a_{0}}{24},\quad a_{5}=-\frac{a_{1}}{30}$$
+                                <p><strong>Adım 4 — Çözümler.</strong> <span class="vurgu">Bağıntı $a_{n}$ ile $a_{n-2}$'yi bağlıyor, yani çift ve tek indisler hiç karışmıyor:</span></p>
+                                $$\boxed{\;y_{1}=1-\frac{x^{2}}{2}-\frac{x^{4}}{24}+\cdots,\qquad y_{2}=x-\frac{x^{3}}{3}-\frac{x^{5}}{30}+\cdots\;}$$
+                                <p>$y_{1}$ çift, $y_{2}$ tek fonksiyon. <span class="vurgu">Denklemde yalnız çift kuvvetli katsayılar bulunduğu için bu beklenen bir simetri.</span></p>
+                                <p><strong>Doğrulama.</strong></p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>Hesap</th><th>Sonuç</th></tr>
+                                <tr><td>$y_{1}$, $x^{0}$</td><td>$2a_{2}+a_{0}=-1+1$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$y_{1}$, $x^{2}$</td><td>$12a_{4}+3a_{2}+2a_{0}=-\tfrac12-\tfrac32+2$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$y_{2}$, $x^{1}$</td><td>$6a_{3}+2a_{1}=-2+2$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$y_{2}$, $x^{3}$</td><td>$20a_{5}+4a_{3}+2a_{1}=-\tfrac23-\tfrac43+2$</td><td>$0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $y''+xy'+(3x+2)y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Hizala.</strong></p>
+                                $$y''\to(n+2)(n+1)a_{n+2},\quad xy'\to na_{n},\quad 3xy\to 3a_{n-1},\quad 2y\to 2a_{n}$$
+                                <p><strong>Adım 2 — Topla.</strong> $na_{n}+2a_{n}=(n+2)a_{n}$:</p>
+                                $$\boxed{\;a_{n+2}=-\frac{(n+2)a_{n}+3a_{n-1}}{(n+2)(n+1)}\;}$$
+                                <p>(Yine $a_{-1}=0$ ile $n=0$ dahil her $n$ için geçerli.)</p>
+                                <p><strong>Adım 3 — Katsayılar.</strong></p>
+                                $$a_{2}=-a_{0},\quad a_{3}=-\frac{a_{0}+a_{1}}{2},\quad a_{4}=\frac{a_{0}}{3}-\frac{a_{1}}{4},\quad a_{5}=\frac{11a_{0}+5a_{1}}{40}$$
+                                <p><strong>Adım 4 — Çözümler.</strong> <span class="vurgu">Bu kez $a_{n-1}$ terimi var, yani çift ve tek indisler birbirine karışıyor;</span> ikisi de tam seri:</p>
+                                $$\boxed{\;y_{1}=1-x^{2}-\frac{x^{3}}{2}+\frac{x^{4}}{3}+\frac{11x^{5}}{40}+\cdots\;}$$
+                                $$\boxed{\;y_{2}=x-\frac{x^{3}}{2}-\frac{x^{4}}{4}+\frac{x^{5}}{8}+\cdots\;}$$
+                                <p><strong>Doğrulama.</strong> Kontrol edilen ifade $(n+2)(n+1)a_{n+2}+(n+2)a_{n}+3a_{n-1}$:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+                                <tr><td>$x^{0}$</td><td>$-2+2=0$ &#10003;</td><td>$0+0=0$ &#10003;</td></tr>
+                                <tr><td>$x^{1}$</td><td>$-3+0+3=0$ &#10003;</td><td>$-3+3+0=0$ &#10003;</td></tr>
+                                <tr><td>$x^{2}$</td><td>$4-4+0=0$ &#10003;</td><td>$-3+0+3=0$ &#10003;</td></tr>
+                                <tr><td>$x^{3}$</td><td>$\tfrac{11}{2}-\tfrac52-3=0$ &#10003;</td><td>$\tfrac52-\tfrac52+0=0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>5 ile 7'yi karşılaştırın.</strong> İkisi de benzer görünüyor ama <span class="vurgu">davranışları taban tabana zıt:</span></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li><strong>5</strong>'te denklemdeki $x$ kuvvetleri hep çift ($x\cdot y'$ ve $x^{2}y$ terimleri indisi <strong>ikişer</strong> kaydırıyor) → çift ve tek zincirler ayrı kalıyor, çözümler <span class="vurgu">çift ve tek fonksiyon.</span></li>
+                                        <li><strong>7</strong>'de $3xy$ terimi indisi <strong>birer</strong> kaydırıyor → zincirler karışıyor, <span class="vurgu">simetri yok.</span></li>
+                                    </ul>
+                                    <p><strong>Pratik kural:</strong> indirgeme bağıntısında $a_{n-1}$ (tek kaydırma) varsa simetri bozulur; yalnız $a_{n}$ ve $a_{n-2}$ varsa çözümler çift/tek ayrılır. <span class="vurgu">Bunu hesaptan önce görebilirsiniz.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $y''-\left(x^{3}+2\right)y'-6x^{2}y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Terimleri aç ve hizala.</strong></p>
+                                $$y''\to(n+2)(n+1)a_{n+2},\qquad -2y'\to-2(n+1)a_{n+1}$$
+                                $$-x^{3}y'\to-(n-2)a_{n-2},\qquad -6x^{2}y\to-6a_{n-2}$$
+                                <p><strong>Adım 2 — Son iki terim birleşiyor.</strong> <span class="vurgu">Aynı $a_{n-2}$'yi taşıdıkları için tek terimde toplanır:</span></p>
+                                $$-(n-2)a_{n-2}-6a_{n-2}=-(n+4)a_{n-2}$$
+                                $$\boxed{\;a_{n+2}=\frac{2(n+1)a_{n+1}+(n+4)a_{n-2}}{(n+2)(n+1)}\;}$$
+                                <p><strong>Adım 3 — Katsayılar.</strong></p>
+                                $$a_{2}=a_{1},\quad a_{3}=\frac{2a_{1}}{3},\quad a_{4}=\frac{a_{0}}{2}+\frac{a_{1}}{3},\quad a_{5}=\frac{a_{0}}{5}+\frac{29a_{1}}{60}$$
+                                <p><strong>Adım 4 — Çözümler.</strong></p>
+                                $$\boxed{\;y_{1}=1+\frac{x^{4}}{2}+\frac{x^{5}}{5}+\cdots\;}$$
+                                $$\boxed{\;y_{2}=x+x^{2}+\frac{2x^{3}}{3}+\frac{x^{4}}{3}+\frac{29x^{5}}{60}+\cdots\;}$$
+                                <p><span class="vurgu">$y_{1}$'de $x$, $x^{2}$ ve $x^{3}$ terimlerinin hiçbiri yok:</span> bağıntıda $a_{0}$ ilk kez $n=2$ adımında (yani $a_{4}$'te) devreye giriyor, çünkü $a_{n-2}$ terimi $n\ge 2$'den önce sıfır.</p>
+                                <p><strong>Doğrulama.</strong> Kontrol edilen ifade $(n+2)(n+1)a_{n+2}-2(n+1)a_{n+1}-(n+4)a_{n-2}$:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+                                <tr><td>$x^{0}$</td><td>$0-0=0$ &#10003;</td><td>$2-2=0$ &#10003;</td></tr>
+                                <tr><td>$x^{1}$</td><td>$0-0=0$ &#10003;</td><td>$4-4=0$ &#10003;</td></tr>
+                                <tr><td>$x^{2}$</td><td>$6-0-6=0$ &#10003;</td><td>$4-4-0=0$ &#10003;</td></tr>
+                                <tr><td>$x^{3}$</td><td>$4-4-0=0$ &#10003;</td><td>$\tfrac{29}{3}-\tfrac83-7=0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $y''-\left(x^{2}+x\right)y'+y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Hizala.</strong></p>
+                                $$y''\to(n+2)(n+1)a_{n+2},\quad -x^{2}y'\to-(n-1)a_{n-1},\quad -xy'\to-na_{n},\quad y\to a_{n}$$
+                                <p><strong>Adım 2 — Şaşırtıcı sadeleşme.</strong> $-na_{n}+a_{n}=-(n-1)a_{n}$; yani <span class="vurgu">her iki terimde de aynı $(n-1)$ çarpanı çıkıyor:</span></p>
+                                $$(n+2)(n+1)a_{n+2}-(n-1)a_{n-1}-(n-1)a_{n}=0$$
+                                $$\boxed{\;a_{n+2}=\frac{(n-1)\left[a_{n}+a_{n-1}\right]}{(n+2)(n+1)}\;}$$
+                                <p><strong>Adım 3 — $n=1$'de bağıntı sıfırlanıyor.</strong> $(n-1)=0$ olduğundan <span class="vurgu">$a_{3}=0$, hangi başlangıç değerini seçerseniz seçin.</span> Bu, iki çözümde birden görülecek.</p>
+                                $$a_{2}=-\frac{a_{0}}{2},\quad a_{3}=0,\quad a_{4}=\frac{a_{1}}{12}-\frac{a_{0}}{24},\quad a_{5}=-\frac{a_{0}}{20},\quad a_{6}=\frac{a_{1}}{120}-\frac{a_{0}}{240}$$
+                                <p><strong>Adım 4 — Çözümler.</strong></p>
+                                $$\boxed{\;y_{1}=1-\frac{x^{2}}{2}-\frac{x^{4}}{24}-\frac{x^{5}}{20}-\frac{x^{6}}{240}+\cdots\;}$$
+                                $$\boxed{\;y_{2}=x+\frac{x^{4}}{12}+\frac{x^{6}}{120}+\cdots\;}$$
+                                <p><span class="vurgu">$y_{2}$ çok seyrek:</span> $a_{1}$ zincirinde $a_{2}=a_{3}=a_{5}=0$ çıkıyor, ilk katkı ancak $x^{4}$'te geliyor.</p>
+                                <p><strong>Doğrulama.</strong> Kontrol edilen ifade $(n+2)(n+1)a_{n+2}-(n-1)\left[a_{n}+a_{n-1}\right]$:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+                                <tr><td>$x^{0}$</td><td>$-1+1=0$ &#10003;</td><td>$0-0=0$ &#10003;</td></tr>
+                                <tr><td>$x^{1}$</td><td>$0$ (çarpan sıfır) &#10003;</td><td>$0$ (çarpan sıfır) &#10003;</td></tr>
+                                <tr><td>$x^{2}$</td><td>$-\tfrac12-\left(0-\tfrac12\right)=0$ &#10003;</td><td>$1-(1+0)=0$ &#10003;</td></tr>
+                                <tr><td>$x^{3}$</td><td>$-1-2\left(-\tfrac12+0\right)=0$ &#10003;</td><td>$0-0=0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>$a_{3}=0$ neden her zaman doğru?</strong> İndirgeme bağıntısının payındaki $(n-1)$ çarpanı $n=1$'de sıfırlanıyor ve $a_{3}$ tam olarak $n=1$ adımından geliyor. <span class="vurgu">Başlangıç değerlerinden bağımsız bir yapısal sonuç.</span></p>
+                                    <p>Böyle çarpanlar seri çözümlerde sık görülür ve <span class="vurgu">her zaman bir şey söyler:</span> Hermite denkleminde $2(n-\alpha)$ çarpanı belli bir $n$'de sıfırlanıp seriyi polinoma çeviriyordu. Buradaki $(n-1)$ ise zinciri kesmiyor, yalnız tek bir terimi düşürüyor — çünkü bağıntı $a_{n+2}$'yi $a_{n}$'e bağlıyor, sıfırlanan terim zincirin devamını durdurmuyor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözülmeyi bekleyen egzersizler</h3>
+                        <p>Yöntem yukarıdaki çözümlerdekiyle aynıdır. <span class="vurgu">Sıraya alındı.</span></p>
+                        <p><strong>$x$ kuvvetlerinde kuvvet serisi çözümü bulunuz (11-14):</strong></p>
+                        <ol>
+                            <li>&nbsp; $\left(x^{2}+1\right)y''+xy'+xy=0$ &nbsp;&nbsp; 12. &nbsp; $(x-1)y''-(3x-2)y'+2xy=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $\left(x^{3}-1\right)y''+x^{2}y'+xy=0$ &nbsp;&nbsp; 14. &nbsp; $(x+3)y''+(x+2)y'+y=0$</li>
+                        </ol>
+                        <p><strong>Başlangıç değer problemlerinin kuvvet serisi çözümünü bulunuz (16-20):</strong></p>
+                        <ol>
+                            <li>&nbsp; $y''+xy'-2y=0,\quad y(0)=0,\quad y'(0)=1$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $y''+x^{2}y'+x^{2}y=0,\quad y(0)=2,\quad y'(0)=4$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $\left(x^{2}+1\right)y''+xy'+2xy=0,\quad y(0)=2,\quad y'(0)=3$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $\left(2x^{2}-3\right)y''-2xy'+y=0,\quad y(0)=-1,\quad y'(0)=5$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $\left(x^{2}-1\right)y''+4xy'+2y=0,\quad y(0)=1,\quad y'(0)=-1$</li>
+                        </ol>
+                        <p><strong>$x-1$ kuvvetlerinde çözüm bulunuz (21-23):</strong></p>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+xy'+y=0$ &nbsp;&nbsp; 22. &nbsp; $x^{2}y''+3xy'-y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $xy''+y'+2y=0,\quad y(1)=2,\quad y'(1)=4$</li>
+                        </ol>
+                        <p><strong>24. &nbsp; Legendre denklemi.</strong> &nbsp; $n$ sabit olmak üzere</p>
+                        $$\left(1-x^{2}\right)y''-2xy'+n(n+1)y=0$$
+                        <p>denklemine <strong>Legendre diferansiyel denklemi (Legendre's differential equation)</strong> denir.</p>
+                        <ul style="margin-left: 1rem;">
+                            <li><strong>(a)</strong> $x=0$'ın bu denklemin adi noktası olduğunu gösteriniz ve $x$ kuvvetlerinde lineer bağımsız iki kuvvet serisi çözümü bulunuz.</li>
+                            <li><strong>(b)</strong> $n$ negatif olmayan bir tam sayıysa, (a)'da bulunan çözümlerden birinin $n$ dereceli bir <strong>polinom</strong> olduğunu gösteriniz.</li>
+                        </ul>
+                        <div class="highlight">
+                            <p><strong>İpuçları.</strong></p>
+                            <p><strong>11-14</strong> → Başkatsayı artık sabit değil. Önce <span class="vurgu">$x_{0}=0$'ın hâlâ adi nokta olduğunu doğrulayın</span> (11'de $x^{2}+1\neq 0$, 12'de $-1\neq 0$, 13'te $-1\neq 0$, 14'te $3\neq 0$). Sonra başkatsayıyı dağıtıp her parçayı ayrı hizalayın; $x^{2}y''$ gibi terimler indisi <span class="vurgu">kaydırmaz</span>, yalnız katsayıyı değiştirir.</p>
+                            <p><strong>16-20</strong> → Başlangıç koşulları doğrudan $a_{0}=y(0)$ ve $a_{1}=y'(0)$ verir. <span class="vurgu">İki ayrı çözüm aramaya gerek yok</span>, tek bir seri çıkar.</p>
+                            <p><strong>21-23</strong> → $x-1$ kuvvetleri isteniyor, yani $x_{0}=1$. $t=x-1$ koyup denklemi $t$ cinsine çevirmek en temiz yoldur; $x=t+1$ ve türevler değişmez.</p>
+                            <p><strong>24</strong> → $n(n+1)$ katsayısı, indirgeme bağıntısında $\left[n(n+1)-k(k+1)\right]$ biçiminde bir çarpan doğurur. <span class="vurgu">$k=n$ olduğunda sıfırlanır ve seri kesilir</span> — Hermite'teki polinomlaşmanın aynısı.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bu setteki soruların hepsi aynı beş adımdan geçer</span>
+                            </div>
+                            <p>Kuvvet serisi egzersizleri uzun görünür ama <span class="vurgu">her biri aynı iskelettir.</span> Bir soruya başlamadan önce şu beşi kafanızda sıralayın:</p>
+                            <ol>
+                                <li><strong>Noktayı sınıflandır</strong> — başkatsayıyı sıfırlayan $x$'ler tekil; $x_{0}$ onlardan biri değilse düz seri.</li>
+                                <li><strong>Yerine koy ve hizala</strong> — bütün toplamları $x^{n}$ üssüne getirin.</li>
+                                <li><strong>Alt sınırları eşitle</strong> — uyuşmayan ilk terimleri toplamın dışına çıkarın.</li>
+                                <li><strong>İndirgeme bağıntısını yaz</strong> — $x^{n}$'in katsayısı sıfır.</li>
+                                <li><strong>İki zinciri ayrı yürüt</strong> — $a_{0}$'dan gelenler bir çözüm, $a_{1}$'den gelenler öteki.</li>
+                            </ol>
+                            <p><strong>Zaman kazandıran karar:</strong> soru "ilk dört sıfırdan farklı terimi bulun" diyorsa <span class="vurgu">genel terimi aramayın.</span> İndirgeme bağıntısını bulup dört adım yürütmek yeterlidir; kapalı formül çıkarmak çoğu zaman gereksiz iştir.</p>
+                            <p><strong>Sonucu sınamanın hızlı yolu.</strong> Bulduğunuz ilk birkaç terimi <span class="vurgu">denkleme geri koyup en düşük iki kuvvetin katsayısına bakın;</span> ikisi de sıfır çıkıyorsa indirgeme bağıntınız neredeyse kesin doğrudur. Bütün seriyi kontrol etmenize gerek yok.</p>
                         </div>
                     </div>
 
@@ -17140,7 +17308,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=b81fb2dd"></script>
+<script defer src="arama.js?v=e46e872d"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

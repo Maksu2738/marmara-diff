@@ -147,3 +147,18 @@ $$8-2x(8x)+4\left(4x^{2}-2\right)=8-16x^{2}+16x^{2}-8=0\;\checkmark$$
 
 Kuantum harmonik salınıcıda enerji $E_{n}=\left(n+\tfrac{1}{2}\right)\hbar\omega$ biçiminde çıkar; buradaki $n$ ile bu $n$ aynı $n$'dir. ==Fizikteki kesikli enerji seviyeleri, seri çözümün kesilme koşulundan doğar.==
 [/KUTU]
+
+---
+
+[CLAUDE] Hermite'in püf noktası: seri ne zaman polinoma dönüşür
+$y''-2xy'+2\alpha y=0$ denkleminin bağıntısında pay $2(n-\alpha)$ çarpanını taşır. ==$\alpha$ negatif olmayan bir tam sayıysa bu çarpan bir yerde sıfırlanır ve seri kesilir== — sonsuz seri yerine bir **polinom** elde edersiniz. Bunlar Hermite polinomlarıdır.
+
+**Hangi çözüm kesilir?** $\alpha$'nın **tekliği/çiftliği** belirler:
+
+- $\alpha$ çift → $a_{0}$ zinciri (çift kuvvetler) kesilir
+- $\alpha$ tek → $a_{1}$ zinciri (tek kuvvetler) kesilir
+
+Diğer zincir sonsuz seri olarak kalır. ==Yani bir çözüm polinom, öteki sonsuz seri.==
+
+**Sınavda ne sorulur:** genelde "$\alpha=3$ için polinom çözümü bulun" gibi. O zaman $a_{1}$ zincirini yazın, $n=3$'te sıfırlandığını gösterin, üç terimle bitirin. ==Bütün seriyi açmaya gerek yok.==
+[/CLAUDE]

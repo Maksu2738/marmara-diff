@@ -49,6 +49,24 @@ menu: 3.5 Parametrelerin Değişimi
                         <p>İntegral alarak:</p>
                         $$v_{1}(x)=-\int^{x}\frac{F(t)\,y_{2}(t)}{a_{0}(t)\,W[y_{1},y_{2}](t)}\,dt,\qquad v_{2}(x)=\int^{x}\frac{F(t)\,y_{1}(t)}{a_{0}(t)\,W[y_{1},y_{2}](t)}\,dt$$
                         <p>Böylece özel integral $y_{p}(x)=v_{1}(x)y_{1}(x)+v_{2}(x)y_{2}(x)$ olarak elde edilir.</p>
-                    </div>
+                    
+    <div class="claude-oneri">
+        <div class="claude-oneri-bas">
+            <span class="claude-oneri-rozet">Claude önerisi</span>
+            <span class="claude-oneri-baslik">Ne zaman belirsiz katsayılar, ne zaman parametrelerin değişimi</span>
+        </div>
+        <p><strong>Karar kuralı tek satır:</strong></p>
+        <ul style="margin-left: 1rem;">
+            <li>Sağ taraf polinom, üstel, sinüs/kosinüs ya da bunların çarpımıysa → <span class="vurgu">belirsiz katsayılar</span> (daha hızlı)</li>
+            <li>Başka her şeyde ($\tan x$, $\ln x$, $\dfrac{1}{x}$, $\sec x$, sağ taraf belirtilmemişse) → <span class="vurgu">parametrelerin değişimi</span> (tek seçenek)</li>
+        </ul>
+        <p>Parametrelerin değişimi <strong>her zaman</strong> çalışır ama integral almayı gerektirir; belirsiz katsayılar yalnız yukarıdaki dar sınıfta çalışır ama sadece cebir ister.</p>
+        <p><strong>Formülü hatırlamanın yolu.</strong> Wronskian'ı paydaya yazın, <span class="vurgu">çapraz eşleştirin ve işaretleri ters koyun:</span></p>
+        $$u_{1}'=-\frac{y_{2}f}{W},\qquad u_{2}'=+\frac{y_{1}f}{W}$$
+        <p>$y_{1}$ ile $u_{2}$, $y_{2}$ ile $u_{1}$ eşleşir; <span class="vurgu">eksi işareti "1" indisli olana gider.</span></p>
+        <p><strong>En sık atlanan adım:</strong> denklem $y''+P y'+Q y=f$ biçiminde, yani <span class="vurgu">başkatsayısı 1</span> olmalı. $3y''+\ldots=g$ verilmişse önce $3$'e bölün, yoksa $f$ yanlış olur.</p>
+    </div>
+
+</div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.40 – 4.42 ===== -->

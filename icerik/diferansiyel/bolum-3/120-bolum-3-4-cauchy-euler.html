@@ -57,6 +57,30 @@ menu: 3.4 Cauchy-Euler Denklemi
                                 <li>Genel olarak $x^{n}y^{(n)}=D_{t}(D_{t}-1)\cdots(D_{t}-n+1)y$</li>
                             </ul>
                         </div>
-                    </div>
+                    
+    <div class="claude-oneri">
+        <div class="claude-oneri-bas">
+            <span class="claude-oneri-rozet">Claude önerisi</span>
+            <span class="claude-oneri-baslik">Dönüşüm yapmadan yardımcı denklemi yazın</span>
+        </div>
+        <p>Kitap $x=e^{s}$ dönüşümünü kurup zincir kuralıyla ilerliyor. <span class="vurgu">Sınavda buna gerek yok:</span> doğrudan $y=x^{m}$ deneyin, çünkü</p>
+        $$x^{k}y^{(k)}=m(m-1)(m-2)\cdots(m-k+1)\,x^{m}$$
+        <p>Yani her terim $x^{m}$ ile aynı çarpanı taşır, $x^{m}$ sadeleşir ve geriye <span class="vurgu">$m$ cinsinden bir polinom</span> kalır. İkinci mertebede:</p>
+        $$ax^{2}y''+bxy'+cy=0\;\Longrightarrow\;a\,m(m-1)+b\,m+c=0$$
+        <p><strong>Tek satır.</strong> $x^{2}y''$ için $m(m-1)$, $xy'$ için $m$, $y$ için $1$ yazın — <span class="vurgu">ezberlenecek tek şey $m(m-1)$'dir.</span></p>
+        <p><strong>Üç durum, sabit katsayılının birebir aynısı.</strong> Cauchy-Euler'i ayrı bir konu gibi öğrenmeyin; Bölüm 3.2'nin sözlüğe çevrilmiş hâlidir:</p>
+        <div class="tablo-sar">
+        <table>
+            <tr><th>Sabit katsayılı</th><th>Cauchy-Euler</th></tr>
+            <tr><td>$e^{mt}$</td><td>$x^{m}$</td></tr>
+            <tr><td>$t$ (tekrarlı kökteki çarpan)</td><td>$\ln x$</td></tr>
+            <tr><td>$e^{at}\cos bt$</td><td>$x^{a}\cos\left(b\ln x\right)$</td></tr>
+        </table>
+        </div>
+        <p>Yani <strong>tekrarlı kök</strong> $\Rightarrow$ ikinci çözüm $x^{m}\ln x$; <strong>karmaşık kök</strong> $a\pm bi$ $\Rightarrow$ $x^{a}\left[c_{1}\cos(b\ln x)+c_{2}\sin(b\ln x)\right]$. <span class="vurgu">Yeni bir kural ezberlemeniz gerekmiyor, sadece $t\to\ln x$ çevirisi.</span></p>
+        <p><strong>Bir uyarı.</strong> Bu kısayol yalnız <strong>homojen</strong> denklemde çalışır. Sağ taraf sıfır değilse ya parametrelerin değişimini kullanın, ya da $x=e^{s}$ dönüşümünü gerçekten yapıp sabit katsayılı hâle geçin — belirsiz katsayılar ancak orada uygulanabilir. <span class="vurgu">$x$ cinsinden doğrudan deneme fonksiyonu yazmayın.</span></p>
+    </div>
+
+</div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.43 – 4.44 ===== -->

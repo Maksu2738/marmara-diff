@@ -144,3 +144,27 @@ Buradaki $\gamma$, **Euler-Mascheroni sabitidir**:
 $$\gamma=\lim_{n\to\infty}\left(1+\frac{1}{2}+\frac{1}{3}+\dots+\frac{1}{n}-\ln n\right)\approx 0{,}5772$$
 
 Bu özel birleşim, ==büyük $x$ değerlerinde $J_{0}$ ile aynı asimptotik davranışı vermek üzere== seçilmiştir; tablolar ve uygulamalar bu normalleştirmeye göre hazırlanır.
+
+---
+
+[CLAUDE] Bessel'e Frobenius gözüyle bakın
+$x^{2}y''+xy'+\left(x^{2}-p^{2}\right)y=0$ denklemini korkutucu yapan tek şey $p$ parametresidir. ==Yapı tamamen tanıdık:==
+
+- Denklem zaten $x^{2}y''+x\,b(x)y'+c(x)y=0$ biçiminde; $b_{0}=1$, $c_{0}=-p^{2}$.
+- Başlangıç denklemi: $r(r-1)+r-p^{2}=r^{2}-p^{2}=0$ &nbsp;→&nbsp; ==$r=\pm p$.==
+
+Yani başlangıç denklemi bir satırda çıkıyor ve kök farkı $2p$ oluyor. **Bütün istisna tartışması buradan okunur:**
+
+| $p$ | $r_{1}-r_{2}=2p$ | Durum |
+|---|---|---|
+| tam sayı değil, yarım da değil | tam sayı değil | en kolay durum, $J_{p}$ ve $J_{-p}$ bağımsız |
+| $p=0$ | $0$ | eşit kökler → logaritma kesin |
+| $p$ tam sayı | çift tam sayı | ==$J_{-p}=(-1)^{p}J_{p}$, bağımsız değil== → $Y_{p}$ gerekir |
+| $p$ yarım tam sayı | tek tam sayı | belirsiz durum ama şanslıyız: düz seri çalışır |
+
+**Son satır güzel bir sonuç veriyor:** $p=\tfrac12$ için Bessel fonksiyonları temel fonksiyonlara indirgenir:
+
+$$J_{1/2}(x)=\sqrt{\frac{2}{\pi x}}\,\sin x$$
+
+==Seri çözümlerinin "gerçekten" bildiğimiz fonksiyonlar olduğunu gösteren en güzel örnek budur.==
+[/CLAUDE]

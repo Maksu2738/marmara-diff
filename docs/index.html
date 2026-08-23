@@ -66,12 +66,12 @@
 
                     <!-- ===== BÖLÜM 1 ===== -->
                     <li>
-                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
                             <span class="chapter-num">1</span>
                             <span class="chapter-name">Temel Kavramlar: Diferansiyel Denklemler ve Çözümleri</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links open">
+                        <ul class="chapter-links">
                             <li><a href="#bolum-1">Giriş</a></li>
                             <li><a href="#claude-onerileri">Claude önerileri nedir?</a></li>
                             <li><a href="#bolum-1-1">1.1 Sınıflandırma, Köken ve Uygulama</a></li>
@@ -172,12 +172,12 @@
 
                     <!-- ===== BÖLÜM 4 ===== -->
                     <li>
-                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
                             <span class="chapter-num">4</span>
                             <span class="chapter-name">Laplace Dönüşümü</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links open">
+                        <ul class="chapter-links">
                             <li><a href="#laplace">Giriş</a></li>
                             <li><a href="#laplace-tanim">4.1 Tanım ve Temel Dönüşümler</a></li>
                             <li><a href="#egzersizler-laplace-tanim">4.1 Egzersizler — Tanımdan Dönüşüm</a></li>
@@ -220,12 +220,12 @@
 
                     <!-- ===== BÖLÜM 5 ===== -->
                     <li>
-                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
                             <span class="chapter-num">5</span>
                             <span class="chapter-name">Kuvvet Serisi Çözümleri</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links open">
+                        <ul class="chapter-links">
                             <li><a href="#seri">Giriş</a></li>
                             <li><a href="#seri-temel">5.1 Adi Nokta Etrafında Kuvvet Serisi Çözümleri</a></li>
                             <li><a href="#ornek-adi-tekil-nokta">5.1 Örnekler — Adi ve Tekil Noktalar</a></li>
@@ -249,12 +249,12 @@
 
                     <!-- ===== BÖLÜM 6 ===== -->
                     <li>
-                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
                             <span class="chapter-num">6</span>
                             <span class="chapter-name">Özel Diferansiyel Denklemler</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links open">
+                        <ul class="chapter-links">
                             <li><a href="#ozel-dd" class="pending">Giriş</a></li>
                             <li><a href="#ozel-dd-airy">6.1 Airy Denklemi</a></li>
                             <li><a href="#ozel-dd-hermite">6.2 Hermite Denklemi</a></li>
@@ -271,12 +271,12 @@
 
                     <!-- ===== BÖLÜM 7 ===== -->
                     <li>
-                        <button class="chapter-toggle open" onclick="toggleChapter(this)">
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
                             <span class="chapter-num">7</span>
                             <span class="chapter-name">Diferansiyel Operatörler</span>
                             <span class="chevron">&#9654;</span>
                         </button>
-                        <ul class="chapter-links open">
+                        <ul class="chapter-links">
                             <li><a href="#operator">Giriş</a></li>
                             <li><a href="#operator-sistem-turleri">7.1 Lineer Sistem Türleri</a></li>
                             <li><a href="#operator-tanim">7.2 Diferansiyel Operatörler</a></li>
@@ -7167,7 +7167,31 @@
                                 <li>Genel olarak $x^{n}y^{(n)}=D_{t}(D_{t}-1)\cdots(D_{t}-n+1)y$</li>
                             </ul>
                         </div>
-                    </div>
+                    
+    <div class="claude-oneri">
+        <div class="claude-oneri-bas">
+            <span class="claude-oneri-rozet">Claude önerisi</span>
+            <span class="claude-oneri-baslik">Dönüşüm yapmadan yardımcı denklemi yazın</span>
+        </div>
+        <p>Kitap $x=e^{s}$ dönüşümünü kurup zincir kuralıyla ilerliyor. <span class="vurgu">Sınavda buna gerek yok:</span> doğrudan $y=x^{m}$ deneyin, çünkü</p>
+        $$x^{k}y^{(k)}=m(m-1)(m-2)\cdots(m-k+1)\,x^{m}$$
+        <p>Yani her terim $x^{m}$ ile aynı çarpanı taşır, $x^{m}$ sadeleşir ve geriye <span class="vurgu">$m$ cinsinden bir polinom</span> kalır. İkinci mertebede:</p>
+        $$ax^{2}y''+bxy'+cy=0\;\Longrightarrow\;a\,m(m-1)+b\,m+c=0$$
+        <p><strong>Tek satır.</strong> $x^{2}y''$ için $m(m-1)$, $xy'$ için $m$, $y$ için $1$ yazın — <span class="vurgu">ezberlenecek tek şey $m(m-1)$'dir.</span></p>
+        <p><strong>Üç durum, sabit katsayılının birebir aynısı.</strong> Cauchy-Euler'i ayrı bir konu gibi öğrenmeyin; Bölüm 3.2'nin sözlüğe çevrilmiş hâlidir:</p>
+        <div class="tablo-sar">
+        <table>
+            <tr><th>Sabit katsayılı</th><th>Cauchy-Euler</th></tr>
+            <tr><td>$e^{mt}$</td><td>$x^{m}$</td></tr>
+            <tr><td>$t$ (tekrarlı kökteki çarpan)</td><td>$\ln x$</td></tr>
+            <tr><td>$e^{at}\cos bt$</td><td>$x^{a}\cos\left(b\ln x\right)$</td></tr>
+        </table>
+        </div>
+        <p>Yani <strong>tekrarlı kök</strong> $\Rightarrow$ ikinci çözüm $x^{m}\ln x$; <strong>karmaşık kök</strong> $a\pm bi$ $\Rightarrow$ $x^{a}\left[c_{1}\cos(b\ln x)+c_{2}\sin(b\ln x)\right]$. <span class="vurgu">Yeni bir kural ezberlemeniz gerekmiyor, sadece $t\to\ln x$ çevirisi.</span></p>
+        <p><strong>Bir uyarı.</strong> Bu kısayol yalnız <strong>homojen</strong> denklemde çalışır. Sağ taraf sıfır değilse ya parametrelerin değişimini kullanın, ya da $x=e^{s}$ dönüşümünü gerçekten yapıp sabit katsayılı hâle geçin — belirsiz katsayılar ancak orada uygulanabilir. <span class="vurgu">$x$ cinsinden doğrudan deneme fonksiyonu yazmayın.</span></p>
+    </div>
+
+</div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.43 – 4.44 ===== -->
 
@@ -7520,7 +7544,25 @@
                         <p>İntegral alarak:</p>
                         $$v_{1}(x)=-\int^{x}\frac{F(t)\,y_{2}(t)}{a_{0}(t)\,W[y_{1},y_{2}](t)}\,dt,\qquad v_{2}(x)=\int^{x}\frac{F(t)\,y_{1}(t)}{a_{0}(t)\,W[y_{1},y_{2}](t)}\,dt$$
                         <p>Böylece özel integral $y_{p}(x)=v_{1}(x)y_{1}(x)+v_{2}(x)y_{2}(x)$ olarak elde edilir.</p>
-                    </div>
+                    
+    <div class="claude-oneri">
+        <div class="claude-oneri-bas">
+            <span class="claude-oneri-rozet">Claude önerisi</span>
+            <span class="claude-oneri-baslik">Ne zaman belirsiz katsayılar, ne zaman parametrelerin değişimi</span>
+        </div>
+        <p><strong>Karar kuralı tek satır:</strong></p>
+        <ul style="margin-left: 1rem;">
+            <li>Sağ taraf polinom, üstel, sinüs/kosinüs ya da bunların çarpımıysa → <span class="vurgu">belirsiz katsayılar</span> (daha hızlı)</li>
+            <li>Başka her şeyde ($\tan x$, $\ln x$, $\dfrac{1}{x}$, $\sec x$, sağ taraf belirtilmemişse) → <span class="vurgu">parametrelerin değişimi</span> (tek seçenek)</li>
+        </ul>
+        <p>Parametrelerin değişimi <strong>her zaman</strong> çalışır ama integral almayı gerektirir; belirsiz katsayılar yalnız yukarıdaki dar sınıfta çalışır ama sadece cebir ister.</p>
+        <p><strong>Formülü hatırlamanın yolu.</strong> Wronskian'ı paydaya yazın, <span class="vurgu">çapraz eşleştirin ve işaretleri ters koyun:</span></p>
+        $$u_{1}'=-\frac{y_{2}f}{W},\qquad u_{2}'=+\frac{y_{1}f}{W}$$
+        <p>$y_{1}$ ile $u_{2}$, $y_{2}$ ile $u_{1}$ eşleşir; <span class="vurgu">eksi işareti "1" indisli olana gider.</span></p>
+        <p><strong>En sık atlanan adım:</strong> denklem $y''+P y'+Q y=f$ biçiminde, yani <span class="vurgu">başkatsayısı 1</span> olmalı. $3y''+\ldots=g$ verilmişse önce $3$'e bölün, yoksa $f$ yanlış olur.</p>
+    </div>
+
+</div>
 
                     <!-- ===== ÇÖZÜMLÜ ÖRNEKLER 4.40 – 4.42 ===== -->
 
@@ -11582,6 +11624,24 @@
                                     </ul>
                                     <p><span class="vurgu">Kontrol yolu:</span> $t=a$ koyduğunuzda $f(0)$ değerini almalısınız. Almıyorsanız ötelemeyi atlamışsınızdır.</p>
                                 </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Sıra önemli: önce ters dönüşümü al, sonra ötele</span>
+                                    </div>
+                                    <p>$e^{-as}F(s)$ gördüğünüzde <span class="vurgu">üstel çarpanı bir kenara koyun.</span> Şu sırayı izleyin:</p>
+                                    <ol>
+                                        <li>$e^{-as}$'i <strong>görmezden gelin</strong>, yalnız $F(s)$'nin ters dönüşümünü bulun. Buna $g(t)$ deyin.</li>
+                                        <li>$g(t)$'de her $t$'yi $t-a$ ile değiştirin.</li>
+                                        <li>Sonucu $u_{a}(t)$ ile çarpın (yani "$t&gt;a$ için" yazın).</li>
+                                    </ol>
+                                    <p><strong>En sık hata:</strong> 1. adımda $e^{-as}$'i kısmi kesirlere dahil etmek. <span class="vurgu">Üstel çarpan kısmi kesirlere hiç girmez</span>, en sonda öteleme olarak devreye girer.</p>
+                                    <p><strong>Kontrol — tek satırda bütün çözümü sınar:</strong></p>
+                                    $$f(a^{+})=g(0)$$
+                                    <p>Ötelenmiş fonksiyon $t=a$ anında, ötelenmemişin başlangıç değerinden başlar. Hem kısmi kesirleri hem ötelemeyi aynı anda yoklar.</p>
+                                    <p><strong>Başlangıç değeri kaç çıkmalı?</strong> $F(s)$'de paydanın derecesi payınkinden <strong>1 fazlaysa</strong> $f(a^{+})\neq 0$; <strong>2 veya daha fazlaysa</strong> $f(a^{+})=0$. Hesaplamadan önce ne bekleyeceğinizi bilirsiniz.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -13414,6 +13474,21 @@
                         </div>
                         <p>Bu THEoREM, $(5.1)$ denkleminin kuvvet serisi çözümlerinin varlığı için bir <strong>yeter koşul (sufficient condition)</strong> verir. THEoREM'in söylediği şudur: $x_{0}$ noktası $(5.1)$'in bir adi noktasıysa, denklemin $x-x_{0}$ kuvvetlerinde iki kuvvet serisi çözümü vardır ve bu iki çözüm lineer bağımsızdır.</p>
                         <p>Dolayısıyla $x_{0}$ bir adi noktaysa, $(5.1)$'in <strong>genel çözümünü (general solution)</strong> bu iki lineer bağımsız kuvvet serisinin lineer birleşimi olarak elde edebiliriz. THEoREM'in ispatı burada verilmemiştir.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Önce noktayı sınıflandırın — yöntem oradan belirlenir</span>
+                            </div>
+                            <p>Seri çözüme başlamadan önce tek bir soru sorulur: <span class="vurgu">$x_{0}$ adi nokta mı, tekil nokta mı?</span> Denklemi <strong>başkatsayı 1 olacak biçimde</strong> yazın:</p>
+                            $$y''+P(x)y'+Q(x)y=0$$
+                            <ul style="margin-left: 1rem;">
+                                <li>$P$ ve $Q$ ikisi de $x_{0}$'da analitikse → <strong>adi nokta</strong>, düz kuvvet serisi $\sum a_{n}(x-x_{0})^{n}$ çalışır.</li>
+                                <li>Değilse → <strong>tekil nokta</strong>, Frobenius gerekir.</li>
+                            </ul>
+                            <p><strong>Pratik kısayol:</strong> $a_{2}(x)y''+a_{1}y'+a_{0}y=0$ biçimindeki bir denklemde tekil noktalar, <span class="vurgu">$a_{2}(x)=0$ denkleminin kökleridir.</span> Başka yerde tekillik olmaz. Yani "başkatsayıyı sıfır yapan $x$ değerleri" — üç saniyede bulunur.</p>
+                            <p><strong>Örnek okuma:</strong> $x^{2}y''+xy'+y=0$ → yalnız $x=0$ tekil. $\left(x^{2}-4\right)y''+\ldots$ → $x=\pm 2$ tekil, <span class="vurgu">$x=0$ adidir ve orada düz seri kullanılır.</span></p>
+                        </div>
                     </div>
 
                     <div id="ornek-adi-tekil-nokta" class="section ornek">
@@ -13528,6 +13603,25 @@
                         <p>$c_{0}$ ve $c_{1}$ keyfi kalır — ve zaten olması gereken budur: ikinci mertebeden bir denklemin genel çözümünde iki keyfi sabit bulunur. Sonuçta çözüm</p>
                         $$y=c_{0}\big(\text{bir seri}\big)+c_{1}\big(\text{başka bir seri}\big)$$
                         <p>biçiminde toplanır; parantez içindeki iki seri, THEoREM 5.1'in varlığını garantilediği <span class="vurgu">lineer bağımsız iki çözümdür</span>.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">İndis kaydırmayı bir kez öğrenin, her soruda aynı</span>
+                            </div>
+                            <p>Seri çözümün tek zor tarafı, farklı $x$ kuvvetlerindeki toplamları <span class="vurgu">aynı üste hizalamaktır.</span> Kural şu:</p>
+                            $$\sum_{n=k}^{\infty}c_{n}x^{n-2}\;\xrightarrow{\;m=n-2\;}\;\sum_{m=k-2}^{\infty}c_{m+2}x^{m}$$
+                            <p><strong>Ezber cümlesi:</strong> <span class="vurgu">Üstten çıkardığınızı indise eklersiniz.</span> Kuvvetten $2$ düşürdüyseniz, katsayının indisine $2$ eklenir ve alt sınır $2$ azalır.</p>
+                            <p><strong>Adım sırası (hep aynı):</strong></p>
+                            <ol>
+                                <li>$y=\sum a_{n}x^{n}$, $y'$, $y''$ yazın.</li>
+                                <li>Denkleme koyun, her toplamı $x^{n}$ üstüne hizalayın.</li>
+                                <li>Alt sınırları eşitleyin — <span class="vurgu">uyuşmayan ilk terimleri toplamın dışına çıkarın.</span></li>
+                                <li>$x^{n}$'in katsayısını sıfıra eşitleyin → <strong>indirgeme bağıntısı (recurrence relation)</strong>.</li>
+                                <li>$a_{0}$ ve $a_{1}$'i serbest bırakın, kalanları onlar cinsinden yazın.</li>
+                            </ol>
+                            <p><strong>Kontrol:</strong> $a_{0}$ ve $a_{1}$ mutlaka serbest kalmalı. <span class="vurgu">Serbest kalmıyorsa hesap hatası vardır</span> — ikinci mertebeden bir denklemin iki bağımsız çözümü olmak zorunda.</p>
+                        </div>
                     </div>
 
                     <div id="ornek-seri-cozum" class="section ornek">
@@ -13715,6 +13809,21 @@
                         $$y=\sum_{n=0}^{\infty}c_{n}(x-2)^{n}$$
                         <p>elde edilir.</p>
                         <p><strong>Bu dönüşümün yakınsaklığa etkisi.</strong> Yeni denklemin tekil noktaları $t^{2}+4t+3=(t+1)(t+3)=0$ yani $t=-1$ ve $t=-3$'tür; bunlar $x=1$ ve $x=-1$'e karşılık gelir — <span class="vurgu">aynı tekil noktalar, sadece kaydırılmış koordinatta</span>. $t=0$'a en yakın tekil nokta $t=-1$ olduğundan seri en az $|t|&lt;1$, yani $|x-2|&lt;1$ için yakınsar.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Yakınsaklık yarıçapını hesaplamadan söyleyebilirsiniz</span>
+                            </div>
+                            <p>Oran testiyle uğraşmaya çoğu zaman gerek yok. THEoREM şunu garantiler:</p>
+                            <p><span class="vurgu">Seri çözümün yakınsaklık yarıçapı, $x_{0}$'dan <strong>en yakın tekil noktaya</strong> olan uzaklıktan <strong>küçük değildir.</strong></span></p>
+                            <p><strong>Nasıl kullanılır:</strong> tekil noktaları bulun (başkatsayıyı sıfırlayan $x$'ler), $x_{0}$'a en yakınının uzaklığını ölçün. Cevap odur.</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$\left(x^{2}+9\right)y''+\ldots$, $x_{0}=0$ → tekil noktalar $x=\pm 3i$, uzaklık $3$ → <span class="vurgu">$R\ge 3$.</span></li>
+                                <li>$(x-2)y''+\ldots$, $x_{0}=0$ → $R\ge 2$.</li>
+                            </ul>
+                            <p><strong>Dikkat: karmaşık kökler de sayılır.</strong> $x^{2}+9$ reel eksende hiç sıfırlanmaz ama yakınsaklığı yine de sınırlar — <span class="vurgu">öğrencilerin en sık kaçırdığı nokta budur.</span> Uzaklık karmaşık düzlemde ölçülür.</p>
+                        </div>
                     </div>
 
                     <div id="seri-egzersizler" class="section sorular">
@@ -13876,6 +13985,19 @@
                         </div>
                         <p><span class="vurgu">İki fark da önemlidir.</span> Tekil noktada yalnızca bir çözüm garanti edilir — ikincisini bulmak ayrı bir iştir. Ayrıca aralık deliktir: çözüm $x_{0}$'ın kendisinde tanımlı olmayabilir, ki bu $r&lt;0$ olduğunda gerçekten böyledir.</p>
                         <p><strong>Düzgün olmayan tekil noktalar için bu THEoREM hiçbir şey söylemez.</strong> O durumda $(5.49)$ biçiminde bir çözüm bulunabilir de bulunamayabilir de.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">"Düzgün tekil" testi: iki çarpım, iki limit</span>
+                            </div>
+                            <p>Tekil bir noktanın düzgün (regular) olup olmadığı iki çarpıma bakılarak anlaşılır:</p>
+                            $$\left(x-x_{0}\right)P(x)\qquad\text{ve}\qquad \left(x-x_{0}\right)^{2}Q(x)$$
+                            <p><span class="vurgu">İkisi de $x_{0}$'da analitikse (yani limitleri sonluysa) tekil nokta düzgündür</span> ve Frobenius uygulanabilir. Değilse düzensizdir, bu derste yöntem yok.</p>
+                            <p><strong>Ezber cümlesi:</strong> <span class="vurgu">$P$'ye bir çarpan, $Q$'ya iki çarpan.</span> Sırayı karıştırmayın.</p>
+                            <p><strong>Pratik kısayol.</strong> $x_{0}=0$ ve denklem $x^{2}y''+x\,b(x)y'+c(x)y=0$ biçimine sokulabiliyorsa ($b,c$ analitik), nokta <span class="vurgu">zaten düzgündür,</span> ayrıca test etmeye gerek yok. Cauchy-Euler denklemi bu kalıbın en basit hâlidir — nitekim Frobenius'un başlangıç denklemi (indicial equation) tam olarak Cauchy-Euler'in karakteristik denklemidir.</p>
+                            <p><strong>Bağlantı:</strong> Bölüm 3'teki Cauchy-Euler'i hatırlayın. Frobenius'taki $x^{r}$ çarpanı oradaki $x^{m}$ denemesinin ta kendisidir; <span class="vurgu">seri kısmı yalnızca bir düzeltme terimidir.</span></p>
+                        </div>
                     </div>
 
                     <div id="ornek-tekil-siniflandirma" class="section ornek">
@@ -14022,6 +14144,28 @@
                             <tr><td>Garanti edilen çözüm</td><td>2 tane, bağımsız</td><td>en az 1 tane</td></tr>
                         </table>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Başlangıç denklemini kurmanın hızlı yolu</span>
+                            </div>
+                            <p>Bütün seriyi yazıp en düşük kuvvetin katsayısını aramak yerine, denklemi şu biçime sokun:</p>
+                            $$x^{2}y''+x\,b(x)\,y'+c(x)\,y=0$$
+                            <p>Sonra $b_{0}=b(0)$ ve $c_{0}=c(0)$ alın. <strong>Başlangıç denklemi (indicial equation) doğrudan şudur:</strong></p>
+                            $$r(r-1)+b_{0}r+c_{0}=0$$
+                            <p><span class="vurgu">Tek satır, seri açmadan.</span> Kökleri $r_{1}\ge r_{2}$ diye sıralayın; bundan sonrası kök farkına bakar:</p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>$r_{1}-r_{2}$</th><th>Durum</th><th>İkinci çözüm</th></tr>
+                                <tr><td>tam sayı değil</td><td>en kolay durum</td><td>ikinci $r$ ile aynı yöntem</td></tr>
+                                <tr><td>$0$ (eşit kökler)</td><td>en zor</td><td>mutlaka logaritmalı</td></tr>
+                                <tr><td>pozitif tam sayı</td><td><span class="vurgu">belirsiz</span></td><td>bazen düz, bazen logaritmalı</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Üçüncü satırın anlamı:</strong> kök farkı tam sayıysa şansınızı deneyin — küçük kökle devam edin. İndirgeme bağıntısında <span class="vurgu">paydası sıfır olan bir yere gelirseniz</span> logaritmalı forma geçmeniz gerekir; gelmezseniz iki çözümü de düz seriyle alırsınız.</p>
+                            <p><strong>Zaman yönetimi:</strong> her zaman <strong>büyük kökle</strong> başlayın. Büyük kök hiçbir zaman sorun çıkarmaz, ilk çözümü garantili verir.</p>
+                        </div>
                     </div>
 
                     <div id="ornek-frobenius" class="section ornek">
@@ -14161,6 +14305,23 @@
                             <li>O adımdaki denklem $0\cdot c_{N}=0$ biçimine düşerse, $c_{N}$ keyfi kalır ve logaritmasız bir ikinci çözüm bulunur — yani $C=0$'dır.</li>
                             <li>Denklem $0\cdot c_{N}=(\text{sıfırdan farklı bir şey})$ biçimine düşerse <strong>çelişki</strong> doğar; bu, logaritmalı terime ihtiyaç olduğunu gösterir ve $C\neq 0$'dır.</li>
                         </ul>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Logaritmalı çözüme geçmeden önce şansınızı deneyin</span>
+                            </div>
+                            <p>İstisnai durumların formülleri uzun ve ezberlenmesi zordur. <span class="vurgu">Sınavda formülü hatırlamak yerine şu sırayı izleyin:</span></p>
+                            <ol>
+                                <li><strong>Büyük kökle</strong> ($r_{1}$) düz Frobenius çözümünü bulun. Bu her zaman çalışır.</li>
+                                <li><strong>Küçük kökü</strong> ($r_{2}$) indirgeme bağıntısına koyun ve ilerlemeyi deneyin.</li>
+                                <li>Bir yerde <span class="vurgu">payda sıfır çıkıyorsa</span> ikinci çözüm logaritmalıdır; çıkmıyorsa düz seri işinizi görür.</li>
+                            </ol>
+                            <p><strong>Logaritmanın nereden geldiği.</strong> Kökler eşit ya da tam sayı farklıyken iki $x^{r}$ çarpanı <span class="vurgu">birbirinden yeterince ayrışamaz.</span> Aynı olgunun daha basit hâlini zaten gördünüz: sabit katsayılı denklemde tekrarlı kök çıktığında ikinci çözüm $t\,e^{at}$ oluyordu. Cauchy-Euler'de ise $x^{m}\ln x$. <span class="vurgu">Frobenius'taki $\ln x$ bunun serilere taşınmış hâlidir</span> — yeni bir fikir değil, tanıdık bir fikrin devamı.</p>
+                            <p><strong>Biçimi hatırlamak:</strong> ikinci çözüm her zaman</p>
+                            $$y_{2}=C\,y_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$$
+                            <p>kalıbındadır. <span class="vurgu">$C$ sıfır çıkabilir</span> — çıkarsa logaritma yoktu demektir, adım 3'teki denemenin cebirsel karşılığı budur.</p>
+                        </div>
                     </div>
 
                     <div id="ornek-frobenius-cift" class="section ornek">
@@ -14455,6 +14616,17 @@
                         </table>
                         </div>
                         <p>Örneklerimiz bu tablonun her satırını kapsıyor: Örnek 5.11 birinci satır ($\frac52$), Örnek 5.12 ikinci satırın $C=0$ hâli, Örnek 5.13 ikinci satırın $C\neq 0$ hâli. Üçüncü satır Bessel denkleminde ele alınacak.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Eşit kökler tek durumdur ki logaritma kesin çıkar</span>
+                            </div>
+                            <p>Kök farkı sıfırsa deneme yapmaya gerek yok: <span class="vurgu">ikinci çözüm mutlaka logaritmalıdır ve $C=1$ alınabilir.</span></p>
+                            $$y_{2}=y_{1}\ln x+x^{r}\sum_{n=1}^{\infty}b_{n}x^{n}$$
+                            <p><strong>Neden kesin?</strong> Kök farkı sıfır olduğunda iki çözüm de aynı $x^{r}$ ile başlar. Birbirinden ayrışmalarının başka yolu yoktur, <span class="vurgu">logaritma bu ayrışmayı sağlayan tek fonksiyondur.</span> Diğer iki durumda ($r_{1}-r_{2}$ tam sayı veya değil) $x^{r_{1}}$ ile $x^{r_{2}}$ zaten farklıdır, o yüzden logaritma gerekmeyebiliyor.</p>
+                            <p><strong>Sınav taktiği.</strong> Bu en uzun hesaplı durumdur. Başlangıç denklemi tam kare çıkıyorsa ($r^{2}-2r+1$ gibi) <span class="vurgu">işin uzun süreceğini baştan bilin</span> ve zaman ayırın. Kısayolu yok; $b_{n}$ katsayıları $y_{1}\ln x$ terimini denkleme koyup türev alarak bulunur.</p>
+                        </div>
                     </div>
 
                     <div id="egzersizler-frobenius" class="section sorular">
@@ -14685,6 +14857,21 @@
                         <div class="highlight">
                             <p><strong>Neden bu örnek önemli?</strong> Sabit katsayılı denklemlerde (Bölüm 3) yardımcı denklemin kökleri çözümün karakterini <strong>bir kez ve tümüyle</strong> belirler: ya salınım, ya üstel. Değişken katsayıda ise karakter <span class="vurgu">zaman içinde değişebilir</span>. Airy denklemi bu değişimin en yalın örneğidir; seri yönteminin sabit katsayılı yöntemlere göre asıl üstünlüğü de buradadır.</p>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Airy: indirgeme bağıntısı üçer üçer atlar</span>
+                            </div>
+                            <p>$y''-xy=0$ denkleminin bağıntısı $a_{n+2}=\dfrac{a_{n-1}}{(n+2)(n+1)}$ biçimindedir. <span class="vurgu">İndisler ikişer değil, üçer üçer bağlanır.</span> Sonuç:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$a_{0}$ zinciri: $a_{0},a_{3},a_{6},\ldots$ &nbsp;→&nbsp; ilk çözüm</li>
+                                <li>$a_{1}$ zinciri: $a_{1},a_{4},a_{7},\ldots$ &nbsp;→&nbsp; ikinci çözüm</li>
+                                <li>$a_{2}$ zinciri: <span class="vurgu">tamamen sıfır</span></li>
+                            </ul>
+                            <p><strong>Üçüncü satırı unutmayın.</strong> $a_{2}=0$ çıkar ve peşinden $a_{5}=a_{8}=\cdots=0$ gelir. Sınavda bu terimleri boş yere hesaplamayın.</p>
+                            <p><strong>Nasıl hatırlanır:</strong> $x$ ile çarpım kuvveti bir kaydırır, $y''$ iki kaydırır, toplam adım $3$ olur. <span class="vurgu">Denklemde $x^{k}y$ varsa adım $k+2$'dir</span> — Hermite'te $k=1$ ama $y'$ üzerinden geldiği için desen farklı çıkar.</p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-hermite" class="section konu">
@@ -14784,6 +14971,21 @@
                             <p><strong>$\lambda=2n$ koşulunun okunuşu.</strong> $(6.5)$'te pay $2n-\lambda$ idi. $\lambda=2n$ seçmek, <span class="vurgu">tam $n$. adımda payı sıfırlamak</span> demektir; böylece $a_{n+2}=0$ ve seri $x^{n}$ terimiyle biter. Dolayısıyla $\lambda=2n$ ile elde edilen polinomun derecesi tam olarak $n$'dir.</p>
                             <p>Kuantum harmonik salınıcıda enerji $E_{n}=\left(n+\tfrac{1}{2}\right)\hbar\omega$ biçiminde çıkar; buradaki $n$ ile bu $n$ aynı $n$'dir. <span class="vurgu">Fizikteki kesikli enerji seviyeleri, seri çözümün kesilme koşulundan doğar.</span></p>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Hermite'in püf noktası: seri ne zaman polinoma dönüşür</span>
+                            </div>
+                            <p>$y''-2xy'+2\alpha y=0$ denkleminin bağıntısında pay $2(n-\alpha)$ çarpanını taşır. <span class="vurgu">$\alpha$ negatif olmayan bir tam sayıysa bu çarpan bir yerde sıfırlanır ve seri kesilir</span> — sonsuz seri yerine bir <strong>polinom</strong> elde edersiniz. Bunlar Hermite polinomlarıdır.</p>
+                            <p><strong>Hangi çözüm kesilir?</strong> $\alpha$'nın <strong>tekliği/çiftliği</strong> belirler:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$\alpha$ çift → $a_{0}$ zinciri (çift kuvvetler) kesilir</li>
+                                <li>$\alpha$ tek → $a_{1}$ zinciri (tek kuvvetler) kesilir</li>
+                            </ul>
+                            <p>Diğer zincir sonsuz seri olarak kalır. <span class="vurgu">Yani bir çözüm polinom, öteki sonsuz seri.</span></p>
+                            <p><strong>Sınavda ne sorulur:</strong> genelde "$\alpha=3$ için polinom çözümü bulun" gibi. O zaman $a_{1}$ zincirini yazın, $n=3$'te sıfırlandığını gösterin, üç terimle bitirin. <span class="vurgu">Bütün seriyi açmaya gerek yok.</span></p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-bessel" class="section konu">
@@ -14864,6 +15066,31 @@
                         <p>Buradaki $\gamma$, <strong>Euler-Mascheroni sabitidir</strong>:</p>
                         $$\gamma=\lim_{n\to\infty}\left(1+\frac{1}{2}+\frac{1}{3}+\dots+\frac{1}{n}-\ln n\right)\approx 0{,}5772$$
                         <p>Bu özel birleşim, <span class="vurgu">büyük $x$ değerlerinde $J_{0}$ ile aynı asimptotik davranışı vermek üzere</span> seçilmiştir; tablolar ve uygulamalar bu normalleştirmeye göre hazırlanır.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bessel'e Frobenius gözüyle bakın</span>
+                            </div>
+                            <p>$x^{2}y''+xy'+\left(x^{2}-p^{2}\right)y=0$ denklemini korkutucu yapan tek şey $p$ parametresidir. <span class="vurgu">Yapı tamamen tanıdık:</span></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Denklem zaten $x^{2}y''+x\,b(x)y'+c(x)y=0$ biçiminde; $b_{0}=1$, $c_{0}=-p^{2}$.</li>
+                                <li>Başlangıç denklemi: $r(r-1)+r-p^{2}=r^{2}-p^{2}=0$ &nbsp;→&nbsp; <span class="vurgu">$r=\pm p$.</span></li>
+                            </ul>
+                            <p>Yani başlangıç denklemi bir satırda çıkıyor ve kök farkı $2p$ oluyor. <strong>Bütün istisna tartışması buradan okunur:</strong></p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>$p$</th><th>$r_{1}-r_{2}=2p$</th><th>Durum</th></tr>
+                                <tr><td>tam sayı değil, yarım da değil</td><td>tam sayı değil</td><td>en kolay durum, $J_{p}$ ve $J_{-p}$ bağımsız</td></tr>
+                                <tr><td>$p=0$</td><td>$0$</td><td>eşit kökler → logaritma kesin</td></tr>
+                                <tr><td>$p$ tam sayı</td><td>çift tam sayı</td><td><span class="vurgu">$J_{-p}=(-1)^{p}J_{p}$, bağımsız değil</span> → $Y_{p}$ gerekir</td></tr>
+                                <tr><td>$p$ yarım tam sayı</td><td>tek tam sayı</td><td>belirsiz durum ama şanslıyız: düz seri çalışır</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Son satır güzel bir sonuç veriyor:</strong> $p=\tfrac12$ için Bessel fonksiyonları temel fonksiyonlara indirgenir:</p>
+                            $$J_{1/2}(x)=\sqrt{\frac{2}{\pi x}}\,\sin x$$
+                            <p><span class="vurgu">Seri çözümlerinin "gerçekten" bildiğimiz fonksiyonlar olduğunu gösteren en güzel örnek budur.</span></p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-bessel-p" class="section konu defter-disi">
@@ -15236,6 +15463,20 @@
                                 <p><strong>Çarpım operatörüyle kontrol.</strong> $L(r)=\left(r^{2}+1\right)(3r+2)=3r^{3}+2r^{2}+3r+2$, yani $L\equiv 3D^{3}+2D^{2}+3D+2$. Bunu doğrudan $t^{3}$'e uygularsak:</p>
                                 $$3(6)+2(6t)+3\left(3t^{2}\right)+2t^{3}=18+12t+9t^{2}+2t^{3}$$
                                 <p><span class="vurgu">Üçü de aynı.</span> $(7.10)$'un ikinci iddiası da doğrulanmış oldu.</p>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Operatörler polinom gibi davranır — ama bir şartla</span>
+                                    </div>
+                                    <p>$D=\dfrac{d}{dx}$ yazınca sabit katsayılı ifadeler <span class="vurgu">cebirsel polinom gibi</span> işlenebilir:</p>
+                                    $$\left(D^{2}-3D+2\right)y=(D-1)(D-2)y$$
+                                    <p>Çarpanlara ayırabilir, sıralarını değiştirebilir, dağıtabilirsiniz.</p>
+                                    <p><strong>Şart:</strong> <span class="vurgu">katsayılar sabit olmalı.</span> Değişken katsayılıda sıra değişmez:</p>
+                                    $$D(xy)=xDy+y\qquad\text{ama}\qquad xD(y)=xy'$$
+                                    <p>yani $Dx\neq xD$. Cauchy-Euler'i operatörle çözerken bu yüzden $x$ değil, <span class="vurgu">$D=x\dfrac{d}{dx}$ operatörü</span> kullanılır.</p>
+                                    <p><strong>Sistemlerde kazancı.</strong> İki denklemli bir sistemi operatör biçiminde yazıp, <span class="vurgu">iki bilinmeyenli denklem sistemi gibi yok etme yöntemiyle</span> çözebilirsiniz. Katsayılar $D$ polinomları olur, gerisi lise cebiri.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -15329,6 +15570,18 @@
                         <p>Yerine koyunca, $e^{rt}$ gibi lineer bağımsız fonksiyonların katsayıları ayrı ayrı sıfıra eşitlenir; bu, sabitler arasındaki bağıntıları verir. Sonra bağımsız olarak seçilenler bırakılıp diğerleri onlar cinsinden yazılır.</p>
                         <p>Bu adım tamamlandığında elde edilen çift, gereken sayıda ($N$ tane) keyfi sabit içerir ve <span class="vurgu">gerçekten genel çözümdür.</span></p>
                         <p><strong>Bu adım atlanırsa</strong> elinizde $2N$ sabitli, sistemi sağlamayan bir ifade kalır. Operatör yönteminde en sık yapılan hata budur; bir sonraki bölümdeki örnekte tam olarak nasıl işlediğini göreceğiz.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Sabit sayısını determinant söyler</span>
+                            </div>
+                            <p>Operatör yöntemiyle çözerken en sık yapılan hata, <span class="vurgu">her denklemden gelen sabitleri ayrı ayrı saymaktır.</span> Doğru sayı tektir:</p>
+                            $$\text{bağımsız sabit sayısı}=\deg\left|\begin{matrix}L_{1} &amp; L_{2}\\ L_{3} &amp; L_{4}\end{matrix}\right|$$
+                            <p>yani operatör katsayı matrisinin <span class="vurgu">determinantının $D$ cinsinden derecesi.</span></p>
+                            <p><strong>Nasıl kullanılır:</strong> yok etme sonucu $x(t)$ için 3 sabit, $y(t)$ için 3 sabit bulduysanız ama determinantın derecesi 3'se, <span class="vurgu">toplam 3 bağımsız sabit vardır.</span> Fazlalıkları elemek için bulduğunuz ifadeleri <strong>orijinal sistemin bir denklemine</strong> geri koyun; sabitler arasındaki bağıntılar oradan çıkar.</p>
+                            <p><strong>Kontrol:</strong> bu adımı atlarsanız çözümünüz sistemi sağlamaz. <span class="vurgu">Geri koyma adımı isteğe bağlı değil, yöntemin parçasıdır.</span></p>
+                        </div>
                     </div>
 
                     <div id="ornek-operator-cozum" class="section ornek">
@@ -16350,7 +16603,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=61b29b51"></script>
+<script defer src="arama.js?v=84d84e9a"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

@@ -89,3 +89,21 @@ Sonuç 2'deki $C$ sabiti hesap yapılmadan bilinemez. Pratikte şöyle ortaya ç
 
 - O adımdaki denklem $0\cdot c_{N}=0$ biçimine düşerse, $c_{N}$ keyfi kalır ve logaritmasız bir ikinci çözüm bulunur — yani $C=0$'dır.
 - Denklem $0\cdot c_{N}=(\text{sıfırdan farklı bir şey})$ biçimine düşerse **çelişki** doğar; bu, logaritmalı terime ihtiyaç olduğunu gösterir ve $C\neq 0$'dır.
+
+---
+
+[CLAUDE] Logaritmalı çözüme geçmeden önce şansınızı deneyin
+İstisnai durumların formülleri uzun ve ezberlenmesi zordur. ==Sınavda formülü hatırlamak yerine şu sırayı izleyin:==
+
+1. **Büyük kökle** ($r_{1}$) düz Frobenius çözümünü bulun. Bu her zaman çalışır.
+2. **Küçük kökü** ($r_{2}$) indirgeme bağıntısına koyun ve ilerlemeyi deneyin.
+3. Bir yerde ==payda sıfır çıkıyorsa== ikinci çözüm logaritmalıdır; çıkmıyorsa düz seri işinizi görür.
+
+**Logaritmanın nereden geldiği.** Kökler eşit ya da tam sayı farklıyken iki $x^{r}$ çarpanı ==birbirinden yeterince ayrışamaz.== Aynı olgunun daha basit hâlini zaten gördünüz: sabit katsayılı denklemde tekrarlı kök çıktığında ikinci çözüm $t\,e^{at}$ oluyordu. Cauchy-Euler'de ise $x^{m}\ln x$. ==Frobenius'taki $\ln x$ bunun serilere taşınmış hâlidir== — yeni bir fikir değil, tanıdık bir fikrin devamı.
+
+**Biçimi hatırlamak:** ikinci çözüm her zaman
+
+$$y_{2}=C\,y_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$$
+
+kalıbındadır. ==$C$ sıfır çıkabilir== — çıkarsa logaritma yoktu demektir, adım 3'teki denemenin cebirsel karşılığı budur.
+[/CLAUDE]

@@ -78,3 +78,23 @@ $$\boxed{\;\mathcal{L}^{-1}\left\{e^{-4s}\left(\frac{2}{s^{2}}+\frac{5}{s}\right
 
 ==Kontrol yolu:== $t=a$ koyduğunuzda $f(0)$ değerini almalısınız. Almıyorsanız ötelemeyi atlamışsınızdır.
 [/KUTU]
+
+---
+
+[CLAUDE] Sıra önemli: önce ters dönüşümü al, sonra ötele
+$e^{-as}F(s)$ gördüğünüzde ==üstel çarpanı bir kenara koyun.== Şu sırayı izleyin:
+
+1. $e^{-as}$'i **görmezden gelin**, yalnız $F(s)$'nin ters dönüşümünü bulun. Buna $g(t)$ deyin.
+2. $g(t)$'de her $t$'yi $t-a$ ile değiştirin.
+3. Sonucu $u_{a}(t)$ ile çarpın (yani "$t>a$ için" yazın).
+
+**En sık hata:** 1. adımda $e^{-as}$'i kısmi kesirlere dahil etmek. ==Üstel çarpan kısmi kesirlere hiç girmez==, en sonda öteleme olarak devreye girer.
+
+**Kontrol — tek satırda bütün çözümü sınar:**
+
+$$f(a^{+})=g(0)$$
+
+Ötelenmiş fonksiyon $t=a$ anında, ötelenmemişin başlangıç değerinden başlar. Hem kısmi kesirleri hem ötelemeyi aynı anda yoklar.
+
+**Başlangıç değeri kaç çıkmalı?** $F(s)$'de paydanın derecesi payınkinden **1 fazlaysa** $f(a^{+})\neq 0$; **2 veya daha fazlaysa** $f(a^{+})=0$. Hesaplamadan önce ne bekleyeceğinizi bilirsiniz.
+[/CLAUDE]

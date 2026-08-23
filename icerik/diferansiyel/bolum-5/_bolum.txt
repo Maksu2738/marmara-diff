@@ -1,2 +1,2 @@
 ad: Kuvvet Serisi Çözümleri
-acik: evet
+acik: hayir

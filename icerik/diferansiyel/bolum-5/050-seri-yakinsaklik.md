@@ -87,3 +87,18 @@ $$y=\sum_{n=0}^{\infty}c_{n}(x-2)^{n}$$
 elde edilir.
 
 **Bu dönüşümün yakınsaklığa etkisi.** Yeni denklemin tekil noktaları $t^{2}+4t+3=(t+1)(t+3)=0$ yani $t=-1$ ve $t=-3$'tür; bunlar $x=1$ ve $x=-1$'e karşılık gelir — ==aynı tekil noktalar, sadece kaydırılmış koordinatta==. $t=0$'a en yakın tekil nokta $t=-1$ olduğundan seri en az $|t|<1$, yani $|x-2|<1$ için yakınsar.
+
+---
+
+[CLAUDE] Yakınsaklık yarıçapını hesaplamadan söyleyebilirsiniz
+Oran testiyle uğraşmaya çoğu zaman gerek yok. THEoREM şunu garantiler:
+
+==Seri çözümün yakınsaklık yarıçapı, $x_{0}$'dan **en yakın tekil noktaya** olan uzaklıktan **küçük değildir.**==
+
+**Nasıl kullanılır:** tekil noktaları bulun (başkatsayıyı sıfırlayan $x$'ler), $x_{0}$'a en yakınının uzaklığını ölçün. Cevap odur.
+
+- $\left(x^{2}+9\right)y''+\ldots$, $x_{0}=0$ → tekil noktalar $x=\pm 3i$, uzaklık $3$ → ==$R\ge 3$.==
+- $(x-2)y''+\ldots$, $x_{0}=0$ → $R\ge 2$.
+
+**Dikkat: karmaşık kökler de sayılır.** $x^{2}+9$ reel eksende hiç sıfırlanmaz ama yakınsaklığı yine de sınırlar — ==öğrencilerin en sık kaçırdığı nokta budur.== Uzaklık karmaşık düzlemde ölçülür.
+[/CLAUDE]

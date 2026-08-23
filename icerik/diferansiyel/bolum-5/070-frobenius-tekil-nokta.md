@@ -74,3 +74,19 @@ biçiminde, aşikâr olmayan **en az bir** çözümü vardır. Buradaki $r$, bel
 ==İki fark da önemlidir.== Tekil noktada yalnızca bir çözüm garanti edilir — ikincisini bulmak ayrı bir iştir. Ayrıca aralık deliktir: çözüm $x_{0}$'ın kendisinde tanımlı olmayabilir, ki bu $r<0$ olduğunda gerçekten böyledir.
 
 **Düzgün olmayan tekil noktalar için bu THEoREM hiçbir şey söylemez.** O durumda $(5.49)$ biçiminde bir çözüm bulunabilir de bulunamayabilir de.
+
+---
+
+[CLAUDE] "Düzgün tekil" testi: iki çarpım, iki limit
+Tekil bir noktanın düzgün (regular) olup olmadığı iki çarpıma bakılarak anlaşılır:
+
+$$\left(x-x_{0}\right)P(x)\qquad\text{ve}\qquad \left(x-x_{0}\right)^{2}Q(x)$$
+
+==İkisi de $x_{0}$'da analitikse (yani limitleri sonluysa) tekil nokta düzgündür== ve Frobenius uygulanabilir. Değilse düzensizdir, bu derste yöntem yok.
+
+**Ezber cümlesi:** ==$P$'ye bir çarpan, $Q$'ya iki çarpan.== Sırayı karıştırmayın.
+
+**Pratik kısayol.** $x_{0}=0$ ve denklem $x^{2}y''+x\,b(x)y'+c(x)y=0$ biçimine sokulabiliyorsa ($b,c$ analitik), nokta ==zaten düzgündür,== ayrıca test etmeye gerek yok. Cauchy-Euler denklemi bu kalıbın en basit hâlidir — nitekim Frobenius'un başlangıç denklemi (indicial equation) tam olarak Cauchy-Euler'in karakteristik denklemidir.
+
+**Bağlantı:** Bölüm 3'teki Cauchy-Euler'i hatırlayın. Frobenius'taki $x^{r}$ çarpanı oradaki $x^{m}$ denemesinin ta kendisidir; ==seri kısmı yalnızca bir düzeltme terimidir.==
+[/CLAUDE]

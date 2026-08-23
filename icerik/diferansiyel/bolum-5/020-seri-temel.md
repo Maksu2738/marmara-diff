@@ -80,3 +80,18 @@ biçiminde, aşikâr olmayan (nontrivial) ve **lineer bağımsız (linearly inde
 Bu THEoREM, $(5.1)$ denkleminin kuvvet serisi çözümlerinin varlığı için bir **yeter koşul (sufficient condition)** verir. THEoREM'in söylediği şudur: $x_{0}$ noktası $(5.1)$'in bir adi noktasıysa, denklemin $x-x_{0}$ kuvvetlerinde iki kuvvet serisi çözümü vardır ve bu iki çözüm lineer bağımsızdır.
 
 Dolayısıyla $x_{0}$ bir adi noktaysa, $(5.1)$'in **genel çözümünü (general solution)** bu iki lineer bağımsız kuvvet serisinin lineer birleşimi olarak elde edebiliriz. THEoREM'in ispatı burada verilmemiştir.
+
+---
+
+[CLAUDE] Önce noktayı sınıflandırın — yöntem oradan belirlenir
+Seri çözüme başlamadan önce tek bir soru sorulur: ==$x_{0}$ adi nokta mı, tekil nokta mı?== Denklemi **başkatsayı 1 olacak biçimde** yazın:
+
+$$y''+P(x)y'+Q(x)y=0$$
+
+- $P$ ve $Q$ ikisi de $x_{0}$'da analitikse → **adi nokta**, düz kuvvet serisi $\sum a_{n}(x-x_{0})^{n}$ çalışır.
+- Değilse → **tekil nokta**, Frobenius gerekir.
+
+**Pratik kısayol:** $a_{2}(x)y''+a_{1}y'+a_{0}y=0$ biçimindeki bir denklemde tekil noktalar, ==$a_{2}(x)=0$ denkleminin kökleridir.== Başka yerde tekillik olmaz. Yani "başkatsayıyı sıfır yapan $x$ değerleri" — üç saniyede bulunur.
+
+**Örnek okuma:** $x^{2}y''+xy'+y=0$ → yalnız $x=0$ tekil. $\left(x^{2}-4\right)y''+\ldots$ → $x=\pm 2$ tekil, ==$x=0$ adidir ve orada düz seri kullanılır.==
+[/CLAUDE]

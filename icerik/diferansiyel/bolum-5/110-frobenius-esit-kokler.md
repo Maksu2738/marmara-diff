@@ -58,3 +58,15 @@ $y_{1}(x)$ bulunduktan sonra $y_{2}$, **mertebe indirgeme (reduction of order)**
 | Sıfır | 1 | $(x-x_{0})^{r+1}\sum c_{n}^{*}(x-x_{0})^{n}+y_{1}\ln(x-x_{0})$ | ==Kesinlikle var== |
 
 Örneklerimiz bu tablonun her satırını kapsıyor: Örnek 5.11 birinci satır ($\frac52$), Örnek 5.12 ikinci satırın $C=0$ hâli, Örnek 5.13 ikinci satırın $C\neq 0$ hâli. Üçüncü satır Bessel denkleminde ele alınacak.
+
+---
+
+[CLAUDE] Eşit kökler tek durumdur ki logaritma kesin çıkar
+Kök farkı sıfırsa deneme yapmaya gerek yok: ==ikinci çözüm mutlaka logaritmalıdır ve $C=1$ alınabilir.==
+
+$$y_{2}=y_{1}\ln x+x^{r}\sum_{n=1}^{\infty}b_{n}x^{n}$$
+
+**Neden kesin?** Kök farkı sıfır olduğunda iki çözüm de aynı $x^{r}$ ile başlar. Birbirinden ayrışmalarının başka yolu yoktur, ==logaritma bu ayrışmayı sağlayan tek fonksiyondur.== Diğer iki durumda ($r_{1}-r_{2}$ tam sayı veya değil) $x^{r_{1}}$ ile $x^{r_{2}}$ zaten farklıdır, o yüzden logaritma gerekmeyebiliyor.
+
+**Sınav taktiği.** Bu en uzun hesaplı durumdur. Başlangıç denklemi tam kare çıkıyorsa ($r^{2}-2r+1$ gibi) ==işin uzun süreceğini baştan bilin== ve zaman ayırın. Kısayolu yok; $b_{n}$ katsayıları $y_{1}\ln x$ terimini denkleme koyup türev alarak bulunur.
+[/CLAUDE]

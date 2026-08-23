@@ -50,3 +50,17 @@ Yerine koyunca, $e^{rt}$ gibi lineer bağımsız fonksiyonların katsayıları a
 Bu adım tamamlandığında elde edilen çift, gereken sayıda ($N$ tane) keyfi sabit içerir ve ==gerçekten genel çözümdür.==
 
 **Bu adım atlanırsa** elinizde $2N$ sabitli, sistemi sağlamayan bir ifade kalır. Operatör yönteminde en sık yapılan hata budur; bir sonraki bölümdeki örnekte tam olarak nasıl işlediğini göreceğiz.
+
+---
+
+[CLAUDE] Sabit sayısını determinant söyler
+Operatör yöntemiyle çözerken en sık yapılan hata, ==her denklemden gelen sabitleri ayrı ayrı saymaktır.== Doğru sayı tektir:
+
+$$\text{bağımsız sabit sayısı}=\deg\left|\begin{matrix}L_{1} & L_{2}\\ L_{3} & L_{4}\end{matrix}\right|$$
+
+yani operatör katsayı matrisinin ==determinantının $D$ cinsinden derecesi.==
+
+**Nasıl kullanılır:** yok etme sonucu $x(t)$ için 3 sabit, $y(t)$ için 3 sabit bulduysanız ama determinantın derecesi 3'se, ==toplam 3 bağımsız sabit vardır.== Fazlalıkları elemek için bulduğunuz ifadeleri **orijinal sistemin bir denklemine** geri koyun; sabitler arasındaki bağıntılar oradan çıkar.
+
+**Kontrol:** bu adımı atlarsanız çözümünüz sistemi sağlamaz. ==Geri koyma adımı isteğe bağlı değil, yöntemin parçasıdır.==
+[/CLAUDE]

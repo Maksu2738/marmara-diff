@@ -1,2 +1,2 @@
 ad: Temel Kavramlar: Diferansiyel Denklemler ve Çözümleri
-acik: evet
+acik: hayir

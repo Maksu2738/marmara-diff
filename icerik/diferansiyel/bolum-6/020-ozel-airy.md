@@ -166,3 +166,17 @@ Sistem $t_{0}$ anında salınımdan üstel kaçışa geçer. Bu geçişi ==tek b
 [KUTU]
 **Neden bu örnek önemli?** Sabit katsayılı denklemlerde (Bölüm 3) yardımcı denklemin kökleri çözümün karakterini **bir kez ve tümüyle** belirler: ya salınım, ya üstel. Değişken katsayıda ise karakter ==zaman içinde değişebilir==. Airy denklemi bu değişimin en yalın örneğidir; seri yönteminin sabit katsayılı yöntemlere göre asıl üstünlüğü de buradadır.
 [/KUTU]
+
+---
+
+[CLAUDE] Airy: indirgeme bağıntısı üçer üçer atlar
+$y''-xy=0$ denkleminin bağıntısı $a_{n+2}=\dfrac{a_{n-1}}{(n+2)(n+1)}$ biçimindedir. ==İndisler ikişer değil, üçer üçer bağlanır.== Sonuç:
+
+- $a_{0}$ zinciri: $a_{0},a_{3},a_{6},\ldots$ &nbsp;→&nbsp; ilk çözüm
+- $a_{1}$ zinciri: $a_{1},a_{4},a_{7},\ldots$ &nbsp;→&nbsp; ikinci çözüm
+- $a_{2}$ zinciri: ==tamamen sıfır==
+
+**Üçüncü satırı unutmayın.** $a_{2}=0$ çıkar ve peşinden $a_{5}=a_{8}=\cdots=0$ gelir. Sınavda bu terimleri boş yere hesaplamayın.
+
+**Nasıl hatırlanır:** $x$ ile çarpım kuvveti bir kaydırır, $y''$ iki kaydırır, toplam adım $3$ olur. ==Denklemde $x^{k}y$ varsa adım $k+2$'dir== — Hermite'te $k=1$ ama $y'$ üzerinden geldiği için desen farklı çıkar.
+[/CLAUDE]

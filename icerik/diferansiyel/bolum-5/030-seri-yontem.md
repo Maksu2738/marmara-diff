@@ -101,3 +101,23 @@ $c_{0}$ ve $c_{1}$ keyfi kalır — ve zaten olması gereken budur: ikinci merte
 $$y=c_{0}\big(\text{bir seri}\big)+c_{1}\big(\text{başka bir seri}\big)$$
 
 biçiminde toplanır; parantez içindeki iki seri, THEoREM 5.1'in varlığını garantilediği ==lineer bağımsız iki çözümdür==.
+
+---
+
+[CLAUDE] İndis kaydırmayı bir kez öğrenin, her soruda aynı
+Seri çözümün tek zor tarafı, farklı $x$ kuvvetlerindeki toplamları ==aynı üste hizalamaktır.== Kural şu:
+
+$$\sum_{n=k}^{\infty}c_{n}x^{n-2}\;\xrightarrow{\;m=n-2\;}\;\sum_{m=k-2}^{\infty}c_{m+2}x^{m}$$
+
+**Ezber cümlesi:** ==Üstten çıkardığınızı indise eklersiniz.== Kuvvetten $2$ düşürdüyseniz, katsayının indisine $2$ eklenir ve alt sınır $2$ azalır.
+
+**Adım sırası (hep aynı):**
+
+1. $y=\sum a_{n}x^{n}$, $y'$, $y''$ yazın.
+2. Denkleme koyun, her toplamı $x^{n}$ üstüne hizalayın.
+3. Alt sınırları eşitleyin — ==uyuşmayan ilk terimleri toplamın dışına çıkarın.==
+4. $x^{n}$'in katsayısını sıfıra eşitleyin → **indirgeme bağıntısı (recurrence relation)**.
+5. $a_{0}$ ve $a_{1}$'i serbest bırakın, kalanları onlar cinsinden yazın.
+
+**Kontrol:** $a_{0}$ ve $a_{1}$ mutlaka serbest kalmalı. ==Serbest kalmıyorsa hesap hatası vardır== — ikinci mertebeden bir denklemin iki bağımsız çözümü olmak zorunda.
+[/CLAUDE]

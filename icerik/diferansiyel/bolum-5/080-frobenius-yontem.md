@@ -96,3 +96,27 @@ Bu "istisnai" durumlarda ikinci lineer bağımsız çözümü bulmak için ayrı
 | Türevde alt sınır | yükselir | $n=0$'da kalır |
 | Ek koşul | yok | $c_{0}\neq 0$ |
 | Garanti edilen çözüm | 2 tane, bağımsız | en az 1 tane |
+
+---
+
+[CLAUDE] Başlangıç denklemini kurmanın hızlı yolu
+Bütün seriyi yazıp en düşük kuvvetin katsayısını aramak yerine, denklemi şu biçime sokun:
+
+$$x^{2}y''+x\,b(x)\,y'+c(x)\,y=0$$
+
+Sonra $b_{0}=b(0)$ ve $c_{0}=c(0)$ alın. **Başlangıç denklemi (indicial equation) doğrudan şudur:**
+
+$$r(r-1)+b_{0}r+c_{0}=0$$
+
+==Tek satır, seri açmadan.== Kökleri $r_{1}\ge r_{2}$ diye sıralayın; bundan sonrası kök farkına bakar:
+
+| $r_{1}-r_{2}$ | Durum | İkinci çözüm |
+|---|---|---|
+| tam sayı değil | en kolay durum | ikinci $r$ ile aynı yöntem |
+| $0$ (eşit kökler) | en zor | mutlaka logaritmalı |
+| pozitif tam sayı | ==belirsiz== | bazen düz, bazen logaritmalı |
+
+**Üçüncü satırın anlamı:** kök farkı tam sayıysa şansınızı deneyin — küçük kökle devam edin. İndirgeme bağıntısında ==paydası sıfır olan bir yere gelirseniz== logaritmalı forma geçmeniz gerekir; gelmezseniz iki çözümü de düz seriyle alırsınız.
+
+**Zaman yönetimi:** her zaman **büyük kökle** başlayın. Büyük kök hiçbir zaman sorun çıkarmaz, ilk çözümü garantili verir.
+[/CLAUDE]

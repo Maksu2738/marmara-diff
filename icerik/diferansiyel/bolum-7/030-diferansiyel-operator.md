@@ -113,3 +113,21 @@ $$\boxed{\;L_{1}L_{2}f=L_{2}L_{1}f\;}$$
 $$3(6)+2(6t)+3\left(3t^{2}\right)+2t^{3}=18+12t+9t^{2}+2t^{3}$$
 
 ==Üçü de aynı.== $(7.10)$'un ikinci iddiası da doğrulanmış oldu.
+
+---
+
+[CLAUDE] Operatörler polinom gibi davranır — ama bir şartla
+$D=\dfrac{d}{dx}$ yazınca sabit katsayılı ifadeler ==cebirsel polinom gibi== işlenebilir:
+
+$$\left(D^{2}-3D+2\right)y=(D-1)(D-2)y$$
+
+Çarpanlara ayırabilir, sıralarını değiştirebilir, dağıtabilirsiniz.
+
+**Şart:** ==katsayılar sabit olmalı.== Değişken katsayılıda sıra değişmez:
+
+$$D(xy)=xDy+y\qquad\text{ama}\qquad xD(y)=xy'$$
+
+yani $Dx\neq xD$. Cauchy-Euler'i operatörle çözerken bu yüzden $x$ değil, ==$D=x\dfrac{d}{dx}$ operatörü== kullanılır.
+
+**Sistemlerde kazancı.** İki denklemli bir sistemi operatör biçiminde yazıp, ==iki bilinmeyenli denklem sistemi gibi yok etme yöntemiyle== çözebilirsiniz. Katsayılar $D$ polinomları olur, gerisi lise cebiri.
+[/CLAUDE]

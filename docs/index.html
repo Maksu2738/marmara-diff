@@ -9558,16 +9558,147 @@
                                 $$\boxed{\;\cos 2t+3t\sin 2t\;}$$
                                 <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
                                 <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                                <p>Aşağıdakilerin cevapları kitabın cevap anahtarında verilmemiştir (anahtar yalnızca tek numaralı soruları içeriyor). <span class="vurgu">Çözümleri size bırakıldı;</span> yöntemler yukarıdaki örneklerle aynıdır.</p>
-                                <p><strong>2.</strong> &nbsp; $F(s)=\dfrac{4}{s+2}+\dfrac{7}{s}$ &nbsp;&nbsp;&nbsp; <strong>4.</strong> &nbsp; $F(s)=\dfrac{2s}{s^{2}+9}$</p>
-                                <p><strong>6.</strong> &nbsp; $F(s)=\dfrac{5s+6}{s^{3}}$ &nbsp;&nbsp;&nbsp; <strong>8.</strong> &nbsp; $F(s)=\dfrac{s+10}{s^{2}+8s+20}$</p>
-                                <p><strong>10.</strong> &nbsp; $F(s)=\dfrac{2s+3}{s^{2}-4}$ &nbsp;&nbsp;&nbsp; <strong>12.</strong> &nbsp; $F(s)=\dfrac{2s+6}{8s^{2}-2s-3}$</p>
-                                <p><strong>14.</strong> &nbsp; $F(s)=\dfrac{s+1}{s^{3}+2s}$</p>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
                                 <div class="highlight">
-                                    <p><strong>İpuçları.</strong> 6'da payı $s^{3}$'e terim terim bölün ve 7 numaralı girdiyi kullanın. 8'de tamkare + pay ötelemesi gerekir (7 ve 21 gibi). 12'de önce baştaki katsayıyı temizleyin (17 gibi), sonra paydayı çarpanlarına ayırın. 14'te payda $s\left(s^{2}+2\right)$ olur, 27 ile aynı yapıdadır.</p>
+                                    <p><strong>Bu yedi sorunun cevabı kitabın anahtarında yok</strong> (anahtar yalnız tek numaralı soruları içeriyor). Çözümler bize aittir; her biri <span class="vurgu">ikinci bir bağımsız yolla doğrulanmıştır</span>. En sık kullandığımız kontrol <strong>başlangıç değer THEoREM'i</strong>:</p>
+                                    $$\lim_{s\to\infty}s\,F(s)=f(0^{+}),\qquad \lim_{s\to\infty}s\big[s\,F(s)-f(0)\big]=f'(0)$$
+                                    <p>Ters dönüşümde bu, <span class="vurgu">tek satırda yapılabilen ve hataların çoğunu yakalayan</span> bir sınamadır.</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $F(s)=\dfrac{4}{s+2}+\dfrac{7}{s}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>İki terim de doğrudan tablodan okunur:</p>
+                                $$\frac{4}{s+2}\;\to\;4e^{-2t},\qquad \frac{7}{s}\;\to\;7$$
+                                $$\boxed{\;f(t)=4e^{-2t}+7\;}$$
+                                <p><strong>Doğrulama (başlangıç değer THEoREM'i).</strong> $f(0)=4+7=11$ olmalı:</p>
+                                $$sF=\frac{4s}{s+2}+7\;\xrightarrow{\;s\to\infty\;}\;4+7=11\;\checkmark$$
+                                <p><strong>Son değer kontrolü.</strong> $t\to\infty$ iken $4e^{-2t}\to 0$, yani $f(\infty)=7$. Son değer THEoREM'i ile:</p>
+                                $$\lim_{s\to 0}sF(s)=\lim_{s\to 0}\left[\frac{4s}{s+2}+7\right]=7\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $F(s)=\dfrac{2s}{s^{2}+9}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Payda $s^{2}+3^{2}$; payda $s$ olduğu için <span class="vurgu">kosinüs girdisi</span>:</p>
+                                $$\boxed{\;f(t)=2\cos 3t\;}$$
+                                <p><strong>Doğrulama.</strong> $f(0)=2$ olmalı:</p>
+                                $$sF=\frac{2s^{2}}{s^{2}+9}\;\xrightarrow{\;s\to\infty\;}\;2\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>3. soruyla karşılaştırın.</strong> Orada $F=\dfrac{2}{s^{2}+9}$ idi ve cevap $\tfrac{2}{3}\sin 3t$ çıkmıştı — <span class="vurgu">payı $3$'e tamamlamak gerekiyordu</span>. Burada pay $s$ olduğu için kosinüse gidiyor ve hiçbir düzeltme gerekmiyor.</p>
+                                    <p><strong>Ayırt etme kuralı:</strong> payda $s$ varsa kosinüs, sabit varsa sinüs; sinüste payı $b$'ye tamamlamayı unutmayın.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $F(s)=\dfrac{5s+6}{s^{3}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Payı terim terim böl.</strong></p>
+                                $$F(s)=\frac{5s}{s^{3}}+\frac{6}{s^{3}}=\frac{5}{s^{2}}+\frac{6}{s^{3}}$$
+                                <p><strong>Adım 2 — Tablodan oku.</strong> $\mathcal{L}^{-1}\left\{\dfrac{1}{s^{2}}\right\}=t$ ve $\mathcal{L}^{-1}\left\{\dfrac{1}{s^{3}}\right\}=\dfrac{t^{2}}{2}$:</p>
+                                $$f(t)=5t+6\cdot\frac{t^{2}}{2}$$
+                                $$\boxed{\;f(t)=5t+3t^{2}\;}$$
+                                <p><strong>Doğrulama (ileri dönüşüm).</strong></p>
+                                $$\mathcal{L}\{5t+3t^{2}\}=\frac{5}{s^{2}}+3\cdot\frac{2}{s^{3}}=\frac{5}{s^{2}}+\frac{6}{s^{3}}=\frac{5s+6}{s^{3}}\;\checkmark$$
+                                <p><span class="vurgu">$\dfrac{6}{s^{3}}$'ün karşılığı $6t^{2}$ değil $3t^{2}$'dir</span> — $\mathcal{L}\{t^{2}\}=\dfrac{2}{s^{3}}$ olduğu için ikiye bölünür. En sık yapılan hata burada.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $F(s)=\dfrac{s+10}{s^{2}+8s+20}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Payda çarpanlanıyor mu?</strong> $\Delta=64-80=-16&lt;0$, hayır. <span class="vurgu">Tamkareye tamamla:</span></p>
+                                $$s^{2}+8s+20=\left(s^{2}+8s+16\right)+4=(s+4)^{2}+2^{2}$$
+                                <p><strong>Adım 2 — Payı da $s+4$ cinsinden yaz.</strong> Bu adım atlanırsa tablo kullanılamaz:</p>
+                                $$s+10=(s+4)+6$$
+                                $$F(s)=\frac{s+4}{(s+4)^{2}+4}+\frac{6}{(s+4)^{2}+4}=\frac{s+4}{(s+4)^{2}+4}+3\cdot\frac{2}{(s+4)^{2}+4}$$
+                                <p><span class="vurgu">İkinci terimde payı $2$'ye tamamladık</span> (sinüs girdisi $b=2$ ister).</p>
+                                <p><strong>Adım 3 — Tablodan oku.</strong></p>
+                                $$\boxed{\;f(t)=e^{-4t}\left(\cos 2t+3\sin 2t\right)\;}$$
+                                <p><strong>Doğrulama (başlangıç değer THEoREM'i, iki kez).</strong></p>
+                                <p><strong>(a)</strong> $f(0)=1$:</p>
+                                $$sF=\frac{s^{2}+10s}{s^{2}+8s+20}\;\xrightarrow{\;s\to\infty\;}\;1\;\checkmark$$
+                                <p><strong>(b)</strong> $f'(0)$: türevden $f'=-4e^{-4t}(\cos 2t+3\sin 2t)+e^{-4t}(-2\sin 2t+6\cos 2t)$, yani $f'(0)=-4+6=2$.</p>
+                                $$sF-1=\frac{\left(s^{2}+10s\right)-\left(s^{2}+8s+20\right)}{s^{2}+8s+20}=\frac{2s-20}{s^{2}+8s+20}$$
+                                $$s(sF-1)=\frac{2s^{2}-20s}{s^{2}+8s+20}\;\xrightarrow{\;s\to\infty\;}\;2\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $F(s)=\dfrac{2s+3}{s^{2}-4}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Payda çarpanlanıyor.</strong> <span class="vurgu">Eksi işaretine dikkat:</span> $s^{2}-4=(s-2)(s+2)$, bu <strong>hiperbolik</strong> aileden.</p>
+                                $$\frac{2s+3}{(s-2)(s+2)}=\frac{A}{s-2}+\frac{B}{s+2}$$
+                                <p>$s=2$: &nbsp; $A=\dfrac{4+3}{4}=\dfrac{7}{4}$ &nbsp;&nbsp;&nbsp; $s=-2$: &nbsp; $B=\dfrac{-4+3}{-4}=\dfrac{1}{4}$</p>
+                                $$\boxed{\;f(t)=\frac{7}{4}e^{2t}+\frac{1}{4}e^{-2t}\;}$$
+                                <p><strong>Doğrulama (hiperbolik biçime çevirerek).</strong> Aynı cevabı $\cosh$ ve $\sinh$ cinsinden de yazabiliriz. $F$'yi baştan şöyle bölelim:</p>
+                                $$\frac{2s+3}{s^{2}-4}=2\cdot\frac{s}{s^{2}-4}+\frac{3}{2}\cdot\frac{2}{s^{2}-4}\;\to\;2\cosh 2t+\frac{3}{2}\sinh 2t$$
+                                <p>Bu ifadeyi açalım:</p>
+                                $$2\cdot\frac{e^{2t}+e^{-2t}}{2}+\frac{3}{2}\cdot\frac{e^{2t}-e^{-2t}}{2}=e^{2t}\left(1+\frac{3}{4}\right)+e^{-2t}\left(1-\frac{3}{4}\right)=\frac{7}{4}e^{2t}+\frac{1}{4}e^{-2t}$$
+                                <p>Birebir aynı. &#10003; <span class="vurgu">İki bağımsız yol, iki farklı görünüm, tek cevap.</span></p>
+                                <div class="highlight">
+                                    <p><strong>Hangi biçimi yazmalı?</strong> İkisi de doğrudur. Payda $s^{2}-b^{2}$ ise hiperbolik biçim daha derli toplu; ama başlangıç değer problemi çözüyorsanız üstel biçim kısmi kesirlerle doğal gelir. <span class="vurgu">Sınavda hangisi çıktıysa onu bırakın</span>, çevirmeye çalışıp hata yapmayın.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>12.</strong> &nbsp; $F(s)=\dfrac{2s+6}{8s^{2}-2s-3}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Paydayı çarpanlara ayır.</strong> Baş katsayı $1$ değil; doğrudan çarpanlayalım:</p>
+                                $$8s^{2}-2s-3=(4s-3)(2s+1)$$
+                                <p><strong>Kontrol:</strong> $(4s-3)(2s+1)=8s^{2}+4s-6s-3=8s^{2}-2s-3$ &#10003;</p>
+                                <p><strong>Adım 2 — Kısmi kesirler.</strong></p>
+                                $$\frac{2s+6}{(4s-3)(2s+1)}=\frac{A}{4s-3}+\frac{B}{2s+1}\;\Longrightarrow\;2s+6=A(2s+1)+B(4s-3)$$
+                                <p>$s=\tfrac{3}{4}$: &nbsp; $\tfrac{3}{2}+6=\tfrac{15}{2}=A\cdot\tfrac{5}{2}\;\Rightarrow\;A=3$</p>
+                                <p>$s=-\tfrac{1}{2}$: &nbsp; $-1+6=5=B(-5)\;\Rightarrow\;B=-1$</p>
+                                <p><strong>Adım 3 — Baş katsayıları temizle.</strong> <span class="vurgu">Tabloda girdiler $\dfrac{1}{s-a}$ biçimindedir</span>, $\dfrac{1}{4s-3}$ biçiminde değil. Paydadan katsayıyı çekelim:</p>
+                                $$\frac{3}{4s-3}=\frac{3}{4\left(s-\tfrac{3}{4}\right)}=\frac{3/4}{s-\tfrac{3}{4}},\qquad \frac{-1}{2s+1}=\frac{-1}{2\left(s+\tfrac{1}{2}\right)}=\frac{-1/2}{s+\tfrac{1}{2}}$$
+                                $$\boxed{\;f(t)=\frac{3}{4}e^{3t/4}-\frac{1}{2}e^{-t/2}\;}$$
+                                <p><strong>Doğrulama (başlangıç değer THEoREM'i).</strong> $f(0)=\tfrac{3}{4}-\tfrac{1}{2}=\tfrac{1}{4}$ olmalı:</p>
+                                $$sF=\frac{2s^{2}+6s}{8s^{2}-2s-3}\;\xrightarrow{\;s\to\infty\;}\;\frac{2}{8}=\frac{1}{4}\;\checkmark$$
+                                <p><span class="vurgu">Baş katsayıların oranı doğrudan $f(0)$'ı veriyor</span> — bu tür sorularda en hızlı kontrol budur.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>14.</strong> &nbsp; $F(s)=\dfrac{s+1}{s^{3}+2s}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Paydayı çarpanlara ayır.</strong></p>
+                                $$s^{3}+2s=s\left(s^{2}+2\right)$$
+                                <p>$s^{2}+2$ indirgenemez, <span class="vurgu">dolayısıyla payı $Bs+C$ biçiminde almalıyız:</span></p>
+                                $$\frac{s+1}{s\left(s^{2}+2\right)}=\frac{A}{s}+\frac{Bs+C}{s^{2}+2}$$
+                                <p><strong>Adım 2 — Katsayıları bul.</strong></p>
+                                $$s+1=A\left(s^{2}+2\right)+(Bs+C)s$$
+                                <p>$s=0$: &nbsp; $1=2A\;\Rightarrow\;A=\tfrac{1}{2}$</p>
+                                <p>$s^{2}$ katsayısı: &nbsp; $A+B=0\;\Rightarrow\;B=-\tfrac{1}{2}$</p>
+                                <p>$s^{1}$ katsayısı: &nbsp; $C=1$</p>
+                                $$F(s)=\frac{1/2}{s}-\frac{1}{2}\cdot\frac{s}{s^{2}+2}+\frac{1}{s^{2}+2}$$
+                                <p><strong>Adım 3 — Tablodan oku.</strong> Burada $b=\sqrt{2}$; <span class="vurgu">sinüs terimindeki payı $\sqrt{2}$'ye tamamlamak gerekiyor:</span></p>
+                                $$\frac{1}{s^{2}+2}=\frac{1}{\sqrt{2}}\cdot\frac{\sqrt{2}}{s^{2}+2}\;\to\;\frac{1}{\sqrt{2}}\sin\sqrt{2}\,t$$
+                                $$\boxed{\;f(t)=\frac{1}{2}-\frac{1}{2}\cos\sqrt{2}\,t+\frac{1}{\sqrt{2}}\sin\sqrt{2}\,t\;}$$
+                                <p><strong>Doğrulama (başlangıç değer THEoREM'i, iki kez).</strong></p>
+                                <p><strong>(a)</strong> $f(0)=\tfrac{1}{2}-\tfrac{1}{2}+0=0$:</p>
+                                $$sF=\frac{s^{2}+s}{s^{3}+2s}\;\xrightarrow{\;s\to\infty\;}\;0\;\checkmark$$
+                                <p><strong>(b)</strong> $f'=\dfrac{\sqrt{2}}{2}\sin\sqrt{2}\,t+\cos\sqrt{2}\,t$, yani $f'(0)=1$:</p>
+                                $$s\big[sF-0\big]=\frac{s^{3}+s^{2}}{s^{3}+2s}\;\xrightarrow{\;s\to\infty\;}\;1\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Tam sayı olmayan frekans şaşırtmasın.</strong> Payda $s^{2}+2$ olduğunda $b=\sqrt{2}$'dir; $\cos\sqrt{2}\,t$ ve $\sin\sqrt{2}\,t$ tamamen normaldir. <span class="vurgu">Sinüs teriminde payı $\sqrt{2}$'ye tamamlamayı unutmak</span> bu tip sorularda en sık yapılan hatadır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Setin tamamı bitti.</strong> 30 sorunun hepsi çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar ise <span class="vurgu">başlangıç/son değer THEoREM'i, ileri dönüşüm ya da ikinci bir cebirsel yolla</span> doğrulanmıştır.</p>
+                            <p><strong>Bu setten çıkan üç refleks:</strong></p>
+                            <ol>
+                                <li>Payda çarpanlanıyor mu? → evet ise kısmi kesirler, hayır ise <strong>tamkare</strong>.</li>
+                                <li>Tamkare yaptıysanız <span class="vurgu">payı da aynı cinsten yazın</span> ($s+10=(s+4)+6$ gibi).</li>
+                                <li>Sinüs girdisinde payı $b$'ye tamamlayın — $b$ ister $2$ olsun, ister $\sqrt{2}$.</li>
+                            </ol>
                         </div>
                     </div>
 
@@ -15271,7 +15402,7 @@
     </div>
 
 
-<script defer src="arama.js?v=2d90c82d"></script>
+<script defer src="arama.js?v=ffa3ddaa"></script>
     <script src="app.js?v=f067a145"></script>
     <script src="arama-ui.js"></script>
 </body>

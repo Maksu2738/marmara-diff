@@ -2,7 +2,6 @@
 id: egzersizler-oteleme-ters
 menu: 4.4 Egzersizler — Ötelenmiş Ters Dönüşüm
 tip: sorular
-defterde: yok
 baslik: 4.4 &nbsp;Egzersizler — Üstel Çarpanlı İfadelerin Ters Dönüşümü
 ---
 

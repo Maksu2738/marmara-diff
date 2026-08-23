@@ -3,7 +3,6 @@ id: laplace-periyodik
 menu: 4.4 Periyodik Fonksiyonlar
 tip: konu
 baslik: 4.4 &nbsp;Periyodik Fonksiyonların Laplace Dönüşümü
-defterde: yok
 ---
 
 Bir $f$ fonksiyonu, tanımlı olduğu her $t$ için

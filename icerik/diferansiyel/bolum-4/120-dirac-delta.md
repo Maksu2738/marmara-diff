@@ -3,7 +3,6 @@ id: laplace-dirac-delta
 menu: 4.4 Dirac Delta Fonksiyonu
 tip: konu
 baslik: 4.4 &nbsp;Dirac Delta Fonksiyonu ve Anlık Etkiler
-defterde: yok
 ---
 
 Şimdiye kadarki zorlama terimleri bir süre boyunca etkiliydi. Peki **anlık** bir etki nasıl modellenir — bir çekiç darbesi, ani bir voltaj sıçraması?

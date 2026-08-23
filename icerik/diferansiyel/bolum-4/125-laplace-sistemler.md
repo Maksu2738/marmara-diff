@@ -3,7 +3,6 @@ id: laplace-sistemler
 menu: 4.5 Sistemlerin Çözümü
 tip: konu
 baslik: 4.5 &nbsp;Lineer Sistemlerin Laplace ile Çözümü
-defterde: yok
 ---
 
 Laplace yöntemi tek denklemle sınırlı değildir. **Birinci mertebeden lineer sistemlere** doğrudan genişler:

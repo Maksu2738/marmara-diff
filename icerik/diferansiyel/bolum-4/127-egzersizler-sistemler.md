@@ -3,7 +3,6 @@ id: egzersizler-sistemler
 menu: 4.5 Egzersizler — Sistemler
 tip: sorular
 baslik: 4.5 &nbsp;Egzersizler — Lineer Sistemlerin Laplace ile Çözümü
-defterde: yok
 ---
 
 Aşağıdaki lineer sistemleri verilen başlangıç koşullarıyla Laplace dönüşümü kullanarak çözünüz.

@@ -3,7 +3,6 @@ id: egzersizler-sureksiz
 menu: 4.4 Egzersizler — Süreksiz Zorlama
 tip: sorular
 baslik: 4.4 &nbsp;Egzersizler — Süreksiz Zorlamalı Başlangıç Değer Problemleri
-defterde: yok
 ---
 
 Aşağıdaki başlangıç değer problemlerini Laplace dönüşümüyle çözünüz.

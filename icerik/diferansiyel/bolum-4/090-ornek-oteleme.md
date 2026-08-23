@@ -3,7 +3,6 @@ id: ornek-oteleme
 menu: 4.4 Örnekler — Ötelenmiş Biçime Sokma
 tip: ornek
 baslik: 4.4 &nbsp;Çözümlü Örnekler — Fonksiyonu $t-a$ Cinsinden Yazmak
-defterde: yok
 ---
 
 THEoREM 9.9'u uygulamanın önündeki tek engel şudur: fonksiyonun ==$f(t-a)$ biçiminde== yazılmış olması gerekir. Verilen ifade genelde bu biçimde değildir; önce dönüştürmek gerekir.

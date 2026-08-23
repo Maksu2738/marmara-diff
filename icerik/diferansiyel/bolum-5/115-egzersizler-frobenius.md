@@ -1534,11 +1534,196 @@ biçiminde yazın. $P(m)=(m-r_{1})(m-r_{2})$'dir.
 
 ---
 
-### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (29-32) — çözülmeyi bekleyen
+[SORU] **29.** &nbsp; $xy''+y'+2y=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** $x$ ile çarpalım: $x^{2}y''+xy'+2xy=0$ &nbsp;$\Rightarrow$&nbsp; $b_{0}=1$, &nbsp;$c_{0}=0$.
 
-29. &nbsp; $xy''+y'+2y=0$
+**Adım 2 — Başlangıç denklemi: eşit kökler.**
 
-31. &nbsp; $x^{2}y''-xy'+\left(x^{2}+1\right)y=0$ &nbsp;&nbsp;&nbsp; 32. &nbsp; $x^{2}y''-xy'+\left(x^{2}-3\right)y=0$
+$$r(r-1)+r=r^{2}=0\;\Longrightarrow\;r_{1}=r_{2}=0$$
+
+==Eşit kökler== &nbsp;$\Rightarrow$&nbsp; deneme yapmaya gerek yok, **logaritma kesin.** (Bkz. 5.10.)
+
+**Adım 3 — İndirgeme bağıntısı.**
+
+$$\boxed{\;a_{n}=-\frac{2a_{n-1}}{n^{2}}\;}$$
+
+**Adım 4 — Birinci çözüm.** Ardışık çarpımı açalım:
+
+$$a_{n}=\frac{(-2)^{n}}{\left(n!\right)^{2}}\;\Longrightarrow\;a_{1}=-2,\;a_{2}=1,\;a_{3}=-\frac{2}{9},\;a_{4}=\frac{1}{36}$$
+
+$$\boxed{\;y_{1}=1-2x+x^{2}-\frac{2x^{3}}{9}+\frac{x^{4}}{36}-\cdots=\sum_{n=0}^{\infty}\frac{(-2x)^{n}}{\left(n!\right)^{2}}\;}$$
+
+**Bu seriyi tanıyın.** $J_{0}(z)=\displaystyle\sum\frac{(-1)^{n}\left(z/2\right)^{2n}}{\left(n!\right)^{2}}$ olduğundan, $\left(\tfrac{z}{2}\right)^{2}=2x$ yani $z=2\sqrt{2x}$ alırsak:
+
+$$y_{1}=J_{0}\!\left(2\sqrt{2x}\right)$$
+
+**Adım 5 — Logaritmalı ikinci çözüm.** Eşit köklerde $C=1$ alınabilir:
+
+$$y_{2}=y_{1}\ln x+\sum_{n\ge 1}b_{n}x^{n}$$
+
+Artık terim $L\left[y_{1}\ln x\right]=2xy_{1}'$; katsayı denklemi:
+
+$$n^{2}b_{n}+2b_{n-1}+2n\,a_{n}=0$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$1$</td><td>$b_{1}+2\cdot 0+2(-2)=0$</td><td>$b_{1}=4$</td></tr>
+<tr><td>$2$</td><td>$4b_{2}+8+4(1)=0$</td><td>$b_{2}=-3$</td></tr>
+<tr><td>$3$</td><td>$9b_{3}-6+6\left(-\tfrac29\right)=0$</td><td>$b_{3}=\tfrac{22}{27}$</td></tr>
+</table>
+</div>
+
+$$\boxed{\;y_{2}=y_{1}\ln x+4x-3x^{2}+\frac{22x^{3}}{27}-\cdots\;}$$
+
+**Doğrulama — 060 setinin 23. sorusuyla karşılaştırın.** Orada ==aynı denklemi $x=1$ etrafında== çözmüştük ve düz kuvvet serisi çıkmıştı. Sebep açık: $x=0$ tekil nokta, $x=1$ adi nokta. ==Aynı denklem, merkeze göre bambaşka davranıyor.==
+[/CEVAP]
+
+[SORU] **31.** &nbsp; $x^{2}y''-xy'+\left(x^{2}+1\right)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi: yine eşit kökler.** $b_{0}=-1$, &nbsp;$c_{0}=1$:
+
+$$r(r-1)-r+1=r^{2}-2r+1=(r-1)^{2}=0\;\Longrightarrow\;r_{1}=r_{2}=1$$
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;(m-1)^{2}a_{n}+a_{n-2}=0\;\Longrightarrow\;a_{n}=-\frac{a_{n-2}}{n^{2}}\quad (r=1)\;}$$
+
+$a_{1}=0$, tek indisler yok.
+
+**Adım 3 — Birinci çözüm.**
+
+$$a_{2}=-\frac{a_{0}}{4},\quad a_{4}=\frac{a_{0}}{64},\quad a_{6}=-\frac{a_{0}}{2304}$$
+
+$$\boxed{\;y_{1}=x\left(1-\frac{x^{2}}{4}+\frac{x^{4}}{64}-\frac{x^{6}}{2304}+\cdots\right)=x\,J_{0}(x)\;}$$
+
+**Doğrulama 1 — dönüşümle.** $y=xu$ koyarsak:
+
+$$x^{2}(xu)''-x(xu)'+\left(x^{2}+1\right)(xu)=x\left[x^{2}u''+xu'+x^{2}u\right]$$
+
+Köşeli parantez ==$p=0$ mertebesinden Bessel denklemidir==, çözümü $J_{0}$ ve $Y_{0}$. Dolayısıyla
+
+$$y_{1}=x\,J_{0}(x),\qquad y_{2}=x\,Y_{0}(x)$$
+
+Seri katsayılarımız $J_{0}$'ın bilinen açılımıyla ($1-\tfrac{x^{2}}{4}+\tfrac{x^{4}}{64}-\tfrac{x^{6}}{2304}$) birebir aynı &#10003;
+
+**Adım 4 — Logaritmalı ikinci çözüm.** $L\left[y_{1}\ln x\right]=2xy_{1}'-2y_{1}$; katsayı denklemi:
+
+$$n^{2}b_{n}+b_{n-2}+2n\,a_{n}=0$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$2$</td><td>$4b_{2}+0+4\left(-\tfrac14\right)=0$</td><td>$b_{2}=\tfrac14$</td></tr>
+<tr><td>$4$</td><td>$16b_{4}+\tfrac14+8\cdot\tfrac{1}{64}=0$</td><td>$b_{4}=-\tfrac{3}{128}$</td></tr>
+</table>
+</div>
+
+$$\boxed{\;y_{2}=y_{1}\ln x+x\left(\frac{x^{2}}{4}-\frac{3x^{4}}{128}+\cdots\right)\;}$$
+
+**Doğrulama 2 — $Y_{0}$ ile tutarlılık.** $Y_{0}(x)$'in bilinen açılımı $\tfrac{2}{\pi}\left[J_{0}(x)\ln\tfrac{x}{2}+\ldots\right]$ biçimindedir; ==logaritma katsayısının $y_{1}$'in kendisi olması ($C=1$) bununla uyumlu.==
+[/CEVAP]
+
+[SORU] **32.** &nbsp; $x^{2}y''-xy'+\left(x^{2}-3\right)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b_{0}=-1$, &nbsp;$c_{0}=-3$:
+
+$$r^{2}-2r-3=(r-3)(r+1)=0\;\Longrightarrow\;r_{1}=3,\quad r_{2}=-1$$
+
+Kök farkı $4$.
+
+**Adım 2 — Denklemi tanıyın.** $y=xu$ koyarsak:
+
+$$x^{2}(xu)''-x(xu)'+\left(x^{2}-3\right)(xu)=x\left[x^{2}u''+xu'+\left(x^{2}-4\right)u\right]$$
+
+==Köşeli parantez $p=2$ mertebesinden Bessel denklemidir.== $p$ **tam sayı** olduğu için $J_{-2}=J_{2}$ ve ikinci çözüm için $Y_{2}$ gerekir — yani ==logaritma beklemeliyiz.== (Bkz. 6.3.)
+
+**Adım 3 — İndirgeme bağıntısı ve küçük kökün çelişkisi.**
+
+$$\boxed{\;(m-3)(m+1)a_{n}+a_{n-2}=0\;}$$
+
+$r=-1$, $m=n-1$; katsayı $(n-4)n$:
+
+$$n=2:\;\;(-2)(2)a_{2}+a_{0}=0\;\Longrightarrow\;a_{2}=\frac{a_{0}}{4}$$
+
+$$n=4:\;\;\underbrace{0\cdot 4}_{=0}\cdot a_{4}+a_{2}=0\;\Longrightarrow\;a_{2}=0$$
+
+==Çelişki== — Bessel'den beklediğimizle tutarlı.
+
+**Adım 4 — Büyük kök $r_{1}=3$.** $a_{n}=-\dfrac{a_{n-2}}{n(n+4)}$:
+
+$$a_{2}=-\frac{a_{0}}{12},\qquad a_{4}=\frac{a_{0}}{384}$$
+
+$$\boxed{\;y_{1}=x^{3}\left(1-\frac{x^{2}}{12}+\frac{x^{4}}{384}-\cdots\right)\;}$$
+
+**Doğrulama — $J_{2}$ ile karşılaştır.**
+
+$$J_{2}(x)=\sum_{k\ge 0}\frac{(-1)^{k}}{k!\,(k+2)!}\left(\frac{x}{2}\right)^{2k+2}=\frac{x^{2}}{8}\left(1-\frac{x^{2}}{12}+\cdots\right)$$
+
+Buradan $x\,J_{2}(x)=\dfrac{x^{3}}{8}\left(1-\dfrac{x^{2}}{12}+\cdots\right)$ &nbsp;— ==sabit çarpan dışında bulduğumuzun aynısı== &#10003;
+
+**Adım 5 — Logaritmalı ikinci çözüm.** $L\left[y_{1}\ln x\right]=2xy_{1}'-2y_{1}$; $v=x^{-1}\sum b_{n}x^{n}$ ile:
+
+$$(n-4)n\,b_{n}+b_{n-2}+C(2n-4)a_{n-4}=0$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$0$</td><td>$0=0$</td><td>$b_{0}=1$</td></tr>
+<tr><td>$2$</td><td>$-4b_{2}+b_{0}=0$</td><td>$b_{2}=\tfrac14$</td></tr>
+<tr><td>$4$</td><td>$0\cdot b_{4}+b_{2}+4C=0$</td><td>==$C=-\tfrac{1}{16}$==, $b_{4}$ serbest $(=0)$</td></tr>
+<tr><td>$6$</td><td>$12b_{6}+b_{4}+8C\,a_{2}=0$</td><td>$b_{6}=-\tfrac{1}{288}$</td></tr>
+</table>
+</div>
+
+(Tek indislerin hepsi sıfır.)
+
+$$\boxed{\;y_{2}=-\frac{1}{16}\,y_{1}\ln x+\frac{1}{x}\left(1+\frac{x^{2}}{4}-\frac{x^{6}}{288}+\cdots\right)\;}$$
+
+**Doğrulama.** $C\neq 0$, hem Adım 3'teki çelişkiyle hem de ==Adım 2'deki "$p$ tam sayı, $Y_{2}$ gerekir" tespitiyle== tutarlı — üç ayrı yol aynı sonuca çıkıyor.
+
+[KUTU]
+**31 ile 32: aynı numara, farklı $p$.** İkisi de $y=xu$ dönüşümüyle Bessel'e iniyor:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Soru</th><th>Dönüşüm sonrası</th><th>$p$</th><th>İkinci çözüm</th></tr>
+<tr><td>31</td><td>$x^{2}u''+xu'+x^{2}u=0$</td><td>$0$</td><td>$xY_{0}$ — eşit kökler</td></tr>
+<tr><td>32</td><td>$x^{2}u''+xu'+\left(x^{2}-4\right)u=0$</td><td>$2$</td><td>$xY_{2}$ — tam sayı $p$</td></tr>
+</table>
+</div>
+
+**Nasıl fark edilir:** $x^{2}y''+\alpha xy'+\left(x^{2}+\beta\right)y=0$ biçimindeki bir denklemde $y=x^{k}u$ dönüşümü, ==$xy'$ teriminin katsayısını $1$'e getirecek $k$ seçilerek== Bessel'e indirgenir. Burada $\alpha=-1$ olduğu için $k=1$ işe yaradı.
+
+==Bu numara sınavda çok zaman kazandırır:== Bessel olduğunu görürseniz $p$'yi okuyup sonucu (hangi çözümler bağımsız, logaritma var mı) hesaba girmeden söylersiniz.
+[/KUTU]
+[/CEVAP]
+
+[KUTU]
+**Setin tamamı bitti** — ve bununla birlikte ==Bölüm 5'teki bütün egzersizler tamamlandı.== Çözümler bize aittir; her biri ikinci bir bağımsız yolla doğrulanmıştır.
+
+**Bu setin haritası:**
+
+<div class="tablo-sar">
+<table>
+<tr><th>Durum</th><th>Sorular</th><th>Ne yapıldı</th></tr>
+<tr><td>Kök farkı tam sayı değil</td><td>5, 6, 7, 8, 9, 11, 12, 13, 14</td><td>her iki kök de düz seri</td></tr>
+<tr><td>Tam sayı, ama şanslı</td><td>15, 16, 17, 18, 19, 21, 22, 23, 24</td><td>küçük kök her ikisini birden verdi</td></tr>
+<tr><td>Tam sayı, logaritmalı</td><td>25, 26, 27, 28, 32</td><td>$C$ hesaplandı</td></tr>
+<tr><td>Eşit kökler</td><td>29, 31</td><td>logaritma kesin, $C=1$</td></tr>
+<tr><td>Cauchy-Euler</td><td>20</td><td>seri hiç oluşmadı</td></tr>
+</table>
+</div>
+
+**Üç tekrarlayan ders:**
+
+1. **Ortak çarpan testi.** Bağıntıyı $P(m)a_{n}+Q(m)a_{n-k}=0$ diye yazın; $Q$, $\left(m-r_{1}\right)$ taşıyorsa logaritma çıkmaz. ==Uzun hesaba girmeden karar verirsiniz.==
+2. **Kapalı biçim arayın.** Katsayılar $\tfrac{1}{k!}$, $\tfrac{1}{(k!)^{2}}$ ya da $\tfrac{1}{(k+m)!}$ kalıbına oturuyorsa üstel veya Bessel çıkar. Kapalı biçim bulunca ==doğrulama bedava:== doğrudan denkleme koyun.
+3. **$y=x^{k}u$ dönüşümünü deneyin.** $x^{2}y''+\alpha xy'+(\ldots)y=0$ biçimindeki denklemlerin çoğu böylece Bessel'e iner ve sonucu hesapsız okursunuz.
+[/KUTU]
+
+---
 
 [KUTU]
 **Kaynak metinde okunamayan iki soru.** Tarama çıktısında 2. ve 30. sorular bozuk geldi: 2. soru `(x² − 2xy)′` biçiminde çıktı — yukarıya matematiksel olarak anlamlı olan $\left(x^{2}-2x\right)y'$ hâliyle yazıldı, ama kitaptan teyit edilmeli. 30. soru `2xy″ + 6y + y = 0` olarak okundu; ortadaki terimin $6y'$ olması gerektiği açık, ancak emin olunamadığı için listeye alınmadı.

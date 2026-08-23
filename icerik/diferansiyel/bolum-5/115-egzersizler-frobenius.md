@@ -128,3 +128,17 @@ $$\boxed{\;y=C_{1}x^{1/2}\left(1-\frac{2x}{3}+\frac{2x^{2}}{15}-\frac{4x^{3}}{31
 [KUTU]
 **Kaynak metinde okunamayan iki soru.** Tarama çıktısında 2. ve 30. sorular bozuk geldi: 2. soru `(x² − 2xy)′` biçiminde çıktı — yukarıya matematiksel olarak anlamlı olan $\left(x^{2}-2x\right)y'$ hâliyle yazıldı, ama kitaptan teyit edilmeli. 30. soru `2xy″ + 6y + y = 0` olarak okundu; ortadaki terimin $6y'$ olması gerektiği açık, ancak emin olunamadığı için listeye alınmadı.
 [/KUTU]
+
+---
+
+[CLAUDE] Frobenius sorusunda nerede olduğunuzu kaybetmemek için
+Bu setteki sorular uzundur ve ==öğrenciler genelde doğru başlayıp ortada kaybolur.== Şu üç kontrol noktasını işaretleyerek ilerleyin:
+
+**Kontrol 1 — başlangıç denklemi.** Seriye girmeden $r(r-1)+b_{0}r+c_{0}=0$ yazın, kökleri bulun, ==kök farkını hemen not edin.== Hangi durumda olduğunuzu baştan bilirseniz sonunda şaşırmazsınız.
+
+**Kontrol 2 — büyük kökle başlayın.** $r_{1}$ hiçbir zaman sorun çıkarmaz. İlk çözümü garantiye alın, sonra ikinciye geçin.
+
+**Kontrol 3 — küçük kökte paydaya bakın.** İndirgeme bağıntısını $r_{2}$ ile yazınca payda bir yerde sıfırlanıyorsa logaritmalı forma geçin; sıfırlanmıyorsa düz seri yeterlidir.
+
+**Sınav ekonomisi.** Frobenius soruları puanın büyük kısmını ==ilk yarıda== verir: doğru sınıflandırma, doğru başlangıç denklemi, doğru indirgeme bağıntısı. Zaman daralıyorsa ilk çözümü eksiksiz yazıp ikinciye "logaritmalı formda olacaktır, $y_{2}=Cy_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$" diye başlamak, hiç yazmamaktan çok daha iyidir.
+[/CLAUDE]

@@ -164,3 +164,20 @@ Yardımcı denklem $am^{2}+bm+c=0$:
 **Belirsiz katsayılar:** UC kümesi $y_{c}$'yle çakışıyorsa küme ==$x$ ile çarpılır==; çakışma bitene kadar tekrarlanır.
 
 <p style="margin-bottom:0;">Ayrıntılı çalışma önceliği için <a href="#final-analiz">★ Final Analizi</a>'ne bakın.</p>
+
+---
+
+[CLAUDE] Sınavın ilk üç dakikası: boş kağıda ne dökmelisiniz
+Bu kartın tamamını ezberlemeye çalışmayın. ==Kağıdı alır almaz, soruları okumadan önce== şu altı satırı boş bir köşeye yazın. Hepsi kısa, hepsi türetmeyle geri gelmez ve hepsi birden fazla soruda lazım olur:
+
+1. $\;\mathcal{L}\{y''\}=s^{2}Y-sy_{0}-y_{0}'\;$ &nbsp;— ==işaretler ve sıra==
+2. $\;\dfrac{1}{(s-a)(s-b)}\to\dfrac{e^{at}-e^{bt}}{a-b}$
+3. $\;(s+k)^{2}+b^{2}\;\Rightarrow\;e^{-kt}\left[\cos bt,\ \sin bt\right]$ &nbsp;— tamkare kalıbı
+4. $\;\mathcal{L}\left\{f(t-a)u_{a}\right\}=e^{-as}F(s)$ &nbsp;ve&nbsp; $\mathcal{L}\left\{\delta(t-a)\right\}=e^{-as}$
+5. Cauchy-Euler: $\;x^{2}y''\to m(m-1)$, $\;xy'\to m$, $\;y\to 1$
+6. Frobenius başlangıç denklemi: $\;r(r-1)+b_{0}r+c_{0}=0$
+
+**Neden işe yarıyor:** sınav stresinde ilk kaybedilen şey ==işaretler ve indislerdir==, formüllerin fikri değil. Bunları önden yazarsanız, ilerleyen sorularda kendi el yazınızdan bakarsınız ve her seferinde yeniden hatırlamaya çalışmazsınız.
+
+**Ezberlemeyin, türetin.** Yukarıdakiler dışında kalan her şeyin ==üç satırlık bir türetmesi var== ve o türetmeler bu sitede ilgili bölümlerde duruyor: türev THEoREM'i kısmi integrasyondan, sinüs/kosinüs dönüşümleri $\mathcal{L}\{e^{ibt}\}$'den, $t^{n}$ kuralı $s$'ye göre türevden.
+[/CLAUDE]

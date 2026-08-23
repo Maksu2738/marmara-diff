@@ -91,6 +91,7 @@ Gövde:
 | `---` | `<hr>` |
 | `**kalın**` `*eğik*` `==vurgulu==` `__altı çizili__` | `<strong>` `<em>` `<span class="vurgu">` `<u>` |
 | `[KUTU]` … `[/KUTU]` | `<div class="highlight">` — "Not:", tanım vb. için kutu |
+| `[CLAUDE] Başlık` … `[/CLAUDE]` | `<div class="claude-oneri">` — turkuaz tüyo kutusu, başlık isteğe bağlı |
 | `\| a \| b \|` + `\|---\|---\|` | `<table>` — otomatik `<div class="tablo-sar">` içine alınır |
 | `$...$` ve `$$...$$` | içerik korunur, yalnız `& < >` HTML kaçışına çevrilir |
 | `<` ile başlayan satır | ham HTML, aynen geçer (kaçış kapısı) |
@@ -124,6 +125,24 @@ yazarsan `build.py` uyarı basar, artık kilitlenmez.)
 `[CEVAP]` bloğu bir sonraki `[SORU]` satırına kadar sürer; erken bitirmek
 gerekirse `[/CEVAP]` yazılır. Cevap içinde paragraf, liste, `$$...$$` serbestçe
 kullanılabilir.
+
+## Claude önerisi kutuları
+
+`[CLAUDE] Başlık metni` … `[/CLAUDE]` bloğu, **kitaptan ya da hocanın ders notundan
+gelmeyen**, asistanın eklediği tüyo/kısa yol kutusu üretir. Turkuaz zemin + "Claude
+önerisi" rozeti alır; mor `.highlight` ve kırmızı `.defter-disi` kutulardan
+kasıtlı olarak farklı renktedir — okuyan, bilginin kaynağını bir bakışta ayırt
+edebilmelidir.
+
+- Başlık isteğe bağlıdır: `[CLAUDE]` tek başına da yazılabilir.
+- İçine paragraf, liste, tablo, `$$...$$` serbestçe girer. İç içe `[KUTU]` **koyma** —
+  çalışır ama kutu içinde kutu görüntüsü karışık olur, düz **kalın** başlık yeter.
+- Bölümün **sonuna** konur, başına değil: önce kitabın anlatımı, sonra kısa yol.
+- `.html` parçalarda markdown çevirisi çalışmaz; oraya kutunun **HTML karşılığı**
+  yazılır ve **bölümün kapanış `</div>`'inden önce** yerleştirilir (dosyanın sonuna
+  eklenirse kutu bölümün dışında kalır).
+- Kapsam: Cauchy-Euler (3.4) ve sonrası. Daha önceki bölümlere tüyo eklenmeyecek.
+- Ne anlama geldiğini anlatan sayfa: `bolum-1/015-claude-onerileri.md`.
 
 ## Yazım tercihi
 

@@ -12904,6 +12904,27 @@
                         <div class="highlight">
                             <p><strong>12. sorudaki hamle neden bu kadar temiz çıktı?</strong> Çünkü $\sin$ fonksiyonunun periyodu $2\pi$ ve $\pi$ kadar öteleme sadece işaret çeviriyor. Kesme noktası $\pi$ yerine örneğin $\tfrac{\pi}{2}$ olsaydı $\sin t=\cos\left(t-\tfrac{\pi}{2}\right)$ yazmak gerekirdi — <span class="vurgu">fonksiyonun kendisi değişirdi</span>. Sınavda kesme noktasının hangi özdeşliğe denk geldiğine bakın.</p>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Tekrar sorularını çözerken önce sınıflandırın</span>
+                            </div>
+                            <p>Bölüm tekrarı setleri karışık sırayla gelir — <span class="vurgu">asıl beceri, hangi aracın gerektiğini tanımaktır.</span> Her soruya bakıp önce şunu belirleyin:</p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Soruda gördüğünüz</th><th>Gereken araç</th></tr>
+                                <tr><td>$t^{n}$ çarpanı</td><td>$s$'ye göre türev (4.1)</td></tr>
+                                <tr><td>$e^{at}$ çarpanı</td><td>birinci öteleme, $s\to s-a$ (4.1)</td></tr>
+                                <tr><td>parçalı tanımlı $f$</td><td>birim basamak + ikinci öteleme (4.4)</td></tr>
+                                <tr><td>$f(t+P)=f(t)$</td><td>periyodik formül (4.4)</td></tr>
+                                <tr><td>$\delta$</td><td>doğrudan $e^{-as}$ (4.4)</td></tr>
+                                <tr><td>integral işareti içinde $f$</td><td>konvolüsyon ya da $\dfrac{F(s)}{s}$ (4.2)</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Bu tabloyu bir kez zihninize kurun</strong>, tekrar setinin yarısı mekanik hâle gelir.</p>
+                            <p><strong>Ve her cevaptan sonra üç saniyelik kontrol:</strong> $s\to\infty$ iken sonucunuz <span class="vurgu">sıfıra gitmeli.</span> Gitmiyorsa hata vardır. Bu tek kontrol, dönüşüm bulma sorularında yapılan hataların çoğunu yakalar.</p>
+                        </div>
                     </div>
 
                     <div id="tekrar-ters-donusum" class="section sorular">
@@ -13935,6 +13956,23 @@
                                     <li><strong>(a)</strong> $x=0$'ın bu denklemin adi noktası olduğunu gösteriniz ve $x$ kuvvetlerinde lineer bağımsız iki kuvvet serisi çözümü bulunuz.</li>
                                     <li><strong>(b)</strong> $n$ negatif olmayan bir tam sayıysa, (a)'da bulunan çözümlerden birinin $n$ dereceli bir <strong>polinom</strong> olduğunu gösteriniz.</li>
                                 </ul>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Bu setteki soruların hepsi aynı beş adımdan geçer</span>
+                                    </div>
+                                    <p>Kuvvet serisi egzersizleri uzun görünür ama <span class="vurgu">her biri aynı iskelettir.</span> Bir soruya başlamadan önce şu beşi kafanızda sıralayın:</p>
+                                    <ol>
+                                        <li><strong>Noktayı sınıflandır</strong> — başkatsayıyı sıfırlayan $x$'ler tekil; $x_{0}$ onlardan biri değilse düz seri.</li>
+                                        <li><strong>Yerine koy ve hizala</strong> — bütün toplamları $x^{n}$ üssüne getirin.</li>
+                                        <li><strong>Alt sınırları eşitle</strong> — uyuşmayan ilk terimleri toplamın dışına çıkarın.</li>
+                                        <li><strong>İndirgeme bağıntısını yaz</strong> — $x^{n}$'in katsayısı sıfır.</li>
+                                        <li><strong>İki zinciri ayrı yürüt</strong> — $a_{0}$'dan gelenler bir çözüm, $a_{1}$'den gelenler öteki.</li>
+                                    </ol>
+                                    <p><strong>Zaman kazandıran karar:</strong> soru "ilk dört sıfırdan farklı terimi bulun" diyorsa <span class="vurgu">genel terimi aramayın.</span> İndirgeme bağıntısını bulup dört adım yürütmek yeterlidir; kapalı formül çıkarmak çoğu zaman gereksiz iştir.</p>
+                                    <p><strong>Sonucu sınamanın hızlı yolu.</strong> Bulduğunuz ilk birkaç terimi <span class="vurgu">denkleme geri koyup en düşük iki kuvvetin katsayısına bakın;</span> ikisi de sıfır çıkıyorsa indirgeme bağıntınız neredeyse kesin doğrudur. Bütün seriyi kontrol etmenize gerek yok.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -14736,6 +14774,18 @@
                                 </ol>
                                 <div class="highlight">
                                     <p><strong>Kaynak metinde okunamayan iki soru.</strong> Tarama çıktısında 2. ve 30. sorular bozuk geldi: 2. soru `(x² − 2xy)′` biçiminde çıktı — yukarıya matematiksel olarak anlamlı olan $\left(x^{2}-2x\right)y'$ hâliyle yazıldı, ama kitaptan teyit edilmeli. 30. soru `2xy″ + 6y + y = 0` olarak okundu; ortadaki terimin $6y'$ olması gerektiği açık, ancak emin olunamadığı için listeye alınmadı.</p>
+                                </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Frobenius sorusunda nerede olduğunuzu kaybetmemek için</span>
+                                    </div>
+                                    <p>Bu setteki sorular uzundur ve <span class="vurgu">öğrenciler genelde doğru başlayıp ortada kaybolur.</span> Şu üç kontrol noktasını işaretleyerek ilerleyin:</p>
+                                    <p><strong>Kontrol 1 — başlangıç denklemi.</strong> Seriye girmeden $r(r-1)+b_{0}r+c_{0}=0$ yazın, kökleri bulun, <span class="vurgu">kök farkını hemen not edin.</span> Hangi durumda olduğunuzu baştan bilirseniz sonunda şaşırmazsınız.</p>
+                                    <p><strong>Kontrol 2 — büyük kökle başlayın.</strong> $r_{1}$ hiçbir zaman sorun çıkarmaz. İlk çözümü garantiye alın, sonra ikinciye geçin.</p>
+                                    <p><strong>Kontrol 3 — küçük kökte paydaya bakın.</strong> İndirgeme bağıntısını $r_{2}$ ile yazınca payda bir yerde sıfırlanıyorsa logaritmalı forma geçin; sıfırlanmıyorsa düz seri yeterlidir.</p>
+                                    <p><strong>Sınav ekonomisi.</strong> Frobenius soruları puanın büyük kısmını <span class="vurgu">ilk yarıda</span> verir: doğru sınıflandırma, doğru başlangıç denklemi, doğru indirgeme bağıntısı. Zaman daralıyorsa ilk çözümü eksiksiz yazıp ikinciye "logaritmalı formda olacaktır, $y_{2}=Cy_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$" diye başlamak, hiç yazmamaktan çok daha iyidir.</p>
                                 </div>
                             </div>
                         </div>
@@ -16351,6 +16401,24 @@
                         </div>
                         <p><strong>Belirsiz katsayılar:</strong> UC kümesi $y_{c}$'yle çakışıyorsa küme <span class="vurgu">$x$ ile çarpılır</span>; çakışma bitene kadar tekrarlanır.</p>
                         <p style="margin-bottom:0;">Ayrıntılı çalışma önceliği için <a href="#final-analiz">★ Final Analizi</a>'ne bakın.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Sınavın ilk üç dakikası: boş kağıda ne dökmelisiniz</span>
+                            </div>
+                            <p>Bu kartın tamamını ezberlemeye çalışmayın. <span class="vurgu">Kağıdı alır almaz, soruları okumadan önce</span> şu altı satırı boş bir köşeye yazın. Hepsi kısa, hepsi türetmeyle geri gelmez ve hepsi birden fazla soruda lazım olur:</p>
+                            <ol>
+                                <li>$\;\mathcal{L}\{y''\}=s^{2}Y-sy_{0}-y_{0}'\;$ &nbsp;— <span class="vurgu">işaretler ve sıra</span></li>
+                                <li>$\;\dfrac{1}{(s-a)(s-b)}\to\dfrac{e^{at}-e^{bt}}{a-b}$</li>
+                                <li>$\;(s+k)^{2}+b^{2}\;\Rightarrow\;e^{-kt}\left[\cos bt,\ \sin bt\right]$ &nbsp;— tamkare kalıbı</li>
+                                <li>$\;\mathcal{L}\left\{f(t-a)u_{a}\right\}=e^{-as}F(s)$ &nbsp;ve&nbsp; $\mathcal{L}\left\{\delta(t-a)\right\}=e^{-as}$</li>
+                                <li>Cauchy-Euler: $\;x^{2}y''\to m(m-1)$, $\;xy'\to m$, $\;y\to 1$</li>
+                                <li>Frobenius başlangıç denklemi: $\;r(r-1)+b_{0}r+c_{0}=0$</li>
+                            </ol>
+                            <p><strong>Neden işe yarıyor:</strong> sınav stresinde ilk kaybedilen şey <span class="vurgu">işaretler ve indislerdir</span>, formüllerin fikri değil. Bunları önden yazarsanız, ilerleyen sorularda kendi el yazınızdan bakarsınız ve her seferinde yeniden hatırlamaya çalışmazsınız.</p>
+                            <p><strong>Ezberlemeyin, türetin.</strong> Yukarıdakiler dışında kalan her şeyin <span class="vurgu">üç satırlık bir türetmesi var</span> ve o türetmeler bu sitede ilgili bölümlerde duruyor: türev THEoREM'i kısmi integrasyondan, sinüs/kosinüs dönüşümleri $\mathcal{L}\{e^{ibt}\}$'den, $t^{n}$ kuralı $s$'ye göre türevden.</p>
+                        </div>
                     </div>
 
 
@@ -16696,7 +16764,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=2bcebc83"></script>
+<script defer src="arama.js?v=4ca07f01"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

@@ -139,3 +139,19 @@ denklemine **Legendre diferansiyel denklemi (Legendre's differential equation)**
 
 - **(a)** $x=0$'ın bu denklemin adi noktası olduğunu gösteriniz ve $x$ kuvvetlerinde lineer bağımsız iki kuvvet serisi çözümü bulunuz.
 - **(b)** $n$ negatif olmayan bir tam sayıysa, (a)'da bulunan çözümlerden birinin $n$ dereceli bir **polinom** olduğunu gösteriniz.
+
+---
+
+[CLAUDE] Bu setteki soruların hepsi aynı beş adımdan geçer
+Kuvvet serisi egzersizleri uzun görünür ama ==her biri aynı iskelettir.== Bir soruya başlamadan önce şu beşi kafanızda sıralayın:
+
+1. **Noktayı sınıflandır** — başkatsayıyı sıfırlayan $x$'ler tekil; $x_{0}$ onlardan biri değilse düz seri.
+2. **Yerine koy ve hizala** — bütün toplamları $x^{n}$ üssüne getirin.
+3. **Alt sınırları eşitle** — uyuşmayan ilk terimleri toplamın dışına çıkarın.
+4. **İndirgeme bağıntısını yaz** — $x^{n}$'in katsayısı sıfır.
+5. **İki zinciri ayrı yürüt** — $a_{0}$'dan gelenler bir çözüm, $a_{1}$'den gelenler öteki.
+
+**Zaman kazandıran karar:** soru "ilk dört sıfırdan farklı terimi bulun" diyorsa ==genel terimi aramayın.== İndirgeme bağıntısını bulup dört adım yürütmek yeterlidir; kapalı formül çıkarmak çoğu zaman gereksiz iştir.
+
+**Sonucu sınamanın hızlı yolu.** Bulduğunuz ilk birkaç terimi ==denkleme geri koyup en düşük iki kuvvetin katsayısına bakın;== ikisi de sıfır çıkıyorsa indirgeme bağıntınız neredeyse kesin doğrudur. Bütün seriyi kontrol etmenize gerek yok.
+[/CLAUDE]

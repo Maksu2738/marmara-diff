@@ -309,3 +309,22 @@ $$\mathcal{L}\{f\}=e^{-\pi s}\,\mathcal{L}\{\sin t\}=\boxed{\;\frac{e^{-\pi s}}{
 [KUTU]
 **12. sorudaki hamle neden bu kadar temiz çıktı?** Çünkü $\sin$ fonksiyonunun periyodu $2\pi$ ve $\pi$ kadar öteleme sadece işaret çeviriyor. Kesme noktası $\pi$ yerine örneğin $\tfrac{\pi}{2}$ olsaydı $\sin t=\cos\left(t-\tfrac{\pi}{2}\right)$ yazmak gerekirdi — ==fonksiyonun kendisi değişirdi==. Sınavda kesme noktasının hangi özdeşliğe denk geldiğine bakın.
 [/KUTU]
+
+---
+
+[CLAUDE] Tekrar sorularını çözerken önce sınıflandırın
+Bölüm tekrarı setleri karışık sırayla gelir — ==asıl beceri, hangi aracın gerektiğini tanımaktır.== Her soruya bakıp önce şunu belirleyin:
+
+| Soruda gördüğünüz | Gereken araç |
+|---|---|
+| $t^{n}$ çarpanı | $s$'ye göre türev (4.1) |
+| $e^{at}$ çarpanı | birinci öteleme, $s\to s-a$ (4.1) |
+| parçalı tanımlı $f$ | birim basamak + ikinci öteleme (4.4) |
+| $f(t+P)=f(t)$ | periyodik formül (4.4) |
+| $\delta$ | doğrudan $e^{-as}$ (4.4) |
+| integral işareti içinde $f$ | konvolüsyon ya da $\dfrac{F(s)}{s}$ (4.2) |
+
+**Bu tabloyu bir kez zihninize kurun**, tekrar setinin yarısı mekanik hâle gelir.
+
+**Ve her cevaptan sonra üç saniyelik kontrol:** $s\to\infty$ iken sonucunuz ==sıfıra gitmeli.== Gitmiyorsa hata vardır. Bu tek kontrol, dönüşüm bulma sorularında yapılan hataların çoğunu yakalar.
+[/CLAUDE]

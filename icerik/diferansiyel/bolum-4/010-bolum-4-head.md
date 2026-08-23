@@ -45,3 +45,19 @@ Bu fark, süreksiz zorlama terimlerinde belirleyici bir üstünlüğe dönüşü
 [/KUTU]
 
 **Bir uyarı.** Laplace'ta "öteleme" adını taşıyan **iki ayrı** THEoREM vardır ve sürekli karıştırılırlar. Ayrım şudur: ==$s$ kaydıysa birinci (4.1), $t$ kaydıysa ikinci (4.4).== İkisinin karşılaştırmalı tablosu 4.4'tedir.
+
+---
+
+[CLAUDE] Bu bölüm finalin en ağır parçası — nereye yükleneceğinizi bilin
+Ders notundaki **13 yıldızlı sorunun tamamı** 4.1-4.3 aralığında. Bölümün geri kalanı kitapta var ama derste işlenmemiş; onlar kırmızı şeritle işaretli.
+
+**Öncelik sırası:**
+
+1. **4.1 - 4.3** — tanım, türev THEoREM'leri, ters dönüşüm, başlangıç değer problemi. ==Zamanınızın çoğu buraya gitsin.==
+2. **Ödev 5** — vizede ödevden aynen soru çıkmıştı; bu bölümün ödevi de aynı kalıpta.
+3. Kırmızı bölümler (4.4 birim basamak, 4.5 sistemler) — zaman kalırsa.
+
+**Bölümün mantığını bir cümlede tutun:** Laplace, ==diferansiyel denklemi cebirsel denkleme çeviren bir sözlüktür.== Türev $s$ ile çarpmaya, integral $s$'ye bölmeye, öteleme üstel çarpana dönüşür. Sözlüğü ezberlemek yerine bu üç eşleşmeyi kavrayın; tablodaki her satır bunlardan türer.
+
+**Ve tek satırlık evrensel kontrol:** bulduğunuz her $F(s)$, $s\to\infty$ iken ==sıfıra gitmelidir.== Gitmiyorsa hata vardır.
+[/CLAUDE]

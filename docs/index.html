@@ -7395,6 +7395,18 @@
                         <div class="highlight">
                             <p><strong>Başlangıç koşulu varsa dikkat.</strong> Bir sonraki bölümdeki Örnek 4.44a'da olduğu gibi problem başlangıç değerli ise, koşullar <strong>$x$ cinsinden</strong> verilir ($y(1)=1$ gibi). Yani $s$'e dönüp çözdükten sonra <span class="vurgu">önce $x$'e geri dönün</span>, koşulları ondan sonra uygulayın. Koşulları $s$ uzayında uygulamaya çalışmak sık yapılan bir hatadır.</p>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Sınavda hangi gösterimi kullanmalısınız</span>
+                            </div>
+                            <p>İkisi de doğru sonuca götürür, ikisi de tam puan alır. Seçim <span class="vurgu">hız ile güvenlik arasında:</span></p>
+                            <p><strong>Hocanın gösterimini kullanın</strong> — eğer üç formülü ($y!$, $y!!$, $y!!!$ karşılıkları) rahatça hatırlıyorsanız. Zincir kuralını yeniden kurmadığınız için <span class="vurgu">belirgin biçimde hızlıdır</span> ve kağıdı okuyan kişi zaten bu gösterime alışkındır.</p>
+                            <p><strong>Kitabın yolunu kullanın</strong> — eğer formüllerden birinden şüphe ediyorsanız. $x=e^{s}$ dönüşümünü yazıp türevleri kendiniz almak uzundur ama <span class="vurgu">hiçbir şey ezberlemeyi gerektirmez.</span></p>
+                            <p><strong>Kritik uyarı — karıştırmayın.</strong> $!$ işareti <span class="vurgu">yalnız bu dönüşüm bağlamında</span> anlamlıdır: "$s$'ye göre türev" demektir. Başka bir soruda, mesela sabit katsayılı bir denklemde ya da Frobenius'ta bu gösterimi kullanmayın; okuyan kişi faktöriyel sanabilir ve zaten oralarda karşılığı yoktur.</p>
+                            <p><strong>Pratik öneri.</strong> Formülleri sınav başında <span class="vurgu">boş bir köşeye yazın</span> (Formül Kartındaki altı satırla birlikte). O zaman ikisi arasında seçim yapmak zorunda kalmazsınız — hocanın yolunu güvenle kullanırsınız.</p>
+                        </div>
                     </div>
 
                     <div id="ornek-cauchy-euler-bdp" class="section ornek">
@@ -8218,6 +8230,22 @@
                             <p>İlk iki adım mekaniktir. <span class="vurgu">Zaman ve dikkat üçüncü adımda harcanır</span>; bu bölümün örneklerinin çoğu da orayı çalıştırmak içindir.</p>
                         </div>
                         <p><strong>Bir uyarı.</strong> Laplace'ta "öteleme" adını taşıyan <strong>iki ayrı</strong> THEoREM vardır ve sürekli karıştırılırlar. Ayrım şudur: <span class="vurgu">$s$ kaydıysa birinci (4.1), $t$ kaydıysa ikinci (4.4).</span> İkisinin karşılaştırmalı tablosu 4.4'tedir.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bu bölüm finalin en ağır parçası — nereye yükleneceğinizi bilin</span>
+                            </div>
+                            <p>Ders notundaki <strong>13 yıldızlı sorunun tamamı</strong> 4.1-4.3 aralığında. Bölümün geri kalanı kitapta var ama derste işlenmemiş; onlar kırmızı şeritle işaretli.</p>
+                            <p><strong>Öncelik sırası:</strong></p>
+                            <ol>
+                                <li><strong>4.1 - 4.3</strong> — tanım, türev THEoREM'leri, ters dönüşüm, başlangıç değer problemi. <span class="vurgu">Zamanınızın çoğu buraya gitsin.</span></li>
+                                <li><strong>Ödev 5</strong> — vizede ödevden aynen soru çıkmıştı; bu bölümün ödevi de aynı kalıpta.</li>
+                                <li>Kırmızı bölümler (4.4 birim basamak, 4.5 sistemler) — zaman kalırsa.</li>
+                            </ol>
+                            <p><strong>Bölümün mantığını bir cümlede tutun:</strong> Laplace, <span class="vurgu">diferansiyel denklemi cebirsel denkleme çeviren bir sözlüktür.</span> Türev $s$ ile çarpmaya, integral $s$'ye bölmeye, öteleme üstel çarpana dönüşür. Sözlüğü ezberlemek yerine bu üç eşleşmeyi kavrayın; tablodaki her satır bunlardan türer.</p>
+                            <p><strong>Ve tek satırlık evrensel kontrol:</strong> bulduğunuz her $F(s)$, $s\to\infty$ iken <span class="vurgu">sıfıra gitmelidir.</span> Gitmiyorsa hata vardır.</p>
+                        </div>
                     </div>
 
                     <div id="laplace-tanim" class="section konu">
@@ -13445,6 +13473,26 @@
                             </ol>
                             <p>Neredeyse bütün sınav soruları bu altı adımın bir birleşimidir.</p>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bu bölümü öğrenirseniz Bölüm 6'yı bedava alırsınız</span>
+                            </div>
+                            <p>Kuvvet serisi bölümü uzun görünür ama <span class="vurgu">tek bir mekaniğin tekrarıdır:</span> seriyi denkleme koy, katsayıları eşitle, indirgeme bağıntısını çıkar, ilk birkaç terimi yaz.</p>
+                            <p><strong>Üç katman, her biri bir öncekinin üstüne biniyor:</strong></p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Katman</th><th>Eklenen tek şey</th></tr>
+                                <tr><td><strong>5.1-5.3</strong> Adi nokta, düz seri</td><td>temel mekanik</td></tr>
+                                <tr><td><strong>5.6-5.7</strong> Frobenius</td><td>bir $x^{r}$ çarpanı ve başlangıç denklemi</td></tr>
+                                <tr><td><strong>Bölüm 6</strong> Airy, Hermite, Bessel</td><td>yalnızca farklı katsayılar</td></tr>
+                            </table>
+                            </div>
+                            <p><span class="vurgu">Yani Bölüm 6 yeni bir konu değil, bu bölümün uygulamasıdır.</span> Buraya yatırdığınız zaman iki bölüm birden kazandırır.</p>
+                            <p><strong>Sınav ekonomisi.</strong> Bu tip sorularda puanın büyük kısmı <span class="vurgu">ilk yarıda</span> verilir: doğru sınıflandırma, doğru yerine koyma, doğru indirgeme bağıntısı. Seriyi sonuna kadar açmak son birkaç puandır. Zaman daralıyorsa bağıntıyı yazıp birkaç terim üretin, bırakın.</p>
+                            <p><strong>Derste işlenen sınır:</strong> Frobenius'ta <span class="vurgu">yalnız kolay durum</span> (kök farkı tam sayı değil) işlenmiş. Logaritmalı ve eşit kök durumları kırmızı işaretli — kitapta var, önceliği düşük.</p>
+                        </div>
                     </div>
 
                     <div id="seri-temel" class="section konu">
@@ -14801,6 +14849,24 @@
                             BÖLÜM 6: Özel Diferansiyel Denklemler
                         </div>
                         <p class="placeholder-note">Hoca bu denklemleri detaylı işlemedi, yalnızca adlarından söz etti. Her biri için kısa tanıtım ve standart form eklenecek.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bu denklemleri ayrı ayrı ezberlemeyin</span>
+                            </div>
+                            <p>Airy, Hermite ve Bessel <span class="vurgu">üç ayrı konu değil</span>, Bölüm 5'teki yöntemin üç uygulamasıdır. Farkları tek bir satırda özetlenir:</p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Denklem</th><th>Nokta</th><th>Yöntem</th><th>Ayırt eden özellik</th></tr>
+                                <tr><td><strong>Airy</strong> $y''-xy=0$</td><td>$x=0$ adi</td><td>düz seri</td><td>indisler <span class="vurgu">üçer üçer</span> atlar</td></tr>
+                                <tr><td><strong>Hermite</strong> $y''-2xy'+2\alpha y=0$</td><td>$x=0$ adi</td><td>düz seri</td><td>$\alpha$ tam sayıysa seri <span class="vurgu">polinoma dönüşür</span></td></tr>
+                                <tr><td><strong>Bessel</strong> $x^{2}y''+xy'+(x^{2}-p^{2})y=0$</td><td>$x=0$ düzgün tekil</td><td><span class="vurgu">Frobenius</span></td><td>başlangıç denklemi $r=\pm p$</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Karar noktası hep aynı:</strong> başkatsayı $x=0$'da sıfırlanıyor mu? Airy ve Hermite'te sıfırlanmaz (adi nokta, düz seri); Bessel'de $x^{2}$ sıfırlanır (tekil nokta, Frobenius).</p>
+                            <p><strong>Derste nerede kesildi:</strong> Airy ve Hermite tam işlenmiş. Bessel'de $c_{2n}$ formülüne kadar gelinmiş, <span class="vurgu">sonrası (gama fonksiyonu, $J_{p}$, $Y_{p}$) kırmızı işaretli.</span> Legendre ve sonrası başlık olarak duruyor, derste hiç girilmemiş.</p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-airy" class="section konu">
@@ -15436,6 +15502,20 @@
                         <p><strong>7.3 Operatör yöntemi.</strong> Sabit katsayılı sistemleri çözmek için sembolik bir yöntem: bilinmeyenlerden birini yok edip geriye tek bilinmeyenli, bildiğimiz türden bir denklem bırakıyoruz.</p>
                         <div class="highlight">
                             <p><strong>Yöntemin özü tek cümlede:</strong> Lineer cebirde iki bilinmeyenli denklem sistemini çözerken bir bilinmeyeni yok ederiz. Burada da aynısını yapıyoruz — tek fark, katsayıların sayı değil <span class="vurgu">diferansiyel operatör</span> olması. Operatörler polinom gibi davrandığı için aynı eleme hamlesi işe yarıyor.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bu bölüm 4.5 ile aynı problemi farklı yoldan çözüyor</span>
+                            </div>
+                            <p>Diferansiyel operatörler bölümünün konusu <span class="vurgu">lineer sistemlerdir</span> — yani Bölüm 4.5'te Laplace ile çözdüğünüz problemin aynısı. İki yöntem arasındaki seçim şuna bakar:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Başlangıç koşulu verilmişse</strong> → Laplace daha kısa; koşullar baştan girer, keyfi sabit çıkmaz.</li>
+                                <li><strong>Genel çözüm isteniyorsa</strong> → operatör yöntemi daha doğal; zaten sabitli sonuç arıyorsunuz.</li>
+                            </ul>
+                            <p><strong>Bölümün tek gerçek yeniliği</strong> $D=\dfrac{d}{dx}$ gösterimidir ve o da <span class="vurgu">sabit katsayılı ifadeleri polinom gibi çarpanlara ayırabilmenizi</span> sağlar. Gerisi Bölüm 3'ten tanıdık: yok etme sonucu tek bilinmeyenli sabit katsayılı bir denklem kalır, onu karakteristik denklemle çözersiniz.</p>
+                            <p><strong>Bölümün tek tuzağı</strong> sabit sayısıdır. İki bilinmeyeni ayrı ayrı çözerseniz fazla sabit çıkar; <span class="vurgu">doğru sayıyı operatör determinantının derecesi verir</span> ve fazlalıkları elemek için sonucu orijinal sisteme geri koymak zorunludur. (Bkz. 7.4.)</p>
                         </div>
                     </div>
 
@@ -16764,7 +16844,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=4ca07f01"></script>
+<script defer src="arama.js?v=cbcaa8a2"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

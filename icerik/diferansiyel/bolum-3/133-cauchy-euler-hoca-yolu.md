@@ -134,3 +134,17 @@ En sağlamı: formülleri ezberleyin ama **nereden geldiğini** de bilin. $D(D-1
 [KUTU]
 **Başlangıç koşulu varsa dikkat.** Bir sonraki bölümdeki Örnek 4.44a'da olduğu gibi problem başlangıç değerli ise, koşullar **$x$ cinsinden** verilir ($y(1)=1$ gibi). Yani $s$'e dönüp çözdükten sonra ==önce $x$'e geri dönün==, koşulları ondan sonra uygulayın. Koşulları $s$ uzayında uygulamaya çalışmak sık yapılan bir hatadır.
 [/KUTU]
+
+---
+
+[CLAUDE] Sınavda hangi gösterimi kullanmalısınız
+İkisi de doğru sonuca götürür, ikisi de tam puan alır. Seçim ==hız ile güvenlik arasında:==
+
+**Hocanın gösterimini kullanın** — eğer üç formülü ($y!$, $y!!$, $y!!!$ karşılıkları) rahatça hatırlıyorsanız. Zincir kuralını yeniden kurmadığınız için ==belirgin biçimde hızlıdır== ve kağıdı okuyan kişi zaten bu gösterime alışkındır.
+
+**Kitabın yolunu kullanın** — eğer formüllerden birinden şüphe ediyorsanız. $x=e^{s}$ dönüşümünü yazıp türevleri kendiniz almak uzundur ama ==hiçbir şey ezberlemeyi gerektirmez.==
+
+**Kritik uyarı — karıştırmayın.** $!$ işareti ==yalnız bu dönüşüm bağlamında== anlamlıdır: "$s$'ye göre türev" demektir. Başka bir soruda, mesela sabit katsayılı bir denklemde ya da Frobenius'ta bu gösterimi kullanmayın; okuyan kişi faktöriyel sanabilir ve zaten oralarda karşılığı yoktur.
+
+**Pratik öneri.** Formülleri sınav başında ==boş bir köşeye yazın== (Formül Kartındaki altı satırla birlikte). O zaman ikisi arasında seçim yapmak zorunda kalmazsınız — hocanın yolunu güvenle kullanırsınız.
+[/CLAUDE]

@@ -27,3 +27,23 @@ Bu bölüm, o çözümlere ulaşmanın bir yolunu kuruyor: çözümü ==sonsuz b
 
 Neredeyse bütün sınav soruları bu altı adımın bir birleşimidir.
 [/KUTU]
+
+---
+
+[CLAUDE] Bu bölümü öğrenirseniz Bölüm 6'yı bedava alırsınız
+Kuvvet serisi bölümü uzun görünür ama ==tek bir mekaniğin tekrarıdır:== seriyi denkleme koy, katsayıları eşitle, indirgeme bağıntısını çıkar, ilk birkaç terimi yaz.
+
+**Üç katman, her biri bir öncekinin üstüne biniyor:**
+
+| Katman | Eklenen tek şey |
+|---|---|
+| **5.1-5.3** Adi nokta, düz seri | temel mekanik |
+| **5.6-5.7** Frobenius | bir $x^{r}$ çarpanı ve başlangıç denklemi |
+| **Bölüm 6** Airy, Hermite, Bessel | yalnızca farklı katsayılar |
+
+==Yani Bölüm 6 yeni bir konu değil, bu bölümün uygulamasıdır.== Buraya yatırdığınız zaman iki bölüm birden kazandırır.
+
+**Sınav ekonomisi.** Bu tip sorularda puanın büyük kısmı ==ilk yarıda== verilir: doğru sınıflandırma, doğru yerine koyma, doğru indirgeme bağıntısı. Seriyi sonuna kadar açmak son birkaç puandır. Zaman daralıyorsa bağıntıyı yazıp birkaç terim üretin, bırakın.
+
+**Derste işlenen sınır:** Frobenius'ta ==yalnız kolay durum== (kök farkı tam sayı değil) işlenmiş. Logaritmalı ve eşit kök durumları kırmızı işaretli — kitapta var, önceliği düşük.
+[/CLAUDE]

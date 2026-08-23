@@ -10961,17 +10961,155 @@
                                     <p><span class="vurgu">Sorulacak soru şu: fonksiyon $a$ noktasında mı başlıyor, yoksa orada mı değişiyor?</span></p>
                                 </div>
                                 <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                                <p><strong>2.</strong> &nbsp; $f(t)=\begin{cases}0, &amp; 0&lt;t&lt;10\\ -3, &amp; t&gt;10\end{cases}$ &nbsp;&nbsp;&nbsp; <strong>4.</strong> &nbsp; $f(t)=\begin{cases}2, &amp; 0&lt;t&lt;5\\ 0, &amp; t&gt;5\end{cases}$</p>
-                                <p><strong>6.</strong> &nbsp; $f(t)=\begin{cases}0, &amp; 0&lt;t&lt;3\\ -6, &amp; 3&lt;t&lt;9\\ 0, &amp; t&gt;9\end{cases}$</p>
-                                <p><strong>8.</strong> &nbsp; $f(t)=\begin{cases}9, &amp; 0&lt;t&lt;5\\ 6, &amp; 5&lt;t&lt;10\\ 3, &amp; 10&lt;t&lt;15\\ 0, &amp; t&gt;15\end{cases}$</p>
-                                <p><strong>10.</strong> &nbsp; $f(t)=\begin{cases}4, &amp; 0&lt;t&lt;5\\ 0, &amp; 5&lt;t&lt;10\\ 3, &amp; t&gt;10\end{cases}$</p>
-                                <p><strong>12.</strong> &nbsp; $f(t)=\begin{cases}0, &amp; 0&lt;t&lt;4\\ 3t, &amp; t&gt;4\end{cases}$ &nbsp;&nbsp;&nbsp; <strong>14.</strong> &nbsp; $f(t)=\begin{cases}2t, &amp; 0&lt;t&lt;5\\ 10, &amp; t&gt;5\end{cases}$</p>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
                                 <div class="highlight">
-                                    <p><strong>Eşleştirme.</strong> 2 ve 4 → soru 1 ve 3 ile aynı. 6 → soru 5 ile aynı (yalnızca katsayı negatif). 8 ve 10 → soru 7 ve 9 ile aynı, sıçrama tablosunu kurun. 12 → soru 11 ile aynı; $3t=3(t-4)+12$ yazın. 14 → soru 13 ile aynı; $t=5$'ten sonraki fazlalık $2t-10=2(t-5)$'tir.</p>
+                                    <p><strong>Bu yedi sorunun cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir; her biri <span class="vurgu">ikinci bir bağımsız yolla doğrulanmıştır</span>.</p>
+                                    <p>Bu sette iki doğrulama yolu kullanıldı:</p>
+                                    <ol>
+                                        <li><strong>Tanımdan integral</strong> — basamak gösterimiyle bulunan sonucu, aralık aralık integral alarak yeniden üretmek.</li>
+                                        <li><strong>Son değer THEoREM'i</strong> — $\displaystyle\lim_{s\to 0}s\,F(s)=f(\infty)$. Parçalı sabit fonksiyonlarda $f(\infty)$ gözle okunur, dolayısıyla bu tek satırlık kontrol <span class="vurgu">bütün katsayıların toplamını birden sınar</span>.</li>
+                                    </ol>
                                 </div>
                             </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $f(t)=\begin{cases}0, &amp; 0&lt;t&lt;10\\ -3, &amp; t&gt;10\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıçramaları oku.</strong> Tek sıçrama var: $t=10$'da $0\to-3$, yani $-3$.</p>
+                                $$f(t)=-3\,u_{10}(t)$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f\}=-\frac{3e^{-10s}}{s}\;}$$
+                                <p><strong>Doğrulama (tanımdan integral).</strong></p>
+                                $$\int_{10}^{\infty}(-3)e^{-st}\,dt=-3\left[\frac{-e^{-st}}{s}\right]_{10}^{\infty}=-\frac{3e^{-10s}}{s}\;\checkmark$$
+                                <p><strong>Son değer kontrolü.</strong> $f(\infty)=-3$ olmalı:</p>
+                                $$\lim_{s\to 0}s\,F(s)=\lim_{s\to 0}\left(-3e^{-10s}\right)=-3\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $f(t)=\begin{cases}2, &amp; 0&lt;t&lt;5\\ 0, &amp; t&gt;5\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıçramalar.</strong> $t=0$'da $+2$, &nbsp;$t=5$'te $2\to 0$ yani $-2$.</p>
+                                $$f(t)=2u_{0}(t)-2u_{5}(t)$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s}\left(1-e^{-5s}\right)\;}$$
+                                <p><strong>Doğrulama (tanımdan integral).</strong></p>
+                                $$\int_{0}^{5}2e^{-st}\,dt=2\left[\frac{-e^{-st}}{s}\right]_{0}^{5}=\frac{2}{s}\left(1-e^{-5s}\right)\;\checkmark$$
+                                <p><strong>Son değer kontrolü.</strong> $f(\infty)=0$:</p>
+                                $$\lim_{s\to 0}s\,F(s)=\lim_{s\to 0}2\left(1-e^{-5s}\right)=2(1-1)=0\;\checkmark$$
+                                <p><span class="vurgu">Kapalı bir darbede parantez içi $s\to 0$ iken hep sıfıra gider</span>; bu, katsayıların doğru işaretlendiğinin göstergesidir.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $f(t)=\begin{cases}0, &amp; 0&lt;t&lt;3\\ -6, &amp; 3&lt;t&lt;9\\ 0, &amp; t&gt;9\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıçramalar.</strong> $t=3$'te $0\to-6$ &nbsp;($-6$), &nbsp;$t=9$'da $-6\to 0$ &nbsp;($+6$).</p>
+                                $$f(t)=-6\,u_{3}(t)+6\,u_{9}(t)$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f\}=-\frac{6}{s}\left(e^{-3s}-e^{-9s}\right)\;}$$
+                                <p><strong>Doğrulama (tanımdan integral).</strong></p>
+                                $$\int_{3}^{9}(-6)e^{-st}\,dt=-6\left[\frac{-e^{-st}}{s}\right]_{3}^{9}=-\frac{6}{s}\left(e^{-3s}-e^{-9s}\right)\;\checkmark$$
+                                <p><strong>Son değer kontrolü.</strong> $f(\infty)=0$: &nbsp; $\displaystyle\lim_{s\to 0}\left[-6\left(e^{-3s}-e^{-9s}\right)\right]=-6(1-1)=0\;\checkmark$</p>
+                                <div class="highlight">
+                                    <p><strong>Pencere çarpanı.</strong> $\left(e^{-3s}-e^{-9s}\right)$ biçimi, fonksiyonun <span class="vurgu">yalnız $3&lt;t&lt;9$ penceresinde açık olduğunu</span> söyler. Genel kalıp: $[a,b]$ aralığında $c$ değerini alan bir darbe için</p>
+                                    $$\mathcal{L}\{f\}=\frac{c}{s}\left(e^{-as}-e^{-bs}\right)$$
+                                    <p>Burada $c=-6$, $a=3$, $b=9$.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $f(t)=\begin{cases}9, &amp; 0&lt;t&lt;5\\ 6, &amp; 5&lt;t&lt;10\\ 3, &amp; 10&lt;t&lt;15\\ 0, &amp; t&gt;15\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıçrama tablosu.</strong> Dört düğüm var; her birinde "yeni değer eksi eski değer":</p>
+                                <div class="tablo-sar">
+                                <table>
+                                    <tr><th>Nokta</th><th>Eski → Yeni</th><th>Sıçrama</th></tr>
+                                    <tr><td>$t=0$</td><td>$0\to 9$</td><td>$+9$</td></tr>
+                                    <tr><td>$t=5$</td><td>$9\to 6$</td><td>$-3$</td></tr>
+                                    <tr><td>$t=10$</td><td>$6\to 3$</td><td>$-3$</td></tr>
+                                    <tr><td>$t=15$</td><td>$3\to 0$</td><td>$-3$</td></tr>
+                                </table>
+                                </div>
+                                <p><span class="vurgu">Merdiven düzgün indiği için üç sıçrama da aynı: $-3$.</span></p>
+                                <p><strong>Adım 2 — Basamak gösterimi.</strong></p>
+                                $$f(t)=9u_{0}(t)-3u_{5}(t)-3u_{10}(t)-3u_{15}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{3}{s}\left(3-e^{-5s}-e^{-10s}-e^{-15s}\right)\;}$$
+                                <p><strong>Doğrulama (tanımdan integral).</strong> Üç aralık:</p>
+                                $$\frac{9}{s}\left(1-e^{-5s}\right)+\frac{6}{s}\left(e^{-5s}-e^{-10s}\right)+\frac{3}{s}\left(e^{-10s}-e^{-15s}\right)$$
+                                <p>Terimleri toplayalım: &nbsp;$e^{-5s}$: $-9+6=-3$, &nbsp;$e^{-10s}$: $-6+3=-3$, &nbsp;$e^{-15s}$: $-3$</p>
+                                $$=\frac{1}{s}\left(9-3e^{-5s}-3e^{-10s}-3e^{-15s}\right)\;\checkmark$$
+                                <p><strong>Son değer kontrolü.</strong> $f(\infty)=0$: &nbsp; $\displaystyle\lim_{s\to 0}3\left(3-1-1-1\right)=0\;\checkmark$</p>
+                                <p><span class="vurgu">Katsayılar toplamı sıfır çıkıyor — merdivenin sıfıra indiğinin cebirsel karşılığı.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $f(t)=\begin{cases}4, &amp; 0&lt;t&lt;5\\ 0, &amp; 5&lt;t&lt;10\\ 3, &amp; t&gt;10\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Sıçramalar.</strong> Bu kez fonksiyon <span class="vurgu">önce iniyor sonra çıkıyor</span>:</p>
+                                <p>$t=0$: $+4$, &nbsp;$t=5$: $4\to 0$ &nbsp;($-4$), &nbsp;$t=10$: $0\to 3$ &nbsp;($+3$)</p>
+                                $$f(t)=4u_{0}(t)-4u_{5}(t)+3u_{10}(t)$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{1}{s}\left(4-4e^{-5s}+3e^{-10s}\right)\;}$$
+                                <p><strong>Doğrulama (tanımdan integral).</strong> Ortadaki aralık sıfır olduğu için iki integral yeter:</p>
+                                $$\int_{0}^{5}4e^{-st}\,dt+\int_{10}^{\infty}3e^{-st}\,dt=\frac{4}{s}\left(1-e^{-5s}\right)+\frac{3}{s}e^{-10s}\;\checkmark$$
+                                <p><strong>Son değer kontrolü.</strong> $f(\infty)=3$:</p>
+                                $$\lim_{s\to 0}s\,F(s)=4-4+3=3\;\checkmark$$
+                                <p><span class="vurgu">Bu sette son değerin sıfırdan farklı çıktığı tek soru</span> — fonksiyon sonsuzda $3$'te kalıyor, katsayı toplamı da $3$.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>12.</strong> &nbsp; $f(t)=\begin{cases}0, &amp; 0&lt;t&lt;4\\ 3t, &amp; t&gt;4\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Basamakla yaz.</strong></p>
+                                $$f(t)=3t\,u_{4}(t)$$
+                                <p><strong>Adım 2 — Çarpanı $t-4$ cinsine sok.</strong> <span class="vurgu">Bu adım şart:</span> öteleme THEoREM'i $g(t-a)$ biçimi ister, $3t$ biçimi değil.</p>
+                                $$3t=3(t-4)+12$$
+                                $$f(t)=\Big[3(t-4)+12\Big]u_{4}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong> $\mathcal{L}\{(t-4)u_{4}\}=\dfrac{e^{-4s}}{s^{2}}$ ve $\mathcal{L}\{u_{4}\}=\dfrac{e^{-4s}}{s}$:</p>
+                                $$\boxed{\;\mathcal{L}\{f\}=e^{-4s}\left(\frac{3}{s^{2}}+\frac{12}{s}\right)\;}$$
+                                <p><strong>Doğrulama (tanımdan integral).</strong></p>
+                                $$\int_{4}^{\infty}3te^{-st}\,dt=3\left\{\left[-\frac{t}{s}e^{-st}\right]_{4}^{\infty}+\frac{1}{s}\int_{4}^{\infty}e^{-st}\,dt\right\}$$
+                                <p>Üst uçta üstel kazanır, sıfır; alt uçta $+\dfrac{4}{s}e^{-4s}$:</p>
+                                $$=3\left\{\frac{4e^{-4s}}{s}+\frac{e^{-4s}}{s^{2}}\right\}=\frac{12e^{-4s}}{s}+\frac{3e^{-4s}}{s^{2}}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Sabit terim nereden geldi?</strong> $3t$ yerine doğrudan $\dfrac{3e^{-4s}}{s^{2}}$ yazmak <span class="vurgu">yanlış olurdu</span>; o, $t=4$'te sıfırdan başlayan bir rampanın dönüşümüdür. Oysa bizim fonksiyonumuz $t=4$'te $12$ değerinden başlıyor. Ayrıştırma bunu görünür kılıyor: $12$ sıçraması ($\tfrac{12}{s}$) artı rampa ($\tfrac{3}{s^{2}}$).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>14.</strong> &nbsp; $f(t)=\begin{cases}2t, &amp; 0&lt;t&lt;5\\ 10, &amp; t&gt;5\end{cases}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Fark yöntemiyle kur.</strong> $t=5$'te rampa durup sabitleniyor:</p>
+                                $$f(t)=2t+u_{5}(t)\big[10-2t\big]$$
+                                <p><strong>Adım 2 — Çarpanı $t-5$ cinsine sok.</strong></p>
+                                $$10-2t=-2(t-5)$$
+                                $$f(t)=2t-2(t-5)\,u_{5}(t)$$
+                                <p><strong>Adım 3 — Dönüştür.</strong></p>
+                                $$\boxed{\;\mathcal{L}\{f\}=\frac{2}{s^{2}}\left(1-e^{-5s}\right)\;}$$
+                                <p><strong>Doğrulama (türev THEoREM'i ile).</strong> $f$ parçalı doğrusal olduğu için türevi parçalı sabittir: $(0,5)$'te $2$, $t&gt;5$'te $0$. Yani</p>
+                                $$f'(t)=2-2u_{5}(t)\;\Longrightarrow\;\mathcal{L}\{f'\}=\frac{2}{s}\left(1-e^{-5s}\right)$$
+                                <p>$f(0)=0$ olduğundan $\mathcal{L}\{f'\}=s\,\mathcal{L}\{f\}$:</p>
+                                $$\mathcal{L}\{f\}=\frac{1}{s}\cdot\frac{2}{s}\left(1-e^{-5s}\right)=\frac{2}{s^{2}}\left(1-e^{-5s}\right)\;\checkmark$$
+                                <p><strong>Süreklilik kontrolü.</strong> $t=5$'te rampa $2(5)=10$ değerine ulaşıyor, sabit parça da $10$ — <span class="vurgu">fonksiyon sürekli, sıçrama yok</span>. Nitekim gösterimde $u_{5}$ terimi $(t-5)$ ile çarpılı, $t=5$'te sıfır.</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Setin tamamı bitti.</strong> 14 sorunun 14'ü çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar <span class="vurgu">tanımdan integral, son değer THEoREM'i ya da türev THEoREM'i</span> ile doğrulanmıştır.</p>
+                            <p><strong>Son değer THEoREM'i bu tip sorularda neden bu kadar kullanışlı?</strong></p>
+                            $$\lim_{s\to 0}s\,F(s)=f(\infty)$$
+                            <p>Parçalı sabit bir fonksiyonda $f(\infty)$ gözle okunur. $s\to 0$ iken bütün $e^{-as}$ çarpanları $1$'e gittiği için sol taraf <span class="vurgu">katsayıların toplamına</span> iner. Yani tek satırda bütün katsayıları birden sınamış olursunuz:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>4, 6, 8'de toplam $0$ çıktı — fonksiyon sonsuzda sıfıra iniyor &#10003;</li>
+                                <li>2'de $-3$, 10'da $3$ çıktı — fonksiyonun son değeri &#10003;</li>
+                            </ul>
+                            <p>Bir işaret hatası yaptıysanız bu toplam tutmaz. <span class="vurgu">Sınavda 10 saniyelik kontrol.</span></p>
                         </div>
                     </div>
 
@@ -15548,7 +15686,7 @@
     </div>
 
 
-<script defer src="arama.js?v=e1d3eb8f"></script>
+<script defer src="arama.js?v=6ce85f20"></script>
     <script src="app.js?v=f067a145"></script>
     <script src="arama-ui.js"></script>
 </body>

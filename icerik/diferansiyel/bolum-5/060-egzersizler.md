@@ -744,31 +744,265 @@ $$y=\frac{1-x}{1-x^{2}}=\frac{1-x}{(1-x)(1+x)}=\frac{1}{1+x}$$
 
 ---
 
-### Çözülmeyi bekleyen egzersizler
+[KUTU]
+**$x-1$ kuvvetleri için yöntem.** Merkez artık $x_{0}=1$. En temiz yol ==$t=x-1$ koyup denklemi $t$ cinsine çevirmektir:== $x=t+1$ yazılır, türevler değişmez ($\tfrac{d}{dx}=\tfrac{d}{dt}$), sonra her zamanki gibi $y=\sum a_{n}t^{n}$ denenir.
 
-Yöntem yukarıdaki çözümlerdekiyle aynıdır. ==Sıraya alındı.==
+**Bu üç soruda ayrıca bedava bir doğrulama var.** Denklemi ==$x=1$'de doğrudan değerlendirmek==, $a_{2}$'yi verir; denklemin türevini alıp yine $x=1$'de değerlendirmek $a_{3}$'ü verir, ve böyle devam eder. Seri açılımından tamamen bağımsız bir yol olduğu için ==indirgeme bağıntısını gerçekten sınar.== Kullanılan bağlantı:
 
-**$x-1$ kuvvetlerinde çözüm bulunuz (21-23):**
+$$a_{k}=\frac{y^{(k)}(1)}{k!}$$
+[/KUTU]
 
-21. &nbsp; $x^{2}y''+xy'+y=0$ &nbsp;&nbsp; 22. &nbsp; $x^{2}y''+3xy'-y=0$
+[SORU] **21.** &nbsp; $x^{2}y''+xy'+y=0$ &nbsp;&nbsp; ($x-1$ kuvvetlerinde)
+[CEVAP]
+**Adım 1 — Kaydırma.** $t=x-1$, $x=t+1$:
 
-23. &nbsp; $xy''+y'+2y=0,\quad y(1)=2,\quad y'(1)=4$
+$$\left(t^{2}+2t+1\right)y''+(t+1)y'+y=0$$
 
-**24. &nbsp; Legendre denklemi.** &nbsp; $n$ sabit olmak üzere
+**Adım 2 — Hizala ve grupla.**
 
-$$\left(1-x^{2}\right)y''-2xy'+n(n+1)y=0$$
+$$(n+2)(n+1)a_{n+2}+\underbrace{\left[2n(n+1)+(n+1)\right]}_{(n+1)(2n+1)}a_{n+1}+\underbrace{\left[n(n-1)+n+1\right]}_{n^{2}+1}a_{n}=0$$
 
-denklemine **Legendre diferansiyel denklemi (Legendre's differential equation)** denir.
+$$\boxed{\;a_{n+2}=-\frac{(n+1)(2n+1)a_{n+1}+\left(n^{2}+1\right)a_{n}}{(n+2)(n+1)}\;}$$
 
-- **(a)** $x=0$'ın bu denklemin adi noktası olduğunu gösteriniz ve $x$ kuvvetlerinde lineer bağımsız iki kuvvet serisi çözümü bulunuz.
-- **(b)** $n$ negatif olmayan bir tam sayıysa, (a)'da bulunan çözümlerden birinin $n$ dereceli bir **polinom** olduğunu gösteriniz.
+**Adım 3 — Katsayılar.**
+
+$$a_{2}=-\frac{a_{0}+a_{1}}{2},\quad a_{3}=\frac{a_{0}}{2}+\frac{a_{1}}{6},\quad a_{4}=-\frac{5a_{0}}{12},\quad a_{5}=\frac{a_{0}}{3}-\frac{a_{1}}{12}$$
+
+**Adım 4 — Çözümler** ($t=x-1$):
+
+$$\boxed{\;y_{1}=1-\frac{t^{2}}{2}+\frac{t^{3}}{2}-\frac{5t^{4}}{12}+\frac{t^{5}}{3}-\cdots\;}$$
+
+$$\boxed{\;y_{2}=t-\frac{t^{2}}{2}+\frac{t^{3}}{6}+0\cdot t^{4}-\frac{t^{5}}{12}+\cdots\;}$$
+
+**Doğrulama — bu bir Cauchy-Euler denklemi, tam çözümü biliyoruz.** Karakteristik denklem
+
+$$m(m-1)+m+1=m^{2}+1=0\;\Longrightarrow\;m=\pm i$$
+
+$$y=c_{1}\cos(\ln x)+c_{2}\sin(\ln x)$$
+
+Şimdi bu tam çözümleri $x=1$ etrafında açalım. $\ln x=\ln(1+t)=t-\tfrac{t^{2}}{2}+\tfrac{t^{3}}{3}-\tfrac{t^{4}}{4}+\tfrac{t^{5}}{5}-\cdots$ yazıp $\cos$ ve $\sin$ serilerine koyduğumuzda:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Terim</th><th>$\cos(\ln x)$</th><th>$y_{1}$</th><th>$\sin(\ln x)$</th><th>$y_{2}$</th></tr>
+<tr><td>$t^{0}$</td><td>$1$</td><td>$1$ &#10003;</td><td>$0$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$t^{1}$</td><td>$0$</td><td>$0$ &#10003;</td><td>$1$</td><td>$1$ &#10003;</td></tr>
+<tr><td>$t^{2}$</td><td>$-\tfrac12$</td><td>$-\tfrac12$ &#10003;</td><td>$-\tfrac12$</td><td>$-\tfrac12$ &#10003;</td></tr>
+<tr><td>$t^{3}$</td><td>$\tfrac12$</td><td>$\tfrac12$ &#10003;</td><td>$\tfrac16$</td><td>$\tfrac16$ &#10003;</td></tr>
+<tr><td>$t^{4}$</td><td>$-\tfrac{5}{12}$</td><td>$-\tfrac{5}{12}$ &#10003;</td><td>$0$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$t^{5}$</td><td>—</td><td>$\tfrac13$</td><td>$-\tfrac{1}{12}$</td><td>$-\tfrac{1}{12}$ &#10003;</td></tr>
+</table>
+</div>
+
+==Seri çözümü, tam çözümün Taylor açılımıyla birebir tutuyor:==
+
+$$y_{1}=\cos(\ln x),\qquad y_{2}=\sin(\ln x)$$
 
 [KUTU]
-**İpuçları.**
+**Neden bu soru bu kadar öğretici?** Aynı denklemi ==üç ayrı yoldan== çözebiliyorsunuz:
 
-**21-23** → $x-1$ kuvvetleri isteniyor, yani $x_{0}=1$. $t=x-1$ koyup denklemi $t$ cinsine çevirmek en temiz yoldur; $x=t+1$ ve türevler değişmez.
+1. **Cauchy-Euler** (Bölüm 3.4) — bir satırda, karakteristik denklemle.
+2. **$x=e^{s}$ dönüşümü** — sabit katsayılıya indirgeyerek.
+3. **$x-1$ kuvvetlerinde seri** — bu bölümün yöntemiyle.
 
-**24** → $n(n+1)$ katsayısı, indirgeme bağıntısında $\left[n(n+1)-k(k+1)\right]$ biçiminde bir çarpan doğurur. ==$k=n$ olduğunda sıfırlanır ve seri kesilir== — Hermite'teki polinomlaşmanın aynısı.
+Üçü de aynı fonksiyona varıyor. ==Seri yöntemi burada gereksiz uzun== ama sonucu bilinen bir problemde yöntemi sınamak, güvenilirliğini görmenin en iyi yoludur.
+
+**Bir de dikkat:** $x=0$ bu denklemin tekil noktasıdır, o yüzden $x$ kuvvetlerinde düz seri **çalışmaz** — soru bu yüzden $x-1$ kuvvetlerini istiyor. Merkezi $1$ seçince tekil noktaya uzaklık $1$ olur, dolayısıyla ==$R\ge 1$.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **22.** &nbsp; $x^{2}y''+3xy'-y=0$ &nbsp;&nbsp; ($x-1$ kuvvetlerinde)
+[CEVAP]
+**Adım 1 — Kaydır ve hizala.** $t=x-1$:
+
+$$\left(t^{2}+2t+1\right)y''+3(t+1)y'-y=0$$
+
+$$(n+2)(n+1)a_{n+2}+\underbrace{\left[2n(n+1)+3(n+1)\right]}_{(n+1)(2n+3)}a_{n+1}+\underbrace{\left[n(n-1)+3n-1\right]}_{n^{2}+2n-1}a_{n}=0$$
+
+$$\boxed{\;a_{n+2}=-\frac{(n+1)(2n+3)a_{n+1}+\left(n^{2}+2n-1\right)a_{n}}{(n+2)(n+1)}\;}$$
+
+**Adım 2 — Katsayılar.**
+
+$$a_{2}=\frac{a_{0}-3a_{1}}{2},\quad a_{3}=\frac{13a_{1}-5a_{0}}{6},\quad a_{4}=\frac{14a_{0}-35a_{1}}{12}$$
+
+$$a_{5}=-\frac{18a_{4}+7a_{3}}{10}$$
+
+**Adım 3 — Çözümler** ($t=x-1$):
+
+$$\boxed{\;y_{1}=1+\frac{t^{2}}{2}-\frac{5t^{3}}{6}+\frac{7t^{4}}{6}-\frac{91t^{5}}{60}+\cdots\;}$$
+
+$$\boxed{\;y_{2}=t-\frac{3t^{2}}{2}+\frac{13t^{3}}{6}-\frac{35t^{4}}{12}+\frac{56t^{5}}{15}-\cdots\;}$$
+
+**Doğrulama — denklemi türetip $x=1$'de değerlendir.** ==Seri açılımını hiç kullanmayan bağımsız bir yol.==
+
+Denklemin kendisi, $x=1$'de: &nbsp; $y''(1)+3y'(1)-y(1)=0$
+
+$$2a_{2}=a_{0}-3a_{1}\;\Longrightarrow\;a_{2}=\frac{a_{0}-3a_{1}}{2}\;\checkmark$$
+
+Türevini al: $x^{2}y'''+5xy''+2y'=0$. &nbsp;$x=1$'de:
+
+$$6a_{3}+5\left(2a_{2}\right)+2a_{1}=0\;\Longrightarrow\;a_{3}=-\frac{5a_{2}+a_{1}}{3}\;\checkmark$$
+
+Bir kez daha türet: $x^{2}y^{(4)}+7xy'''+7y''=0$. &nbsp;$x=1$'de:
+
+$$24a_{4}+7\left(6a_{3}\right)+7\left(2a_{2}\right)=0\;\Longrightarrow\;a_{4}=-\frac{21a_{3}+7a_{2}}{12}\;\checkmark$$
+
+Üçü de indirgeme bağıntısının verdiğiyle aynı.
+
+[KUTU]
+**Tam çözüm de var ama bu kez çirkin.** Cauchy-Euler karakteristik denklemi
+
+$$m(m-1)+3m-1=m^{2}+2m-1=0\;\Longrightarrow\;m=-1\pm\sqrt{2}$$
+
+$$y=c_{1}x^{-1+\sqrt{2}}+c_{2}x^{-1-\sqrt{2}}$$
+
+Üsler irrasyonel olduğu için ==Taylor katsayıları 21. sorudaki gibi tanıdık sayılara oturmuyor== — nitekim $-\tfrac{91}{60}$, $\tfrac{56}{15}$ gibi değerler çıktı.
+
+Bu yüzden burada doğrulama için **türetme yöntemini** kullandık. ==Kapalı biçim her zaman elverişli olmaz; o zaman denklemin kendisini türev alarak sınamak en güvenli yoldur.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **23.** &nbsp; $xy''+y'+2y=0,\quad y(1)=2,\quad y'(1)=4$
+[CEVAP]
+**Adım 1 — Kaydır.** $t=x-1$, $x=t+1$:
+
+$$ty''+y''+y'+2y=0$$
+
+**Adım 2 — Hizala ve grupla.** $n(n+1)+(n+1)=(n+1)^{2}$:
+
+$$(n+2)(n+1)a_{n+2}+(n+1)^{2}a_{n+1}+2a_{n}=0$$
+
+$$\boxed{\;a_{n+2}=-\frac{(n+1)^{2}a_{n+1}+2a_{n}}{(n+2)(n+1)}\;}$$
+
+**Adım 3 — Başlangıç koşulları.** $a_{0}=y(1)=2$, &nbsp;$a_{1}=y'(1)=4$.
+
+$$a_{2}=-\frac{4+4}{2}=-4,\quad a_{3}=-\frac{-16+8}{6}=\frac{4}{3},\quad a_{4}=-\frac{12-8}{12}=-\frac{1}{3},\quad a_{5}=-\frac{-\tfrac{16}{3}+\tfrac{8}{3}}{20}=\frac{2}{15}$$
+
+$$\boxed{\;y=2+4(x-1)-4(x-1)^{2}+\frac{4}{3}(x-1)^{3}-\frac{1}{3}(x-1)^{4}+\frac{2}{15}(x-1)^{5}-\cdots\;}$$
+
+**Doğrulama 1 — başlangıç koşulları.** $y(1)=a_{0}=2$ &#10003;, &nbsp;$y'(1)=a_{1}=4$ &#10003;
+
+**Doğrulama 2 — denklemi türetip $x=1$'de değerlendir.** ==Her katsayı için ayrı bir denklem çıkıyor:==
+
+<div class="tablo-sar">
+<table>
+<tr><th>Denklem ($x=1$'de)</th><th>Verdiği</th><th>Sonuç</th></tr>
+<tr><td>$y''+y'+2y=0$</td><td>$2a_{2}+4+4=0$</td><td>$a_{2}=-4$ &#10003;</td></tr>
+<tr><td>$xy'''+2y''+2y'=0$</td><td>$6a_{3}-16+8=0$</td><td>$a_{3}=\tfrac43$ &#10003;</td></tr>
+<tr><td>$xy^{(4)}+3y'''+2y''=0$</td><td>$24a_{4}+24-16=0$</td><td>$a_{4}=-\tfrac13$ &#10003;</td></tr>
+<tr><td>$xy^{(5)}+4y^{(4)}+2y'''=0$</td><td>$120a_{5}-32+16=0$</td><td>$a_{5}=\tfrac{2}{15}$ &#10003;</td></tr>
+</table>
+</div>
+
+Beş katsayının hepsi ==seri açılımından bağımsız olarak== doğrulandı.
+
+[KUTU]
+**Neden $x_{0}=1$ seçildi?** $xy''+y'+2y=0$ denkleminde başkatsayı $x$, ==$x=0$'da sıfırlanıyor== — orası tekil nokta. Düz kuvvet serisi $x=0$ etrafında çalışmaz; Frobenius gerekirdi.
+
+$x_{0}=1$ seçilince nokta adi olur ve olağan yöntem işler. ==Yakınsaklık yarıçapı $R\ge 1$== (en yakın tekil nokta $x=0$, uzaklık $1$).
+
+**Genel ders:** "hangi merkez etrafında?" sorusu keyfi değil. ==Merkez, tekil noktalardan uzakta seçilir== ve yarıçap otomatik olarak o uzaklıkla sınırlanır.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **24.** &nbsp; **Legendre denklemi.** &nbsp; $\left(1-x^{2}\right)y''-2xy'+n(n+1)y=0$ &nbsp;— **(a)** $x=0$'ın adi nokta olduğunu gösterip iki bağımsız seri çözüm bulunuz; **(b)** $n$ negatif olmayan tam sayıysa çözümlerden birinin $n$ dereceli polinom olduğunu gösteriniz.
+[CEVAP]
+### (a) Adi nokta ve seri çözümler
+
+**Adım 1 — Nokta adi.** Başkatsayı $1-x^{2}$, ==$x=0$'da $1$'e eşit ve sıfırlanmıyor== &nbsp;$\Rightarrow$&nbsp; adi nokta. Tekil noktalar $x=\pm 1$ olduğundan ==$R\ge 1$.==
+
+**Adım 2 — Hizala.** (Toplam indisini $k$ ile gösteriyoruz; $n$ denklemin parametresi.)
+
+$$y''\to(k+2)(k+1)a_{k+2},\quad -x^{2}y''\to-k(k-1)a_{k},\quad -2xy'\to-2ka_{k},\quad n(n+1)y\to n(n+1)a_{k}$$
+
+**Adım 3 — $a_{k}$ katsayılarını topla.**
+
+$$-k(k-1)-2k=-k(k+1)$$
+
+$$(k+2)(k+1)a_{k+2}=\left[k(k+1)-n(n+1)\right]a_{k}$$
+
+**Adım 4 — Çarpanlara ayır.** ==Bu adım bütün soruyu çözüyor:==
+
+$$k(k+1)-n(n+1)=k^{2}-n^{2}+k-n=(k-n)(k+n)+(k-n)=(k-n)(k+n+1)$$
+
+$$\boxed{\;a_{k+2}=\frac{(k-n)(k+n+1)}{(k+2)(k+1)}\,a_{k}\;}$$
+
+**Adım 5 — İki bağımsız çözüm.** Bağıntı $a_{k}$ ile $a_{k+2}$'yi bağladığından ==çift ve tek zincirler ayrı:==
+
+$$y_{1}=1-\frac{n(n+1)}{2!}x^{2}+\frac{(n-2)n(n+1)(n+3)}{4!}x^{4}-\cdots$$
+
+$$y_{2}=x-\frac{(n-1)(n+2)}{3!}x^{3}+\frac{(n-3)(n-1)(n+2)(n+4)}{5!}x^{5}-\cdots$$
+
+$y_{1}$ çift, $y_{2}$ tek fonksiyondur; ==biri diğerinin sabit katı olamaz, dolayısıyla lineer bağımsızdırlar.==
+
+---
+
+### (b) $n$ tam sayıysa polinom çıkıyor
+
+**Adım 1 — Çarpana bakın.** Bağıntının payında $(k-n)$ var. $n$ negatif olmayan bir tam sayıysa, ==$k=n$ adımında bu çarpan sıfırlanır:==
+
+$$a_{n+2}=\frac{(n-n)(2n+1)}{(n+2)(n+1)}\,a_{n}=0$$
+
+**Adım 2 — Zincir orada biter.** $a_{n+2}=0$ olunca $a_{n+4}=a_{n+6}=\cdots=0$ (her biri bir öncekinin katı). Yani $a_{n}$'i içeren zincir ==$x^{n}$ terimiyle sona erer== ve o çözüm $n$ dereceli bir **polinom** olur.
+
+**Adım 3 — Hangi çözüm polinomlaşır?** $a_{n}$ hangi zincirdeyse o:
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Polinomlaşan</th><th>Polinom (sabit çarpan hariç)</th></tr>
+<tr><td>$0$</td><td>$y_{1}$</td><td>$1$</td></tr>
+<tr><td>$1$</td><td>$y_{2}$</td><td>$x$</td></tr>
+<tr><td>$2$</td><td>$y_{1}$</td><td>$1-3x^{2}$</td></tr>
+<tr><td>$3$</td><td>$y_{2}$</td><td>$x-\tfrac{5}{3}x^{3}$</td></tr>
+</table>
+</div>
+
+==$n$ çiftse $y_{1}$, tekse $y_{2}$ polinomlaşır;== öteki çözüm sonsuz seri olarak kalır ve $x=\pm 1$'de ıraksar.
+
+**Doğrulama — polinomları doğrudan denkleme koy.**
+
+$n=2$, &nbsp;$y=1-3x^{2}$, &nbsp;$y'=-6x$, &nbsp;$y''=-6$:
+
+$$\left(1-x^{2}\right)(-6)-2x(-6x)+6\left(1-3x^{2}\right)=-6+6x^{2}+12x^{2}+6-18x^{2}=0\;\checkmark$$
+
+$n=3$, &nbsp;$y=x-\tfrac{5}{3}x^{3}$, &nbsp;$y'=1-5x^{2}$, &nbsp;$y''=-10x$:
+
+$$\left(1-x^{2}\right)(-10x)-2x\left(1-5x^{2}\right)+12\left(x-\tfrac{5}{3}x^{3}\right)=\underbrace{(-10-2+12)}_{0}x+\underbrace{(10+10-20)}_{0}x^{3}=0\;\checkmark$$
+
+[KUTU]
+**Bu polinomlar Legendre polinomlarıdır.** Standart gösterimde $P_{n}(1)=1$ olacak biçimde normalize edilirler:
+
+$$P_{0}=1,\quad P_{1}=x,\quad P_{2}=\frac{3x^{2}-1}{2},\quad P_{3}=\frac{5x^{3}-3x}{2}$$
+
+Bizim bulduklarımız bunların sabit katlarıdır ($1-3x^{2}=-2P_{2}$, &nbsp;$x-\tfrac53x^{3}=-\tfrac23P_{3}$) — ==diferansiyel denklemin çözümü olmak için normalizasyon gerekmez.==
+
+**Aynı mekanizmayı üçüncü kez görüyorsunuz:**
+
+| Denklem | Sıfırlanan çarpan | Koşul |
+|---|---|---|
+| Hermite (6.2) | $2(k-\alpha)$ | $\alpha$ tam sayı |
+| 16. soru | $(2-k)$ | her zaman ($k=2$'de) |
+| **Legendre** | $(k-n)$ | $n$ tam sayı |
+
+==İndirgeme bağıntısının payında $k$'ye bağlı bir çarpan varsa, o çarpanın sıfırlandığı yerde seri kesilir ve polinom doğar.== Fizikte Legendre, Hermite ve Laguerre polinomlarının ortaya çıkış sebebi tam olarak budur: sınırlı çözüm istendiğinde parametre tam sayı olmak zorunda kalır.
+[/KUTU]
+[/CEVAP]
+
+[KUTU]
+**Setin tamamı bitti.** Bölüm 5'in bölüm sonu egzersizlerinin hepsi çözülü. Çözümler bize aittir; ==her biri ikinci bir bağımsız yolla doğrulanmıştır:==
+
+<div class="tablo-sar">
+<table>
+<tr><th>Doğrulama yolu</th><th>Nerede kullanıldı</th></tr>
+<tr><td>Katsayıları denkleme geri koyma</td><td>hepsinde</td></tr>
+<tr><td>Kapalı biçimi doğrudan denkleme koyma</td><td>12 ($xe^{x}$), 20 ($\tfrac{1}{1+x}$)</td></tr>
+<tr><td>Tam çözümün Taylor açılımıyla karşılaştırma</td><td>21 ($\cos\ln x$, $\sin\ln x$)</td></tr>
+<tr><td>Denklemi türetip merkezde değerlendirme</td><td>22, 23</td></tr>
+<tr><td>Polinom çözümü denkleme koyma</td><td>16, 24</td></tr>
+</table>
+</div>
+
+**Bütün sette tekrarlayan tek fikir:** indirgeme bağıntısının ==payına bakın.== Orada $k$'ye bağlı bir çarpan varsa seri bir yerde kesilebilir; yoksa sonsuza kadar sürer. Payın sadeleşmesi (20'de olduğu gibi) kapalı biçim habercisidir.
 [/KUTU]
 
 ---

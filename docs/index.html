@@ -8324,10 +8324,130 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="question-block"><p class="question-text">11. &nbsp; $y^{\prime\prime}+y=\sec x\csc x$</p></div>
-                        <div class="question-block"><p class="question-text">12. &nbsp; $y^{\prime\prime}+y=\tan^{3}x$</p></div>
-                        <div class="question-block"><p class="question-text">13. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{1}{1+e^{x}}$</p></div>
-                        <div class="question-block"><p class="question-text">14. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{1}{1+e^{2x}}$</p></div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>11.</strong> &nbsp; $y''+y=\sec x\csc x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{1}=\cos x$, &nbsp;$y_{2}=\sin x$, &nbsp;$W=1$. &nbsp;Sağ tarafı tek kesirde yazalım: &nbsp;$\sec x\csc x=\dfrac{1}{\sin x\cos x}$.</p>
+                                $$u_{1}'=-\sin x\cdot\frac{1}{\sin x\cos x}=-\sec x\;\Longrightarrow\;u_{1}=-\ln\left\vert\sec x+\tan x\right\vert$$
+                                $$u_{2}'=\cos x\cdot\frac{1}{\sin x\cos x}=\csc x\;\Longrightarrow\;u_{2}=\ln\left\vert\csc x-\cot x\right\vert$$
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x-\cos x\,\ln\left\vert\sec x+\tan x\right\vert+\sin x\,\ln\left\vert\csc x-\cot x\right\vert\;}$$
+                                <p><span class="vurgu">Bu setin tek "çift logaritmalı" cevabı</span> — sağ taraf hem $\sec$ hem $\csc$ içerdiği için iki integral de logaritma verdi.</p>
+                                <p><strong>Doğrulama.</strong> $A=\ln\left\vert\sec x+\tan x\right\vert$ ve $B=\ln\left\vert\csc x-\cot x\right\vert$ diyelim; $A'=\sec x$, &nbsp;$B'=\csc x$.</p>
+                                $$y_{p}'=\underbrace{-\sec x\cos x}_{-1}+A\sin x+\underbrace{\csc x\sin x}_{+1}+B\cos x=A\sin x+B\cos x$$
+                                <p><span class="vurgu">İlk türevde sabitler tam olarak götürüyor.</span> Bir kez daha türetelim:</p>
+                                $$y_{p}''=\underbrace{\sec x\sin x}_{\tan x}+A\cos x+\underbrace{\csc x\cos x}_{\cot x}-B\sin x$$
+                                $$y_{p}''+y_{p}=\tan x+\cot x+\underbrace{A\cos x-A\cos x}_{0}+\underbrace{B\sin x-B\sin x}_{0}=\tan x+\cot x$$
+                                <p><strong>Son adım — özdeşlik:</strong></p>
+                                $$\tan x+\cot x=\frac{\sin^{2}x+\cos^{2}x}{\sin x\cos x}=\frac{1}{\sin x\cos x}=\sec x\csc x\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>$\sec x\csc x=\tan x+\cot x$ özdeşliğini akılda tutun.</strong> Sağ tarafı bu biçimde görürseniz problemin <span class="vurgu">iki ayrı basit probleme ayrıştığını</span> anlarsınız:</p>
+                                    $$y''+y=\tan x\quad\text{ve}\quad y''+y=\cot x$$
+                                    <p>İkincisini 1. soruda zaten çözmüştük. <span class="vurgu">Lineerlik sayesinde çözümleri toplamak yeterli</span> — nitekim cevabımızdaki $\sin x\ln\left\vert\csc x-\cot x\right\vert$ terimi tam olarak 1. sorunun özel çözümü.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>12.</strong> &nbsp; $y''+y=\tan^{3}x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — İki integral.</strong></p>
+                                $$u_{2}'=\cos x\tan^{3}x=\frac{\sin^{3}x}{\cos^{2}x}$$
+                                <p>$c=\cos x$ dönüşümüyle ($\sin^{3}x=\sin x\left(1-c^{2}\right)$):</p>
+                                $$u_{2}=-\int\frac{1-c^{2}}{c^{2}}\,dc=\frac{1}{c}+c=\sec x+\cos x$$
+                                <p><strong>Adım 2 — İkinci integral için sağ tarafı açın.</strong> <span class="vurgu">Bu adım kilit:</span></p>
+                                $$\sin x\tan^{3}x=\frac{\sin^{4}x}{\cos^{3}x}=\frac{\left(1-\cos^{2}x\right)^{2}}{\cos^{3}x}=\sec^{3}x-2\sec x+\cos x$$
+                                <p>Üçünün de integrali bilinen:</p>
+                                $$\int\sec^{3}x\,dx=\frac{\sec x\tan x}{2}+\frac{1}{2}\ln\left\vert\sec x+\tan x\right\vert$$
+                                $$u_{1}=-\left[\frac{\sec x\tan x}{2}-\frac{3}{2}\ln\left\vert\sec x+\tan x\right\vert+\sin x\right]$$
+                                <p>($\tfrac12-2=-\tfrac32$ katsayısı iki logaritmanın toplamından geliyor.)</p>
+                                <p><strong>Adım 3 — Birleştir.</strong></p>
+                                $$u_{1}\cos x=-\frac{\tan x}{2}+\frac{3\cos x}{2}\ln\left\vert\sec x+\tan x\right\vert-\sin x\cos x$$
+                                $$u_{2}\sin x=\tan x+\sin x\cos x$$
+                                <p><span class="vurgu">$\sin x\cos x$ terimleri götürüyor</span>, $\tan x$'ler toplanıyor:</p>
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x+\frac{\tan x}{2}+\frac{3\cos x}{2}\,\ln\left\vert\sec x+\tan x\right\vert\;}$$
+                                <p><strong>Doğrulama — iki parçayı ayrı ayrı denkleme koy.</strong></p>
+                                <p><strong>Birinci parça</strong> $p=\dfrac{\tan x}{2}$: &nbsp;$p'=\dfrac{\sec^{2}x}{2}$, &nbsp;$p''=\sec^{2}x\tan x$</p>
+                                $$p''+p=\sec^{2}x\tan x+\frac{\tan x}{2}$$
+                                <p><strong>İkinci parça</strong> $q=\dfrac{3}{2}\cos x\,L$ &nbsp;($L'=\sec x$):</p>
+                                $$q'=-\frac{3}{2}\sin x\,L+\frac{3}{2},\qquad q''=-\frac{3}{2}\cos x\,L-\frac{3}{2}\tan x$$
+                                $$q''+q=-\frac{3}{2}\tan x$$
+                                <p><strong>Topla:</strong></p>
+                                $$\sec^{2}x\tan x+\frac{\tan x}{2}-\frac{3\tan x}{2}=\tan x\left(\sec^{2}x-1\right)=\tan x\cdot\tan^{2}x=\tan^{3}x\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>13.</strong> &nbsp; $y''+3y'+2y=\dfrac{1}{1+e^{x}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Homojen çözüm ve Wronskian.</strong></p>
+                                $$m^{2}+3m+2=(m+1)(m+2)\;\Longrightarrow\;y_{1}=e^{-x},\quad y_{2}=e^{-2x}$$
+                                $$W=\left(m_{2}-m_{1}\right)e^{\left(m_{1}+m_{2}\right)x}=(-2+1)e^{-3x}=-e^{-3x}$$
+                                <p><span class="vurgu">$W$ negatif;</span> işareti kaçırırsanız cevabın tamamı ters döner.</p>
+                                <p><strong>Adım 2 — İntegraller.</strong></p>
+                                $$u_{1}'=-\frac{e^{-2x}}{-e^{-3x}\left(1+e^{x}\right)}=\frac{e^{x}}{1+e^{x}}\;\Longrightarrow\;u_{1}=\ln\left(1+e^{x}\right)$$
+                                $$u_{2}'=\frac{e^{-x}}{-e^{-3x}\left(1+e^{x}\right)}=-\frac{e^{2x}}{1+e^{x}}$$
+                                <p>İkincisi için $t=e^{x}$ koyun ($dx=\tfrac{dt}{t}$):</p>
+                                $$\int\frac{t^{2}}{1+t}\cdot\frac{dt}{t}=\int\frac{t}{1+t}\,dt=\int\left(1-\frac{1}{1+t}\right)dt=t-\ln(1+t)$$
+                                $$u_{2}=-e^{x}+\ln\left(1+e^{x}\right)$$
+                                <p><strong>Adım 3 — Birleştir.</strong></p>
+                                $$y_{p}=e^{-x}\ln\left(1+e^{x}\right)+e^{-2x}\left[-e^{x}+\ln\left(1+e^{x}\right)\right]$$
+                                <p>$e^{-2x}\cdot\left(-e^{x}\right)=-e^{-x}$ homojen çözümde zaten var, atılır:</p>
+                                $$\boxed{\;y=c_{1}e^{-x}+c_{2}e^{-2x}+\left(e^{-x}+e^{-2x}\right)\ln\left(1+e^{x}\right)\;}$$
+                                <p><strong>Doğrulama.</strong> $L=\ln\left(1+e^{x}\right)$, &nbsp;$L'=\dfrac{e^{x}}{1+e^{x}}$. Türev alırken şu sadeleşme çıkıyor:</p>
+                                $$\left(e^{-x}+e^{-2x}\right)L'=\frac{1+e^{-x}}{1+e^{x}}=\frac{e^{-x}\left(e^{x}+1\right)}{1+e^{x}}=e^{-x}$$
+                                $$y_{p}'=\left(-e^{-x}-2e^{-2x}\right)L+e^{-x}$$
+                                $$y_{p}''=\left(e^{-x}+4e^{-2x}\right)L+\frac{-1-2e^{-x}}{1+e^{x}}-e^{-x}$$
+                                <p><strong>$L$ katsayıları:</strong></p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Terim</th><th>$y_{p}''$</th><th>$3y_{p}'$</th><th>$2y_{p}$</th><th>Toplam</th></tr>
+                                <tr><td>$e^{-x}L$</td><td>$1$</td><td>$-3$</td><td>$2$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$e^{-2x}L$</td><td>$4$</td><td>$-6$</td><td>$2$</td><td>$0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <p><strong>Geriye kalan:</strong></p>
+                                $$\frac{-1-2e^{-x}}{1+e^{x}}-e^{-x}+3e^{-x}=\frac{-1-2e^{-x}+2e^{-x}\left(1+e^{x}\right)}{1+e^{x}}=\frac{1}{1+e^{x}}\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>14.</strong> &nbsp; $y''+3y'+2y=\dfrac{1}{1+e^{2x}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>13. soruyla aynı homojen kısım</strong>, tek fark sağ taraftaki üstelin katsayısı. $y_{1}=e^{-x}$, $y_{2}=e^{-2x}$, $W=-e^{-3x}$.</p>
+                                <p><strong>Adım 1 — İntegraller.</strong> <span class="vurgu">Bu kez $1+e^{2x}$ paydası arktanjant doğuruyor:</span></p>
+                                $$u_{1}'=\frac{e^{x}}{1+e^{2x}}\;\Longrightarrow\;u_{1}=\arctan\left(e^{x}\right)$$
+                                <p>($t=e^{x}$ ile $\int\dfrac{dt}{1+t^{2}}=\arctan t$.)</p>
+                                $$u_{2}'=-\frac{e^{2x}}{1+e^{2x}}\;\Longrightarrow\;u_{2}=-\frac{1}{2}\ln\left(1+e^{2x}\right)$$
+                                <p>(Payda tam olarak paydanın türevinin yarısı.)</p>
+                                <p><strong>Adım 2 — Birleştir.</strong></p>
+                                $$\boxed{\;y=c_{1}e^{-x}+c_{2}e^{-2x}+e^{-x}\arctan\left(e^{x}\right)-\frac{e^{-2x}}{2}\ln\left(1+e^{2x}\right)\;}$$
+                                <p><strong>Doğrulama.</strong> $A=\arctan\left(e^{x}\right)$, &nbsp;$A'=\dfrac{e^{x}}{1+e^{2x}}$; &nbsp;$B=\ln\left(1+e^{2x}\right)$, &nbsp;$B'=\dfrac{2e^{2x}}{1+e^{2x}}$.</p>
+                                $$y_{p}'=-e^{-x}A+\underbrace{\frac{1}{1+e^{2x}}}_{e^{-x}A'\text{'den}}+e^{-2x}B-\underbrace{\frac{1}{1+e^{2x}}}_{\frac{e^{-2x}}{2}B'\text{'den}}=-e^{-x}A+e^{-2x}B$$
+                                <p><span class="vurgu">İlk türevde kesirli terimler birbirini tam olarak götürüyor</span> — bu, hesabın doğru gittiğinin güçlü bir işareti.</p>
+                                $$y_{p}''=e^{-x}A-2e^{-2x}B+\frac{1}{1+e^{2x}}$$
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Terim</th><th>$y_{p}''$</th><th>$3y_{p}'$</th><th>$2y_{p}$</th><th>Toplam</th></tr>
+                                <tr><td>$e^{-x}A$</td><td>$1$</td><td>$-3$</td><td>$2$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$e^{-2x}B$</td><td>$-2$</td><td>$3$</td><td>$-1$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>kesirli</td><td>$\dfrac{1}{1+e^{2x}}$</td><td>$0$</td><td>$0$</td><td>$\dfrac{1}{1+e^{2x}}$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>13 ile 14: $1+e^{x}$ mi $1+e^{2x}$ mi?</strong> Neredeyse aynı görünen iki sağ taraf, <span class="vurgu">tamamen farklı fonksiyonlara</span> götürüyor:</p>
+                                    <div class="tablo-sar">
+                                    <table>
+                                    <tr><th>Payda</th><th>$t=e^{x}$ sonrası</th><th>Çıkan fonksiyon</th></tr>
+                                    <tr><td>$1+e^{x}$</td><td>$\dfrac{1}{1+t}$</td><td>logaritma</td></tr>
+                                    <tr><td>$1+e^{2x}$</td><td>$\dfrac{1}{1+t^{2}}$</td><td>==arktanjant==</td></tr>
+                                    </table>
+                                    </div>
+                                    <p><strong>Refleks:</strong> paydada üstelin karesini görünce $t=e^{x}$ koyup <span class="vurgu">$1+t^{2}$ kalıbını arayın</span>; arktanjant geliyor demektir. Bu kalıp integral tablolarında en sık kaçırılan geçiştir.</p>
+                                    <p><strong>Ortak nokta:</strong> her iki soruda da $u_{2}'$ integralinde <span class="vurgu">pay, paydanın türevinin sabit katıdır</span>, o yüzden logaritma verir. 13'te $\tfrac{t}{1+t}$ önce bölünmesi gerekti, 14'te doğrudan çıktı.</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime}+y=\dfrac{1}{1+\sin x}$</p></div>
                         <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=e^{x}\sin^{-1}x$</p></div>
                         <div class="question-block"><p class="question-text">17. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{e^{-x}}{x}$</p></div>

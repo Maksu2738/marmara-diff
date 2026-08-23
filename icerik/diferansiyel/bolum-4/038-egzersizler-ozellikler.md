@@ -407,28 +407,134 @@ Sebebi denklemin biçimi: $f^{\mathrm{iv}}=f''$, yani $g=f''$ dersek $g''=g$ —
 [/KUTU]
 [/CEVAP]
 
----
+[SORU] **12.** &nbsp; $(9.11)$ ve $(9.18)$'i kullanarak $\mathcal{L}\{f(t)\}$'yi bulunuz: $3f''-5f'+7f=\sin 2t$, &nbsp;$f(0)=4$, &nbsp;$f'(0)=6$.
+[CEVAP]
+**Adım 1 — Türevlerin dönüşümleri.**
 
-### Çalışma soruları
+$$\mathcal{L}\{f''\}=s^{2}F-4s-6,\qquad \mathcal{L}\{f'\}=sF-4$$
 
-Aşağıdakiler henüz çözülmedi; sıraya alındı.
+**Adım 2 — Denklemin dönüşümü.** Sağ taraf $\mathcal{L}\{\sin 2t\}=\dfrac{2}{s^{2}+4}$:
 
-**12.** &nbsp; $3f''-5f'+7f=\sin 2t$, &nbsp;$f(0)=4$, &nbsp;$f'(0)=6$
+$$3\left(s^{2}F-4s-6\right)-5\left(sF-4\right)+7F=\frac{2}{s^{2}+4}$$
 
-**14.** &nbsp; THEoREM 9.5 ile $\mathcal{L}\{e^{at}\sin^{2}bt\}$
+$$3s^{2}F-12s-18-5sF+20+7F=\frac{2}{s^{2}+4}$$
 
-**16.** &nbsp; THEoREM 9.6 ile $\mathcal{L}\{t^{3}\sin bt\}$
+**Adım 3 — Topla.** $F$ çarpanları $3s^{2}-5s+7$; sabitler $-12s+2$ sağa geçer:
 
-**18.** &nbsp; THEoREM 9.6 ile $\mathcal{L}\{t^{4}e^{at}\}$
+$$\left(3s^{2}-5s+7\right)F=\frac{2}{s^{2}+4}+12s-2$$
+
+**Adım 4 — Ortak paydaya al.** ==Tekrar sorusu 6'da tam burada hata yapılmıştı:== $\dfrac{2}{s^{2}+4}$ kesrinin payındaki $2$ ortak paydaya taşınırken **çarpılmaz**, olduğu gibi eklenir.
+
+$$\left(3s^{2}-5s+7\right)F=\frac{2+(12s-2)\left(s^{2}+4\right)}{s^{2}+4}$$
+
+$(12s-2)\left(s^{2}+4\right)=12s^{3}-2s^{2}+48s-8$, buna $2$ eklenir:
+
+$$\boxed{\;\mathcal{L}\{f(t)\}=\frac{12s^{3}-2s^{2}+48s-6}{\left(s^{2}+4\right)\left(3s^{2}-5s+7\right)}\;}$$
+
+**Doğrulama (başlangıç değer THEoREM'i ile, iki kez).**
+
+**(a)** $\displaystyle\lim_{s\to\infty}sF=f(0)$: pay ve paydanın baş terimleri $12s^{4}$ ve $3s^{4}$:
+
+$$sF=\frac{12s^{4}-2s^{3}+48s^{2}-6s}{\left(s^{2}+4\right)\left(3s^{2}-5s+7\right)}\;\xrightarrow{\;s\to\infty\;}\;\frac{12}{3}=4=f(0)\;\checkmark$$
+
+**(b)** $\displaystyle\lim_{s\to\infty}s\big[sF-f(0)\big]=f'(0)$. Payda açılımı $3s^{4}-5s^{3}+19s^{2}-20s+28$; bunun $4$ katını paydan çıkaralım:
+
+$$sF-4=\frac{18s^{3}-28s^{2}+74s-112}{3s^{4}-5s^{3}+19s^{2}-20s+28}$$
+
+$$s(sF-4)=\frac{18s^{4}-28s^{3}+\cdots}{3s^{4}-5s^{3}+\cdots}\;\xrightarrow{\;s\to\infty\;}\;\frac{18}{3}=6=f'(0)\;\checkmark$$
+
+Payda da beklendiği gibi ==karakteristik polinom $3s^{2}-5s+7$ ile zorlamanın paydası $s^{2}+4$'ün çarpımı.==
+[/CEVAP]
+
+[SORU] **14.** &nbsp; THEoREM 9.5'i kullanarak $\mathcal{L}\{e^{at}\sin^{2}bt\}$ değerini bulunuz.
+[CEVAP]
+**Adım 1 — $e^{at}$'yi bir kenara bırak.** Örnek 9.11'den:
+
+$$\mathcal{L}\{\sin^{2}bt\}=\frac{2b^{2}}{s\left(s^{2}+4b^{2}\right)}$$
+
+**Adım 2 — Birinci öteleme THEoREM'ini uygula.** $e^{at}$ ile çarpmak $s\to s-a$ demektir; ==paydadaki **her** $s$ ötelenir==, yalnız biri değil:
+
+$$\boxed{\;\mathcal{L}\{e^{at}\sin^{2}bt\}=\frac{2b^{2}}{(s-a)\left[(s-a)^{2}+4b^{2}\right]}\;}$$
+
+**Doğrulama (özdeşliği açarak).** Öteleme THEoREM'ini hiç kullanmadan da bulabiliriz:
+
+$$e^{at}\sin^{2}bt=e^{at}\cdot\frac{1-\cos 2bt}{2}=\frac{e^{at}}{2}-\frac{e^{at}\cos 2bt}{2}$$
+
+Tablodan $\mathcal{L}\{e^{at}\}=\dfrac{1}{s-a}$ ve $\mathcal{L}\{e^{at}\cos 2bt\}=\dfrac{s-a}{(s-a)^{2}+4b^{2}}$:
+
+$$\mathcal{L}=\frac{1}{2(s-a)}-\frac{1}{2}\cdot\frac{s-a}{(s-a)^{2}+4b^{2}}=\frac{\left[(s-a)^{2}+4b^{2}\right]-(s-a)^{2}}{2(s-a)\left[(s-a)^{2}+4b^{2}\right]}$$
+
+Pay $4b^{2}$, $2$'ler sadeleşir — aynı sonuç. &#10003;
 
 [KUTU]
-**İpuçları.**
+**Öteleme "her $s$'yi" değiştirir.** Sık yapılan hata, yalnız paydanın bir çarpanında $s\to s-a$ yapıp diğerini olduğu gibi bırakmaktır. Doğrusu: $F(s)$ ne ise, $F(s-a)$ o ifadenin **tamamında** $s$ yerine $s-a$ yazılmış hâlidir.
+[/KUTU]
+[/CEVAP]
 
-**12** → 8 ve 11 ile aynı kalıp. Sağ tarafta $\mathcal{L}\{\sin 2t\}=\dfrac{2}{s^{2}+4}$ var; ortak paydaya alırken ==bu $2$'yi taşımayı unutmayın== (tekrar sorusu 6'da tam bu atlanmıştı).
+[SORU] **16.** &nbsp; THEoREM 9.6'yı kullanarak $\mathcal{L}\{t^{3}\sin bt\}$ değerini bulunuz.
+[CEVAP]
+$n=3$, yani $(-1)^{3}F'''=-F'''$ gerekiyor. $F(s)=\dfrac{b}{s^{2}+b^{2}}$; kısaltma $u=s^{2}+b^{2}$.
 
-**14** → önce Örnek 9.11'den $\mathcal{L}\{\sin^{2}bt\}=\dfrac{2b^{2}}{s\left(s^{2}+4b^{2}\right)}$, sonra $s\to s-a$ ötelemesi.
+**Birinci türev.**
 
-**16, 18** → 15 ve 17 gibi. **18** için öteleme yolu çok daha kısa: $\mathcal{L}\{t^{4}\}=\tfrac{24}{s^{5}}$ (6. soru), sonra ötele.
+$$F'=-\frac{2bs}{u^{2}}$$
 
-**Doğrulama.** 12'de bulduğunuz $F(s)$'nin paydası ==karakteristik polinom== $3s^{2}-5s+7$ olmalı. 14, 16, 18'de $s\to\infty$ iken $F\to 0$ olmalı; ayrıca 18'in cevabı $\dfrac{4!}{(s-a)^{5}}$ genel kalıbına uymalı.
+**İkinci türev.**
+
+$$F''=-2b\cdot\frac{u^{2}-s(2u)(2s)}{u^{4}}=-2b\cdot\frac{u-4s^{2}}{u^{3}}=\frac{2b\left(3s^{2}-b^{2}\right)}{u^{3}}$$
+
+($u-4s^{2}=s^{2}+b^{2}-4s^{2}=b^{2}-3s^{2}$, baştaki eksiyle işaret döndü.)
+
+**Üçüncü türev.**
+
+$$F'''=2b\cdot\frac{6s\,u^{3}-\left(3s^{2}-b^{2}\right)\left(3u^{2}\right)(2s)}{u^{6}}=2b\cdot\frac{6su-6s\left(3s^{2}-b^{2}\right)}{u^{4}}$$
+
+Payı açalım: $6s\left(s^{2}+b^{2}\right)-18s^{3}+6sb^{2}=-12s^{3}+12sb^{2}$
+
+$$F'''=\frac{24bs\left(b^{2}-s^{2}\right)}{u^{4}}$$
+
+**Sonuç.**
+
+$$\boxed{\;\mathcal{L}\{t^{3}\sin bt\}=-F'''=\frac{24bs\left(s^{2}-b^{2}\right)}{\left(s^{2}+b^{2}\right)^{4}}\;}$$
+
+**Doğrulama (iki adımda bölerek).** Aynı sonuca $t^{3}=t^{2}\cdot t$ diye bölerek de varılır. Önce bilinen $\mathcal{L}\{t\sin bt\}=\dfrac{2bs}{\left(s^{2}+b^{2}\right)^{2}}$ alalım (7. tekrar sorusunda kullanılmıştı), sonra ona $n=2$ ile THEoREM 9.6'yı uygulayalım — $(-1)^{2}=+1$ olduğu için işaret değişmez:
+
+$$G=\frac{2bs}{u^{2}},\qquad G'=\frac{2b\left(b^{2}-3s^{2}\right)}{u^{3}},\qquad G''=\frac{24bs\left(s^{2}-b^{2}\right)}{u^{4}}$$
+
+Birebir aynı. &#10003; ==İki bağımsız yol.==
+
+[KUTU]
+**İşaret kontrolü kolay bir refleks.** $n$ tekse başa eksi gelir, çiftse gelmez. Burada $n=3$ olduğu için $-F'''$ aldık; ama ikinci yolda $t^{3}$'ü $t\cdot t^{2}$ diye böldüğümüz için $n=2$ oldu ve eksi gerekmedi. ==İki yol farklı sayıda işaret dönüşü içeriyor ama aynı yere varıyor== — bu, işareti doğru saydığınızın en iyi kanıtı.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **18.** &nbsp; THEoREM 9.6'yı kullanarak $\mathcal{L}\{t^{4}e^{at}\}$ değerini bulunuz.
+[CEVAP]
+$n=4$, yani $(-1)^{4}F^{(4)}=F^{(4)}$. Başlangıç: $F(s)=\dfrac{1}{s-a}=(s-a)^{-1}$.
+
+Üstel fonksiyonun türevleri ==düzenli bir kalıp izliyor==:
+
+$$F'=-(s-a)^{-2},\qquad F''=2(s-a)^{-3},\qquad F'''=-6(s-a)^{-4},\qquad F^{(4)}=24(s-a)^{-5}$$
+
+$$\boxed{\;\mathcal{L}\{t^{4}e^{at}\}=\frac{24}{(s-a)^{5}}\;}$$
+
+**Doğrulama (öteleme yoluyla).** 6. soruda $\mathcal{L}\{t^{4}\}=\dfrac{24}{s^{5}}$ bulmuştuk. Birinci öteleme THEoREM'i ile $s\to s-a$:
+
+$$\mathcal{L}\{t^{4}e^{at}\}=\frac{24}{(s-a)^{5}}\;\checkmark$$
+
+==Dört türev yerine tek satır.==
+
+[KUTU]
+**Genel kalıp.** 13, 17 ve 18 aynı aileden:
+
+$$\mathcal{L}\{t^{n}e^{at}\}=\frac{n!}{(s-a)^{n+1}}$$
+
+Her seferinde türev almak yerine $\mathcal{L}\{t^{n}\}=\dfrac{n!}{s^{n+1}}$ alıp ötelemek yeter. Soru THEoREM 9.6'yı istediği için burada türev yolunu gösterdik, ama sınavda serbestseniz ==öteleme her zaman daha kısa==.
+[/KUTU]
+[/CEVAP]
+
+[KUTU]
+**Setin tamamı bitti.** 18 sorunun 18'i çözülü: 9'u kitabın cevap anahtarıyla doğrulanmış, 9'u ise anahtarda karşılığı olmadığı için ==ikinci bir bağımsız yolla== doğrulanmıştır.
+
+Kullanılan doğrulama yolları: çapraz trigonometrik özdeşlik, bağımsız ikinci türetme, tablo formülüyle karşılaştırma, başlangıç değer THEoREM'i, öteleme ile türev yolunun karşılaştırılması.
 [/KUTU]

@@ -1001,3 +1001,31 @@ body.dark-mode .defter-disi-rozet {
 @media (min-width: 769px) and (max-width: 1100px) {
     body.sidebar-kapali header { padding-left: 4.5rem; }
 }
+
+/* ============ SIDEBAR PROFIL RESMI ============
+   Baslik satiri artik iki sutun: solda metin, sagda yuvarlak resim.
+   Daraltma dugmesi kosede durdugu icin resme sag taraftan yer birakildi. */
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.sidebar-baslik-metin { flex: 1; min-width: 0; }
+
+.sidebar-pp {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 26px;              /* koseedeki daraltma dugmesine yer */
+    border: 2px solid rgba(139, 92, 246, 0.55);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Telefonda daraltma dugmesi yok, resim kosseye kadar gelebilir */
+@media (max-width: 768px) {
+    .sidebar-pp { margin-right: 0; }
+}

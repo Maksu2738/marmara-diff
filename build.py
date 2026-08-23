@@ -547,7 +547,7 @@ def main():
         sys.exit('icerik/ klasoru yok.')
 
     os.makedirs(CIKTI, exist_ok=True)
-    for varlik in ('style.css', 'app.js', 'arama-ui.js'):
+    for varlik in ('style.css', 'app.js', 'arama-ui.js', 'profil.jpg'):
         kaynak = os.path.join(SABLON, varlik)
         if os.path.exists(kaynak):
             shutil.copy2(kaynak, os.path.join(CIKTI, varlik))

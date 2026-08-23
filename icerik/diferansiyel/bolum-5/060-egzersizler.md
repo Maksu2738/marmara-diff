@@ -580,19 +580,173 @@ $$y=1+x^{2}$$
 
 ---
 
+[SORU] **17.** &nbsp; $y''+x^{2}y'+x^{2}y=0,\quad y(0)=2,\quad y'(0)=4$
+[CEVAP]
+**Adım 1 — Başlangıç koşulları.** $a_{0}=2$, $a_{1}=4$.
+
+**Adım 2 — Hizala.** ==Her iki $x^{2}$ terimi indisi kaydırıyor, ama farklı miktarda:==
+
+$$y''\to(n+2)(n+1)a_{n+2},\qquad x^{2}y'\to(n-1)a_{n-1},\qquad x^{2}y\to a_{n-2}$$
+
+$$\boxed{\;a_{n+2}=-\frac{(n-1)a_{n-1}+a_{n-2}}{(n+2)(n+1)}\;}$$
+
+**Adım 3 — İlk iki adım sıfır veriyor.**
+
+$n=0$: &nbsp; $2a_{2}=0\Rightarrow a_{2}=0$ &nbsp;&nbsp;&nbsp; $n=1$: &nbsp; $6a_{3}+0\cdot a_{0}=0\Rightarrow a_{3}=0$
+
+==$n=1$'de $(n-1)$ çarpanı sıfırlandığı için $a_{3}$ de sıfır== — başlangıç değerlerinden bağımsız.
+
+**Adım 4 — Katsayılar.**
+
+$$a_{4}=-\frac{a_{1}+a_{0}}{12}=-\frac{1}{2},\quad a_{5}=-\frac{2a_{2}+a_{1}}{20}=-\frac{1}{5},\quad a_{6}=-\frac{3a_{3}+a_{2}}{30}=0$$
+
+$$a_{7}=-\frac{4a_{4}+a_{3}}{42}=\frac{1}{21},\qquad a_{8}=-\frac{5a_{5}+a_{4}}{56}=\frac{3}{112}$$
+
+$$\boxed{\;y=2+4x-\frac{x^{4}}{2}-\frac{x^{5}}{5}+\frac{x^{7}}{21}+\frac{3x^{8}}{112}-\cdots\;}$$
+
+==Seri seyrek:== $x^{2}$, $x^{3}$ ve $x^{6}$ terimleri yok.
+
+**Doğrulama 1 — başlangıç koşulları.** $y(0)=a_{0}=2$ &#10003;, &nbsp;$y'(0)=a_{1}=4$ &#10003;
+
+**Doğrulama 2 — katsayılar.** Kontrol edilen ifade $(n+2)(n+1)a_{n+2}+(n-1)a_{n-1}+a_{n-2}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Hesap</th><th>Sonuç</th></tr>
+<tr><td>$2$</td><td>$12\left(-\tfrac12\right)+1\cdot 4+2$</td><td>$-6+6=0$ &#10003;</td></tr>
+<tr><td>$3$</td><td>$20\left(-\tfrac15\right)+2\cdot 0+4$</td><td>$-4+4=0$ &#10003;</td></tr>
+<tr><td>$5$</td><td>$42\cdot\tfrac{1}{21}+4\left(-\tfrac12\right)+0$</td><td>$2-2=0$ &#10003;</td></tr>
+<tr><td>$6$</td><td>$56\cdot\tfrac{3}{112}+5\left(-\tfrac15\right)+\left(-\tfrac12\right)$</td><td>$\tfrac32-1-\tfrac12=0$ &#10003;</td></tr>
+</table>
+</div>
+[/CEVAP]
+
+[SORU] **18.** &nbsp; $\left(x^{2}+1\right)y''+xy'+2xy=0,\quad y(0)=2,\quad y'(0)=3$
+[CEVAP]
+**Adım 1 — 11. soruyla neredeyse aynı denklem.** Tek fark son terimdeki $2$ katsayısı. İndirgeme bağıntısı da benzer çıkıyor:
+
+$$\boxed{\;a_{n+2}=-\frac{n^{2}a_{n}+2a_{n-1}}{(n+2)(n+1)}\;}$$
+
+(Türetme 11. sorudaki gibi: $x^{2}y''$ indisi kaydırmaz, $n(n-1)a_{n}+na_{n}=n^{2}a_{n}$.)
+
+**Adım 2 — Başlangıç koşulları.** $a_{0}=2$, $a_{1}=3$.
+
+$n=0$: &nbsp; $a_{2}=-\dfrac{0+0}{2}=0$ &nbsp;&nbsp;— ==yine $a_{2}=0$, $n^{2}$ ve $a_{-1}$ birlikte sıfırlandığı için.==
+
+**Adım 3 — Katsayılar.**
+
+$$a_{3}=-\frac{a_{1}+2a_{0}}{6}=-\frac{7}{6},\qquad a_{4}=-\frac{4a_{2}+2a_{1}}{12}=-\frac{1}{2}$$
+
+$$a_{5}=-\frac{9a_{3}+2a_{2}}{20}=\frac{21}{40},\qquad a_{6}=-\frac{16a_{4}+2a_{3}}{30}=\frac{31}{90}$$
+
+$$\boxed{\;y=2+3x-\frac{7x^{3}}{6}-\frac{x^{4}}{2}+\frac{21x^{5}}{40}+\frac{31x^{6}}{90}-\cdots\;}$$
+
+**Doğrulama 1 — başlangıç koşulları.** $y(0)=2$ &#10003;, &nbsp;$y'(0)=3$ &#10003;
+
+**Doğrulama 2 — katsayılar.** Kontrol edilen ifade $(n+2)(n+1)a_{n+2}+n^{2}a_{n}+2a_{n-1}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Hesap</th><th>Sonuç</th></tr>
+<tr><td>$0$</td><td>$2\cdot 0+0+0$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$1$</td><td>$6\left(-\tfrac76\right)+1\cdot 3+2\cdot 2$</td><td>$-7+7=0$ &#10003;</td></tr>
+<tr><td>$2$</td><td>$12\left(-\tfrac12\right)+4\cdot 0+2\cdot 3$</td><td>$-6+6=0$ &#10003;</td></tr>
+<tr><td>$3$</td><td>$20\cdot\tfrac{21}{40}+9\left(-\tfrac76\right)+0$</td><td>$\tfrac{21}{2}-\tfrac{21}{2}=0$ &#10003;</td></tr>
+</table>
+</div>
+
+==Yakınsaklık:== tekil noktalar $x=\pm i$ olduğundan bu seri $|x|<1$ için yakınsar.
+[/CEVAP]
+
+[SORU] **19.** &nbsp; $\left(2x^{2}-3\right)y''-2xy'+y=0,\quad y(0)=-1,\quad y'(0)=5$
+[CEVAP]
+**Adım 1 — Adi nokta.** Başkatsayı $x=0$'da $-3$, sıfırlanmıyor. (Tekil noktalar $x=\pm\sqrt{3/2}$.)
+
+**Adım 2 — Hizala.** ==Üç terim de $a_{n}$ üzerinden geliyor, hiçbiri indisi kaydırmıyor:==
+
+$$2x^{2}y''\to 2n(n-1)a_{n},\quad -3y''\to-3(n+2)(n+1)a_{n+2},\quad -2xy'\to-2na_{n},\quad y\to a_{n}$$
+
+**Adım 3 — $a_{n}$ katsayılarını topla.**
+
+$$2n(n-1)-2n+1=2n^{2}-4n+1$$
+
+$$\boxed{\;a_{n+2}=\frac{\left(2n^{2}-4n+1\right)a_{n}}{3(n+2)(n+1)}\;}$$
+
+**Adım 4 — Bu bağıntı hiç kesilmiyor.** $2n^{2}-4n+1=0$ denkleminin kökleri $n=1\pm\dfrac{\sqrt{2}}{2}$, ==tam sayı değil.== Dolayısıyla hiçbir katsayı sıfırlanmaz, seri sonsuza kadar sürer — polinom çözüm yok.
+
+$$a_{2}=-\frac{1}{6},\quad a_{3}=-\frac{5}{18},\quad a_{4}=-\frac{1}{216},\quad a_{5}=-\frac{7}{216}$$
+
+$$\boxed{\;y=-1+5x-\frac{x^{2}}{6}-\frac{5x^{3}}{18}-\frac{x^{4}}{216}-\frac{7x^{5}}{216}-\cdots\;}$$
+
+**Doğrulama 1 — başlangıç koşulları.** $y(0)=-1$ &#10003;, &nbsp;$y'(0)=5$ &#10003;
+
+**Doğrulama 2 — katsayılar.** Kontrol edilen ifade $3(n+2)(n+1)a_{n+2}-\left(2n^{2}-4n+1\right)a_{n}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Çarpan</th><th>Hesap</th><th>Sonuç</th></tr>
+<tr><td>$0$</td><td>$1$</td><td>$6\left(-\tfrac16\right)-1\cdot(-1)$</td><td>$-1+1=0$ &#10003;</td></tr>
+<tr><td>$1$</td><td>$-1$</td><td>$18\left(-\tfrac{5}{18}\right)+1\cdot 5$</td><td>$-5+5=0$ &#10003;</td></tr>
+<tr><td>$2$</td><td>$1$</td><td>$36\left(-\tfrac{1}{216}\right)-1\left(-\tfrac16\right)$</td><td>$-\tfrac16+\tfrac16=0$ &#10003;</td></tr>
+<tr><td>$3$</td><td>$7$</td><td>$60\left(-\tfrac{7}{216}\right)-7\left(-\tfrac{5}{18}\right)$</td><td>$-\tfrac{35}{18}+\tfrac{35}{18}=0$ &#10003;</td></tr>
+</table>
+</div>
+
+==Çarpan sütunu, "kesilme var mı" sorusunun cevabını gösteriyor:== $1,-1,1,7,\ldots$ — hiçbiri sıfır değil.
+[/CEVAP]
+
+[SORU] **20.** &nbsp; $\left(x^{2}-1\right)y''+4xy'+2y=0,\quad y(0)=1,\quad y'(0)=-1$
+[CEVAP]
+**Adım 1 — Hizala.**
+
+$$x^{2}y''\to n(n-1)a_{n},\quad -y''\to-(n+2)(n+1)a_{n+2},\quad 4xy'\to 4na_{n},\quad 2y\to 2a_{n}$$
+
+**Adım 2 — $a_{n}$ katsayılarını topla.** ==Sonuç şaşırtıcı biçimde sadeleşiyor:==
+
+$$n(n-1)+4n+2=n^{2}+3n+2=(n+1)(n+2)$$
+
+$$(n+1)(n+2)a_{n}=(n+2)(n+1)a_{n+2}$$
+
+$$\boxed{\;a_{n+2}=a_{n}\;}$$
+
+**Adım 3 — Bütün katsayılar aynı.** Çift indisler $a_{0}$'a, tek indisler $a_{1}$'e eşit. Başlangıç koşullarıyla $a_{0}=1$, $a_{1}=-1$:
+
+$$y=1-x+x^{2}-x^{3}+x^{4}-\cdots$$
+
+**Adım 4 — Kapalı biçim.** Bu, ==oranı $-x$ olan geometrik seridir:==
+
+$$\boxed{\;y=\frac{1}{1+x},\qquad |x|<1\;}$$
+
+**Doğrulama 1 — kapalı biçimi doğrudan denkleme koy.** ==Seriden tamamen bağımsız:==
+
+$$y=\frac{1}{1+x},\qquad y'=-\frac{1}{(1+x)^{2}},\qquad y''=\frac{2}{(1+x)^{3}}$$
+
+$x^{2}-1=(x-1)(x+1)$ olduğundan birinci terim $\dfrac{2(x-1)}{(1+x)^{2}}$'ye sadeleşir:
+
+$$\frac{2(x-1)}{(1+x)^{2}}-\frac{4x}{(1+x)^{2}}+\frac{2}{1+x}=\frac{(2x-2)-4x+2(1+x)}{(1+x)^{2}}=\frac{0}{(1+x)^{2}}=0\;\checkmark$$
+
+**Doğrulama 2 — başlangıç koşulları.** $y(0)=1$ &#10003;; &nbsp;$y'(0)=-1$ &#10003;
+
+[KUTU]
+**Genel çözüm de kapalı biçimde.** $a_{n+2}=a_{n}$ bağıntısı, başlangıç koşulu ne olursa olsun geçerli:
+
+$$y=a_{0}\left(1+x^{2}+x^{4}+\cdots\right)+a_{1}\left(x+x^{3}+x^{5}+\cdots\right)=\frac{a_{0}+a_{1}x}{1-x^{2}}$$
+
+Bizim durumda $a_{0}=1,\;a_{1}=-1$:
+
+$$y=\frac{1-x}{1-x^{2}}=\frac{1-x}{(1-x)(1+x)}=\frac{1}{1+x}$$
+
+==Pay ile payda sadeleşiyor== — bu yüzden cevap $\dfrac{1}{1-x^{2}}$ değil, ondan daha basit çıktı. Başka bir başlangıç koşulu seçilseydi sadeleşme olmaz ve tekil noktalar $x=\pm 1$'in ikisi de görünürdü.
+
+**Yakınsaklık kontrolü.** THEoREM $R\ge 1$ diyordu (en yakın tekil nokta $x=\pm 1$). Kapalı biçim bunu doğruluyor: $\dfrac{1}{1+x}$ serisi tam olarak $|x|<1$'de yakınsıyor.
+[/KUTU]
+[/CEVAP]
+
+---
+
 ### Çözülmeyi bekleyen egzersizler
 
 Yöntem yukarıdaki çözümlerdekiyle aynıdır. ==Sıraya alındı.==
-
-**Başlangıç değer problemlerinin kuvvet serisi çözümünü bulunuz (17-20):**
-
-17. &nbsp; $y''+x^{2}y'+x^{2}y=0,\quad y(0)=2,\quad y'(0)=4$
-
-18. &nbsp; $\left(x^{2}+1\right)y''+xy'+2xy=0,\quad y(0)=2,\quad y'(0)=3$
-
-19. &nbsp; $\left(2x^{2}-3\right)y''-2xy'+y=0,\quad y(0)=-1,\quad y'(0)=5$
-
-20. &nbsp; $\left(x^{2}-1\right)y''+4xy'+2y=0,\quad y(0)=1,\quad y'(0)=-1$
 
 **$x-1$ kuvvetlerinde çözüm bulunuz (21-23):**
 
@@ -611,8 +765,6 @@ denklemine **Legendre diferansiyel denklemi (Legendre's differential equation)**
 
 [KUTU]
 **İpuçları.**
-
-**17-20** → Başlangıç koşulları doğrudan $a_{0}=y(0)$ ve $a_{1}=y'(0)$ verir. ==İki ayrı çözüm aramaya gerek yok==, tek bir seri çıkar.
 
 **21-23** → $x-1$ kuvvetleri isteniyor, yani $x_{0}=1$. $t=x-1$ koyup denklemi $t$ cinsine çevirmek en temiz yoldur; $x=t+1$ ve türevler değişmez.
 

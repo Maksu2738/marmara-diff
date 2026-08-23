@@ -8448,10 +8448,127 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="question-block"><p class="question-text">15. &nbsp; $y^{\prime\prime}+y=\dfrac{1}{1+\sin x}$</p></div>
-                        <div class="question-block"><p class="question-text">16. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=e^{x}\sin^{-1}x$</p></div>
-                        <div class="question-block"><p class="question-text">17. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{e^{-x}}{x}$</p></div>
-                        <div class="question-block"><p class="question-text">18. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=x\ln x\ \ (x&gt;0)$</p></div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>15.</strong> &nbsp; $y''+y=\dfrac{1}{1+\sin x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{1}=\cos x$, &nbsp;$y_{2}=\sin x$, &nbsp;$W=1$.</p>
+                                <p><strong>Adım 1 — Kolay integral.</strong></p>
+                                $$u_{2}'=\frac{\cos x}{1+\sin x}\;\Longrightarrow\;u_{2}=\ln\left(1+\sin x\right)$$
+                                <p><span class="vurgu">Pay, paydanın türevi</span> — doğrudan logaritma.</p>
+                                <p><strong>Adım 2 — Zor integral için pay-payda oyunu.</strong></p>
+                                $$u_{1}'=-\frac{\sin x}{1+\sin x}=-\frac{\left(1+\sin x\right)-1}{1+\sin x}=-1+\frac{1}{1+\sin x}$$
+                                <p>$\displaystyle\int\frac{dx}{1+\sin x}$ için <span class="vurgu">eşleniğiyle genişletin:</span></p>
+                                $$\int\frac{1-\sin x}{1-\sin^{2}x}\,dx=\int\frac{1-\sin x}{\cos^{2}x}\,dx=\int\left(\sec^{2}x-\sec x\tan x\right)dx=\tan x-\sec x$$
+                                $$u_{1}=-x+\tan x-\sec x$$
+                                <p><strong>Adım 3 — Birleştir.</strong></p>
+                                $$u_{1}\cos x=-x\cos x+\sin x-1$$
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x-x\cos x-1+\sin x\,\ln\left(1+\sin x\right)\;}$$
+                                <p>($\sin x$ terimi homojen çözümde zaten var, atıldı.)</p>
+                                <p><strong>Doğrulama — üç parçayı ayrı ayrı denkleme koy.</strong></p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Parça</th><th>$y''+y$ katkısı</th></tr>
+                                <tr><td>$-x\cos x$</td><td>$2\sin x$</td></tr>
+                                <tr><td>$-1$</td><td>$-1$</td></tr>
+                                <tr><td>$\sin x\ln\left(1+\sin x\right)$</td><td>$\left(1-s\right)+\dfrac{1-s-s^{2}}{1+s}$</td></tr>
+                                </table>
+                                </div>
+                                <p>($s=\sin x$ kısaltmasıyla.) Üçünü toplayalım:</p>
+                                $$2s-1+\frac{\left(1-s\right)\left(1+s\right)+1-s-s^{2}}{1+s}=2s-1+\frac{2-s-2s^{2}}{1+s}$$
+                                $$=\frac{\left(2s-1\right)\left(1+s\right)+2-s-2s^{2}}{1+s}=\frac{\cancel{2s^{2}}+2s-1-s\cancel{-2s^{2}}+2-s}{1+s}=\frac{1}{1+\sin x}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Eşleniğiyle genişletme refleksi.</strong> Paydada $1\pm\sin x$ ya da $1\pm\cos x$ görürseniz <span class="vurgu">eşleniğiyle çarpın;</span> payda $\cos^{2}x$ veya $\sin^{2}x$ olur ve integral $\sec^{2}$, $\csc^{2}$ gibi tablo girdilerine iner.</p>
+                                    $$\frac{1}{1+\sin x}\cdot\frac{1-\sin x}{1-\sin x}=\frac{1-\sin x}{\cos^{2}x}$$
+                                    <p>Bu, trigonometrik integrallerde en çok işe yarayan üç numaradan biridir (diğer ikisi: $t=\tan\tfrac{x}{2}$ dönüşümü ve çift kuvvetleri yarım açı formülüyle indirmek).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>16.</strong> &nbsp; $y''-2y'+y=e^{x}\sin^{-1}x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(m-1)^{2}=0\;\Longrightarrow\;y_{1}=e^{x}$, &nbsp;$y_{2}=xe^{x}$, &nbsp;$W=e^{2x}$.</p>
+                                <p><strong>Adım 1 — Üsteller sadeleşiyor.</strong></p>
+                                $$u_{1}'=-\frac{xe^{x}\cdot e^{x}\arcsin x}{e^{2x}}=-x\arcsin x,\qquad u_{2}'=\arcsin x$$
+                                <p><strong>Adım 2 — İki integral, ikisi de kısmi integrasyon.</strong></p>
+                                $$u_{2}=\int\arcsin x\,dx=x\arcsin x+\sqrt{1-x^{2}}$$
+                                <p>Birincisi için önce $\displaystyle\int\frac{x^{2}}{\sqrt{1-x^{2}}}\,dx$ gerekiyor; <span class="vurgu">payı $x^{2}-1+1$ diye bölün:</span></p>
+                                $$\int\frac{x^{2}-1+1}{\sqrt{1-x^{2}}}\,dx=-\int\sqrt{1-x^{2}}\,dx+\arcsin x=-\frac{x\sqrt{1-x^{2}}}{2}+\frac{\arcsin x}{2}$$
+                                <p>Buradan:</p>
+                                $$\int x\arcsin x\,dx=\frac{x^{2}\arcsin x}{2}+\frac{x\sqrt{1-x^{2}}}{4}-\frac{\arcsin x}{4}$$
+                                $$u_{1}=-\frac{x^{2}\arcsin x}{2}-\frac{x\sqrt{1-x^{2}}}{4}+\frac{\arcsin x}{4}$$
+                                <p><strong>Adım 3 — Birleştir.</strong> $y_{p}=e^{x}\left[u_{1}+xu_{2}\right]$ ve $xu_{2}=x^{2}\arcsin x+x\sqrt{1-x^{2}}$:</p>
+                                $$u_{1}+xu_{2}=\underbrace{\left(-\tfrac12+1\right)}_{\frac12}x^{2}\arcsin x+\underbrace{\left(-\tfrac14+1\right)}_{\frac34}x\sqrt{1-x^{2}}+\frac{\arcsin x}{4}$$
+                                $$\boxed{\;y=e^{x}\left[c_{1}+c_{2}x+\frac{\left(2x^{2}+1\right)\arcsin x}{4}+\frac{3x\sqrt{1-x^{2}}}{4}\right]\;}$$
+                                <p><strong>Doğrulama — integralleri türev alarak sına.</strong> <span class="vurgu">Denkleme koymak yerine, bulunan $u_{1}$ ve $u_{2}$'nin türevlerini kontrol etmek daha hızlı ve aynı ölçüde bağımsız:</span></p>
+                                $$u_{2}'=\arcsin x+\frac{x}{\sqrt{1-x^{2}}}-\frac{x}{\sqrt{1-x^{2}}}=\arcsin x\;\checkmark$$
+                                <p>$u_{1}$ için $\dfrac{1}{\sqrt{1-x^{2}}}$'li terimleri toplayalım:</p>
+                                $$-\frac{x^{2}}{2}+\frac{x^{2}}{4}+\frac{1}{4}=\frac{1-x^{2}}{4}\;\Longrightarrow\;\frac{1-x^{2}}{4\sqrt{1-x^{2}}}=\frac{\sqrt{1-x^{2}}}{4}$$
+                                <p>Bu, $-\dfrac{\sqrt{1-x^{2}}}{4}$ terimini tam olarak götürüyor:</p>
+                                $$u_{1}'=-x\arcsin x\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>17.</strong> &nbsp; $y''+3y'+2y=\dfrac{e^{-x}}{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{1}=e^{-x}$, &nbsp;$y_{2}=e^{-2x}$, &nbsp;$W=-e^{-3x}$.</p>
+                                <p><strong>Adım 1 — İntegraller.</strong></p>
+                                $$u_{1}'=-\frac{e^{-2x}\cdot e^{-x}x^{-1}}{-e^{-3x}}=\frac{1}{x}\;\Longrightarrow\;u_{1}=\ln\left\vert x\right\vert$$
+                                $$u_{2}'=\frac{e^{-x}\cdot e^{-x}x^{-1}}{-e^{-3x}}=-\frac{e^{x}}{x}$$
+                                <p><strong>Adım 2 — İkinci integral temel fonksiyonlarla yazılamaz.</strong> $\displaystyle\int\frac{e^{x}}{x}\,dx$ ifadesi <strong>üstel integral (exponential integral)</strong> adı verilen özel bir fonksiyondur, $\mathrm{Ei}(x)$ ile gösterilir. <span class="vurgu">Cevabı integral biçiminde bırakmak doğru cevaptır.</span></p>
+                                $$\boxed{\;y=c_{1}e^{-x}+c_{2}e^{-2x}+e^{-x}\ln\left\vert x\right\vert-e^{-2x}\int\frac{e^{x}}{x}\,dx\;}$$
+                                <p><strong>Doğrulama.</strong> $E=\displaystyle\int\frac{e^{x}}{x}dx$ diyelim, $E'=\dfrac{e^{x}}{x}$.</p>
+                                $$y_{p}'=-e^{-x}\ln\left\vert x\right\vert+\underbrace{\frac{e^{-x}}{x}}_{\text{1. terimden}}+2e^{-2x}E\underbrace{-\frac{e^{-x}}{x}}_{\text{2. terimden}}=-e^{-x}\ln\left\vert x\right\vert+2e^{-2x}E$$
+                                <p><span class="vurgu">Kesirli terimler tam olarak götürüyor</span> — hesabın doğru gittiğinin işareti.</p>
+                                $$y_{p}''=e^{-x}\ln\left\vert x\right\vert+\frac{e^{-x}}{x}-4e^{-2x}E$$
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Terim</th><th>$y_{p}''$</th><th>$3y_{p}'$</th><th>$2y_{p}$</th><th>Toplam</th></tr>
+                                <tr><td>$e^{-x}\ln\left\vert x\right\vert$</td><td>$1$</td><td>$-3$</td><td>$2$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$e^{-2x}E$</td><td>$-4$</td><td>$6$</td><td>$-2$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$\dfrac{e^{-x}}{x}$</td><td>$1$</td><td>$0$</td><td>$0$</td><td>$\dfrac{e^{-x}}{x}$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <p><span class="vurgu">Doğrulama, integralin hesaplanabilir olmasını gerektirmiyor;</span> yalnız $E'=\tfrac{e^{x}}{x}$ bilgisi yeterli.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>18.</strong> &nbsp; $y''-2y'+y=x\ln x\quad(x&gt;0)$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{1}=e^{x}$, &nbsp;$y_{2}=xe^{x}$, &nbsp;$W=e^{2x}$.</p>
+                                <p><strong>Adım 1 — İntegraller.</strong> <span class="vurgu">Bu kez sağ tarafta $e^{x}$ yok, dolayısıyla üsteller sadeleşmiyor:</span></p>
+                                $$u_{1}'=-x^{2}e^{-x}\ln x,\qquad u_{2}'=xe^{-x}\ln x$$
+                                <p><strong>Adım 2 — Kısmi integrasyonla temel olmayan kısmı ayıklayın.</strong> $u=\ln x$ seçip $v$'yi $e^{-x}$ çarpanından üretelim:</p>
+                                $$\int xe^{-x}\ln x\,dx=-\left(x+1\right)e^{-x}\ln x-e^{-x}+\int\frac{e^{-x}}{x}\,dx$$
+                                $$\int x^{2}e^{-x}\ln x\,dx=-\left(x^{2}+2x+2\right)e^{-x}\ln x-\left(x+3\right)e^{-x}+2\int\frac{e^{-x}}{x}\,dx$$
+                                <p><span class="vurgu">İki integralde de geriye aynı temel olmayan parça kalıyor:</span> $E=\displaystyle\int\frac{e^{-x}}{x}dx$.</p>
+                                <p><strong>Adım 3 — Birleştir.</strong> $y_{p}=u_{1}e^{x}+u_{2}xe^{x}$ hesabında logaritma katsayıları:</p>
+                                $$\left(x^{2}+2x+2\right)-x\left(x+1\right)=x+2$$
+                                <p>$E$ katsayıları: &nbsp;$-2+x=x-2$. &nbsp;Sabitler: &nbsp;$\left(x+3\right)-x=3$.</p>
+                                $$\boxed{\;y=c_{1}e^{x}+c_{2}xe^{x}+\left(x+2\right)\ln x+3+\left(x-2\right)e^{x}\int\frac{e^{-x}}{x}\,dx\;}$$
+                                <p><strong>Doğrulama — iki parçayı ayrı ayrı denkleme koy.</strong></p>
+                                <p><strong>Temel parça</strong> $v=\left(x+2\right)\ln x+3$: &nbsp;$v'=\ln x+1+\dfrac{2}{x}$, &nbsp;$v''=\dfrac{1}{x}-\dfrac{2}{x^{2}}$</p>
+                                $$v''-2v'+v=x\ln x-\frac{3}{x}-\frac{2}{x^{2}}+1$$
+                                <p><strong>İntegralli parça</strong> $w=\left(x-2\right)e^{x}E$ &nbsp;($E'=\tfrac{e^{-x}}{x}$):</p>
+                                $$w'=\left(x-1\right)e^{x}E+\frac{x-2}{x},\qquad w''=x\,e^{x}E+\frac{x-1}{x}+\frac{2}{x^{2}}$$
+                                <p>$E$ katsayısı: &nbsp;$x-2\left(x-1\right)+\left(x-2\right)=0$ &#10003; &nbsp;— <span class="vurgu">integralli terimler tamamen yok oluyor.</span></p>
+                                <p>Geriye kalan: &nbsp;$\dfrac{x-1}{x}+\dfrac{2}{x^{2}}-\dfrac{2\left(x-2\right)}{x}=\dfrac{3}{x}-1+\dfrac{2}{x^{2}}$</p>
+                                <p><strong>Topla:</strong></p>
+                                $$\left(x\ln x-\frac{3}{x}-\frac{2}{x^{2}}+1\right)+\left(\frac{3}{x}-1+\frac{2}{x^{2}}\right)=x\ln x\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Temel olmayan integral çıkınca ne yapılır?</strong> 17 ve 18 bu durumun iki farklı yüzünü gösteriyor:</p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li><strong>17'de</strong> integral en baştan ayrı duruyordu; cevap doğrudan integral biçiminde yazıldı.</li>
+                                        <li><strong>18'de</strong> iki ayrı integral de temel değildi, ama <span class="vurgu">kısmi integrasyonla her ikisinden de aynı $E=\int\tfrac{e^{-x}}{x}dx$ parçası ayıklandı</span> ve cevabın büyük kısmı temel fonksiyonlarla ifade edilebildi.</li>
+                                    </ul>
+                                    <p><strong>Genel yöntem:</strong> $\int(\text{polinom})\cdot e^{ax}\ln x\,dx$ biçimindeki integrallerde <span class="vurgu">$u=\ln x$ seçin.</span> Polinom kısmı $e^{ax}$ ile birlikte integrallenir, $\ln x$'in türevi $\tfrac1x$ olduğu için geriye $\int\tfrac{e^{ax}}{x}dx$ kalır. <span class="vurgu">Temel olmayan kısım her zaman tek bir terime iner.</span></p>
+                                    <p><strong>Doğrulamanın yapılabilmesi önemli:</strong> $E$'nin ne olduğunu bilmesek de $E'=\tfrac{e^{-x}}{x}$ bilgisiyle çözümü tam olarak sınayabildik. Cevabın "kapalı biçimde olmaması" doğruluğunu denetleyemeyeceğimiz anlamına gelmiyor.</p>
+                                </div>
+                            </div>
+                        </div>
 
                         <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 19&ndash;26: Aşağıdaki değişken katsayılı denklemlerde ilgili homojen denklemin <strong>iki doğrusal bağımsız çözümü verilmiştir</strong>. Genel çözümü bulunuz.</p>
 

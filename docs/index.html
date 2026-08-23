@@ -12379,18 +12379,99 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Sıraya alındı.</span></p>
-                        <p><strong>11.</strong> &nbsp; $y'-3y=h(t)$, &nbsp; $h(t)=\begin{cases}10\sin t, &amp; 0&lt;t&lt;2\pi\\ 0, &amp; t&gt;2\pi\end{cases}$, &nbsp; $y(0)=0$</p>
-                        <p><strong>12.</strong> &nbsp; $y''-y'=h(t)$, &nbsp; $h(t)=\begin{cases}4-2t, &amp; 0\le t\le 2\\ 0, &amp; t&gt;2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-2$</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>11.</strong> &nbsp; $y'-3y=h(t)$, &nbsp; $h(t)=\begin{cases}10\sin t, &amp; 0&lt;t&lt;2\pi\\ 0, &amp; t&gt;2\pi\end{cases}$, &nbsp; $y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Pencere biçimi ve periyodun armağanı.</strong></p>
+                                $$h(t)=10\sin t\left[1-u_{2\pi}(t)\right]$$
+                                <p>$\sin t$'nin periyodu $2\pi$ olduğundan <span class="vurgu">$\sin t=\sin(t-2\pi)$</span>; ötelenmiş terimi $t-2\pi$ cinsine sokmak için açı toplama formülü gerekmiyor:</p>
+                                $$\mathcal{L}\{h\}=\frac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$(s-3)Y=\frac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}\quad\Longrightarrow\quad Y(s)=\frac{10\left(1-e^{-2\pi s}\right)}{(s-3)\left(s^{2}+1\right)}$$
+                                <p><strong>Adım 3 — Ötelenmemiş parça.</strong></p>
+                                $$G(s)=\frac{10}{(s-3)\left(s^{2}+1\right)}=\frac{A}{s-3}+\frac{Bs+C}{s^{2}+1}$$
+                                <p>$s=3$: &nbsp; $A=\dfrac{10}{9+1}=1$. Paydaları eşitleyip $10=\left(s^{2}+1\right)+(Bs+C)(s-3)$:</p>
+                                <p>$s^{2}$: &nbsp; $0=1+B\Rightarrow B=-1$ &nbsp;&nbsp;&nbsp; $s^{0}$: &nbsp; $10=1-3C\Rightarrow C=-3$</p>
+                                <p><strong>Kontrol</strong> ($s^{1}$): &nbsp; $0=-3B+C=3-3=0$ &#10003;</p>
+                                $$G(s)=\frac{1}{s-3}-\frac{s}{s^{2}+1}-\frac{3}{s^{2}+1}\quad\Longrightarrow\quad g(t)=e^{3t}-\cos t-3\sin t$$
+                                <p><strong>Adım 4 — Birleştir.</strong> $y(t)=g(t)-g(t-2\pi)u_{2\pi}(t)$. İkinci aralıkta <span class="vurgu">$\cos$ ve $\sin$ terimleri birebir aynı çıkıp götürüyor:</span></p>
+                                $$\boxed{\;y(t)=\begin{cases}e^{3t}-\cos t-3\sin t, &amp; 0&lt;t&lt;2\pi\\[4pt] e^{3t}-e^{3(t-2\pi)}=\left(1-e^{-6\pi}\right)e^{3t}, &amp; t&gt;2\pi\end{cases}\;}$$
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy</strong> ($0&lt;t&lt;2\pi$):</p>
+                                $$y'=3e^{3t}+\sin t-3\cos t$$
+                                $$y'-3y=\underbrace{(3-3)}_{0}e^{3t}+\underbrace{(1+9)}_{10}\sin t+\underbrace{(-3+3)}_{0}\cos t=10\sin t\;\checkmark$$
+                                <p><strong>Doğrulama 2 — ikinci aralık.</strong> $y=\left(1-e^{-6\pi}\right)e^{3t}$ için $y'=3y$, dolayısıyla $y'-3y=0$ &#10003; — <span class="vurgu">zorlama kesildikten sonra denklem homojen, çözüm de saf homojen çözüm.</span></p>
+                                <p><strong>Doğrulama 3 — başlangıç koşulu ve süreklilik.</strong> $y(0)=1-1-0=0$ &#10003; &nbsp;ve&nbsp; $g(0)=1-1-0=0$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>Öteleme miktarının tam periyot olması ne kazandırdı?</strong> İki şey:</p>
+                                    <ol>
+                                        <li><strong>Yazarken:</strong> $\sin(t-2\pi)=\sin t$ olduğu için açı toplama formülüne hiç girmedik.</li>
+                                        <li><strong>Sonuçta:</strong> ikinci aralıkta trigonometrik terimler <span class="vurgu">tamamen yok oldu</span> ve geriye yalnız üstel kaldı. Çözüm $t&gt;2\pi$ için artık salınmıyor, sadece büyüyor.</li>
+                                    </ol>
+                                    <p>Bunu 8. sorunun tersi olarak okuyun: orada $ba=9$ idi ve hiçbir şey sadeleşmemişti. <span class="vurgu">Belirleyici olan $2\pi$ sayısı değil, onun periyoda oranı.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>12.</strong> &nbsp; $y''-y'=h(t)$, &nbsp; $h(t)=\begin{cases}4-2t, &amp; 0\le t\le 2\\ 0, &amp; t&gt;2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Azalan rampayı basamak cinsinden yaz.</strong> Püf noktası şu gözlem:</p>
+                                $$4-2t=-2(t-2)$$
+                                <p>Yani zorlamanın kendisi <span class="vurgu">zaten $t-2$ cinsinden.</span> Pencere biçiminde:</p>
+                                $$h(t)=(4-2t)-(4-2t)u_{2}(t)=(4-2t)+2(t-2)u_{2}(t)$$
+                                $$\mathcal{L}\{h\}=\frac{4}{s}-\frac{2}{s^{2}}+\frac{2e^{-2s}}{s^{2}}$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$\mathcal{L}\left\{y''\right\}=s^{2}Y-s+2,\qquad \mathcal{L}\left\{y'\right\}=sY-1$$
+                                $$\left(s^{2}-s\right)Y-s+3=\frac{4}{s}-\frac{2}{s^{2}}+\frac{2e^{-2s}}{s^{2}}$$
+                                $$Y(s)=\frac{s-3}{s(s-1)}+\frac{4}{s^{2}(s-1)}-\frac{2}{s^{3}(s-1)}+\frac{2e^{-2s}}{s^{3}(s-1)}$$
+                                <p><strong>Adım 3 — Üç temel ayrışma.</strong> Üçü de aynı kalıptan gelir:</p>
+                                $$\frac{1}{s^{2}(s-1)}=-\frac{1}{s}-\frac{1}{s^{2}}+\frac{1}{s-1}\quad\Longrightarrow\quad -1-t+e^{t}$$
+                                $$\frac{1}{s^{3}(s-1)}=-\frac{1}{s}-\frac{1}{s^{2}}-\frac{1}{s^{3}}+\frac{1}{s-1}\quad\Longrightarrow\quad -1-t-\frac{t^{2}}{2}+e^{t}$$
+                                $$\frac{s-3}{s(s-1)}=\frac{3}{s}-\frac{2}{s-1}\quad\Longrightarrow\quad 3-2e^{t}$$
+                                <p><strong>Adım 4 — İlk aralıkta topla.</strong> $t&lt;2$ için ilk üç terim:</p>
+                                $$\left(3-2e^{t}\right)+4\left(-1-t+e^{t}\right)-2\left(-1-t-\tfrac{t^{2}}{2}+e^{t}\right)$$
+                                <p>Terim türüne göre gruplayalım:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                    <tr><th>Terim</th><th>Katsayı</th><th>Toplam</th></tr>
+                                    <tr><td>sabit</td><td>$3-4+2$</td><td>$1$</td></tr>
+                                    <tr><td>$e^{t}$</td><td>$-2+4-2$</td><td>$\mathbf{0}$</td></tr>
+                                    <tr><td>$t$</td><td>$-4+2$</td><td>$-2$</td></tr>
+                                    <tr><td>$t^{2}$</td><td>$+1$</td><td>$1$</td></tr>
+                                </table>
+                                </div>
+                                <p><span class="vurgu">Bütün üstel terimler götürüyor</span> ve geriye tam kare bir polinom kalıyor:</p>
+                                $$y=1-2t+t^{2}=(1-t)^{2}\qquad (0&lt;t&lt;2)$$
+                                <p><strong>Adım 5 — İkinci aralık.</strong> Dördüncü terimin ters dönüşümü $2\left[-1-(t-2)-\tfrac{(t-2)^{2}}{2}+e^{t-2}\right]$; ekleyip açalım. <span class="vurgu">Bu kez polinom kısmı tamamen götürüyor:</span></p>
+                                $$\boxed{\;y(t)=\begin{cases}(1-t)^{2}, &amp; 0&lt;t&lt;2\\[4pt] 2e^{t-2}-1, &amp; t&gt;2\end{cases}\;}$$
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy.</strong></p>
+                                <p>$0&lt;t&lt;2$: &nbsp; $y'=-2+2t$, &nbsp; $y''=2$ &nbsp;$\Rightarrow$&nbsp; $y''-y'=2-(-2+2t)=4-2t$ &#10003;</p>
+                                <p>$t&gt;2$: &nbsp; $y'=y''=2e^{t-2}$ &nbsp;$\Rightarrow$&nbsp; $y''-y'=0$ &#10003; (zorlama kapalı)</p>
+                                <p><strong>Doğrulama 2 — başlangıç koşulları.</strong> $y(0)=1$ &#10003; &nbsp;ve&nbsp; $y'(0)=-2$ &#10003;</p>
+                                <p><strong>Doğrulama 3 — $t=2$'de süreklilik.</strong> İki ifade bağımsız türetildiği için gerçek bir sınav:</p>
+                                $$y(2^{-})=(1-2)^{2}=1,\qquad y(2^{+})=2e^{0}-1=1\;\checkmark$$
+                                $$y'(2^{-})=-2+4=2,\qquad y'(2^{+})=2e^{0}=2\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>İki aralıkta iki farklı "tür" çözüm.</strong> Bu problem, süreksiz zorlamanın çözümün <span class="vurgu">karakterini</span> nasıl değiştirdiğinin en temiz örneği:</p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li>$t&lt;2$: zorlama polinom, homojen çözümdeki $e^{t}$ tamamen sönüyor, <span class="vurgu">çözüm saf polinom.</span></li>
+                                        <li>$t&gt;2$: zorlama yok, polinom kısmı sönüyor, <span class="vurgu">çözüm saf üstel.</span></li>
+                                    </ul>
+                                    <p>Yine de $y$ ve $y'$ geçişte sürekli. <span class="vurgu">Sıçrayan yalnız $y''$:</span> soldan $2$, sağdan $2e^{0}=2$ — burada o bile sürekli çıktı, çünkü zorlama $t=2$'de zaten sıfıra iniyordu ($4-2\cdot 2=0$). Zorlama kenarda sıfırlanmasaydı $y''$ sıçrardı.</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="highlight">
-                            <p><strong>İpuçları.</strong></p>
-                            <p><strong>11</strong> → $h(t)=10\sin t\left[1-u_{2\pi}(t)\right]$. Buradaki kolaylık şu: <span class="vurgu">$\sin t$'nin periyodu $2\pi$ olduğundan $\sin t=\sin(t-2\pi)$</span>, yani ötelenmiş terimi $t-2\pi$ cinsinden yazmak için açı toplama formülü gerekmez. Dönüşüm doğrudan $\dfrac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}$ olur.</p>
-                            <p><strong>12</strong> → Zorlama azalan bir rampa. $4-2t=-2(t-2)$ olduğuna dikkat edin; böylece</p>
-                            $$h(t)=(4-2t)+2\,u_{2}(t)\,(t-2)$$
-                            <p>yazılır ve ikinci terim zaten $t-2$ cinsindedir. Payda $s^{2}-s=s(s-1)$ çarpanlanıyor, <span class="vurgu">kısmi kesirlerde $\dfrac{1}{s^{2}}$ terimi de çıkacağı için üç bilinmeyenli sistem kurun.</span></p>
-                            <p><strong>Doğrulama.</strong> İkisinde de çözümü <span class="vurgu">her aralıkta ayrı ayrı</span> denkleme koyun ve $g(0)=g'(0)=0$ kontrolünü yapın.</p>
+                            <p><strong>Setin tamamı bitti.</strong> 12 sorunun 12'si çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar <span class="vurgu">denkleme geri koyma, başlangıç koşulları ve süreklilik kontrolü</span> ile doğrulanmıştır.</p>
+                            <p><strong>Süreksiz zorlamalı problemlerde dört adımlık şablon:</strong></p>
+                            <ol>
+                                <li><strong>Zorlamayı $u_{a}$ cinsinden yaz</strong> — sıçrama farkı kuralı, pencere veya rampa kalıbı.</li>
+                                <li><strong>Dönüştür, $Y(s)$'yi yalnız bırak</strong> — payda her zaman karakteristik polinom.</li>
+                                <li><strong>Üstel çarpanı bir kenara koy</strong>, $G(s)$'nin ters dönüşümünü al, sonra ötele.</li>
+                                <li><strong>$g(0)=g'(0)=0$ kontrolünü yap</strong> — tutuyorsa $y$ ve $y'$ geçişte süreklidir.</li>
+                            </ol>
+                            <p>Son adım bedavadır ve <span class="vurgu">kısmi kesirlerdeki hataların neredeyse hepsini yakalar.</span></p>
                         </div>
                     </div>
 
@@ -12692,21 +12773,130 @@
                                     <p>Dikkat çeken şey, $te^{t}$'nin $x$ ve $y$'de <strong>ters işaretlerle</strong> çıkması: $x$'te $-te^{t}$, $y$'de $+te^{t}$. Toplandıklarında götürüyorlar; nitekim ikinci denklemdeki $2x+2y$ terimi bu yüzden $te^{t}$ katkısı vermiyor.</p>
                                 </div>
                                 <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
-                                <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                                <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                                <p><strong>2.</strong> &nbsp; $x'-2y=0$, &nbsp; $y'+x-3y=2$, &nbsp; $x(0)=3,\;y(0)=0$</p>
-                                <p><strong>4.</strong> &nbsp; $x'-2x-3y=0$, &nbsp; $y'+x+2y=t$, &nbsp; $x(0)=-1,\;y(0)=0$</p>
-                                <p><strong>6.</strong> &nbsp; $x'+x+y=5e^{2t}$, &nbsp; $y'-5x-y=-3e^{2t}$, &nbsp; $x(0)=3,\;y(0)=2$</p>
-                                <p><strong>8.</strong> &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$</p>
-                                <p><strong>10.</strong> &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$</p>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
                                 <div class="highlight">
-                                    <p><strong>İpuçları.</strong> 2 ve 4 → soru 1 ve 3 gibi; bir denklemden bir bilinmeyeni çekip ötekine koyun.</p>
-                                    <p>6 ve 8 → soru 7 ve 9 gibi, her iki denklemde de türevler karışık. Dönüşüm alıp $X$ ve $Y$ için iki bilinmeyenli sistem kurun.</p>
-                                    <p><strong>10 farklı:</strong> içinde $x''$ var, dolayısıyla <span class="vurgu">üç başlangıç koşulu verilmiş</span>. $\mathcal{L}\{x''\}=s^{2}X-s\,x(0)-x'(0)$ kullanın. Geri kalanı aynıdır.</p>
-                                    <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözüm sınanabilir: bulduğunuz $x$ ve $y$'yi <span class="vurgu">her iki denkleme birden</span> koyun ve başlangıç koşullarını kontrol edin. Yukarıdaki çözümlerde tam olarak bu yapıldı — katsayıları terim türüne göre grupladığınızda hata anında görünür.</p>
+                                    <p><strong>Bu soruların cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir; her biri <span class="vurgu">ikinci bir bağımsız yolla doğrulanmıştır</span>.</p>
+                                    <p>Sistemlerde kullandığımız doğrulama şu: bulunan $x(t)$ ve $y(t)$ <span class="vurgu">her iki denkleme birden</span> konur. Bir denklem çözüm sırasında zaten kullanıldığı için tek başına kanıt değildir; <span class="vurgu">ikinci denklem bağımsız bir sınavdır.</span> Terimleri türüne göre ($e^{at}$, $\sin$, $\cos$, $t$, sabit) gruplayıp katsayı toplamlarına bakmak hatayı anında görünür kılar.</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $x'-2y=0$, &nbsp; $y'+x-3y=2$, &nbsp; $x(0)=3,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — İki denklemi de dönüştür.</strong></p>
+                                $$sX-3-2Y=0\;\Longrightarrow\;sX-2Y=3$$
+                                $$sY+X-3Y=\frac{2}{s}\;\Longrightarrow\;X+(s-3)Y=\frac{2}{s}$$
+                                <p><strong>Adım 2 — Yok et.</strong> Birinciden $X=\dfrac{3+2Y}{s}$; ikinciye koyup $s$ ile çarpalım:</p>
+                                $$3+2Y+s(s-3)Y=2\;\Longrightarrow\;Y\left[s^{2}-3s+2\right]=-1$$
+                                $$Y(s)=\frac{-1}{(s-1)(s-2)}$$
+                                <p><strong>Adım 3 — $y$'yi bul.</strong> Ezberlenmeye değer kalıptan ($a=2$, $b=1$):</p>
+                                $$\mathcal{L}^{-1}\left\{\frac{1}{(s-1)(s-2)}\right\}=\frac{e^{2t}-e^{t}}{2-1}=e^{2t}-e^{t}$$
+                                $$y(t)=e^{t}-e^{2t}$$
+                                <p><strong>Adım 4 — $x$'i bul.</strong></p>
+                                $$X(s)=\frac{3}{s}+\frac{2Y}{s}=\frac{3}{s}-\frac{2}{s(s-1)(s-2)}$$
+                                <p>Kapatma yöntemiyle: &nbsp; $s=0\Rightarrow\tfrac{1}{2}$, &nbsp; $s=1\Rightarrow-1$, &nbsp; $s=2\Rightarrow\tfrac{1}{2}$</p>
+                                $$\frac{1}{s(s-1)(s-2)}\;\longrightarrow\;\frac{1}{2}-e^{t}+\frac{1}{2}e^{2t}$$
+                                $$x(t)=3-2\left[\frac{1}{2}-e^{t}+\frac{1}{2}e^{2t}\right]=2+2e^{t}-e^{2t}$$
+                                $$\boxed{\;x(t)=2+2e^{t}-e^{2t},\qquad y(t)=e^{t}-e^{2t}\;}$$
+                                <p><strong>Doğrulama 1 — birinci denklem.</strong> $x'=2e^{t}-2e^{2t}$ ve $2y=2e^{t}-2e^{2t}$:</p>
+                                $$x'-2y=0\;\checkmark$$
+                                <p><strong>Doğrulama 2 — ikinci denklem (bağımsız sınav).</strong> $y'=e^{t}-2e^{2t}$:</p>
+                                $$y'+x-3y=\underbrace{(1+2-3)}_{0}e^{t}+\underbrace{(-2-1+3)}_{0}e^{2t}+2=2\;\checkmark$$
+                                <p><strong>Doğrulama 3 — başlangıç koşulları.</strong> $x(0)=2+2-1=3$ &#10003;, &nbsp;$y(0)=1-1=0$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $x'-2x-3y=0$, &nbsp; $y'+x+2y=t$, &nbsp; $x(0)=-1,\;y(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüştür ve düzenle.</strong></p>
+                                $$(s-2)X-3Y=-1,\qquad X+(s+2)Y=\frac{1}{s^{2}}$$
+                                <p><strong>Adım 2 — Determinant.</strong> Bu, sistemin karakteristik polinomudur:</p>
+                                $$\Delta=(s-2)(s+2)-(-3)(1)=s^{2}-4+3=s^{2}-1$$
+                                <p><strong>Adım 3 — Cramer ile $X$.</strong></p>
+                                $$X=\frac{1}{\Delta}\begin{vmatrix}-1 &amp; -3\\[2pt] \dfrac{1}{s^{2}} &amp; s+2\end{vmatrix}=\frac{-(s+2)+\dfrac{3}{s^{2}}}{s^{2}-1}=\frac{-s^{3}-2s^{2}+3}{s^{2}\left(s^{2}-1\right)}$$
+                                <p>Payı çarpanlarına ayıralım; $s=1$ kök olduğundan $(s-1)$ bölüyor:</p>
+                                $$-\left(s^{3}+2s^{2}-3\right)=-(s-1)\left(s^{2}+3s+3\right)$$
+                                <p><span class="vurgu">$(s-1)$ sadeleşiyor:</span></p>
+                                $$X=\frac{-\left(s^{2}+3s+3\right)}{s^{2}(s+1)}=-\left[\frac{3}{s^{2}}+\frac{1}{s+1}\right]\;\Longrightarrow\;x(t)=-3t-e^{-t}$$
+                                <p>(Kısmi kesirlerde $\tfrac{1}{s}$ katsayısı sıfır çıkar; <span class="vurgu">$x$'te sabit terim yok.</span>)</p>
+                                <p><strong>Adım 4 — Cramer ile $Y$.</strong></p>
+                                $$Y=\frac{1}{\Delta}\begin{vmatrix}s-2 &amp; -1\\[2pt] 1 &amp; \dfrac{1}{s^{2}}\end{vmatrix}=\frac{\dfrac{s-2}{s^{2}}+1}{s^{2}-1}=\frac{s^{2}+s-2}{s^{2}\left(s^{2}-1\right)}$$
+                                <p>$s^{2}+s-2=(s+2)(s-1)$, yine $(s-1)$ sadeleşiyor:</p>
+                                $$Y=\frac{s+2}{s^{2}(s+1)}=-\frac{1}{s}+\frac{2}{s^{2}}+\frac{1}{s+1}\;\Longrightarrow\;y(t)=2t-1+e^{-t}$$
+                                $$\boxed{\;x(t)=-3t-e^{-t},\qquad y(t)=2t-1+e^{-t}\;}$$
+                                <p><strong>Doğrulama 1 — birinci denklem.</strong> $x'=-3+e^{-t}$:</p>
+                                $$x'-2x-3y=\underbrace{(-3+3)}_{0}+\underbrace{(6-6)}_{0}t+\underbrace{(1+2-3)}_{0}e^{-t}=0\;\checkmark$$
+                                <p><strong>Doğrulama 2 — ikinci denklem (bağımsız sınav).</strong> $y'=2-e^{-t}$:</p>
+                                $$y'+x+2y=\underbrace{(2-2)}_{0}+\underbrace{(-3+4)}_{1}t+\underbrace{(-1-1+2)}_{0}e^{-t}=t\;\checkmark$$
+                                <p><strong>Doğrulama 3 — başlangıç koşulları.</strong> $x(0)=-1$ &#10003;, &nbsp;$y(0)=-1+1=0$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>$(s-1)$'in iki kez sadeleşmesi tesadüf değil.</strong> Determinant $s^{2}-1=(s-1)(s+1)$ idi, ama çözümde $e^{t}$ hiç görünmüyor. Sebep: başlangıç koşulları ve zorlama, <span class="vurgu">$s=1$ kutbunu tam olarak iptal edecek biçimde denk geldi.</span></p>
+                                    <p><strong>Pratik sonuç:</strong> determinantın kökleri çözümde <span class="vurgu">hangi biçimlerin görünebileceğini</span> söyler, hangilerinin mutlaka görüneceğini değil. Katsayısı sıfır çıkabilir. Cevabınızda determinant kökünün karşılığı yoksa hemen "hata yaptım" diye düşünmeyin — sadeleşmeyi kontrol edin.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $x'+x+y=5e^{2t}$, &nbsp; $y'-5x-y=-3e^{2t}$, &nbsp; $x(0)=3,\;y(0)=2$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüştür.</strong> Sağ tarafları ve başlangıç koşullarını tek kesirde toplayalım:</p>
+                                $$(s+1)X+Y=\frac{5}{s-2}+3=\frac{3s-1}{s-2}\;\equiv P$$
+                                $$-5X+(s-1)Y=\frac{-3}{s-2}+2=\frac{2s-7}{s-2}\;\equiv Q$$
+                                <p><strong>Adım 2 — Determinant.</strong></p>
+                                $$\Delta=(s+1)(s-1)-(1)(-5)=s^{2}-1+5=s^{2}+4$$
+                                <p><span class="vurgu">Kökler $\pm 2i$</span> — yani çözümde $\cos 2t$ ve $\sin 2t$ bekliyoruz, üstel değil. Zorlamadan gelen $e^{2t}$ ise ayrıca duracak.</p>
+                                <p><strong>Adım 3 — $X$.</strong></p>
+                                $$X=\frac{P(s-1)-Q}{s^{2}+4}=\frac{(3s-1)(s-1)-(2s-7)}{(s-2)\left(s^{2}+4\right)}=\frac{3s^{2}-6s+8}{(s-2)\left(s^{2}+4\right)}$$
+                                <p>Kısmi kesirler: &nbsp; $s=2$: &nbsp; $A=\dfrac{12-12+8}{8}=1$</p>
+                                $$3s^{2}-6s+8=\left(s^{2}+4\right)+(Bs+C)(s-2)$$
+                                <p>$s^{2}$: &nbsp; $3=1+B\Rightarrow B=2$ &nbsp;&nbsp;&nbsp; $s^{0}$: &nbsp; $8=4-2C\Rightarrow C=-2$</p>
+                                <p><strong>Kontrol</strong> ($s^{1}$): &nbsp; $-6=-2B+C=-4-2=-6$ &#10003;</p>
+                                $$X=\frac{1}{s-2}+\frac{2s}{s^{2}+4}-\frac{1}{2}\cdot\frac{2}{s^{2}+4}\;\Longrightarrow\;x(t)=e^{2t}+2\cos 2t-\sin 2t$$
+                                <p><strong>Adım 4 — $Y$.</strong></p>
+                                $$Y=\frac{(s+1)Q+5P}{s^{2}+4}=\frac{(s+1)(2s-7)+5(3s-1)}{(s-2)\left(s^{2}+4\right)}=\frac{2s^{2}+10s-12}{(s-2)\left(s^{2}+4\right)}$$
+                                <p>$s=2$: &nbsp; $A=\dfrac{8+20-12}{8}=2$. &nbsp;$2s^{2}+10s-12=2\left(s^{2}+4\right)+(Bs+C)(s-2)$:</p>
+                                <p>$s^{2}$: &nbsp; $2=2+B\Rightarrow B=0$ &nbsp;&nbsp;&nbsp; $s^{0}$: &nbsp; $-12=8-2C\Rightarrow C=10$</p>
+                                $$Y=\frac{2}{s-2}+5\cdot\frac{2}{s^{2}+4}\;\Longrightarrow\;y(t)=2e^{2t}+5\sin 2t$$
+                                $$\boxed{\;x(t)=e^{2t}+2\cos 2t-\sin 2t,\qquad y(t)=2e^{2t}+5\sin 2t\;}$$
+                                <p><strong>Doğrulama 1 — birinci denklem.</strong> $x'=2e^{2t}-4\sin 2t-2\cos 2t$:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Terim</th><th>$x'$</th><th>$x$</th><th>$y$</th><th>Toplam</th></tr>
+                                <tr><td>$e^{2t}$</td><td>$2$</td><td>$1$</td><td>$2$</td><td>$\mathbf{5}$</td></tr>
+                                <tr><td>$\cos 2t$</td><td>$-2$</td><td>$2$</td><td>$0$</td><td>$0$</td></tr>
+                                <tr><td>$\sin 2t$</td><td>$-4$</td><td>$-1$</td><td>$5$</td><td>$0$</td></tr>
+                                </table>
+                                </div>
+                                $$x'+x+y=5e^{2t}\;\checkmark$$
+                                <p><strong>Doğrulama 2 — ikinci denklem (bağımsız sınav).</strong> $y'=4e^{2t}+10\cos 2t$:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Terim</th><th>$y'$</th><th>$-5x$</th><th>$-y$</th><th>Toplam</th></tr>
+                                <tr><td>$e^{2t}$</td><td>$4$</td><td>$-5$</td><td>$-2$</td><td>$\mathbf{-3}$</td></tr>
+                                <tr><td>$\cos 2t$</td><td>$10$</td><td>$-10$</td><td>$0$</td><td>$0$</td></tr>
+                                <tr><td>$\sin 2t$</td><td>$0$</td><td>$5$</td><td>$-5$</td><td>$0$</td></tr>
+                                </table>
+                                </div>
+                                $$y'-5x-y=-3e^{2t}\;\checkmark$$
+                                <p><strong>Doğrulama 3 — başlangıç koşulları.</strong> $x(0)=1+2=3$ &#10003;, &nbsp;$y(0)=2$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>Katsayı tablosu kurun.</strong> Sistem çözümlerinde doğrulama, terimleri türüne göre sütunlara ayırıp <span class="vurgu">her satırın toplamına bakmaktan</span> ibarettir. Yukarıdaki iki tablo bunu gösteriyor: zorlamanın olduğu satır zorlamanın katsayısını, diğer bütün satırlar sıfır vermeli.</p>
+                                    <p>Bu yöntem elle hesapta <span class="vurgu">hatanın yerini de söyler:</span> hangi satır tutmuyorsa hata o terimin katsayısındadır, bütün çözümü baştan yapmanız gerekmez.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
+                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Sıraya alındı.</span></p>
+                        <p><strong>8.</strong> &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$</p>
+                        <p><strong>10.</strong> &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$</p>
+                        <div class="highlight">
+                            <p><strong>İpuçları.</strong></p>
+                            <p><strong>8</strong> → Her iki denklemde de hem $x'$ hem $y'$ var. Dönüşümden sonra $X$ ve $Y$ katsayıları $s$'nin <strong>birinci dereceden</strong> polinomları olur; determinantı açarken <span class="vurgu">$s^{2}$ terimlerinin kısmen götürdüğüne dikkat edin.</span></p>
+                            <p><strong>10</strong> → İçinde $x''$ var, bu yüzden <span class="vurgu">üç başlangıç koşulu</span> verilmiş: $\mathcal{L}\left\{x''\right\}=s^{2}X-s\,x(0)-x'(0)$. Determinantın derecesi üç çıkacak, dolayısıyla çözümde üç bağımsız biçim beklenir.</p>
+                            <p><strong>Doğrulama.</strong> İkisinde de bulduğunuz $x$ ve $y$'yi <span class="vurgu">her iki denkleme birden</span> koyun ve yukarıdaki gibi katsayı tablosu kurun.</p>
                         </div>
                     </div>
 
@@ -16844,7 +17034,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=cbcaa8a2"></script>
+<script defer src="arama.js?v=b81fb2dd"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

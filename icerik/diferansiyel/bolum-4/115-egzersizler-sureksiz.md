@@ -522,26 +522,138 @@ Bunun ters dönüşümü doğrudan $\dfrac{25}{4}e^{-3t}\sin 4t$. ==Yani türevi
 [/KUTU]
 [/CEVAP]
 
----
+[SORU] **11.** &nbsp; $y'-3y=h(t)$, &nbsp; $h(t)=\begin{cases}10\sin t, & 0<t<2\pi\\ 0, & t>2\pi\end{cases}$, &nbsp; $y(0)=0$
+[CEVAP]
+**Adım 1 — Pencere biçimi ve periyodun armağanı.**
 
-### Çalışma soruları
+$$h(t)=10\sin t\left[1-u_{2\pi}(t)\right]$$
 
-Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Sıraya alındı.==
+$\sin t$'nin periyodu $2\pi$ olduğundan ==$\sin t=\sin(t-2\pi)$==; ötelenmiş terimi $t-2\pi$ cinsine sokmak için açı toplama formülü gerekmiyor:
 
-**11.** &nbsp; $y'-3y=h(t)$, &nbsp; $h(t)=\begin{cases}10\sin t, & 0<t<2\pi\\ 0, & t>2\pi\end{cases}$, &nbsp; $y(0)=0$
+$$\mathcal{L}\{h\}=\frac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}$$
 
-**12.** &nbsp; $y''-y'=h(t)$, &nbsp; $h(t)=\begin{cases}4-2t, & 0\le t\le 2\\ 0, & t>2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-2$
+**Adım 2 — Dönüştür.**
+
+$$(s-3)Y=\frac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}\quad\Longrightarrow\quad Y(s)=\frac{10\left(1-e^{-2\pi s}\right)}{(s-3)\left(s^{2}+1\right)}$$
+
+**Adım 3 — Ötelenmemiş parça.**
+
+$$G(s)=\frac{10}{(s-3)\left(s^{2}+1\right)}=\frac{A}{s-3}+\frac{Bs+C}{s^{2}+1}$$
+
+$s=3$: &nbsp; $A=\dfrac{10}{9+1}=1$. Paydaları eşitleyip $10=\left(s^{2}+1\right)+(Bs+C)(s-3)$:
+
+$s^{2}$: &nbsp; $0=1+B\Rightarrow B=-1$ &nbsp;&nbsp;&nbsp; $s^{0}$: &nbsp; $10=1-3C\Rightarrow C=-3$
+
+**Kontrol** ($s^{1}$): &nbsp; $0=-3B+C=3-3=0$ &#10003;
+
+$$G(s)=\frac{1}{s-3}-\frac{s}{s^{2}+1}-\frac{3}{s^{2}+1}\quad\Longrightarrow\quad g(t)=e^{3t}-\cos t-3\sin t$$
+
+**Adım 4 — Birleştir.** $y(t)=g(t)-g(t-2\pi)u_{2\pi}(t)$. İkinci aralıkta ==$\cos$ ve $\sin$ terimleri birebir aynı çıkıp götürüyor:==
+
+$$\boxed{\;y(t)=\begin{cases}e^{3t}-\cos t-3\sin t, & 0<t<2\pi\\[4pt] e^{3t}-e^{3(t-2\pi)}=\left(1-e^{-6\pi}\right)e^{3t}, & t>2\pi\end{cases}\;}$$
+
+**Doğrulama 1 — çözümü denkleme geri koy** ($0<t<2\pi$):
+
+$$y'=3e^{3t}+\sin t-3\cos t$$
+
+$$y'-3y=\underbrace{(3-3)}_{0}e^{3t}+\underbrace{(1+9)}_{10}\sin t+\underbrace{(-3+3)}_{0}\cos t=10\sin t\;\checkmark$$
+
+**Doğrulama 2 — ikinci aralık.** $y=\left(1-e^{-6\pi}\right)e^{3t}$ için $y'=3y$, dolayısıyla $y'-3y=0$ &#10003; — ==zorlama kesildikten sonra denklem homojen, çözüm de saf homojen çözüm.==
+
+**Doğrulama 3 — başlangıç koşulu ve süreklilik.** $y(0)=1-1-0=0$ &#10003; &nbsp;ve&nbsp; $g(0)=1-1-0=0$ &#10003;
 
 [KUTU]
-**İpuçları.**
+**Öteleme miktarının tam periyot olması ne kazandırdı?** İki şey:
 
-**11** → $h(t)=10\sin t\left[1-u_{2\pi}(t)\right]$. Buradaki kolaylık şu: ==$\sin t$'nin periyodu $2\pi$ olduğundan $\sin t=\sin(t-2\pi)$==, yani ötelenmiş terimi $t-2\pi$ cinsinden yazmak için açı toplama formülü gerekmez. Dönüşüm doğrudan $\dfrac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}$ olur.
+1. **Yazarken:** $\sin(t-2\pi)=\sin t$ olduğu için açı toplama formülüne hiç girmedik.
+2. **Sonuçta:** ikinci aralıkta trigonometrik terimler ==tamamen yok oldu== ve geriye yalnız üstel kaldı. Çözüm $t>2\pi$ için artık salınmıyor, sadece büyüyor.
 
-**12** → Zorlama azalan bir rampa. $4-2t=-2(t-2)$ olduğuna dikkat edin; böylece
+Bunu 8. sorunun tersi olarak okuyun: orada $ba=9$ idi ve hiçbir şey sadeleşmemişti. ==Belirleyici olan $2\pi$ sayısı değil, onun periyoda oranı.==
+[/KUTU]
+[/CEVAP]
 
-$$h(t)=(4-2t)+2\,u_{2}(t)\,(t-2)$$
+[SORU] **12.** &nbsp; $y''-y'=h(t)$, &nbsp; $h(t)=\begin{cases}4-2t, & 0\le t\le 2\\ 0, & t>2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-2$
+[CEVAP]
+**Adım 1 — Azalan rampayı basamak cinsinden yaz.** Püf noktası şu gözlem:
 
-yazılır ve ikinci terim zaten $t-2$ cinsindedir. Payda $s^{2}-s=s(s-1)$ çarpanlanıyor, ==kısmi kesirlerde $\dfrac{1}{s^{2}}$ terimi de çıkacağı için üç bilinmeyenli sistem kurun.==
+$$4-2t=-2(t-2)$$
 
-**Doğrulama.** İkisinde de çözümü ==her aralıkta ayrı ayrı== denkleme koyun ve $g(0)=g'(0)=0$ kontrolünü yapın.
+Yani zorlamanın kendisi ==zaten $t-2$ cinsinden.== Pencere biçiminde:
+
+$$h(t)=(4-2t)-(4-2t)u_{2}(t)=(4-2t)+2(t-2)u_{2}(t)$$
+
+$$\mathcal{L}\{h\}=\frac{4}{s}-\frac{2}{s^{2}}+\frac{2e^{-2s}}{s^{2}}$$
+
+**Adım 2 — Dönüştür.**
+
+$$\mathcal{L}\left\{y''\right\}=s^{2}Y-s+2,\qquad \mathcal{L}\left\{y'\right\}=sY-1$$
+
+$$\left(s^{2}-s\right)Y-s+3=\frac{4}{s}-\frac{2}{s^{2}}+\frac{2e^{-2s}}{s^{2}}$$
+
+$$Y(s)=\frac{s-3}{s(s-1)}+\frac{4}{s^{2}(s-1)}-\frac{2}{s^{3}(s-1)}+\frac{2e^{-2s}}{s^{3}(s-1)}$$
+
+**Adım 3 — Üç temel ayrışma.** Üçü de aynı kalıptan gelir:
+
+$$\frac{1}{s^{2}(s-1)}=-\frac{1}{s}-\frac{1}{s^{2}}+\frac{1}{s-1}\quad\Longrightarrow\quad -1-t+e^{t}$$
+
+$$\frac{1}{s^{3}(s-1)}=-\frac{1}{s}-\frac{1}{s^{2}}-\frac{1}{s^{3}}+\frac{1}{s-1}\quad\Longrightarrow\quad -1-t-\frac{t^{2}}{2}+e^{t}$$
+
+$$\frac{s-3}{s(s-1)}=\frac{3}{s}-\frac{2}{s-1}\quad\Longrightarrow\quad 3-2e^{t}$$
+
+**Adım 4 — İlk aralıkta topla.** $t<2$ için ilk üç terim:
+
+$$\left(3-2e^{t}\right)+4\left(-1-t+e^{t}\right)-2\left(-1-t-\tfrac{t^{2}}{2}+e^{t}\right)$$
+
+Terim türüne göre gruplayalım:
+
+| Terim | Katsayı | Toplam |
+|---|---|---|
+| sabit | $3-4+2$ | $1$ |
+| $e^{t}$ | $-2+4-2$ | $\mathbf{0}$ |
+| $t$ | $-4+2$ | $-2$ |
+| $t^{2}$ | $+1$ | $1$ |
+
+==Bütün üstel terimler götürüyor== ve geriye tam kare bir polinom kalıyor:
+
+$$y=1-2t+t^{2}=(1-t)^{2}\qquad (0<t<2)$$
+
+**Adım 5 — İkinci aralık.** Dördüncü terimin ters dönüşümü $2\left[-1-(t-2)-\tfrac{(t-2)^{2}}{2}+e^{t-2}\right]$; ekleyip açalım. ==Bu kez polinom kısmı tamamen götürüyor:==
+
+$$\boxed{\;y(t)=\begin{cases}(1-t)^{2}, & 0<t<2\\[4pt] 2e^{t-2}-1, & t>2\end{cases}\;}$$
+
+**Doğrulama 1 — çözümü denkleme geri koy.**
+
+$0<t<2$: &nbsp; $y'=-2+2t$, &nbsp; $y''=2$ &nbsp;$\Rightarrow$&nbsp; $y''-y'=2-(-2+2t)=4-2t$ &#10003;
+
+$t>2$: &nbsp; $y'=y''=2e^{t-2}$ &nbsp;$\Rightarrow$&nbsp; $y''-y'=0$ &#10003; (zorlama kapalı)
+
+**Doğrulama 2 — başlangıç koşulları.** $y(0)=1$ &#10003; &nbsp;ve&nbsp; $y'(0)=-2$ &#10003;
+
+**Doğrulama 3 — $t=2$'de süreklilik.** İki ifade bağımsız türetildiği için gerçek bir sınav:
+
+$$y(2^{-})=(1-2)^{2}=1,\qquad y(2^{+})=2e^{0}-1=1\;\checkmark$$
+
+$$y'(2^{-})=-2+4=2,\qquad y'(2^{+})=2e^{0}=2\;\checkmark$$
+
+[KUTU]
+**İki aralıkta iki farklı "tür" çözüm.** Bu problem, süreksiz zorlamanın çözümün ==karakterini== nasıl değiştirdiğinin en temiz örneği:
+
+- $t<2$: zorlama polinom, homojen çözümdeki $e^{t}$ tamamen sönüyor, ==çözüm saf polinom.==
+- $t>2$: zorlama yok, polinom kısmı sönüyor, ==çözüm saf üstel.==
+
+Yine de $y$ ve $y'$ geçişte sürekli. ==Sıçrayan yalnız $y''$:== soldan $2$, sağdan $2e^{0}=2$ — burada o bile sürekli çıktı, çünkü zorlama $t=2$'de zaten sıfıra iniyordu ($4-2\cdot 2=0$). Zorlama kenarda sıfırlanmasaydı $y''$ sıçrardı.
+[/KUTU]
+[/CEVAP]
+
+[KUTU]
+**Setin tamamı bitti.** 12 sorunun 12'si çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar ==denkleme geri koyma, başlangıç koşulları ve süreklilik kontrolü== ile doğrulanmıştır.
+
+**Süreksiz zorlamalı problemlerde dört adımlık şablon:**
+
+1. **Zorlamayı $u_{a}$ cinsinden yaz** — sıçrama farkı kuralı, pencere veya rampa kalıbı.
+2. **Dönüştür, $Y(s)$'yi yalnız bırak** — payda her zaman karakteristik polinom.
+3. **Üstel çarpanı bir kenara koy**, $G(s)$'nin ters dönüşümünü al, sonra ötele.
+4. **$g(0)=g'(0)=0$ kontrolünü yap** — tutuyorsa $y$ ve $y'$ geçişte süreklidir.
+
+Son adım bedavadır ve ==kısmi kesirlerdeki hataların neredeyse hepsini yakalar.==
 [/KUTU]

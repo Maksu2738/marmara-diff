@@ -125,10 +125,88 @@ menu: 3.5 Alıştırmalar
                                 </div>
                             </div>
                         </div>
-                        <div class="question-block"><p class="question-text">7. &nbsp; $y^{\prime\prime}+4y^{\prime}+5y=e^{-2x}\sec x$</p></div>
-                        <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}-2y^{\prime}+5y=e^{x}\tan 2x$</p></div>
-                        <div class="question-block"><p class="question-text">9. &nbsp; $y^{\prime\prime}+6y^{\prime}+9y=\dfrac{e^{-3x}}{x^{3}}$</p></div>
-                        <div class="question-block"><p class="question-text">10. &nbsp; $y^{\prime\prime}-2y^{\prime}+y=xe^{x}\ln x\ \ (x&gt;0)$</p></div>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Üstel çarpan hem $W$'de hem $f$'de var — sadeleşiyor</span>
+                            </div>
+                            <p>7-10'da homojen çözümler $e^{ax}$ çarpanı taşıyor ve sağ tarafta da aynı üstel var. <span class="vurgu">Bu bir tesadüf değil, kitabın bilerek kurduğu bir kolaylık:</span></p>
+                            $$u_{1}'=-\frac{y_{2}f}{W}$$
+                            <p>Payda $e^{ax}\cdot e^{ax}=e^{2ax}$, paydada $W\propto e^{2ax}$ &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">üsteller tamamen gider</span> ve geriye yalnız trigonometrik/polinom kısım kalır.</p>
+                            <p><strong>Pratik sonuç:</strong> $e^{ax}$'i baştan dışarı alın, iç kısmı çözün, sonuncu adımda geri çarpın. <span class="vurgu">7. soru bu sayede 3. sorunun aynısına iniyor.</span></p>
+                            <p><strong>Gerekli Wronskian'lar:</strong></p>
+                            <div class="tablo-sar">
+                            <table>
+                            <tr><th>Homojen çözümler</th><th>$W$</th></tr>
+                            <tr><td>$e^{ax}\cos bx,\;e^{ax}\sin bx$</td><td>$b\,e^{2ax}$</td></tr>
+                            <tr><td>$e^{ax},\;xe^{ax}$</td><td>$e^{2ax}$</td></tr>
+                            <tr><td>$e^{m_{1}x},\;e^{m_{2}x}$</td><td>$\left(m_{2}-m_{1}\right)e^{(m_{1}+m_{2})x}$</td></tr>
+                            </table>
+                            </div>
+                            <p>Bu üçünü ezberlerseniz Wronskian determinantını hiç açmazsınız.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>7.</strong> &nbsp; $y''+4y'+5y=e^{-2x}\sec x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$m^{2}+4m+5=0\;\Longrightarrow\;m=-2\pm i\;\Longrightarrow\;y_{1}=e^{-2x}\cos x,\quad y_{2}=e^{-2x}\sin x$$
+                                $$W=b\,e^{2ax}=1\cdot e^{-4x}=e^{-4x}$$
+                                <p><strong>Üsteller sadeleşiyor:</strong></p>
+                                $$u_{1}'=-\frac{e^{-2x}\sin x\cdot e^{-2x}\sec x}{e^{-4x}}=-\tan x\;\Longrightarrow\;u_{1}=\ln\left\vert\cos x\right\vert$$
+                                $$u_{2}'=\frac{e^{-2x}\cos x\cdot e^{-2x}\sec x}{e^{-4x}}=1\;\Longrightarrow\;u_{2}=x$$
+                                $$\boxed{\;y=e^{-2x}\left[c_{1}\cos x+c_{2}\sin x+\cos x\,\ln\left\vert\cos x\right\vert+x\sin x\right]\;}$$
+                                <p><span class="vurgu">Köşeli parantez, 3. sorunun cevabının birebir aynısı.</span> Üstel çarpan işin hiçbir adımını değiştirmedi.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $y''-2y'+5y=e^{x}\tan 2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$m^{2}-2m+5=0\;\Longrightarrow\;m=1\pm 2i\;\Longrightarrow\;y_{1}=e^{x}\cos 2x,\quad y_{2}=e^{x}\sin 2x$$
+                                $$W=2e^{2x}$$
+                                $$u_{1}'=-\frac{\sin 2x\tan 2x}{2}=-\frac{1-\cos^{2}2x}{2\cos 2x}=\frac{\cos 2x}{2}-\frac{\sec 2x}{2}$$
+                                $$u_{1}=\frac{\sin 2x}{4}-\frac{1}{4}\ln\left\vert\sec 2x+\tan 2x\right\vert$$
+                                $$u_{2}'=\frac{\cos 2x\tan 2x}{2}=\frac{\sin 2x}{2}\;\Longrightarrow\;u_{2}=-\frac{\cos 2x}{4}$$
+                                <p><strong>Birleştirelim.</strong> <span class="vurgu">$\sin 2x\cos 2x$ terimleri tam olarak götürüyor:</span></p>
+                                $$y_{p}=e^{x}\left[\underbrace{\frac{\cos 2x\sin 2x}{4}}_{u_{1}y_{1}\text{'den}}-\frac{\cos 2x}{4}\ln\left\vert\sec 2x+\tan 2x\right\vert\underbrace{-\frac{\cos 2x\sin 2x}{4}}_{u_{2}y_{2}\text{'den}}\right]$$
+                                $$\boxed{\;y=e^{x}\left[c_{1}\cos 2x+c_{2}\sin 2x-\frac{\cos 2x}{4}\,\ln\left\vert\sec 2x+\tan 2x\right\vert\right]\;}$$
+                                <p><span class="vurgu">Tek terimli, oldukça sade bir özel çözüm.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>9.</strong> &nbsp; $y''+6y'+9y=\dfrac{e^{-3x}}{x^{3}}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$m^{2}+6m+9=(m+3)^{2}\;\Longrightarrow\;y_{1}=e^{-3x},\quad y_{2}=xe^{-3x},\qquad W=e^{-6x}$$
+                                <p><strong>Üsteller yine sadeleşiyor</strong>, geriye saf kuvvetler kalıyor:</p>
+                                $$u_{1}'=-\frac{xe^{-3x}\cdot e^{-3x}x^{-3}}{e^{-6x}}=-\frac{1}{x^{2}}\;\Longrightarrow\;u_{1}=\frac{1}{x}$$
+                                $$u_{2}'=\frac{e^{-3x}\cdot e^{-3x}x^{-3}}{e^{-6x}}=\frac{1}{x^{3}}\;\Longrightarrow\;u_{2}=-\frac{1}{2x^{2}}$$
+                                $$y_{p}=\frac{e^{-3x}}{x}-\frac{xe^{-3x}}{2x^{2}}=\frac{e^{-3x}}{x}-\frac{e^{-3x}}{2x}=\frac{e^{-3x}}{2x}$$
+                                $$\boxed{\;y=e^{-3x}\left(c_{1}+c_{2}x+\frac{1}{2x}\right)\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=\tfrac12x^{-1}e^{-3x}$ için:</p>
+                                $$y_{p}'=\frac{e^{-3x}}{2}\left(-x^{-2}-3x^{-1}\right),\qquad y_{p}''=\frac{e^{-3x}}{2}\left(2x^{-3}+6x^{-2}+9x^{-1}\right)$$
+                                $$y_{p}''+6y_{p}'+9y_{p}=\frac{e^{-3x}}{2}\Big[2x^{-3}+\underbrace{(6-6)}_{0}x^{-2}+\underbrace{(9-18+9)}_{0}x^{-1}\Big]=\frac{e^{-3x}}{x^{3}}\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $y''-2y'+y=xe^{x}\ln x\quad(x&gt;0)$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$(m-1)^{2}=0\;\Longrightarrow\;y_{1}=e^{x},\quad y_{2}=xe^{x},\qquad W=e^{2x}$$
+                                $$u_{1}'=-\frac{xe^{x}\cdot xe^{x}\ln x}{e^{2x}}=-x^{2}\ln x,\qquad u_{2}'=\frac{e^{x}\cdot xe^{x}\ln x}{e^{2x}}=x\ln x$$
+                                <p><strong>Kısmi integrasyon</strong> ($u=\ln x$ seçilir):</p>
+                                $$u_{1}=-\left(\frac{x^{3}\ln x}{3}-\frac{x^{3}}{9}\right),\qquad u_{2}=\frac{x^{2}\ln x}{2}-\frac{x^{2}}{4}$$
+                                $$y_{p}=e^{x}x^{3}\left[\underbrace{-\frac{\ln x}{3}+\frac{\ln x}{2}}_{\frac{\ln x}{6}}+\underbrace{\frac{1}{9}-\frac{1}{4}}_{-\frac{5}{36}}\right]$$
+                                $$\boxed{\;y=e^{x}\left(c_{1}+c_{2}x\right)+x^{3}e^{x}\left(\frac{\ln x}{6}-\frac{5}{36}\right)\;}$$
+                                <p><strong>Doğrulama — sağ tarafın derecesi.</strong> $x^{3}e^{x}\ln x$ terimini iki kez türetip $y''-2y'+y$ içinde topladığınızda <span class="vurgu">$e^{x}$ katsayıları $(1-2+1)=0$ olduğu için yalnız $\ln x$'in türevlerinden gelen terimler kalır</span> ve derece $3$'ten $1$'e iner. Sağ taraftaki $xe^{x}\ln x$ ile uyumlu.</p>
+                                <p><strong>Ara kontrol:</strong> $\int x^{2}\ln x\,dx=\dfrac{x^{3}\ln x}{3}-\dfrac{x^{3}}{9}$ &nbsp;— türevini alın: &nbsp;$x^{2}\ln x+\dfrac{x^{2}}{3}-\dfrac{x^{2}}{3}=x^{2}\ln x$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>Tekrarlı kökte özel çözümün derecesi.</strong> $y_{1}=e^{ax}$, $y_{2}=xe^{ax}$ olduğunda $W=e^{2ax}$ <span class="vurgu">sabit gibi davranır</span> ve integraller sağ taraftaki polinomun derecesini <strong>ikişer</strong> yükseltir.</p>
+                                    <p>Burada sağ taraf $x^{1}e^{x}\ln x$ idi, özel çözüm $x^{3}e^{x}\ln x$ mertebesinde çıktı — <span class="vurgu">tam iki derece yukarı.</span> Belirsiz katsayılarla çözecek olsaydınız denemeyi $x^{2}$ ile çarpmanız gerekirdi; aynı bilgi.</p>
+                                    <p>$\ln x$ olduğu için belirsiz katsayılar burada zaten uygulanamaz, ama <span class="vurgu">derece tahmini sonucu kontrol etmenin hızlı yoludur.</span></p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="question-block"><p class="question-text">11. &nbsp; $y^{\prime\prime}+y=\sec x\csc x$</p></div>
                         <div class="question-block"><p class="question-text">12. &nbsp; $y^{\prime\prime}+y=\tan^{3}x$</p></div>
                         <div class="question-block"><p class="question-text">13. &nbsp; $y^{\prime\prime}+3y^{\prime}+2y=\dfrac{1}{1+e^{x}}$</p></div>

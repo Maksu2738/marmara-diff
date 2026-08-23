@@ -257,34 +257,194 @@ Kısmi kesirlerle bulduğumuzun aynısı. ==İki bağımsız yol.==
 [/KUTU]
 [/CEVAP]
 
----
+[SORU] **6.** &nbsp; $F(s)=\dfrac{s+10}{s^{2}+2s-8}\,e^{-2s}$
+[CEVAP]
+**Adım 1 — Paydayı çarpanlara ayır.** $\Delta=4+32=36>0$, çarpanlanıyor:
 
-### Çalışma soruları
+$$s^{2}+2s-8=(s+4)(s-2)$$
 
-Aşağıdakiler henüz çözülmedi; sıraya alındı.
+**Adım 2 — Kısmi kesirler.**
 
-**6.** &nbsp; $F(s)=\dfrac{s+10}{s^{2}+2s-8}\,e^{-2s}$
+$$\frac{s+10}{(s+4)(s-2)}=\frac{A}{s+4}+\frac{B}{s-2}$$
 
-**8.** &nbsp; $F(s)=\dfrac{2s+9}{s^{2}+4s+13}\,e^{-3s}$
+$s=-4$: &nbsp; $A=\dfrac{-4+10}{-6}=-1$ &nbsp;&nbsp;&nbsp; $s=2$: &nbsp; $B=\dfrac{2+10}{6}=2$
 
-**10.** &nbsp; $F(s)=\dfrac{e^{-3s}-e^{-8s}}{s^{3}}$
+$$g(t)=2e^{2t}-e^{-4t}$$
 
-**12.** &nbsp; $F(s)=\dfrac{2-e^{-3s}}{s^{2}+9}$
+**Adım 3 — Ötele.** $a=2$; üstelde öteleme sadeleşmez:
 
-**14.** &nbsp; $F(s)=\dfrac{4\left(e^{-2s}-1\right)}{s\left(s^{2}+4\right)}$
+$$\boxed{\;f(t)=\begin{cases}0, & 0<t<2\\[4pt] 2e^{2(t-2)}-e^{-4(t-2)}, & t>2\end{cases}\;}$$
+
+**Doğrulama (ileri dönüşüm).**
+
+$$\frac{-1}{s+4}+\frac{2}{s-2}=\frac{-(s-2)+2(s+4)}{(s+4)(s-2)}=\frac{s+10}{s^{2}+2s-8}\;\checkmark$$
+
+**Başlangıç kontrolü.** $f(2^{+})=2-1=1$ ve $g(0)=2-1=1$ &#10003;
+
+==Derece farkı $1$ olduğu için sıfırdan farklı çıkması beklenen bir sonuç== (4. sorudaki kutuya bakınız).
+[/CEVAP]
+
+[SORU] **8.** &nbsp; $F(s)=\dfrac{2s+9}{s^{2}+4s+13}\,e^{-3s}$
+[CEVAP]
+**Adım 1 — Tamkareye tamamla.** $\Delta=16-52<0$, çarpanlanmıyor:
+
+$$s^{2}+4s+13=(s+2)^{2}+9$$
+
+**Adım 2 — Payı da $s+2$ cinsine sok.**
+
+$$2s+9=2(s+2)+5$$
+
+$$G(s)=\frac{2(s+2)}{(s+2)^{2}+9}+\frac{5}{3}\cdot\frac{3}{(s+2)^{2}+9}$$
+
+==Sinüs teriminde payı $3$'e tamamladık==, bu yüzden katsayı $\tfrac{5}{3}$ oldu.
+
+$$g(t)=e^{-2t}\left[2\cos 3t+\frac{5}{3}\sin 3t\right]$$
+
+**Adım 3 — Ötele.** $a=3$, açısal frekans $b=3$; ==çarpım $ba=9$, $\pi$'nin katı değil==, dolayısıyla **sadeleşme yok**. Öteleme olduğu gibi kalır:
+
+$$\boxed{\;f(t)=\begin{cases}0, & 0<t<3\\[6pt] e^{-2(t-3)}\left[2\cos 3(t-3)+\dfrac{5}{3}\sin 3(t-3)\right], & t>3\end{cases}\;}$$
+
+**Doğrulama (ileri dönüşüm).**
+
+$$\frac{2(s+2)+5}{(s+2)^{2}+9}=\frac{2s+9}{s^{2}+4s+13}\;\checkmark$$
+
+**Başlangıç kontrolü.** $f(3^{+})=e^{0}\left[2\cdot 1+0\right]=2$ ve $g(0)=2$ &#10003;
 
 [KUTU]
-**İpuçları.**
+**5, 7 ve 8'i yan yana koyun.** Üçünde de $a$ ve $b$ var, ama sonuç bambaşka:
 
-**6** → 4 gibi: $s^{2}+2s-8=(s+4)(s-2)$, kısmi kesirler.
+<div class="tablo-sar">
+<table>
+<tr><th>Soru</th><th>$b\cdot a$</th><th>Ne oldu</th></tr>
+<tr><td>5</td><td>$3\pi$</td><td>işaret çevirdi</td></tr>
+<tr><td>7</td><td>$\tfrac{3\pi}{2}$</td><td>$\sin$ ile $\cos$ yer değiştirdi</td></tr>
+<tr><td>8</td><td>$9$</td><td>hiçbir şey — sadeleşme yok</td></tr>
+</table>
+</div>
 
-**8** → 7 gibi tamkare: $s^{2}+4s+13=(s+2)^{2}+9$. Ama dikkat — $a=3$ ve açısal frekans $3$; çarpım $9$, ==$\pi$'nin katı değil==, dolayısıyla sadeleşme olmaz, cevap $\cos 3(t-3)$ ve $\sin 3(t-3)$ cinsinden kalır.
+$\pi$ görmüyorsanız sadeleştirmeye çalışmayın; ==cevabı $t-a$ cinsinden bırakmak doğru cevaptır.==
+[/KUTU]
+[/CEVAP]
 
-**10** → 9 gibi ama $\dfrac{1}{s^{3}}\to\dfrac{t^{2}}{2}$; üç parçalı cevap çıkar ve son parça sabit değil **doğrusal** olur.
+[SORU] **10.** &nbsp; $F(s)=\dfrac{e^{-3s}-e^{-8s}}{s^{3}}$
+[CEVAP]
+**Adım 1 — İki ayrı ötelemeye böl.**
 
-**12** → 11 gibi ama katsayılar $2$ ve $-1$, $a=3$, frekans $3$; yine $\pi$ katı değil.
+$$\mathcal{L}^{-1}\left\{\frac{1}{s^{3}}\right\}=\frac{t^{2}}{2}$$
 
-**14** → önce kısmi kesirlere ayırın: $\dfrac{4}{s\left(s^{2}+4\right)}=\dfrac{1}{s}-\dfrac{s}{s^{2}+4}$. İşarete dikkat, parantez $e^{-2s}-1$ yani ==ötelenmemiş parça eksi işaretli==.
+$$f(t)=\frac{(t-3)^{2}}{2}\,u_{3}(t)-\frac{(t-8)^{2}}{2}\,u_{8}(t)$$
 
-**Doğrulama.** Hepsinde $f(a^{+})=g(0)$ kontrolünü yapın; 12 ve 14'te ötelenmemiş parça da olduğu için $f(a^{+})=g(a)+g(0)$ biçiminde olur.
+**Adım 2 — Üçüncü aralığı sadeleştir.** $t>8$ için iki terim de etkin. İki kare farkını çarpanlara ayıralım:
+
+$$(t-3)^{2}-(t-8)^{2}=\big[(t-3)-(t-8)\big]\big[(t-3)+(t-8)\big]=5(2t-11)$$
+
+$$\frac{5(2t-11)}{2}=5t-\frac{55}{2}$$
+
+==Kareler götürüp geriye doğrusal bir ifade kalıyor.==
+
+$$\boxed{\;f(t)=\begin{cases}0, & 0<t<3\\[6pt] \dfrac{(t-3)^{2}}{2}, & 3<t<8\\[6pt] 5t-\dfrac{55}{2}, & t>8\end{cases}\;}$$
+
+**Doğrulama (süreklilik ve türev sürekliliği).**
+
+$t=3$'te: ikinci ifade $\to 0$ &#10003;
+
+$t=8$'de: ikinci ifade $\to\dfrac{25}{2}=12{,}5$; &nbsp; üçüncü ifade $\to 40-27{,}5=12{,}5$ &#10003;
+
+Türevler de uyuşuyor: ikinci parçanın türevi $t-3$, $t=8$'de $5$; üçüncü parçanın türevi sabit $5$ &#10003;
+
+==Fonksiyon hem sürekli hem türevi sürekli== — $\dfrac{1}{s^{3}}$ gibi yüksek dereceli bir paydada beklenen davranış budur.
+
+[KUTU]
+**9. soruyla karşılaştırın.** Orada payda $s^{2}$ idi ve üçüncü parça **sabit** ($3$) çıkmıştı. Burada payda $s^{3}$ ve üçüncü parça **doğrusal**.
+
+**Kural:** iki eşit ağırlıklı öteleme birbirini götürdüğünde derece bir düşer. $s^{2}$ rampayı sabite indiriyordu, $s^{3}$ parabolü rampaya indiriyor.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **12.** &nbsp; $F(s)=\dfrac{2-e^{-3s}}{s^{2}+9}$
+[CEVAP]
+**Adım 1 — Çarpanı aç.**
+
+$$F(s)=2G(s)-e^{-3s}G(s),\qquad G(s)=\frac{1}{s^{2}+9}\;\Longrightarrow\;g(t)=\frac{1}{3}\sin 3t$$
+
+**Adım 2 — Ötelenmiş parça.** $a=3$, $b=3$; ==$ba=9$ yine $\pi$'nin katı değil==, sadeleşme yok:
+
+$$g(t-3)=\frac{1}{3}\sin 3(t-3)$$
+
+**Adım 3 — Parçalı yaz.**
+
+$$\boxed{\;f(t)=\begin{cases}\dfrac{2}{3}\sin 3t, & 0<t<3\\[8pt] \dfrac{2}{3}\sin 3t-\dfrac{1}{3}\sin 3(t-3), & t>3\end{cases}\;}$$
+
+**Doğrulama (süreklilik).** $t=3$'te:
+
+birinci ifade $\to\dfrac{2}{3}\sin 9$; &nbsp; ikinci ifade $\to\dfrac{2}{3}\sin 9-\dfrac{1}{3}\sin 0=\dfrac{2}{3}\sin 9$ &#10003;
+
+**Başlangıç kontrolü.** $f(0)=\dfrac{2}{3}\sin 0=0$; derece farkı $2$ olduğu için beklenen sonuç &#10003;
+
+[KUTU]
+**11. soruyla farkı.** Orada $a=\pi$, $b=2$, çarpım $2\pi$ idi; iki terim ==aynı fazda== birleşip genliği ikiye katlamıştı. Burada $ba=9$ olduğu için iki sinüs farklı fazda ve **birleştirilemiyor**.
+
+Zorlamak isterseniz açı toplama formülüyle $\sin(3t-9)=\sin 3t\cos 9-\cos 3t\sin 9$ yazıp toplayabilirsiniz, ama sonuç daha karışık olur. ==Cevabı olduğu gibi bırakmak doğru.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **14.** &nbsp; $F(s)=\dfrac{4\left(e^{-2s}-1\right)}{s\left(s^{2}+4\right)}$
+[CEVAP]
+**Adım 1 — Önce $G$'yi bul.**
+
+$$\frac{4}{s\left(s^{2}+4\right)}=\frac{1}{s}-\frac{s}{s^{2}+4}$$
+
+**Kontrol:** ortak paydada $\dfrac{\left(s^{2}+4\right)-s^{2}}{s\left(s^{2}+4\right)}=\dfrac{4}{s\left(s^{2}+4\right)}$ &#10003;
+
+$$g(t)=1-\cos 2t$$
+
+**Adım 2 — İşarete dikkat.** Parantez $e^{-2s}-1$, yani ==ötelenmemiş parça eksi işaretli:==
+
+$$F(s)=e^{-2s}G(s)-G(s)\;\Longrightarrow\;f(t)=g(t-2)\,u_{2}(t)-g(t)$$
+
+**Adım 3 — Parçalı yaz.**
+
+$0<t<2$ için yalnız ikinci terim: &nbsp; $-\left(1-\cos 2t\right)=\cos 2t-1$
+
+$t>2$ için ikisi birden:
+
+$$\left[1-\cos 2(t-2)\right]-\left[1-\cos 2t\right]=\cos 2t-\cos 2(t-2)$$
+
+==Sabit $1$'ler götürüyor.==
+
+$$\boxed{\;f(t)=\begin{cases}\cos 2t-1, & 0<t<2\\[4pt] \cos 2t-\cos 2(t-2), & t>2\end{cases}\;}$$
+
+**Doğrulama (süreklilik).** $t=2$'de:
+
+birinci ifade $\to\cos 4-1$; &nbsp; ikinci ifade $\to\cos 4-\cos 0=\cos 4-1$ &#10003;
+
+**Doğrulama (başlangıç değer THEoREM'i).** $f(0)=\cos 0-1=0$ olmalı:
+
+$$sF(s)=\frac{4\left(e^{-2s}-1\right)}{s^{2}+4}\;\xrightarrow{\;s\to\infty\;}\;\frac{4(0-1)}{\infty}=0\;\checkmark$$
+
+[KUTU]
+**Bu setteki tek "ters işaretli" soru.** Diğerlerinde ötelenmemiş parça artıydı; burada $e^{-2s}-1$ yazıldığı için ==önce eksi bir kopya, sonra ötelenmiş artı kopya== geliyor.
+
+Pratikte anlamı: fonksiyon $t=0$'da sıfırdan başlayıp aşağı salınıyor, $t=2$'de ikinci bir kaynak devreye girip onu kısmen dengeliyor. Sabit terimlerin götürmesi de bunun cebirsel karşılığı.
+[/KUTU]
+[/CEVAP]
+
+[KUTU]
+**Setin tamamı bitti.** 14 sorunun 14'ü çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar ==ileri dönüşüm, süreklilik kontrolü ve başlangıç değer THEoREM'i== ile doğrulanmıştır.
+
+**Setin özeti — öteleme sonrası ne olur?**
+
+Belirleyici olan **$b\cdot a$ çarpımıdır** ($b$ açısal frekans, $a$ öteleme miktarı):
+
+<div class="tablo-sar">
+<table>
+<tr><th>$b\cdot a$</th><th>Sonuç</th><th>Soru</th></tr>
+<tr><td>$2k\pi$</td><td>hiçbir şey değişmez</td><td>11</td></tr>
+<tr><td>$(2k+1)\pi$</td><td>işaret çevirir</td><td>5, 13</td></tr>
+<tr><td>çeyrek periyodun tek katı</td><td>$\sin\leftrightarrow\cos$</td><td>7</td></tr>
+<tr><td>$\pi$'nin katı değil</td><td>sadeleşme yok, $t-a$ cinsinde bırakılır</td><td>8, 12</td></tr>
+</table>
+</div>
+
+Üstel çarpanda öteleme **asla** sadeleşmez (3, 6). Polinomda ise açılır ve derece düşebilir (1, 9, 10).
 [/KUTU]

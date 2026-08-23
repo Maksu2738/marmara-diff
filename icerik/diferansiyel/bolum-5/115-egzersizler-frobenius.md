@@ -359,13 +359,273 @@ $x^{11/2}$: &nbsp; $\tfrac{110}{468}-\tfrac{104}{468}-\tfrac{6}{468}=0$ &#10003;
 
 ---
 
-### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (7-32) — çözülmeyi bekleyen
+[SORU] **7.** &nbsp; $x^{2}y''-xy'+\left(x^{2}+\dfrac{8}{9}\right)y=0$
+[CEVAP]
+**Adım 1 — Katsayıları oku.** Denklem zaten standart biçimde: $b_{0}=-1$, &nbsp;$c_{0}=\dfrac{8}{9}$.
 
-7. &nbsp; $x^{2}y''-xy'+\left(x^{2}+\frac{8}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 8. &nbsp; $x^{2}y''-xy'+\left(2x^{2}+\frac{5}{9}\right)y=0$
+**Adım 2 — Başlangıç denklemi.**
 
-9. &nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 11. &nbsp; $3xy''-(x-2)y'-2y=0$
+$$r(r-1)-r+\frac{8}{9}=r^{2}-2r+\frac{8}{9}=0\;\Longrightarrow\;9r^{2}-18r+8=0$$
 
-12. &nbsp; $2x^{2}y''+5xy'+(2x-2)y=0$ &nbsp;&nbsp;&nbsp; 13. &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$
+$$r=\frac{18\pm 6}{18}\;\Longrightarrow\;r_{1}=\frac{4}{3},\quad r_{2}=\frac{2}{3}$$
+
+Kök farkı $\tfrac23$, ==tam sayı değil== &nbsp;$\Rightarrow$&nbsp; en kolay durum.
+
+**Adım 3 — İndirgeme bağıntısı.** $m=n+r$ için $m^{2}-2m+\tfrac89=\left(m-\tfrac43\right)\left(m-\tfrac23\right)$:
+
+$$\boxed{\;a_{n}=-\frac{a_{n-2}}{\left(n+r-\tfrac43\right)\left(n+r-\tfrac23\right)}\;}$$
+
+$n=1$'de katsayı her iki kökte de sıfırdan farklı ($\tfrac53$ ve $\tfrac13$) &nbsp;$\Rightarrow$&nbsp; $a_{1}=0$, tek indisler yok.
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac43$.** Bağıntı $a_{n}=-\dfrac{3a_{n-2}}{n(3n+2)}$:
+
+$$a_{2}=-\frac{3a_{0}}{16},\qquad a_{4}=-\frac{3a_{2}}{56}=\frac{9a_{0}}{896}$$
+
+$$\boxed{\;y_{1}=x^{4/3}\left(1-\frac{3x^{2}}{16}+\frac{9x^{4}}{896}-\cdots\right)\;}$$
+
+**Adım 5 — Küçük kök $r_{2}=\tfrac23$.** Bağıntı $a_{n}=-\dfrac{3a_{n-2}}{n(3n-2)}$:
+
+$$a_{2}=-\frac{3a_{0}}{8},\qquad a_{4}=-\frac{3a_{2}}{40}=\frac{9a_{0}}{320}$$
+
+$$\boxed{\;y_{2}=x^{2/3}\left(1-\frac{3x^{2}}{8}+\frac{9x^{4}}{320}-\cdots\right)\;}$$
+
+**Doğrulama — katsayıları denkleme geri koy.** Kontrol edilen ifade $\left(m^{2}-2m+\tfrac89\right)a_{n}+a_{n-2}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kök</th><th>$n$</th><th>$m^{2}-2m+\tfrac89$</th><th>Hesap</th><th>Sonuç</th></tr>
+<tr><td>$\tfrac43$</td><td>$2$</td><td>$\tfrac{16}{3}$</td><td>$\tfrac{16}{3}\left(-\tfrac{3}{16}\right)+1$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$\tfrac43$</td><td>$4$</td><td>$\tfrac{56}{3}$</td><td>$\tfrac{56}{3}\cdot\tfrac{9}{896}-\tfrac{3}{16}$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$\tfrac23$</td><td>$2$</td><td>$\tfrac{8}{3}$</td><td>$\tfrac83\left(-\tfrac38\right)+1$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$\tfrac23$</td><td>$4$</td><td>$\tfrac{40}{3}$</td><td>$\tfrac{40}{3}\cdot\tfrac{9}{320}-\tfrac38$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+[/CEVAP]
+
+[SORU] **8.** &nbsp; $x^{2}y''-xy'+\left(2x^{2}+\dfrac{5}{9}\right)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b_{0}=-1$, &nbsp;$c_{0}=\dfrac{5}{9}$:
+
+$$r^{2}-2r+\frac{5}{9}=0\;\Longrightarrow\;9r^{2}-18r+5=0\;\Longrightarrow\;r=\frac{18\pm 12}{18}$$
+
+$$r_{1}=\frac{5}{3},\qquad r_{2}=\frac{1}{3}$$
+
+Kök farkı $\tfrac43$, tam sayı değil.
+
+**Adım 2 — İndirgeme bağıntısı.** $m^{2}-2m+\tfrac59=\left(m-\tfrac53\right)\left(m-\tfrac13\right)$; ==bu kez $x^{2}$'nin katsayısı $2$ olduğu için payda da $2$ var:==
+
+$$\boxed{\;a_{n}=-\frac{2a_{n-2}}{\left(n+r-\tfrac53\right)\left(n+r-\tfrac13\right)}\;}$$
+
+$n=1$'de katsayılar $\tfrac73$ ve $-\tfrac13$, ikisi de sıfırdan farklı &nbsp;$\Rightarrow$&nbsp; $a_{1}=0$.
+
+**Adım 3 — Büyük kök $r_{1}=\tfrac53$.** Bağıntı $a_{n}=-\dfrac{6a_{n-2}}{n(3n+4)}$:
+
+$$a_{2}=-\frac{3a_{0}}{10},\qquad a_{4}=\frac{9a_{0}}{320}$$
+
+$$\boxed{\;y_{1}=x^{5/3}\left(1-\frac{3x^{2}}{10}+\frac{9x^{4}}{320}-\cdots\right)\;}$$
+
+**Adım 4 — Küçük kök $r_{2}=\tfrac13$.** Bağıntı $a_{n}=-\dfrac{6a_{n-2}}{n(3n-4)}$:
+
+$$a_{2}=-\frac{3a_{0}}{2},\qquad a_{4}=\frac{9a_{0}}{32}$$
+
+$$\boxed{\;y_{2}=x^{1/3}\left(1-\frac{3x^{2}}{2}+\frac{9x^{4}}{32}-\cdots\right)\;}$$
+
+**Doğrulama.** Kontrol edilen ifade $\left(m^{2}-2m+\tfrac59\right)a_{n}+2a_{n-2}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kök</th><th>$n$</th><th>Çarpan</th><th>Hesap</th><th>Sonuç</th></tr>
+<tr><td>$\tfrac53$</td><td>$2$</td><td>$\tfrac{20}{3}$</td><td>$\tfrac{20}{3}\left(-\tfrac{3}{10}\right)+2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$\tfrac53$</td><td>$4$</td><td>$\tfrac{64}{3}$</td><td>$\tfrac{64}{3}\cdot\tfrac{9}{320}-\tfrac{3}{5}$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$\tfrac13$</td><td>$2$</td><td>$\tfrac{4}{3}$</td><td>$\tfrac43\left(-\tfrac32\right)+2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$\tfrac13$</td><td>$4$</td><td>$\tfrac{32}{3}$</td><td>$\tfrac{32}{3}\cdot\tfrac{9}{32}-3$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+==7 ile 8 arasındaki tek fark:== sabit terim ($\tfrac89$ yerine $\tfrac59$) ve $x^{2}$'nin katsayısı ($1$ yerine $2$). İlki kökleri, ikincisi bağıntının payını değiştiriyor.
+[/CEVAP]
+
+[SORU] **9.** &nbsp; $x^{2}y''+xy'+\left(x^{2}-\dfrac{1}{9}\right)y=0$
+[CEVAP]
+**Bu denklemi tanıyın:** Bessel denkleminin ta kendisi, ==$p=\dfrac13$ ile.==
+
+$$x^{2}y''+xy'+\left(x^{2}-p^{2}\right)y=0,\qquad p=\frac{1}{3}$$
+
+**Adım 1 — Başlangıç denklemi.** Bessel'de $b_{0}=1$, $c_{0}=-p^{2}$ olduğundan
+
+$$r(r-1)+r-\frac{1}{9}=r^{2}-\frac{1}{9}=0\;\Longrightarrow\;r=\pm\frac{1}{3}$$
+
+Kök farkı $2p=\tfrac23$, ==tam sayı değil== &nbsp;$\Rightarrow$&nbsp; $J_{1/3}$ ve $J_{-1/3}$ bağımsız, $Y_{p}$'ye gerek yok.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;a_{n}=-\frac{a_{n-2}}{(n+r)^{2}-\tfrac19}\;}$$
+
+$n=1$'de katsayılar $\tfrac{15}{9}$ ve $\tfrac13$ &nbsp;$\Rightarrow$&nbsp; $a_{1}=0$.
+
+**Adım 3 — $r=\tfrac13$.** $\left(n+\tfrac13\right)^{2}-\tfrac19=n\left(n+\tfrac23\right)=\dfrac{n(3n+2)}{3}$:
+
+$$a_{n}=-\frac{3a_{n-2}}{n(3n+2)}\;\Longrightarrow\;a_{2}=-\frac{3a_{0}}{16},\quad a_{4}=\frac{9a_{0}}{896}$$
+
+$$\boxed{\;y_{1}=x^{1/3}\left(1-\frac{3x^{2}}{16}+\frac{9x^{4}}{896}-\cdots\right)\;}$$
+
+**Adım 4 — $r=-\tfrac13$.** $\left(n-\tfrac13\right)^{2}-\tfrac19=n\left(n-\tfrac23\right)=\dfrac{n(3n-2)}{3}$:
+
+$$a_{n}=-\frac{3a_{n-2}}{n(3n-2)}\;\Longrightarrow\;a_{2}=-\frac{3a_{0}}{8},\quad a_{4}=\frac{9a_{0}}{320}$$
+
+$$\boxed{\;y_{2}=x^{-1/3}\left(1-\frac{3x^{2}}{8}+\frac{9x^{4}}{320}-\cdots\right)\;}$$
+
+**Doğrulama 1 — katsayılar.** Kontrol edilen ifade $\left[(n+r)^{2}-\tfrac19\right]a_{n}+a_{n-2}$:
+
+$r=\tfrac13$, $n=2$: &nbsp; $\tfrac{16}{3}\left(-\tfrac{3}{16}\right)+1=0$ &#10003; &nbsp;&nbsp; $n=4$: &nbsp; $\tfrac{56}{3}\cdot\tfrac{9}{896}-\tfrac{3}{16}=0$ &#10003;
+
+$r=-\tfrac13$, $n=2$: &nbsp; $\tfrac{8}{3}\left(-\tfrac38\right)+1=0$ &#10003; &nbsp;&nbsp; $n=4$: &nbsp; $\tfrac{40}{3}\cdot\tfrac{9}{320}-\tfrac38=0$ &#10003;
+
+**Doğrulama 2 — 7. soruyla bağlantı.** ==Bulduğumuz seriler, 7. sorununkilerle birebir aynı.== Bu tesadüf değil: 7. soruda $y=xu$ dönüştürmesi yapılırsa
+
+$$x^{2}(xu)''-x(xu)'+\left(x^{2}+\tfrac89\right)(xu)=x\left[x^{2}u''+xu'+\left(x^{2}-\tfrac19\right)u\right]$$
+
+==Yani 7. soru, 9. sorunun $x$ ile çarpılmış hâlidir.== Nitekim
+
+$$y_{1}^{(7)}=x\cdot y_{1}^{(9)},\qquad y_{2}^{(7)}=x\cdot y_{2}^{(9)}$$
+
+İki soruyu bağımsız olarak çözdük ve seriler tuttu — ==bu, ikisi için birden bağımsız bir doğrulamadır.==
+
+[KUTU]
+**Bölüm 6.3'e köprü.** Bulduğunuz $y_{1}$ ve $y_{2}$, sabit çarpan farkıyla ==Bessel fonksiyonları $J_{1/3}(x)$ ve $J_{-1/3}(x)$'tir.==
+
+Standart gösterimde $J_{p}$'nin katsayıları gama fonksiyonu içerir; biz $a_{0}=1$ aldığımız için o normalizasyon çıkmadı. ==Diferansiyel denklemin çözümü olmak için normalizasyon gerekmez== — Legendre polinomlarında da aynı durum vardı.
+
+**Sınavda tanıma:** $x^{2}y''+xy'+\left(x^{2}-\text{sabit}\right)y=0$ kalıbını görürseniz Bessel'dir ve ==başlangıç denklemi doğrudan $r^{2}=$ o sabittir.== Sabit tam kare değilse (burada $\tfrac19$, $p=\tfrac13$) kök farkı tam sayı olmaz ve iş kolaydır.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **11.** &nbsp; $3xy''-(x-2)y'-2y=0$
+[CEVAP]
+**Adım 1 — Standart biçime sok.** $x$ ile çarpıp $3$'e bölelim:
+
+$$x^{2}y''+x\cdot\underbrace{\frac{2-x}{3}}_{b(x)}\,y'+\underbrace{\left(-\frac{2x}{3}\right)}_{c(x)}y=0\;\Longrightarrow\;b_{0}=\frac{2}{3},\quad c_{0}=0$$
+
+**Adım 2 — Başlangıç denklemi.** ==$c_{0}=0$ olduğu için $r=0$ kesin bir köktür:==
+
+$$r(r-1)+\frac{2}{3}r=r\left(r-\frac{1}{3}\right)=0\;\Longrightarrow\;r_{1}=\frac{1}{3},\quad r_{2}=0$$
+
+Kök farkı $\tfrac13$, tam sayı değil.
+
+**Adım 3 — İndirgeme bağıntısı.** $3x^{2}y''-x^{2}y'+2xy'-2xy=0$ biçiminden, $m=n+r$ için:
+
+$$\underbrace{\left[3m(m-1)+2m\right]}_{m(3m-1)}a_{n}-\underbrace{\left[(m-1)+2\right]}_{m+1}a_{n-1}=0$$
+
+$$\boxed{\;a_{n}=\frac{(n+r+1)\,a_{n-1}}{(n+r)\left(3(n+r)-1\right)}\;}$$
+
+==Bu bağıntı ardışık katsayıları bağlıyor ($a_{n-1}$), o yüzden tek indisler sıfırlanmıyor== — seriler bütün kuvvetleri taşır.
+
+**Adım 4 — $r_{2}=0$.** Bağıntı $a_{n}=\dfrac{(n+1)a_{n-1}}{n(3n-1)}$:
+
+$$a_{1}=\frac{2a_{0}}{2}=a_{0},\quad a_{2}=\frac{3a_{1}}{10}=\frac{3a_{0}}{10},\quad a_{3}=\frac{4a_{2}}{24}=\frac{a_{0}}{20}$$
+
+$$\boxed{\;y_{2}=1+x+\frac{3x^{2}}{10}+\frac{x^{3}}{20}+\cdots\;}$$
+
+==Bu çözüm analitik== ($r=0$ ve seri düzgün), yani $x=0$'da sonlu.
+
+**Adım 5 — $r_{1}=\tfrac13$.** Bağıntı $a_{n}=\dfrac{(3n+4)a_{n-1}}{3n(3n+1)}$:
+
+$$a_{1}=\frac{7a_{0}}{12},\quad a_{2}=\frac{10a_{1}}{42}=\frac{5a_{0}}{36},\quad a_{3}=\frac{13a_{2}}{90}=\frac{13a_{0}}{648}$$
+
+$$\boxed{\;y_{1}=x^{1/3}\left(1+\frac{7x}{12}+\frac{5x^{2}}{36}+\frac{13x^{3}}{648}+\cdots\right)\;}$$
+
+**Doğrulama — $y_{2}$'yi doğrudan denkleme koy.** $y=1+x+\dfrac{3x^{2}}{10}+\dfrac{x^{3}}{20}$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$3xy''$</th><th>$-xy'$</th><th>$2y'$</th><th>$-2y$</th><th>Toplam</th></tr>
+<tr><td>$x^{0}$</td><td>$0$</td><td>$0$</td><td>$2$</td><td>$-2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{1}$</td><td>$\tfrac95$</td><td>$-1$</td><td>$\tfrac65$</td><td>$-2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{2}$</td><td>$\tfrac{9}{10}$</td><td>$-\tfrac35$</td><td>$\tfrac{3}{10}$</td><td>$-\tfrac35$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+[KUTU]
+**$c_{0}=0$ ne anlama geliyor?** Başlangıç denklemi $r\left(r+b_{0}-1\right)=0$ biçimine iner, yani ==$r=0$ her zaman bir köktür== ve ona karşılık gelen çözüm **analitiktir** (adi bir kuvvet serisi, $x^{r}$ çarpanı yok).
+
+**Nasıl tanınır:** denklemi standart biçime soktuğunuzda $c(x)$'in sabit terimi yoksa ($c(0)=0$), bu durumdasınız. Buradaki $c(x)=-\tfrac{2x}{3}$ tam olarak öyle.
+
+**Pratik sonuç:** böyle bir problemde ==bir çözümü düz kuvvet serisi olarak yazabilirsiniz==, $x^{r}$ çarpanıyla uğraşmadan. Öteki kök ($r=1-b_{0}$) kesirli çıkar ve asıl Frobenius işi orada olur.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **12.** &nbsp; $2x^{2}y''+5xy'+(2x-2)y=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** İkiye bölelim: $b_{0}=\dfrac{5}{2}$, &nbsp;$c_{0}=-1$.
+
+**Adım 2 — Başlangıç denklemi.**
+
+$$r(r-1)+\frac{5}{2}r-1=r^{2}+\frac{3}{2}r-1=0\;\Longrightarrow\;2r^{2}+3r-2=0\;\Longrightarrow\;(2r-1)(r+2)=0$$
+
+$$r_{1}=\frac{1}{2},\qquad r_{2}=-2$$
+
+Kök farkı $\tfrac52$, tam sayı değil.
+
+**Adım 3 — İndirgeme bağıntısı.** $m=n+r$ için $2m^{2}+3m-2=(2m-1)(m+2)$:
+
+$$\boxed{\;a_{n}=-\frac{2a_{n-1}}{\left(2(n+r)-1\right)(n+r+2)}\;}$$
+
+==Ardışık bağıntı== ($a_{n-1}$), bütün kuvvetler var.
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac12$.** Bağıntı $a_{n}=-\dfrac{2a_{n-1}}{n(2n+5)}$:
+
+$$a_{1}=-\frac{2a_{0}}{7},\quad a_{2}=-\frac{a_{1}}{9}=\frac{2a_{0}}{63},\quad a_{3}=-\frac{2a_{2}}{33}=-\frac{4a_{0}}{2079}$$
+
+$$\boxed{\;y_{1}=x^{1/2}\left(1-\frac{2x}{7}+\frac{2x^{2}}{63}-\frac{4x^{3}}{2079}+\cdots\right)\;}$$
+
+**Adım 5 — Küçük kök $r_{2}=-2$.** Bağıntı $a_{n}=-\dfrac{2a_{n-1}}{n(2n-5)}$:
+
+$$a_{1}=-\frac{2a_{0}}{-3}=\frac{2a_{0}}{3},\quad a_{2}=-\frac{2a_{1}}{-2}=a_{1}=\frac{2a_{0}}{3}$$
+
+$$a_{3}=-\frac{2a_{2}}{3}=-\frac{4a_{0}}{9},\qquad a_{4}=-\frac{2a_{3}}{12}=\frac{2a_{0}}{27}$$
+
+$$\boxed{\;y_{2}=x^{-2}\left(1+\frac{2x}{3}+\frac{2x^{2}}{3}-\frac{4x^{3}}{9}+\frac{2x^{4}}{27}+\cdots\right)\;}$$
+
+==İlk iki katsayının işareti pozitif çıktı==, çünkü $2n-5$ çarpanı $n=1$ ve $n=2$'de negatif. $n=3$'ten sonra işaretler düzene giriyor.
+
+**Doğrulama — $y_{2}$'yi doğrudan denkleme koy.** $y=x^{-2}+\dfrac{2}{3}x^{-1}+\dfrac{2}{3}-\dfrac{4}{9}x+\cdots$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$2x^{2}y''$</th><th>$5xy'$</th><th>$2xy$</th><th>$-2y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-2}$</td><td>$12$</td><td>$-10$</td><td>$0$</td><td>$-2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-1}$</td><td>$\tfrac83$</td><td>$-\tfrac{10}{3}$</td><td>$2$</td><td>$-\tfrac43$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{0}$</td><td>$0$</td><td>$0$</td><td>$\tfrac43$</td><td>$-\tfrac43$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{1}$</td><td>$0$</td><td>$-\tfrac{20}{9}$</td><td>$\tfrac43$</td><td>$\tfrac89$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+==Dört kuvvet, dört katsayıyı da sınıyor.==
+
+[KUTU]
+**"$2x^{2}y''$ kalıbı" — 5, 6 ve 12 birlikte.** Üçünde de başkatsayı $2x^{2}$; başlangıç denklemleri:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Soru</th><th>$b_{0}$</th><th>Başlangıç denklemi</th><th>Kökler</th></tr>
+<tr><td>5</td><td>$\tfrac12$</td><td>$2r^{2}-r-1=0$</td><td>$1,\;-\tfrac12$</td></tr>
+<tr><td>6</td><td>$\tfrac12$</td><td>$2r^{2}-r-3=0$</td><td>$\tfrac32,\;-1$</td></tr>
+<tr><td>12</td><td>$\tfrac52$</td><td>$2r^{2}+3r-2=0$</td><td>$\tfrac12,\;-2$</td></tr>
+</table>
+</div>
+
+**İki gözlem:**
+
+1. $b_{0}$ aynıysa ($5$ ve $6$) ==$r$'nin katsayısı da aynı kalıyor==, yalnız sabit terim değişiyor.
+2. Bağıntının $a_{n-2}$ mi $a_{n-1}$ mi bağladığını belirleyen şey ==$x$'in en düşük kuvveti:== 5 ve 6'da $x^{2}$ vardı (ikişer atlama, yalnız çift indisler), 12'de $2x$ var (birer atlama, bütün indisler).
+[/KUTU]
+[/CEVAP]
+
+---
+
+### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (13-32) — çözülmeyi bekleyen
+
+13. &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$
 
 14. &nbsp; $\left(x^{3}+2x^{2}\right)y''+\left(x^{2}+x\right)y'-10y=0$ &nbsp;&nbsp;&nbsp; 15. &nbsp; $xy''+2y'+xy=0$
 

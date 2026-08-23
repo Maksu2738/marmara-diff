@@ -37,12 +37,12 @@ Sayfa sayısı kaba bir ölçüdür ama tek elimizdeki nesnel veri — ve vize a
 
 ### 2. Derste bizzat çözülen sorular
 
-Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **27 blok** var. Bunlar hocanın derste tahtada çözdüğü sorular; ==finalde en olası tipler bunlardır.== Dağılımı:
+Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **29 blok** var. Bunlar hocanın derste tahtada çözdüğü sorular; ==finalde en olası tipler bunlardır.== Dağılımı:
 
 <div class="tablo-sar">
 <table>
 <tr><th>Tip</th><th>Sayı</th><th>Örnek</th></tr>
-<tr><td>Laplace — temel dönüşüm bulma</td><td>6</td><td>$\mathcal{L}\{1\}$, $\mathcal{L}\{t\}$, $\mathcal{L}\{e^{at}\}$, $\mathcal{L}\{\sin^{2}at\}$, $\mathcal{L}\{2a\sin at\cos at\}$</td></tr>
+<tr><td>Laplace — temel dönüşüm bulma</td><td>8</td><td>$\mathcal{L}\{1\}$, $\mathcal{L}\{t\}$, $\mathcal{L}\{e^{at}\}$, $\mathcal{L}\{\sin bt\}$, $\mathcal{L}\{\cos bt\}$, $\mathcal{L}\{\sin^{2}at\}$, $\mathcal{L}\{2a\sin at\cos at\}$</td></tr>
 <tr><td>Laplace — başlangıç değer problemi</td><td>4</td><td>$y'-3y=4e^{5t}$; $y''+4y'+3y=6e^{-t}$</td></tr>
 <tr><td>Cauchy-Euler</td><td>4</td><td>$x^{2}y''-2xy'+2y=x^{3}$; üçüncü mertebe BDP</td></tr>
 <tr><td>Kuvvet serisi / Frobenius</td><td>5</td><td>İndirgeme bağıntısı; tekil nokta sınıflandırması</td></tr>
@@ -54,7 +54,7 @@ Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **27 blok** var. Bunlar hoca
 </div>
 
 [KUTU]
-**Buradan çıkan en net desen:** Laplace'ta **11 yıldızlı soru** var ve bunların hepsi ==4.1-4.3 aralığında==. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş.
+**Buradan çıkan en net desen:** Laplace'ta **13 yıldızlı soru** var ve bunların hepsi ==4.1-4.3 aralığında==. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş.
 
 Yani "Laplace ağır" demek, **bütün Laplace ağır** demek değil. Ağır olan kısım şu: tanım, doğrusallık, türev THEoREM'leri, ters dönüşüm ve düz başlangıç değer problemi.
 [/KUTU]

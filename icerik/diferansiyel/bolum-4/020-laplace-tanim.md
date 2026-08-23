@@ -67,7 +67,7 @@ $$\boxed{\;\mathcal{L}\{e^{at}\}=-\frac{1}{a-s}=\frac{1}{s-a}\qquad (s>a)\;} \ta
 
 ==Kısıt bu kez $s>0$ değil $s>a$.== $a=0$ konursa Örnek 9.1'e indirgenir.
 
-[SORU] **Örnek 9.4.** &nbsp; $f(t)=\sin bt$ fonksiyonunun Laplace dönüşümünü bulunuz.
+[SORU*] **Örnek 9.4.** &nbsp; $f(t)=\sin bt$ fonksiyonunun Laplace dönüşümünü bulunuz.
 [CEVAP]
 İlkel fonksiyon (iki kez kısmi integrasyonla bulunur):
 
@@ -79,7 +79,7 @@ Parantez içindeki ifade ==sınırlıdır== ($\sin$ ve $\cos$ $[-1,1]$ arasında
 
 $$\boxed{\;\mathcal{L}\{\sin bt\}=\frac{b}{s^{2}+b^{2}}\qquad (s>0)\;} \tag{9.5}$$
 
-[SORU] **Örnek 9.5.** &nbsp; $f(t)=\cos bt$ fonksiyonunun Laplace dönüşümünü bulunuz.
+[SORU*] **Örnek 9.5.** &nbsp; $f(t)=\cos bt$ fonksiyonunun Laplace dönüşümünü bulunuz.
 [CEVAP]
 Aynı yolla:
 

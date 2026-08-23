@@ -3,6 +3,7 @@ id: ters-donusum-oteleme
 menu: 4.4 Ötelenmiş Biçimin Ters Dönüşümü
 tip: konu
 baslik: 4.4 &nbsp;$e^{-as}F(s)$ Biçimindeki İfadelerin Ters Dönüşümü
+defterde: yok
 ---
 
 Süreksiz zorlamalı denklemleri çözerken $Y(s)$ ifadesinde kaçınılmaz olarak $e^{-as}$ çarpanları belirir. Bu bölüm o çarpanların nasıl geri çevrileceğini kuruyor.

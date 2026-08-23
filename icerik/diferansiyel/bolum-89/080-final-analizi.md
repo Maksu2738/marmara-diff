@@ -54,9 +54,9 @@ Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **27 blok** var. Bunlar hoca
 </div>
 
 [KUTU]
-**Buradan çıkan desen:** Laplace'taki **11 yıldızlı sorunun hepsi 4.1-4.3 aralığında.** Ama bu, 4.4 ve 4.5'in işlenmediği anlamına gelmiyor — ==elimizdeki 28 sayfalık ders notu 4.3'te bitiyor, sonrası bizde yok.== Kullanıcının bildirdiğine göre hoca 9.4 (birim basamak, süreksizlik, delta) ve 9.5 (sistemler) konularını da derste işlemiş.
+**Buradan çıkan en net desen:** Laplace'ta **11 yıldızlı soru** var ve bunların hepsi ==4.1-4.3 aralığında==. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş.
 
-Yani Laplace'ın **tamamı** ağırlıklı sayılmalı. Elimizdeki notun kapsadığı 4.1-4.3 kısmında hangi soruların çözüldüğünü ==birebir biliyoruz==; 4.4 ve 4.5 için o ayrıntı elimizde yok, o kadar.
+Yani "Laplace ağır" demek, **bütün Laplace ağır** demek değil. Ağır olan kısım şu: tanım, doğrusallık, türev THEoREM'leri, ters dönüşüm ve düz başlangıç değer problemi.
 [/KUTU]
 
 ---
@@ -105,12 +105,15 @@ Kitap bunu vermez, üç adımı tek tek uygulatır.
 
 ### 5. Düşük öncelikliler
 
-Aşağıdakiler **kitapta var ve sorulabilir**, ama elimizdeki ders notunda geçmiyor. Sitede kırmızı **⚠ DERSTE İŞLENMEDİ** şeridiyle işaretli — toplam **12 bölüm**:
+Aşağıdakiler **kitapta var ve sorulabilir**, ama hoca bunları derste hiç işlememiş. Sitede kırmızı **⚠ DERSTE İŞLENMEDİ** şeridiyle işaretli — toplam **25 bölüm**:
 
 <div class="tablo-sar">
 <table>
 <tr><th>Konu</th><th>Nerede</th><th>Neden düşük öncelik</th></tr>
 <tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Derste işlenmedi; ters dönüşümün alternatif yolu</td></tr>
+<tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı derste işlenmedi</td></tr>
+<tr><td>Süreksiz zorlama, Dirac delta</td><td><a href="#laplace-dirac-delta">4.4</a></td><td>Aynı</td></tr>
+<tr><td>Laplace ile lineer sistemler</td><td><a href="#laplace-sistemler">4.5</a></td><td>Derste işlenmedi</td></tr>
 <tr><td>Frobenius istisnaları (logaritmalı, eşit kökler)</td><td><a href="#frobenius-istisnalar">5.8-5.10</a></td><td>Derste yalnız kolay durum yapıldı</td></tr>
 <tr><td>Bessel'in devamı ($J_{p}$, gama, $Y_{p}$)</td><td><a href="#ozel-dd-bessel-p">6.3</a></td><td>Derste $c_{2n}$ formülünde kesildi</td></tr>
 <tr><td>Yakınsaklık aralığı</td><td><a href="#seri-yakinsaklik">5.4</a></td><td>Derste tartışılmadı</td></tr>
@@ -131,7 +134,7 @@ Bir istisna: **Legendre denklemi.** Hoca derste "Airy, Hermite, Bessel ve **Lege
 <table>
 <tr><th>Sıra</th><th>Ne</th><th>Neden</th></tr>
 <tr><td><strong>1</strong></td><td><a href="#odev-5">Ödev 5</a> ve <a href="#odev-6">Ödev 6</a></td><td>Vizede ödevden aynen soru çıktı. En güçlü sinyal.</td></tr>
-<tr><td><strong>2</strong></td><td><a href="#laplace">Laplace</a>: 4.1-4.3 (tanım, türev THEoREM'leri, ters dönüşüm, BDP), sonra 4.4-4.5</td><td>En ağır konu; 11 yıldızlı soru 4.1-4.3'te</td></tr>
+<tr><td><strong>2</strong></td><td><a href="#laplace">4.1-4.3</a>: tanım, türev THEoREM'leri, ters dönüşüm, BDP</td><td>Derste işlenenlerin %32'si; 11 yıldızlı soru burada</td></tr>
 <tr><td><strong>3</strong></td><td><a href="#bolum-4-5">3.4 Cauchy-Euler</a> + <a href="#cauchy-euler-hoca-yolu">hocanın yolu</a></td><td>4 yıldızlı soru; hocanın kendi gösterimi var</td></tr>
 <tr><td><strong>4</strong></td><td><a href="#ornek-seri-cozum">5.1-5.3 Kuvvet serisi</a></td><td>Ödev 6'nın konusu; indirgeme bağıntısı kurmak</td></tr>
 <tr><td><strong>5</strong></td><td><a href="#ornek-frobenius">5.6-5.7 Frobenius</a> — yalnız kolay durum</td><td>Tekil nokta sınıflandırması + indis denklemi</td></tr>
@@ -156,4 +159,4 @@ Aynı şekilde 2 ve 3. adımlar da bağlantılı: Cauchy-Euler dönüşümden so
 - <a href="#tekrar-donusum-bulma">4.6 tekrar 6</a> — payın sabit terimi bizde $154$, anahtarda $152$
 - <a href="#tekrar-ters-donusum">4.6 tekrar 21</a> — sinüs katsayısı bizde $\tfrac{5}{2}$, anahtarda $\tfrac{8}{5}$
 
-<p style="margin-bottom:0;">Bu analiz elimizdeki <strong>28 sayfalık ders notuna</strong> dayanıyor; o not Laplace'ı 4.3'te bırakıyor. Hocanın 9.4 ve 9.5'i de işlediği sonradan öğrenildi, ilgili bölümlerdeki "derste işlenmedi" işareti kaldırıldı. ==O derslerin notu elimize geçerse== hangi soruların çözüldüğü de yıldızlanacak ve ağırlık dağılımı güncellenecektir. Hoca sonradan başka konu işlediyse ya da Bölüm 7 (lineer sistemler) notları eklenirse ==dağılım değişir== ve bu bölüm güncellenecektir.</p>
+<p style="margin-bottom:0;">Bu analiz hocanın vize sonrası derste işlediklerine (<strong>28 sayfalık ders notu</strong>) dayanıyor. Hoca sonradan başka konu işlediyse ya da Bölüm 7 (lineer sistemler) notları eklenirse ==dağılım değişir== ve bu bölüm güncellenecektir.</p>

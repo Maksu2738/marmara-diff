@@ -3,6 +3,7 @@ id: laplace-ikinci-oteleme
 menu: 4.4 İkinci Öteleme THEoREM'i
 tip: konu
 baslik: 4.4 &nbsp;Ötelenmiş Fonksiyonlar ve İkinci Öteleme THEoREM'i
+defterde: yok
 ---
 
 Birim basamağın ikinci kullanışlı özelliği, bir fonksiyonu **pozitif yönde öteleme** ile ilgilidir.

@@ -8127,12 +8127,121 @@
 
                         <p style="margin: 1rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 1&ndash;18: Aşağıdaki denklemlerin <strong>genel çözümünü</strong> bulunuz.</p>
 
-                        <div class="question-block"><p class="question-text">1. &nbsp; $y^{\prime\prime}+y=\cot x$</p></div>
-                        <div class="question-block"><p class="question-text">2. &nbsp; $y^{\prime\prime}+y=\tan^{2}x$</p></div>
-                        <div class="question-block"><p class="question-text">3. &nbsp; $y^{\prime\prime}+y=\sec x$</p></div>
-                        <div class="question-block"><p class="question-text">4. &nbsp; $y^{\prime\prime}+y=\sec^{3}x$</p></div>
-                        <div class="question-block"><p class="question-text">5. &nbsp; $y^{\prime\prime}+4y=\sec^{2}2x$</p></div>
-                        <div class="question-block"><p class="question-text">6. &nbsp; $y^{\prime\prime}+y=\tan x\sec x$</p></div>
+                        <div class="highlight">
+                            <p><strong>Bu setin çözümleri bize aittir</strong> — kitabın cevap anahtarında karşılıkları yok. Her özel çözüm <span class="vurgu">doğrudan denkleme konarak doğrulanmıştır.</span></p>
+                            <p><strong>Kullanılan formül.</strong> $y''+Py'+Qy=f$ (<span class="vurgu">başkatsayı $1$</span>) ve homojen çözümler $y_{1},y_{2}$ için:</p>
+                            $$u_{1}'=-\frac{y_{2}f}{W},\qquad u_{2}'=\frac{y_{1}f}{W},\qquad y_{p}=u_{1}y_{1}+u_{2}y_{2}$$
+                            <p>$W=y_{1}y_{2}'-y_{2}y_{1}'$ Wronskian'dır.</p>
+                            <p><strong>1-6'da işi kolaylaştıran şey:</strong> hepsinde $y_{1}=\cos kx$, $y_{2}=\sin kx$ ve</p>
+                            $$W=k\cos^{2}kx+k\sin^{2}kx=k$$
+                            <p><span class="vurgu">Wronskian sabit çıkıyor</span>, dolayısıyla integraller sadeleşiyor.</p>
+                            <p><strong>Bir hatırlatma:</strong> $y_{p}$'de homojen çözümün katı bir terim çıkarsa <span class="vurgu">atabilirsiniz</span>; zaten $c_{1}y_{1}+c_{2}y_{2}$ içinde soğurulur.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $y''+y=\cot x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{1}=\cos x$, &nbsp;$y_{2}=\sin x$, &nbsp;$W=1$.</p>
+                                $$u_{1}'=-\sin x\cdot\frac{\cos x}{\sin x}=-\cos x\;\Longrightarrow\;u_{1}=-\sin x$$
+                                $$u_{2}'=\cos x\cdot\frac{\cos x}{\sin x}=\frac{1-\sin^{2}x}{\sin x}=\csc x-\sin x$$
+                                $$u_{2}=\ln\left\vert\csc x-\cot x\right\vert+\cos x$$
+                                $$y_{p}=-\sin x\cos x+\sin x\left(\ln\left\vert\csc x-\cot x\right\vert+\cos x\right)=\sin x\,\ln\left\vert\csc x-\cot x\right\vert$$
+                                <p><span class="vurgu">$\sin x\cos x$ terimleri tam olarak götürüyor.</span></p>
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x+\sin x\,\ln\left\vert\csc x-\cot x\right\vert\;}$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $y''+y=\tan^{2}x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Önce sağ tarafı sadeleştirin:</strong> $\tan^{2}x=\sec^{2}x-1$. <span class="vurgu">Bu, integralleri tanıdık hâle getiriyor.</span></p>
+                                $$u_{1}'=-\sin x\left(\sec^{2}x-1\right)=-\frac{\sin x}{\cos^{2}x}+\sin x\;\Longrightarrow\;u_{1}=-\sec x-\cos x$$
+                                $$u_{2}'=\cos x\left(\sec^{2}x-1\right)=\sec x-\cos x\;\Longrightarrow\;u_{2}=\ln\left\vert\sec x+\tan x\right\vert-\sin x$$
+                                $$y_{p}=\left(-\sec x-\cos x\right)\cos x+\sin x\left(\ln\left\vert\sec x+\tan x\right\vert-\sin x\right)$$
+                                $$=-1-\underbrace{\cos^{2}x-\sin^{2}x}_{\text{birlikte }1}+\sin x\ln\left\vert\sec x+\tan x\right\vert=-2+\sin x\ln\left\vert\sec x+\tan x\right\vert$$
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x-2+\sin x\,\ln\left\vert\sec x+\tan x\right\vert\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=-2+\sin x\ln\left\vert\sec x+\tan x\right\vert$ için:</p>
+                                $$y_{p}'=\cos x\ln\left\vert\sec x+\tan x\right\vert+\sin x\cdot\underbrace{\frac{\sec x\left(\tan x+\sec x\right)}{\sec x+\tan x}}_{=\;\sec x}=\cos x\ln(\cdots)+\tan x$$
+                                $$y_{p}''=-\sin x\ln(\cdots)+\underbrace{\cos x\sec x}_{=\;1}+\sec^{2}x$$
+                                <p>Toplayalım; <span class="vurgu">logaritmalı terimler tam olarak götürüyor:</span></p>
+                                $$y_{p}''+y_{p}=\left(1+\sec^{2}x\right)+(-2)=\sec^{2}x-1=\tan^{2}x\;\checkmark$$
+                                <p><span class="vurgu">Sabitin $-1$ değil $-2$ olmasının sebebi:</span> logaritmalı terimin ikinci türevi ayrıca bir $+1$ getiriyor, onu da dengelemek gerekiyor.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $y''+y=\sec x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><span class="vurgu">Bu setin en temiz sorusu</span> — her iki integral de doğrudan çıkıyor.</p>
+                                $$u_{1}'=-\sin x\sec x=-\tan x\;\Longrightarrow\;u_{1}=\ln\left\vert\cos x\right\vert$$
+                                $$u_{2}'=\cos x\sec x=1\;\Longrightarrow\;u_{2}=x$$
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x+\cos x\,\ln\left\vert\cos x\right\vert+x\sin x\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=\cos x\ln\left\vert\cos x\right\vert+x\sin x$ için:</p>
+                                $$y_{p}'=-\sin x\ln\left\vert\cos x\right\vert-\sin x+\sin x+x\cos x=-\sin x\ln\left\vert\cos x\right\vert+x\cos x$$
+                                $$y_{p}''=-\cos x\ln\left\vert\cos x\right\vert+\frac{\sin^{2}x}{\cos x}+\cos x-x\sin x$$
+                                $$y_{p}''+y_{p}=\frac{\sin^{2}x}{\cos x}+\cos x=\frac{\sin^{2}x+\cos^{2}x}{\cos x}=\sec x\;\checkmark$$
+                                <p><span class="vurgu">Belirsiz katsayılar bu soruda çalışmazdı</span> ($\sec x$ o sınıfa girmiyor); parametrelerin değişiminin vazgeçilmez olduğu tipik örnek.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $y''+y=\sec^{3}x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$u_{1}'=-\frac{\sin x}{\cos^{3}x}\;\Longrightarrow\;u_{1}=-\frac{1}{2\cos^{2}x}=-\frac{\sec^{2}x}{2}$$
+                                $$u_{2}'=\cos x\sec^{3}x=\sec^{2}x\;\Longrightarrow\;u_{2}=\tan x$$
+                                $$y_{p}=-\frac{\sec^{2}x}{2}\cos x+\tan x\sin x=-\frac{\sec x}{2}+\frac{\sin^{2}x}{\cos x}$$
+                                <p><strong>Sadeleştirelim.</strong> $\sin^{2}x=1-\cos^{2}x$:</p>
+                                $$y_{p}=\frac{-\tfrac12+1-\cos^{2}x}{\cos x}=\frac{\sec x}{2}-\cos x$$
+                                <p>$-\cos x$ homojen çözümde zaten var, atılabilir:</p>
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x+\frac{\sec x}{2}\;}$$
+                                <p><strong>Doğrulama.</strong> $y=\tfrac12\sec x$ için &nbsp;$y'=\tfrac12\sec x\tan x$, &nbsp;$y''=\tfrac12\left(\sec x\tan^{2}x+\sec^{3}x\right)$:</p>
+                                $$y''+y=\frac{\sec x}{2}\left(\tan^{2}x+\sec^{2}x+1\right)=\frac{\sec x}{2}\cdot 2\sec^{2}x=\sec^{3}x\;\checkmark$$
+                                <p>(Burada $\tan^{2}x+1=\sec^{2}x$ kullanıldı.)</p>
+                                <p><span class="vurgu">Şaşırtıcı derecede sade bir cevap:</span> $\sec^{3}x$ gibi çirkin bir sağ taraf, logaritmasız tek terimli bir özel çözüm verdi.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $y''+4y=\sec^{2}2x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$y_{1}=\cos 2x$, &nbsp;$y_{2}=\sin 2x$, &nbsp;<span class="vurgu">$W=2$</span> (frekans $k=2$).</p>
+                                $$u_{1}'=-\frac{\sin 2x\sec^{2}2x}{2}=-\frac{\sin 2x}{2\cos^{2}2x}\;\Longrightarrow\;u_{1}=-\frac{\sec 2x}{4}$$
+                                $$u_{2}'=\frac{\cos 2x\sec^{2}2x}{2}=\frac{\sec 2x}{2}\;\Longrightarrow\;u_{2}=\frac{1}{4}\ln\left\vert\sec 2x+\tan 2x\right\vert$$
+                                $$y_{p}=-\frac{\sec 2x}{4}\cos 2x+\frac{\sin 2x}{4}\ln\left\vert\sec 2x+\tan 2x\right\vert=-\frac{1}{4}+\frac{\sin 2x}{4}\ln\left\vert\sec 2x+\tan 2x\right\vert$$
+                                $$\boxed{\;y=c_{1}\cos 2x+c_{2}\sin 2x-\frac{1}{4}+\frac{\sin 2x}{4}\,\ln\left\vert\sec 2x+\tan 2x\right\vert\;}$$
+                                <p><strong>Doğrulama — sabit terim.</strong> $y=-\tfrac14$ tek başına $y''+4y=-1$ verir; logaritmalı terimin katkısı ise $\sec^{2}2x+1$ olur, toplam $\sec^{2}2x$ &#10003;</p>
+                                <p><span class="vurgu">$W=k$ olduğunu unutmayın:</span> $W=1$ sanıp bölmeyi atlarsanız cevabınız iki kat büyük çıkar.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $y''+y=\tan x\sec x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Sağ tarafı tek kesirde yazalım: &nbsp;$\tan x\sec x=\dfrac{\sin x}{\cos^{2}x}$.</p>
+                                $$u_{1}'=-\sin x\cdot\frac{\sin x}{\cos^{2}x}=-\tan^{2}x=1-\sec^{2}x\;\Longrightarrow\;u_{1}=x-\tan x$$
+                                $$u_{2}'=\cos x\cdot\frac{\sin x}{\cos^{2}x}=\tan x\;\Longrightarrow\;u_{2}=-\ln\left\vert\cos x\right\vert$$
+                                $$y_{p}=\left(x-\tan x\right)\cos x-\sin x\ln\left\vert\cos x\right\vert=x\cos x-\sin x-\sin x\ln\left\vert\cos x\right\vert$$
+                                <p>$-\sin x$ homojen, atılır:</p>
+                                $$\boxed{\;y=c_{1}\cos x+c_{2}\sin x+x\cos x-\sin x\,\ln\left\vert\cos x\right\vert\;}$$
+                                <div class="highlight">
+                                    <p><strong>1-6'da tekrarlayan üç integral.</strong> Bu setin tamamı aslında şu üç integralin etrafında dönüyor:</p>
+                                    <div class="tablo-sar">
+                                    <table>
+                                    <tr><th>İntegral</th><th>Sonuç</th><th>Nerede çıktı</th></tr>
+                                    <tr><td>$\displaystyle\int\tan x\,dx$</td><td>$-\ln\left\vert\cos x\right\vert$</td><td>3, 6</td></tr>
+                                    <tr><td>$\displaystyle\int\sec x\,dx$</td><td>$\ln\left\vert\sec x+\tan x\right\vert$</td><td>2, 5</td></tr>
+                                    <tr><td>$\displaystyle\int\csc x\,dx$</td><td>$\ln\left\vert\csc x-\cot x\right\vert$</td><td>1</td></tr>
+                                    </table>
+                                    </div>
+                                    <p><strong>Ve iki sadeleştirme refleksi:</strong></p>
+                                    <ol>
+                                        <li>Sağ tarafta $\tan^{2}$, $\sec^{3}$ gibi kuvvetler varsa <span class="vurgu">önce $\sec^{2}=1+\tan^{2}$ ile açın</span>; integraller tanıdıklaşır.</li>
+                                        <li>$y_{p}$'yi bulduktan sonra <span class="vurgu">homojen çözüme benzeyen terimleri atın</span> (3'te $x\sin x$ kalır ama 6'da $-\sin x$ atılır).</li>
+                                    </ol>
+                                    <p><strong>Neden parametrelerin değişimi?</strong> Bu sağ tarafların hiçbiri ($\sec x$, $\cot x$, $\tan^{2}x$) belirsiz katsayılar yönteminin kabul ettiği sınıfa girmiyor. <span class="vurgu">Bu yöntem burada seçenek değil, zorunluluk.</span></p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="question-block"><p class="question-text">7. &nbsp; $y^{\prime\prime}+4y^{\prime}+5y=e^{-2x}\sec x$</p></div>
                         <div class="question-block"><p class="question-text">8. &nbsp; $y^{\prime\prime}-2y^{\prime}+5y=e^{x}\tan 2x$</p></div>
                         <div class="question-block"><p class="question-text">9. &nbsp; $y^{\prime\prime}+6y^{\prime}+9y=\dfrac{e^{-3x}}{x^{3}}$</p></div>
@@ -19256,7 +19365,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=844f6672"></script>
+<script defer src="arama.js?v=23d3cacd"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

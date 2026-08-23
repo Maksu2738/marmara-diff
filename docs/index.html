@@ -15656,75 +15656,244 @@
                                     <p><strong>Bu soruda dikkat edilecek yer:</strong> $2xy''$ terimi $y''$'nün üssünü yalnızca <strong>bir</strong> birim yükseltiyor, bu yüzden belirtici denklem $x^{r}$'nin değil <span class="vurgu">$x^{r-1}$'in</span> katsayısından geliyor. Önceki örneklerde $x^{2}y''$ vardı ve en düşük kuvvet $x^{r}$ oluyordu. <span class="vurgu">En düşük kuvvetin hangisi olduğunu her problemde yeniden belirleyin</span>, ezberden $x^{r}$ demeyin.</p>
                                 </div>
                                 <hr>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tekil noktaları bulunuz ve sınıflandırınız (1-4)</h3>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{2}-3x\right)y''+(x+2)y'+y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{3}+x^{2}\right)y''+\left(x^{2}-2x\right)y'+4y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{4}-2x^{3}+x^{2}\right)y''+2(x-1)y'+x^{2}y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{5}+x^{4}-6x^{3}\right)y''+x^{2}y'+(x-2)y=0$</li>
-                                </ol>
-                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (5-32)</h3>
-                                <ol>
-                                    <li>&nbsp; $2x^{2}y''+xy'+\left(x^{2}-1\right)y=0$ &nbsp;&nbsp;&nbsp; 6. &nbsp; $2x^{2}y''+xy'+\left(2x^{2}-3\right)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''-xy'+\left(x^{2}+\frac{8}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 8. &nbsp; $x^{2}y''-xy'+\left(2x^{2}+\frac{5}{9}\right)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 11. &nbsp; $3xy''-(x-2)y'-2y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $2x^{2}y''+5xy'+(2x-2)y=0$ &nbsp;&nbsp;&nbsp; 13. &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $\left(x^{3}+2x^{2}\right)y''+\left(x^{2}+x\right)y'-10y=0$ &nbsp;&nbsp;&nbsp; 15. &nbsp; $xy''+2y'+xy=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 17. &nbsp; $x^{2}y''+\left(x^{4}+x\right)y'-y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $xy''-\left(x^{2}+2\right)y'+xy=0$ &nbsp;&nbsp;&nbsp; 19. &nbsp; $x^{2}y''+x^{2}y'-2y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''-xy'+\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 21. &nbsp; $x^{2}y''+\left(2x^{2}+3x\right)y'+\left(x-\frac{5}{4}\right)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+\left(x^{2}+5x\right)y'+(2x+3)y=0$ &nbsp;&nbsp;&nbsp; 23. &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+2x^{3}y'-\left(x^{2}+\frac{15}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 25. &nbsp; $x^{2}y''+xy'+(x-1)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+\left(x^{3}-x\right)y'-3y=0$ &nbsp;&nbsp;&nbsp; 27. &nbsp; $x^{2}y''-xy'+8\left(x^{2}-1\right)y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''+x^{2}y'-\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 29. &nbsp; $xy''+y'+2y=0$</li>
-                                </ol>
-                                <ol>
-                                    <li>&nbsp; $x^{2}y''-xy'+\left(x^{2}+1\right)y=0$ &nbsp;&nbsp;&nbsp; 32. &nbsp; $x^{2}y''-xy'+\left(x^{2}-3\right)y=0$</li>
-                                </ol>
+                                <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tekil noktaları bulunuz ve sınıflandırınız (1-4) — çözümler bize ait</h3>
                                 <div class="highlight">
-                                    <p><strong>Kaynak metinde okunamayan iki soru.</strong> Tarama çıktısında 2. ve 30. sorular bozuk geldi: 2. soru `(x² − 2xy)′` biçiminde çıktı — yukarıya matematiksel olarak anlamlı olan $\left(x^{2}-2x\right)y'$ hâliyle yazıldı, ama kitaptan teyit edilmeli. 30. soru `2xy″ + 6y + y = 0` olarak okundu; ortadaki terimin $6y'$ olması gerektiği açık, ancak emin olunamadığı için listeye alınmadı.</p>
-                                </div>
-                                <hr>
-                                <div class="claude-oneri">
-                                    <div class="claude-oneri-bas">
-                                        <span class="claude-oneri-rozet">Claude önerisi</span>
-                                        <span class="claude-oneri-baslik">Frobenius sorusunda nerede olduğunuzu kaybetmemek için</span>
-                                    </div>
-                                    <p>Bu setteki sorular uzundur ve <span class="vurgu">öğrenciler genelde doğru başlayıp ortada kaybolur.</span> Şu üç kontrol noktasını işaretleyerek ilerleyin:</p>
-                                    <p><strong>Kontrol 1 — başlangıç denklemi.</strong> Seriye girmeden $r(r-1)+b_{0}r+c_{0}=0$ yazın, kökleri bulun, <span class="vurgu">kök farkını hemen not edin.</span> Hangi durumda olduğunuzu baştan bilirseniz sonunda şaşırmazsınız.</p>
-                                    <p><strong>Kontrol 2 — büyük kökle başlayın.</strong> $r_{1}$ hiçbir zaman sorun çıkarmaz. İlk çözümü garantiye alın, sonra ikinciye geçin.</p>
-                                    <p><strong>Kontrol 3 — küçük kökte paydaya bakın.</strong> İndirgeme bağıntısını $r_{2}$ ile yazınca payda bir yerde sıfırlanıyorsa logaritmalı forma geçin; sıfırlanmıyorsa düz seri yeterlidir.</p>
-                                    <p><strong>Sınav ekonomisi.</strong> Frobenius soruları puanın büyük kısmını <span class="vurgu">ilk yarıda</span> verir: doğru sınıflandırma, doğru başlangıç denklemi, doğru indirgeme bağıntısı. Zaman daralıyorsa ilk çözümü eksiksiz yazıp ikinciye "logaritmalı formda olacaktır, $y_{2}=Cy_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$" diye başlamak, hiç yazmamaktan çok daha iyidir.</p>
+                                    <p><strong>Bu soruların cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir.</p>
+                                    <p><strong>Kullanılan üç adımlık yöntem.</strong> Denklemi $y''+P(x)y'+Q(x)y=0$ biçimine sokun (başkatsayıya bölün), sonra:</p>
+                                    <ol>
+                                        <li><strong>Tekil noktalar</strong> = başkatsayıyı sıfırlayan $x$ değerleri.</li>
+                                        <li>Her tekil nokta $x_{0}$ için <span class="vurgu">$\left(x-x_{0}\right)P$ ve $\left(x-x_{0}\right)^{2}Q$</span> çarpımlarını yazın.</li>
+                                        <li><span class="vurgu">İkisi de $x_{0}$'da analitikse (limiti sonluysa) nokta <strong>düzgün</strong></span>, biri bile değilse <strong>düzensiz</strong>.</li>
+                                    </ol>
+                                    <p><strong>Doğrulama:</strong> her çarpımı sadeleştirdikten sonra <span class="vurgu">paydada $x-x_{0}$ kalıp kalmadığına bakın.</span> Kalıyorsa limit sonsuzdur, nokta düzensizdir. Bu, limit hesaplamadan gözle yapılabilir.</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>1.</strong> &nbsp; $\left(x^{2}-3x\right)y''+(x+2)y'+y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Tekil noktalar.</strong> $x^{2}-3x=x(x-3)$ &nbsp;$\Rightarrow$&nbsp; $x=0$ ve $x=3$.</p>
+                                $$P=\frac{x+2}{x(x-3)},\qquad Q=\frac{1}{x(x-3)}$$
+                                <p><strong>Adım 2 — $x=0$ için çarpımlar.</strong></p>
+                                $$xP=\frac{x+2}{x-3}\;\xrightarrow{x\to 0}\;-\frac{2}{3},\qquad x^{2}Q=\frac{x}{x-3}\;\xrightarrow{x\to 0}\;0$$
+                                <p>İkisi de sonlu &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">$x=0$ düzgün tekil nokta.</span></p>
+                                <p><strong>Adım 3 — $x=3$ için çarpımlar.</strong></p>
+                                $$(x-3)P=\frac{x+2}{x}\;\xrightarrow{x\to 3}\;\frac{5}{3},\qquad (x-3)^{2}Q=\frac{x-3}{x}\;\xrightarrow{x\to 3}\;0$$
+                                <p>&nbsp;$\Rightarrow$&nbsp; <span class="vurgu">$x=3$ düzgün tekil nokta.</span></p>
+                                $$\boxed{\;x=0\text{ ve }x=3\text{: ikisi de düzgün tekil}\;}$$
+                                <p><strong>Doğrulama (payda kontrolü).</strong> Dört çarpımın hiçbirinde sadeleştirmeden sonra paydada ilgili $x-x_{0}$ çarpanı kalmadı &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $\left(x^{3}+x^{2}\right)y''+\left(x^{2}-2x\right)y'+4y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Tekil noktalar.</strong> $x^{3}+x^{2}=x^{2}(x+1)$ &nbsp;$\Rightarrow$&nbsp; $x=0$ ve $x=-1$.</p>
+                                $$P=\frac{x^{2}-2x}{x^{2}(x+1)}=\frac{x(x-2)}{x^{2}(x+1)}=\frac{x-2}{x(x+1)},\qquad Q=\frac{4}{x^{2}(x+1)}$$
+                                <p><span class="vurgu">Payda $x$ ile sadeleşti</span>; bu, $x=0$'ın düzgün çıkmasının anahtarı.</p>
+                                <p><strong>Adım 2 — $x=0$.</strong></p>
+                                $$xP=\frac{x-2}{x+1}\;\to\;-2,\qquad x^{2}Q=\frac{4}{x+1}\;\to\;4$$
+                                <p>&nbsp;$\Rightarrow$&nbsp; <span class="vurgu">düzgün tekil.</span></p>
+                                <p><strong>Adım 3 — $x=-1$.</strong></p>
+                                $$(x+1)P=\frac{x-2}{x}\;\to\;3,\qquad (x+1)^{2}Q=\frac{4(x+1)}{x^{2}}\;\to\;0$$
+                                <p>&nbsp;$\Rightarrow$&nbsp; <span class="vurgu">düzgün tekil.</span></p>
+                                $$\boxed{\;x=0\text{ ve }x=-1\text{: ikisi de düzgün tekil}\;}$$
+                                <div class="highlight">
+                                    <p><strong>Sadeleştirmeyi atlarsanız yanlış cevap verirsiniz.</strong> $P$'yi sadeleştirmeden $xP=\dfrac{x\left(x^{2}-2x\right)}{x^{2}(x+1)}$ diye bıraksaydınız, paydada $x$ görüp "düzensiz" demeye kalkabilirdiniz.</p>
+                                    <p><span class="vurgu">Her zaman önce sadeleştirin, sonra limite bakın.</span> Başkatsayının kökü, pay ile de sadeleşebilir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>3.</strong> &nbsp; $\left(x^{4}-2x^{3}+x^{2}\right)y''+2(x-1)y'+x^{2}y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Başkatsayıyı çarpanlarına ayır.</strong></p>
+                                $$x^{4}-2x^{3}+x^{2}=x^{2}\left(x^{2}-2x+1\right)=x^{2}(x-1)^{2}$$
+                                <p>Tekil noktalar: $x=0$ ve $x=1$ &nbsp;— <span class="vurgu">ikisi de çift katlı kök.</span></p>
+                                $$P=\frac{2(x-1)}{x^{2}(x-1)^{2}}=\frac{2}{x^{2}(x-1)},\qquad Q=\frac{x^{2}}{x^{2}(x-1)^{2}}=\frac{1}{(x-1)^{2}}$$
+                                <p><strong>Adım 2 — $x=0$.</strong></p>
+                                $$xP=\frac{2}{x(x-1)}$$
+                                <p><span class="vurgu">Sadeleştirmeye rağmen paydada $x$ kaldı</span>, $x\to 0$ iken sonsuza gidiyor:</p>
+                                $$\boxed{\;x=0\text{ düzensiz tekil nokta}\;}$$
+                                <p>Frobenius yöntemi burada uygulanamaz.</p>
+                                <p><strong>Adım 3 — $x=1$.</strong></p>
+                                $$(x-1)P=\frac{2}{x^{2}}\;\to\;2,\qquad (x-1)^{2}Q=1$$
+                                <p>İkisi de analitik &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">$x=1$ düzgün tekil nokta.</span></p>
+                                <div class="highlight">
+                                    <p><strong>Neden $x=0$ düzensiz ama $x=1$ düzgün?</strong> İkisi de başkatsayının çift katlı kökü, ama paydaki $2(x-1)$ çarpanı <span class="vurgu">yalnız $x=1$'deki fazlalığı temizliyor:</span></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li>$x=1$'de: $P$'nin kutbu ikinciden birinciye indi &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">$P$ için birinci mertebeden kutup sınırı sağlandı.</span></li>
+                                        <li>$x=0$'da: $P$'nin kutbu ikinci mertebeden kaldı &nbsp;$\Rightarrow$&nbsp; sınır aşıldı.</li>
+                                    </ul>
+                                    <p><strong>Ezber cümlesi:</strong> düzgünlük için <span class="vurgu">$P$ en fazla birinci, $Q$ en fazla ikinci mertebeden kutba sahip olabilir.</span> "$P$'ye bir çarpan, $Q$'ya iki çarpan" kuralı tam olarak bunu söylüyor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $\left(x^{5}+x^{4}-6x^{3}\right)y''+x^{2}y'+(x-2)y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çarpanlara ayır.</strong></p>
+                                $$x^{5}+x^{4}-6x^{3}=x^{3}\left(x^{2}+x-6\right)=x^{3}(x+3)(x-2)$$
+                                <p>Tekil noktalar: $x=0$, $x=-3$, $x=2$.</p>
+                                $$P=\frac{x^{2}}{x^{3}(x+3)(x-2)}=\frac{1}{x(x+3)(x-2)},\qquad Q=\frac{x-2}{x^{3}(x+3)(x-2)}=\frac{1}{x^{3}(x+3)}$$
+                                <p><span class="vurgu">$Q$'da $(x-2)$ tamamen sadeleşti</span>; bu, $x=2$'yi kolaylaştıracak.</p>
+                                <p><strong>Adım 2 — $x=0$.</strong></p>
+                                $$xP=\frac{1}{(x+3)(x-2)}\;\to\;-\frac{1}{6}\quad\text{(analitik)}$$
+                                $$x^{2}Q=\frac{1}{x(x+3)}\quad\text{— paydada }x\text{ kaldı, }x\to 0\text{ iken sonsuz}$$
+                                $$\boxed{\;x=0\text{ düzensiz tekil}\;}$$
+                                <p><span class="vurgu">Bir tanesinin bozulması yeterli;</span> $P$ testi geçse de $Q$ testi geçmedi.</p>
+                                <p><strong>Adım 3 — $x=-3$.</strong></p>
+                                $$(x+3)P=\frac{1}{x(x-2)}\;\to\;\frac{1}{15},\qquad (x+3)^{2}Q=\frac{x+3}{x^{3}}\;\to\;0$$
+                                <p>&nbsp;$\Rightarrow$&nbsp; <span class="vurgu">düzgün tekil.</span></p>
+                                <p><strong>Adım 4 — $x=2$.</strong></p>
+                                $$(x-2)P=\frac{1}{x(x+3)}\;\to\;\frac{1}{10},\qquad (x-2)^{2}Q=\frac{(x-2)^{2}}{x^{3}(x+3)}\;\to\;0$$
+                                <p>&nbsp;$\Rightarrow$&nbsp; <span class="vurgu">düzgün tekil.</span></p>
+                                $$\boxed{\;x=0\text{ düzensiz};\quad x=-3\text{ ve }x=2\text{ düzgün}\;}$$
+                                <div class="highlight">
+                                    <p><strong>$x=2$ neden bu kadar kolay çıktı?</strong> Çünkü $Q$'da $(x-2)$ pay ile sadeleşti, yani <span class="vurgu">$Q$'nun $x=2$'de tekilliği hiç yok.</span> Geriye yalnız $P$'nin birinci mertebeden kutbu kaldı, o da sınırın içinde.</p>
+                                    <p><strong>Genel gözlem:</strong> başkatsayının bir kökü, <span class="vurgu">$P$ ve $Q$'nun ikisinde birden sadeleşirse o nokta aslında adi noktadır.</span> Burada $Q$'da sadeleşti ama $P$'de sadeleşmedi, o yüzden tekil kaldı — ama düzgün.</p>
+                                    <p>Bu üç soru ($2$, $3$, $4$) birlikte <span class="vurgu">sadeleştirmenin sonucu nasıl değiştirdiğini</span> gösteriyor: her seferinde önce sadeleştirin.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Frobenius yöntemiyle $x=0$ yakınındaki çözümler (5-32) — çözümler bize ait</h3>
+                        <div class="highlight">
+                            <p><strong>Bu soruların cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir; her biri <span class="vurgu">bulunan serinin doğrudan denkleme konmasıyla doğrulanmıştır</span> (her $x$ kuvvetinin katsayısı ayrı ayrı sıfır çıkmalı).</p>
+                            <p><strong>İzlenen sıra (her soruda aynı):</strong></p>
+                            <ol>
+                                <li>Denklemi $x^{2}y''+x\,b(x)y'+c(x)y=0$ biçimine sok, $b_{0}=b(0)$ ve $c_{0}=c(0)$ oku.</li>
+                                <li><strong>Başlangıç denklemi</strong> $r(r-1)+b_{0}r+c_{0}=0$; kökleri $r_{1}\ge r_{2}$ diye sırala, <span class="vurgu">kök farkını not et.</span></li>
+                                <li>İndirgeme bağıntısını çıkar, <span class="vurgu">$n=1$ adımını ayrıca kontrol et</span> ($a_{1}$ sıfır mı, serbest mi).</li>
+                                <li>Her kök için katsayıları üret.</li>
+                            </ol>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>5.</strong> &nbsp; $2x^{2}y''+xy'+\left(x^{2}-1\right)y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Standart biçime sok.</strong> İkiye bölelim:</p>
+                                $$x^{2}y''+x\cdot\frac{1}{2}\,y'+\frac{x^{2}-1}{2}\,y=0\;\Longrightarrow\;b_{0}=\frac{1}{2},\quad c_{0}=-\frac{1}{2}$$
+                                <p><strong>Adım 2 — Başlangıç denklemi.</strong></p>
+                                $$r(r-1)+\frac{r}{2}-\frac{1}{2}=0\;\Longrightarrow\;2r^{2}-r-1=0\;\Longrightarrow\;(2r+1)(r-1)=0$$
+                                $$r_{1}=1,\qquad r_{2}=-\frac{1}{2}$$
+                                <p><span class="vurgu">Kök farkı $\tfrac32$, tam sayı değil</span> &nbsp;$\Rightarrow$&nbsp; en kolay durum: her iki kök de düz Frobenius serisi verir, logaritma yok.</p>
+                                <p><strong>Adım 3 — İndirgeme bağıntısı.</strong> $y=\sum a_{n}x^{n+r}$ koyalım; $m=n+r$ yazarsak $x^{m}$ katsayısı:</p>
+                                $$\underbrace{\left[2m(m-1)+m-1\right]}_{(2m+1)(m-1)}a_{n}+a_{n-2}=0$$
+                                $$\boxed{\;a_{n}=-\frac{a_{n-2}}{\left(2(n+r)+1\right)(n+r-1)}\;}$$
+                                <p><strong>Adım 4 — $n=1$ kontrolü.</strong> $a_{1}$'in katsayısı her iki kökte de sıfırdan farklı ($r=1$ için $5$, $r=-\tfrac12$ için $-1$) &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">$a_{1}=0$, dolayısıyla bütün tek indisler sıfır.</span> Seriler yalnız çift kuvvet taşır.</p>
+                                <p><strong>Adım 5 — Büyük kök $r_{1}=1$.</strong> Bağıntı $a_{n}=-\dfrac{a_{n-2}}{(2n+3)\,n}$:</p>
+                                $$a_{2}=-\frac{a_{0}}{14},\qquad a_{4}=-\frac{a_{2}}{44}=\frac{a_{0}}{616}$$
+                                $$\boxed{\;y_{1}=x\left(1-\frac{x^{2}}{14}+\frac{x^{4}}{616}-\cdots\right)\;}$$
+                                <p><strong>Adım 6 — Küçük kök $r_{2}=-\tfrac12$.</strong> Bağıntı $a_{n}=-\dfrac{a_{n-2}}{n(2n-3)}$:</p>
+                                $$a_{2}=-\frac{a_{0}}{2},\qquad a_{4}=-\frac{a_{2}}{20}=\frac{a_{0}}{40}$$
+                                $$\boxed{\;y_{2}=x^{-1/2}\left(1-\frac{x^{2}}{2}+\frac{x^{4}}{40}-\cdots\right)\;}$$
+                                <p><strong>Doğrulama — $y_{1}$'i doğrudan denkleme koy.</strong> $y=x-\dfrac{x^{3}}{14}+\dfrac{x^{5}}{616}$ için:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>$2x^{2}y''$</th><th>$xy'$</th><th>$x^{2}y$</th><th>$-y$</th><th>Toplam</th></tr>
+                                <tr><td>$x^{1}$</td><td>$0$</td><td>$1$</td><td>$0$</td><td>$-1$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$x^{3}$</td><td>$-\tfrac{12}{14}$</td><td>$-\tfrac{3}{14}$</td><td>$\tfrac{14}{14}$</td><td>$\tfrac{1}{14}$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$x^{5}$</td><td>$\tfrac{40}{616}$</td><td>$\tfrac{5}{616}$</td><td>$-\tfrac{44}{616}$</td><td>$-\tfrac{1}{616}$</td><td>$0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <p><span class="vurgu">Üç kuvvet, hesapladığımız üç katsayıyı da sınıyor.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $2x^{2}y''+xy'+\left(2x^{2}-3\right)y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Standart biçim.</strong> İkiye bölelim: $b_{0}=\dfrac{1}{2}$, &nbsp;$c_{0}=-\dfrac{3}{2}$.</p>
+                                <p><strong>Adım 2 — Başlangıç denklemi.</strong></p>
+                                $$r(r-1)+\frac{r}{2}-\frac{3}{2}=0\;\Longrightarrow\;2r^{2}-r-3=0\;\Longrightarrow\;(2r-3)(r+1)=0$$
+                                $$r_{1}=\frac{3}{2},\qquad r_{2}=-1$$
+                                <p>Kök farkı $\tfrac52$, <span class="vurgu">tam sayı değil</span> &nbsp;$\Rightarrow$&nbsp; yine en kolay durum.</p>
+                                <p><strong>Adım 3 — İndirgeme bağıntısı.</strong> $m=n+r$ için $2m^{2}-m-3=(2m-3)(m+1)$:</p>
+                                $$\boxed{\;a_{n}=-\frac{2a_{n-2}}{\left(2(n+r)-3\right)(n+r+1)}\;}$$
+                                <p>$n=1$'de katsayı her iki kökte de sıfırdan farklı ($7$ ve $-3$) &nbsp;$\Rightarrow$&nbsp; $a_{1}=0$, tek indisler yok.</p>
+                                <p><strong>Adım 4 — Büyük kök $r_{1}=\tfrac32$.</strong> Bağıntı $a_{n}=-\dfrac{2a_{n-2}}{n(2n+5)}$:</p>
+                                $$a_{2}=-\frac{a_{0}}{9},\qquad a_{4}=-\frac{2a_{2}}{52}=\frac{a_{0}}{234}$$
+                                $$\boxed{\;y_{1}=x^{3/2}\left(1-\frac{x^{2}}{9}+\frac{x^{4}}{234}-\cdots\right)\;}$$
+                                <p><strong>Adım 5 — Küçük kök $r_{2}=-1$.</strong> Bağıntı $a_{n}=-\dfrac{2a_{n-2}}{n(2n-5)}$:</p>
+                                $$a_{2}=-\frac{2a_{0}}{2(-1)}=a_{0},\qquad a_{4}=-\frac{2a_{2}}{12}=-\frac{a_{0}}{6}$$
+                                $$\boxed{\;y_{2}=x^{-1}\left(1+x^{2}-\frac{x^{4}}{6}+\cdots\right)\;}$$
+                                <p><span class="vurgu">$a_{2}$'nin işareti pozitif çıktı</span>, çünkü $n=2$'de $2n-5=-1$ negatif — paydadaki işaret değişimini kaçırmayın.</p>
+                                <p><strong>Doğrulama — $y_{2}$'yi doğrudan denkleme koy.</strong> $y=x^{-1}+x-\dfrac{x^{3}}{6}$ için:</p>
+                                <div class="tablo-sar">
+                                <table>
+                                <tr><th>Kuvvet</th><th>$2x^{2}y''$</th><th>$xy'$</th><th>$2x^{2}y$</th><th>$-3y$</th><th>Toplam</th></tr>
+                                <tr><td>$x^{-1}$</td><td>$4$</td><td>$-1$</td><td>$0$</td><td>$-3$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$x^{1}$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$-3$</td><td>$0$ &#10003;</td></tr>
+                                <tr><td>$x^{3}$</td><td>$-2$</td><td>$-\tfrac12$</td><td>$2$</td><td>$\tfrac12$</td><td>$0$ &#10003;</td></tr>
+                                </table>
+                                </div>
+                                <p><strong>Doğrulama 2 — $y_{1}$ için de aynı kontrol.</strong> $y=x^{3/2}-\dfrac{x^{7/2}}{9}+\dfrac{x^{11/2}}{234}$:</p>
+                                <p>$x^{3/2}$: &nbsp; $\tfrac32+\tfrac32-3=0$ &#10003;</p>
+                                <p>$x^{7/2}$: &nbsp; $-\tfrac{35}{18}-\tfrac{7}{18}+2+\tfrac13=-\tfrac{7}{3}+\tfrac{7}{3}=0$ &#10003;</p>
+                                <p>$x^{11/2}$: &nbsp; $\tfrac{110}{468}-\tfrac{104}{468}-\tfrac{6}{468}=0$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>5 ile 6'yı yan yana koyun — ikisi de aynı kalıp.</strong> Her ikisinde de $2x^{2}y''+xy'$ var; fark yalnız sabit terimde ($-1$ ve $-3$) ve $x^{2}$ katsayısında ($1$ ve $2$).</p>
+                                    <p><strong>Sonuç:</strong> başlangıç denklemleri $2r^{2}-r-1$ ve $2r^{2}-r-3$ — <span class="vurgu">yalnız sabit terim değişiyor.</span> $b_{0}$ aynı olduğu için $r$'nin katsayısı da aynı kalıyor.</p>
+                                    <p><strong>Pratik kazanç:</strong> $2x^{2}y''+xy'+(\ldots)y=0$ kalıbını gördüğünüzde başlangıç denklemi <span class="vurgu">her zaman $2r^{2}-r+c_{0}'=0$</span> biçimindedir; yalnız sabit terimi okumanız yeterli. Bu setteki 5, 6 ve 12. sorular bu kalıpta.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (7-32) — çözülmeyi bekleyen</h3>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''-xy'+\left(x^{2}+\frac{8}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 8. &nbsp; $x^{2}y''-xy'+\left(2x^{2}+\frac{5}{9}\right)y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{9}\right)y=0$ &nbsp;&nbsp;&nbsp; 11. &nbsp; $3xy''-(x-2)y'-2y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $2x^{2}y''+5xy'+(2x-2)y=0$ &nbsp;&nbsp;&nbsp; 13. &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $\left(x^{3}+2x^{2}\right)y''+\left(x^{2}+x\right)y'-10y=0$ &nbsp;&nbsp;&nbsp; 15. &nbsp; $xy''+2y'+xy=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 17. &nbsp; $x^{2}y''+\left(x^{4}+x\right)y'-y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $xy''-\left(x^{2}+2\right)y'+xy=0$ &nbsp;&nbsp;&nbsp; 19. &nbsp; $x^{2}y''+x^{2}y'-2y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''-xy'+\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 21. &nbsp; $x^{2}y''+\left(2x^{2}+3x\right)y'+\left(x-\frac{5}{4}\right)y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+\left(x^{2}+5x\right)y'+(2x+3)y=0$ &nbsp;&nbsp;&nbsp; 23. &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+2x^{3}y'-\left(x^{2}+\frac{15}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 25. &nbsp; $x^{2}y''+xy'+(x-1)y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+\left(x^{3}-x\right)y'-3y=0$ &nbsp;&nbsp;&nbsp; 27. &nbsp; $x^{2}y''-xy'+8\left(x^{2}-1\right)y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''+x^{2}y'-\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 29. &nbsp; $xy''+y'+2y=0$</li>
+                        </ol>
+                        <ol>
+                            <li>&nbsp; $x^{2}y''-xy'+\left(x^{2}+1\right)y=0$ &nbsp;&nbsp;&nbsp; 32. &nbsp; $x^{2}y''-xy'+\left(x^{2}-3\right)y=0$</li>
+                        </ol>
+                        <div class="highlight">
+                            <p><strong>Kaynak metinde okunamayan iki soru.</strong> Tarama çıktısında 2. ve 30. sorular bozuk geldi: 2. soru `(x² − 2xy)′` biçiminde çıktı — yukarıya matematiksel olarak anlamlı olan $\left(x^{2}-2x\right)y'$ hâliyle yazıldı, ama kitaptan teyit edilmeli. 30. soru `2xy″ + 6y + y = 0` olarak okundu; ortadaki terimin $6y'$ olması gerektiği açık, ancak emin olunamadığı için listeye alınmadı.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Frobenius sorusunda nerede olduğunuzu kaybetmemek için</span>
+                            </div>
+                            <p>Bu setteki sorular uzundur ve <span class="vurgu">öğrenciler genelde doğru başlayıp ortada kaybolur.</span> Şu üç kontrol noktasını işaretleyerek ilerleyin:</p>
+                            <p><strong>Kontrol 1 — başlangıç denklemi.</strong> Seriye girmeden $r(r-1)+b_{0}r+c_{0}=0$ yazın, kökleri bulun, <span class="vurgu">kök farkını hemen not edin.</span> Hangi durumda olduğunuzu baştan bilirseniz sonunda şaşırmazsınız.</p>
+                            <p><strong>Kontrol 2 — büyük kökle başlayın.</strong> $r_{1}$ hiçbir zaman sorun çıkarmaz. İlk çözümü garantiye alın, sonra ikinciye geçin.</p>
+                            <p><strong>Kontrol 3 — küçük kökte paydaya bakın.</strong> İndirgeme bağıntısını $r_{2}$ ile yazınca payda bir yerde sıfırlanıyorsa logaritmalı forma geçin; sıfırlanmıyorsa düz seri yeterlidir.</p>
+                            <p><strong>Sınav ekonomisi.</strong> Frobenius soruları puanın büyük kısmını <span class="vurgu">ilk yarıda</span> verir: doğru sınıflandırma, doğru başlangıç denklemi, doğru indirgeme bağıntısı. Zaman daralıyorsa ilk çözümü eksiksiz yazıp ikinciye "logaritmalı formda olacaktır, $y_{2}=Cy_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$" diye başlamak, hiç yazmamaktan çok daha iyidir.</p>
                         </div>
                     </div>
 
@@ -17733,7 +17902,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=e46e872d"></script>
+<script defer src="arama.js?v=ac7dc8b9"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

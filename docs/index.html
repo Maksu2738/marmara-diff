@@ -11911,23 +11911,184 @@
                                 <p><em>Kitabın cevabıyla uyuşuyor.</em></p>
                             </div>
                         </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Kalan sorular — çözümler bize ait</h3>
+                        <div class="highlight">
+                            <p><strong>Bu soruların cevabı kitabın anahtarında yok.</strong> Çözümler bize aittir; her biri <span class="vurgu">ikinci bir bağımsız yolla doğrulanmıştır</span>.</p>
+                            <p>Süreksiz zorlamalı problemlerde en güçlü kontrol, çözümü <span class="vurgu">her aralıkta ayrı ayrı denkleme geri koymaktır</span>. Buna ek olarak her zaman şu iki şey doğru olmalı:</p>
+                            $$g(0)=0\qquad\text{ve}\qquad g'(0)=0$$
+                            <p>Burada $g$, ötelenmiş parçanın ötelenmemiş hâlidir. <span class="vurgu">Bu iki eşitlik, $t=a$ noktasında hem $y$'nin hem $y'$'nün sürekli olduğunu garantiler</span> — süreksiz zorlamada sıçrayan yalnızca $y''$'dür.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>2.</strong> &nbsp; $3y'-5y=h(t)$, &nbsp; $h(t)=\begin{cases}0, &amp; 0&lt;t&lt;6\\ 10, &amp; t&gt;6\end{cases}$, &nbsp; $y(0)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Zorlamayı basamak cinsinden yaz.</strong> Zorlama sonradan <strong>başlıyor</strong>, o yüzden tek terim:</p>
+                                $$h(t)=10\,u_{6}(t)\qquad\Longrightarrow\qquad \mathcal{L}\{h\}=\frac{10e^{-6s}}{s}$$
+                                <p><span class="vurgu">$(1-e^{-as})$ değil, yalnız $e^{-as}$ çarpanı çıkıyor.</span></p>
+                                <p><strong>Adım 2 — Denklemi dönüştür.</strong></p>
+                                $$3\left[sY-4\right]-5Y=\frac{10e^{-6s}}{s}\quad\Longrightarrow\quad (3s-5)Y=12+\frac{10e^{-6s}}{s}$$
+                                $$Y(s)=\underbrace{\frac{12}{3s-5}}_{\text{başlangıç koşulu}}+\underbrace{\frac{10e^{-6s}}{s(3s-5)}}_{\text{zorlama}}$$
+                                <p><strong>Adım 3 — Birinci terim.</strong> Katsayıyı $3$'e böl, standart biçime sok:</p>
+                                $$\frac{12}{3s-5}=\frac{4}{s-\tfrac{5}{3}}\quad\Longrightarrow\quad 4e^{5t/3}$$
+                                <p><strong>Adım 4 — İkinci terimin ötelenmemiş hâli.</strong></p>
+                                $$G(s)=\frac{10}{s(3s-5)}=\frac{A}{s}+\frac{B}{3s-5},\qquad 10=A(3s-5)+Bs$$
+                                <p>$s=0$: &nbsp; $10=-5A\Rightarrow A=-2$ &nbsp;&nbsp;&nbsp; $s=\tfrac53$: &nbsp; $10=\tfrac53 B\Rightarrow B=6$</p>
+                                $$G(s)=-\frac{2}{s}+\frac{6}{3s-5}=-\frac{2}{s}+\frac{2}{s-\tfrac53}\quad\Longrightarrow\quad g(t)=2e^{5t/3}-2$$
+                                <p><strong>Adım 5 — Ötele ve birleştir.</strong></p>
+                                $$\boxed{\;y(t)=\begin{cases}4e^{5t/3}, &amp; 0&lt;t&lt;6\\[4pt] 4e^{5t/3}+2e^{5(t-6)/3}-2, &amp; t&gt;6\end{cases}\;}$$
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy.</strong></p>
+                                <p>$0&lt;t&lt;6$ için: &nbsp; $3\cdot 4\cdot\tfrac53 e^{5t/3}-5\cdot 4e^{5t/3}=20e^{5t/3}-20e^{5t/3}=0$ &#10003; &nbsp;ve&nbsp; $y(0)=4$ &#10003;</p>
+                                <p>$t&gt;6$ için: &nbsp; $y'=\tfrac{20}{3}e^{5t/3}+\tfrac{10}{3}e^{5(t-6)/3}$</p>
+                                $$3y'-5y=\left[20e^{5t/3}+10e^{5(t-6)/3}\right]-\left[20e^{5t/3}+10e^{5(t-6)/3}-10\right]=10\;\checkmark$$
+                                <p><strong>Doğrulama 2 — süreklilik.</strong> $g(0)=2-2=0$ &#10003; — <span class="vurgu">zorlama devreye girdiğinde çözüm sıçramıyor.</span></p>
+                                <div class="highlight">
+                                    <p><strong>Bu problemde çözüm sınırsız büyüyor.</strong> Katsayı $-5$ değil $+5$ olduğu için kök $s=\tfrac53&gt;0$; homojen çözüm $e^{5t/3}$ patlıyor. <span class="vurgu">Zorlamanın getirdiği $-2$ sabiti bunun yanında görünmez kalıyor.</span></p>
+                                    <p>Kararlı (stable) bir sistemde beklediğimiz "zorlama kesilince çözüm sabite oturur" davranışı burada <strong>yok</strong> — sistemin kendisi kararsız.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>4.</strong> &nbsp; $y''+5y'+6y=h(t)$, &nbsp; $h(t)=\begin{cases}6, &amp; 0&lt;t&lt;2\\ 0, &amp; t&gt;2\end{cases}$, &nbsp; $y(0)=0,\;y'(0)=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Pencere biçimi.</strong></p>
+                                $$h(t)=6\left[1-u_{2}(t)\right]\qquad\Longrightarrow\qquad \mathcal{L}\{h\}=\frac{6\left(1-e^{-2s}\right)}{s}$$
+                                <p><strong>Adım 2 — Dönüştür.</strong> Başlangıç koşulları sıfır olduğu için <span class="vurgu">homojen terim hiç yok:</span></p>
+                                $$\left(s^{2}+5s+6\right)Y=\frac{6\left(1-e^{-2s}\right)}{s},\qquad s^{2}+5s+6=(s+2)(s+3)$$
+                                $$Y(s)=\frac{6\left(1-e^{-2s}\right)}{s(s+2)(s+3)}$$
+                                <p><strong>Adım 3 — Ötelenmemiş parça.</strong> $G(s)=\dfrac{6}{s(s+2)(s+3)}$; kapatma yöntemiyle (cover-up):</p>
+                                <p>$s=0$: &nbsp; $\dfrac{6}{2\cdot 3}=1$ &nbsp;&nbsp;&nbsp; $s=-2$: &nbsp; $\dfrac{6}{(-2)(1)}=-3$ &nbsp;&nbsp;&nbsp; $s=-3$: &nbsp; $\dfrac{6}{(-3)(-1)}=2$</p>
+                                $$g(t)=1-3e^{-2t}+2e^{-3t}$$
+                                <p><strong>Adım 4 — Birleştir.</strong> $Y=G-e^{-2s}G$ olduğundan $y(t)=g(t)-g(t-2)u_{2}(t)$; <span class="vurgu">$t&gt;2$'de sabit $1$'ler birbirini götürüyor:</span></p>
+                                $$\boxed{\;y(t)=\begin{cases}1-3e^{-2t}+2e^{-3t}, &amp; 0&lt;t&lt;2\\[4pt] -3e^{-2t}+2e^{-3t}+3e^{-2(t-2)}-2e^{-3(t-2)}, &amp; t&gt;2\end{cases}\;}$$
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy</strong> ($0&lt;t&lt;2$):</p>
+                                $$g'=6e^{-2t}-6e^{-3t},\qquad g''=-12e^{-2t}+18e^{-3t}$$
+                                $$g''+5g'+6g=\underbrace{(-12+30-18)}_{0}e^{-2t}+\underbrace{(18-30+12)}_{0}e^{-3t}+6\cdot 1=6\;\checkmark$$
+                                <p><strong>Doğrulama 2 — başlangıç koşulları.</strong> $g(0)=1-3+2=0$ &#10003; &nbsp;ve&nbsp; $g'(0)=6-6=0$ &#10003;</p>
+                                <p><span class="vurgu">Aynı iki eşitlik $t=2$'deki sürekliliği de veriyor</span> — ötelenen fonksiyon $g$'nin ta kendisi.</p>
+                                <p><strong>Doğrulama 3 — son değer THEoREM'i.</strong> Zorlama kesildikten sonra çözüm sıfıra gitmeli:</p>
+                                $$\lim_{s\to 0}sY(s)=\lim_{s\to 0}\frac{6\left(1-e^{-2s}\right)}{(s+2)(s+3)}=\frac{6\cdot 0}{6}=0\;\checkmark$$
+                                <p><span class="vurgu">Pay $s\to 0$ iken sıfırlanıyor; pencere biçimindeki zorlamanın imzası budur.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>6.</strong> &nbsp; $y''+6y'+8y=h(t)$, &nbsp; $h(t)=\begin{cases}3, &amp; 0&lt;t&lt;2\pi\\ 0, &amp; t&gt;2\pi\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Dönüştür.</strong> Bu kez başlangıç koşulları sıfır değil:</p>
+                                $$\mathcal{L}\{y''\}=s^{2}Y-s+1,\qquad \mathcal{L}\{6y'\}=6sY-6$$
+                                $$\left(s^{2}+6s+8\right)Y-s-5=\frac{3\left(1-e^{-2\pi s}\right)}{s}$$
+                                $$Y(s)=\underbrace{\frac{s+5}{(s+2)(s+4)}}_{\text{başlangıç koşulları}}+\underbrace{\frac{3\left(1-e^{-2\pi s}\right)}{s(s+2)(s+4)}}_{\text{zorlama}}$$
+                                <p><strong>Adım 2 — Homojen parça.</strong></p>
+                                $$\frac{s+5}{(s+2)(s+4)}:\quad s=-2\Rightarrow\frac{3}{2},\qquad s=-4\Rightarrow\frac{1}{-2}=-\frac{1}{2}$$
+                                $$\frac{3}{2}e^{-2t}-\frac{1}{2}e^{-4t}$$
+                                <p><strong>Adım 3 — Zorlama parçası.</strong> $G(s)=\dfrac{3}{s(s+2)(s+4)}$:</p>
+                                <p>$s=0$: &nbsp; $\dfrac{3}{8}$ &nbsp;&nbsp;&nbsp; $s=-2$: &nbsp; $\dfrac{3}{(-2)(2)}=-\dfrac{3}{4}$ &nbsp;&nbsp;&nbsp; $s=-4$: &nbsp; $\dfrac{3}{(-4)(-2)}=\dfrac{3}{8}$</p>
+                                $$g(t)=\frac{3}{8}-\frac{3}{4}e^{-2t}+\frac{3}{8}e^{-4t}$$
+                                <p><strong>Adım 4 — İlk aralıkta topla.</strong></p>
+                                $$\frac{3}{2}-\frac{3}{4}=\frac{3}{4},\qquad -\frac{1}{2}+\frac{3}{8}=-\frac{1}{8}$$
+                                $$y(t)=\frac{3}{8}+\frac{3}{4}e^{-2t}-\frac{1}{8}e^{-4t}\qquad (0&lt;t&lt;2\pi)$$
+                                <p><strong>Adım 5 — İkinci aralık.</strong> $g(t-2\pi)$ çıkarılır; <span class="vurgu">sabit $\tfrac38$'ler götürür:</span></p>
+                                $$\boxed{\;y(t)=\begin{cases}\dfrac{3}{8}+\dfrac{3}{4}e^{-2t}-\dfrac{1}{8}e^{-4t}, &amp; 0&lt;t&lt;2\pi\\[10pt] \dfrac{3}{4}e^{-2t}-\dfrac{1}{8}e^{-4t}+\dfrac{3}{4}e^{-2(t-2\pi)}-\dfrac{3}{8}e^{-4(t-2\pi)}, &amp; t&gt;2\pi\end{cases}\;}$$
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy</strong> ($0&lt;t&lt;2\pi$):</p>
+                                $$y'=-\frac{3}{2}e^{-2t}+\frac{1}{2}e^{-4t},\qquad y''=3e^{-2t}-2e^{-4t}$$
+                                $$y''+6y'+8y=\underbrace{(3-9+6)}_{0}e^{-2t}+\underbrace{(-2+3-1)}_{0}e^{-4t}+8\cdot\frac{3}{8}=3\;\checkmark$$
+                                <p><strong>Doğrulama 2 — başlangıç koşulları.</strong> $y(0)=\dfrac{3+6-1}{8}=1$ &#10003; &nbsp;ve&nbsp; $y'(0)=-\dfrac32+\dfrac12=-1$ &#10003;</p>
+                                <p><strong>Doğrulama 3 — süreklilik.</strong> $g(0)=\dfrac{3}{8}-\dfrac{3}{4}+\dfrac{3}{8}=0$ &#10003;; &nbsp;$g'(t)=\dfrac32 e^{-2t}-\dfrac32 e^{-4t}$ olduğundan $g'(0)=0$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>$2\pi$ burada özel bir sayı değil.</strong> Trigonometrik zorlamalarda $2\pi$ görünce "tam periyot, sadeleşir" refleksi doğrudur; <span class="vurgu">burada çözüm tamamen üstel olduğu için hiçbir sadeleşme olmaz.</span></p>
+                                    <p>Nitekim $e^{-2(t-2\pi)}=e^{4\pi}e^{-2t}$ yazılabilir ve ikinci aralık şu biçime de sokulabilir:</p>
+                                    $$y=\left[\frac{3}{4}+\frac{3}{4}e^{4\pi}\right]e^{-2t}-\left[\frac{1}{8}+\frac{3}{8}e^{8\pi}\right]e^{-4t}$$
+                                    <p><strong>Ama bu biçim tercih edilmez:</strong> $e^{8\pi}\approx 10^{10}$ gibi devasa bir katsayı yazıp onu $e^{-4t}$ ile çarpmak, <span class="vurgu">hem elle hesapta hem bilgisayarda sayısal hataya davetiye çıkarır.</span> Cevabı $t-2\pi$ cinsinden bırakmak doğru alışkanlıktır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>8.</strong> &nbsp; $y''+y=h(t)$, &nbsp; $h(t)=\begin{cases}t, &amp; 0&lt;t&lt;\pi\\ \pi, &amp; t&gt;\pi\end{cases}$, &nbsp; $y(0)=2,\;y'(0)=3$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Zorlama sabit değil, <span class="vurgu">doyuma giden bir rampa (saturating ramp)</span>: önce doğrusal büyüyor, sonra $\pi$ değerinde sabitleniyor.</p>
+                                <p><strong>Adım 1 — Rampayı basamakla ifade et.</strong> Doğrusal büyümeyi $t=\pi$'de durdurmak için, o andan itibaren ters eğimli bir rampa eklenir:</p>
+                                $$h(t)=t-(t-\pi)\,u_{\pi}(t)$$
+                                <p><span class="vurgu">İkinci terim zaten $t-\pi$ cinsinden yazılmış durumda</span>, ötelemek için ek iş gerekmiyor:</p>
+                                $$\mathcal{L}\{h\}=\frac{1}{s^{2}}-\frac{e^{-\pi s}}{s^{2}}=\frac{1-e^{-\pi s}}{s^{2}}$$
+                                <p><strong>Adım 2 — Dönüştür.</strong></p>
+                                $$\left(s^{2}+1\right)Y-2s-3=\frac{1-e^{-\pi s}}{s^{2}}$$
+                                $$Y(s)=\frac{2s+3}{s^{2}+1}+\frac{1-e^{-\pi s}}{s^{2}\left(s^{2}+1\right)}$$
+                                <p><strong>Adım 3 — Ötelenmemiş parça.</strong> Bu ayrışma ezberlenmeye değer:</p>
+                                $$\frac{1}{s^{2}\left(s^{2}+1\right)}=\frac{1}{s^{2}}-\frac{1}{s^{2}+1}\quad\Longrightarrow\quad g(t)=t-\sin t$$
+                                <p><strong>Kontrol:</strong> ortak paydada $\dfrac{\left(s^{2}+1\right)-s^{2}}{s^{2}\left(s^{2}+1\right)}=\dfrac{1}{s^{2}\left(s^{2}+1\right)}$ &#10003;</p>
+                                <p><strong>Adım 4 — Birleştir.</strong></p>
+                                $$y(t)=2\cos t+3\sin t+\left(t-\sin t\right)-\Big[(t-\pi)-\sin(t-\pi)\Big]u_{\pi}(t)$$
+                                <p>Burada <span class="vurgu">$\sin(t-\pi)=-\sin t$</span> olduğundan köşeli parantez $t&gt;\pi$ için $(t-\pi)+\sin t$'ye dönüşür. Sadeleştirince:</p>
+                                $$\boxed{\;y(t)=\begin{cases}t+2\cos t+2\sin t, &amp; 0&lt;t&lt;\pi\\[4pt] \pi+2\cos t+\sin t, &amp; t&gt;\pi\end{cases}\;}$$
+                                <p><span class="vurgu">Sonuç şaşırtıcı derecede sade</span> — $\pi$ ötelemesi sinüsü işaret değiştirdiği için terimler toplanıp tek bir $\sin t$ bıraktı.</p>
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy.</strong></p>
+                                <p>$0&lt;t&lt;\pi$: &nbsp; $y''=-2\cos t-2\sin t$, &nbsp; $y''+y=t$ &#10003; (trigonometrik terimler götürüyor, geriye $t$ kalıyor)</p>
+                                <p>$t&gt;\pi$: &nbsp; $y''=-2\cos t-\sin t$, &nbsp; $y''+y=\pi$ &#10003;</p>
+                                <p><strong>Doğrulama 2 — başlangıç koşulları.</strong> $y(0)=0+2+0=2$ &#10003;; &nbsp;$y'=1-2\sin t+2\cos t$ &nbsp;$\Rightarrow$&nbsp; $y'(0)=1+2=3$ &#10003;</p>
+                                <p><strong>Doğrulama 3 — $t=\pi$'de süreklilik.</strong> <span class="vurgu">İki ifade birbirinden bağımsız yazıldığı için bu gerçek bir sınav:</span></p>
+                                $$y(\pi^{-})=\pi-2,\qquad y(\pi^{+})=\pi-2\;\checkmark$$
+                                $$y'(\pi^{-})=1-0-2=-1,\qquad y'(\pi^{+})=-2\sin\pi+\cos\pi=-1\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>Doyan rampa kalıbı.</strong> Bir zorlama $t=a$'da doğrusal artmayı bırakıp sabitleniyorsa:</p>
+                                    $$h(t)=\underbrace{mt}_{\text{rampa}}-\underbrace{m(t-a)u_{a}(t)}_{\text{eğimi iptal eden ters rampa}}$$
+                                    <p><span class="vurgu">İkinci terim eğimi sıfırlar, ama biriken değeri korur.</span> Aynı fikirle üçgen darbe, trapez zorlama ve kademeli artışların hepsi yazılabilir. Dönüşümü de her zaman $\dfrac{m\left(1-e^{-as}\right)}{s^{2}}$ biçimindedir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>10.</strong> &nbsp; $y''+6y'+25y=25\left[u_{2}(t)-u_{4}(t)\right]$, &nbsp; $y(0)=3,\;y'(0)=-9$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Zorlama <span class="vurgu">zaten basamak cinsinden verilmiş</span>; ilk adımı atlıyoruz.</p>
+                                <p><strong>Adım 1 — Dönüştür.</strong></p>
+                                $$\mathcal{L}\{\text{sağ taraf}\}=\frac{25\left(e^{-2s}-e^{-4s}\right)}{s}$$
+                                $$\mathcal{L}\{y''\}=s^{2}Y-3s+9,\qquad \mathcal{L}\{6y'\}=6sY-18$$
+                                $$\left(s^{2}+6s+25\right)Y-3s-9=\frac{25\left(e^{-2s}-e^{-4s}\right)}{s}$$
+                                <p><strong>Adım 2 — Paydayı tamkareye tamamla.</strong> $\Delta=36-100&lt;0$:</p>
+                                $$s^{2}+6s+25=(s+3)^{2}+16$$
+                                $$Y(s)=\frac{3s+9}{(s+3)^{2}+16}+\frac{25\left(e^{-2s}-e^{-4s}\right)}{s\left[(s+3)^{2}+16\right]}$$
+                                <p><strong>Adım 3 — Homojen parça.</strong> <span class="vurgu">Pay tam olarak $3(s+3)$ çıkıyor</span>, saf kosinüs:</p>
+                                $$\frac{3(s+3)}{(s+3)^{2}+16}\quad\Longrightarrow\quad 3e^{-3t}\cos 4t$$
+                                <p><strong>Adım 4 — Zorlama parçası.</strong> $G(s)=\dfrac{25}{s\left(s^{2}+6s+25\right)}=\dfrac{A}{s}+\dfrac{Bs+C}{s^{2}+6s+25}$</p>
+                                <p>$s=0$: &nbsp; $A=\dfrac{25}{25}=1$. Paydaları eşitleyip $25=\left(s^{2}+6s+25\right)+s(Bs+C)$ yazalım:</p>
+                                <p>$s^{2}$ katsayısı: &nbsp; $0=1+B\Rightarrow B=-1$ &nbsp;&nbsp;&nbsp; $s^{1}$ katsayısı: &nbsp; $0=6+C\Rightarrow C=-6$</p>
+                                $$G(s)=\frac{1}{s}-\frac{s+6}{(s+3)^{2}+16}=\frac{1}{s}-\frac{s+3}{(s+3)^{2}+16}-\frac{3}{4}\cdot\frac{4}{(s+3)^{2}+16}$$
+                                $$g(t)=1-e^{-3t}\left[\cos 4t+\frac{3}{4}\sin 4t\right]$$
+                                <p><strong>Adım 5 — İki öteleme, üç aralık.</strong> $y=3e^{-3t}\cos 4t+g(t-2)u_{2}(t)-g(t-4)u_{4}(t)$; kısaca $G_{a}(t)=e^{-3(t-a)}\left[\cos 4(t-a)+\tfrac34\sin 4(t-a)\right]$ yazalım:</p>
+                                $$\boxed{\;y(t)=\begin{cases}3e^{-3t}\cos 4t, &amp; 0&lt;t&lt;2\\[4pt] 3e^{-3t}\cos 4t+1-G_{2}(t), &amp; 2&lt;t&lt;4\\[4pt] 3e^{-3t}\cos 4t-G_{2}(t)+G_{4}(t), &amp; t&gt;4\end{cases}\;}$$
+                                <p><span class="vurgu">Üçüncü aralıkta sabit $1$'ler götürüyor</span> — zorlama kapandığı için sistemin oturacağı sabit değer de ortadan kalkıyor.</p>
+                                <p><strong>Doğrulama 1 — çözümü denkleme geri koy</strong> ($0&lt;t&lt;2$, sağ taraf sıfır). Karakteristik kökler</p>
+                                $$s=\frac{-6\pm\sqrt{-64}}{2}=-3\pm 4i$$
+                                <p>olduğundan $e^{-3t}\cos 4t$ zaten <span class="vurgu">homojen denklemin çözümüdür</span>; $3$ ile çarpımı da öyle &#10003;</p>
+                                <p><strong>Doğrulama 2 — başlangıç koşulları.</strong> $y(0)=3$ &#10003;</p>
+                                $$y'=3e^{-3t}\left[-3\cos 4t-4\sin 4t\right]\quad\Longrightarrow\quad y'(0)=-9\;\checkmark$$
+                                <p><strong>Doğrulama 3 — her iki ötelemede süreklilik.</strong> $g(0)=1-\left[1+0\right]=0$ &#10003;. Türev için:</p>
+                                $$g'(t)=3e^{-3t}\left[\cos 4t+\frac{3}{4}\sin 4t\right]-e^{-3t}\left[-4\sin 4t+3\cos 4t\right]=\frac{25}{4}e^{-3t}\sin 4t$$
+                                <p>$g'(0)=0$ &#10003; — <span class="vurgu">hem $t=2$ hem $t=4$'te $y$ ve $y'$ sürekli.</span></p>
+                                <p><strong>Doğrulama 4 — son değer THEoREM'i.</strong></p>
+                                $$\lim_{s\to 0}sY(s)=\underbrace{\frac{0\cdot 9}{25}}_{\text{homojen}}+\underbrace{\frac{25\left(1-1\right)}{25}}_{\text{zorlama}}=0\;\checkmark$$
+                                <p>Zorlama sonlu süreli bir darbe olduğu için <span class="vurgu">çözüm eninde sonunda sıfıra sönüyor.</span></p>
+                                <div class="highlight">
+                                    <p><strong>$g'(t)=\tfrac{25}{4}e^{-3t}\sin 4t$ sonucu rastlantı değil.</strong> $G(s)$'nin türev karşılığı $sG(s)-g(0)=sG(s)$ idi:</p>
+                                    $$sG(s)=\frac{25}{s^{2}+6s+25}=\frac{25}{4}\cdot\frac{4}{(s+3)^{2}+16}$$
+                                    <p>Bunun ters dönüşümü doğrudan $\dfrac{25}{4}e^{-3t}\sin 4t$. <span class="vurgu">Yani türevi elle almak yerine dönüşüm düzleminde $s$ ile çarpmak yeterliydi</span> — türev THEoREM'inin pratik kullanımı budur.</p>
+                                </div>
+                            </div>
+                        </div>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çalışma soruları</h3>
-                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Çözümleri size bırakıldı.</span></p>
-                        <p><strong>2.</strong> &nbsp; $3y'-5y=h(t)$, &nbsp; $h(t)=\begin{cases}0, &amp; 0&lt;t&lt;6\\ 10, &amp; t&gt;6\end{cases}$, &nbsp; $y(0)=4$</p>
-                        <p><strong>4.</strong> &nbsp; $y''+5y'+6y=h(t)$, &nbsp; $h(t)=\begin{cases}6, &amp; 0&lt;t&lt;2\\ 0, &amp; t&gt;2\end{cases}$, &nbsp; $y(0)=0,\;y'(0)=0$</p>
-                        <p><strong>6.</strong> &nbsp; $y''+6y'+8y=h(t)$, &nbsp; $h(t)=\begin{cases}3, &amp; 0&lt;t&lt;2\pi\\ 0, &amp; t&gt;2\pi\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-1$</p>
-                        <p><strong>8.</strong> &nbsp; $y''+y=h(t)$, &nbsp; $h(t)=\begin{cases}t, &amp; 0&lt;t&lt;\pi\\ \pi, &amp; t&gt;\pi\end{cases}$, &nbsp; $y(0)=2,\;y'(0)=3$</p>
-                        <p><strong>10.</strong> &nbsp; $y''+6y'+25y=25\left[u_{2}(t)-u_{4}(t)\right]$, &nbsp; $y(0)=3,\;y'(0)=-9$</p>
+                        <p>Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. <span class="vurgu">Sıraya alındı.</span></p>
                         <p><strong>11.</strong> &nbsp; $y'-3y=h(t)$, &nbsp; $h(t)=\begin{cases}10\sin t, &amp; 0&lt;t&lt;2\pi\\ 0, &amp; t&gt;2\pi\end{cases}$, &nbsp; $y(0)=0$</p>
                         <p><strong>12.</strong> &nbsp; $y''-y'=h(t)$, &nbsp; $h(t)=\begin{cases}4-2t, &amp; 0\le t\le 2\\ 0, &amp; t&gt;2\end{cases}$, &nbsp; $y(0)=1,\;y'(0)=-2$</p>
                         <div class="highlight">
                             <p><strong>İpuçları.</strong></p>
-                            <p><strong>2</strong> ve <strong>4</strong> → soru 1 ve 3 ile aynı yapıda. 2'de zorlama sonradan <strong>başlıyor</strong>, yani $\mathcal{L}\{h\}=\frac{10e^{-6s}}{s}$; $(1-e^{-as})$ değil yalnız $e^{-as}$ çarpanı çıkar.</p>
-                            <p><strong>8</strong> → zorlama sabit değil, rampa. $h(t)=t-u_{\pi}(t)(t-\pi)$ yazın (4.4 egzersiz 13'teki doyum kalıbı).</p>
-                            <p><strong>10</strong> → zorlama zaten $u_{a}$ cinsinden verilmiş, dönüştürmeye gerek yok. Payda $s^{2}+6s+25=(s+3)^{2}+16$ tamkareye gider.</p>
-                            <p><strong>12</strong> → $h(t)=4-2t-u_{2}(t)\left[4-2t\right]$ ifadesini $t-2$ cinsinden yazın: $4-2t=-2(t-2)$, yani $h(t)=(4-2t)+2u_{2}(t)(t-2)$.</p>
-                            <p><strong>Doğrulama.</strong> Cevap anahtarı olmasa da her çözümü sınayabilirsiniz: bulduğunuz $y$'yi <span class="vurgu">her iki aralıkta ayrı ayrı</span> denkleme koyun, ayrıca $t=a$ noktasında $y$ ve $y'$'nin sürekli olduğunu kontrol edin. Süreksiz zorlamada çözümün kendisi ve türevi süreklidir; sıçrayan yalnızca ikinci türevdir.</p>
+                            <p><strong>11</strong> → $h(t)=10\sin t\left[1-u_{2\pi}(t)\right]$. Buradaki kolaylık şu: <span class="vurgu">$\sin t$'nin periyodu $2\pi$ olduğundan $\sin t=\sin(t-2\pi)$</span>, yani ötelenmiş terimi $t-2\pi$ cinsinden yazmak için açı toplama formülü gerekmez. Dönüşüm doğrudan $\dfrac{10\left(1-e^{-2\pi s}\right)}{s^{2}+1}$ olur.</p>
+                            <p><strong>12</strong> → Zorlama azalan bir rampa. $4-2t=-2(t-2)$ olduğuna dikkat edin; böylece</p>
+                            $$h(t)=(4-2t)+2\,u_{2}(t)\,(t-2)$$
+                            <p>yazılır ve ikinci terim zaten $t-2$ cinsindedir. Payda $s^{2}-s=s(s-1)$ çarpanlanıyor, <span class="vurgu">kısmi kesirlerde $\dfrac{1}{s^{2}}$ terimi de çıkacağı için üç bilinmeyenli sistem kurun.</span></p>
+                            <p><strong>Doğrulama.</strong> İkisinde de çözümü <span class="vurgu">her aralıkta ayrı ayrı</span> denkleme koyun ve $g(0)=g'(0)=0$ kontrolünü yapın.</p>
                         </div>
                     </div>
 

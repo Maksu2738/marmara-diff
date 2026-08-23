@@ -326,22 +326,174 @@ Bu yöntem elle hesapta ==hatanın yerini de söyler:== hangi satır tutmuyorsa 
 [/KUTU]
 [/CEVAP]
 
----
+[SORU] **8.** &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$
+[CEVAP]
+**Adım 1 — Dönüştür.** Her iki denklemde de hem $x'$ hem $y'$ var; başlangıç koşulları ikisinden birden gelir.
 
-### Çalışma soruları
+$$2(sX-3)+(sY+4)+X+5Y=\frac{4}{s^{2}}\;\Longrightarrow\;(2s+1)X+(s+5)Y=\frac{4}{s^{2}}+2\;\equiv P$$
 
-Aşağıdakilerin cevapları cevap anahtarında verilmemiştir. ==Sıraya alındı.==
+$$(sX-3)+(sY+4)+2X+2Y=\frac{2}{s}\;\Longrightarrow\;(s+2)X+(s+2)Y=\frac{2}{s}-1\;\equiv Q$$
 
-**8.** &nbsp; $2x'+y'+x+5y=4t$, &nbsp; $x'+y'+2x+2y=2$, &nbsp; $x(0)=3,\;y(0)=-4$
+**Adım 2 — Determinant.** ==İkinci denklemde $X$ ve $Y$ katsayıları aynı olduğu için $(s+2)$ ortak çarpan olarak çıkıyor:==
 
-**10.** &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$
+$$\Delta=(2s+1)(s+2)-(s+5)(s+2)=(s+2)\Big[(2s+1)-(s+5)\Big]=(s+2)(s-4)$$
+
+Kökler $s=-2$ ve $s=4$; çözümde $e^{-2t}$ ve $e^{4t}$ bekliyoruz. Zorlamadan da $\tfrac{1}{s^{2}}$ üzerinden polinom gelecek.
+
+**Adım 3 — $X$.** $P=\dfrac{2s^{2}+4}{s^{2}}$, &nbsp;$Q=\dfrac{2-s}{s}$ yazıp Cramer uygulayalım:
+
+$$X=\frac{P(s+2)-Q(s+5)}{(s+2)(s-4)}=\frac{\left(2s^{2}+4\right)(s+2)-s(2-s)(s+5)}{s^{2}(s+2)(s-4)}$$
+
+Payı açalım: &nbsp;$\left(2s^{2}+4\right)(s+2)=2s^{3}+4s^{2}+4s+8$ &nbsp;ve&nbsp; $s(2-s)(s+5)=-s^{3}-3s^{2}+10s$
+
+$$X=\frac{3s^{3}+7s^{2}-6s+8}{s^{2}(s+2)(s-4)}$$
+
+**Adım 4 — Kısmi kesirler.** Kapatma yöntemiyle:
+
+$s=0$ (için $\tfrac{1}{s^{2}}$ katsayısı): &nbsp; $\dfrac{8}{(2)(-4)}=-1$
+
+$s=-2$: &nbsp; $\dfrac{-24+28+12+8}{4\cdot(-6)}=\dfrac{24}{-24}=-1$ &nbsp;&nbsp;&nbsp; $s=4$: &nbsp; $\dfrac{192+112-24+8}{16\cdot 6}=\dfrac{288}{96}=3$
+
+$\tfrac{1}{s}$ katsayısı için $s^{3}$ terimlerini karşılaştıralım: $3=A+(-1)+3\Rightarrow A=1$.
+
+$$X=\frac{1}{s}-\frac{1}{s^{2}}-\frac{1}{s+2}+\frac{3}{s-4}\;\Longrightarrow\;x(t)=1-t-e^{-2t}+3e^{4t}$$
+
+**Adım 5 — $Y$.** Aynı yolla:
+
+$$Y=\frac{(2s+1)Q-(s+2)P}{(s+2)(s-4)}=\frac{-4s^{3}-s^{2}-2s-8}{s^{2}(s+2)(s-4)}$$
+
+$s=0$: $\dfrac{-8}{-8}=1$; &nbsp;$s=-2$: $\dfrac{24}{-24}=-1$; &nbsp;$s=4$: $\dfrac{-288}{96}=-3$; &nbsp;$s^{3}$'ten $-4=A-1-3\Rightarrow A=0$
+
+$$Y=\frac{1}{s^{2}}-\frac{1}{s+2}-\frac{3}{s-4}\;\Longrightarrow\;y(t)=t-e^{-2t}-3e^{4t}$$
+
+$$\boxed{\;x(t)=1-t-e^{-2t}+3e^{4t},\qquad y(t)=t-e^{-2t}-3e^{4t}\;}$$
+
+**Doğrulama 1 — birinci denklem.** $x'=-1+2e^{-2t}+12e^{4t}$, &nbsp;$y'=1+2e^{-2t}-12e^{4t}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Terim</th><th>$2x'$</th><th>$y'$</th><th>$x$</th><th>$5y$</th><th>Toplam</th></tr>
+<tr><td>sabit</td><td>$-2$</td><td>$1$</td><td>$1$</td><td>$0$</td><td>$0$</td></tr>
+<tr><td>$t$</td><td>$0$</td><td>$0$</td><td>$-1$</td><td>$5$</td><td>$\mathbf{4}$</td></tr>
+<tr><td>$e^{-2t}$</td><td>$4$</td><td>$2$</td><td>$-1$</td><td>$-5$</td><td>$0$</td></tr>
+<tr><td>$e^{4t}$</td><td>$24$</td><td>$-12$</td><td>$3$</td><td>$-15$</td><td>$0$</td></tr>
+</table>
+</div>
+
+$$2x'+y'+x+5y=4t\;\checkmark$$
+
+**Doğrulama 2 — ikinci denklem (bağımsız sınav).**
+
+<div class="tablo-sar">
+<table>
+<tr><th>Terim</th><th>$x'$</th><th>$y'$</th><th>$2x$</th><th>$2y$</th><th>Toplam</th></tr>
+<tr><td>sabit</td><td>$-1$</td><td>$1$</td><td>$2$</td><td>$0$</td><td>$\mathbf{2}$</td></tr>
+<tr><td>$t$</td><td>$0$</td><td>$0$</td><td>$-2$</td><td>$2$</td><td>$0$</td></tr>
+<tr><td>$e^{-2t}$</td><td>$2$</td><td>$2$</td><td>$-2$</td><td>$-2$</td><td>$0$</td></tr>
+<tr><td>$e^{4t}$</td><td>$12$</td><td>$-12$</td><td>$6$</td><td>$-6$</td><td>$0$</td></tr>
+</table>
+</div>
+
+$$x'+y'+2x+2y=2\;\checkmark$$
+
+**Doğrulama 3 — başlangıç koşulları.** $x(0)=1-0-1+3=3$ &#10003;, &nbsp;$y(0)=0-1-3=-4$ &#10003;
 
 [KUTU]
-**İpuçları.**
+**$x$ ile $y$ neredeyse aynı.** İkisinin üstel kısmı ($-e^{-2t}$ ve $\mp 3e^{4t}$) neredeyse örtüşüyor; fark yalnız polinom kısmında ve $e^{4t}$'nin işaretinde.
 
-**8** → Her iki denklemde de hem $x'$ hem $y'$ var. Dönüşümden sonra $X$ ve $Y$ katsayıları $s$'nin **birinci dereceden** polinomları olur; determinantı açarken ==$s^{2}$ terimlerinin kısmen götürdüğüne dikkat edin.==
+Sebebi 2. denklemde: $(s+2)X+(s+2)Y$ yazılabildiği için o denklem aslında ==yalnız $x+y$ toplamını kısıtlıyor.== Nitekim
 
-**10** → İçinde $x''$ var, bu yüzden ==üç başlangıç koşulu== verilmiş: $\mathcal{L}\left\{x''\right\}=s^{2}X-s\,x(0)-x'(0)$. Determinantın derecesi üç çıkacak, dolayısıyla çözümde üç bağımsız biçim beklenir.
+$$x+y=\left(1-t-e^{-2t}+3e^{4t}\right)+\left(t-e^{-2t}-3e^{4t}\right)=1-2e^{-2t}$$
 
-**Doğrulama.** İkisinde de bulduğunuz $x$ ve $y$'yi ==her iki denkleme birden== koyun ve yukarıdaki gibi katsayı tablosu kurun.
+içinde $e^{4t}$ ve $t$ hiç yok. ==İki denklemli bir sistemde böyle bir yapı görürseniz, önce toplamı (ya da farkı) çözmek işi kısaltır.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **10.** &nbsp; $x''-3x'+y'+2x-y=0$, &nbsp; $x'+y'-2x+y=0$, &nbsp; $x(0)=0,\;y(0)=-1,\;x'(0)=0$
+[CEVAP]
+**Adım 1 — İkinci mertebeden türevi dönüştür.** $x(0)=x'(0)=0$ olduğu için sadeleşiyor:
+
+$$\mathcal{L}\left\{x''\right\}=s^{2}X-s\,x(0)-x'(0)=s^{2}X,\qquad \mathcal{L}\left\{x'\right\}=sX,\qquad \mathcal{L}\left\{y'\right\}=sY+1$$
+
+**Adım 2 — İki denklemi kur.**
+
+$$s^{2}X-3sX+(sY+1)+2X-Y=0\;\Longrightarrow\;\left(s^{2}-3s+2\right)X+(s-1)Y=-1$$
+
+$$sX+(sY+1)-2X+Y=0\;\Longrightarrow\;(s-2)X+(s+1)Y=-1$$
+
+$s^{2}-3s+2=(s-1)(s-2)$ olduğuna dikkat edin.
+
+**Adım 3 — Determinant.** ==$(s-1)(s-2)$ ortak çarpan olarak çıkıyor:==
+
+$$\Delta=(s-1)(s-2)(s+1)-(s-1)(s-2)=(s-1)(s-2)\Big[(s+1)-1\Big]=s(s-1)(s-2)$$
+
+**Derecesi üç** — üç bağımsız biçim bekliyoruz: sabit ($s$ kökünden), $e^{t}$, $e^{2t}$.
+
+**Adım 4 — $X$.**
+
+$$X=\frac{1}{\Delta}\begin{vmatrix}-1 & s-1\\ -1 & s+1\end{vmatrix}=\frac{-(s+1)+(s-1)}{s(s-1)(s-2)}=\frac{-2}{s(s-1)(s-2)}$$
+
+Kapatma yöntemiyle: &nbsp;$s=0\Rightarrow\tfrac{1}{2}$, &nbsp;$s=1\Rightarrow-1$, &nbsp;$s=2\Rightarrow\tfrac{1}{2}$
+
+$$x(t)=-2\left[\frac{1}{2}-e^{t}+\frac{1}{2}e^{2t}\right]=-1+2e^{t}-e^{2t}$$
+
+**Adım 5 — $Y$.**
+
+$$Y=\frac{1}{\Delta}\begin{vmatrix}(s-1)(s-2) & -1\\ s-2 & -1\end{vmatrix}=\frac{-(s-1)(s-2)+(s-2)}{s(s-1)(s-2)}$$
+
+Payda $(s-2)$ ortak çarpan; köşeli parantez $-(s-1)+1=2-s=-(s-2)$ olur:
+
+$$Y=\frac{-(s-2)^{2}}{s(s-1)(s-2)}=\frac{-(s-2)}{s(s-1)}=-\frac{2}{s}+\frac{1}{s-1}$$
+
+$$y(t)=e^{t}-2$$
+
+$$\boxed{\;x(t)=-1+2e^{t}-e^{2t},\qquad y(t)=e^{t}-2\;}$$
+
+**Doğrulama 1 — birinci denklem.** $x'=2e^{t}-2e^{2t}$, &nbsp;$x''=2e^{t}-4e^{2t}$, &nbsp;$y'=e^{t}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Terim</th><th>$x''$</th><th>$-3x'$</th><th>$y'$</th><th>$2x$</th><th>$-y$</th><th>Toplam</th></tr>
+<tr><td>sabit</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$-2$</td><td>$2$</td><td>$0$</td></tr>
+<tr><td>$e^{t}$</td><td>$2$</td><td>$-6$</td><td>$1$</td><td>$4$</td><td>$-1$</td><td>$0$</td></tr>
+<tr><td>$e^{2t}$</td><td>$-4$</td><td>$6$</td><td>$0$</td><td>$-2$</td><td>$0$</td><td>$0$</td></tr>
+</table>
+</div>
+
+**Doğrulama 2 — ikinci denklem (bağımsız sınav).**
+
+<div class="tablo-sar">
+<table>
+<tr><th>Terim</th><th>$x'$</th><th>$y'$</th><th>$-2x$</th><th>$y$</th><th>Toplam</th></tr>
+<tr><td>sabit</td><td>$0$</td><td>$0$</td><td>$2$</td><td>$-2$</td><td>$0$</td></tr>
+<tr><td>$e^{t}$</td><td>$2$</td><td>$1$</td><td>$-4$</td><td>$1$</td><td>$0$</td></tr>
+<tr><td>$e^{2t}$</td><td>$-2$</td><td>$0$</td><td>$2$</td><td>$0$</td><td>$0$</td></tr>
+</table>
+</div>
+
+**Doğrulama 3 — üç başlangıç koşulu.** $x(0)=-1+2-1=0$ &#10003;, &nbsp;$y(0)=1-2=-1$ &#10003;, &nbsp;$x'(0)=2-2=0$ &#10003;
+
+[KUTU]
+**Determinantın derecesi neden üç, ama $y$'de yalnız iki biçim var?**
+
+$\Delta=s(s-1)(s-2)$ derecesi üç, yani sistemde ==toplam üç bağımsız sabit== vardır — nitekim üç başlangıç koşulu verilmişti, sayılar tutuyor.
+
+$x$'te üç biçim de görünüyor ($-1$, $e^{t}$, $e^{2t}$). $y$'de ise $e^{2t}$ yok, çünkü $Y$'nin payında $(s-2)$ ==sadeleşti.== Bu bir hata değil: determinantın kökleri hangi biçimlerin ==görünebileceğini== söyler, her bileşende görüneceğini değil.
+
+**Genel kural:** bir bileşende eksik görünen biçim, ==öteki bileşende mutlaka vardır.== $x$ ile $y$ birlikte üç biçimin hepsini taşıyor.
+[/KUTU]
+[/CEVAP]
+
+[KUTU]
+**Setin tamamı bitti** — ve bununla birlikte ==Bölüm 4'teki bütün egzersiz setleri tamamlandı.== 10 sorunun 10'u çözülü: tek numaralılar kitabın cevap anahtarıyla, çift numaralılar ==her iki denkleme birden geri koyma ve başlangıç koşulları== ile doğrulanmıştır.
+
+**Sistemlerde beş adımlık şablon:**
+
+1. **Her denklemi ayrı ayrı dönüştür**, başlangıç koşulları anında girsin.
+2. **$X$ ve $Y$ katsayılarını düzenle**, sağ tarafları tek kesirde topla.
+3. **Determinantı hesapla** — bu sistemin karakteristik polinomudur; ==kökleri çözümdeki biçimleri, derecesi bağımsız sabit sayısını verir.==
+4. **Cramer ile $X$ ve $Y$'yi bul**, sadeleşmeleri kaçırma.
+5. **Katsayı tablosu kurup her iki denklemi de sına.**
+
+Son adımı atlamayın: ==çözerken kullandığınız denklem tek başına kanıt değildir.==
 [/KUTU]

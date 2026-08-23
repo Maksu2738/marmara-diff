@@ -10,7 +10,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
-    <link rel="stylesheet" href="style.css?v=28979570">
+    <link rel="stylesheet" href="style.css?v=78c3f45b">
 
 </head>
 <body>
@@ -29,7 +29,9 @@
                     <h2>Ders Notları</h2>
                     <p>Diferansiyel Denklemler</p>
                 </div>
-                <img class="sidebar-pp" src="profil.jpg" alt="" width="46" height="46">
+                <img class="sidebar-pp" src="profil.jpg" alt="Profil resmi"
+                     width="46" height="46" onclick="ppBuyut()"
+                     title="Buyutmek icin tikla">
             </div>
 
             <div class="arama-sar">
@@ -15819,8 +15821,18 @@
     </div>
 
 
+    <!-- Profil resmi buyutme katmani -->
+    <div class="pp-buyut" id="pp-buyut" onclick="ppKapat()"
+         role="dialog" aria-modal="true" aria-label="Profil resmi">
+        <figure class="pp-buyut-ic">
+            <img src="profil.jpg" alt="Profil resmi">
+            <figcaption>işimi seviyorum</figcaption>
+        </figure>
+        <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
+    </div>
+
 <script defer src="arama.js?v=9bd03d41"></script>
-    <script src="app.js?v=28979570"></script>
+    <script src="app.js?v=78c3f45b"></script>
     <script src="arama-ui.js"></script>
 </body>
 </html>

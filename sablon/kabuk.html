@@ -29,7 +29,9 @@
                     <h2><!--SIDEBAR_BASLIK--></h2>
                     <p><!--SIDEBAR_ALTBASLIK--></p>
                 </div>
-                <img class="sidebar-pp" src="profil.jpg" alt="" width="46" height="46">
+                <img class="sidebar-pp" src="profil.jpg" alt="Profil resmi"
+                     width="46" height="46" onclick="ppBuyut()"
+                     title="Buyutmek icin tikla">
             </div>
 
             <div class="arama-sar">
@@ -90,6 +92,16 @@
     </div>
 
 <!--EXTRA_JS-->
+    <!-- Profil resmi buyutme katmani -->
+    <div class="pp-buyut" id="pp-buyut" onclick="ppKapat()"
+         role="dialog" aria-modal="true" aria-label="Profil resmi">
+        <figure class="pp-buyut-ic">
+            <img src="profil.jpg" alt="Profil resmi">
+            <figcaption>işimi seviyorum</figcaption>
+        </figure>
+        <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
+    </div>
+
 <!--ARAMA_JS-->
     <script src="app.js"></script>
     <script src="arama-ui.js"></script>

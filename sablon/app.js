@@ -230,3 +230,26 @@ function updateThemeUI(isDark) {
         katexHazirOlunca(kur);
     }
 })();
+
+/* ---- Profil resmini buyutme ---- */
+function ppBuyut() {
+    var k = document.getElementById('pp-buyut');
+    if (k) { k.classList.add('acik'); }
+}
+
+function ppKapat() {
+    var k = document.getElementById('pp-buyut');
+    if (k) { k.classList.remove('acik'); }
+}
+
+(function () {
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            var k = document.getElementById('pp-buyut');
+            if (k && k.classList.contains('acik')) {
+                e.stopPropagation();
+                ppKapat();
+            }
+        }
+    }, true);
+})();

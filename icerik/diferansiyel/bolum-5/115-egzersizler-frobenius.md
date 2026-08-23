@@ -1168,11 +1168,182 @@ $$\boxed{\;\text{Genel çözüm: }\;y=x^{-3}\left[A\,e^{-x}+B(1-x)\right]\;}$$
 
 ---
 
-### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (23-32) — çözülmeyi bekleyen
+[SORU] **23.** &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b_{0}=4$, &nbsp;$c_{0}=2$:
 
-23. &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$
+$$r(r-1)+4r+2=r^{2}+3r+2=(r+1)(r+2)=0\;\Longrightarrow\;r_{1}=-1,\quad r_{2}=-2$$
 
-24. &nbsp; $x^{2}y''+2x^{3}y'-\left(x^{2}+\frac{15}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 25. &nbsp; $x^{2}y''+xy'+(x-1)y=0$
+Kök farkı $1$, pozitif tam sayı.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\underbrace{\left[m^{2}+3m+2\right]}_{(m+1)(m+2)}a_{n}+\underbrace{\left[(m-1)+2\right]}_{m+1}a_{n-1}=0\;\Longrightarrow\;\boxed{\;(m+1)\Big[(m+2)a_{n}+a_{n-1}\Big]=0\;}$$
+
+**Adım 3 — Küçük kök $r_{2}=-2$: zincir hemen bitiyor.** $m=n-2$ için $(m+1)=n-1$; ==$n=1$'de sıfırlanıyor:==
+
+$$n=1:\quad 0\cdot\Big[\cdots\Big]=0\;\Longrightarrow\;a_{1}\text{ serbest}$$
+
+$a_{0}$ zinciri ilk adımda kesiliyor — tek terim kalıyor:
+
+$$\boxed{\;y_{2}=x^{-2}\;}$$
+
+**Adım 4 — Büyük kök $r_{1}=-1$.** $m=n-1$ için $a_{n}=-\dfrac{a_{n-1}}{n+1}$:
+
+$$a_{1}=-\frac{a_{0}}{2},\quad a_{2}=\frac{a_{0}}{6},\quad a_{3}=-\frac{a_{0}}{24}\qquad\Longrightarrow\qquad a_{n}=\frac{(-1)^{n}}{(n+1)!}$$
+
+$$\boxed{\;y_{1}=x^{-1}\left(1-\frac{x}{2}+\frac{x^{2}}{6}-\frac{x^{3}}{24}+\cdots\right)=\frac{1-e^{-x}}{x^{2}}\;}$$
+
+**Doğrulama 1 — $y_{2}=x^{-2}$, tek terim, tam kontrol.**
+
+$$x^{2}\cdot 6x^{-4}+\left(x^{2}+4x\right)\left(-2x^{-3}\right)+(2x+2)x^{-2}=\underbrace{(6-8+2)}_{0}x^{-2}+\underbrace{(-2+2)}_{0}x^{-1}=0\;\checkmark$$
+
+**Doğrulama 2 — kapalı biçim.** $a_{n}=\dfrac{(-1)^{n}}{(n+1)!}$ toplamı $\dfrac{1-e^{-x}}{x}$ verdiğinden $y_{1}=\dfrac{1-e^{-x}}{x^{2}}$. Buradan ==$x^{-2}e^{-x}$ de çözümdür== (iki çözümün farkı). Doğrudan sınayalım:
+
+$$y=x^{-2}e^{-x}\;\Longrightarrow\;y'=e^{-x}\left(-2x^{-3}-x^{-2}\right),\quad y''=e^{-x}\left(6x^{-4}+4x^{-3}+x^{-2}\right)$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$\left(x^{2}+4x\right)y'$</th><th>$(2x+2)y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-2}$</td><td>$6$</td><td>$-8$</td><td>$2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-1}$</td><td>$4$</td><td>$-6$</td><td>$2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{0}$</td><td>$1$</td><td>$-1$</td><td>$0$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+$$\boxed{\;\text{Genel çözüm: }\;y=\frac{A+B\,e^{-x}}{x^{2}}\;}$$
+[/CEVAP]
+
+[SORU] **24.** &nbsp; $x^{2}y''+2x^{3}y'-\left(x^{2}+\dfrac{15}{4}\right)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b(x)=2x^{2}$ olduğundan $b_{0}=0$; &nbsp;$c_{0}=-\dfrac{15}{4}$:
+
+$$r(r-1)-\frac{15}{4}=0\;\Longrightarrow\;4r^{2}-4r-15=0\;\Longrightarrow\;(2r-5)(2r+3)=0$$
+
+$$r_{1}=\frac{5}{2},\qquad r_{2}=-\frac{3}{2}$$
+
+Kök farkı $4$, pozitif tam sayı.
+
+**Adım 2 — İndirgeme bağıntısı ve ortak çarpan.**
+
+$$\underbrace{\left[m^{2}-m-\tfrac{15}{4}\right]}_{\left(m-\frac52\right)\left(m+\frac32\right)}a_{n}+\underbrace{\left[2(m-2)-1\right]}_{2\left(m-\frac52\right)}a_{n-2}=0$$
+
+$$\boxed{\;\left(m-\tfrac52\right)\Big[\left(m+\tfrac32\right)a_{n}+2a_{n-2}\Big]=0\;}$$
+
+**Adım 3 — Küçük kök $r_{2}=-\tfrac32$: zincir kesiliyor.** $m=n-\tfrac32$ için çarpanlar $(n-4)$ ve $n$; ayrıca $a_{1}=0$ olduğundan tek indisler yok.
+
+$$a_{2}=-\frac{2a_{0}}{2}=-a_{0},\qquad n=4:\ \ 0\cdot\Big[\cdots\Big]=0\;\Longrightarrow\;a_{4}\text{ serbest}$$
+
+$$\boxed{\;y_{2}=x^{-3/2}\left(1-x^{2}\right)\;}$$
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac52$.** $m=n+\tfrac52$ için $a_{n}=-\dfrac{2a_{n-2}}{n+4}$:
+
+$$a_{2}=-\frac{a_{0}}{3},\quad a_{4}=\frac{a_{0}}{12},\quad a_{6}=-\frac{a_{0}}{60}$$
+
+$$\boxed{\;y_{1}=x^{5/2}\left(1-\frac{x^{2}}{3}+\frac{x^{4}}{12}-\frac{x^{6}}{60}+\cdots\right)\;}$$
+
+**Doğrulama 1 — $y_{2}$ sonlu, tam kontrol.** $y=x^{-3/2}-x^{1/2}$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$2x^{3}y'$</th><th>$-x^{2}y$</th><th>$-\tfrac{15}{4}y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-3/2}$</td><td>$\tfrac{15}{4}$</td><td>$0$</td><td>$0$</td><td>$-\tfrac{15}{4}$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{1/2}$</td><td>$\tfrac14$</td><td>$-3$</td><td>$-1$</td><td>$\tfrac{15}{4}$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{5/2}$</td><td>$0$</td><td>$-1$</td><td>$1$</td><td>$0$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+**Doğrulama 2 — kapalı biçim.** Çift zincirde $a_{2k}=\dfrac{2(-1)^{k}}{(k+2)!}$ çıkıyor; bu $\left(-x^{2}\right)$ değişkeninde üstel açılımdır:
+
+$$y_{1}=\frac{2\left(e^{-x^{2}}-1+x^{2}\right)}{x^{3/2}}$$
+
+Yani ==$x^{-3/2}e^{-x^{2}}$ de bir çözümdür.==
+
+$$\boxed{\;\text{Genel çözüm: }\;y=x^{-3/2}\left[A\,e^{-x^{2}}+B\left(1-x^{2}\right)\right]\;}$$
+
+==Yine aynı desen:== sonlu çözüm $1-x^{2}$, üstelin ilk iki terimi.
+[/CEVAP]
+
+[SORU] **25.** &nbsp; $x^{2}y''+xy'+(x-1)y=0$
+[CEVAP]
+**Bu setteki ilk gerçek logaritmalı durum.** Şimdiye kadar kök farkı tam sayı çıktığında hep şanslıydık; burada değiliz.
+
+**Adım 1 — Başlangıç denklemi.** $b_{0}=1$, &nbsp;$c_{0}=-1$:
+
+$$r(r-1)+r-1=r^{2}-1=0\;\Longrightarrow\;r_{1}=1,\quad r_{2}=-1$$
+
+Kök farkı $2$, pozitif tam sayı.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;\left[(n+r)^{2}-1\right]a_{n}+a_{n-1}=0\;}$$
+
+**Adım 3 — Küçük kökü deneyin ve çelişkiyi görün.** $r=-1$, $m=n-1$; katsayı $(n-1)^{2}-1=n(n-2)$:
+
+$$n=1:\quad 1\cdot(-1)\,a_{1}+a_{0}=0\;\Longrightarrow\;a_{1}=a_{0}$$
+
+$$n=2:\quad \underbrace{2\cdot 0}_{=0}\cdot a_{2}+a_{1}=0\;\Longrightarrow\;a_{1}=0$$
+
+==İki satır çelişiyor:== $a_{1}=a_{0}$ ve $a_{1}=0$ aynı anda ancak $a_{0}=0$ ise doğru olur, oysa $a_{0}\neq 0$ olmalı. **Küçük kök tek başına çalışmıyor; logaritma zorunlu.**
+
+**Adım 4 — Büyük kök $r_{1}=1$ (bu her zaman çalışır).** $m=n+1$; katsayı $n(n+2)$:
+
+$$a_{n}=-\frac{a_{n-1}}{n(n+2)}\;\Longrightarrow\;a_{1}=-\frac{a_{0}}{3},\;a_{2}=\frac{a_{0}}{24},\;a_{3}=-\frac{a_{0}}{360}$$
+
+$$\boxed{\;y_{1}=x\left(1-\frac{x}{3}+\frac{x^{2}}{24}-\frac{x^{3}}{360}+\cdots\right)\;}$$
+
+**Adım 5 — İkinci çözümü logaritmalı biçimde ara.**
+
+$$y_{2}=C\,y_{1}\ln x+x^{-1}\sum_{n\ge 0}b_{n}x^{n}$$
+
+**Kilit hesap:** $L[y]=x^{2}y''+xy'+(x-1)y$ operatörü için, $u=y_{1}\ln x$ alındığında
+
+$$x^{2}u''=x^{2}y_{1}''\ln x+2xy_{1}'-y_{1},\qquad xu'=xy_{1}'\ln x+y_{1}$$
+
+$$L\left[y_{1}\ln x\right]=\underbrace{\ln x\cdot L[y_{1}]}_{=0}+2xy_{1}'\underbrace{-y_{1}+y_{1}}_{0}=2x\,y_{1}'$$
+
+==Logaritmalı terim, denklemde geriye yalnız $2xy_{1}'$ bırakıyor.== Serinin görevi bunu iptal etmek:
+
+$$C\cdot 2xy_{1}'+L\left[x^{-1}\textstyle\sum b_{n}x^{n}\right]=0$$
+
+**Adım 6 — Katsayıları bul.** $x^{j}$ katsayısını eşitleyelim ($b_{0}=1$ alıyoruz):
+
+<div class="tablo-sar">
+<table>
+<tr><th>$x^{j}$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$x^{-1}$</td><td>$0=0$</td><td>$b_{0}$ serbest, $b_{0}=1$</td></tr>
+<tr><td>$x^{0}$</td><td>$-b_{1}+b_{0}=0$</td><td>$b_{1}=1$</td></tr>
+<tr><td>$x^{1}$</td><td>$b_{1}+2C=0$</td><td>==$C=-\tfrac12$==, $b_{2}$ serbest ($=0$ seçelim)</td></tr>
+<tr><td>$x^{2}$</td><td>$3b_{3}+b_{2}+4Ca_{1}=0$</td><td>$b_{3}=-\tfrac29$</td></tr>
+<tr><td>$x^{3}$</td><td>$8b_{4}+b_{3}+6Ca_{2}=0$</td><td>$b_{4}=\tfrac{25}{576}$</td></tr>
+</table>
+</div>
+
+$$\boxed{\;y_{2}=-\frac{1}{2}\,y_{1}\ln x+\frac{1}{x}\left(1+x-\frac{2x^{3}}{9}+\frac{25x^{4}}{576}+\cdots\right)\;}$$
+
+**Doğrulama 1 — $C\neq 0$ tutarlılığı.** Adım 3'te küçük kökün çelişki verdiğini bulmuştuk; ==logaritma katsayısının sıfırdan farklı çıkması bunu bağımsız olarak doğruluyor.== İkisi tutarlı: $C=0$ çıksaydı Adım 3 ile çelişirdi.
+
+**Doğrulama 2 — $b_{2}$'nin serbest kalması.** $x^{1}$ satırında $b_{2}$'nin katsayısı $(m+1)(m-1)$ ile $m=1$'de sıfırlanıyor. ==Bu beklenen bir şey:== $b_{2}x^{-1}\cdot x^{2}=b_{2}x$ terimi zaten $y_{1}$'in başlangıcı, yani $y_{2}$'ye $y_{1}$'in katını eklemek serbesttir. Sıfır seçmek en sade cevabı verir.
+
+**Doğrulama 3 — $y_{1}$'in katsayıları.** Kontrol edilen ifade $n(n+2)a_{n}+a_{n-1}$:
+
+$n=1$: &nbsp;$3\left(-\tfrac13\right)+1=0$ &#10003; &nbsp;&nbsp; $n=2$: &nbsp;$8\cdot\tfrac{1}{24}-\tfrac13=0$ &#10003; &nbsp;&nbsp; $n=3$: &nbsp;$15\left(-\tfrac{1}{360}\right)+\tfrac{1}{24}=0$ &#10003;
+
+[KUTU]
+**Şanslı mı şanssız mı? Tek satırda anlaşılır.** Kök farkı $N=r_{1}-r_{2}$ pozitif tam sayı olduğunda, küçük kökle ilerleyip ==$n=N$ adımına== gelin. Orada $a_{N}$'in katsayısı sıfırlanır:
+
+- **Sağ taraf da sıfırsa** &nbsp;$\Rightarrow$&nbsp; $0=0$, $a_{N}$ serbest, ==logaritma yok.== (15, 16, 17, 18, 19, 21, 22, 23, 24 böyleydi.)
+- **Sağ taraf sıfır değilse** &nbsp;$\Rightarrow$&nbsp; çelişki, ==logaritma zorunlu.== (25 böyle.)
+
+**Neden bu kadar çok soru şanslı çıktı?** Çünkü bu denklemlerin çoğunda indirgeme bağıntısında ==ortak çarpan== vardı ve o çarpan tam kritik adımda sıfırlanıp sağ tarafı da götürüyordu. 25'te böyle bir ortak çarpan yok — bağıntı $\left[(n+r)^{2}-1\right]a_{n}+a_{n-1}=0$ ve $a_{n-1}$'in katsayısı sabit $1$.
+
+==Bağıntıya bakıp ortak çarpan arayın:== varsa büyük ihtimalle şanslısınız, yoksa logaritmaya hazırlanın.
+[/KUTU]
+[/CEVAP]
+
+---
+
+### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (26-32) — çözülmeyi bekleyen
 
 26. &nbsp; $x^{2}y''+\left(x^{3}-x\right)y'-3y=0$ &nbsp;&nbsp;&nbsp; 27. &nbsp; $x^{2}y''-xy'+8\left(x^{2}-1\right)y=0$
 

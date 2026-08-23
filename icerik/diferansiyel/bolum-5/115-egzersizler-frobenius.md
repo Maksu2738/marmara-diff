@@ -1343,11 +1343,200 @@ $n=1$: &nbsp;$3\left(-\tfrac13\right)+1=0$ &#10003; &nbsp;&nbsp; $n=2$: &nbsp;$8
 
 ---
 
-### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (26-32) — çözülmeyi bekleyen
+[KUTU]
+**26, 27 ve 28'in üçü de logaritmalı.** Şimdiye kadar belirsiz durum hep şanslı tarafa çözülmüştü; bu üçünde çözülmüyor. Üçünde de aynı iki adımı izliyoruz:
 
-26. &nbsp; $x^{2}y''+\left(x^{3}-x\right)y'-3y=0$ &nbsp;&nbsp;&nbsp; 27. &nbsp; $x^{2}y''-xy'+8\left(x^{2}-1\right)y=0$
+1. **Büyük kökle ilk çözümü bul** — bu her zaman çalışır.
+2. **Küçük kökün çeliştiğini göster**, sonra $y_{2}=C\,y_{1}\ln x+x^{r_{2}}\sum b_{n}x^{n}$ kur.
 
-28. &nbsp; $x^{2}y''+x^{2}y'-\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 29. &nbsp; $xy''+y'+2y=0$
+**Kilit hesap her seferinde aynı mantıkta:** $u=y_{1}\ln x$ konulduğunda logaritmalı terimler $L[y_{1}]=0$ sayesinde yok olur ve geriye ==$y_{1}$'e bağlı bir "artık" kalır.== Serinin görevi o artığı iptal etmektir; $C$ de o denklemden çıkar.
+[/KUTU]
+
+[SORU] **26.** &nbsp; $x^{2}y''+\left(x^{3}-x\right)y'-3y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b(x)=x^{2}-1$ olduğundan $b_{0}=-1$; &nbsp;$c_{0}=-3$:
+
+$$r(r-1)-r-3=r^{2}-2r-3=(r-3)(r+1)=0\;\Longrightarrow\;r_{1}=3,\quad r_{2}=-1$$
+
+Kök farkı $4$.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;(m-3)(m+1)\,a_{n}+(m-2)\,a_{n-2}=0\;}$$
+
+**Adım 3 — Küçük kök çelişiyor.** $r=-1$, $m=n-1$; katsayılar $(n-4)n$ ve $(n-3)$:
+
+$$n=2:\;\;(-2)(2)a_{2}+(-1)a_{0}=0\;\Longrightarrow\;a_{2}=-\frac{a_{0}}{4}$$
+
+$$n=4:\;\;\underbrace{0\cdot 4}_{=0}\cdot a_{4}+1\cdot a_{2}=0\;\Longrightarrow\;a_{2}=0$$
+
+==İki satır çelişiyor== &nbsp;$\Rightarrow$&nbsp; logaritma zorunlu.
+
+**Adım 4 — Büyük kök $r_{1}=3$.** $m=n+3$ için $a_{n}=-\dfrac{(n+1)a_{n-2}}{n(n+4)}$; &nbsp;$a_{1}=0$:
+
+$$a_{2}=-\frac{a_{0}}{4},\quad a_{4}=\frac{5a_{0}}{128},\quad a_{6}=-\frac{7a_{0}}{1536}$$
+
+$$\boxed{\;y_{1}=x^{3}\left(1-\frac{x^{2}}{4}+\frac{5x^{4}}{128}-\frac{7x^{6}}{1536}+\cdots\right)\;}$$
+
+**Adım 5 — Logaritmalı ikinci çözüm.** $u=y_{1}\ln x$ için artık terim:
+
+$$L\left[y_{1}\ln x\right]=2xy_{1}'+\left(x^{2}-2\right)y_{1}$$
+
+$v=x^{-1}\sum b_{n}x^{n}$ koyup $x^{n-1}$ katsayılarını eşitleyelim:
+
+$$(n-4)n\,b_{n}+(n-3)b_{n-2}+C\Big[(2n-4)a_{n-4}+a_{n-6}\Big]=0$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$0$</td><td>$0=0$</td><td>$b_{0}=1$</td></tr>
+<tr><td>$1$</td><td>$-3b_{1}=0$</td><td>$b_{1}=0$</td></tr>
+<tr><td>$2$</td><td>$-4b_{2}-b_{0}=0$</td><td>$b_{2}=-\tfrac14$</td></tr>
+<tr><td>$3$</td><td>$-3b_{3}=0$</td><td>$b_{3}=0$</td></tr>
+<tr><td>$4$</td><td>$0\cdot b_{4}+b_{2}+4C=0$</td><td>==$C=\tfrac{1}{16}$==, $b_{4}$ serbest $(=0)$</td></tr>
+<tr><td>$6$</td><td>$12b_{6}+3b_{4}+C\left(8a_{2}+a_{0}\right)=0$</td><td>$b_{6}=\tfrac{1}{192}$</td></tr>
+</table>
+</div>
+
+$$\boxed{\;y_{2}=\frac{1}{16}\,y_{1}\ln x+\frac{1}{x}-\frac{x}{4}+\frac{x^{5}}{192}+\cdots\;}$$
+
+**Doğrulama.** $C=\tfrac{1}{16}\neq 0$ çıkması, ==Adım 3'te bulduğumuz çelişkiyi bağımsız olarak doğruluyor.== $C=0$ çıksaydı iki sonuç birbiriyle uyuşmazdı.
+[/CEVAP]
+
+[SORU] **27.** &nbsp; $x^{2}y''-xy'+8\left(x^{2}-1\right)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b_{0}=-1$, &nbsp;$c_{0}=-8$:
+
+$$r^{2}-2r-8=(r-4)(r+2)=0\;\Longrightarrow\;r_{1}=4,\quad r_{2}=-2$$
+
+Kök farkı $6$.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;(m-4)(m+2)\,a_{n}+8a_{n-2}=0\;}$$
+
+**Adım 3 — Küçük kök çelişiyor.** $r=-2$, $m=n-2$; katsayılar $(n-6)n$:
+
+$$a_{2}=-\frac{8a_{0}}{(-4)(2)}=a_{0},\qquad a_{4}=-\frac{8a_{2}}{(-2)(4)}=a_{0}$$
+
+$$n=6:\;\;\underbrace{0\cdot 6}_{=0}\cdot a_{6}+8a_{4}=0\;\Longrightarrow\;a_{0}=0$$
+
+==Çelişki== &nbsp;$\Rightarrow$&nbsp; logaritma zorunlu.
+
+**Adım 4 — Büyük kök $r_{1}=4$.** $a_{n}=-\dfrac{8a_{n-2}}{n(n+6)}$:
+
+$$a_{2}=-\frac{a_{0}}{2},\quad a_{4}=\frac{a_{0}}{10},\quad a_{6}=-\frac{a_{0}}{90}$$
+
+$$\boxed{\;y_{1}=x^{4}\left(1-\frac{x^{2}}{2}+\frac{x^{4}}{10}-\frac{x^{6}}{90}+\cdots\right)\;}$$
+
+**Adım 5 — Logaritmalı ikinci çözüm.** Artık terim:
+
+$$L\left[y_{1}\ln x\right]=2xy_{1}'-2y_{1}$$
+
+$v=x^{-2}\sum b_{n}x^{n}$ ile $x^{n-2}$ katsayıları:
+
+$$(n-6)n\,b_{n}+8b_{n-2}+C(2n-6)a_{n-6}=0$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$0$</td><td>$0=0$</td><td>$b_{0}=1$</td></tr>
+<tr><td>$2$</td><td>$-8b_{2}+8b_{0}=0$</td><td>$b_{2}=1$</td></tr>
+<tr><td>$4$</td><td>$-8b_{4}+8b_{2}=0$</td><td>$b_{4}=1$</td></tr>
+<tr><td>$6$</td><td>$0\cdot b_{6}+8b_{4}+6C=0$</td><td>==$C=-\tfrac43$==, $b_{6}$ serbest $(=0)$</td></tr>
+<tr><td>$8$</td><td>$16b_{8}+8b_{6}+10C\,a_{2}=0$</td><td>$b_{8}=-\tfrac{5}{12}$</td></tr>
+</table>
+</div>
+
+(Tek indislerin hepsi sıfır.)
+
+$$\boxed{\;y_{2}=-\frac{4}{3}\,y_{1}\ln x+\frac{1}{x^{2}}\left(1+x^{2}+x^{4}-\frac{5x^{8}}{12}+\cdots\right)\;}$$
+
+**Doğrulama.** $b_{2}=b_{4}=1$ çıkması dikkat çekici: $n=2$ ve $n=4$ satırlarında katsayılar $-8$ ve $8$ olduğu için ==birbirini aynen kopyalıyorlar.== $n=6$'da zincir kırılıyor ve $C$ oradan belirleniyor. $C\neq 0$, Adım 3'teki çelişkiyle tutarlı &#10003;
+[/CEVAP]
+
+[SORU] **28.** &nbsp; $x^{2}y''+x^{2}y'-\dfrac{3}{4}y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b(x)=x$ olduğundan $b_{0}=0$; &nbsp;$c_{0}=-\dfrac34$:
+
+$$r(r-1)-\frac{3}{4}=0\;\Longrightarrow\;4r^{2}-4r-3=0\;\Longrightarrow\;(2r-3)(2r+1)=0$$
+
+$$r_{1}=\frac{3}{2},\qquad r_{2}=-\frac{1}{2}$$
+
+Kök farkı $2$.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;\left(m-\tfrac32\right)\left(m+\tfrac12\right)a_{n}+(m-1)a_{n-1}=0\;}$$
+
+==Bu kez ortak çarpan yok== — 21 ve 22'de $(m-\tfrac12)$ gibi bir çarpan iki terimi birden bağlıyordu, burada bağlamıyor. Bu, logaritma habercisi.
+
+**Adım 3 — Küçük kök çelişiyor.** $r=-\tfrac12$, $m=n-\tfrac12$; katsayılar $(n-2)n$ ve $\left(n-\tfrac32\right)$:
+
+$$n=1:\;\;(-1)(1)a_{1}+\left(-\tfrac12\right)a_{0}=0\;\Longrightarrow\;a_{1}=-\frac{a_{0}}{2}$$
+
+$$n=2:\;\;\underbrace{0\cdot 2}_{=0}\cdot a_{2}+\tfrac12 a_{1}=0\;\Longrightarrow\;a_{1}=0$$
+
+==Çelişki== &nbsp;$\Rightarrow$&nbsp; logaritma zorunlu.
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac32$.** $a_{n}=-\dfrac{(2n+1)a_{n-1}}{2n(n+2)}$:
+
+$$a_{1}=-\frac{a_{0}}{2},\quad a_{2}=\frac{5a_{0}}{32},\quad a_{3}=-\frac{7a_{0}}{192}$$
+
+$$\boxed{\;y_{1}=x^{3/2}\left(1-\frac{x}{2}+\frac{5x^{2}}{32}-\frac{7x^{3}}{192}+\cdots\right)\;}$$
+
+**Adım 5 — Logaritmalı ikinci çözüm.** Artık terim ($x^{2}y'$ teriminden fazladan $xy_{1}$ geliyor):
+
+$$L\left[y_{1}\ln x\right]=2xy_{1}'-y_{1}+xy_{1}$$
+
+$v=x^{-1/2}\sum b_{n}x^{n}$ ile:
+
+$$(n-2)n\,b_{n}+\left(n-\tfrac32\right)b_{n-1}+C\Big[(2n-2)a_{n-2}+a_{n-3}\Big]=0$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>Denklem</th><th>Sonuç</th></tr>
+<tr><td>$0$</td><td>$0=0$</td><td>$b_{0}=1$</td></tr>
+<tr><td>$1$</td><td>$-b_{1}-\tfrac12 b_{0}=0$</td><td>$b_{1}=-\tfrac12$</td></tr>
+<tr><td>$2$</td><td>$0\cdot b_{2}+\tfrac12 b_{1}+2C=0$</td><td>==$C=\tfrac18$==, $b_{2}$ serbest $(=0)$</td></tr>
+<tr><td>$3$</td><td>$3b_{3}+\tfrac32 b_{2}+C\left(4a_{1}+a_{0}\right)=0$</td><td>$b_{3}=\tfrac{1}{24}$</td></tr>
+</table>
+</div>
+
+$$\boxed{\;y_{2}=\frac{1}{8}\,y_{1}\ln x+x^{-1/2}\left(1-\frac{x}{2}+\frac{x^{3}}{24}+\cdots\right)\;}$$
+
+[KUTU]
+**Ortak çarpan testi: logaritma çıkacak mı, çıkmayacak mı?**
+
+Bu setteki bütün belirsiz durumlara tek bir bakışla karar verebilirsiniz. İndirgeme bağıntısını
+
+$$\underbrace{P(m)}_{\text{başlangıç polinomu}}a_{n}+Q(m)\,a_{n-k}=0$$
+
+biçiminde yazın. $P(m)=(m-r_{1})(m-r_{2})$'dir.
+
+- **$Q(m)$, $\left(m-r_{1}\right)$ çarpanını taşıyorsa** &nbsp;$\Rightarrow$&nbsp; kritik adımda iki taraf birden sıfırlanır, ==logaritma yok.== (18, 21, 22, 23, 24 böyleydi.)
+- **Taşımıyorsa** &nbsp;$\Rightarrow$&nbsp; sol taraf sıfırlanırken sağ taraf sıfırlanmaz, ==logaritma zorunlu.== (25, 26, 27, 28 böyle.)
+
+<div class="tablo-sar">
+<table>
+<tr><th>Soru</th><th>$Q(m)$</th><th>Ortak çarpan?</th><th>Sonuç</th></tr>
+<tr><td>22</td><td>$m+1$</td><td>evet ($r_{1}=-1$)</td><td>logaritma yok</td></tr>
+<tr><td>24</td><td>$2\left(m-\tfrac52\right)$</td><td>evet ($r_{1}=\tfrac52$)</td><td>logaritma yok</td></tr>
+<tr><td>26</td><td>$m-2$</td><td>hayır ($r_{1}=3$)</td><td>==logaritma==</td></tr>
+<tr><td>27</td><td>$8$ (sabit)</td><td>hayır</td><td>==logaritma==</td></tr>
+<tr><td>28</td><td>$m-1$</td><td>hayır ($r_{1}=\tfrac32$)</td><td>==logaritma==</td></tr>
+</table>
+</div>
+
+==Bu test, uzun hesaba girmeden hangi yolu tutacağınızı söyler.==
+[/KUTU]
+[/CEVAP]
+
+---
+
+### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (29-32) — çözülmeyi bekleyen
+
+29. &nbsp; $xy''+y'+2y=0$
 
 31. &nbsp; $x^{2}y''-xy'+\left(x^{2}+1\right)y=0$ &nbsp;&nbsp;&nbsp; 32. &nbsp; $x^{2}y''-xy'+\left(x^{2}-3\right)y=0$
 

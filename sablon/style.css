@@ -938,3 +938,66 @@ body.dark-mode .defter-disi-rozet {
 
 /* Sidebar zaten koyu; gunduz modunda da ayni kaliyor.
    Bu yuzden ayri bir body.dark-mode kurali gerekmiyor. */
+
+/* ============ MASAUSTUNDE MENUYU DARALTMA ============
+   Telefonda hamburger + kayan panel zaten vardi. Masaustunde de ayni
+   davranis: sidebar basligindaki oku tiklayinca panel sola kayiyor,
+   ana icerik sol bosluktan kurtuluyor ve ortaya yerlesiyor. Durum
+   localStorage'da tutuluyor, sayfa yenilenince korunuyor. */
+
+.sidebar-header { position: relative; }
+
+.sidebar-daralt {
+    display: none;
+    position: absolute;
+    top: 1.35rem;
+    right: 0.9rem;
+    width: 26px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 7px;
+    color: #b8b0d8;
+    font-size: 0.7rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.sidebar-daralt:hover {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: #8b5cf6;
+    color: #fff;
+}
+
+@media (min-width: 769px) {
+    .sidebar-daralt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar,
+    .main-wrapper {
+        transition: transform 0.26s ease, margin-left 0.26s ease;
+    }
+
+    body.sidebar-kapali .sidebar { transform: translateX(-100%); }
+    body.sidebar-kapali .main-wrapper { margin-left: 0; }
+
+    /* Kapaliyken acma dugmesi olarak hamburger belirir */
+    body.sidebar-kapali .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+/* Hamburger yalnizca dar masaustu genisliklerinde baslik yazisiyla
+   cakisiyor (genis ekranda baslik zaten ortada ve uzakta). Bu yuzden
+   kaydirma yalnizca o araliga verildi -- aksi halde genis ekranda
+   ortali baslik gereksiz yere saga kayardi. */
+@media (min-width: 769px) and (max-width: 1100px) {
+    body.sidebar-kapali header { padding-left: 4.5rem; }
+}

@@ -15,10 +15,58 @@ function toggleChapter(btn) {
 }
 
 /* ---- Mobil sidebar ---- */
+/* Menu barini ac/kapa.
+   Telefonda: panel kayar + karartma perdesi acilir (eski davranis).
+   Masaustunde: panel sola kayar, ana icerik sol boslugundan kurtulur.
+   Masaustu tercihi localStorage'da saklanir. */
 function toggleSidebar() {
-    document.querySelector('.sidebar').classList.toggle('open');
-    document.querySelector('.sidebar-overlay').classList.toggle('open');
+    if (window.innerWidth <= 768) {
+        document.querySelector('.sidebar').classList.toggle('open');
+        document.querySelector('.sidebar-overlay').classList.toggle('open');
+        return;
+    }
+    var kapali = document.body.classList.toggle('sidebar-kapali');
+    try { localStorage.setItem('sidebarKapali', kapali ? '1' : '0'); } catch (e) { /* yoksay */ }
+    sidebarDugmeMetni();
 }
+
+/* Daraltma dugmesinin oku ve baslik yazisi duruma gore degisir */
+function sidebarDugmeMetni() {
+    var d = document.querySelector('.sidebar-daralt');
+    if (!d) { return; }
+    var kapali = document.body.classList.contains('sidebar-kapali');
+    d.innerHTML = kapali ? '&#10095;' : '&#10094;';
+    d.title = (kapali ? 'Menuyu goster' : 'Menuyu gizle') + '  ( [ )';
+    d.setAttribute('aria-label', kapali ? 'Menuyu goster' : 'Menuyu gizle');
+}
+
+(function () {
+    function kur() {
+        // Onceki tercihi geri yukle
+        try {
+            if (localStorage.getItem('sidebarKapali') === '1') {
+                document.body.classList.add('sidebar-kapali');
+            }
+        } catch (e) { /* yoksay */ }
+        sidebarDugmeMetni();
+
+        // "[" tusu menuyu ac/kapa
+        document.addEventListener('keydown', function (e) {
+            var yaziyor = /^(INPUT|TEXTAREA|SELECT)$/.test(
+                document.activeElement.tagName);
+            if (e.key === '[' && !yaziyor && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                toggleSidebar();
+            }
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', kur);
+    } else {
+        kur();
+    }
+})();
 
 /* ---- Scroll-spy: aktif bölümü sidebar'da vurgula ---- */
 (function () {

@@ -106,3 +106,22 @@ $$N!=\Gamma(N+1) \tag{6.121}$$
 $N$ pozitif ama tam sayı değilse, $N!$ ifadesi ==tanım olarak== $(6.121)$ ile verilir. Böylece $(6.119)$ biçimi her pozitif $p$ için anlamlı hâle gelir.
 
 **Neden $N+1$?** Kaydırma tanımın kendisinden gelir: kısmi integrasyonla $\Gamma(N+1)=N\,\Gamma(N)$ bağıntısı elde edilir ve $\Gamma(1)=\displaystyle\int_{0}^{\infty}e^{-x}dx=1$ olduğundan tümevarımla $\Gamma(N+1)=N!$ çıkar. ==Gama fonksiyonu faktöriyelin bir adım kaydırılmış sürekli karşılığıdır.==
+
+---
+
+[CLAUDE] $p$ tam sayı olduğunda ne bozuluyor
+Kök farkı $2p$ idi. $p$ tam sayıyken bu **çift bir tam sayı** olur ve Frobenius'un belirsiz durumuna düşeriz. Burada belirsizlik ==kötü tarafa çözülür:==
+
+$$J_{-p}(x)=(-1)^{p}J_{p}(x)\qquad (p \text{ tam sayı})$$
+
+Yani $J_{-p}$, $J_{p}$'nin sabit katıdır — ==bağımsız bir ikinci çözüm değildir.== İkinci çözüm için $Y_{p}$ (ikinci tür Bessel fonksiyonu) tanımlanır ve içinde logaritma vardır.
+
+**Neden $(-1)^{p}$ çıkıyor?** $J_{-p}$ serisinin ilk $p$ terimi, paydadaki gama fonksiyonu ==negatif tam sayıda kutup verdiği için== sıfırlanır. Seri fiilen $p$. terimden başlar ve indis kaydırınca $J_{p}$'ye dönüşür.
+
+**Sınav için ayırt etme kuralı:**
+
+- $p$ **tam sayı değilse** → $\left\{J_{p},\,J_{-p}\right\}$ ikilisi yeter, $Y_{p}$'ye gerek yok
+- $p$ **tam sayıysa** → $\left\{J_{p},\,Y_{p}\right\}$ kullanmak zorundasınız
+
+==Genel çözümü $c_{1}J_{p}+c_{2}J_{-p}$ diye yazmadan önce $p$'nin tam sayı olup olmadığına bakın.== En sık yapılan hata budur.
+[/CLAUDE]

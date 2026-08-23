@@ -91,3 +91,19 @@ $J_{0}$ ve $J_{1}$ grafikleri iki önemli özelliği gösterir; ikisi de her $p\
 [/KUTU]
 
 Bu özellikler, Bessel fonksiyonlarının silindirik simetrili titreşim ve ısı iletimi problemlerinde neden doğal olarak ortaya çıktığını da açıklar: bu problemlerin özdeğerleri $J_{p}$'nin sıfırlarıdır.
+
+---
+
+[CLAUDE] Gama fonksiyonunu üç özellikle idare edersiniz
+Bessel serisindeki paydalar $\Gamma$ içerir ama ==tanımını (integral) ezberlemeye gerek yok.== Pratikte gereken üç şey:
+
+$$\Gamma(n+1)=n!\;\;(n\ \text{tam sayı}),\qquad \Gamma(x+1)=x\,\Gamma(x),\qquad \Gamma\!\left(\tfrac{1}{2}\right)=\sqrt{\pi}$$
+
+**İkinci özellik iş atıdır:** $\Gamma$'yı ==aşağı indirmek== için tekrar tekrar uygulanır.
+
+$$\Gamma\!\left(\tfrac{5}{2}\right)=\tfrac{3}{2}\,\Gamma\!\left(\tfrac{3}{2}\right)=\tfrac{3}{2}\cdot\tfrac{1}{2}\,\Gamma\!\left(\tfrac{1}{2}\right)=\tfrac{3}{4}\sqrt{\pi}$$
+
+**Kritik nokta — kutuplar.** $\Gamma$, ==sıfırda ve negatif tam sayılarda tanımsızdır== ($\pm\infty$'a gider). Bessel serilerinde bu tanımsızlık bir kusur değil, işe yarayan bir özelliktir: payda sonsuz olunca ilgili terim **sıfır** olur ve seri kendiliğinden doğru yerden başlar. $J_{-p}$'nin ilk $p$ teriminin yok olmasının sebebi tam olarak budur.
+
+**Pratik kanca:** $\Gamma$'yı ==faktöriyelin kesirli sayılara uzatılmış hâli== diye düşünün; $n!=n\cdot(n-1)!$ kuralının aynısı $\Gamma(x+1)=x\Gamma(x)$ olarak devam ediyor.
+[/CLAUDE]

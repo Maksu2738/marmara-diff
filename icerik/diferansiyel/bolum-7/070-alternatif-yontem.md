@@ -103,3 +103,17 @@ $c_{1}$ ve $c_{2}$ keyfi sabitlerdir.
 
 Birinci mertebeli operatörlerden oluşan sistemlerde ==her zaman bu yolu tercih edin.==
 [/KUTU]
+
+---
+
+[CLAUDE] Alternatif yöntem ne zaman kazandırır
+Determinant/Cramer yaklaşımı, yok etmeyle aynı sonuca ==daha düzenli bir yoldan== varır:
+
+$$\left|\begin{matrix}L_{1} & L_{2}\\ L_{3} & L_{4}\end{matrix}\right|x=\left|\begin{matrix}f_{1} & L_{2}\\ f_{2} & L_{4}\end{matrix}\right|,\qquad \left|\begin{matrix}L_{1} & L_{2}\\ L_{3} & L_{4}\end{matrix}\right|y=\left|\begin{matrix}L_{1} & f_{1}\\ L_{3} & f_{2}\end{matrix}\right|$$
+
+**Avantajı:** sol taraf ==her iki bilinmeyen için de aynı== operatördür, yani karakteristik denklemi bir kez kurarsınız. Hangi denklemi neyle çarpacağınızı düşünmezsiniz.
+
+**Dikkat edilecek nokta:** sağ taraftaki determinantlar açılırken $L$'ler ==operatör olduğu için sıra korunmalıdır.== $L_{2}f_{2}$ demek "$f_{2}$'ye $L_{2}$ operatörünü uygula" demektir, çarpım değil.
+
+**Ve yine aynı kural:** bu yöntem de $x$ ile $y$'yi ayrı ayrı verdiği için ==sabitler fazla çıkar.== Determinantın derecesi kadar bağımsız sabit vardır; kalanları elemek için sonucu orijinal sisteme geri koymak zorunludur. (Bkz. 7.4.)
+[/CLAUDE]

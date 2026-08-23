@@ -107,3 +107,21 @@ Yani $(6.135)$, $Y_{0}$'ın doğrudan genelleştirmesidir. ==$p=0$ koyup $(6.110
 | $p$ pozitif tam sayı | $Y_{p}$ | Var |
 
 $J_{-p}$'nin işe yaradığı tek durum ortadaki satırdır; $p$ tam sayı olduğunda $J_{-p}$ yeni bilgi vermez ve logaritmalı $Y_{p}$'ye başvurulur.
+
+---
+
+[CLAUDE] $Y_p$'nin tanımı neden o kadar tuhaf görünüyor
+$$Y_{p}(x)=\frac{J_{p}(x)\cos p\pi-J_{-p}(x)}{\sin p\pi}$$
+
+İlk bakışta keyfî duruyor. Mantığı şu: ==$p$ tam sayı değilken bu ifade zaten $J_{p}$ ile $J_{-p}$'nin bir lineer birleşimidir==, dolayısıyla geçerli bir çözümdür. Ama seçilen katsayılar öyle ayarlanmıştır ki $p\to$ tam sayı limitinde ==pay ve payda birlikte sıfırlanır== ve L'Hôpital ile sonlu, $J_{p}$'den bağımsız bir çözüm elde edilir.
+
+**Yani $Y_{p}$, "tam sayı durumu için özel olarak imal edilmiş" bir çözüm değildir;** her $p$ için tanımlıdır ve tam sayı $p$'de ==limit alınarak boşluğu doldurur.==
+
+**Sınavda bilinmesi yeten üç şey:**
+
+1. $Y_{p}$ içinde **logaritma** vardır (eşit/tam sayı farklı kökler durumunun beklenen sonucu).
+2. $x\to 0^{+}$ iken $Y_{p}\to-\infty$. Dolayısıyla ==problem $x=0$'ı kapsıyorsa ve çözümün sınırlı kalması isteniyorsa $c_{2}=0$ alınır.==
+3. Genel çözüm her zaman $c_{1}J_{p}+c_{2}Y_{p}$ yazılabilir — $p$ tam sayı olsun olmasın.
+
+Üçüncü madde pratik kolaylık sağlar: ==$p$'yi kontrol etmeden bu biçimi yazarsanız hiçbir zaman yanılmazsınız.==
+[/CLAUDE]

@@ -6036,6 +6036,7 @@
 
                         <p><strong>Temel UC kümeleri (Tablo 4.1):</strong></p>
                         <div style="overflow-x: auto; margin: 0.75rem 0;">
+                        <div class="tablo-sar">
                         <table style="border-collapse: collapse; width: 100%; font-size: 0.95em;">
                             <thead>
                                 <tr style="border-bottom: 2px solid #4a5568;">
@@ -6052,6 +6053,7 @@
                                 <tr><td style="padding: 0.4rem 0.6rem;">$e^{ax}\sin(bx+c)$ veya $e^{ax}\cos(bx+c)$</td><td style="padding: 0.4rem 0.6rem;">$\{e^{ax}\sin(bx+c),\ e^{ax}\cos(bx+c)\}$</td></tr>
                             </tbody>
                         </table>
+                        </div>
                         </div>
                         <p style="font-size: 0.9em; color: #718096;"><em>Not:</em> İki temel UC fonksiyonunun çarpımından oluşan bir UC fonksiyonunun UC kümesi, iki fonksiyonun ayrı ayrı UC kümelerinin elemanlarının birbirleriyle çarpılmasıyla elde edilen tüm çarpımların kümesidir.</p>
 
@@ -15158,6 +15160,23 @@
                         $$N!=\Gamma(N+1) \tag{6.121}$$
                         <p>$N$ pozitif ama tam sayı değilse, $N!$ ifadesi <span class="vurgu">tanım olarak</span> $(6.121)$ ile verilir. Böylece $(6.119)$ biçimi her pozitif $p$ için anlamlı hâle gelir.</p>
                         <p><strong>Neden $N+1$?</strong> Kaydırma tanımın kendisinden gelir: kısmi integrasyonla $\Gamma(N+1)=N\,\Gamma(N)$ bağıntısı elde edilir ve $\Gamma(1)=\displaystyle\int_{0}^{\infty}e^{-x}dx=1$ olduğundan tümevarımla $\Gamma(N+1)=N!$ çıkar. <span class="vurgu">Gama fonksiyonu faktöriyelin bir adım kaydırılmış sürekli karşılığıdır.</span></p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">$p$ tam sayı olduğunda ne bozuluyor</span>
+                            </div>
+                            <p>Kök farkı $2p$ idi. $p$ tam sayıyken bu <strong>çift bir tam sayı</strong> olur ve Frobenius'un belirsiz durumuna düşeriz. Burada belirsizlik <span class="vurgu">kötü tarafa çözülür:</span></p>
+                            $$J_{-p}(x)=(-1)^{p}J_{p}(x)\qquad (p \text{ tam sayı})$$
+                            <p>Yani $J_{-p}$, $J_{p}$'nin sabit katıdır — <span class="vurgu">bağımsız bir ikinci çözüm değildir.</span> İkinci çözüm için $Y_{p}$ (ikinci tür Bessel fonksiyonu) tanımlanır ve içinde logaritma vardır.</p>
+                            <p><strong>Neden $(-1)^{p}$ çıkıyor?</strong> $J_{-p}$ serisinin ilk $p$ terimi, paydadaki gama fonksiyonu <span class="vurgu">negatif tam sayıda kutup verdiği için</span> sıfırlanır. Seri fiilen $p$. terimden başlar ve indis kaydırınca $J_{p}$'ye dönüşür.</p>
+                            <p><strong>Sınav için ayırt etme kuralı:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$p$ <strong>tam sayı değilse</strong> → $\left\{J_{p},\,J_{-p}\right\}$ ikilisi yeter, $Y_{p}$'ye gerek yok</li>
+                                <li>$p$ <strong>tam sayıysa</strong> → $\left\{J_{p},\,Y_{p}\right\}$ kullanmak zorundasınız</li>
+                            </ul>
+                            <p><span class="vurgu">Genel çözümü $c_{1}J_{p}+c_{2}J_{-p}$ diye yazmadan önce $p$'nin tam sayı olup olmadığına bakın.</span> En sık yapılan hata budur.</p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-bessel-gama" class="section konu defter-disi">
@@ -15219,6 +15238,19 @@
                             </ol>
                         </div>
                         <p>Bu özellikler, Bessel fonksiyonlarının silindirik simetrili titreşim ve ısı iletimi problemlerinde neden doğal olarak ortaya çıktığını da açıklar: bu problemlerin özdeğerleri $J_{p}$'nin sıfırlarıdır.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Gama fonksiyonunu üç özellikle idare edersiniz</span>
+                            </div>
+                            <p>Bessel serisindeki paydalar $\Gamma$ içerir ama <span class="vurgu">tanımını (integral) ezberlemeye gerek yok.</span> Pratikte gereken üç şey:</p>
+                            $$\Gamma(n+1)=n!\;\;(n\ \text{tam sayı}),\qquad \Gamma(x+1)=x\,\Gamma(x),\qquad \Gamma\!\left(\tfrac{1}{2}\right)=\sqrt{\pi}$$
+                            <p><strong>İkinci özellik iş atıdır:</strong> $\Gamma$'yı <span class="vurgu">aşağı indirmek</span> için tekrar tekrar uygulanır.</p>
+                            $$\Gamma\!\left(\tfrac{5}{2}\right)=\tfrac{3}{2}\,\Gamma\!\left(\tfrac{3}{2}\right)=\tfrac{3}{2}\cdot\tfrac{1}{2}\,\Gamma\!\left(\tfrac{1}{2}\right)=\tfrac{3}{4}\sqrt{\pi}$$
+                            <p><strong>Kritik nokta — kutuplar.</strong> $\Gamma$, <span class="vurgu">sıfırda ve negatif tam sayılarda tanımsızdır</span> ($\pm\infty$'a gider). Bessel serilerinde bu tanımsızlık bir kusur değil, işe yarayan bir özelliktir: payda sonsuz olunca ilgili terim <strong>sıfır</strong> olur ve seri kendiliğinden doğru yerden başlar. $J_{-p}$'nin ilk $p$ teriminin yok olmasının sebebi tam olarak budur.</p>
+                            <p><strong>Pratik kanca:</strong> $\Gamma$'yı <span class="vurgu">faktöriyelin kesirli sayılara uzatılmış hâli</span> diye düşünün; $n!=n\cdot(n-1)!$ kuralının aynısı $\Gamma(x+1)=x\Gamma(x)$ olarak devam ediyor.</p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-bessel-ikinci" class="section konu defter-disi">
@@ -15291,6 +15323,23 @@
                         </table>
                         </div>
                         <p>$J_{-p}$'nin işe yaradığı tek durum ortadaki satırdır; $p$ tam sayı olduğunda $J_{-p}$ yeni bilgi vermez ve logaritmalı $Y_{p}$'ye başvurulur.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">$Y_p$'nin tanımı neden o kadar tuhaf görünüyor</span>
+                            </div>
+                            $$Y_{p}(x)=\frac{J_{p}(x)\cos p\pi-J_{-p}(x)}{\sin p\pi}$$
+                            <p>İlk bakışta keyfî duruyor. Mantığı şu: <span class="vurgu">$p$ tam sayı değilken bu ifade zaten $J_{p}$ ile $J_{-p}$'nin bir lineer birleşimidir</span>, dolayısıyla geçerli bir çözümdür. Ama seçilen katsayılar öyle ayarlanmıştır ki $p\to$ tam sayı limitinde <span class="vurgu">pay ve payda birlikte sıfırlanır</span> ve L'Hôpital ile sonlu, $J_{p}$'den bağımsız bir çözüm elde edilir.</p>
+                            <p><strong>Yani $Y_{p}$, "tam sayı durumu için özel olarak imal edilmiş" bir çözüm değildir;</strong> her $p$ için tanımlıdır ve tam sayı $p$'de <span class="vurgu">limit alınarak boşluğu doldurur.</span></p>
+                            <p><strong>Sınavda bilinmesi yeten üç şey:</strong></p>
+                            <ol>
+                                <li>$Y_{p}$ içinde <strong>logaritma</strong> vardır (eşit/tam sayı farklı kökler durumunun beklenen sonucu).</li>
+                                <li>$x\to 0^{+}$ iken $Y_{p}\to-\infty$. Dolayısıyla <span class="vurgu">problem $x=0$'ı kapsıyorsa ve çözümün sınırlı kalması isteniyorsa $c_{2}=0$ alınır.</span></li>
+                                <li>Genel çözüm her zaman $c_{1}J_{p}+c_{2}Y_{p}$ yazılabilir — $p$ tam sayı olsun olmasın.</li>
+                            </ol>
+                            <p>Üçüncü madde pratik kolaylık sağlar: <span class="vurgu">$p$'yi kontrol etmeden bu biçimi yazarsanız hiçbir zaman yanılmazsınız.</span></p>
+                        </div>
                     </div>
 
                     <div id="ozel-dd-legendre" class="section placeholder">
@@ -15388,6 +15437,25 @@
                             <p><strong>Bu dönüşüm neden önemli?</strong></p>
                             <p>İlk $n-1$ denklem yalnızca tanımların kendisidir — bilgi taşımazlar, sadece "her yeni değişken bir öncekinin türevidir" der. <span class="vurgu">Bütün bilgi son denklemdedir</span>; orijinal denklem oraya taşınmıştır.</p>
                             <p>Sonuç: <strong>tek bir $n$. mertebeden denklem ile $n$ bilinmeyenli normal lineer sistem aslında aynı nesnedir.</strong> Bu yüzden sistemler için geliştirilen her yöntem, tek yüksek mertebeli denklemlere de uygulanabilir; tersi de doğrudur. Sayısal çözüm yazılımlarının hepsi yüksek mertebeli denklemleri önce bu biçime çevirir.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Sistemi çözmeden önce hangi yöntemin uygun olduğuna karar verin</span>
+                            </div>
+                            <p>Elinizdeki sisteme bakıp şunu sorun: <span class="vurgu">denklemler kaç bilinmeyen içeriyor ve katsayılar sabit mi?</span></p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Durum</th><th>Uygun yöntem</th></tr>
+                                <tr><td>İki denklem, sabit katsayılı</td><td><strong>Operatör yöntemi</strong> (yok etme) — en hızlısı</td></tr>
+                                <tr><td>Başlangıç koşulları verilmiş</td><td><strong>Laplace</strong> — koşullar baştan girer</td></tr>
+                                <tr><td>Zaten $\dfrac{dx}{dt}=ax+by$ biçiminde</td><td>Matris/özdeğer yöntemi</td></tr>
+                                <tr><td>Değişken katsayılı</td><td>Operatör yöntemi <strong>çalışmaz</strong></td></tr>
+                            </table>
+                            </div>
+                            <p><strong>En sık yapılan yanlış seçim:</strong> başlangıç koşullu bir sistemde operatör yöntemine girişip sonunda dört sabiti belirlemeye çalışmak. <span class="vurgu">Laplace aynı problemi yarı sürede bitirir</span> çünkü sabit hiç çıkmaz. (Bkz. 4.5.)</p>
+                            <p><strong>Bir de terminoloji notu:</strong> "lineer sistem" burada <span class="vurgu">denklem takımı</span> demektir, lineer cebirdeki $Ax=b$ değil. İkisi ilişkilidir ama aynı şey değildir — operatör yönteminde $D$'li katsayılarla kurduğunuz takım, o anlamda bir lineer sistemdir.</p>
                         </div>
                     </div>
 
@@ -15538,6 +15606,19 @@
                             <li><span class="vurgu">Bulunanları orijinal sisteme geri koyup fazla keyfi sabitleri ele.</span></li>
                         </ol>
                         <p><strong>Yöntemin sınırı.</strong> $L_{5}$ sıfır ya da sıfırdan farklı bir sabit çıkarsa yöntem kullanılamaz. Bu, sistemin ya çözümsüz ya da beklenenden farklı yapıda olduğunun işaretidir.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Yok etme adımı: cebirle aynı, tek farkla</span>
+                            </div>
+                            <p>İki denklemi operatör biçiminde yazdıktan sonra <span class="vurgu">tam olarak iki bilinmeyenli denklem sistemi gibi</span> davranın: bir denklemi bir operatörle çarpın, öbürüyle taraf tarafa çıkarın, bir bilinmeyen gitsin.</p>
+                            <p><strong>Tek fark ve tek tuzak:</strong> çarparken operatörü <span class="vurgu">denklemin her terimine</span> uygulamalısınız, sağ taraf dahil. $(D-1)$ ile çarpmak, sağ taraftaki $e^{2t}$'yi de türevleyip çıkarmak demektir:</p>
+                            $$(D-1)e^{2t}=2e^{2t}-e^{2t}=e^{2t}$$
+                            <p>Sağ tarafı olduğu gibi bırakmak, <span class="vurgu">bu yöntemde en sık görülen hatadır.</span></p>
+                            <p><strong>Sonrası tanıdık.</strong> Yok etme bitince elinizde tek bilinmeyenli, sabit katsayılı, yüksek mertebeden bir denklem kalır — Bölüm 3'te çözmeyi öğrendiğiniz denklemin aynısı. Karakteristik denklem + belirsiz katsayılar ile bitirin.</p>
+                            <p><strong>Bitirmeden önce:</strong> ikinci bilinmeyeni <span class="vurgu">ikinci kez yok etme yaparak değil</span>, bulduğunuz birinciyi orijinal denklemlerden birine koyarak bulun. İki ayrı yok etme yaparsanız sabitler birbirinden bağımsız çıkar ve fazladan sabitleri elemek zorunda kalırsınız.</p>
+                        </div>
                     </div>
 
                     <div id="operator-sabit-sayisi" class="section konu">
@@ -15709,6 +15790,18 @@
                                         <li>Sabit sayısı baştan doğru çıktı ($c_{1}$ ve $c_{2}$)</li>
                                     </ul>
                                     <p>Birinci mertebeli operatörlerden oluşan sistemlerde <span class="vurgu">her zaman bu yolu tercih edin.</span></p>
+                                </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Alternatif yöntem ne zaman kazandırır</span>
+                                    </div>
+                                    <p>Determinant/Cramer yaklaşımı, yok etmeyle aynı sonuca <span class="vurgu">daha düzenli bir yoldan</span> varır:</p>
+                                    $$\left|\begin{matrix}L_{1} &amp; L_{2}\\ L_{3} &amp; L_{4}\end{matrix}\right|x=\left|\begin{matrix}f_{1} &amp; L_{2}\\ f_{2} &amp; L_{4}\end{matrix}\right|,\qquad \left|\begin{matrix}L_{1} &amp; L_{2}\\ L_{3} &amp; L_{4}\end{matrix}\right|y=\left|\begin{matrix}L_{1} &amp; f_{1}\\ L_{3} &amp; f_{2}\end{matrix}\right|$$
+                                    <p><strong>Avantajı:</strong> sol taraf <span class="vurgu">her iki bilinmeyen için de aynı</span> operatördür, yani karakteristik denklemi bir kez kurarsınız. Hangi denklemi neyle çarpacağınızı düşünmezsiniz.</p>
+                                    <p><strong>Dikkat edilecek nokta:</strong> sağ taraftaki determinantlar açılırken $L$'ler <span class="vurgu">operatör olduğu için sıra korunmalıdır.</span> $L_{2}f_{2}$ demek "$f_{2}$'ye $L_{2}$ operatörünü uygula" demektir, çarpım değil.</p>
+                                    <p><strong>Ve yine aynı kural:</strong> bu yöntem de $x$ ile $y$'yi ayrı ayrı verdiği için <span class="vurgu">sabitler fazla çıkar.</span> Determinantın derecesi kadar bağımsız sabit vardır; kalanları elemek için sonucu orijinal sisteme geri koymak zorunludur. (Bkz. 7.4.)</p>
                                 </div>
                             </div>
                         </div>
@@ -16603,7 +16696,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=84d84e9a"></script>
+<script defer src="arama.js?v=2bcebc83"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

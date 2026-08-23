@@ -84,3 +84,20 @@ $$x_{n}'=-a_{n}(t)x_{1}-a_{n-1}(t)x_{2}-\dots-a_{1}(t)x_{n}+F(t) \tag{7.9}$$
 
 Sonuç: **tek bir $n$. mertebeden denklem ile $n$ bilinmeyenli normal lineer sistem aslında aynı nesnedir.** Bu yüzden sistemler için geliştirilen her yöntem, tek yüksek mertebeli denklemlere de uygulanabilir; tersi de doğrudur. Sayısal çözüm yazılımlarının hepsi yüksek mertebeli denklemleri önce bu biçime çevirir.
 [/KUTU]
+
+---
+
+[CLAUDE] Sistemi çözmeden önce hangi yöntemin uygun olduğuna karar verin
+Elinizdeki sisteme bakıp şunu sorun: ==denklemler kaç bilinmeyen içeriyor ve katsayılar sabit mi?==
+
+| Durum | Uygun yöntem |
+|---|---|
+| İki denklem, sabit katsayılı | **Operatör yöntemi** (yok etme) — en hızlısı |
+| Başlangıç koşulları verilmiş | **Laplace** — koşullar baştan girer |
+| Zaten $\dfrac{dx}{dt}=ax+by$ biçiminde | Matris/özdeğer yöntemi |
+| Değişken katsayılı | Operatör yöntemi **çalışmaz** |
+
+**En sık yapılan yanlış seçim:** başlangıç koşullu bir sistemde operatör yöntemine girişip sonunda dört sabiti belirlemeye çalışmak. ==Laplace aynı problemi yarı sürede bitirir== çünkü sabit hiç çıkmaz. (Bkz. 4.5.)
+
+**Bir de terminoloji notu:** "lineer sistem" burada ==denklem takımı== demektir, lineer cebirdeki $Ax=b$ değil. İkisi ilişkilidir ama aynı şey değildir — operatör yönteminde $D$'li katsayılarla kurduğunuz takım, o anlamda bir lineer sistemdir.
+[/CLAUDE]

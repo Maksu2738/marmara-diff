@@ -90,3 +90,19 @@ Fazla sabitleri elemek için bulunan $x$ ve $y$ ifadeleri **orijinal sistemin de
 5. ==Bulunanları orijinal sisteme geri koyup fazla keyfi sabitleri ele.==
 
 **Yöntemin sınırı.** $L_{5}$ sıfır ya da sıfırdan farklı bir sabit çıkarsa yöntem kullanılamaz. Bu, sistemin ya çözümsüz ya da beklenenden farklı yapıda olduğunun işaretidir.
+
+---
+
+[CLAUDE] Yok etme adımı: cebirle aynı, tek farkla
+İki denklemi operatör biçiminde yazdıktan sonra ==tam olarak iki bilinmeyenli denklem sistemi gibi== davranın: bir denklemi bir operatörle çarpın, öbürüyle taraf tarafa çıkarın, bir bilinmeyen gitsin.
+
+**Tek fark ve tek tuzak:** çarparken operatörü ==denklemin her terimine== uygulamalısınız, sağ taraf dahil. $(D-1)$ ile çarpmak, sağ taraftaki $e^{2t}$'yi de türevleyip çıkarmak demektir:
+
+$$(D-1)e^{2t}=2e^{2t}-e^{2t}=e^{2t}$$
+
+Sağ tarafı olduğu gibi bırakmak, ==bu yöntemde en sık görülen hatadır.==
+
+**Sonrası tanıdık.** Yok etme bitince elinizde tek bilinmeyenli, sabit katsayılı, yüksek mertebeden bir denklem kalır — Bölüm 3'te çözmeyi öğrendiğiniz denklemin aynısı. Karakteristik denklem + belirsiz katsayılar ile bitirin.
+
+**Bitirmeden önce:** ikinci bilinmeyeni ==ikinci kez yok etme yaparak değil==, bulduğunuz birinciyi orijinal denklemlerden birine koyarak bulun. İki ayrı yok etme yaparsanız sabitler birbirinden bağımsız çıkar ve fazladan sabitleri elemek zorunda kalırsınız.
+[/CLAUDE]

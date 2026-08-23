@@ -337,19 +337,182 @@ menu: 3.4 Alıştırmalar
 
                         <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 23&ndash;30: <strong>Başlangıç değer problemlerini</strong> çözünüz. ($x&gt;0$ varsayınız.)</p>
 
-                        <div class="question-block"><p class="question-text">23. &nbsp; $x^{2}y^{\prime\prime}-2xy^{\prime}-10y=0,\ \ y(1)=5,\ y^{\prime}(1)=4$</p></div>
-                        <div class="question-block"><p class="question-text">24. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=0,\ \ y(2)=0,\ y^{\prime}(2)=4$</p></div>
-                        <div class="question-block"><p class="question-text">25. &nbsp; $x^{2}y^{\prime\prime}+5xy^{\prime}+3y=0,\ \ y(1)=1,\ y^{\prime}(1)=-5$</p></div>
-                        <div class="question-block"><p class="question-text">26. &nbsp; $x^{2}y^{\prime\prime}-2y=4x-8,\ \ y(1)=4,\ y^{\prime}(1)=-1$</p></div>
-                        <div class="question-block"><p class="question-text">27. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+4y=4x^{2}-6x^{3},\ \ y(2)=4,\ y^{\prime}(2)=-1$</p></div>
-                        <div class="question-block"><p class="question-text">28. &nbsp; $x^{2}y^{\prime\prime}+2xy^{\prime}-6y=10x^{2},\ \ y(1)=1,\ y^{\prime}(1)=-6$</p></div>
-                        <div class="question-block"><p class="question-text">29. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3},\ \ y(2)=0,\ y^{\prime}(2)=-8$</p></div>
-                        <div class="question-block"><p class="question-text">30. &nbsp; $x^{2}y^{\prime\prime}-6y=\ln x,\ \ y(1)=\tfrac{1}{6},\ y^{\prime}(1)=-\tfrac{1}{6}$</p></div>
-
-                        <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 31&ndash;32: Aşağıdaki denklemleri çözünüz. <em>(İpucu: kaydırılmış Cauchy-Euler formu &mdash; $x+2=e^{t}$ ya da $2x-3=e^{t}$ dönüşümü kullanılabilir.)</em></p>
-
-                        <div class="question-block"><p class="question-text">31. &nbsp; $(x+2)^{2}y^{\prime\prime}-(x+2)y^{\prime}-3y=0$</p></div>
-                        <div class="question-block"><p class="question-text">32. &nbsp; $(2x-3)^{2}y^{\prime\prime}-6(2x-3)y^{\prime}+12y=0$</p></div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>23.</strong> &nbsp; $x^{2}y''-2xy'-10y=0,\quad y(1)=5,\ y'(1)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}-3m-10=(m-5)(m+2)\;\Longrightarrow\;y=c_{1}x^{5}+\frac{c_{2}}{x^{2}}$$
+                                $$y'=5c_{1}x^{4}-\frac{2c_{2}}{x^{3}}$$
+                                <p><strong>Koşullar</strong> ($x=1$'de her $x^{m}$ ve türevi sadeleşir):</p>
+                                $$c_{1}+c_{2}=5,\qquad 5c_{1}-2c_{2}=4$$
+                                <p>Birinciden $c_{1}=5-c_{2}$; yerine koyunca $25-7c_{2}=4\Rightarrow c_{2}=3$, &nbsp;$c_{1}=2$.</p>
+                                $$\boxed{\;y=2x^{5}+\frac{3}{x^{2}}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(1)=2+3=5$ &#10003;, &nbsp;$y'(1)=10-6=4$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>24.</strong> &nbsp; $x^{2}y''-4xy'+6y=0,\quad y(2)=0,\ y'(2)=4$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}-5m+6=(m-2)(m-3)\;\Longrightarrow\;y=c_{1}x^{2}+c_{2}x^{3}$$
+                                <p><strong>Koşullar</strong> $x=2$'de:</p>
+                                $$4c_{1}+8c_{2}=0\;\Longrightarrow\;c_{1}=-2c_{2}$$
+                                $$y'=2c_{1}x+3c_{2}x^{2}\;\Longrightarrow\;4c_{1}+12c_{2}=4$$
+                                <p>$-8c_{2}+12c_{2}=4\Rightarrow c_{2}=1$, &nbsp;$c_{1}=-2$.</p>
+                                $$\boxed{\;y=x^{3}-2x^{2}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(2)=8-8=0$ &#10003;; &nbsp;$y'=3x^{2}-4x$, &nbsp;$y'(2)=12-8=4$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>25.</strong> &nbsp; $x^{2}y''+5xy'+3y=0,\quad y(1)=1,\ y'(1)=-5$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}+4m+3=(m+1)(m+3)\;\Longrightarrow\;y=\frac{c_{1}}{x}+\frac{c_{2}}{x^{3}}$$
+                                $$c_{1}+c_{2}=1,\qquad -c_{1}-3c_{2}=-5$$
+                                <p>Taraf tarafa toplayalım: &nbsp;$-2c_{2}=-4\Rightarrow c_{2}=2$, &nbsp;$c_{1}=-1$.</p>
+                                $$\boxed{\;y=-\frac{1}{x}+\frac{2}{x^{3}}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(1)=-1+2=1$ &#10003;; &nbsp;$y'=x^{-2}-6x^{-4}$, &nbsp;$y'(1)=1-6=-5$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>26.</strong> &nbsp; $x^{2}y''-2y=4x-8,\quad y(1)=4,\ y'(1)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Homojen çözüm.</strong> <span class="vurgu">$xy'$ terimi yok, ama yöntem aynı:</span></p>
+                                $$P(m)=m(m-1)-2=m^{2}-m-2=(m-2)(m+1)\;\Longrightarrow\;y_{h}=c_{1}x^{2}+\frac{c_{2}}{x}$$
+                                <p><strong>Adım 2 — Özel çözüm (kısayolla).</strong> $P(1)=-2$ ve $P(0)=-2$:</p>
+                                $$y_{p}=\frac{4}{-2}x+\frac{-8}{-2}=-2x+4$$
+                                <p><strong>Adım 3 — Koşullar.</strong></p>
+                                $$y=c_{1}x^{2}+\frac{c_{2}}{x}-2x+4,\qquad y'=2c_{1}x-\frac{c_{2}}{x^{2}}-2$$
+                                $$y(1)=c_{1}+c_{2}+2=4\;\Rightarrow\;c_{1}+c_{2}=2$$
+                                $$y'(1)=2c_{1}-c_{2}-2=-1\;\Rightarrow\;2c_{1}-c_{2}=1$$
+                                <p>Toplayalım: $3c_{1}=3\Rightarrow c_{1}=1$, &nbsp;$c_{2}=1$.</p>
+                                $$\boxed{\;y=x^{2}+\frac{1}{x}-2x+4\;}$$
+                                <p><strong>Doğrulama.</strong> $y(1)=1+1-2+4=4$ &#10003;; &nbsp;$y'(1)=2-1-2=-1$ &#10003;</p>
+                                <p>Denklem kontrolü: &nbsp;$x^{2}\left(2+\tfrac{2}{x^{3}}\right)-2\left(x^{2}+\tfrac1x-2x+4\right)=2x^{2}+\tfrac2x-2x^{2}-\tfrac2x+4x-8=4x-8$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>27.</strong> &nbsp; $x^{2}y''-4xy'+4y=4x^{2}-6x^{3},\quad y(2)=4,\ y'(2)=-1$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}-5m+4=(m-1)(m-4)\;\Longrightarrow\;y_{h}=c_{1}x+c_{2}x^{4}$$
+                                <p><strong>Özel çözüm.</strong> $P(2)=4-10+4=-2$ &nbsp;ve&nbsp; $P(3)=9-15+4=-2$:</p>
+                                $$y_{p}=\frac{4}{-2}x^{2}+\frac{-6}{-2}x^{3}=-2x^{2}+3x^{3}$$
+                                <p><strong>Koşullar</strong> $x=2$'de:</p>
+                                $$y(2)=2c_{1}+16c_{2}-8+24=4\;\Rightarrow\;c_{1}+8c_{2}=-6$$
+                                $$y'=c_{1}+4c_{2}x^{3}-4x+9x^{2}\;\Rightarrow\;y'(2)=c_{1}+32c_{2}-8+36=-1\;\Rightarrow\;c_{1}+32c_{2}=-29$$
+                                <p>Çıkaralım: &nbsp;$24c_{2}=-23\Rightarrow c_{2}=-\dfrac{23}{24}$, &nbsp;$c_{1}=\dfrac{5}{3}$.</p>
+                                $$\boxed{\;y=\frac{5x}{3}-\frac{23x^{4}}{24}-2x^{2}+3x^{3}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(2)=\dfrac{10}{3}-\dfrac{46}{3}+16=-12+16=4$ &#10003;</p>
+                                <p>$y'(2)=\dfrac{5}{3}-\dfrac{92}{3}+28=-29+28=-1$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>28.</strong> &nbsp; $x^{2}y''+2xy'-6y=10x^{2},\quad y(1)=1,\ y'(1)=-6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}+m-6=(m+3)(m-2)\;\Longrightarrow\;y_{h}=c_{1}x^{2}+\frac{c_{2}}{x^{3}}$$
+                                <p><strong><span class="vurgu">Çakışma!</span></strong> Sağ tarafta $x^{2}$ var ve $P(2)=4+2-6=0$ &nbsp;$\Rightarrow$&nbsp; kısayol geçmez.</p>
+                                <p><strong>$t=\ln x$ ile çözelim.</strong> Denklem $y_{tt}+y_{t}-6y=10e^{2t}$ olur; $m=2$ basit kök olduğundan $y_{p}=Ate^{2t}$:</p>
+                                $$y_{p}'=Ae^{2t}(1+2t),\qquad y_{p}''=Ae^{2t}(4+4t)$$
+                                $$y_{p}''+y_{p}'-6y_{p}=Ae^{2t}\Big[\underbrace{(4+4t)+(1+2t)-6t}_{5}\Big]=5Ae^{2t}$$
+                                <p>$5A=10\Rightarrow A=2$, yani $y_{p}=2t\,e^{2t}=2x^{2}\ln x$.</p>
+                                <p><strong>Koşullar.</strong></p>
+                                $$y=c_{1}x^{2}+\frac{c_{2}}{x^{3}}+2x^{2}\ln x,\qquad y'=2c_{1}x-\frac{3c_{2}}{x^{4}}+4x\ln x+2x$$
+                                $$y(1)=c_{1}+c_{2}=1,\qquad y'(1)=2c_{1}-3c_{2}+2=-6\;\Rightarrow\;2c_{1}-3c_{2}=-8$$
+                                <p>$c_{1}=1-c_{2}$ yerine: $2-5c_{2}=-8\Rightarrow c_{2}=2$, &nbsp;$c_{1}=-1$.</p>
+                                $$\boxed{\;y=-x^{2}+\frac{2}{x^{3}}+2x^{2}\ln x\;}$$
+                                <p><strong>Doğrulama.</strong> $y(1)=-1+2+0=1$ &#10003;; &nbsp;$y'(1)=-2-6+0+2=-6$ &#10003;</p>
+                                <p><span class="vurgu">20. soruyla karşılaştırın:</span> orada da sağ tarafta $x^{2}$ vardı ama $P(2)=1\neq 0$ olduğu için çakışma yoktu. <span class="vurgu">Karar her zaman $P(s)$'ye bakılarak verilir.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>29.</strong> &nbsp; $x^{2}y''-5xy'+8y=2x^{3},\quad y(2)=0,\ y'(2)=-8$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>16. sorunun başlangıç koşullu hâli.</strong> Genel çözümü orada bulmuştuk:</p>
+                                $$y=c_{1}x^{2}+c_{2}x^{4}-2x^{3}$$
+                                <p><strong>Koşullar</strong> $x=2$'de:</p>
+                                $$y(2)=4c_{1}+16c_{2}-16=0\;\Rightarrow\;c_{1}+4c_{2}=4$$
+                                $$y'=2c_{1}x+4c_{2}x^{3}-6x^{2}\;\Rightarrow\;y'(2)=4c_{1}+32c_{2}-24=-8\;\Rightarrow\;c_{1}+8c_{2}=4$$
+                                <p>Çıkaralım: &nbsp;$4c_{2}=0\Rightarrow c_{2}=0$, &nbsp;$c_{1}=4$.</p>
+                                $$\boxed{\;y=4x^{2}-2x^{3}\;}$$
+                                <p><span class="vurgu">$c_{2}=0$ çıktı</span>, yani $x^{4}$ terimi bu başlangıç koşullarında hiç görünmüyor.</p>
+                                <p><strong>Doğrulama.</strong> $y(2)=16-16=0$ &#10003;; &nbsp;$y'=8x-6x^{2}$, &nbsp;$y'(2)=16-24=-8$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>30.</strong> &nbsp; $x^{2}y''-6y=\ln x,\quad y(1)=\dfrac{1}{6},\ y'(1)=-\dfrac{1}{6}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m(m-1)-6=(m-3)(m+2)\;\Longrightarrow\;y_{h}=c_{1}x^{3}+\frac{c_{2}}{x^{2}}$$
+                                <p><strong>Özel çözüm.</strong> Sağ taraf kuvvet değil; $y_{p}=A\ln x+B$:</p>
+                                $$x^{2}\left(-\frac{A}{x^{2}}\right)-6\left(A\ln x+B\right)=-6A\ln x-(A+6B)$$
+                                <p>$-6A=1\Rightarrow A=-\dfrac16$; &nbsp;$A+6B=0\Rightarrow B=\dfrac{1}{36}$</p>
+                                $$y_{p}=-\frac{\ln x}{6}+\frac{1}{36}$$
+                                <p><strong>Koşullar.</strong></p>
+                                $$y(1)=c_{1}+c_{2}+\frac{1}{36}=\frac{1}{6}\;\Rightarrow\;c_{1}+c_{2}=\frac{5}{36}$$
+                                $$y'=3c_{1}x^{2}-\frac{2c_{2}}{x^{3}}-\frac{1}{6x}\;\Rightarrow\;y'(1)=3c_{1}-2c_{2}-\frac16=-\frac16\;\Rightarrow\;3c_{1}=2c_{2}$$
+                                <p>$c_{1}=\tfrac23c_{2}$ yerine: &nbsp;$\tfrac53c_{2}=\tfrac{5}{36}\Rightarrow c_{2}=\dfrac{1}{12}$, &nbsp;$c_{1}=\dfrac{1}{18}$.</p>
+                                $$\boxed{\;y=\frac{x^{3}}{18}+\frac{1}{12x^{2}}-\frac{\ln x}{6}+\frac{1}{36}\;}$$
+                                <p><strong>Doğrulama.</strong> $y(1)=\dfrac{1}{18}+\dfrac{1}{12}+\dfrac{1}{36}=\dfrac{2+3+1}{36}=\dfrac{6}{36}=\dfrac16$ &#10003;</p>
+                                <p>$y'(1)=\dfrac{3}{18}-\dfrac{2}{12}-\dfrac16=\dfrac16-\dfrac16-\dfrac16=-\dfrac16$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>31.</strong> &nbsp; $(x+2)^{2}y''-(x+2)y'-3y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Kaydırılmış Cauchy-Euler.</strong> $u=x+2$ koyalım. <span class="vurgu">$\dfrac{du}{dx}=1$ olduğu için türevler değişmez:</span></p>
+                                $$u^{2}\frac{d^{2}y}{du^{2}}-u\frac{dy}{du}-3y=0$$
+                                <p>Bu standart Cauchy-Euler:</p>
+                                $$P(m)=m(m-1)-m-3=m^{2}-2m-3=(m-3)(m+1)\;\Longrightarrow\;m=3,\,-1$$
+                                $$\boxed{\;y=c_{1}(x+2)^{3}+\frac{c_{2}}{x+2}\;}$$
+                                <p><strong>Doğrulama.</strong> $y=(x+2)^{3}$: &nbsp;$y'=3(x+2)^{2}$, &nbsp;$y''=6(x+2)$</p>
+                                $$(x+2)^{2}\cdot 6(x+2)-(x+2)\cdot 3(x+2)^{2}-3(x+2)^{3}=(6-3-3)(x+2)^{3}=0\;\checkmark$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>32.</strong> &nbsp; $(2x-3)^{2}y''-6(2x-3)y'+12y=0$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Dikkat — bu sefer zincir kuralı çarpan getiriyor.</strong> $u=2x-3$ koyarsak $\dfrac{du}{dx}=2$, dolayısıyla</p>
+                                $$\frac{dy}{dx}=2\frac{dy}{du},\qquad \frac{d^{2}y}{dx^{2}}=4\frac{d^{2}y}{du^{2}}$$
+                                <p><span class="vurgu">31. soruda bu çarpan $1$ olduğu için görünmüyordu; burada atlarsanız yanlış kökler bulursunuz.</span></p>
+                                <p><strong>Denklemi $u$ cinsine çevirelim:</strong></p>
+                                $$u^{2}\cdot 4y_{uu}-6u\cdot 2y_{u}+12y=0\;\Longrightarrow\;4u^{2}y_{uu}-12uy_{u}+12y=0$$
+                                <p>Dörde bölelim:</p>
+                                $$u^{2}y_{uu}-3uy_{u}+3y=0$$
+                                $$P(m)=m(m-1)-3m+3=m^{2}-4m+3=(m-1)(m-3)\;\Longrightarrow\;m=1,\,3$$
+                                $$\boxed{\;y=c_{1}(2x-3)+c_{2}(2x-3)^{3}\;}$$
+                                <p><strong>Doğrulama.</strong> $y=(2x-3)^{3}$: &nbsp;$y'=6(2x-3)^{2}$, &nbsp;$y''=24(2x-3)$</p>
+                                $$(2x-3)^{2}\cdot 24(2x-3)-6(2x-3)\cdot 6(2x-3)^{2}+12(2x-3)^{3}=(24-36+12)(2x-3)^{3}=0\;\checkmark$$
+                                <p>$y=2x-3$: &nbsp;$y'=2$, $y''=0$ &nbsp;$\Rightarrow$&nbsp; $0-12(2x-3)+12(2x-3)=0$ &#10003;</p>
+                                <div class="highlight">
+                                    <p><strong>Kaydırılmış Cauchy-Euler: genel kalıp.</strong> $(ax+b)^{2}y''+\alpha(ax+b)y'+\beta y=0$ denklemi için $u=ax+b$ konur ve <span class="vurgu">her türev $a$'nın kuvvetini getirir:</span></p>
+                                    $$\frac{d^{k}y}{dx^{k}}=a^{k}\frac{d^{k}y}{du^{k}}$$
+                                    <p>Denklem $a^{2}u^{2}y_{uu}+\alpha a\,uy_{u}+\beta y=0$ olur; $a^{2}$'ye bölünce yardımcı denklem</p>
+                                    $$m(m-1)+\frac{\alpha}{a}m+\frac{\beta}{a^{2}}=0$$
+                                    <p><strong>Kontrol için hızlı yol:</strong> dönüşüm yapmadan doğrudan $y=(ax+b)^{m}$ deneyin. <span class="vurgu">Zincir kuralı çarpanları kendiliğinden çıkar</span> ve hata yapma ihtimaliniz azalır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Setin tamamı bitti</strong> — 3.4 alıştırmalarının 32 sorusu da çözülü. Çözümler bize aittir.</p>
+                            <p><strong>Setin haritası:</strong></p>
+                            <div class="tablo-sar">
+                            <table>
+                            <tr><th>Tip</th><th>Sorular</th><th>Anahtar</th></tr>
+                            <tr><td>Homojen, 2. mertebe</td><td>1-10</td><td>diskriminanta göre üç durum</td></tr>
+                            <tr><td>Homojen, yüksek mertebe</td><td>11-14</td><td>rasyonel kök testi + Vieta</td></tr>
+                            <tr><td>Homojen olmayan</td><td>15-22</td><td>==$y_{p}=\dfrac{k}{P(s)}x^{s}$== kısayolu</td></tr>
+                            <tr><td>Başlangıç değer</td><td>23-30</td><td>$x_{0}$'da iki denklem</td></tr>
+                            <tr><td>Kaydırılmış</td><td>31-32</td><td>zincir kuralı çarpanı</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Bütün sette tek bir refleks:</strong> önce $P(m)$'yi yazın. Homojen çözüm oradan, özel çözüm $P(s)$'den, çakışma kontrolü $P(s)=0$ mı diye bakmaktan çıkıyor. <span class="vurgu">Yardımcı polinom bu konunun tamamıdır.</span></p>
+                        </div>
                     </div>
 
                     <!-- ===== 4.6 KONU ===== -->

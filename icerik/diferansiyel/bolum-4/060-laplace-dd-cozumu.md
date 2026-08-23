@@ -137,3 +137,21 @@ $$y'-2y=\frac{16}{3}e^{2t}+\frac{5}{3}e^{5t}-\frac{16}{3}e^{2t}-\frac{2}{3}e^{5t
 [KUTU]
 **Adım 2'deki ortak payda hamlesine dikkat.** $3+\frac{1}{s-5}$ ifadesini olduğu gibi bırakıp $Y(s)=\frac{3}{s-2}+\frac{1}{(s-2)(s-5)}$ yazmak da doğrudur ve Örnek 9.13'te öyle yapmıştık. ==İki yol da aynı sonuca varır==; hangisinin daha az işlem gerektirdiği probleme göre değişir. Burada birleştirmek tek bir kısmi kesir açılımıyla bitirmeyi sağladı.
 [/KUTU]
+
+---
+
+[CLAUDE] Laplace'ın asıl kazancı ve tek satırlık şablon
+Klasik yöntemde önce homojen çözüm, sonra özel çözüm, en sonda başlangıç koşullarıyla sabitler bulunur. ==Laplace'ta başlangıç koşulları en başta devreye girer ve hiç keyfi sabit çıkmaz.== Süreksiz veya darbe biçimli zorlamalarda klasik yöntem zaten çalışmaz; Laplace'ın vazgeçilmez olduğu yer burasıdır.
+
+**Her problem şu şablona oturur:**
+
+$$Y(s)=\frac{\overbrace{\mathcal{L}\{\text{zorlama}\}}^{\text{sağ taraf}}+\overbrace{\text{başlangıç koşulu polinomu}}^{\text{sol taraftan gelen}}}{\underbrace{\text{karakteristik polinom}}_{as^{2}+bs+c}}$$
+
+**Üç kontrol noktası:**
+
+- Payda, elle çözseniz bulacağınız **karakteristik polinomun aynısı** olmalı.
+- Zorlama sıfırsa cevap tamamen homojen çözüm olmalı.
+- $y(0)$ ve $y'(0)$ sıfırsa payda yalnız zorlama kalmalı.
+
+Bunlardan biri tutmuyorsa dönüştürmede hata vardır — ==cevabı bulmadan önce yakalarsınız.==
+[/CLAUDE]

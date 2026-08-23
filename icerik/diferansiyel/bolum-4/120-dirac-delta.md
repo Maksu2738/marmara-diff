@@ -120,3 +120,17 @@ $y$'nin kendisi $t=\frac{\pi}{2}$'de süreklidir (çünkü $\sin 2t$ orada sıf�
 
 ==Genel kural: $\delta$ zorlaması, çözümün bir mertebe düşük türevinde sıçrama yaratır.==
 [/KUTU]
+
+---
+
+[CLAUDE] Delta, basamağın türevidir — ve bu her şeyi kolaylaştırır
+$$\mathcal{L}\left\{\delta(t-a)\right\}=e^{-as}$$
+
+==Tablodaki en basit girdi.== Sebebi de basit: $\delta$, birim basamağın türevidir, türev almak da $s$ ile çarpmaktır:
+
+$$s\cdot\frac{e^{-as}}{s}=e^{-as}$$
+
+**Buradan çıkan kısayol.** Bir sisteme $\delta(t-a)$ uyguladığınızdaki cevap, ==aynı sisteme $u_{a}(t)$ uyguladığınızdaki cevabın türevidir.== Basamak yanıtını zaten hesapladıysanız darbe yanıtı için yeni bir problem çözmeyin, türevini alın.
+
+**Fiziksel okuma:** $\delta$ anlık bir vuruştur (çekiç darbesi, ani voltaj). Etkisi $y$'yi değil, $y'$'yü sıçratır — ==konum sürekli kalır, hız bir anda değişir.== Süreksiz zorlamada ise sıçrayan $y''$ idi. Bu üçlü sıralamayı aklınızda tutun: basamak $y''$'yü, delta $y'$'yü kırar.
+[/CLAUDE]

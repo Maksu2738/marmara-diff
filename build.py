@@ -199,6 +199,29 @@ def bloklari_cevir(satirlar, girinti):
             ekle('</div>')
             continue
 
+        # --- Claude onerisi kutusu
+        # [CLAUDE] Baslik metni ... [/CLAUDE]
+        # Bu kutular kitaptan ya da ders notundan gelmez; siteyi hazirlayan
+        # asistanin ekledigi tuyo/kisa yollardir, o yuzden ayri rozetle isaretli.
+        if cip.startswith('[CLAUDE]'):
+            kutu_baslik = cip[len('[CLAUDE]'):].strip()
+            ic = []
+            i += 1
+            while i < n and not satirlar[i].strip().startswith('[/CLAUDE]'):
+                ic.append(satirlar[i])
+                i += 1
+            i += 1                      # [/CLAUDE] satirini atla
+            ekle('<div class="claude-oneri">')
+            ekle('<div class="claude-oneri-bas">', 4)
+            ekle('<span class="claude-oneri-rozet">Claude önerisi</span>', 8)
+            if kutu_baslik:
+                ekle('<span class="claude-oneri-baslik">%s</span>'
+                     % satir_ici(kutu_baslik), 8)
+            ekle('</div>', 4)
+            cikti.extend(bloklari_cevir(ic, girinti + ' ' * 4))
+            ekle('</div>')
+            continue
+
         # --- soru blogu
         if cip.startswith('[SORU]') or cip.startswith('[SORU*]'):
             i = soru_blogu(satirlar, i, cikti, girinti)
@@ -257,6 +280,7 @@ def _blok_basi(cip):
             or cip.startswith('[SORU*]')
             or cip.startswith('[CEVAP]') or cip.startswith('[/CEVAP]')
             or cip.startswith('[KUTU]') or cip.startswith('[/KUTU]')
+            or cip.startswith('[CLAUDE]') or cip.startswith('[/CLAUDE]')
             or cip in ('---', '***') or re.match(r'^\d+\.\s', cip) is not None)
 
 

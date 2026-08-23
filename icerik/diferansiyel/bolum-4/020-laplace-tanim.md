@@ -107,3 +107,19 @@ Buraya kadar bulduklarımız:
 [KUTU]
 **$\sin$ ile $\cos$ arasındaki simetriye dikkat.** Paydaları aynıdır ($s^{2}+b^{2}$); paylarda $\sin$ için $b$, $\cos$ için $s$ vardır. Bu ikisini karıştırmak sınavda en sık yapılan hatadır. Hatırlama yolu: $t=0$'da $\cos 0=1$ olduğu için $\cos$'un dönüşümü $s\to\infty$ iken $\frac{1}{s}$ gibi davranmalıdır — payında $s$ olan odur.
 [/KUTU]
+
+---
+
+[CLAUDE] Tablonun tamamı aslında üç satır
+Tanımdaki integrali hayatınızda **birkaç kez** almanız yeterli. Tablodaki her şey şu üçünden türer:
+
+$$\mathcal{L}\left\{e^{at}\right\}=\frac{1}{s-a},\qquad \mathcal{L}\left\{t^{n}\right\}=\frac{n!}{s^{n+1}},\qquad \mathcal{L}\{1\}=\frac{1}{s}$$
+
+**Sinüs ve kosinüs bedava geliyor.** $a=ib$ alın:
+
+$$\mathcal{L}\left\{e^{ibt}\right\}=\frac{1}{s-ib}=\frac{s+ib}{s^{2}+b^{2}}$$
+
+Reel kısım $\mathcal{L}\{\cos bt\}=\dfrac{s}{s^{2}+b^{2}}$, sanal kısım $\mathcal{L}\{\sin bt\}=\dfrac{b}{s^{2}+b^{2}}$. ==Tek hesapla iki tablo girdisi.==
+
+Aynı numara $a=\pm b$ (reel) ile hiperboliklere de çalışır: $\cosh bt$ ve $\sinh bt$ için payda $s^{2}-b^{2}$ olur. **İşaret farkını buradan hatırlayın** — trigonometrikte artı, hiperbolikte eksi.
+[/CLAUDE]

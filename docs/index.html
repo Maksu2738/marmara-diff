@@ -10,7 +10,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 
-    <link rel="stylesheet" href="style.css?v=78c3f45b">
+    <link rel="stylesheet" href="style.css?v=cd7965ae">
 
 </head>
 <body>
@@ -73,6 +73,7 @@
                         </button>
                         <ul class="chapter-links open">
                             <li><a href="#bolum-1">Giriş</a></li>
+                            <li><a href="#claude-onerileri">Claude önerileri nedir?</a></li>
                             <li><a href="#bolum-1-1">1.1 Sınıflandırma, Köken ve Uygulama</a></li>
                             <li><a href="#bolum-1-1-a">A. Diferansiyel Denklemler ve Sınıflandırılmaları</a></li>
                             <li><a href="#bolum-1-1-b">B. Diferansiyel Denklemlerin Kökeni ve Uygulaması</a></li>
@@ -184,7 +185,7 @@
                             <li><a href="#laplace-ozellikler">4.1 Temel Özellikler</a></li>
                             <li><a href="#laplace-yuksek-turev">4.1 Yüksek Mertebeden Türevler</a></li>
                             <li><a href="#ornek-laplace-bdp">4.1 Örnek — İlk Başlangıç Değer Problemi</a></li>
-                            <li><a href="#laplace-oteleme" class="defterde-yok">4.1 Öteleme ve tⁿ ile Çarpma</a></li>
+                            <li><a href="#laplace-oteleme">4.1 Öteleme ve tⁿ ile Çarpma</a></li>
                             <li><a href="#egzersizler-laplace-ozellikler">4.1 Egzersizler — Temel Özellikler</a></li>
                             <li><a href="#laplace-ters">4.2 Ters Laplace Dönüşümü</a></li>
                             <li><a href="#ornek-ters-donusum">4.2 Örnekler — Ters Dönüşüm Teknikleri</a></li>
@@ -359,6 +360,51 @@
                     </div>
 
                     <!-- ===== 1.1 ===== -->
+
+                    <div id="claude-onerileri" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            &#10022;&nbsp; "Claude Önerisi" Kutuları Nedir?
+                        </div>
+                        <p>Sitede yer yer aşağıdaki gibi <strong>turkuaz renkli</strong> kutular göreceksiniz:</p>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Örnek kutu</span>
+                            </div>
+                            <p>İşte böyle görünüyorlar. Rozet her zaman kutunun sol üstündedir, dolayısıyla <span class="vurgu">bir bakışta ayırt edilebilirler.</span></p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bu kutulardaki bilgi nereden geliyor?</h3>
+                        <p><strong>Hiçbir yerden.</strong> Daha doğrusu: ne kitaptan, ne hocanın ders notundan. Bu kutuları siteyi hazırlayan yapay zekâ asistanı (Claude) ekledi.</p>
+                        <p>İçlerinde şunlar var:</p>
+                        <ul style="margin-left: 1rem;">
+                            <li><strong>Kısa yollar</strong> — uzun yoldan da varılabilecek bir sonuca daha hızlı varmanın yolu</li>
+                            <li><strong>Hafıza ipuçları</strong> — hangi formülün ne zaman kullanılacağını hatırlamaya yarayan kalıplar</li>
+                            <li><strong>Tuzak uyarıları</strong> — bu konuda sık yapılan işaret/katsayı hataları</li>
+                            <li><strong>Bağlantılar</strong> — bir konunun daha önce gördüğünüz başka bir konuyla nasıl aynı şey olduğu</li>
+                        </ul>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Neden ayrı bir renk ve rozet?</h3>
+                        <p>Çünkü <span class="vurgu">kaynağı bilmek önemli.</span> Sitedeki diğer içerik türleri şunlar:</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>Görünüm</th><th>Kaynak</th><th>Sınavda</th></tr>
+                            <tr><td>Normal metin ve mor kutular</td><td>Kitap</td><td>Çıkabilir</td></tr>
+                            <tr><td><span class="vurgu">Yıldızlı</span> soru blokları</td><td>Hocanın ders notu</td><td><strong>Çıkma ihtimali yüksek</strong></td></tr>
+                            <tr><td>Kırmızı ⚠ şeritli bölümler</td><td>Kitapta var, derste işlenmedi</td><td>Düşük öncelikli</td></tr>
+                            <tr><td><strong>Turkuaz "Claude önerisi" kutuları</strong></td><td><strong>Asistan</strong></td><td><strong>Doğrudan çıkmaz</strong></td></tr>
+                        </table>
+                        </div>
+                        <p>Son satır özellikle önemli: bu kutulardaki hiçbir şey <span class="vurgu">"hoca böyle dedi" ya da "kitapta şöyle yazıyor" anlamına gelmez.</span> Bunlar yalnızca çalışmayı kolaylaştırmak için eklenmiş yorumlardır.</p>
+                        <div class="highlight">
+                            <p><strong>Bir uyarı.</strong> Kısa yollar işi hızlandırır ama <span class="vurgu">uzun yolu bilmiyorsanız kısa yol tehlikelidir.</span> Sınavda kısa yolun uygulanamadığı bir varyasyonla karşılaşırsanız geri dönecek bir yeriniz olmalı.</p>
+                            <p>Önerimiz: her konuyu önce kitabın anlattığı gibi öğrenin, kısa yolu <strong>sonra</strong> ekleyin. Kutular da zaten bölümlerin sonuna yerleştirildi, başına değil.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bir hata görürseniz</h3>
+                        <p>Bu kutular otomatik üretilmedi, tek tek yazıldı — ama yine de <span class="vurgu">bir yapay zekânın yorumu.</span> Kitapla çelişen bir şey görürseniz <strong>kitap haklıdır</strong>, hocanın notuyla çelişen bir şey görürseniz <strong>hocanın notu haklıdır</strong>.</p>
+                    </div>
 
                     <div id="bolum-1-1" class="section konu-basi">
                         <div class="section-title">
@@ -8221,6 +8267,19 @@
                                 <div class="highlight">
                                     <p><strong>$\sin$ ile $\cos$ arasındaki simetriye dikkat.</strong> Paydaları aynıdır ($s^{2}+b^{2}$); paylarda $\sin$ için $b$, $\cos$ için $s$ vardır. Bu ikisini karıştırmak sınavda en sık yapılan hatadır. Hatırlama yolu: $t=0$'da $\cos 0=1$ olduğu için $\cos$'un dönüşümü $s\to\infty$ iken $\frac{1}{s}$ gibi davranmalıdır — payında $s$ olan odur.</p>
                                 </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Tablonun tamamı aslında üç satır</span>
+                                    </div>
+                                    <p>Tanımdaki integrali hayatınızda <strong>birkaç kez</strong> almanız yeterli. Tablodaki her şey şu üçünden türer:</p>
+                                    $$\mathcal{L}\left\{e^{at}\right\}=\frac{1}{s-a},\qquad \mathcal{L}\left\{t^{n}\right\}=\frac{n!}{s^{n+1}},\qquad \mathcal{L}\{1\}=\frac{1}{s}$$
+                                    <p><strong>Sinüs ve kosinüs bedava geliyor.</strong> $a=ib$ alın:</p>
+                                    $$\mathcal{L}\left\{e^{ibt}\right\}=\frac{1}{s-ib}=\frac{s+ib}{s^{2}+b^{2}}$$
+                                    <p>Reel kısım $\mathcal{L}\{\cos bt\}=\dfrac{s}{s^{2}+b^{2}}$, sanal kısım $\mathcal{L}\{\sin bt\}=\dfrac{b}{s^{2}+b^{2}}$. <span class="vurgu">Tek hesapla iki tablo girdisi.</span></p>
+                                    <p>Aynı numara $a=\pm b$ (reel) ile hiperboliklere de çalışır: $\cosh bt$ ve $\sinh bt$ için payda $s^{2}-b^{2}$ olur. <strong>İşaret farkını buradan hatırlayın</strong> — trigonometrikte artı, hiperbolikte eksi.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -8491,6 +8550,18 @@
                                     <p><strong>Koşullar yeterlidir, gerekli değildir.</strong> THEoREM 9.1 "bu iki koşul sağlanıyorsa dönüşüm vardır" der; tersini söylemez. Bu koşulları sağlamayan bazı fonksiyonların da Laplace dönüşümü olabilir. Ama pratikte karşılaşılan hemen her fonksiyon bu sınıfa girer.</p>
                                     <p><span class="vurgu">Ayrıca $\alpha$'nın rolüne dikkat edin:</span> dönüşümün geçerli olduğu aralığın alt sınırını o belirler. Örnek 9.3'te $\mathcal{L}\{e^{at}\}$ için çıkan $s&gt;a$ koşulu tam olarak budur.</p>
                                 </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Varlık koşulunu sınavda değil, cevabınızı kontrol ederken kullanın</span>
+                                    </div>
+                                    <p>Pratikte kimse "bu fonksiyonun dönüşümü var mı" diye tek tek bakmaz. İşe yarayan iki şey var:</p>
+                                    <p><strong>1. Kaba eleme.</strong> Polinomlar, $e^{at}$, $\sin$, $\cos$ ve bunların çarpımları hep üstel mertebedendir. Sınıfta karşılaşacağınız hemen her şey geçer. Klasik karşı örnek $e^{t^{2}}$'dir — <span class="vurgu">hiçbir $e^{at}$ onu yukarıdan sınırlayamaz.</span></p>
+                                    <p><strong>2. Asıl kullanışlı sonuç.</strong> Varlık THEoREM'inin yan ürünü şudur:</p>
+                                    $$\lim_{s\to\infty}F(s)=0$$
+                                    <p>Yani <span class="vurgu">bulduğunuz her $F(s)$, $s$ büyürken sıfıra gitmek zorundadır.</span> Payın derecesi paydanınkinden küçük olmalı. Sınavda bir dönüşüm bulup sonucunuz $\dfrac{s^{2}+1}{s^{2}+4}$ gibi çıktıysa (sonsuzda $1$'e gidiyor) <strong>kesinlikle hata var</strong> — üç saniyelik kontrol.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -8548,6 +8619,21 @@
                                 <p>Kapalı $0\le t\le R$ aralığında $f'$ en fazla sonlu sayıda süreksizliğe sahiptir; bunlara $t_{1},t_{2},\dots,t_{n}$ diyelim:</p>
                                 $$0\le t_{1}&lt;t_{2}&lt;\dots&lt;t_{n}\le R$$
                                 <p>İntegral bu noktalarda parçalara ayrılır, her parçada kısmi integrasyon uygulanır ve sınır terimleri toplanır. Süreklilik sayesinde ara noktalardaki katkılar birbirini götürür; geriye $t=0$ ve $t=R$ uçlarından gelenler kalır. $s&gt;\alpha$ olduğunda $R$ ucundaki terim sıfıra gider ve $(9.11)$ elde edilir. $\blacksquare$</p>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Eksi işareti nereden geliyor — ve neden bunu bilmek işe yarıyor</span>
+                                    </div>
+                                    <p>Türev THEoREM'ini ezberlemek yerine <span class="vurgu">tek bir kısmi integrasyonla yeniden türetin:</span></p>
+                                    $$\mathcal{L}\left\{y'\right\}=\int_{0}^{\infty}e^{-st}y'\,dt=\underbrace{\Big[e^{-st}y\Big]_{0}^{\infty}}_{\text{sınır terimi}}+s\int_{0}^{\infty}e^{-st}y\,dt$$
+                                    <p>Üst sınırda $e^{-st}y\to 0$ (varlık koşulu tam bunun için vardı), alt sınırda $-y(0)$ kalır:</p>
+                                    $$\mathcal{L}\left\{y'\right\}=sY(s)-y(0)$$
+                                    <p><span class="vurgu">Meşhur eksi işareti, integralin alt sınırından geliyor.</span> Formülü karıştırdığınızda üç satırda geri getirebilirsiniz.</p>
+                                    <p><strong>Lineerliğin asıl kıymeti ters yönde.</strong> $\mathcal{L}\{af+bg\}=aF+bG$ eşitliği <span class="vurgu">her iki yönde de geçerlidir:</span></p>
+                                    $$\mathcal{L}^{-1}\left\{aF+bG\right\}=af+bg$$
+                                    <p>Kısmi kesirler yönteminin meşruiyeti buradan gelir — bir ifadeyi parçalara ayırıp her parçanın ters dönüşümünü ayrı ayrı alıp toplayabilmemizin sebebi bu tek satırdır.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -8664,6 +8750,18 @@
                         <div class="highlight">
                             <p><strong>İki yolun karşılaştırması.</strong> Doğrulamada gördüğümüz gibi bu örnek $\sin 2at$ özdeşliğiyle de çözülebilirdi. Ama sınavda her zaman böyle bir özdeşlik olmaz; <span class="vurgu">türev THEoREM'i özdeşliğe ihtiyaç duymadan çalışır</span>. $f(0)=0$ olması da çoğu zaman işi kolaylaştırır — sabit terim düşer.</p>
                         </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Türev THEoREM'ini formül olarak değil, desen olarak hatırlayın</span>
+                            </div>
+                            $$\mathcal{L}\left\{y^{(n)}\right\}=s^{n}Y-s^{n-1}y(0)-s^{n-2}y'(0)-\cdots-y^{(n-1)}(0)$$
+                            <p><strong>Desen:</strong> $s$'nin kuvveti azalırken $y$'nin türev mertebesi artar; <span class="vurgu">her terimde ikisinin toplamı hep $n-1$.</span> Bunu bilirseniz formülü yeniden yazabilirsiniz.</p>
+                            <p><strong>Sınav kısayolu (ikinci mertebe).</strong> $ay''+by'+cy$ ifadesinin dönüşümü her zaman şudur:</p>
+                            $$\underbrace{\left(as^{2}+bs+c\right)}_{\text{karakteristik polinom}}Y(s)-\underbrace{\Big[a\left(sy_{0}+y_{0}'\right)+by_{0}\Big]}_{\text{başlangıç koşulu polinomu}}$$
+                            <p>Denklemi her seferinde tek tek dönüştürmek yerine bunu doğrudan yazın. <span class="vurgu">Paydanın karakteristik polinom olması da bir kontrol noktası:</span> $Y(s)$'nin paydası, elle çözseniz bulacağınız karakteristik denklemle aynı olmalı.</p>
+                        </div>
                     </div>
 
                     <div id="ornek-laplace-bdp" class="section ornek">
@@ -8725,14 +8823,10 @@
                         </div>
                     </div>
 
-                    <div id="laplace-oteleme" class="section konu defter-disi">
+                    <div id="laplace-oteleme" class="section konu">
                         <div class="section-title">
                             <span class="badge">Konu</span>
                             4.1 &nbsp;Öteleme Özelliği ve $t^n$ ile Çarpmanın Etkisi
-                        </div>
-                        <div class="defter-disi-uyari">
-                            <span class="defter-disi-rozet">&#9888; DERSTE İŞLENMEDİ</span>
-                            <span>Bu konu <strong>kitapta var</strong> ama hoca derste işlemedi. Sorulabilir; önceliği düşük tutun.</span>
                         </div>
                         <p>Tablodaki temel dönüşümlerden çok daha fazlasını elde etmemizi sağlayan iki kural var. İkisi de <span class="vurgu">yeni integral almadan</span> yeni dönüşümler üretir.</p>
                         <hr>
@@ -8802,6 +8896,18 @@
                                 <p><strong>$(9.26)$'yı uygula.</strong> $n=2$ olduğundan $(-1)^{2}=1$:</p>
                                 $$\boxed{\;\mathcal{L}\{t^{2}\sin bt\}=\frac{6bs^{2}-2b^{3}}{\left(s^{2}+b^{2}\right)^{3}}\;}$$
                                 <p><strong>Kontrol.</strong> $b$ ortak çarpan olarak çıkarılabilir: $\dfrac{2b\left(3s^{2}-b^{2}\right)}{\left(s^{2}+b^{2}\right)^{3}}$. Payda derecesi $6$, pay derecesi $2$ olduğundan $s\to\infty$ iken ifade $s^{-4}$ gibi söner — $t^{2}\sin bt$ gibi çarpımların dönüşümlerinden beklenen davranış budur.</p>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">"Her $t$ çarpanı bir eksi işaretine mal olur"</span>
+                                    </div>
+                                    $$\mathcal{L}\left\{t^{n}f(t)\right\}=(-1)^{n}\frac{d^{n}F}{ds^{n}}$$
+                                    <p>İşareti unutmamak için: <span class="vurgu">her $t$ çarpanı bir türev ve bir eksi getirir.</span></p>
+                                    <p><strong>En çok işe yarayan üç sonuç</strong> — türetmesi tek satır, ezberlemeye değer:</p>
+                                    $$\mathcal{L}\left\{t\,e^{at}\right\}=\frac{1}{(s-a)^{2}},\qquad \mathcal{L}\{t\sin bt\}=\frac{2bs}{\left(s^{2}+b^{2}\right)^{2}},\qquad \mathcal{L}\{t\cos bt\}=\frac{s^{2}-b^{2}}{\left(s^{2}+b^{2}\right)^{2}}$$
+                                    <p><strong>Bağlantı:</strong> birinci sonuç, sabit katsayılı denklemlerde tekrarlı kök çıktığında neden $t\,e^{at}$ göründüğünü açıklar — tekrarlı kök paydada kare demektir, karenin ters dönüşümü de $t$ çarpanı. <span class="vurgu">Bölüm 3'teki "neden $t$ ile çarpıyoruz" sorusunun cevabı burada.</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -9243,6 +9349,22 @@
                                         <li><strong>7 numaradaki $n!$.</strong> $\mathcal{L}\{t^{n}\}=\frac{n!}{s^{n+1}}$; paydaki faktöriyeli unutmak sık yapılan hatadır. $n=1$ için $\frac{1}{s^{2}}$ çıkar, $(9.3)$ ile tutar.</li>
                                         <li><strong>15-16 numaralar</strong> birim basamak fonksiyonuyla ilgilidir ve süreksiz zorlamalı problemlerde (4.4) kullanılacaktır.</li>
                                     </ul>
+                                </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Ters dönüşüm için karar ağacı ve iki kısayol</span>
+                                    </div>
+                                    <p><strong>Paydaya bakın, gerisi mekanik:</strong></p>
+                                    <ol>
+                                        <li><strong>Çarpanlanıyor, hepsi farklı</strong> → kısmi kesirler, <strong>kapatma yöntemi</strong> (cover-up): $\dfrac{A}{s-a}$ için $A$, ifadede $(s-a)$'yı kapatıp $s=a$ koyarak bulunur. Sistem kurmaya gerek yok.</li>
+                                        <li><strong>Tekrarlı çarpan</strong> $(s-a)^{k}$ → payı $s-a$ cinsine sokun: $3s+1=3(s-a)+\ldots$ biçiminde.</li>
+                                        <li><strong>İndirgenemez kuadratik</strong> ($\Delta&lt;0$) → <strong>tamkareye tamamlayın</strong>, payı da aynı cinse sokun.</li>
+                                    </ol>
+                                    <p><strong>Ezberlenmeye değer iki sonuç:</strong></p>
+                                    $$\mathcal{L}^{-1}\left\{\frac{1}{(s-a)(s-b)}\right\}=\frac{e^{at}-e^{bt}}{a-b},\qquad \mathcal{L}^{-1}\left\{\frac{1}{s\left(s^{2}+b^{2}\right)}\right\}=\frac{1-\cos bt}{b^{2}}$$
+                                    <p>Birincisi neredeyse her ikinci mertebe probleminde, ikincisi de her "sabit zorlama + salınım" probleminde çıkıyor. <span class="vurgu">İkisi de kısmi kesirleri tamamen atlatır.</span></p>
                                 </div>
                             </div>
                         </div>
@@ -9792,6 +9914,26 @@
                                     $$\frac{\sin bt-bt\cos bt}{2b^{3}}$$
                                     <p>sonucuna ulaşılır. <span class="vurgu">Tablodaki o tuhaf görünen girdinin kaynağı budur.</span></p>
                                 </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Konvolüsyonu ne zaman seçersiniz</span>
+                                    </div>
+                                    <p>Kısmi kesirler çalışıyorsa konvolüsyona gerek yok. <span class="vurgu">Konvolüsyon üç durumda vazgeçilmezdir:</span></p>
+                                    <ol>
+                                        <li><strong>Zorlama belirtilmemişse</strong> — "$y''+y=f(t)$ çözümünü $f$ cinsinden bulun" tipi sorular. Cevap zaten bir konvolüsyon integrali olarak yazılır.</li>
+                                        <li><strong>Payda çarpanlanmıyorsa</strong> ve tamkare de kurtarmıyorsa.</li>
+                                        <li><strong>Aynı çarpan karesiyse</strong> — $\dfrac{1}{\left(s^{2}+b^{2}\right)^{2}}$ gibi ifadelerde kısmi kesirler işe yaramaz.</li>
+                                    </ol>
+                                    <p><strong>İki pratik not:</strong></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li>Konvolüsyon <strong>değişmelidir</strong> ($f*g=g*f$), dolayısıyla <span class="vurgu">integrali kolay olanı $\tau$'ya verin.</span> Genelde polinomu $\tau$'ya, üsteli/trigonometriği $t-\tau$'ya koymak daha rahattır.</li>
+                                        <li>$\dfrac{1}{s}$ ile çarpmak $1*f$ demektir, yani <strong>integral almak</strong>:</li>
+                                    </ul>
+                                    $$\mathcal{L}^{-1}\left\{\frac{F(s)}{s}\right\}=\int_{0}^{t}f(\tau)\,d\tau$$
+                                    <p>Bu tek başına birçok soruyu çözer.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -10103,6 +10245,23 @@
                                 $$y'-2y=\frac{16}{3}e^{2t}+\frac{5}{3}e^{5t}-\frac{16}{3}e^{2t}-\frac{2}{3}e^{5t}=\frac{3}{3}e^{5t}=e^{5t}\;\checkmark$$
                                 <div class="highlight">
                                     <p><strong>Adım 2'deki ortak payda hamlesine dikkat.</strong> $3+\frac{1}{s-5}$ ifadesini olduğu gibi bırakıp $Y(s)=\frac{3}{s-2}+\frac{1}{(s-2)(s-5)}$ yazmak da doğrudur ve Örnek 9.13'te öyle yapmıştık. <span class="vurgu">İki yol da aynı sonuca varır</span>; hangisinin daha az işlem gerektirdiği probleme göre değişir. Burada birleştirmek tek bir kısmi kesir açılımıyla bitirmeyi sağladı.</p>
+                                </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Laplace'ın asıl kazancı ve tek satırlık şablon</span>
+                                    </div>
+                                    <p>Klasik yöntemde önce homojen çözüm, sonra özel çözüm, en sonda başlangıç koşullarıyla sabitler bulunur. <span class="vurgu">Laplace'ta başlangıç koşulları en başta devreye girer ve hiç keyfi sabit çıkmaz.</span> Süreksiz veya darbe biçimli zorlamalarda klasik yöntem zaten çalışmaz; Laplace'ın vazgeçilmez olduğu yer burasıdır.</p>
+                                    <p><strong>Her problem şu şablona oturur:</strong></p>
+                                    $$Y(s)=\frac{\overbrace{\mathcal{L}\{\text{zorlama}\}}^{\text{sağ taraf}}+\overbrace{\text{başlangıç koşulu polinomu}}^{\text{sol taraftan gelen}}}{\underbrace{\text{karakteristik polinom}}_{as^{2}+bs+c}}$$
+                                    <p><strong>Üç kontrol noktası:</strong></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li>Payda, elle çözseniz bulacağınız <strong>karakteristik polinomun aynısı</strong> olmalı.</li>
+                                        <li>Zorlama sıfırsa cevap tamamen homojen çözüm olmalı.</li>
+                                        <li>$y(0)$ ve $y'(0)$ sıfırsa payda yalnız zorlama kalmalı.</li>
+                                    </ul>
+                                    <p>Bunlardan biri tutmuyorsa dönüştürmede hata vardır — <span class="vurgu">cevabı bulmadan önce yakalarsınız.</span></p>
                                 </div>
                             </div>
                         </div>
@@ -10687,6 +10846,22 @@
                                     <p>Bu kalıp bir kez oturunca, kaç basamaklı olursa olsun her merdiven fonksiyonu <span class="vurgu">aynı yöntemle</span> yazılır: her sıçramada bir $u$ terimi ekleyin, katsayısı o noktadaki <strong>sıçrama miktarı</strong> olsun.</p>
                                     <p>Örneğin $t=2$'de $0\to 3$, $t=5$'te $3\to 0$ sıçramaları var; katsayılar sırasıyla $+3$ ve $-3$. Formül doğrudan buradan okunur.</p>
                                 </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Parçalı fonksiyonu mekanik olarak yazmanın yolu</span>
+                                    </div>
+                                    <p>Deneme yanılmayla uğraşmayın. <span class="vurgu">Her parçalı fonksiyon şu "sıçrama farkı" kuralıyla tek seferde yazılır:</span></p>
+                                    $$f(t)=f_{1}(t)+\Big[f_{2}(t)-f_{1}(t)\Big]u_{a_{1}}(t)+\Big[f_{3}(t)-f_{2}(t)\Big]u_{a_{2}}(t)+\cdots$$
+                                    <p>Yani <strong>her kırılma noktasında, yeni parçadan eskisini çıkarıp $u_{a}$ ile çarpın.</strong></p>
+                                    <p><strong>İki sık kalıp:</strong></p>
+                                    <ul style="margin-left: 1rem;">
+                                        <li><strong>Pencere</strong> (bir aralıkta açık, sonra kapalı): $\;f\left[u_{a}-u_{b}\right]$ — "$a$'da aç, $b$'de kapat".</li>
+                                        <li><strong>Doyan rampa</strong> (artıp sabitlenen): $\;mt-m(t-a)u_{a}(t)$ — ikinci terim eğimi sıfırlar, biriken değeri korur.</li>
+                                    </ul>
+                                    <p><strong>Kontrol:</strong> yazdığınız ifadeye her aralıktan bir $t$ değeri koyun. <span class="vurgu">Pencere biçiminde $\mathcal{L}\{f\}$'nin payı $\left(1-e^{-as}\right)$ çarpanı taşır; sonradan başlayan zorlamada ise yalnız $e^{-as}$ çıkar.</span> Hangisinin çıktığı, doğru yazıp yazmadığınızın işaretidir.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -10748,6 +10923,30 @@
                         <div class="highlight">
                             <p><strong>En sık yapılan hata: 2. adımı atlamak.</strong> $\mathcal{L}^{-1}\left\{e^{-3s}\cdot\frac{1}{s^{2}}\right\}$ ifadesinin cevabı $u_{3}(t)\cdot t$ <strong>değil</strong>, $u_{3}(t)\cdot(t-3)$'tür. Çarpan yalnızca kesmez, aynı zamanda <span class="vurgu">geciktirir</span>; gecikme fonksiyonun argümanına yansımalıdır.</p>
                             <p>Kontrol yolu: $t=a$ noktasında ne olduğuna bakın. Doğru cevapta $t=3$'te fonksiyon $0$'dan başlar ($f(0)=0$); yanlışında birdenbire $3$ değerine sıçrar.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Zor olan THEoREM değil, $t-a$ cinsine çevirmek</span>
+                            </div>
+                            <p>THEoREM'in kendisi tek satır: $\mathcal{L}\left\{f(t-a)u_{a}(t)\right\}=e^{-as}F(s)$. Öğrencilerin takıldığı yer, elindeki $f(t)$'yi $t-a$ cinsinden yazmaktır. <span class="vurgu">Fonksiyon tipine göre üç ayrı refleks var:</span></p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Tip</th><th>Yöntem</th></tr>
+                                <tr><td>Polinom</td><td>$t=(t-a)+a$ koyup açın</td></tr>
+                                <tr><td>Üstel</td><td>$e^{kt}=e^{ka}\cdot e^{k(t-a)}$ — sabit dışarı çıkar</td></tr>
+                                <tr><td>Trigonometrik</td><td>açı toplama formülü</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Trigonometrikte kısayol:</strong> öteleme miktarı $a$ ile açısal frekans $b$'nin çarpımına bakın.</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$ba=2k\pi$ → hiçbir şey değişmez</li>
+                                <li>$ba=(2k+1)\pi$ → yalnız işaret döner</li>
+                                <li>$ba$ çeyrek periyodun tek katı → $\sin$ ile $\cos$ yer değiştirir</li>
+                                <li>$ba$, $\pi$'nin katı değil → <span class="vurgu">sadeleşme yok, $t-a$ cinsinde bırakın</span></li>
+                            </ul>
+                            <p>Son satır önemli: sadeleşmemesi hata değildir, <span class="vurgu">cevabın kendisidir.</span></p>
                         </div>
                     </div>
 
@@ -10862,6 +11061,19 @@
                                 <div class="highlight">
                                     <p><strong>Sadeleşmeyi kaçırmayın.</strong> $e^{-2s}$ ifadesine geçici olarak $x$ derseniz pay $1-2x+x^{2}=(1-x)^{2}$, payda $s(1-x^{2})=s(1-x)(1+x)$ olur; sadeleşme anında görünür. <span class="vurgu">Üstel ifadeleri tek bir değişken gibi düşünmek, bu bölümdeki hesapları belirgin biçimde kolaylaştırır.</span></p>
                                     <p>Sonuçtaki payda $1+e^{-2s}$ (artı işaretli) olması, dalganın <span class="vurgu">yarım periyotta işaret değiştirdiğinin</span> izidir; sabit bir kare dalgada payda $1-e^{-Ps}$ kalırdı.</p>
+                                </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Bir integral, bir bölme — ve bedava bir kontrol</span>
+                                    </div>
+                                    <p>Formül tek bir sonlu integrale indirger; sonsuz tekrarın hepsini $\dfrac{1}{1-e^{-Ps}}$ çarpanı halleder:</p>
+                                    $$\mathcal{L}\{f\}=\frac{1}{1-e^{-Ps}}\int_{0}^{P}e^{-st}f(t)\,dt$$
+                                    <p><strong>Kontrolü kaçırmayın.</strong> Son değer THEoREM'i periyodik bir fonksiyonda <span class="vurgu">bir periyottaki ortalama değeri</span> verir:</p>
+                                    $$\lim_{s\to 0}s\,F(s)=\frac{1}{P}\int_{0}^{P}f(t)\,dt$$
+                                    <p>Sağ taraf genelde bakışta hesaplanır (üçgen dalga için $\tfrac12$, doğrultulmuş sinüs için $\tfrac{2}{\pi}$ gibi). <span class="vurgu">Bulduğunuz $F(s)$'nin bütün terimleri bu tek satıra girer</span> — payda bir işaret hatası yaptıysanız burada yakalanır.</p>
+                                    <p><strong>Bir de biçim notu:</strong> $\dfrac{1+e^{-Ps}}{1-e^{-Ps}}$ gördüğünüzde bu $\coth\dfrac{Ps}{2}$'dir. Tablolar bu biçimi kullanır, cevabınızı ona çevirmek zorunda değilsiniz ama tanımanız gerekir.</p>
                                 </div>
                             </div>
                         </div>
@@ -12165,6 +12377,18 @@
                                     <p>$y$'nin kendisi $t=\frac{\pi}{2}$'de süreklidir (çünkü $\sin 2t$ orada sıfırdır), ama <strong>türevi sıçrar</strong> — darbenin anlık momentum aktarması budur. Süreksiz basamak zorlamada ($4.4$'teki Örnek 9.36) hem $y$ hem $y'$ sürekliydi; delta ile $y'$ süreksiz hâle geliyor.</p>
                                     <p><span class="vurgu">Genel kural: $\delta$ zorlaması, çözümün bir mertebe düşük türevinde sıçrama yaratır.</span></p>
                                 </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Delta, basamağın türevidir — ve bu her şeyi kolaylaştırır</span>
+                                    </div>
+                                    $$\mathcal{L}\left\{\delta(t-a)\right\}=e^{-as}$$
+                                    <p><span class="vurgu">Tablodaki en basit girdi.</span> Sebebi de basit: $\delta$, birim basamağın türevidir, türev almak da $s$ ile çarpmaktır:</p>
+                                    $$s\cdot\frac{e^{-as}}{s}=e^{-as}$$
+                                    <p><strong>Buradan çıkan kısayol.</strong> Bir sisteme $\delta(t-a)$ uyguladığınızdaki cevap, <span class="vurgu">aynı sisteme $u_{a}(t)$ uyguladığınızdaki cevabın türevidir.</span> Basamak yanıtını zaten hesapladıysanız darbe yanıtı için yeni bir problem çözmeyin, türevini alın.</p>
+                                    <p><strong>Fiziksel okuma:</strong> $\delta$ anlık bir vuruştur (çekiç darbesi, ani voltaj). Etkisi $y$'yi değil, $y'$'yü sıçratır — <span class="vurgu">konum sürekli kalır, hız bir anda değişir.</span> Süreksiz zorlamada ise sıçrayan $y''$ idi. Bu üçlü sıralamayı aklınızda tutun: basamak $y''$'yü, delta $y'$'yü kırar.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -12250,6 +12474,22 @@
                                 <div class="highlight">
                                     <p><strong>Adım 4'teki kısayol.</strong> $Y$'yi de $X$ gibi elemeyle bulabilirdik, ama gerek yok: $X$ zaten bilindiğine göre <span class="vurgu">orijinal denklemlerden birine koyup $Y$'yi çekmek daha kısadır.</span> Nitekim bu yolda $(s-1)$ çarpanı kendiliğinden sadeleşti.</p>
                                     <p>Genel kural: sistemlerde <strong>bir</strong> bilinmeyeni elemeyle bulun, ötekini geri yerleştirmeyle. İkisini birden elemek gereksiz iş üretir.</p>
+                                </div>
+                                <hr>
+                                <div class="claude-oneri">
+                                    <div class="claude-oneri-bas">
+                                        <span class="claude-oneri-rozet">Claude önerisi</span>
+                                        <span class="claude-oneri-baslik">Sistem çözümü aslında iki bilinmeyenli denklem sistemi</span>
+                                    </div>
+                                    <p>Adımlar hep aynı:</p>
+                                    <ol>
+                                        <li><strong>Her denklemi ayrı ayrı dönüştürün.</strong> Başlangıç koşulları anında girer.</li>
+                                        <li>Elinizde $X(s)$ ve $Y(s)$ için <span class="vurgu">iki tane cebirsel lineer denklem</span> kalır.</li>
+                                        <li>Cramer kuralı veya yok etme ile çözün.</li>
+                                        <li>Her birinin ters dönüşümünü alın.</li>
+                                    </ol>
+                                    <p><strong>Kilit gözlem:</strong> 2. adımdaki katsayı matrisinin <strong>determinantı, sistemin karakteristik polinomudur.</strong> $X(s)$ ve $Y(s)$'nin ikisinin de paydası odur; dolayısıyla <span class="vurgu">iki bileşen de aynı üstel/salınım biçimlerini paylaşır, yalnız katsayıları farklıdır.</span></p>
+                                    <p><strong>Kontrol.</strong> Bulduğunuz $x(t)$ ve $y(t)$'yi <span class="vurgu">sistemin ilk denklemine değil, ikincisine</span> koyun. İlk denklemi zaten çözerken kullandınız; ikincisi bağımsız bir sınavdır.</p>
                                 </div>
                             </div>
                         </div>
@@ -15576,7 +15816,7 @@
                         </table>
                         </div>
                         <div class="highlight">
-                            <p><strong>Buradan çıkan en net desen:</strong> Laplace'ta <strong>13 yıldızlı soru</strong> var ve bunların hepsi <span class="vurgu">4.1-4.3 aralığında</span>. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş. 4.1'de de tek bir parça dışarda kalmış: <strong>öteleme özelliği ve $t^{n}$ ile çarpma</strong>.</p>
+                            <p><strong>Buradan çıkan en net desen:</strong> Laplace'ta <strong>13 yıldızlı soru</strong> var ve bunların hepsi <span class="vurgu">4.1-4.3 aralığında</span>. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş.</p>
                             <p>Yani "Laplace ağır" demek, <strong>bütün Laplace ağır</strong> demek değil. Ağır olan kısım şu: tanım, doğrusallık, türev THEoREM'leri, ters dönüşüm ve düz başlangıç değer problemi.</p>
                         </div>
                         <hr>
@@ -15606,11 +15846,10 @@
                         <p>Kitap bunu vermez, üç adımı tek tek uygulatır.</p>
                         <hr>
                         <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">5. Düşük öncelikliler</h3>
-                        <p>Aşağıdakiler <strong>kitapta var ve sorulabilir</strong>, ama hoca bunları derste hiç işlememiş. Sitede kırmızı <strong>⚠ DERSTE İŞLENMEDİ</strong> şeridiyle işaretli — toplam <strong>26 bölüm</strong>:</p>
+                        <p>Aşağıdakiler <strong>kitapta var ve sorulabilir</strong>, ama hoca bunları derste hiç işlememiş. Sitede kırmızı <strong>⚠ DERSTE İŞLENMEDİ</strong> şeridiyle işaretli — toplam <strong>25 bölüm</strong>:</p>
                         <div class="tablo-sar">
                         <table>
                         <tr><th>Konu</th><th>Nerede</th><th>Neden düşük öncelik</th></tr>
-                        <tr><td>Öteleme özelliği ve $t^{n}$ ile çarpma</td><td><a href="#laplace-oteleme">4.1</a></td><td>4.1’in tek işlenmeyen parçası; tablo büyütme kuralı</td></tr>
                         <tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Derste işlenmedi; ters dönüşümün alternatif yolu</td></tr>
                         <tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı derste işlenmedi</td></tr>
                         <tr><td>Süreksiz zorlama, Dirac delta</td><td><a href="#laplace-dirac-delta">4.4</a></td><td>Aynı</td></tr>
@@ -16111,8 +16350,8 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=d10c5b3c"></script>
-    <script src="app.js?v=78c3f45b"></script>
+<script defer src="arama.js?v=61b29b51"></script>
+    <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>
 </html>

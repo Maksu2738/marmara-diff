@@ -83,3 +83,24 @@ Yani bir ters dönüşümde $e^{-as}$ çarpanı görürseniz:
 
 Kontrol yolu: $t=a$ noktasında ne olduğuna bakın. Doğru cevapta $t=3$'te fonksiyon $0$'dan başlar ($f(0)=0$); yanlışında birdenbire $3$ değerine sıçrar.
 [/KUTU]
+
+---
+
+[CLAUDE] Zor olan THEoREM değil, $t-a$ cinsine çevirmek
+THEoREM'in kendisi tek satır: $\mathcal{L}\left\{f(t-a)u_{a}(t)\right\}=e^{-as}F(s)$. Öğrencilerin takıldığı yer, elindeki $f(t)$'yi $t-a$ cinsinden yazmaktır. ==Fonksiyon tipine göre üç ayrı refleks var:==
+
+| Tip | Yöntem |
+|---|---|
+| Polinom | $t=(t-a)+a$ koyup açın |
+| Üstel | $e^{kt}=e^{ka}\cdot e^{k(t-a)}$ — sabit dışarı çıkar |
+| Trigonometrik | açı toplama formülü |
+
+**Trigonometrikte kısayol:** öteleme miktarı $a$ ile açısal frekans $b$'nin çarpımına bakın.
+
+- $ba=2k\pi$ → hiçbir şey değişmez
+- $ba=(2k+1)\pi$ → yalnız işaret döner
+- $ba$ çeyrek periyodun tek katı → $\sin$ ile $\cos$ yer değiştirir
+- $ba$, $\pi$'nin katı değil → ==sadeleşme yok, $t-a$ cinsinde bırakın==
+
+Son satır önemli: sadeleşmemesi hata değildir, ==cevabın kendisidir.==
+[/CLAUDE]

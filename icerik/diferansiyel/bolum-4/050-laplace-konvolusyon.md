@@ -131,3 +131,22 @@ $$\frac{\sin bt-bt\cos bt}{2b^{3}}$$
 
 sonucuna ulaşılır. ==Tablodaki o tuhaf görünen girdinin kaynağı budur.==
 [/KUTU]
+
+---
+
+[CLAUDE] Konvolüsyonu ne zaman seçersiniz
+Kısmi kesirler çalışıyorsa konvolüsyona gerek yok. ==Konvolüsyon üç durumda vazgeçilmezdir:==
+
+1. **Zorlama belirtilmemişse** — "$y''+y=f(t)$ çözümünü $f$ cinsinden bulun" tipi sorular. Cevap zaten bir konvolüsyon integrali olarak yazılır.
+2. **Payda çarpanlanmıyorsa** ve tamkare de kurtarmıyorsa.
+3. **Aynı çarpan karesiyse** — $\dfrac{1}{\left(s^{2}+b^{2}\right)^{2}}$ gibi ifadelerde kısmi kesirler işe yaramaz.
+
+**İki pratik not:**
+
+- Konvolüsyon **değişmelidir** ($f*g=g*f$), dolayısıyla ==integrali kolay olanı $\tau$'ya verin.== Genelde polinomu $\tau$'ya, üsteli/trigonometriği $t-\tau$'ya koymak daha rahattır.
+- $\dfrac{1}{s}$ ile çarpmak $1*f$ demektir, yani **integral almak**:
+
+$$\mathcal{L}^{-1}\left\{\frac{F(s)}{s}\right\}=\int_{0}^{t}f(\tau)\,d\tau$$
+
+Bu tek başına birçok soruyu çözer.
+[/CLAUDE]

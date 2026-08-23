@@ -127,3 +127,18 @@ $$y'-2x-y:\quad e^{t}:\;-\tfrac23+4+\tfrac23=4\;\checkmark,\qquad e^{4t}:\;\tfra
 
 Genel kural: sistemlerde **bir** bilinmeyeni elemeyle bulun, ötekini geri yerleştirmeyle. İkisini birden elemek gereksiz iş üretir.
 [/KUTU]
+
+---
+
+[CLAUDE] Sistem çözümü aslında iki bilinmeyenli denklem sistemi
+Adımlar hep aynı:
+
+1. **Her denklemi ayrı ayrı dönüştürün.** Başlangıç koşulları anında girer.
+2. Elinizde $X(s)$ ve $Y(s)$ için ==iki tane cebirsel lineer denklem== kalır.
+3. Cramer kuralı veya yok etme ile çözün.
+4. Her birinin ters dönüşümünü alın.
+
+**Kilit gözlem:** 2. adımdaki katsayı matrisinin **determinantı, sistemin karakteristik polinomudur.** $X(s)$ ve $Y(s)$'nin ikisinin de paydası odur; dolayısıyla ==iki bileşen de aynı üstel/salınım biçimlerini paylaşır, yalnız katsayıları farklıdır.==
+
+**Kontrol.** Bulduğunuz $x(t)$ ve $y(t)$'yi ==sistemin ilk denklemine değil, ikincisine== koyun. İlk denklemi zaten çözerken kullandınız; ikincisi bağımsız bir sınavdır.
+[/CLAUDE]

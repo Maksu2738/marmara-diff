@@ -2,7 +2,6 @@
 id: laplace-oteleme
 menu: 4.1 Öteleme ve tⁿ ile Çarpma
 tip: konu
-defterde: yok
 baslik: 4.1 &nbsp;Öteleme Özelliği ve $t^n$ ile Çarpmanın Etkisi
 ---
 
@@ -107,3 +106,17 @@ $$=\frac{6bs^{2}-2b^{3}}{\left(s^{2}+b^{2}\right)^{3}}$$
 $$\boxed{\;\mathcal{L}\{t^{2}\sin bt\}=\frac{6bs^{2}-2b^{3}}{\left(s^{2}+b^{2}\right)^{3}}\;}$$
 
 **Kontrol.** $b$ ortak çarpan olarak çıkarılabilir: $\dfrac{2b\left(3s^{2}-b^{2}\right)}{\left(s^{2}+b^{2}\right)^{3}}$. Payda derecesi $6$, pay derecesi $2$ olduğundan $s\to\infty$ iken ifade $s^{-4}$ gibi söner — $t^{2}\sin bt$ gibi çarpımların dönüşümlerinden beklenen davranış budur.
+
+---
+
+[CLAUDE] "Her $t$ çarpanı bir eksi işaretine mal olur"
+$$\mathcal{L}\left\{t^{n}f(t)\right\}=(-1)^{n}\frac{d^{n}F}{ds^{n}}$$
+
+İşareti unutmamak için: ==her $t$ çarpanı bir türev ve bir eksi getirir.==
+
+**En çok işe yarayan üç sonuç** — türetmesi tek satır, ezberlemeye değer:
+
+$$\mathcal{L}\left\{t\,e^{at}\right\}=\frac{1}{(s-a)^{2}},\qquad \mathcal{L}\{t\sin bt\}=\frac{2bs}{\left(s^{2}+b^{2}\right)^{2}},\qquad \mathcal{L}\{t\cos bt\}=\frac{s^{2}-b^{2}}{\left(s^{2}+b^{2}\right)^{2}}$$
+
+**Bağlantı:** birinci sonuç, sabit katsayılı denklemlerde tekrarlı kök çıktığında neden $t\,e^{at}$ göründüğünü açıklar — tekrarlı kök paydada kare demektir, karenin ters dönüşümü de $t$ çarpanı. ==Bölüm 3'teki "neden $t$ ile çarpıyoruz" sorusunun cevabı burada.==
+[/CLAUDE]

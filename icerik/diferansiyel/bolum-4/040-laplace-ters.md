@@ -97,3 +97,19 @@ Tabloyu kullanabilmek için genelde verilen $F(s)$ üzerinde ==bir miktar hazır
 - **7 numaradaki $n!$.** $\mathcal{L}\{t^{n}\}=\frac{n!}{s^{n+1}}$; paydaki faktöriyeli unutmak sık yapılan hatadır. $n=1$ için $\frac{1}{s^{2}}$ çıkar, $(9.3)$ ile tutar.
 - **15-16 numaralar** birim basamak fonksiyonuyla ilgilidir ve süreksiz zorlamalı problemlerde (4.4) kullanılacaktır.
 [/KUTU]
+
+---
+
+[CLAUDE] Ters dönüşüm için karar ağacı ve iki kısayol
+**Paydaya bakın, gerisi mekanik:**
+
+1. **Çarpanlanıyor, hepsi farklı** → kısmi kesirler, **kapatma yöntemi** (cover-up): $\dfrac{A}{s-a}$ için $A$, ifadede $(s-a)$'yı kapatıp $s=a$ koyarak bulunur. Sistem kurmaya gerek yok.
+2. **Tekrarlı çarpan** $(s-a)^{k}$ → payı $s-a$ cinsine sokun: $3s+1=3(s-a)+\ldots$ biçiminde.
+3. **İndirgenemez kuadratik** ($\Delta<0$) → **tamkareye tamamlayın**, payı da aynı cinse sokun.
+
+**Ezberlenmeye değer iki sonuç:**
+
+$$\mathcal{L}^{-1}\left\{\frac{1}{(s-a)(s-b)}\right\}=\frac{e^{at}-e^{bt}}{a-b},\qquad \mathcal{L}^{-1}\left\{\frac{1}{s\left(s^{2}+b^{2}\right)}\right\}=\frac{1-\cos bt}{b^{2}}$$
+
+Birincisi neredeyse her ikinci mertebe probleminde, ikincisi de her "sabit zorlama + salınım" probleminde çıkıyor. ==İkisi de kısmi kesirleri tamamen atlatır.==
+[/CLAUDE]

@@ -93,3 +93,19 @@ $$\boxed{\;\mathcal{L}\{f(t)\}=\frac{1-e^{-2s}}{s\left(1+e^{-2s}\right)}\;}$$
 
 Sonuçtaki payda $1+e^{-2s}$ (artı işaretli) olması, dalganın ==yarım periyotta işaret değiştirdiğinin== izidir; sabit bir kare dalgada payda $1-e^{-Ps}$ kalırdı.
 [/KUTU]
+
+---
+
+[CLAUDE] Bir integral, bir bölme — ve bedava bir kontrol
+Formül tek bir sonlu integrale indirger; sonsuz tekrarın hepsini $\dfrac{1}{1-e^{-Ps}}$ çarpanı halleder:
+
+$$\mathcal{L}\{f\}=\frac{1}{1-e^{-Ps}}\int_{0}^{P}e^{-st}f(t)\,dt$$
+
+**Kontrolü kaçırmayın.** Son değer THEoREM'i periyodik bir fonksiyonda ==bir periyottaki ortalama değeri== verir:
+
+$$\lim_{s\to 0}s\,F(s)=\frac{1}{P}\int_{0}^{P}f(t)\,dt$$
+
+Sağ taraf genelde bakışta hesaplanır (üçgen dalga için $\tfrac12$, doğrultulmuş sinüs için $\tfrac{2}{\pi}$ gibi). ==Bulduğunuz $F(s)$'nin bütün terimleri bu tek satıra girer== — payda bir işaret hatası yaptıysanız burada yakalanır.
+
+**Bir de biçim notu:** $\dfrac{1+e^{-Ps}}{1-e^{-Ps}}$ gördüğünüzde bu $\coth\dfrac{Ps}{2}$'dir. Tablolar bu biçimi kullanır, cevabınızı ona çevirmek zorunda değilsiniz ama tanımanız gerekir.
+[/CLAUDE]

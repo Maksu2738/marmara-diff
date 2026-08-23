@@ -54,7 +54,7 @@ Sitede **★ Ders Notu Sorusu** rozetiyle işaretli **29 blok** var. Bunlar hoca
 </div>
 
 [KUTU]
-**Buradan çıkan en net desen:** Laplace'ta **13 yıldızlı soru** var ve bunların hepsi ==4.1-4.3 aralığında==. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş. 4.1'de de tek bir parça dışarda kalmış: **öteleme özelliği ve $t^{n}$ ile çarpma**.
+**Buradan çıkan en net desen:** Laplace'ta **13 yıldızlı soru** var ve bunların hepsi ==4.1-4.3 aralığında==. Hoca 4.4'e (birim basamak, süreksizlik, delta) ve 4.5'e (sistemler) hiç girmemiş.
 
 Yani "Laplace ağır" demek, **bütün Laplace ağır** demek değil. Ağır olan kısım şu: tanım, doğrusallık, türev THEoREM'leri, ters dönüşüm ve düz başlangıç değer problemi.
 [/KUTU]
@@ -105,12 +105,11 @@ Kitap bunu vermez, üç adımı tek tek uygulatır.
 
 ### 5. Düşük öncelikliler
 
-Aşağıdakiler **kitapta var ve sorulabilir**, ama hoca bunları derste hiç işlememiş. Sitede kırmızı **⚠ DERSTE İŞLENMEDİ** şeridiyle işaretli — toplam **26 bölüm**:
+Aşağıdakiler **kitapta var ve sorulabilir**, ama hoca bunları derste hiç işlememiş. Sitede kırmızı **⚠ DERSTE İŞLENMEDİ** şeridiyle işaretli — toplam **25 bölüm**:
 
 <div class="tablo-sar">
 <table>
 <tr><th>Konu</th><th>Nerede</th><th>Neden düşük öncelik</th></tr>
-<tr><td>Öteleme özelliği ve $t^{n}$ ile çarpma</td><td><a href="#laplace-oteleme">4.1</a></td><td>4.1’in tek işlenmeyen parçası; tablo büyütme kuralı</td></tr>
 <tr><td>Konvolüsyon</td><td><a href="#laplace-konvolusyon">4.2</a></td><td>Derste işlenmedi; ters dönüşümün alternatif yolu</td></tr>
 <tr><td>Birim basamak, ikinci öteleme, periyodik</td><td><a href="#laplace-birim-basamak">4.4</a></td><td>4.4'ün tamamı derste işlenmedi</td></tr>
 <tr><td>Süreksiz zorlama, Dirac delta</td><td><a href="#laplace-dirac-delta">4.4</a></td><td>Aynı</td></tr>

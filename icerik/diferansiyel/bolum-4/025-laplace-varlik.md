@@ -134,3 +134,17 @@ $s>\alpha$ ise sağdaki ifade ==azalan bir üsteldir== ve $\int_{t_{0}}^{\infty}
 
 ==Ayrıca $\alpha$'nın rolüne dikkat edin:== dönüşümün geçerli olduğu aralığın alt sınırını o belirler. Örnek 9.3'te $\mathcal{L}\{e^{at}\}$ için çıkan $s>a$ koşulu tam olarak budur.
 [/KUTU]
+
+---
+
+[CLAUDE] Varlık koşulunu sınavda değil, cevabınızı kontrol ederken kullanın
+Pratikte kimse "bu fonksiyonun dönüşümü var mı" diye tek tek bakmaz. İşe yarayan iki şey var:
+
+**1. Kaba eleme.** Polinomlar, $e^{at}$, $\sin$, $\cos$ ve bunların çarpımları hep üstel mertebedendir. Sınıfta karşılaşacağınız hemen her şey geçer. Klasik karşı örnek $e^{t^{2}}$'dir — ==hiçbir $e^{at}$ onu yukarıdan sınırlayamaz.==
+
+**2. Asıl kullanışlı sonuç.** Varlık THEoREM'inin yan ürünü şudur:
+
+$$\lim_{s\to\infty}F(s)=0$$
+
+Yani ==bulduğunuz her $F(s)$, $s$ büyürken sıfıra gitmek zorundadır.== Payın derecesi paydanınkinden küçük olmalı. Sınavda bir dönüşüm bulup sonucunuz $\dfrac{s^{2}+1}{s^{2}+4}$ gibi çıktıysa (sonsuzda $1$'e gidiyor) **kesinlikle hata var** — üç saniyelik kontrol.
+[/CLAUDE]

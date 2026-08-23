@@ -165,3 +165,17 @@ $$=s\cdot\frac{2a^{2}}{s\left(s^{2}+4a^{2}\right)}=\boxed{\;\frac{2a^{2}}{s^{2}+
 [KUTU]
 **İki yolun karşılaştırması.** Doğrulamada gördüğümüz gibi bu örnek $\sin 2at$ özdeşliğiyle de çözülebilirdi. Ama sınavda her zaman böyle bir özdeşlik olmaz; ==türev THEoREM'i özdeşliğe ihtiyaç duymadan çalışır==. $f(0)=0$ olması da çoğu zaman işi kolaylaştırır — sabit terim düşer.
 [/KUTU]
+
+---
+
+[CLAUDE] Türev THEoREM'ini formül olarak değil, desen olarak hatırlayın
+$$\mathcal{L}\left\{y^{(n)}\right\}=s^{n}Y-s^{n-1}y(0)-s^{n-2}y'(0)-\cdots-y^{(n-1)}(0)$$
+
+**Desen:** $s$'nin kuvveti azalırken $y$'nin türev mertebesi artar; ==her terimde ikisinin toplamı hep $n-1$.== Bunu bilirseniz formülü yeniden yazabilirsiniz.
+
+**Sınav kısayolu (ikinci mertebe).** $ay''+by'+cy$ ifadesinin dönüşümü her zaman şudur:
+
+$$\underbrace{\left(as^{2}+bs+c\right)}_{\text{karakteristik polinom}}Y(s)-\underbrace{\Big[a\left(sy_{0}+y_{0}'\right)+by_{0}\Big]}_{\text{başlangıç koşulu polinomu}}$$
+
+Denklemi her seferinde tek tek dönüştürmek yerine bunu doğrudan yazın. ==Paydanın karakteristik polinom olması da bir kontrol noktası:== $Y(s)$'nin paydası, elle çözseniz bulacağınız karakteristik denklemle aynı olmalı.
+[/CLAUDE]

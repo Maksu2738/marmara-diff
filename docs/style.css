@@ -1106,3 +1106,73 @@ body.dark-mode .defter-disi-rozet {
     .sidebar-pp { transition: none; }
     .sidebar-pp:hover { transform: none; }
 }
+
+/* ---- Claude onerisi kutusu ----------------------------------------------
+   Kitaptan veya ders notundan GELMEYEN, siteyi hazirlayan asistanin ekledigi
+   tuyo / kisa yol kutulari. Kasitli olarak .highlight (mor) ve .defter-disi
+   (kirmizi) kutulardan farkli bir renkte: kaynaginin farkli oldugu bir bakista
+   anlasilsin diye. */
+.claude-oneri {
+    background: #ecfdf5;
+    border: 1px solid #99f6e4;
+    border-left: 4px solid #0d9488;
+    padding: 0.9rem 1.25rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.1rem 0;
+}
+
+.claude-oneri-bas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.claude-oneri-rozet {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    background: #0d9488;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.claude-oneri-rozet::before { content: "º6"; font-size: 0.9em; }
+
+.claude-oneri-baslik {
+    font-weight: 700;
+    color: #0f766e;
+    font-size: 0.98rem;
+}
+
+.claude-oneri > p:last-child,
+.claude-oneri > ul:last-child,
+.claude-oneri > ol:last-child { margin-bottom: 0; }
+
+/* Kirmizi (derste islenmedi) bir bolumun icinde de okunakli kalsin */
+.section.defter-disi .claude-oneri { background: #f0fdfa; }
+
+body.dark-mode .claude-oneri {
+    background-color: #0f2b2a !important;
+    border-color: #155e57 !important;
+    border-left-color: #2dd4bf !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .claude-oneri-rozet {
+    background: #14b8a6 !important;
+    color: #04211f !important;
+}
+
+body.dark-mode .claude-oneri-baslik { color: #5eead4 !important; }
+
+body.dark-mode .section.defter-disi .claude-oneri {
+    background-color: #12302e !important;
+}

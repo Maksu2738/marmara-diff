@@ -90,3 +90,20 @@ Bu kalıp bir kez oturunca, kaç basamaklı olursa olsun her merdiven fonksiyonu
 
 Örneğin $t=2$'de $0\to 3$, $t=5$'te $3\to 0$ sıçramaları var; katsayılar sırasıyla $+3$ ve $-3$. Formül doğrudan buradan okunur.
 [/KUTU]
+
+---
+
+[CLAUDE] Parçalı fonksiyonu mekanik olarak yazmanın yolu
+Deneme yanılmayla uğraşmayın. ==Her parçalı fonksiyon şu "sıçrama farkı" kuralıyla tek seferde yazılır:==
+
+$$f(t)=f_{1}(t)+\Big[f_{2}(t)-f_{1}(t)\Big]u_{a_{1}}(t)+\Big[f_{3}(t)-f_{2}(t)\Big]u_{a_{2}}(t)+\cdots$$
+
+Yani **her kırılma noktasında, yeni parçadan eskisini çıkarıp $u_{a}$ ile çarpın.**
+
+**İki sık kalıp:**
+
+- **Pencere** (bir aralıkta açık, sonra kapalı): $\;f\left[u_{a}-u_{b}\right]$ — "$a$'da aç, $b$'de kapat".
+- **Doyan rampa** (artıp sabitlenen): $\;mt-m(t-a)u_{a}(t)$ — ikinci terim eğimi sıfırlar, biriken değeri korur.
+
+**Kontrol:** yazdığınız ifadeye her aralıktan bir $t$ değeri koyun. ==Pencere biçiminde $\mathcal{L}\{f\}$'nin payı $\left(1-e^{-as}\right)$ çarpanı taşır; sonradan başlayan zorlamada ise yalnız $e^{-as}$ çıkar.== Hangisinin çıktığı, doğru yazıp yazmadığınızın işaretidir.
+[/CLAUDE]

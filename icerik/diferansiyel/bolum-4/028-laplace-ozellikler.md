@@ -81,3 +81,23 @@ Kapalı $0\le t\le R$ aralığında $f'$ en fazla sonlu sayıda süreksizliğe s
 $$0\le t_{1}<t_{2}<\dots<t_{n}\le R$$
 
 İntegral bu noktalarda parçalara ayrılır, her parçada kısmi integrasyon uygulanır ve sınır terimleri toplanır. Süreklilik sayesinde ara noktalardaki katkılar birbirini götürür; geriye $t=0$ ve $t=R$ uçlarından gelenler kalır. $s>\alpha$ olduğunda $R$ ucundaki terim sıfıra gider ve $(9.11)$ elde edilir. $\blacksquare$
+
+---
+
+[CLAUDE] Eksi işareti nereden geliyor — ve neden bunu bilmek işe yarıyor
+Türev THEoREM'ini ezberlemek yerine ==tek bir kısmi integrasyonla yeniden türetin:==
+
+$$\mathcal{L}\left\{y'\right\}=\int_{0}^{\infty}e^{-st}y'\,dt=\underbrace{\Big[e^{-st}y\Big]_{0}^{\infty}}_{\text{sınır terimi}}+s\int_{0}^{\infty}e^{-st}y\,dt$$
+
+Üst sınırda $e^{-st}y\to 0$ (varlık koşulu tam bunun için vardı), alt sınırda $-y(0)$ kalır:
+
+$$\mathcal{L}\left\{y'\right\}=sY(s)-y(0)$$
+
+==Meşhur eksi işareti, integralin alt sınırından geliyor.== Formülü karıştırdığınızda üç satırda geri getirebilirsiniz.
+
+**Lineerliğin asıl kıymeti ters yönde.** $\mathcal{L}\{af+bg\}=aF+bG$ eşitliği ==her iki yönde de geçerlidir:==
+
+$$\mathcal{L}^{-1}\left\{aF+bG\right\}=af+bg$$
+
+Kısmi kesirler yönteminin meşruiyeti buradan gelir — bir ifadeyi parçalara ayırıp her parçanın ters dönüşümünü ayrı ayrı alıp toplayabilmemizin sebebi bu tek satırdır.
+[/CLAUDE]

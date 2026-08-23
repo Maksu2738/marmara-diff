@@ -326,19 +326,265 @@ Böyle çarpanlar seri çözümlerde sık görülür ve ==her zaman bir şey sö
 
 ---
 
+[SORU] **11.** &nbsp; $\left(x^{2}+1\right)y''+xy'+xy=0$
+[CEVAP]
+**Adım 1 — Nokta adi mi?** Başkatsayı $x^{2}+1$, ==$x=0$'da $1$'e eşit ve sıfırlanmıyor== &nbsp;$\Rightarrow$&nbsp; adi nokta. (Tekil noktalar $x=\pm i$'dir; reel eksende hiç yoktur ama yakınsaklık yarıçapını $R\ge 1$ ile sınırlar.)
+
+**Adım 2 — Başkatsayıyı dağıt ve hizala.**
+
+$$x^{2}y''\to n(n-1)a_{n},\qquad y''\to(n+2)(n+1)a_{n+2},\qquad xy'\to na_{n},\qquad xy\to a_{n-1}$$
+
+==$x^{2}y''$ indisi kaydırmaz==, yalnız katsayıyı $n(n-1)$ yapar; bunu kaçırmak en sık hatadır.
+
+**Adım 3 — Topla.** $n(n-1)a_{n}+na_{n}=n^{2}a_{n}$:
+
+$$\boxed{\;a_{n+2}=-\frac{n^{2}a_{n}+a_{n-1}}{(n+2)(n+1)}\;}$$
+
+**Adım 4 — Katsayılar.** $n=0$'da hem $n^{2}=0$ hem $a_{-1}=0$ olduğundan ==$a_{2}=0$, başlangıç değerlerinden bağımsız olarak.==
+
+$$a_{2}=0,\quad a_{3}=-\frac{a_{0}+a_{1}}{6},\quad a_{4}=-\frac{a_{1}}{12},\quad a_{5}=\frac{3\left(a_{0}+a_{1}\right)}{40},\quad a_{6}=\frac{a_{0}+9a_{1}}{180}$$
+
+**Adım 5 — Çözümler.**
+
+$$\boxed{\;y_{1}=1-\frac{x^{3}}{6}+\frac{3x^{5}}{40}+\frac{x^{6}}{180}+\cdots\;}$$
+
+$$\boxed{\;y_{2}=x-\frac{x^{3}}{6}-\frac{x^{4}}{12}+\frac{3x^{5}}{40}+\frac{x^{6}}{20}+\cdots\;}$$
+
+**Doğrulama.** Kontrol edilen ifade $(n+2)(n+1)a_{n+2}+n^{2}a_{n}+a_{n-1}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+<tr><td>$x^{0}$</td><td>$0+0+0=0$ &#10003;</td><td>$0+0+0=0$ &#10003;</td></tr>
+<tr><td>$x^{1}$</td><td>$-1+0+1=0$ &#10003;</td><td>$-1+1+0=0$ &#10003;</td></tr>
+<tr><td>$x^{2}$</td><td>$0+0+0=0$ &#10003;</td><td>$-1+0+1=0$ &#10003;</td></tr>
+<tr><td>$x^{3}$</td><td>$\tfrac32-\tfrac32+0=0$ &#10003;</td><td>$\tfrac32-\tfrac32+0=0$ &#10003;</td></tr>
+</table>
+</div>
+[/CEVAP]
+
+[SORU] **12.** &nbsp; $(x-1)y''-(3x-2)y'+2xy=0$
+[CEVAP]
+**Adım 1 — Parantezleri aç.** Başkatsayı $x=0$'da $-1$, sıfırlanmıyor &nbsp;$\Rightarrow$&nbsp; adi nokta.
+
+$$xy''-y''-3xy'+2y'+2xy=0$$
+
+**Adım 2 — Hizala.**
+
+$$xy''\to(n+1)na_{n+1},\quad -y''\to-(n+2)(n+1)a_{n+2},\quad -3xy'\to-3na_{n}$$
+
+$$2y'\to 2(n+1)a_{n+1},\qquad 2xy\to 2a_{n-1}$$
+
+**Adım 3 — $a_{n+1}$ terimlerini birleştir.** $(n+1)n+2(n+1)=(n+1)(n+2)$:
+
+$$(n+1)(n+2)\left[a_{n+1}-a_{n+2}\right]=3na_{n}-2a_{n-1}$$
+
+$$\boxed{\;a_{n+2}=a_{n+1}-\frac{3na_{n}-2a_{n-1}}{(n+1)(n+2)}\;}$$
+
+==Bu bağıntı üç katsayıyı birden bağlıyor== — başkatsayının değişken olmasının bedeli budur.
+
+**Adım 4 — Katsayılar.**
+
+$$a_{2}=a_{1},\quad a_{3}=\frac{a_{1}}{2}+\frac{a_{0}}{3},\quad a_{4}=\frac{a_{1}}{6}+\frac{a_{0}}{3},\quad a_{5}=\frac{a_{1}}{24}+\frac{11a_{0}}{60}$$
+
+**Adım 5 — Çözümler.**
+
+$$\boxed{\;y_{1}=1+\frac{x^{3}}{3}+\frac{x^{4}}{3}+\frac{11x^{5}}{60}+\cdots\;}$$
+
+$$\boxed{\;y_{2}=x+x^{2}+\frac{x^{3}}{2}+\frac{x^{4}}{6}+\frac{x^{5}}{24}+\cdots=x\,e^{x}\;}$$
+
+**$y_{2}$ kapalı biçimde yazılabiliyor.** Katsayılara bakın: $1,\,1,\,\tfrac12,\,\tfrac16,\,\tfrac{1}{24}$ — bunlar $\tfrac{1}{0!},\tfrac{1}{1!},\tfrac{1}{2!},\tfrac{1}{3!},\tfrac{1}{4!}$, yani
+
+$$y_{2}=x\left(1+x+\frac{x^{2}}{2!}+\frac{x^{3}}{3!}+\cdots\right)=x\,e^{x}$$
+
+**Doğrulama 1 — kapalı biçimi doğrudan denkleme koy.** ==Seriden tamamen bağımsız bir kontrol:==
+
+$$y=xe^{x},\qquad y'=(1+x)e^{x},\qquad y''=(2+x)e^{x}$$
+
+$$(x-1)(x+2)e^{x}-(3x-2)(1+x)e^{x}+2x\cdot xe^{x}=\Big[\left(x^{2}+x-2\right)-\left(3x^{2}+x-2\right)+2x^{2}\Big]e^{x}=0\;\checkmark$$
+
+**Doğrulama 2 — $y_{1}$ için katsayı kontrolü.** Kontrol edilen ifade $(n+1)(n+2)\left[a_{n+1}-a_{n+2}\right]-3na_{n}+2a_{n-1}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>Hesap</th><th>Sonuç</th></tr>
+<tr><td>$x^{0}$</td><td>$2\left[0-0\right]$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{1}$</td><td>$6\left[0-\tfrac13\right]-0+2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{2}$</td><td>$12\left[\tfrac13-\tfrac13\right]-0+0$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{3}$</td><td>$20\left[\tfrac13-\tfrac{11}{60}\right]-3+0$</td><td>$3-3=0$ &#10003;</td></tr>
+</table>
+</div>
+
+[KUTU]
+**Kapalı biçim yakalamak: ne zaman ve nasıl?** Seri çözümlerde çoğu zaman genel terim çirkindir, ama bazen tanıdık bir açılım çıkar. ==İlk dört-beş katsayıyı hesapladıktan sonra şu üç kalıba bakmaya değer:==
+
+| Katsayılar | Fonksiyon |
+|---|---|
+| $1,\,1,\,\tfrac12,\,\tfrac16,\,\tfrac{1}{24}$ | $e^{x}$ |
+| $1,\,0,\,-\tfrac12,\,0,\,\tfrac{1}{24}$ | $\cos x$ |
+| $1,\,1,\,1,\,1,\,1$ | $\dfrac{1}{1-x}$ |
+
+Kapalı biçim bulursanız ==doğrulama bedava gelir:== ifadeyi doğrudan denkleme koyup sınayabilirsiniz, seriye hiç dokunmadan. Yukarıdaki Doğrulama 1 tam olarak budur.
+
+Bulamazsanız sorun değil — soru zaten seri istiyor.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **13.** &nbsp; $\left(x^{3}-1\right)y''+x^{2}y'+xy=0$
+[CEVAP]
+**Adım 1 — Adi nokta.** Başkatsayı $x=0$'da $-1$, sıfırlanmıyor.
+
+**Adım 2 — Hizala.** ==Üç terim de indisi bir kaydırıyor, hepsi $a_{n-1}$ üzerinden geliyor:==
+
+$$x^{3}y''\to(n-1)(n-2)a_{n-1},\quad -y''\to-(n+2)(n+1)a_{n+2},\quad x^{2}y'\to(n-1)a_{n-1},\quad xy\to a_{n-1}$$
+
+**Adım 3 — $a_{n-1}$ katsayılarını topla.**
+
+$$(n-1)(n-2)+(n-1)+1=n^{2}-3n+2+n-1+1=n^{2}-2n+2$$
+
+$$\boxed{\;a_{n+2}=\frac{\left(n^{2}-2n+2\right)a_{n-1}}{(n+2)(n+1)}\;}$$
+
+**Adım 4 — İndisler üçer üçer atlıyor.** Bağıntı $a_{n+2}$'yi $a_{n-1}$'e bağlıyor; aradaki fark **üç**. Dolayısıyla ==üç ayrı zincir== oluşur:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Zincir</th><th>Terimler</th><th>Sonuç</th></tr>
+<tr><td>$a_{0}$</td><td>$a_{0},a_{3},a_{6},\ldots$</td><td>birinci çözüm</td></tr>
+<tr><td>$a_{1}$</td><td>$a_{1},a_{4},a_{7},\ldots$</td><td>ikinci çözüm</td></tr>
+<tr><td>$a_{2}$</td><td>$a_{2},a_{5},a_{8},\ldots$</td><td>==tamamen sıfır==</td></tr>
+</table>
+</div>
+
+Üçüncü satırın sebebi: $n=0$'da $a_{2}=\dfrac{2a_{-1}}{2}=0$, sonrası zincirleme sıfır.
+
+$$a_{3}=\frac{a_{0}}{6},\quad a_{4}=\frac{a_{1}}{6},\quad a_{6}=\frac{a_{0}}{18},\quad a_{7}=\frac{17a_{1}}{252}$$
+
+**Adım 5 — Çözümler.**
+
+$$\boxed{\;y_{1}=1+\frac{x^{3}}{6}+\frac{x^{6}}{18}+\cdots,\qquad y_{2}=x+\frac{x^{4}}{6}+\frac{17x^{7}}{252}+\cdots\;}$$
+
+**Doğrulama.** Kontrol edilen ifade $\left(n^{2}-2n+2\right)a_{n-1}-(n+2)(n+1)a_{n+2}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+<tr><td>$1$</td><td>$1-6\cdot\tfrac16=0$ &#10003;</td><td>$0-0=0$ &#10003;</td></tr>
+<tr><td>$2$</td><td>$0-0=0$ &#10003;</td><td>$2-12\cdot\tfrac16=0$ &#10003;</td></tr>
+<tr><td>$4$</td><td>$10\cdot\tfrac16-30\cdot\tfrac{1}{18}=\tfrac53-\tfrac53=0$ &#10003;</td><td>$0-0=0$ &#10003;</td></tr>
+<tr><td>$5$</td><td>$0-0=0$ &#10003;</td><td>$17\cdot\tfrac16-42\cdot\tfrac{17}{252}=\tfrac{17}{6}-\tfrac{17}{6}=0$ &#10003;</td></tr>
+</table>
+</div>
+
+[KUTU]
+**Airy denklemiyle aynı desen.** Bölüm 6.1'deki $y''-xy=0$ denkleminde de indisler üçer üçer atlıyor ve $a_{2}$ zinciri tamamen sıfırlanıyordu.
+
+**Neden aynı:** her iki denklemde de en yüksek $x$ kuvvetiyle $y''$ arasındaki mesafe üç adım. ==Genel kural: $x^{k}$ ile çarpılmış bir terim varsa adım $k+2-k'$ olur== ($k'$ o terimdeki türev mertebesi). Burada $x^{3}y''$ ile $y''$ arasındaki fark $3$.
+
+**Pratik yararı:** adımı önceden bilirseniz hangi katsayıların sıfır olacağını hesaplamadan söylersiniz ve ==boşuna terim hesaplamazsınız.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **14.** &nbsp; $(x+3)y''+(x+2)y'+y=0$
+[CEVAP]
+**Adım 1 — Aç ve hizala.** Başkatsayı $x=0$'da $3$, sıfırlanmıyor.
+
+$$xy''+3y''+xy'+2y'+y=0$$
+
+$$xy''\to(n+1)na_{n+1},\quad 3y''\to 3(n+2)(n+1)a_{n+2},\quad xy'\to na_{n},\quad 2y'\to 2(n+1)a_{n+1},\quad y\to a_{n}$$
+
+**Adım 2 — Grupla.** $(n+1)n+2(n+1)=(n+1)(n+2)$ ve $na_{n}+a_{n}=(n+1)a_{n}$:
+
+$$3(n+2)(n+1)a_{n+2}+(n+1)(n+2)a_{n+1}+(n+1)a_{n}=0$$
+
+**Adım 3 — $(n+1)$ ile sadeleştir.** ==Her terimde ortak çarpan var, bağıntı belirgin biçimde sadeleşiyor:==
+
+$$\boxed{\;a_{n+2}=-\frac{(n+2)a_{n+1}+a_{n}}{3(n+2)}\;}$$
+
+**Adım 4 — Katsayılar.**
+
+$$a_{2}=-\frac{2a_{1}+a_{0}}{6},\qquad a_{3}=-\frac{3a_{2}+a_{1}}{9},\qquad a_{4}=-\frac{4a_{3}+a_{2}}{12},\qquad a_{5}=-\frac{5a_{4}+a_{3}}{15}$$
+
+**Adım 5 — Çözümler.**
+
+$$\boxed{\;y_{1}=1-\frac{x^{2}}{6}+\frac{x^{3}}{18}-\frac{x^{4}}{216}-\frac{7x^{5}}{3240}+\cdots\;}$$
+
+$$\boxed{\;y_{2}=x-\frac{x^{2}}{3}+\frac{x^{4}}{36}-\frac{x^{5}}{108}+\cdots\;}$$
+
+$y_{2}$'de $a_{3}=0$ çıkıyor: $3a_{2}+a_{1}=3\left(-\tfrac13\right)+1=0$.
+
+**Doğrulama.** Kontrol edilen ifade $3(n+2)a_{n+2}+(n+2)a_{n+1}+a_{n}$:
+
+<div class="tablo-sar">
+<table>
+<tr><th>$n$</th><th>$y_{1}$ için</th><th>$y_{2}$ için</th></tr>
+<tr><td>$0$</td><td>$-1+0+1=0$ &#10003;</td><td>$-2+2+0=0$ &#10003;</td></tr>
+<tr><td>$1$</td><td>$\tfrac12-\tfrac12+0=0$ &#10003;</td><td>$0-1+1=0$ &#10003;</td></tr>
+<tr><td>$2$</td><td>$-\tfrac{1}{18}+\tfrac{4}{18}-\tfrac{3}{18}=0$ &#10003;</td><td>$\tfrac13+0-\tfrac13=0$ &#10003;</td></tr>
+<tr><td>$3$</td><td>$-\tfrac{105}{3240}-\tfrac{75}{3240}+\tfrac{180}{3240}=0$ &#10003;</td><td>$-\tfrac{15}{108}+\tfrac{15}{108}+0=0$ &#10003;</td></tr>
+</table>
+</div>
+
+[KUTU]
+**Sadeleşen $(n+1)$ çarpanı bir işarettir.** İndirgeme bağıntısında böyle ortak bir çarpan çıkıyorsa, ==denklemi daha basit bir biçimde yazmanın bir yolu vardır.== Nitekim bu denklem
+
+$$\left[(x+3)y'\right]'+\left[(x+1)y\right]'-y'=0$$
+
+gibi türevi alınmış biçimlere sokulabilir. Sınavda buna girmenize gerek yok, ama sadeleşmeyi görmek ==hesabın doğru gittiğinin işaretidir==: bağıntı beklenenden temiz çıkıyorsa genelde hata yapmamışsınızdır.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **16.** &nbsp; $y''+xy'-2y=0,\quad y(0)=0,\quad y'(0)=1$
+[CEVAP]
+**Adım 1 — Başlangıç koşulları katsayıları doğrudan veriyor.**
+
+$$y(0)=a_{0}=0,\qquad y'(0)=a_{1}=1$$
+
+==Bu yüzden iki ayrı çözüm aramaya gerek yok==, tek bir seri çıkacak.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$y''\to(n+2)(n+1)a_{n+2},\qquad xy'\to na_{n},\qquad -2y\to-2a_{n}$$
+
+$$(n+2)(n+1)a_{n+2}+(n-2)a_{n}=0\;\Longrightarrow\;\boxed{\;a_{n+2}=\frac{(2-n)a_{n}}{(n+2)(n+1)}\;}$$
+
+**Adım 3 — Çift zincir tamamen sıfır.** $a_{0}=0$ olduğundan $a_{2}=a_{4}=\cdots=0$. Yalnız tek zincir kalıyor:
+
+$$a_{3}=\frac{1\cdot a_{1}}{6}=\frac{1}{6},\qquad a_{5}=\frac{(-1)a_{3}}{20}=-\frac{1}{120},\qquad a_{7}=\frac{(-3)a_{5}}{42}=\frac{1}{1680}$$
+
+$$\boxed{\;y=x+\frac{x^{3}}{6}-\frac{x^{5}}{120}+\frac{x^{7}}{1680}-\cdots\;}$$
+
+**Doğrulama 1 — başlangıç koşulları.** $y(0)=0$ &#10003; &nbsp;ve&nbsp; $y'(0)=1$ &#10003;
+
+**Doğrulama 2 — katsayılar.** Kontrol edilen ifade $(n+2)(n+1)a_{n+2}+(n-2)a_{n}$:
+
+$n=1$: &nbsp; $6\cdot\tfrac16+(-1)\cdot 1=1-1=0$ &#10003;
+
+$n=3$: &nbsp; $20\cdot\left(-\tfrac{1}{120}\right)+1\cdot\tfrac16=-\tfrac16+\tfrac16=0$ &#10003;
+
+$n=5$: &nbsp; $42\cdot\tfrac{1}{1680}+3\cdot\left(-\tfrac{1}{120}\right)=\tfrac{1}{40}-\tfrac{1}{40}=0$ &#10003;
+
+[KUTU]
+**Bu denklemin gizli polinom çözümü var.** Bağıntının payındaki $(2-n)$ çarpanı ==$n=2$'de sıfırlanıyor.== Yani $a_{0}\neq 0$ seçilseydi:
+
+$$a_{2}=a_{0},\qquad a_{4}=\frac{(2-2)a_{2}}{12}=0$$
+
+ve zincir orada biterdi. Çift çözüm sonsuz seri değil, bir **polinom** olurdu:
+
+$$y=1+x^{2}$$
+
+**Doğrudan kontrol:** $y'=2x$, $y''=2$ &nbsp;$\Rightarrow$&nbsp; $2+x(2x)-2\left(1+x^{2}\right)=0$ &#10003;
+
+==Bu, Hermite denklemindeki polinomlaşmanın aynısıdır== (Bölüm 6.2): pay bir yerde sıfırlanıyorsa seri kesilir. Bu problemde $y(0)=0$ verildiği için o çözüm devreye girmiyor, ama ==varlığını bilmek 24. sorudaki Legendre polinomlarına hazırlıktır.==
+[/KUTU]
+[/CEVAP]
+
+---
+
 ### Çözülmeyi bekleyen egzersizler
 
 Yöntem yukarıdaki çözümlerdekiyle aynıdır. ==Sıraya alındı.==
 
-**$x$ kuvvetlerinde kuvvet serisi çözümü bulunuz (11-14):**
-
-11. &nbsp; $\left(x^{2}+1\right)y''+xy'+xy=0$ &nbsp;&nbsp; 12. &nbsp; $(x-1)y''-(3x-2)y'+2xy=0$
-
-13. &nbsp; $\left(x^{3}-1\right)y''+x^{2}y'+xy=0$ &nbsp;&nbsp; 14. &nbsp; $(x+3)y''+(x+2)y'+y=0$
-
-**Başlangıç değer problemlerinin kuvvet serisi çözümünü bulunuz (16-20):**
-
-16. &nbsp; $y''+xy'-2y=0,\quad y(0)=0,\quad y'(0)=1$
+**Başlangıç değer problemlerinin kuvvet serisi çözümünü bulunuz (17-20):**
 
 17. &nbsp; $y''+x^{2}y'+x^{2}y=0,\quad y(0)=2,\quad y'(0)=4$
 
@@ -366,9 +612,7 @@ denklemine **Legendre diferansiyel denklemi (Legendre's differential equation)**
 [KUTU]
 **İpuçları.**
 
-**11-14** → Başkatsayı artık sabit değil. Önce ==$x_{0}=0$'ın hâlâ adi nokta olduğunu doğrulayın== (11'de $x^{2}+1\neq 0$, 12'de $-1\neq 0$, 13'te $-1\neq 0$, 14'te $3\neq 0$). Sonra başkatsayıyı dağıtıp her parçayı ayrı hizalayın; $x^{2}y''$ gibi terimler indisi ==kaydırmaz==, yalnız katsayıyı değiştirir.
-
-**16-20** → Başlangıç koşulları doğrudan $a_{0}=y(0)$ ve $a_{1}=y'(0)$ verir. ==İki ayrı çözüm aramaya gerek yok==, tek bir seri çıkar.
+**17-20** → Başlangıç koşulları doğrudan $a_{0}=y(0)$ ve $a_{1}=y'(0)$ verir. ==İki ayrı çözüm aramaya gerek yok==, tek bir seri çıkar.
 
 **21-23** → $x-1$ kuvvetleri isteniyor, yani $x_{0}=1$. $t=x-1$ koyup denklemi $t$ cinsine çevirmek en temiz yoldur; $x=t+1$ ve türevler değişmez.
 

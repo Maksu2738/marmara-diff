@@ -623,13 +623,289 @@ $$\boxed{\;y_{2}=x^{-2}\left(1+\frac{2x}{3}+\frac{2x^{2}}{3}-\frac{4x^{3}}{9}+\f
 
 ---
 
-### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (13-32) — çözülmeyi bekleyen
+[SORU] **13.** &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** İkiye bölelim: $b(x)=\dfrac{4x^{2}+3}{2}$, &nbsp;$b_{0}=\dfrac{3}{2}$, &nbsp;$c_{0}=-3$.
 
-13. &nbsp; $2x^{2}y''+\left(4x^{3}+3x\right)y'-6y=0$
+**Adım 2 — Başlangıç denklemi.**
 
-14. &nbsp; $\left(x^{3}+2x^{2}\right)y''+\left(x^{2}+x\right)y'-10y=0$ &nbsp;&nbsp;&nbsp; 15. &nbsp; $xy''+2y'+xy=0$
+$$r(r-1)+\frac{3}{2}r-3=r^{2}+\frac{r}{2}-3=0\;\Longrightarrow\;2r^{2}+r-6=0\;\Longrightarrow\;(2r-3)(r+2)=0$$
 
-16. &nbsp; $x^{2}y''+xy'+\left(x^{2}-\frac{1}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 17. &nbsp; $x^{2}y''+\left(x^{4}+x\right)y'-y=0$
+$$r_{1}=\frac{3}{2},\qquad r_{2}=-2$$
+
+Kök farkı $\tfrac72$, tam sayı değil.
+
+**Adım 3 — İndirgeme bağıntısı.** $4x^{3}y'$ terimi indisi ==iki== kaydırıyor:
+
+$$\underbrace{\left[2m^{2}+m-6\right]}_{(2m-3)(m+2)}a_{n}+4(m-2)a_{n-2}=0$$
+
+$$\boxed{\;a_{n}=-\frac{4(n+r-2)\,a_{n-2}}{\left(2(n+r)-3\right)(n+r+2)}\;}$$
+
+$n=1$'de katsayılar $9$ ve $-5$ &nbsp;$\Rightarrow$&nbsp; $a_{1}=0$, tek indisler yok.
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac32$.** Bağıntı $a_{n}=-\dfrac{2(2n-1)a_{n-2}}{n(2n+7)}$:
+
+$$a_{2}=-\frac{3a_{0}}{11},\qquad a_{4}=-\frac{14a_{2}}{60}=\frac{7a_{0}}{110}$$
+
+$$\boxed{\;y_{1}=x^{3/2}\left(1-\frac{3x^{2}}{11}+\frac{7x^{4}}{110}-\cdots\right)\;}$$
+
+**Adım 5 — Küçük kök $r_{2}=-2$: seri kesiliyor.** Bağıntı $a_{n}=-\dfrac{4(n-4)a_{n-2}}{n(2n-7)}$; ==payda $(n-4)$ çarpanı var:==
+
+$$a_{2}=-\frac{4(-2)a_{0}}{2(-3)}=-\frac{4a_{0}}{3},\qquad a_{4}=-\frac{4\cdot\mathbf{0}\cdot a_{2}}{4\cdot 1}=0$$
+
+$n=4$'te çarpan sıfırlanıyor ve zincir bitiyor. İkinci çözüm ==sonsuz seri değil, kapalı biçimde:==
+
+$$\boxed{\;y_{2}=x^{-2}\left(1-\frac{4x^{2}}{3}\right)=\frac{1}{x^{2}}-\frac{4}{3}\;}$$
+
+**Doğrulama — $y_{2}$'yi doğrudan denkleme koy.** ==Sonlu ifade olduğu için tam bir kontrol, yaklaşık değil:==
+
+$$y=x^{-2}-\frac{4}{3},\qquad y'=-2x^{-3},\qquad y''=6x^{-4}$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$2x^{2}y''$</th><th>$4x^{3}y'$</th><th>$3xy'$</th><th>$-6y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-2}$</td><td>$12$</td><td>$0$</td><td>$-6$</td><td>$-6$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{0}$</td><td>$0$</td><td>$-8$</td><td>$0$</td><td>$8$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+==Denklem tam olarak sağlanıyor.==
+[/CEVAP]
+
+[SORU] **14.** &nbsp; $\left(x^{3}+2x^{2}\right)y''+\left(x^{2}+x\right)y'-10y=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** $x^{3}+2x^{2}=x^{2}(x+2)$; $(x+2)$'ye bölelim:
+
+$$x^{2}y''+x\cdot\frac{x+1}{x+2}\,y'-\frac{10}{x+2}\,y=0\;\Longrightarrow\;b_{0}=\frac{1}{2},\quad c_{0}=-5$$
+
+**Adım 2 — Başlangıç denklemi.**
+
+$$r(r-1)+\frac{r}{2}-5=0\;\Longrightarrow\;2r^{2}-r-10=0\;\Longrightarrow\;(2r-5)(r+2)=0$$
+
+$$r_{1}=\frac{5}{2},\qquad r_{2}=-2$$
+
+**Adım 3 — İndirgeme bağıntısı.** Denklemi açıp hizalayalım:
+
+$$\underbrace{\left[2m^{2}-m-10\right]}_{(2m-5)(m+2)}a_{n}+\underbrace{\left[(m-1)(m-2)+(m-1)\right]}_{(m-1)^{2}}a_{n-1}=0$$
+
+==İkinci köşeli parantez tam kare çıkıyor== — $(m-1)$ ortak çarpan olduğu için.
+
+$$\boxed{\;a_{n}=-\frac{(n+r-1)^{2}\,a_{n-1}}{\left(2(n+r)-5\right)(n+r+2)}\;}$$
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac52$.** Bağıntı $a_{n}=-\dfrac{(2n+3)^{2}a_{n-1}}{4n(2n+9)}$:
+
+$$a_{1}=-\frac{25a_{0}}{44},\qquad a_{2}=-\frac{49a_{1}}{104}=\frac{1225a_{0}}{4576}$$
+
+$$\boxed{\;y_{1}=x^{5/2}\left(1-\frac{25x}{44}+\frac{1225x^{2}}{4576}-\cdots\right)\;}$$
+
+**Adım 5 — Küçük kök $r_{2}=-2$: yine kesiliyor.** Bağıntı $a_{n}=-\dfrac{(n-3)^{2}a_{n-1}}{n(2n-9)}$:
+
+$$a_{1}=\frac{4a_{0}}{7},\qquad a_{2}=\frac{a_{1}}{10}=\frac{2a_{0}}{35},\qquad a_{3}=-\frac{\mathbf{0}\cdot a_{2}}{3(-3)}=0$$
+
+$$\boxed{\;y_{2}=x^{-2}\left(1+\frac{4x}{7}+\frac{2x^{2}}{35}\right)=\frac{1}{x^{2}}+\frac{4}{7x}+\frac{2}{35}\;}$$
+
+**Doğrulama — $y_{2}$'yi doğrudan denkleme koy.**
+
+$$y'=-2x^{-3}-\frac{4}{7}x^{-2},\qquad y''=6x^{-4}+\frac{8}{7}x^{-3}$$
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{3}y''$</th><th>$2x^{2}y''$</th><th>$x^{2}y'$</th><th>$xy'$</th><th>$-10y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-2}$</td><td>$0$</td><td>$12$</td><td>$0$</td><td>$-2$</td><td>$-10$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-1}$</td><td>$6$</td><td>$\tfrac{16}{7}$</td><td>$-2$</td><td>$-\tfrac47$</td><td>$-\tfrac{40}{7}$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{0}$</td><td>$\tfrac87$</td><td>$0$</td><td>$-\tfrac47$</td><td>$0$</td><td>$-\tfrac47$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+[KUTU]
+**13 ve 14'te aynı olay: küçük kökte seri kesiliyor.** Sebebi bağıntının payındaki $k$'ye bağlı çarpan:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Soru</th><th>Paydaki çarpan</th><th>Nerede sıfırlanır</th><th>Sonuç</th></tr>
+<tr><td>13</td><td>$(n-4)$</td><td>$n=4$</td><td>iki terimli</td></tr>
+<tr><td>14</td><td>$(n-3)^{2}$</td><td>$n=3$</td><td>üç terimli</td></tr>
+</table>
+</div>
+
+==Legendre ve Hermite'te gördüğünüz polinomlaşmanın aynısı==, tek fark $x^{r}$ çarpanının negatif üslü olması: sonuç polinom değil, ==sonlu bir Laurent ifadesi.==
+
+**Nasıl önceden görülür:** küçük kökü indirgeme bağıntısına koyduğunuzda payda $n$'e bağlı bir çarpan kalıyorsa, o çarpanın kökü tam sayıysa seri orada biter. ==Hesaba başlamadan kaç terim yazacağınızı bilirsiniz.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **15.** &nbsp; $xy''+2y'+xy=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** $x$ ile çarpalım: $x^{2}y''+2xy'+x^{2}y=0$ &nbsp;$\Rightarrow$&nbsp; $b_{0}=2$, &nbsp;$c_{0}=0$.
+
+**Adım 2 — Başlangıç denklemi.**
+
+$$r(r-1)+2r=r(r+1)=0\;\Longrightarrow\;r_{1}=0,\quad r_{2}=-1$$
+
+Kök farkı $1$ — ==pozitif tam sayı, yani belirsiz durum.== Küçük kökle deneyeceğiz.
+
+**Adım 3 — İndirgeme bağıntısı.**
+
+$$\boxed{\;a_{n}=-\frac{a_{n-2}}{(n+r)(n+r+1)}\;}$$
+
+**Adım 4 — Küçük kökte $a_{1}$ serbest kalıyor.** $r=-1$ ve $n=1$ için $a_{1}$'in katsayısı:
+
+$$(1-1)(1-1+1)=0\cdot 1=0$$
+
+Sağ tarafta $a_{-1}=0$ olduğundan denklem $0=0$'a iner: ==$a_{1}$ kısıtlanmıyor, serbest.== Bu, belirsiz durumun ==şanslı tarafa çözüldüğünün işaretidir== — küçük kök tek başına her iki çözümü birden veriyor, logaritmaya gerek yok.
+
+**Adım 5 — Katsayılar** ($r=-1$, &nbsp;$a_{n}=-\dfrac{a_{n-2}}{n(n-1)}$):
+
+$$a_{2}=-\frac{a_{0}}{2},\quad a_{3}=-\frac{a_{1}}{6},\quad a_{4}=\frac{a_{0}}{24},\quad a_{5}=\frac{a_{1}}{120}$$
+
+$$y=\frac{1}{x}\left[a_{0}\underbrace{\left(1-\frac{x^{2}}{2}+\frac{x^{4}}{24}-\cdots\right)}_{\cos x}+a_{1}\underbrace{\left(x-\frac{x^{3}}{6}+\frac{x^{5}}{120}-\cdots\right)}_{\sin x}\right]$$
+
+$$\boxed{\;y_{1}=\frac{\cos x}{x},\qquad y_{2}=\frac{\sin x}{x}\;}$$
+
+**Doğrulama — denklemi tek satırda çöz.** ==Seriden tamamen bağımsız:==
+
+$$(xy)''=\left(y+xy'\right)'=2y'+xy''$$
+
+Yani denklemin sol tarafı tam olarak $(xy)''+xy$'dir. $u=xy$ dersek:
+
+$$u''+u=0\;\Longrightarrow\;u=A\cos x+B\sin x\;\Longrightarrow\;y=\frac{A\cos x+B\sin x}{x}\;\checkmark$$
+
+Seri çözümüyle birebir aynı.
+
+[KUTU]
+**Bu denklem küresel Bessel denklemidir** ($p=0$ mertebesinden). Çözümü $\dfrac{\sin x}{x}$, fizikte ==sinc fonksiyonu== adıyla geçer ve küresel simetrili dalga problemlerinde çıkar.
+
+**$\dfrac{\sin x}{x}$'in $x=0$'da sonlu olduğuna dikkat edin** (limit $1$), ==oysa $\dfrac{\cos x}{x}$ ıraksıyor.== $x^{-1}$ çarpanına rağmen ilk çözümün sonlu kalmasının sebebi, $\sin x$ serisinin $x$ ile başlaması.
+
+**Genel ders:** $x^{r}$ çarpanı negatif üslü diye çözüm otomatik olarak ıraksamaz; ==seri kısmının nereden başladığına bakın.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **16.** &nbsp; $x^{2}y''+xy'+\left(x^{2}-\dfrac{1}{4}\right)y=0$
+[CEVAP]
+**Bu da Bessel denklemi, bu kez $p=\dfrac12$ ile** — yarım tam sayı mertebe.
+
+**Adım 1 — Başlangıç denklemi.** $r^{2}-\dfrac14=0\;\Longrightarrow\;r=\pm\dfrac12$.
+
+Kök farkı $2p=1$, ==pozitif tam sayı== &nbsp;$\Rightarrow$&nbsp; belirsiz durum.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\boxed{\;a_{n}=-\frac{a_{n-2}}{(n+r)^{2}-\tfrac14}\;}$$
+
+**Adım 3 — Küçük kökte $a_{1}$ serbest.** $r=-\tfrac12$, $n=1$ için katsayı:
+
+$$\left(1-\tfrac12\right)^{2}-\tfrac14=\tfrac14-\tfrac14=0$$
+
+==$a_{1}$ kısıtlanmıyor== — 15. soruyla aynı şanslı durum.
+
+**Adım 4 — Katsayılar.** $\left(n-\tfrac12\right)^{2}-\tfrac14=n^{2}-n=n(n-1)$:
+
+$$a_{n}=-\frac{a_{n-2}}{n(n-1)}\;\Longrightarrow\;a_{2}=-\frac{a_{0}}{2},\;a_{3}=-\frac{a_{1}}{6},\;a_{4}=\frac{a_{0}}{24},\;a_{5}=\frac{a_{1}}{120}$$
+
+==15. sorunun katsayılarıyla birebir aynı;== fark yalnız öndeki çarpanda ($x^{-1/2}$ yerine $x^{-1}$).
+
+$$\boxed{\;y_{1}=\frac{\cos x}{\sqrt{x}},\qquad y_{2}=\frac{\sin x}{\sqrt{x}}\;}$$
+
+**Doğrulama — $y=x^{-1/2}u$ dönüşümü.** ==Seriden bağımsız:==
+
+$$x^{2}y''+xy'+\left(x^{2}-\tfrac14\right)y=x^{3/2}\left(u''+u\right)$$
+
+(Ara terimler tam olarak götürüyor: $x^{-1/2}u$ katsayısı $\tfrac34-\tfrac12-\tfrac14=0$, &nbsp;$x^{1/2}u'$ katsayısı $-1+1=0$.)
+
+$$u''+u=0\;\Longrightarrow\;u=A\cos x+B\sin x\;\Longrightarrow\;y=\frac{A\cos x+B\sin x}{\sqrt{x}}\;\checkmark$$
+
+[KUTU]
+**Bölüm 6.3'teki iddianın kanıtı burada.** Orada "yarım tam sayı $p$ için Bessel fonksiyonları temel fonksiyonlara indirgenir" demiş ve
+
+$$J_{1/2}(x)=\sqrt{\frac{2}{\pi x}}\,\sin x$$
+
+yazmıştık. ==Bu soru tam olarak onu üretiyor:== bulduğumuz $\dfrac{\sin x}{\sqrt{x}}$, sabit çarpan farkıyla $J_{1/2}$'dir.
+
+**Kök farkı $1$ olmasına rağmen logaritma çıkmadı.** Sebep: $p$ yarım tam sayı olduğunda kök farkı $2p$ ==tek tam sayı== olur ve $n=2p$ adımı tek indise düşer; oradaki katsayı zaten sıfır olduğu için çakışma doğmaz.
+
+$p$ **tam** sayı olsaydı kök farkı $2p$ çift olur, çakışma çift indise düşer ve logaritma kaçınılmaz hâle gelirdi. ==$J_{-p}=(-1)^{p}J_{p}$ eşitliğinin ve $Y_{p}$ ihtiyacının kökeni budur.==
+[/KUTU]
+[/CEVAP]
+
+[SORU] **17.** &nbsp; $x^{2}y''+\left(x^{4}+x\right)y'-y=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** $x^{2}y''+x\left(x^{3}+1\right)y'-y=0$ &nbsp;$\Rightarrow$&nbsp; $b_{0}=1$, &nbsp;$c_{0}=-1$.
+
+**Adım 2 — Başlangıç denklemi.**
+
+$$r(r-1)+r-1=r^{2}-1=0\;\Longrightarrow\;r_{1}=1,\quad r_{2}=-1$$
+
+Kök farkı $2$, ==pozitif tam sayı== &nbsp;$\Rightarrow$&nbsp; belirsiz durum, küçük kökle deneyelim.
+
+**Adım 3 — İndirgeme bağıntısı.** $x^{4}y'$ terimi indisi ==üç== kaydırıyor:
+
+$$\left(m^{2}-1\right)a_{n}+(m-3)a_{n-3}=0$$
+
+$$\boxed{\;a_{n}=-\frac{(n+r-3)\,a_{n-3}}{(n+r)^{2}-1}\;}$$
+
+**Adım 4 — Küçük kökte $a_{2}$ serbest.** $r=-1$ için:
+
+$n=1$: &nbsp; katsayı $0^{2}-1=-1\neq 0$ &nbsp;$\Rightarrow$&nbsp; $a_{1}=0$
+
+$n=2$: &nbsp; katsayı $1^{2}-1=0$, sağ tarafta $a_{-1}=0$ &nbsp;$\Rightarrow$&nbsp; ==$a_{2}$ serbest.==
+
+==Çakışma yine şanslı tarafa çözüldü:== küçük kök her iki çözümü birden veriyor.
+
+**Adım 5 — Katsayılar** ($r=-1$, &nbsp;$a_{n}=-\dfrac{(n-4)a_{n-3}}{n(n-2)}$). ==İndisler üçer üçer atlıyor==, üç zincir var:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Zincir</th><th>Katsayılar</th></tr>
+<tr><td>$a_{0}$</td><td>$a_{3}=\tfrac{a_{0}}{3}$, &nbsp;$a_{6}=-\tfrac{a_{0}}{36}$</td></tr>
+<tr><td>$a_{2}$</td><td>$a_{5}=-\tfrac{a_{2}}{15}$, &nbsp;$a_{8}=\tfrac{a_{2}}{180}$</td></tr>
+<tr><td>$a_{1}$</td><td>tamamen sıfır</td></tr>
+</table>
+</div>
+
+$$\boxed{\;y_{1}=x\left(1-\frac{x^{3}}{15}+\frac{x^{6}}{180}-\cdots\right)\;}$$
+
+$$\boxed{\;y_{2}=\frac{1}{x}\left(1+\frac{x^{3}}{3}-\frac{x^{6}}{36}+\cdots\right)\;}$$
+
+$a_{2}$ zinciri $x^{-1}\cdot x^{2}=x$ ile başlıyor — ==tam olarak büyük kök $r_{1}=1$'in çözümü.== İki kök tek hesapta çıktı.
+
+**Doğrulama — ikisini de doğrudan denkleme koy.**
+
+$y_{1}=x-\dfrac{x^{4}}{15}$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$x^{4}y'$</th><th>$xy'$</th><th>$-y$</th><th>Toplam</th></tr>
+<tr><td>$x^{1}$</td><td>$0$</td><td>$0$</td><td>$1$</td><td>$-1$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{4}$</td><td>$-\tfrac{12}{15}$</td><td>$1$</td><td>$-\tfrac{4}{15}$</td><td>$\tfrac{1}{15}$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+$y_{2}=x^{-1}+\dfrac{x^{2}}{3}$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$x^{4}y'$</th><th>$xy'$</th><th>$-y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-1}$</td><td>$2$</td><td>$0$</td><td>$-1$</td><td>$-1$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{2}$</td><td>$\tfrac23$</td><td>$-1$</td><td>$\tfrac23$</td><td>$-\tfrac13$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+[KUTU]
+**15, 16 ve 17: üçünde de kök farkı tam sayı ama logaritma çıkmadı.** Bu, "tam sayı fark $\Rightarrow$ logaritma" diye ezberlememeniz gerektiğinin kanıtı.
+
+**Ne olduğuna bakın:** küçük kökle ilerlerken $n=r_{1}-r_{2}$ adımına gelirsiniz. Orada $a_{n}$'in katsayısı sıfırlanır ve iki şey olabilir:
+
+- **Sağ taraf da sıfırsa** &nbsp;$\Rightarrow$&nbsp; $0=0$, ==$a_{n}$ serbest kalır ve küçük kök her iki çözümü birden verir.== (15, 16, 17'de böyle oldu.)
+- **Sağ taraf sıfır değilse** &nbsp;$\Rightarrow$&nbsp; çelişki, logaritmalı forma geçmek zorunludur.
+
+**Sınav refleksi:** kök farkı tam sayı çıkınca ==hemen logaritmaya atlamayın.== Küçük kökle ilerleyip o kritik adıma gelin; çoğu ders kitabı sorusunda sağ taraf sıfır çıkar ve işiniz kısalır.
+[/KUTU]
+[/CEVAP]
+
+---
+
+### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (18-32) — çözülmeyi bekleyen
 
 18. &nbsp; $xy''-\left(x^{2}+2\right)y'+xy=0$ &nbsp;&nbsp;&nbsp; 19. &nbsp; $x^{2}y''+x^{2}y'-2y=0$
 

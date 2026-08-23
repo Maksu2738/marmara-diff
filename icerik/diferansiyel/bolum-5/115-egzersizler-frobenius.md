@@ -905,13 +905,272 @@ $y_{2}=x^{-1}+\dfrac{x^{2}}{3}$ için:
 
 ---
 
-### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (18-32) — çözülmeyi bekleyen
+[SORU] **18.** &nbsp; $xy''-\left(x^{2}+2\right)y'+xy=0$
+[CEVAP]
+**Adım 1 — Standart biçim.** $x$ ile çarpalım: &nbsp;$b_{0}=-2$, &nbsp;$c_{0}=0$.
 
-18. &nbsp; $xy''-\left(x^{2}+2\right)y'+xy=0$ &nbsp;&nbsp;&nbsp; 19. &nbsp; $x^{2}y''+x^{2}y'-2y=0$
+**Adım 2 — Başlangıç denklemi.**
 
-20. &nbsp; $x^{2}y''-xy'+\frac{3}{4}y=0$ &nbsp;&nbsp;&nbsp; 21. &nbsp; $x^{2}y''+\left(2x^{2}+3x\right)y'+\left(x-\frac{5}{4}\right)y=0$
+$$r(r-1)-2r=r(r-3)=0\;\Longrightarrow\;r_{1}=3,\quad r_{2}=0$$
 
-22. &nbsp; $x^{2}y''+\left(x^{2}+5x\right)y'+(2x+3)y=0$ &nbsp;&nbsp;&nbsp; 23. &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$
+Kök farkı $3$, ==pozitif tam sayı== &nbsp;$\Rightarrow$&nbsp; belirsiz durum.
+
+**Adım 3 — İndirgeme bağıntısı ve ortak çarpan.**
+
+$$\underbrace{\left[m(m-1)-2m\right]}_{m(m-3)}a_{n}+\underbrace{\left[-(m-2)+1\right]}_{-(m-3)}a_{n-2}=0$$
+
+==Her iki terimde de $(m-3)$ çarpanı var:==
+
+$$\boxed{\;(m-3)\Big[m\,a_{n}-a_{n-2}\Big]=0\;}$$
+
+**Adım 4 — Küçük kök $r_{2}=0$'da $a_{3}$ serbest.** $m=n$ olduğundan $n=3$'te $(m-3)=0$ ve denklem $0=0$'a iner &nbsp;$\Rightarrow$&nbsp; ==$a_{3}$ kısıtlanmıyor.== Küçük kök her iki çözümü birden verecek.
+
+Diğer $n$'ler için $a_{n}=\dfrac{a_{n-2}}{n}$. &nbsp;$n=1$'de $a_{1}=0$ (katsayı $-2\neq 0$, sağ taraf sıfır).
+
+**Adım 5 — İki zincir.**
+
+$$a_{2}=\frac{a_{0}}{2},\quad a_{4}=\frac{a_{0}}{8},\quad a_{6}=\frac{a_{0}}{48}\qquad\text{(çift zincir)}$$
+
+$$a_{5}=\frac{a_{3}}{5},\quad a_{7}=\frac{a_{3}}{35},\quad a_{9}=\frac{a_{3}}{315}\qquad\text{(tek zincir, }a_{3}\text{'ten)}$$
+
+**Adım 6 — Çift zinciri tanıyın.** Paydalar $2,\;2\cdot 4,\;2\cdot 4\cdot 6$ yani $2^{k}k!$:
+
+$$y_{1}=\sum_{k=0}^{\infty}\frac{x^{2k}}{2^{k}k!}=\sum_{k=0}^{\infty}\frac{1}{k!}\left(\frac{x^{2}}{2}\right)^{k}$$
+
+$$\boxed{\;y_{1}=e^{x^{2}/2}\;}$$
+
+$$\boxed{\;y_{2}=x^{3}\left(1+\frac{x^{2}}{5}+\frac{x^{4}}{35}+\frac{x^{6}}{315}+\cdots\right)\;}$$
+
+($y_{2}$'nin paydaları $5,\;5\cdot 7,\;5\cdot 7\cdot 9$ — tek sayıların çarpımı.)
+
+**Doğrulama — $y_{1}=e^{x^{2}/2}$'yi doğrudan denkleme koy.** ==Seriden tamamen bağımsız:==
+
+$$y'=x\,e^{x^{2}/2},\qquad y''=\left(1+x^{2}\right)e^{x^{2}/2}$$
+
+$$xy''-\left(x^{2}+2\right)y'+xy=e^{x^{2}/2}\Big[\underbrace{x+x^{3}}_{xy''}\underbrace{-x^{3}-2x}_{-(x^{2}+2)y'}+\underbrace{x}_{xy}\Big]=0\;\checkmark$$
+[/CEVAP]
+
+[SORU] **19.** &nbsp; $x^{2}y''+x^{2}y'-2y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b(x)=x$ olduğundan $b_{0}=0$; &nbsp;$c_{0}=-2$:
+
+$$r(r-1)-2=r^{2}-r-2=(r-2)(r+1)=0\;\Longrightarrow\;r_{1}=2,\quad r_{2}=-1$$
+
+Kök farkı $3$, pozitif tam sayı.
+
+**Adım 2 — İndirgeme bağıntısı.**
+
+$$\underbrace{\left[m(m-1)-2\right]}_{(m-2)(m+1)}a_{n}+(m-1)a_{n-1}=0$$
+
+$$\boxed{\;a_{n}=-\frac{(n+r-1)\,a_{n-1}}{(n+r-2)(n+r+1)}\;}$$
+
+**Adım 3 — Küçük kök $r_{2}=-1$: önce kesiliyor, sonra serbest kalıyor.** $m=n-1$ için katsayılar $(n-3)$ ve $n$:
+
+$$a_{1}=-\frac{(-1)a_{0}}{(-2)(1)}=-\frac{a_{0}}{2},\qquad a_{2}=-\frac{\mathbf{0}\cdot a_{1}}{(-1)(2)}=0$$
+
+$n=3$'te $a_{3}$'ün katsayısı $(m-2)(m+1)=0\cdot 3=0$ ve sağ tarafta $(m-1)a_{2}=1\cdot 0=0$ &nbsp;$\Rightarrow$&nbsp; ==$0=0$, $a_{3}$ serbest.==
+
+Yani $a_{0}$ zinciri $a_{2}=0$ ile bitiyor:
+
+$$\boxed{\;y_{2}=x^{-1}\left(1-\frac{x}{2}\right)=\frac{1}{x}-\frac{1}{2}\;}$$
+
+**Adım 4 — Büyük kök $r_{1}=2$.** Bağıntı $a_{n}=-\dfrac{(n+1)a_{n-1}}{n(n+3)}$:
+
+$$a_{1}=-\frac{a_{0}}{2},\quad a_{2}=\frac{3a_{0}}{20},\quad a_{3}=-\frac{a_{0}}{30}$$
+
+$$\boxed{\;y_{1}=x^{2}\left(1-\frac{x}{2}+\frac{3x^{2}}{20}-\frac{x^{3}}{30}+\cdots\right)\;}$$
+
+**Doğrulama 1 — $y_{2}$ sonlu, tam kontrol.**
+
+$$y=x^{-1}-\tfrac12,\quad y'=-x^{-2},\quad y''=2x^{-3}$$
+
+$$x^{2}y''+x^{2}y'-2y=2x^{-1}-1-2x^{-1}+1=0\;\checkmark$$
+
+**Doğrulama 2 — $y_{1}$'i denkleme koy.**
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$x^{2}y'$</th><th>$-2y$</th><th>Toplam</th></tr>
+<tr><td>$x^{2}$</td><td>$2$</td><td>$0$</td><td>$-2$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{3}$</td><td>$-3$</td><td>$2$</td><td>$1$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{4}$</td><td>$\tfrac95$</td><td>$-\tfrac32$</td><td>$-\tfrac{3}{10}$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+[/CEVAP]
+
+[SORU] **20.** &nbsp; $x^{2}y''-xy'+\dfrac{3}{4}y=0$
+[CEVAP]
+**Bu bir Cauchy-Euler denklemi** — sağ tarafta $x$'e bağlı hiçbir ek terim yok.
+
+**Adım 1 — Başlangıç denklemi.**
+
+$$r(r-1)-r+\frac{3}{4}=r^{2}-2r+\frac{3}{4}=0\;\Longrightarrow\;\left(r-\tfrac12\right)\left(r-\tfrac32\right)=0$$
+
+$$r_{1}=\frac{3}{2},\qquad r_{2}=\frac{1}{2}$$
+
+**Adım 2 — İndirgeme bağıntısı yok.** Denklemde $a_{n-1}$ ya da $a_{n-2}$ üreten hiçbir terim bulunmadığından bağıntı şuna iner:
+
+$$\left(m-\tfrac12\right)\left(m-\tfrac32\right)a_{n}=0$$
+
+==Yani her $a_{n}$ ya sıfırdır ya da katsayısı sıfırlanmıştır.==
+
+**Adım 3 — Küçük kök $r_{2}=\tfrac12$.** $m=n+\tfrac12$ için katsayı $n(n-1)$:
+
+- $n=0$: &nbsp;katsayı $0$ &nbsp;$\Rightarrow$&nbsp; $a_{0}$ serbest
+- $n=1$: &nbsp;katsayı $0$ &nbsp;$\Rightarrow$&nbsp; ==$a_{1}$ de serbest==
+- $n\ge 2$: &nbsp;katsayı $\neq 0$ &nbsp;$\Rightarrow$&nbsp; $a_{n}=0$
+
+$$\boxed{\;y=x^{1/2}\left(a_{0}+a_{1}x\right)=a_{0}\sqrt{x}+a_{1}x^{3/2}\;}$$
+
+**Doğrulama — Cauchy-Euler yöntemiyle karşılaştır.** $y=x^{m}$ denersek:
+
+$$m(m-1)-m+\frac{3}{4}=0\;\Longrightarrow\;m=\frac{1}{2},\ \frac{3}{2}\;\Longrightarrow\;y=c_{1}x^{1/2}+c_{2}x^{3/2}$$
+
+==Birebir aynı.== İki yöntem aynı sonuca vardı.
+
+[KUTU]
+**Cauchy-Euler, Frobenius'un en basit hâlidir.** Bu soru bunu çıplak olarak gösteriyor: seri hiç oluşmuyor, çünkü indirgeme bağıntısını üretecek terim yok. ==Geriye yalnız başlangıç denklemi kalıyor ve o da Cauchy-Euler'in karakteristik denklemidir.==
+
+**Genel kural:** denklemi $x^{2}y''+x\,b(x)y'+c(x)y=0$ biçimine soktuğunuzda $b$ ve $c$ ==sabitse== denklem Cauchy-Euler'dir; Frobenius'a girmenize gerek yok, bir satırda biter.
+
+Kök farkı burada $1$ (tam sayı) olmasına rağmen logaritma çıkmadı — çünkü kökler farklı. Logaritma yalnız ==eşit kökler== durumunda kaçınılmazdır.
+[/KUTU]
+[/CEVAP]
+
+[SORU] **21.** &nbsp; $x^{2}y''+\left(2x^{2}+3x\right)y'+\left(x-\dfrac{5}{4}\right)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b_{0}=3$, &nbsp;$c_{0}=-\dfrac54$:
+
+$$r(r-1)+3r-\frac54=r^{2}+2r-\frac54=0\;\Longrightarrow\;4r^{2}+8r-5=0$$
+
+$$(2r-1)(2r+5)=0\;\Longrightarrow\;r_{1}=\frac{1}{2},\quad r_{2}=-\frac{5}{2}$$
+
+Kök farkı $3$, pozitif tam sayı.
+
+**Adım 2 — İndirgeme bağıntısı ve ortak çarpan.**
+
+$$\underbrace{\left[m^{2}+2m-\tfrac54\right]}_{\left(m-\frac12\right)\left(m+\frac52\right)}a_{n}+\underbrace{\left[2(m-1)+1\right]}_{2\left(m-\frac12\right)}a_{n-1}=0$$
+
+==Yine ortak çarpan:==
+
+$$\boxed{\;\left(m-\tfrac12\right)\Big[\left(m+\tfrac52\right)a_{n}+2a_{n-1}\Big]=0\;}$$
+
+**Adım 3 — Küçük kök $r_{2}=-\tfrac52$: zincir kesiliyor.** $m=n-\tfrac52$ için çarpanlar $(n-3)$ ve $n$:
+
+$$a_{1}=-\frac{2a_{0}}{1}=-2a_{0},\qquad a_{2}=-\frac{2a_{1}}{2}=2a_{0}$$
+
+$n=3$'te $(m-\tfrac12)=0$ &nbsp;$\Rightarrow$&nbsp; $0=0$, ==$a_{3}$ serbest ve $a_{0}$ zinciri burada bitiyor:==
+
+$$\boxed{\;y_{2}=x^{-5/2}\left(1-2x+2x^{2}\right)\;}$$
+
+**Adım 4 — Büyük kök $r_{1}=\tfrac12$.** $m=n+\tfrac12$ için $a_{n}=-\dfrac{2a_{n-1}}{n+3}$:
+
+$$a_{1}=-\frac{a_{0}}{2},\quad a_{2}=\frac{a_{0}}{5},\quad a_{3}=-\frac{a_{0}}{15}$$
+
+$$\boxed{\;y_{1}=x^{1/2}\left(1-\frac{x}{2}+\frac{x^{2}}{5}-\frac{x^{3}}{15}+\cdots\right)\;}$$
+
+**Doğrulama 1 — $y_{2}$ sonlu, tam kontrol.** $y=x^{-5/2}-2x^{-3/2}+2x^{-1/2}$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$2x^{2}y'$</th><th>$3xy'$</th><th>$xy$</th><th>$-\tfrac54 y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-5/2}$</td><td>$\tfrac{35}{4}$</td><td>$0$</td><td>$-\tfrac{15}{2}$</td><td>$0$</td><td>$-\tfrac54$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-3/2}$</td><td>$-\tfrac{15}{2}$</td><td>$-5$</td><td>$9$</td><td>$1$</td><td>$\tfrac52$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-1/2}$</td><td>$\tfrac32$</td><td>$6$</td><td>$-3$</td><td>$-2$</td><td>$-\tfrac52$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{1/2}$</td><td>$0$</td><td>$-2$</td><td>$0$</td><td>$2$</td><td>$0$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+**Doğrulama 2 — kapalı biçim.** $a_{n}=-\dfrac{2a_{n-1}}{n+3}$ bağıntısını açarsak $a_{n}=\dfrac{6(-2)^{n}}{(n+3)!}$; bu da
+
+$$y_{1}=6x^{1/2}\sum_{n\ge 0}\frac{(-2x)^{n}}{(n+3)!}=-\frac{3}{4}\,x^{-5/2}\left(e^{-2x}-1+2x-2x^{2}\right)$$
+
+Yani ==$x^{-5/2}e^{-2x}$ de bir çözümdür.== Doğrudan yerine koyarak sınayalım:
+
+$$x^{2}y''+\left(2x^{2}+3x\right)y'+\left(x-\tfrac54\right)y=e^{-2x}\Big[\underbrace{\left(\tfrac{35}{4}-\tfrac{15}{2}-\tfrac54\right)}_{0}x^{-5/2}+\underbrace{\left(10-11+1\right)}_{0}x^{-3/2}+\underbrace{\left(4-4\right)}_{0}x^{-1/2}\Big]=0\;\checkmark$$
+
+$$\boxed{\;\text{Genel çözüm: }\;y=x^{-5/2}\left[A\,e^{-2x}+B\left(1-2x+2x^{2}\right)\right]\;}$$
+[/CEVAP]
+
+[SORU] **22.** &nbsp; $x^{2}y''+\left(x^{2}+5x\right)y'+(2x+3)y=0$
+[CEVAP]
+**Adım 1 — Başlangıç denklemi.** $b_{0}=5$, &nbsp;$c_{0}=3$:
+
+$$r(r-1)+5r+3=r^{2}+4r+3=(r+1)(r+3)=0\;\Longrightarrow\;r_{1}=-1,\quad r_{2}=-3$$
+
+Kök farkı $2$, pozitif tam sayı.
+
+**Adım 2 — İndirgeme bağıntısı ve ortak çarpan.**
+
+$$\underbrace{\left[m^{2}+4m+3\right]}_{(m+1)(m+3)}a_{n}+\underbrace{\left[(m-1)+2\right]}_{m+1}a_{n-1}=0$$
+
+$$\boxed{\;(m+1)\Big[(m+3)a_{n}+a_{n-1}\Big]=0\;}$$
+
+**Adım 3 — Küçük kök $r_{2}=-3$: zincir kesiliyor.** $m=n-3$ için çarpanlar $(n-2)$ ve $n$:
+
+$$a_{1}=-\frac{a_{0}}{1}=-a_{0}$$
+
+$n=2$'de $(m+1)=0$ &nbsp;$\Rightarrow$&nbsp; $0=0$, ==$a_{2}$ serbest ve $a_{0}$ zinciri bitiyor:==
+
+$$\boxed{\;y_{2}=x^{-3}(1-x)=\frac{1-x}{x^{3}}\;}$$
+
+**Adım 4 — Büyük kök $r_{1}=-1$.** $m=n-1$ için $a_{n}=-\dfrac{a_{n-1}}{n+2}$:
+
+$$a_{1}=-\frac{a_{0}}{3},\quad a_{2}=\frac{a_{0}}{12},\quad a_{3}=-\frac{a_{0}}{60}$$
+
+$$\boxed{\;y_{1}=x^{-1}\left(1-\frac{x}{3}+\frac{x^{2}}{12}-\frac{x^{3}}{60}+\cdots\right)\;}$$
+
+**Doğrulama 1 — $y_{2}$ sonlu, tam kontrol.** $y=x^{-3}-x^{-2}$ için:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Kuvvet</th><th>$x^{2}y''$</th><th>$x^{2}y'$</th><th>$5xy'$</th><th>$2xy$</th><th>$3y$</th><th>Toplam</th></tr>
+<tr><td>$x^{-3}$</td><td>$12$</td><td>$0$</td><td>$-15$</td><td>$0$</td><td>$3$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-2}$</td><td>$-6$</td><td>$-3$</td><td>$10$</td><td>$2$</td><td>$-3$</td><td>$0$ &#10003;</td></tr>
+<tr><td>$x^{-1}$</td><td>$0$</td><td>$2$</td><td>$0$</td><td>$-2$</td><td>$0$</td><td>$0$ &#10003;</td></tr>
+</table>
+</div>
+
+**Doğrulama 2 — kapalı biçim.** $a_{n}=-\dfrac{a_{n-1}}{n+2}$ açılırsa $a_{n}=\dfrac{2(-1)^{n}}{(n+2)!}$, yani
+
+$$y_{1}=\frac{2}{x}\sum_{n\ge 0}\frac{(-x)^{n}}{(n+2)!}=\frac{2\left(e^{-x}-1+x\right)}{x^{3}}$$
+
+Buradan ==$x^{-3}e^{-x}$ de bir çözümdür.== Kontrol:
+
+$$y=x^{-3}e^{-x}\;\Longrightarrow\;y'=e^{-x}\left(-3x^{-4}-x^{-3}\right),\quad y''=e^{-x}\left(12x^{-5}+6x^{-4}+x^{-3}\right)$$
+
+$x^{-3}$ katsayısı: $12-3-15+2+3\cdot 1$ &nbsp;… terimleri tek tek toplayınca hepsi sıfır &#10003;
+
+$$\boxed{\;\text{Genel çözüm: }\;y=x^{-3}\left[A\,e^{-x}+B(1-x)\right]\;}$$
+
+[KUTU]
+**21 ve 22'de aynı yapı — ve bir sürpriz.** İkisinde de:
+
+1. İndirgeme bağıntısında ==ortak çarpan== çıktı ve belirsiz durum şanslı tarafa çözüldü.
+2. Küçük kökte zincir kesildi, ikinci çözüm ==sonlu== oldu.
+3. Kapalı biçim bir ==üstel fonksiyon== içeriyor.
+
+**Sürpriz şurada:** kesilen sonlu çözümler, üstelin ilk birkaç teriminin ta kendisi:
+
+<div class="tablo-sar">
+<table>
+<tr><th>Soru</th><th>Üstel</th><th>Sonlu çözüm</th><th>İlişki</th></tr>
+<tr><td>21</td><td>$e^{-2x}=1-2x+2x^{2}-\cdots$</td><td>$1-2x+2x^{2}$</td><td>ilk üç terim</td></tr>
+<tr><td>22</td><td>$e^{-x}=1-x+\tfrac{x^{2}}{2}-\cdots$</td><td>$1-x$</td><td>ilk iki terim</td></tr>
+</table>
+</div>
+
+==Bu tesadüf değil:== genel çözüm $x^{r_{2}}\left[Ae^{kx}+B\cdot(\text{kesik seri})\right]$ biçimindeyken, iki çözümün farkı serinin geri kalanını verir ve o da $x^{r_{1}}$ ile başlar. Kesme noktası tam olarak ==kök farkı kadar terimden sonra== gelir.
+
+**Sınavda ne işe yarar:** böyle bir denklemde ikinci çözüm sonlu çıkıyorsa, ==birinci çözümün kapalı biçimini tahmin edip doğrudan sınayabilirsiniz.== Bağıntıyı sonsuza kadar yürütmekten çok daha hızlıdır.
+[/KUTU]
+[/CEVAP]
+
+---
+
+### Frobenius yöntemiyle $x=0$ yakınındaki çözümleri bulunuz (23-32) — çözülmeyi bekleyen
+
+23. &nbsp; $x^{2}y''+\left(x^{2}+4x\right)y'+(2x+2)y=0$
 
 24. &nbsp; $x^{2}y''+2x^{3}y'-\left(x^{2}+\frac{15}{4}\right)y=0$ &nbsp;&nbsp;&nbsp; 25. &nbsp; $x^{2}y''+xy'+(x-1)y=0$
 

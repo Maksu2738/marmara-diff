@@ -192,14 +192,148 @@ menu: 3.4 Alıştırmalar
                                 </div>
                             </div>
                         </div>
-                        <div class="question-block"><p class="question-text">15. &nbsp; $x^{2}y^{\prime\prime}-4xy^{\prime}+6y=4x-6$</p></div>
-                        <div class="question-block"><p class="question-text">16. &nbsp; $x^{2}y^{\prime\prime}-5xy^{\prime}+8y=2x^{3}$</p></div>
-                        <div class="question-block"><p class="question-text">17. &nbsp; $x^{2}y^{\prime\prime}+4xy^{\prime}+2y=4\ln x$</p></div>
-                        <div class="question-block"><p class="question-text">18. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+4y=2x\ln x$</p></div>
-                        <div class="question-block"><p class="question-text">19. &nbsp; $x^{2}y^{\prime\prime}+xy^{\prime}+y=4\sin(\ln x)$</p></div>
-                        <div class="question-block"><p class="question-text">20. &nbsp; $x^{2}y^{\prime\prime}-3xy^{\prime}+5y=5x^{2}$</p></div>
-                        <div class="question-block"><p class="question-text">21. &nbsp; $x^{3}y^{\prime\prime\prime}-8x^{2}y^{\prime\prime}+28xy^{\prime}-40y=-\dfrac{9}{x}$</p></div>
-                        <div class="question-block"><p class="question-text">22. &nbsp; $x^{3}y^{\prime\prime\prime}-x^{2}y^{\prime\prime}+2xy^{\prime}-2y=x^{3}$</p></div>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Sağ taraf $x$'in kuvvetiyse özel çözüm tek bölmeyle çıkar</span>
+                            </div>
+                            <p>Homojen olmayan Cauchy-Euler denklemlerinde <span class="vurgu">belirsiz katsayılar kurmaya gerek yok.</span> Yardımcı polinomu $P(m)$ ile gösterelim (yani $y=x^{m}$ koyunca çıkan ifade). Sağ taraf $k\,x^{s}$ ise:</p>
+                            $$\boxed{\;y_{p}=\frac{k}{P(s)}\,x^{s}\qquad\left(P(s)\neq 0\ \text{olmak şartıyla}\right)\;}$$
+                            <p><strong>Neden çalışıyor:</strong> $L\left[x^{s}\right]=P(s)\,x^{s}$ olduğu için, $x^{s}$'i $P(s)$'e bölmek denklemi sağlar. <span class="vurgu">Tek satırlık iş.</span></p>
+                            <p><strong>Sağ taraf birden çok terimliyse</strong> her terime ayrı ayrı uygulayın ve toplayın (lineerlik).</p>
+                            <p><strong>Ne zaman çalışmaz:</strong> $P(s)=0$ ise, yani $x^{s}$ zaten homojen çözümün içindeyse. O zaman <span class="vurgu">çakışma var</span>, $\ln x$ ile çarpmanız gerekir.</p>
+                            <p><strong>Sağ taraf $\ln x$ ya da $\sin(\ln x)$ gibiyse</strong> kısayol geçmez; $x=e^{t}$ dönüşümü yapıp sabit katsayılı denkleme geçin, orada belirsiz katsayılar uygulayın.</p>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>15.</strong> &nbsp; $x^{2}y''-4xy'+6y=4x-6$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Homojen çözüm.</strong></p>
+                                $$P(m)=m(m-1)-4m+6=m^{2}-5m+6=(m-2)(m-3)\;\Longrightarrow\;y_{h}=c_{1}x^{2}+c_{2}x^{3}$$
+                                <p><strong>Adım 2 — Özel çözüm (kısayolla).</strong> Sağ taraf iki kuvvetin toplamı: $4x^{1}-6x^{0}$.</p>
+                                $$P(1)=1-5+6=2\;\Longrightarrow\;\frac{4}{2}x=2x$$
+                                $$P(0)=6\;\Longrightarrow\;\frac{-6}{6}x^{0}=-1$$
+                                $$y_{p}=2x-1$$
+                                $$\boxed{\;y=c_{1}x^{2}+c_{2}x^{3}+2x-1\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=2x-1$: &nbsp;$x^{2}\cdot 0-4x\cdot 2+6(2x-1)=-8x+12x-6=4x-6$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>16.</strong> &nbsp; $x^{2}y''-5xy'+8y=2x^{3}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}-6m+8=(m-2)(m-4)\;\Longrightarrow\;y_{h}=c_{1}x^{2}+c_{2}x^{4}$$
+                                <p><strong>Çakışma var mı?</strong> $s=3$ ve $P(3)=9-18+8=-1\neq 0$ &nbsp;$\Rightarrow$&nbsp; <span class="vurgu">yok, kısayol uygulanır:</span></p>
+                                $$y_{p}=\frac{2}{-1}x^{3}=-2x^{3}$$
+                                $$\boxed{\;y=c_{1}x^{2}+c_{2}x^{4}-2x^{3}\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=-2x^{3}$: &nbsp;$6(-2)x^{3}-15(-2)x^{3}+8(-2)x^{3}=(-12+30-16)x^{3}=2x^{3}$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>17.</strong> &nbsp; $x^{2}y''+4xy'+2y=4\ln x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}+3m+2=(m+1)(m+2)\;\Longrightarrow\;y_{h}=\frac{c_{1}}{x}+\frac{c_{2}}{x^{2}}$$
+                                <p><strong>Sağ taraf kuvvet değil</strong>, kısayol geçmez. $y_{p}=A\ln x+B$ deneyelim:</p>
+                                $$y_{p}'=\frac{A}{x},\qquad y_{p}''=-\frac{A}{x^{2}}$$
+                                $$-A+4A+2A\ln x+2B=2A\ln x+(3A+2B)$$
+                                <p>Eşitleyelim: &nbsp;$2A=4\Rightarrow A=2$; &nbsp;$3A+2B=0\Rightarrow B=-3$</p>
+                                $$\boxed{\;y=\frac{c_{1}}{x}+\frac{c_{2}}{x^{2}}+2\ln x-3\;}$$
+                                <p><strong>Doğrulama.</strong> $-2+8+2(2\ln x-3)=6+4\ln x-6=4\ln x$ &#10003;</p>
+                                <p><span class="vurgu">$\ln x$ denemesinin yanına sabit eklemeyi unutmayın</span>; unutsaydınız $3A$ terimi karşılıksız kalırdı.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>18.</strong> &nbsp; $x^{2}y''+xy'+4y=2x\ln x$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}+4=0\;\Longrightarrow\;m=\pm 2i\;\Longrightarrow\;y_{h}=c_{1}\cos(2\ln x)+c_{2}\sin(2\ln x)$$
+                                <p><strong>Sağ taraf $x$ ile $\ln x$'in çarpımı.</strong> Deneme de aynı biçimde: $y_{p}=Ax\ln x+Bx$.</p>
+                                $$y_{p}'=A\ln x+A+B,\qquad y_{p}''=\frac{A}{x}$$
+                                $$\underbrace{Ax}_{x^{2}y''}+\underbrace{Ax\ln x+(A+B)x}_{xy'}+\underbrace{4Ax\ln x+4Bx}_{4y}=5Ax\ln x+(2A+5B)x$$
+                                <p>Eşitleyelim: &nbsp;$5A=2\Rightarrow A=\dfrac{2}{5}$; &nbsp;$2A+5B=0\Rightarrow B=-\dfrac{4}{25}$</p>
+                                $$\boxed{\;y=c_{1}\cos(2\ln x)+c_{2}\sin(2\ln x)+\frac{2x\ln x}{5}-\frac{4x}{25}\;}$$
+                                <p><strong>Doğrulama.</strong> $A=\tfrac25$, $B=-\tfrac{4}{25}$ ile: &nbsp;$5\cdot\tfrac25=2$ &#10003; &nbsp;ve&nbsp; $2\cdot\tfrac25+5\left(-\tfrac{4}{25}\right)=\tfrac45-\tfrac45=0$ &#10003;</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>19.</strong> &nbsp; $x^{2}y''+xy'+y=4\sin(\ln x)$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}+1=0\;\Longrightarrow\;m=\pm i\;\Longrightarrow\;y_{h}=c_{1}\cos(\ln x)+c_{2}\sin(\ln x)$$
+                                <p><strong><span class="vurgu">Çakışma var!</span></strong> Sağ taraftaki $\sin(\ln x)$ zaten homojen çözümün içinde. Bu, <span class="vurgu">rezonans</span> durumudur.</p>
+                                <p><strong>En temiz yol: $t=\ln x$ dönüşümü.</strong> Denklem sabit katsayılıya iner:</p>
+                                $$\frac{d^{2}y}{dt^{2}}+y=4\sin t$$
+                                <p>Bu tanıdık rezonans problemidir; özel çözüm $t$ ile çarpılır:</p>
+                                $$y_{p}=-2t\cos t$$
+                                <p><strong>Kontrol:</strong> &nbsp;$y_{p}'=-2\cos t+2t\sin t$, &nbsp;$y_{p}''=4\sin t+2t\cos t$</p>
+                                $$y_{p}''+y_{p}=4\sin t+2t\cos t-2t\cos t=4\sin t\;\checkmark$$
+                                <p>$t=\ln x$ geri konursa:</p>
+                                $$\boxed{\;y=c_{1}\cos(\ln x)+c_{2}\sin(\ln x)-2\ln x\cos(\ln x)\;}$$
+                                <div class="highlight">
+                                    <p><strong>Çakışma Cauchy-Euler'de nasıl görünür?</strong> Sabit katsayılıda deneme fonksiyonunu $x$ ile çarpıyorduk; burada <span class="vurgu">$\ln x$ ile çarpıyoruz.</span> Sözlük yine aynı:</p>
+                                    $$t\;\longleftrightarrow\;\ln x$$
+                                    <p>Nitekim tekrarlı kökte ikinci çözümün $x^{m}\ln x$ olmasının sebebi de bu. <span class="vurgu">Çakışma ve tekrarlı kök, aynı olgunun iki yüzü.</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>20.</strong> &nbsp; $x^{2}y''-3xy'+5y=5x^{2}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$P(m)=m^{2}-4m+5=0\;\Longrightarrow\;m=2\pm i\;\Longrightarrow\;y_{h}=x^{2}\left[c_{1}\cos(\ln x)+c_{2}\sin(\ln x)\right]$$
+                                <p><strong>Çakışma tuzağı.</strong> Kökler $2\pm i$; sağ tarafta $x^{2}$ var. <span class="vurgu">Üsler benziyor ama $x^{2}$ homojen çözümün içinde değil</span> — homojen çözümdeki terimler $x^{2}\cos(\ln x)$ ve $x^{2}\sin(\ln x)$, düz $x^{2}$ değil.</p>
+                                $$P(2)=4-8+5=1\neq 0\;\Longrightarrow\;y_{p}=\frac{5}{1}x^{2}=5x^{2}$$
+                                $$\boxed{\;y=x^{2}\left[c_{1}\cos(\ln x)+c_{2}\sin(\ln x)\right]+5x^{2}\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=5x^{2}$: &nbsp;$2\cdot 5-3\cdot 2\cdot 5+5\cdot 5=10-30+25=5$, çarpı $x^{2}$ &#10003;</p>
+                                <p><span class="vurgu">Çakışma testi tek satır:</span> $P(s)$'yi hesaplayın. Sıfır değilse çakışma yoktur, üsler ne kadar benzerse benzesin.</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>21.</strong> &nbsp; $x^{3}y'''-8x^{2}y''+28xy'-40y=-\dfrac{9}{x}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Yardımcı polinom.</strong></p>
+                                $$P(m)=m(m-1)(m-2)-8m(m-1)+28m-40=m^{3}-11m^{2}+38m-40$$
+                                <p>$m=2$ deneyin: &nbsp;$8-44+76-40=0$ &#10003;</p>
+                                $$P(m)=(m-2)\left(m^{2}-9m+20\right)=(m-2)(m-4)(m-5)$$
+                                $$y_{h}=c_{1}x^{2}+c_{2}x^{4}+c_{3}x^{5}$$
+                                <p><strong>Adım 2 — Özel çözüm (kısayolla).</strong> Sağ taraf $-9x^{-1}$, yani $s=-1$:</p>
+                                $$P(-1)=-1-11-38-40=-90\;\Longrightarrow\;y_{p}=\frac{-9}{-90}x^{-1}=\frac{1}{10x}$$
+                                $$\boxed{\;y=c_{1}x^{2}+c_{2}x^{4}+c_{3}x^{5}+\frac{1}{10x}\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=\tfrac{1}{10}x^{-1}$ için $L\left[x^{-1}\right]=P(-1)x^{-1}=-90x^{-1}$, dolayısıyla $\tfrac{1}{10}(-90)x^{-1}=-\tfrac{9}{x}$ &#10003;</p>
+                                <p><span class="vurgu">Üçüncü mertebede bile özel çözüm tek bölmeyle çıktı.</span></p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>22.</strong> &nbsp; $x^{3}y'''-x^{2}y''+2xy'-2y=x^{3}$</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Yardımcı polinom.</strong></p>
+                                $$P(m)=m(m-1)(m-2)-m(m-1)+2m-2=m^{3}-4m^{2}+5m-2$$
+                                <p>$m=1$ deneyin: &nbsp;$1-4+5-2=0$ &#10003; &nbsp;→&nbsp; bölünce $m^{2}-3m+2=(m-1)(m-2)$</p>
+                                $$P(m)=(m-1)^{2}(m-2)$$
+                                <p><span class="vurgu">$m=1$ çift katlı</span> &nbsp;$\Rightarrow$&nbsp; $\ln x$ çarpanı:</p>
+                                $$y_{h}=x\left(c_{1}+c_{2}\ln x\right)+c_{3}x^{2}$$
+                                <p><strong>Adım 2 — Özel çözüm.</strong> $s=3$: &nbsp;$P(3)=27-36+15-2=4\neq 0$</p>
+                                $$y_{p}=\frac{1}{4}x^{3}$$
+                                $$\boxed{\;y=x\left(c_{1}+c_{2}\ln x\right)+c_{3}x^{2}+\frac{x^{3}}{4}\;}$$
+                                <p><strong>Doğrulama.</strong> $y_{p}=\tfrac14x^{3}$: &nbsp;$x^{3}y'''=\tfrac{6}{4}x^{3}$, &nbsp;$-x^{2}y''=-\tfrac{6}{4}x^{3}$, &nbsp;$2xy'=\tfrac{6}{4}x^{3}$, &nbsp;$-2y=-\tfrac{2}{4}x^{3}$</p>
+                                $$\frac{6-6+6-2}{4}x^{3}=x^{3}\;\checkmark$$
+                                <div class="highlight">
+                                    <p><strong>15-22'nin özeti — üç yol, hangisi ne zaman?</strong></p>
+                                    <div class="tablo-sar">
+                                    <table>
+                                    <tr><th>Sağ taraf</th><th>Yöntem</th><th>Sorular</th></tr>
+                                    <tr><td>$k\,x^{s}$ (çakışma yok)</td><td>==$y_{p}=\dfrac{k}{P(s)}x^{s}$== — tek bölme</td><td>15, 16, 20, 21, 22</td></tr>
+                                    <tr><td>$\ln x$'li ifade</td><td>aynı biçimde deneme</td><td>17, 18</td></tr>
+                                    <tr><td>çakışma var</td><td>$t=\ln x$, sonra $t$ ile çarp</td><td>19</td></tr>
+                                    </table>
+                                    </div>
+                                    <p><strong>Her seferinde ilk iş $P(s)$'yi hesaplamaktır:</strong> sıfır değilse birinci satır, sıfırsa üçüncü satır.</p>
+                                </div>
+                            </div>
+                        </div>
 
                         <p style="margin: 1.25rem 0 0.75rem; font-weight: 600; color: #4a5568;">Soru 23&ndash;30: <strong>Başlangıç değer problemlerini</strong> çözünüz. ($x&gt;0$ varsayınız.)</p>
 

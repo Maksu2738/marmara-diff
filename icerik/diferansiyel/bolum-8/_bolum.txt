@@ -1,0 +1,2 @@
+ad: Kısmi Diferansiyel Denklemler
+acik: hayir

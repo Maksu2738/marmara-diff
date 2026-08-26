@@ -297,6 +297,26 @@
                         </ul>
                     </li>
 
+                    <!-- ===== BÖLÜM 8 ===== -->
+                    <li>
+                        <button class="chapter-toggle" onclick="toggleChapter(this)">
+                            <span class="chapter-num">8</span>
+                            <span class="chapter-name">Kısmi Diferansiyel Denklemler</span>
+                            <span class="chevron">&#9654;</span>
+                        </button>
+                        <ul class="chapter-links">
+                            <li><a href="#kdd">Giriş</a></li>
+                            <li><a href="#kdd-temel">8.1 Temel Kavramlar</a></li>
+                            <li><a href="#kdd-siniflandirma">8.2 Sınıflandırma</a></li>
+                            <li><a href="#kdd-fourier">8.3 Fourier Serileri</a></li>
+                            <li><a href="#kdd-ayirma">8.4 Değişkenlerine Ayırma</a></li>
+                            <li><a href="#kdd-isi">8.5 Isı Denklemi</a></li>
+                            <li><a href="#kdd-dalga">8.6 Dalga Denklemi</a></li>
+                            <li><a href="#kdd-laplace">8.7 Laplace Denklemi</a></li>
+                            <li><a href="#kdd-formul-karti">8.8 Formül Kartı</a></li>
+                        </ul>
+                    </li>
+
                     <!-- ===== BÖLÜM 89 ===== -->
                     <li>
                         <button class="chapter-toggle" onclick="toggleChapter(this)">
@@ -20010,6 +20030,817 @@
 
 
                     <!-- ######################################################## -->
+                    <!-- BÖLÜM 8 — Kısmi Diferansiyel Denklemler -->
+                    <!-- ######################################################## -->
+
+                    <div id="kdd" class="section chapter-head">
+                        <div class="section-title">
+                            BÖLÜM 8: Kısmi Diferansiyel Denklemler
+                        </div>
+                        <div class="highlight">
+                            <p><strong>⚠ Bu bölüm ders notundan değil, önden hazırlandı.</strong></p>
+                            <p>Hocanın notlarında "CHAPTER 8: PARTIAL DIFFERENTIAL EQUATIONS" başlığı atılmış ama <span class="vurgu">altı boş</span>. Ders işlendiğinde notlar buraya girecek.</p>
+                            <p>Bu arada bölümün boş kalmaması için içerik, <span class="vurgu">standart müfredat ve hocanın önceki bölümlerdeki üslubu</span> esas alınarak yazıldı. Kapsam ve sıralama neredeyse kesinlikle örtüşür, ama:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li><strong>Gösterim farkı olabilir</strong> — hoca $u_{xx}$ yerine $\dfrac{\partial^{2}u}{\partial x^{2}}$ yazabilir, ayırma sabitini $-\lambda$ yerine $-k^{2}$ seçebilir.</li>
+                                <li><strong>Vurgu farkı olabilir</strong> — d'Alembert çözümüne girmeyebilir, ya da Schrödinger denklemine ayrı zaman ayırabilir.</li>
+                                <li><strong>Sınav kapsamı buradan okunamaz.</strong> Ders işlendikten sonra <span class="vurgu">kendi notunuzla karşılaştırın.</span></li>
+                            </ul>
+                            <p>Bir sonraki bölümde ne yapıldığı 8.1'in altındaki akış listesinden görülebilir.</p>
+                        </div>
+                        <p>Şimdiye kadarki bütün denklemlerde bilinmeyen fonksiyon <span class="vurgu">tek bir değişkene</span> bağlıydı: $y(x)$, $x(t)$. Türevler de bu yüzden adi türevlerdi — adı da oradan geliyordu: <strong>adi diferansiyel denklem</strong>.</p>
+                        <p>Gerçek problemlerin çoğunda bilinmeyen <span class="vurgu">birden çok değişkene</span> bağlıdır. Bir telin sıcaklığı hem konuma hem zamana bağlıdır: $u(x,t)$. Bir zarın yer değiştirmesi $u(x,y,t)$'dir. Böyle bir fonksiyonun türevleri <strong>kısmi türevlerdir</strong> ve içlerinde kısmi türev geçen denkleme <strong>kısmi diferansiyel denklem (partial differential equation, PDE)</strong> denir.</p>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Bölümün akışı</h3>
+                        <p><strong>8.1 Temel kavramlar.</strong> Mertebe, lineerlik, çözüm ne demek — ve ADD ile aradaki en önemli farkın ne olduğu: <span class="vurgu">keyfi sabit yerine keyfi fonksiyon.</span></p>
+                        <p><strong>8.2 Sınıflandırma.</strong> İkinci mertebeden lineer PDE'ler üç aileye ayrılır: <strong>eliptik</strong>, <strong>parabolik</strong>, <strong>hiperbolik</strong>. Ayrım tek bir sayıya bakar: $B^{2}-4AC$. Üç ailenin üç temsilcisi bu bölümün geri kalanının konusudur.</p>
+                        <p><strong>8.3 Fourier serileri.</strong> Değişkenlerine ayırma yöntemi, başlangıç koşulunu <span class="vurgu">sinüslerin toplamı olarak yazmayı</span> gerektirir. Bu altyapı önce kuruluyor.</p>
+                        <p><strong>8.4 Değişkenlerine ayırma.</strong> Bölümün ana yöntemi: $u(x,t)=X(x)T(t)$ kabulüyle bir PDE'yi <span class="vurgu">iki tane adi diferansiyel denkleme</span> indirgemek. Buradan sonrası tanıdık: Bölüm 3'ün karakteristik denklemleri.</p>
+                        <p><strong>8.5 – 8.7 Üç klasik denklem.</strong> Isı denklemi (parabolik), dalga denklemi (hiperbolik), Laplace denklemi (eliptik) — her biri baştan sona çözülüyor.</p>
+                        <div class="highlight">
+                            <p><strong>Bu bölümün iyi haberi:</strong> yeni bir çözme tekniği öğrenmiyorsunuz. Değişkenlerine ayırma yöntemi PDE'yi <span class="vurgu">Bölüm 3'te çözdüğünüz türden ADD'lere</span> çevirir. $X''+\lambda X=0$ denklemini zaten defalarca çözdünüz.</p>
+                            <p>Yeni olan tek şey <strong>sınır koşullarının</strong> hangi $\lambda$ değerlerine izin verdiğine bakmak — yani 7.14'teki <span class="vurgu">özdeğer problemi.</span> Bölüm 6'daki "seri ancak belirli $\lambda$'larda kesiliyordu" hikâyesinin aynısı burada da karşınıza çıkacak.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Bölüm 8'e girerken elinizde ne olmalı</span>
+                            </div>
+                            <p>Bu bölüm önceki bölümlerin <span class="vurgu">üstüne kuruluyor</span>. Zayıf hissettiğiniz yer varsa önce şunlara dönün:</p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Bölüm 8'de gereken</th><th>Nereden geliyor</th></tr>
+                                <tr><td>$X''+\lambda X=0$ çözümü</td><td><strong>3.1–3.2</strong> — sabit katsayılı, karakteristik denklem</td></tr>
+                                <tr><td>Kökün işaretine göre üç durum</td><td><strong>7.9</strong> — reel / katlı / karmaşık</td></tr>
+                                <tr><td>Özdeğer–özfonksiyon dili</td><td><strong>7.14</strong> — $\hat{L}y=\lambda y$</td></tr>
+                                <tr><td>Süperpozisyon (sonsuz toplam)</td><td><strong>7.8</strong> — lineerlik</td></tr>
+                                <tr><td>Belirli integral alma</td><td>Kalkülüs — kısmi integrasyon</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>En kritik ikisi:</strong> $X''+\lambda X=0$ denkleminin $\lambda&gt;0$, $\lambda=0$, $\lambda&lt;0$ için <span class="vurgu">üç ayrı çözümü</span> olduğunu ve sınır koşullarının hangisini elediğini bilmek. Bölüm 8'in tamamı bu tek hesaba dayanıyor; 8.4'te adım adım yapılıyor.</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-temel" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.1 &nbsp;Kısmi Diferansiyel Denklem — Temel Kavramlar
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tanım</h3>
+                        <p>> Bilinmeyen fonksiyonu <span class="vurgu">birden çok değişkene bağlı</span> olan ve içinde bu fonksiyonun <strong>kısmi türevleri</strong> geçen denkleme <strong>kısmi diferansiyel denklem (KDD)</strong> denir.</p>
+                        <p>Gösterim kısaltması yaygındır:</p>
+                        $$u_{x}=\frac{\partial u}{\partial x},\qquad u_{t}=\frac{\partial u}{\partial t},\qquad u_{xx}=\frac{\partial^{2}u}{\partial x^{2}},\qquad u_{xt}=\frac{\partial^{2}u}{\partial x\,\partial t}$$
+                        <p>Birkaç örnek:</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>Denklem</th><th>Adı</th></tr>
+                            <tr><td>$u_{t}=k\,u_{xx}$</td><td><strong>Isı denklemi</strong> (heat / diffusion equation)</td></tr>
+                            <tr><td>$u_{tt}=c^{2}u_{xx}$</td><td><strong>Dalga denklemi</strong> (wave equation)</td></tr>
+                            <tr><td>$u_{xx}+u_{yy}=0$</td><td><strong>Laplace denklemi</strong></td></tr>
+                            <tr><td>$u_{xx}+u_{yy}=f(x,y)$</td><td><strong>Poisson denklemi</strong></td></tr>
+                            <tr><td>$i\hbar\,u_{t}=-\dfrac{\hbar^{2}}{2m}u_{xx}+V u$</td><td><strong>Schrödinger denklemi</strong></td></tr>
+                        </table>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Mertebe ve lineerlik</h3>
+                        <p><strong>Mertebe:</strong> denklemde geçen en yüksek kısmi türevin mertebesidir. Yukarıdakilerin hepsi <span class="vurgu">ikinci mertebedendir.</span></p>
+                        <p><strong>Lineerlik:</strong> 7.8'deki ölçütün aynısı. Bilinmeyen $u$ ve türevleri <span class="vurgu">yalnız birinci kuvvetten ve birbirleriyle çarpılmadan</span> geçiyorsa denklem lineerdir.</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$u_{t}=k\,u_{xx}$ &nbsp;→&nbsp; lineer</li>
+                            <li>$u_{t}+u\,u_{x}=0$ &nbsp;→&nbsp; <strong>lineer değil</strong> ($u$ ile $u_x$ çarpılmış — Burgers denklemi)</li>
+                            <li>$u_{xx}+u_{yy}=u^{2}$ &nbsp;→&nbsp; <strong>lineer değil</strong></li>
+                        </ul>
+                        <p><strong>Homojenlik:</strong> $u$ içermeyen bir terim varsa denklem homojen değildir. $u_{xx}+u_{yy}=0$ homojen, $u_{xx}+u_{yy}=f(x,y)$ değil.</p>
+                        <div class="highlight">
+                            <p><strong>Süperpozisyon burada da geçerli.</strong> Denklem lineer ve homojense, $u_{1}$ ve $u_{2}$ çözümse $c_{1}u_{1}+c_{2}u_{2}$ de çözümdür (7.8).</p>
+                            <p>Bu bölümün püf noktası, bunun <span class="vurgu">sonsuz toplamlara</span> genişletilmesidir:</p>
+                            $$u=\sum_{n=1}^{\infty}c_{n}u_{n}$$
+                            <p>Değişkenlerine ayırma yöntemi tek tek $u_{n}$ çözümleri üretir; başlangıç koşulunu sağlatmak için <span class="vurgu">hepsini birden</span> toplarız. 8.3'teki Fourier serilerine ihtiyaç duymamızın sebebi budur.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">ADD ile en büyük fark: keyfi sabit değil, keyfi fonksiyon</h3>
+                        <p>Bir ADD'nin genel çözümünde <span class="vurgu">keyfi sabitler</span> vardır: $y=c_{1}e^{x}+c_{2}e^{-2x}$. Mertebe kaçsa o kadar sabit.</p>
+                        <p>KDD'de durum farklıdır.</p>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 8.1.</strong> &nbsp; $u_{x}=0$ denkleminin genel çözümünü bulunuz. Burada $u=u(x,y)$'dir.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$u_{x}=0$, "$x$'e göre türev sıfır" demektir — yani $u$, <span class="vurgu">$x$'e bağlı değildir.</span></p>
+                                <p>Adi durumda bunun sonucu "$u$ sabittir" olurdu. Ama burada $y$ diye ikinci bir değişken var ve $x$'e göre türev alırken $y$ <span class="vurgu">sabit tutulur.</span> Dolayısıyla $u$, $y$'nin herhangi bir fonksiyonu olabilir:</p>
+                                $$\boxed{\;u(x,y)=g(y)\;}$$
+                                <p>$g$ <strong>keyfi bir fonksiyondur</strong> — $g(y)=y^{2}$, $g(y)=\sin y$, $g(y)=17$, hepsi çözümdür.</p>
+                                <p><strong>Doğrulama:</strong> $\dfrac{\partial}{\partial x}g(y)=0$ &#10003; ($g$'nin içinde $x$ yok.)</p>
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 8.2.</strong> &nbsp; $u_{xy}=0$ denkleminin genel çözümünü bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>Denklemi $\dfrac{\partial}{\partial y}\left(u_{x}\right)=0$ diye okuyalım. Örnek 8.1'in mantığıyla $u_{x}$, $y$'ye bağlı değildir:</p>
+                                $$u_{x}=F(x)$$
+                                <p>Şimdi $x$'e göre integre edelim; bu sefer <span class="vurgu">integral sabiti $y$'nin fonksiyonu olur:</span></p>
+                                $$u(x,y)=\int F(x)\,dx+g(y)$$
+                                <p>$\int F(x)dx$ da $x$'in bir fonksiyonudur, ona $f(x)$ diyelim:</p>
+                                $$\boxed{\;u(x,y)=f(x)+g(y)\;}$$
+                                <p>İki <strong>keyfi fonksiyon</strong> çıktı — ikinci mertebeden bir ADD'de iki keyfi <em>sabit</em> çıkmasının karşılığı.</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Bunun pratik sonucu:</strong> KDD'lerde "genel çözümü bul, sonra koşulları uygula" stratejisi <span class="vurgu">işe yaramaz.</span> Keyfi fonksiyonları belirlemek, keyfi sabitleri belirlemekten kat kat zordur.</p>
+                            <p>Bu yüzden KDD'lerde yol farklıdır: <span class="vurgu">sınır ve başlangıç koşulları en baştan devreye sokulur</span> ve çözüm doğrudan onların üzerine inşa edilir. 8.4'teki değişkenlerine ayırma yöntemi tam olarak böyle çalışır.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yan koşullar</h3>
+                        <p>Bir KDD problemi denklemden ibaret değildir; yanında <span class="vurgu">koşullar</span> gelir.</p>
+                        <p><strong>Sınır koşulu (boundary condition):</strong> uzayın kenarında ne olduğunu söyler.</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$u(0,t)=0$ — çubuğun ucu buz gibi tutuluyor (<strong>Dirichlet</strong> koşulu)</li>
+                            <li>$u_{x}(0,t)=0$ — uçtan ısı akmıyor, yalıtılmış (<strong>Neumann</strong> koşulu)</li>
+                        </ul>
+                        <p><strong>Başlangıç koşulu (initial condition):</strong> $t=0$ anındaki durumu söyler.</p>
+                        <ul style="margin-left: 1rem;">
+                            <li>$u(x,0)=f(x)$ — başlangıçtaki sıcaklık dağılımı</li>
+                            <li>$u_{t}(x,0)=g(x)$ — başlangıçtaki hız (dalga denkleminde gerekir)</li>
+                        </ul>
+                        <div class="highlight">
+                            <p><strong>Kaç koşul gerekir?</strong> Kabaca: <span class="vurgu">bir değişkende kaçıncı mertebeden türev varsa, o değişkende o kadar koşul.</span></p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>Denklem</th><th>$t$'de mertebe</th><th>Gereken başlangıç koşulu</th></tr>
+                                <tr><td>Isı: $u_{t}=k u_{xx}$</td><td>1</td><td>$u(x,0)$ — bir tane</td></tr>
+                                <tr><td>Dalga: $u_{tt}=c^{2}u_{xx}$</td><td>2</td><td>$u(x,0)$ <strong>ve</strong> $u_{t}(x,0)$ — iki tane</td></tr>
+                                <tr><td>Laplace: $u_{xx}+u_{yy}=0$</td><td>—</td><td>zaman yok; <span class="vurgu">dört kenarda sınır koşulu</span></td></tr>
+                            </table>
+                            </div>
+                            <p>Isı denkleminde başlangıç hızı sormak anlamsızdır; dalga denkleminde sormamak ise problemi eksik bırakır.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Üç denklemi fiziksel olarak ayırt etme</span>
+                            </div>
+                            <p>Formülleri karıştırıyorsanız <span class="vurgu">ne anlattıklarına</span> bakın:</p>
+                            <p><strong>Isı denklemi $u_{t}=k\,u_{xx}$</strong> — "sıcaklığın değişim hızı, eğriliğiyle orantılıdır." Bir nokta komşularından soğuksa ($u_{xx}&gt;0$, çukur) ısınır. Sonuç: <span class="vurgu">her şey düzleşir, farklar silinir.</span> Zamanda geri gidilemez.</p>
+                            <p><strong>Dalga denklemi $u_{tt}=c^{2}u_{xx}$</strong> — "ivme, eğrilikle orantılıdır." Gergin bir tel çukurdayken yukarı çekilir, ama <span class="vurgu">atalet yüzünden dengeyi aşar</span> ve salınım başlar. Sonuç: enerji sönmez, zamanda geri gidilebilir.</p>
+                            <p><strong>Laplace denklemi $u_{xx}+u_{yy}=0$</strong> — "eğrilikler birbirini götürür." Zaman yoktur; bu, <span class="vurgu">ısı denkleminin sonsuz zaman sonraki hâlidir</span> ($u_t=0$ olduğunda $u_{xx}=0$). Denge durumunu tarif eder.</p>
+                            <p><strong>Tek satırlık ayırt etme:</strong> $t$'ye göre <strong>birinci</strong> türev → ısı (sönüm). $t$'ye göre <strong>ikinci</strong> türev → dalga (salınım). $t$ <strong>yok</strong> → Laplace (denge).</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-siniflandirma" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.2 &nbsp;İkinci Mertebeden Lineer KDD'lerin Sınıflandırılması
+                        </div>
+                        <p>İki değişkenli, ikinci mertebeden lineer bir KDD'nin genel biçimi:</p>
+                        $$A\,u_{xx}+B\,u_{xy}+C\,u_{yy}+D\,u_{x}+E\,u_{y}+F\,u=G \tag{8.1}$$
+                        <p>Denklemin karakterini belirleyen <span class="vurgu">yalnızca ilk üç katsayıdır.</span> Şu niceliğe <strong>diskriminant</strong> denir:</p>
+                        $$\boxed{\;\Delta=B^{2}-4AC\;} \tag{8.2}$$
+                        <div class="highlight">
+                            <p><strong>Sınıflandırma:</strong></p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th>$\Delta=B^{2}-4AC$</th><th>Tür</th><th>Temsilcisi</th></tr>
+                                <tr><td>$\Delta&lt;0$</td><td><strong>Eliptik</strong> (elliptic)</td><td>Laplace: $u_{xx}+u_{yy}=0$</td></tr>
+                                <tr><td>$\Delta=0$</td><td><strong>Parabolik</strong> (parabolic)</td><td>Isı: $u_{t}=k\,u_{xx}$</td></tr>
+                                <tr><td>$\Delta&gt;0$</td><td><strong>Hiperbolik</strong> (hyperbolic)</td><td>Dalga: $u_{tt}=c^{2}u_{xx}$</td></tr>
+                            </table>
+                            </div>
+                        </div>
+                        <p>Adlar konik kesitlerden gelir: $Ax^{2}+Bxy+Cy^{2}+\dots=0$ denklemi de aynı $B^{2}-4AC$ ölçütüyle elips, parabol ve hiperbole ayrılır. <span class="vurgu">Cebirsel yapı birebir aynı olduğu için adlar ödünç alınmıştır</span>; koniklerle geometrik bir ilgisi yoktur.</p>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 8.3.</strong> &nbsp; Üç klasik denklemi sınıflandırınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>(a) Laplace denklemi:</strong> $u_{xx}+u_{yy}=0$</p>
+                                $$A=1,\qquad B=0,\qquad C=1$$
+                                $$\Delta=0^{2}-4(1)(1)=-4&lt;0\;\Longrightarrow\;\textbf{eliptik}$$
+                                <p><strong>(b) Isı denklemi:</strong> $u_{t}=k\,u_{xx}$</p>
+                                <p>Önce $(8.1)$ kalıbına sokalım. İkinci değişken $y$ yerine $t$; her şeyi sola atarsak $k\,u_{xx}-u_{t}=0$:</p>
+                                $$A=k,\qquad B=0,\qquad C=0$$
+                                <p>($u_{tt}$ terimi yok, o yüzden $C=0$; $-u_{t}$ terimi $E$ katsayısıdır ve <span class="vurgu">sınıflandırmaya girmez.</span>)</p>
+                                $$\Delta=0^{2}-4(k)(0)=0\;\Longrightarrow\;\textbf{parabolik}$$
+                                <p><strong>(c) Dalga denklemi:</strong> $u_{tt}=c^{2}u_{xx}$</p>
+                                $$c^{2}u_{xx}-u_{tt}=0\;\Longrightarrow\;A=c^{2},\qquad B=0,\qquad C=-1$$
+                                $$\Delta=0^{2}-4\left(c^{2}\right)(-1)=4c^{2}&gt;0\;\Longrightarrow\;\textbf{hiperbolik}$$
+                            </div>
+                        </div>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 8.4.</strong> &nbsp; $u_{xx}+4u_{xy}+3u_{yy}-u_{x}=0$ denklemini sınıflandırınız.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$A=1,\qquad B=4,\qquad C=3$$
+                                $$\Delta=4^{2}-4(1)(3)=16-12=4&gt;0$$
+                                $$\boxed{\;\textbf{hiperbolik}\;}$$
+                                <p>$-u_{x}$ terimi $D=-1$ katsayısıdır; <span class="vurgu">diskriminanta girmez.</span></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Sınıf neden önemli?</h3>
+                        <p>Üç sınıf <span class="vurgu">bambaşka davranır</span>; çözüm yöntemi ve hangi koşulların gerektiği sınıfa göre değişir.</p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th></th><th>Eliptik</th><th>Parabolik</th><th>Hiperbolik</th></tr>
+                            <tr><td>Fiziksel karşılığı</td><td>Denge</td><td>Yayılma / sönüm</td><td>Salınım</td></tr>
+                            <tr><td>Zaman var mı</td><td>Yok</td><td>Var, <span class="vurgu">tek yönlü</span></td><td>Var, <span class="vurgu">çift yönlü</span></td></tr>
+                            <tr><td>Tipik koşullar</td><td>Kapalı bölgenin bütün kenarında</td><td>Bir başlangıç + iki sınır</td><td>İki başlangıç + iki sınır</td></tr>
+                            <tr><td>Süreksizlik</td><td>Anında düzleşir</td><td>Anında düzleşir</td><td><span class="vurgu">Bozulmadan taşınır</span></td></tr>
+                            <tr><td>Geriye çözülür mü</td><td>—</td><td><span class="vurgu">Hayır</span></td><td>Evet</td></tr>
+                        </table>
+                        </div>
+                        <div class="highlight">
+                            <p><strong>"Geriye çözülmez" ne demek?</strong> Isı denkleminde bugünün sıcaklık dağılımından dünkünü hesaplamak, <span class="vurgu">pratikte imkânsızdır</span>: farklar üstel hızla silindiği için, bugün ölçtüğünüz düzgün dağılıma karşılık dün çok farklı dağılımlar olabilirdi.</p>
+                            <p>Dalga denkleminde ise durum tersidir; hareketi geriye sarabilirsiniz. Bir ses kaydını tersten çalabilmenizin sebebi budur.</p>
+                        </div>
+                        <p><strong>Katsayılar sabit olmak zorunda değil.</strong> $A$, $B$, $C$ konuma bağlıysa denklem <span class="vurgu">bölgeden bölgeye sınıf değiştirebilir.</span> Klasik örnek <strong>Tricomi denklemi</strong>:</p>
+                        $$y\,u_{xx}+u_{yy}=0\;\Longrightarrow\;\Delta=-4y$$
+                        <p>$y&gt;0$ bölgesinde eliptik, $y&lt;0$ bölgesinde hiperboliktir. (Ses hızı altı ve üstü akışların modeli.)</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Sınıflandırma sorusu geldiğinde 30 saniye</span>
+                            </div>
+                            <p>Sınavda çıkarsa mekanik bir işlemdir; üç şeye dikkat:</p>
+                            <p><strong>1. Önce her şeyi sol tarafa atın.</strong> $u_{tt}=c^{2}u_{xx}$ ile $c^{2}u_{xx}-u_{tt}=0$ aynı denklem, ama katsayıları doğru okumak için ikincisi gerekir. İşareti kaçırırsanız hiperbolik yerine eliptik bulursunuz.</p>
+                            <p><strong>2. $B$, $u_{xy}$'nin katsayısıdır — $u_{x}$'in değil.</strong> En sık hata budur. $D$, $E$, $F$, $G$ <span class="vurgu">diskriminanta hiç girmez.</span></p>
+                            <p><strong>3. Çapraz terim yoksa ($B=0$) ölçüt basitleşir:</strong> $\Delta=-4AC$, yani <span class="vurgu">$A$ ile $C$'nin işaretine</span> bakmak yeterli:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$A$, $C$ <strong>aynı</strong> işaretli → eliptik</li>
+                                <li>İkisi <strong>zıt</strong> işaretli → hiperbolik</li>
+                                <li>Biri <strong>sıfır</strong> → parabolik</li>
+                            </ul>
+                            <p>Üç klasik denklemi bu kuralla bir bakışta ayırt edebilirsiniz: $(+,+)$ Laplace, $(+,-)$ dalga, $(+,0)$ ısı.</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-fourier" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.3 &nbsp;Fourier Serileri — Değişkenlerine Ayırma İçin Altyapı
+                        </div>
+                        <p>Değişkenlerine ayırma yöntemi bize sonsuz sayıda çözüm parçası üretecek:</p>
+                        $$u_{n}(x,t)=\sin\frac{n\pi x}{L}\cdot T_{n}(t)$$
+                        <p>Başlangıç koşulunu sağlatmak için bunları toplayacağız. Ama bunun işe yaraması için şu soruya cevap gerekiyor:</p>
+                        <p>> Verilen bir $f(x)$ fonksiyonu, <span class="vurgu">sinüslerin toplamı olarak</span> yazılabilir mi?</p>
+                        <p>Cevap: evet. Bu açılıma <strong>Fourier serisi</strong> denir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Tam Fourier serisi</h3>
+                        <p>$f$, $(-L,L)$ aralığında tanımlı olsun. Fourier serisi:</p>
+                        $$f(x)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty}\left[a_{n}\cos\frac{n\pi x}{L}+b_{n}\sin\frac{n\pi x}{L}\right] \tag{8.3}$$
+                        <p>Katsayılar (<strong>Euler-Fourier formülleri</strong>):</p>
+                        $$a_{n}=\frac{1}{L}\int_{-L}^{L}f(x)\cos\frac{n\pi x}{L}\,dx,\qquad b_{n}=\frac{1}{L}\int_{-L}^{L}f(x)\sin\frac{n\pi x}{L}\,dx \tag{8.4}$$
+                        <div class="highlight">
+                            <p><strong>Katsayı formülleri nereden geliyor — diklik.</strong> Şu integraller $m\neq n$ için sıfırdır:</p>
+                            $$\int_{-L}^{L}\sin\frac{m\pi x}{L}\sin\frac{n\pi x}{L}\,dx=\begin{cases}0,&amp; m\neq n\\ L,&amp; m=n\end{cases}$$
+                            $$\int_{-L}^{L}\sin\frac{m\pi x}{L}\cos\frac{n\pi x}{L}\,dx=0\quad\text{(her } m,n)$$
+                            <p>$(8.3)$'ün iki tarafını $\sin\dfrac{m\pi x}{L}$ ile çarpıp integre edin: sağdaki <span class="vurgu">sonsuz toplamın tek bir terimi hariç hepsi sıfırlanır</span> ve geriye $b_{m}L$ kalır. $(8.4)$ buradan çıkar.</p>
+                            <p>Bu, Bölüm 6'daki Legendre ve Bessel diklik bağıntılarının <span class="vurgu">aynı fikridir</span>; orada da katsayılar böyle bulunuyordu.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yarım aralık açılımları</h3>
+                        <p>KDD problemlerinde $f$ genellikle $(0,L)$ aralığında verilir — çubuğun ya da telin uzunluğu. O zaman fonksiyonu $(-L,0)$ aralığına <span class="vurgu">istediğimiz gibi genişletmekte serbestiz</span> ve seçimimiz seriyi belirler.</p>
+                        <p><strong>Tek genişletme → yalnız sinüs serisi.</strong> $f$ tek fonksiyon gibi davranırsa bütün $a_{n}$ sıfırlanır:</p>
+                        $$\boxed{\;f(x)=\sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi x}{L},\qquad b_{n}=\frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi x}{L}\,dx\;} \tag{8.5}$$
+                        <p><strong>Çift genişletme → yalnız kosinüs serisi.</strong></p>
+                        $$f(x)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty}a_{n}\cos\frac{n\pi x}{L},\qquad a_{n}=\frac{2}{L}\int_{0}^{L}f(x)\cos\frac{n\pi x}{L}\,dx \tag{8.6}$$
+                        <div class="highlight">
+                            <p><strong>Hangisini seçeceğinizi sınır koşulu söyler — kendiniz karar vermezsiniz.</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Uçlar sabit tutuluyorsa ($u(0,t)=u(L,t)=0$) → özfonksiyonlar $\sin\dfrac{n\pi x}{L}$ → <span class="vurgu">sinüs serisi $(8.5)$</span></li>
+                                <li>Uçlar yalıtılmışsa ($u_{x}(0,t)=u_{x}(L,t)=0$) → özfonksiyonlar $\cos\dfrac{n\pi x}{L}$ → <span class="vurgu">kosinüs serisi $(8.6)$</span></li>
+                            </ul>
+                            <p>$(8.5)$ ve $(8.6)$'daki <strong>$2/L$ çarpanına dikkat</strong>; tam seri $(8.4)$'te $1/L$ idi. Aralık yarıya indiği için katsayı ikiye katlanır. <span class="vurgu">En sık yapılan hata bu çarpanı karıştırmaktır.</span></p>
+                        </div>
+                        <hr>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 8.5.</strong> &nbsp; $f(x)=x$ fonksiyonunun $(0,L)$ aralığındaki sinüs serisi açılımını bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p>$(8.5)$'i kullanalım:</p>
+                                $$b_{n}=\frac{2}{L}\int_{0}^{L}x\sin\frac{n\pi x}{L}\,dx$$
+                                <p><strong>Kısmi integrasyon.</strong> $u=x$, $dv=\sin\dfrac{n\pi x}{L}dx$ alalım; o zaman $du=dx$ ve $v=-\dfrac{L}{n\pi}\cos\dfrac{n\pi x}{L}$:</p>
+                                $$\int_{0}^{L}x\sin\frac{n\pi x}{L}\,dx=\left[-\frac{Lx}{n\pi}\cos\frac{n\pi x}{L}\right]_{0}^{L}+\frac{L}{n\pi}\int_{0}^{L}\cos\frac{n\pi x}{L}\,dx$$
+                                <p><strong>Birinci terim.</strong> Üst sınırda $x=L$ ve $\cos n\pi=(-1)^{n}$; alt sınırda $x=0$ olduğu için terim sıfır:</p>
+                                $$-\frac{L^{2}}{n\pi}(-1)^{n}$$
+                                <p><strong>İkinci terim.</strong> İntegrali alalım:</p>
+                                $$\frac{L}{n\pi}\left[\frac{L}{n\pi}\sin\frac{n\pi x}{L}\right]_{0}^{L}=\frac{L^{2}}{n^{2}\pi^{2}}\left(\sin n\pi-0\right)=0$$
+                                <p>($\sin n\pi=0$ her tam sayı $n$ için.)</p>
+                                <p><strong>Birleştir.</strong></p>
+                                $$b_{n}=\frac{2}{L}\cdot\left(-\frac{L^{2}}{n\pi}(-1)^{n}\right)=\frac{2L\,(-1)^{n+1}}{n\pi}$$
+                                $$\boxed{\;x=\sum_{n=1}^{\infty}\frac{2L\,(-1)^{n+1}}{n\pi}\sin\frac{n\pi x}{L},\qquad 0&lt;x&lt;L\;}$$
+                                <p><strong>Açık hâli.</strong></p>
+                                $$x=\frac{2L}{\pi}\left[\sin\frac{\pi x}{L}-\frac{1}{2}\sin\frac{2\pi x}{L}+\frac{1}{3}\sin\frac{3\pi x}{L}-\cdots\right]$$
+                                <p><strong>Sağlama.</strong> $L=\pi$ ve $x=\dfrac{\pi}{2}$ alalım. Sol taraf $\dfrac{\pi}{2}\approx 1{,}571$. Sağ taraf:</p>
+                                $$2\left[\sin\frac{\pi}{2}-\frac{1}{2}\sin\pi+\frac{1}{3}\sin\frac{3\pi}{2}-\frac{1}{4}\sin 2\pi+\cdots\right]=2\left[1-0-\frac{1}{3}+0+\frac{1}{5}-\cdots\right]$$
+                                <p>Köşeli parantez, bilinen Leibniz serisidir ve $\dfrac{\pi}{4}$'e yakınsar. Sonuç $2\cdot\dfrac{\pi}{4}=\dfrac{\pi}{2}$ &#10003;</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 8.6.</strong> &nbsp; $f(x)=T_{0}$ (sabit) fonksiyonunun $(0,L)$ aralığındaki sinüs serisini bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                $$b_{n}=\frac{2}{L}\int_{0}^{L}T_{0}\sin\frac{n\pi x}{L}\,dx=\frac{2T_{0}}{L}\left[-\frac{L}{n\pi}\cos\frac{n\pi x}{L}\right]_{0}^{L}$$
+                                $$=\frac{2T_{0}}{L}\cdot\frac{L}{n\pi}\Big(1-\cos n\pi\Big)=\frac{2T_{0}}{n\pi}\Big(1-(-1)^{n}\Big)$$
+                                <p>Parantez, <span class="vurgu">$n$ çiftse $0$, tekse $2$</span> olur:</p>
+                                $$\boxed{\;b_{n}=\begin{cases}\dfrac{4T_{0}}{n\pi},&amp; n\text{ tek}\\[2mm] 0,&amp; n\text{ çift}\end{cases}\;}$$
+                                $$T_{0}=\frac{4T_{0}}{\pi}\left[\sin\frac{\pi x}{L}+\frac{1}{3}\sin\frac{3\pi x}{L}+\frac{1}{5}\sin\frac{5\pi x}{L}+\cdots\right]$$
+                                <p>Bu açılım 8.5'teki ısı denklemi örneğinde <span class="vurgu">doğrudan kullanılacak.</span></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Fourier katsayısı hesaplarken hız kazandıran üç şey</span>
+                            </div>
+                            <p><strong>1. Simetriyi önce kontrol edin.</strong> Tam seri isteniyorsa ($-L$ ile $L$ arasında):</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$f$ <strong>tek</strong> ise ($f(-x)=-f(x)$): bütün $a_{n}=0$, <span class="vurgu">yalnız sinüs hesaplayın</span></li>
+                                <li>$f$ <strong>çift</strong> ise ($f(-x)=f(x)$): bütün $b_{n}=0$, <span class="vurgu">yalnız kosinüs hesaplayın</span></li>
+                            </ul>
+                            <p>$f(x)=x$, $x^{3}$, $\sin x$ tektir; $f(x)=1$, $x^{2}$, $\cos x$, $\lvert x\rvert$ çifttir. Bu, işin yarısını siler.</p>
+                            <p><strong>2. Bu üç değeri ezberleyin, her hesapta çıkarlar:</strong></p>
+                            $$\cos n\pi=(-1)^{n},\qquad \sin n\pi=0,\qquad 1-(-1)^{n}=\begin{cases}2,&amp; n\text{ tek}\\ 0,&amp; n\text{ çift}\end{cases}$$
+                            <p><strong>3. $n$'yi $b_n$ formülünde $0$ yapmayın.</strong> $\sin$ serisinde $n$, $1$'den başlar. Kosinüs serisinde $a_{0}$ ayrı hesaplanır ve formülde $\cos 0=1$ olduğundan</p>
+                            $$\frac{a_{0}}{2}=\frac{1}{L}\int_{0}^{L}f(x)\,dx$$
+                            <p>yani <span class="vurgu">fonksiyonun ortalama değeridir.</span> Fiziksel olarak: çubuğun ortalama sıcaklığı.</p>
+                            <p><strong>Sonuç kontrolü:</strong> bulduğunuz seride birkaç terim alıp $f$'nin bilinen bir değerinde deneyin — Örnek 8.5'te yaptığımız gibi. Yakınsıyorsa katsayı büyük ihtimalle doğrudur.</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-ayirma" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.4 &nbsp;Değişkenlerine Ayırma Yöntemi
+                        </div>
+                        <p>Bölümün ana yöntemi. Fikir tek cümlede:</p>
+                        <p>> Çözümü <span class="vurgu">her biri tek değişkene bağlı fonksiyonların çarpımı</span> olarak ara. Böylece KDD, birbirinden bağımsız iki ADD'ye ayrışır.</p>
+                        $$\boxed{\;u(x,t)=X(x)\,T(t)\;}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yöntemin adımları</h3>
+                        <p><strong>Adım 1.</strong> $u=XT$ kabulünü denkleme koy.</p>
+                        <p><strong>Adım 2.</strong> Denklemi, <span class="vurgu">bir tarafta yalnız $x$, öbür tarafta yalnız $t$</span> kalacak biçimde ayır.</p>
+                        <p><strong>Adım 3.</strong> İki taraf farklı değişkenlere bağlı ama eşit olduğuna göre, ikisi de <span class="vurgu">aynı sabite</span> eşit olmalıdır. Bu sabite <strong>ayırma sabiti</strong> denir; geleneksel olarak $-\lambda$ yazılır.</p>
+                        <p><strong>Adım 4.</strong> İki ADD'yi çöz. Sınır koşulları, $\lambda$'nın alabileceği değerleri (<strong>özdeğerler</strong>) belirler.</p>
+                        <p><strong>Adım 5.</strong> Bulunan çözümleri süperpozisyonla topla; başlangıç koşulunu <span class="vurgu">Fourier serisiyle</span> sağlat.</p>
+                        <div class="highlight">
+                            <p><strong>Adım 3 neden geçerli?</strong> $\dfrac{X''}{X}$ yalnız $x$'e, $\dfrac{T'}{kT}$ yalnız $t$'ye bağlı. Bunlar her $x$ ve her $t$ için eşitse, <span class="vurgu">$x$'i değiştirdiğinizde sol taraf değişemez</span> (çünkü sağ taraf $x$'ten habersizdir). Demek ki sol taraf $x$'e bağlı değildir; aynı gerekçeyle sağ taraf $t$'ye bağlı değildir. <span class="vurgu">Bir sayıdan başka bir şey olamazlar.</span></p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ayırma sabiti nasıl seçilir?</h3>
+                        <p>Adım 4'ün kalbi, defalarca karşınıza çıkacak şu problemdir:</p>
+                        $$X''+\lambda X=0,\qquad X(0)=0,\quad X(L)=0 \tag{8.7}$$
+                        <p>Bu bir <strong>özdeğer problemidir</strong> (7.14): hangi $\lambda$ değerleri için <span class="vurgu">sıfırdan farklı</span> bir çözüm var? Üç durumu tek tek eleyelim.</p>
+                        <p><strong>Durum 1: $\lambda&lt;0$.</strong> $\lambda=-\mu^{2}$ yazalım ($\mu&gt;0$). Denklem $X''-\mu^{2}X=0$, kökler $\pm\mu$:</p>
+                        $$X=c_{1}e^{\mu x}+c_{2}e^{-\mu x}$$
+                        <p>$X(0)=0\;\Rightarrow\;c_{1}+c_{2}=0\;\Rightarrow\;c_{2}=-c_{1}$, yani $X=c_{1}\left(e^{\mu x}-e^{-\mu x}\right)=2c_{1}\sinh\mu x$.</p>
+                        <p>$X(L)=0\;\Rightarrow\;2c_{1}\sinh\mu L=0$. Ama $\mu L&gt;0$ için $\sinh\mu L\neq 0$, dolayısıyla $c_{1}=0$.</p>
+                        <p><span class="vurgu">Yalnız aşikâr çözüm $X\equiv 0$ çıkar. Bu $\lambda$ değerleri işe yaramaz.</span></p>
+                        <p><strong>Durum 2: $\lambda=0$.</strong> Denklem $X''=0$, çözüm $X=c_{1}x+c_{2}$.</p>
+                        <p>$X(0)=0\Rightarrow c_{2}=0$; &nbsp; $X(L)=0\Rightarrow c_{1}L=0\Rightarrow c_{1}=0$.</p>
+                        <p><span class="vurgu">Yine yalnız $X\equiv 0$.</span></p>
+                        <p><strong>Durum 3: $\lambda&gt;0$.</strong> $\lambda=\mu^{2}$ yazalım. Denklem $X''+\mu^{2}X=0$, kökler $\pm i\mu$ (7.9):</p>
+                        $$X=c_{1}\cos\mu x+c_{2}\sin\mu x$$
+                        <p>$X(0)=0\;\Rightarrow\;c_{1}=0$, geriye $X=c_{2}\sin\mu x$ kalır.</p>
+                        <p>$X(L)=0\;\Rightarrow\;c_{2}\sin\mu L=0$. <span class="vurgu">Şimdi $c_{2}=0$ demek zorunda değiliz</span>; bunun yerine</p>
+                        $$\sin\mu L=0\;\Longrightarrow\;\mu L=n\pi\;\Longrightarrow\;\mu=\frac{n\pi}{L},\qquad n=1,2,3,\dots$$
+                        <div class="highlight">
+                            <p><strong>Sonuç — $(8.7)$'nin özdeğer ve özfonksiyonları:</strong></p>
+                            $$\boxed{\;\lambda_{n}=\left(\frac{n\pi}{L}\right)^{2},\qquad X_{n}(x)=\sin\frac{n\pi x}{L},\qquad n=1,2,3,\dots\;} \tag{8.8}$$
+                            <p>Bu sonuç <strong>8.5, 8.6 ve 8.7'de aynen kullanılacak.</strong> Bölüm 8'de ezberlenecek tek şey buysa, budur.</p>
+                            <p>$n=0$ alınmaz ($\sin 0=0$, aşikâr çözüm); negatif $n$ de yeni bir şey vermez, yalnız işaret değiştirir.</p>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yalıtılmış uçlar durumu</h3>
+                        <p>Sınır koşulu $X'(0)=X'(L)=0$ ise (uçlardan akış yok) aynı eleme yapılır, sonuç değişir:</p>
+                        $$\lambda_{n}=\left(\frac{n\pi}{L}\right)^{2},\qquad X_{n}(x)=\cos\frac{n\pi x}{L},\qquad n=0,1,2,\dots \tag{8.9}$$
+                        <p>Burada <span class="vurgu">$n=0$ da geçerlidir</span> ($X_{0}=1$, sabit çözüm — fiziksel olarak "çubuk baştan sona aynı sıcaklıkta ve öyle kalıyor"). 8.3'teki kosinüs serisinin $a_{0}$ terimi buradan gelir.</p>
+                        <hr>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 8.7.</strong> &nbsp; Isı denklemi $u_{t}=k\,u_{xx}$ için değişkenlerine ayırma adımlarını yürütünüz. Sınır koşulları $u(0,t)=u(L,t)=0$.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Yerine koy.</strong> $u=X(x)T(t)$ için $u_{t}=XT'$ ve $u_{xx}=X''T$:</p>
+                                $$XT'=k\,X''T$$
+                                <p><strong>Adım 2 — Ayır.</strong> İki tarafı $kXT$'ye bölelim:</p>
+                                $$\frac{T'}{kT}=\frac{X''}{X}$$
+                                <p>Sol taraf yalnız $t$'ye, sağ taraf yalnız $x$'e bağlı.</p>
+                                <p><strong>Adım 3 — Sabite eşitle.</strong></p>
+                                $$\frac{T'}{kT}=\frac{X''}{X}=-\lambda$$
+                                <p><strong>Adım 4 — İki ADD.</strong></p>
+                                $$X''+\lambda X=0,\qquad T'+k\lambda T=0$$
+                                <p><strong>Sınır koşullarını $X$'e aktar.</strong> $u(0,t)=X(0)T(t)=0$ her $t$ için geçerli olmalı. $T\equiv 0$ olsaydı çözüm sıfır olurdu, o yüzden:</p>
+                                $$X(0)=0,\qquad X(L)=0$$
+                                <p>Bu tam olarak $(8.7)$'dir; cevabı $(8.8)$'de duruyor:</p>
+                                $$\lambda_{n}=\left(\frac{n\pi}{L}\right)^{2},\qquad X_{n}=\sin\frac{n\pi x}{L}$$
+                                <p><strong>$T$ denklemi.</strong> Birinci mertebeden, ayrılabilir:</p>
+                                $$T'=-k\lambda_{n}T\;\Longrightarrow\;T_{n}(t)=e^{-k\left(\frac{n\pi}{L}\right)^{2}t}$$
+                                <p><strong>Adım 5 — Çözüm parçaları ve süperpozisyon.</strong></p>
+                                $$u_{n}(x,t)=\sin\frac{n\pi x}{L}\;e^{-k\left(\frac{n\pi}{L}\right)^{2}t}$$
+                                $$\boxed{\;u(x,t)=\sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi x}{L}\;e^{-k\left(\frac{n\pi}{L}\right)^{2}t}\;}$$
+                                <p>$b_{n}$ katsayıları başlangıç koşulundan belirlenir — 8.5'te.</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yöntem ne zaman işlemez?</h3>
+                        <p>Değişkenlerine ayırma <span class="vurgu">her KDD'de çalışmaz.</span> Gerekenler:</p>
+                        <ol>
+                            <li>Denklem <strong>lineer ve homojen</strong> olmalı (süperpozisyon şart)</li>
+                            <li><strong>Sınır koşulları da homojen</strong> olmalı ($u(0,t)=0$ gibi; $u(0,t)=5$ ise önce dönüştürme gerekir)</li>
+                            <li>Bölgenin geometrisi koordinatlara <strong>uymalı</strong> (dikdörtgen, daire, silindir — çarpık bir bölgede ayrışma olmaz)</li>
+                        </ol>
+                        <div class="highlight">
+                            <p><strong>Homojen olmayan sınır koşulu ne yapılır?</strong> $u(0,t)=T_{1}$, $u(L,t)=T_{2}$ gibi bir durumda çözüm ikiye ayrılır:</p>
+                            $$u(x,t)=\underbrace{v(x)}_{\text{kalıcı durum}}+\underbrace{w(x,t)}_{\text{geçici}}$$
+                            <p>$v(x)$, $t\to\infty$ hâlidir ve $v''=0$ ile bulunur — yani <span class="vurgu">uçları birleştiren doğru:</span></p>
+                            $$v(x)=T_{1}+\frac{T_{2}-T_{1}}{L}x$$
+                            <p>Geriye kalan $w$, <span class="vurgu">homojen sınır koşullarını sağlar</span> ve yukarıdaki yöntemle çözülür. Başlangıç koşulu da $w(x,0)=f(x)-v(x)$ olarak güncellenir.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Yöntemi uygularken düşülen dört tuzak</span>
+                            </div>
+                            <p><strong>1. Ayırma sabitinin işaretini baştan seçmeyin.</strong> "$-\lambda$" yazmak bir tercih değil, <span class="vurgu">gelenek</span>; hangi işaretin işe yaradığını sınır koşulları söyler. Üç durumu da elemeden geçin — sınavda puanın önemli kısmı $\lambda&lt;0$ ve $\lambda=0$ durumlarının <span class="vurgu">neden elendiğini yazmaktadır.</span></p>
+                            <p><strong>2. Sınır koşullarını $u$'dan $X$'e aktarmayı unutmayın.</strong> $u(0,t)=0$ ifadesi doğrudan kullanılamaz; $X(0)T(t)=0$ yazıp "$T\equiv 0$ olamaz, o hâlde $X(0)=0$" muhakemesi <span class="vurgu">açıkça yapılmalıdır.</span></p>
+                            <p><strong>3. Başlangıç koşulunu erken uygulamayın.</strong> $u(x,0)=f(x)$ koşulu <span class="vurgu">tek bir $u_{n}$'ye değil, toplamın tamamına</span> uygulanır. Adım 5'e kadar bekleyin; erken uygularsanız $f$'nin tam olarak $\sin\frac{n\pi x}{L}$ olmasını beklemek zorunda kalırsınız.</p>
+                            <p><strong>4. $T$ denkleminde sabit yazmayın.</strong> $T_{n}=c_{n}e^{-k\lambda_{n}t}$ yazıp $X_{n}$'deki $c_2$ ile çarparsanız iki sabiti taşımış olursunuz. <span class="vurgu">Bütün sabitleri tek bir $b_{n}$'de toplayın</span>, Adım 5'te Fourier katsayısı olarak zaten belirlenecek.</p>
+                            <p><strong>Kontrol refleksi:</strong> bulduğunuz $u(x,t)$'yi denklemde ve sınır koşullarında sınayın. $x=0$ ve $x=L$'de $\sin n\pi=0$ verdiğinden sınır koşulları <span class="vurgu">otomatik sağlanmalıdır</span>; sağlanmıyorsa özfonksiyonu yanlış seçmişsinizdir.</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-isi" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.5 &nbsp;Isı Denklemi — Parabolik Denklemin Temsilcisi
+                        </div>
+                        <p>Uzunluğu $L$ olan, yanal yüzeyi yalıtılmış ince bir çubuk düşünün. $u(x,t)$, $x$ noktasının $t$ anındaki sıcaklığı olsun.</p>
+                        $$\boxed{\;u_{t}=k\,u_{xx},\qquad 0&lt;x&lt;L,\quad t&gt;0\;} \tag{8.10}$$
+                        <p>$k&gt;0$ sabitine <strong>ısı yayılım katsayısı (thermal diffusivity)</strong> denir; malzemenin ısıyı ne hızla ilettiğini söyler.</p>
+                        <p><strong>Yan koşullar</strong> (uçları buzda tutulan çubuk):</p>
+                        $$u(0,t)=0,\qquad u(L,t)=0\qquad\text{(sınır)}$$
+                        $$u(x,0)=f(x)\qquad\text{(başlangıç)}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözüm</h3>
+                        <p>Örnek 8.7'de yöntemi yürütmüş ve şuraya varmıştık:</p>
+                        $$u(x,t)=\sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi x}{L}\;e^{-k\left(\frac{n\pi}{L}\right)^{2}t} \tag{8.11}$$
+                        <p>Geriye tek iş kaldı: $b_{n}$'leri belirlemek. $t=0$ koyalım — üstel terim $1$ olur:</p>
+                        $$u(x,0)=\sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi x}{L}=f(x)$$
+                        <p><span class="vurgu">Bu tam olarak $f$'nin sinüs serisi açılımıdır</span> $(8.5)$:</p>
+                        $$\boxed{\;b_{n}=\frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi x}{L}\,dx\;} \tag{8.12}$$
+                        <p>$(8.11)$ ve $(8.12)$ birlikte problemin tam çözümüdür.</p>
+                        <hr>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 8.8.</strong> &nbsp; Uzunluğu $L$ olan bir çubuk baştan sona $T_{0}$ sıcaklığındadır. $t=0$ anında iki ucu birden $0$ dereceye getirilip orada tutuluyor. $u(x,t)$'yi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Problem.</strong></p>
+                                $$u_{t}=k\,u_{xx},\qquad u(0,t)=u(L,t)=0,\qquad u(x,0)=T_{0}$$
+                                <p><strong>Adım 1 — Çözümün biçimi.</strong> $(8.11)$ hazır:</p>
+                                $$u(x,t)=\sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi x}{L}\;e^{-k\left(\frac{n\pi}{L}\right)^{2}t}$$
+                                <p><strong>Adım 2 — Katsayılar.</strong> $f(x)=T_{0}$ sabit; bu açılımı Örnek 8.6'da yapmıştık:</p>
+                                $$b_{n}=\frac{2T_{0}}{n\pi}\Big(1-(-1)^{n}\Big)=\begin{cases}\dfrac{4T_{0}}{n\pi},&amp; n\text{ tek}\\[2mm] 0,&amp; n\text{ çift}\end{cases}$$
+                                <p><strong>Adım 3 — Yerine koy.</strong> Yalnız tek $n$'ler kaldığından $n=2m-1$ yazalım:</p>
+                                $$\boxed{\;u(x,t)=\frac{4T_{0}}{\pi}\sum_{m=1}^{\infty}\frac{1}{2m-1}\sin\frac{(2m-1)\pi x}{L}\;e^{-k\left(\frac{(2m-1)\pi}{L}\right)^{2}t}\;}$$
+                                <p><strong>Açık ilk terimler:</strong></p>
+                                $$u=\frac{4T_{0}}{\pi}\left[\sin\frac{\pi x}{L}e^{-k\frac{\pi^{2}}{L^{2}}t}+\frac{1}{3}\sin\frac{3\pi x}{L}e^{-9k\frac{\pi^{2}}{L^{2}}t}+\frac{1}{5}\sin\frac{5\pi x}{L}e^{-25k\frac{\pi^{2}}{L^{2}}t}+\cdots\right]$$
+                                <p><strong>Kontroller.</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$x=0$ ve $x=L$'de bütün sinüsler sıfır &nbsp;→&nbsp; $u=0$ &#10003;</li>
+                                    <li>$t\to\infty$ iken bütün üsteller sıfıra gider &nbsp;→&nbsp; $u\to 0$ &#10003; (çubuk tamamen soğur)</li>
+                                    <li>$t=0$'da seri, Örnek 8.6'daki $T_{0}$ açılımıdır &#10003;</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözümün okunuşu</h3>
+                        <div class="highlight">
+                            <p><strong>Üsteldeki $n^{2}$ her şeyi anlatır.</strong></p>
+                            $$e^{-k\left(\frac{n\pi}{L}\right)^{2}t}$$
+                            <p>Sönüm hızı <span class="vurgu">$n$ ile değil, $n^{2}$ ile</span> artar. $n=3$ terimi, $n=1$ teriminden <strong>dokuz kat</strong> hızlı söner.</p>
+                            <p><strong>Sonucu:</strong> başlangıçtaki keskin ayrıntılar (yüksek $n$, kısa dalga boyu) <span class="vurgu">çok çabuk silinir</span>; geriye en yumuşak bileşen olan $n=1$ kalır. Kısa bir süre sonra sıcaklık dağılımı, başlangıçta ne olursa olsun, tek bir sinüs kamburuna benzer:</p>
+                            $$u(x,t)\approx b_{1}\sin\frac{\pi x}{L}e^{-k\frac{\pi^{2}}{L^{2}}t}\qquad (t \text{ büyükken})$$
+                            <p>8.1'de "ısı denklemi her şeyi düzleştirir" derken kastedilen budur — <span class="vurgu">ve geriye çözülememesinin sebebi de bu.</span> Silinen ayrıntıyı geri getirecek bilgi kalmıyor.</p>
+                        </div>
+                        <p><strong>Karakteristik zaman.</strong> İlk terimin sönmesi için gereken süre</p>
+                        $$\tau=\frac{L^{2}}{k\pi^{2}}$$
+                        <p>mertebesindedir. <span class="vurgu">$L^{2}$ ile arttığına dikkat:</span> çubuğun boyu iki katına çıkarsa soğuma süresi dört katına çıkar.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Yalıtılmış uçlar</h3>
+                        <p>Sınır koşulu $u_{x}(0,t)=u_{x}(L,t)=0$ ise özfonksiyonlar $(8.9)$'a göre kosinüs olur:</p>
+                        $$u(x,t)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty}a_{n}\cos\frac{n\pi x}{L}\;e^{-k\left(\frac{n\pi}{L}\right)^{2}t},\qquad a_{n}=\frac{2}{L}\int_{0}^{L}f(x)\cos\frac{n\pi x}{L}\,dx$$
+                        <div class="highlight">
+                            <p><strong>Fark nerede ortaya çıkıyor?</strong> $n=0$ terimi <span class="vurgu">sönmez</span> ($e^{0}=1$). Yani $t\to\infty$ iken</p>
+                            $$u\to\frac{a_{0}}{2}=\frac{1}{L}\int_{0}^{L}f(x)\,dx$$
+                            <p>Çubuk sıfıra değil, <span class="vurgu">başlangıçtaki ortalama sıcaklığa</span> gider. Fiziksel olarak doğru: uçlar yalıtılmışsa ısı dışarı kaçamaz, yalnız içeride <span class="vurgu">eşitlenir.</span> Uçlar buzdayken ise ısı dışarı akar ve her şey sıfıra iner.</p>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Isı denklemi sorusunu çözerken izlenecek sıra</span>
+                            </div>
+                            <p>Sınavda bu problem neredeyse hep aynı kalıptadır. <span class="vurgu">Ezberlenecek şey formül değil, sıra:</span></p>
+                            <ol>
+                                <li><strong>Sınır koşuluna bak</strong> → sinüs mü kosinüs mü? ($u=0$ ise sinüs, $u_{x}=0$ ise kosinüs)</li>
+                                <li><strong>Çözüm kalıbını yaz</strong> → $(8.11)$; türetmeyi tekrar yapmana gerek yok (istenmiyorsa)</li>
+                                <li><strong>Başlangıç koşulunu Fourier'e sok</strong> → tek integral, $(8.12)$</li>
+                                <li><strong>Kontrol et</strong> → $t=0$ ve $t\to\infty$</li>
+                            </ol>
+                            <p><strong>Zaman kazandıran özel durum:</strong> $f(x)$ zaten sinüslerden oluşuyorsa <span class="vurgu">integral almayın.</span> Örneğin</p>
+                            $$f(x)=3\sin\frac{\pi x}{L}-\sin\frac{4\pi x}{L}$$
+                            <p>verilmişse katsayılar doğrudan okunur: $b_{1}=3$, $b_{4}=-1$, gerisi sıfır. Çözüm tek satır:</p>
+                            $$u=3\sin\frac{\pi x}{L}e^{-k\frac{\pi^{2}}{L^{2}}t}-\sin\frac{4\pi x}{L}e^{-16k\frac{\pi^{2}}{L^{2}}t}$$
+                            <p>Sınavda integral alarak vakit harcamadan önce <span class="vurgu">$f$'ye bir bakın.</span></p>
+                            <p><strong>Boyut kontrolü:</strong> üsteldeki $k\left(\frac{n\pi}{L}\right)^{2}t$ ifadesi <span class="vurgu">boyutsuz olmalı.</span> $k$'nın birimi m²/s, $\left(\frac{1}{L}\right)^{2}$ 1/m², $t$ saniye — çarpımları boyutsuz &#10003;. Formülü yanlış hatırladıysanız bu kontrol yakalar.</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-dalga" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.6 &nbsp;Dalga Denklemi — Hiperbolik Denklemin Temsilcisi
+                        </div>
+                        <p>İki ucundan gerilmiş, uzunluğu $L$ olan bir tel. $u(x,t)$, $x$ noktasının $t$ anındaki <span class="vurgu">düşey yer değiştirmesi</span> olsun.</p>
+                        $$\boxed{\;u_{tt}=c^{2}u_{xx},\qquad 0&lt;x&lt;L,\quad t&gt;0\;} \tag{8.13}$$
+                        <p>$c$ sabiti, dalganın tel boyunca <span class="vurgu">yayılma hızıdır</span>; $c=\sqrt{T/\rho}$ (gerilme / birim uzunluk kütlesi).</p>
+                        <p><strong>Yan koşullar</strong> (iki ucu bağlı tel):</p>
+                        $$u(0,t)=0,\qquad u(L,t)=0\qquad\text{(sınır)}$$
+                        $$u(x,0)=f(x),\qquad u_{t}(x,0)=g(x)\qquad\text{(başlangıç — iki tane)}$$
+                        <p><span class="vurgu">Başlangıç koşulu iki tanedir</span>, çünkü denklem $t$'ye göre ikinci mertebedendir (8.1): başlangıç <strong>şekli</strong> ve başlangıç <strong>hızı</strong>.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözüm</h3>
+                        <p><strong>Adım 1–3.</strong> $u=XT$ koyalım:</p>
+                        $$XT''=c^{2}X''T\;\Longrightarrow\;\frac{T''}{c^{2}T}=\frac{X''}{X}=-\lambda$$
+                        <p><strong>Adım 4 — İki ADD.</strong></p>
+                        $$X''+\lambda X=0,\qquad T''+c^{2}\lambda T=0$$
+                        <p>$X$ denklemi, sınır koşullarıyla birlikte yine $(8.7)$'dir. Cevap $(8.8)$'de duruyor:</p>
+                        $$\lambda_{n}=\left(\frac{n\pi}{L}\right)^{2},\qquad X_{n}=\sin\frac{n\pi x}{L}$$
+                        <p><strong>$T$ denklemi bu sefer ikinci mertebeden.</strong> Isı denkleminde birinci mertebedendi ve üstel sönüm veriyordu; burada:</p>
+                        $$T''+\left(\frac{n\pi c}{L}\right)^{2}T=0$$
+                        <p>Bu, 7.9'daki $\left(\hat{D}^{2}+\omega^{2}\right)T=0$ kalıbıdır — <span class="vurgu">sönüm değil salınım:</span></p>
+                        $$T_{n}(t)=A_{n}\cos\frac{n\pi c\,t}{L}+B_{n}\sin\frac{n\pi c\,t}{L}$$
+                        <p><strong>Adım 5 — Süperpozisyon.</strong></p>
+                        $$\boxed{\;u(x,t)=\sum_{n=1}^{\infty}\left[A_{n}\cos\frac{n\pi c\,t}{L}+B_{n}\sin\frac{n\pi c\,t}{L}\right]\sin\frac{n\pi x}{L}\;} \tag{8.14}$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Katsayılar</h3>
+                        <p><strong>$A_{n}$ — başlangıç şeklinden.</strong> $t=0$ koyalım ($\cos 0=1$, $\sin 0=0$):</p>
+                        $$u(x,0)=\sum_{n=1}^{\infty}A_{n}\sin\frac{n\pi x}{L}=f(x)$$
+                        $$\boxed{\;A_{n}=\frac{2}{L}\int_{0}^{L}f(x)\sin\frac{n\pi x}{L}\,dx\;} \tag{8.15}$$
+                        <p><strong>$B_{n}$ — başlangıç hızından.</strong> Önce $(8.14)$'ün $t$'ye göre türevini alalım:</p>
+                        $$u_{t}(x,t)=\sum_{n=1}^{\infty}\frac{n\pi c}{L}\left[-A_{n}\sin\frac{n\pi c\,t}{L}+B_{n}\cos\frac{n\pi c\,t}{L}\right]\sin\frac{n\pi x}{L}$$
+                        <p>$t=0$ koyalım:</p>
+                        $$u_{t}(x,0)=\sum_{n=1}^{\infty}\frac{n\pi c}{L}B_{n}\sin\frac{n\pi x}{L}=g(x)$$
+                        <p>Demek ki $\dfrac{n\pi c}{L}B_{n}$, $g$'nin $n$. Fourier sinüs katsayısıdır:</p>
+                        $$\frac{n\pi c}{L}B_{n}=\frac{2}{L}\int_{0}^{L}g(x)\sin\frac{n\pi x}{L}\,dx$$
+                        $$\boxed{\;B_{n}=\frac{2}{n\pi c}\int_{0}^{L}g(x)\sin\frac{n\pi x}{L}\,dx\;} \tag{8.16}$$
+                        <div class="highlight">
+                            <p><strong>$B_{n}$ formülündeki $\dfrac{2}{n\pi c}$ çarpanına dikkat.</strong> $A_{n}$'de $\dfrac{2}{L}$ vardı, burada $L$ sadeleşip yerine $n\pi c$ geldi — çünkü $t$ türevi öne bir $\dfrac{n\pi c}{L}$ çarpanı attı.</p>
+                            <p><span class="vurgu">Bu iki formülü karıştırmak en sık yapılan hatadır.</span> Ezberlemek yerine türetmeyi hatırlayın: $B_{n}$, $g$'nin Fourier katsayısının $\dfrac{n\pi c}{L}$'ye bölünmüş hâlidir.</p>
+                        </div>
+                        <p><strong>Özel durum: tel durgun bırakılıyorsa</strong> ($g(x)=0$, en yaygın hâl) bütün $B_{n}=0$ olur ve çözüm sadeleşir:</p>
+                        $$u(x,t)=\sum_{n=1}^{\infty}A_{n}\cos\frac{n\pi c\,t}{L}\sin\frac{n\pi x}{L}$$
+                        <hr>
+                        <div class="question-block yildizli">
+                            <span class="ders-notu-rozet" title="Ders notlarinda gecen soru"><span class="yildiz">&#9733;</span> Ders Notu Sorusu</span>
+                            <p class="question-text"><strong>Örnek 8.9.</strong> &nbsp; Uzunluğu $L$ olan bir tel, $f(x)=\dfrac{h}{L}x$ biçiminde çekilip ($h$ küçük) $t=0$ anında durgun hâlde serbest bırakılıyor. Hareketi bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Problem.</strong></p>
+                                $$u_{tt}=c^{2}u_{xx},\qquad u(0,t)=u(L,t)=0,\qquad u(x,0)=\frac{h}{L}x,\qquad u_{t}(x,0)=0$$
+                                <p><strong>Adım 1 — $B_{n}$.</strong> $g(x)=0$ olduğundan $(8.16)$'daki integral sıfır:</p>
+                                $$B_{n}=0\quad\text{her } n \text{ için}$$
+                                <p><strong>Adım 2 — $A_{n}$.</strong> $(8.15)$:</p>
+                                $$A_{n}=\frac{2}{L}\int_{0}^{L}\frac{h}{L}x\sin\frac{n\pi x}{L}\,dx=\frac{h}{L}\cdot\underbrace{\frac{2}{L}\int_{0}^{L}x\sin\frac{n\pi x}{L}\,dx}_{\text{Örnek 8.5}}$$
+                                <p>Örnek 8.5'te bu integralin sonucunu $\dfrac{2L(-1)^{n+1}}{n\pi}$ olarak bulmuştuk:</p>
+                                $$A_{n}=\frac{h}{L}\cdot\frac{2L(-1)^{n+1}}{n\pi}=\frac{2h\,(-1)^{n+1}}{n\pi}$$
+                                <p><strong>Adım 3 — Çözüm.</strong></p>
+                                $$\boxed{\;u(x,t)=\frac{2h}{\pi}\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}\sin\frac{n\pi x}{L}\cos\frac{n\pi c\,t}{L}\;}$$
+                                <p><strong>Kontroller.</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$x=0$, $x=L$'de sinüsler sıfır &nbsp;→&nbsp; uçlar sabit &#10003;</li>
+                                    <li>$t=0$'da $\cos 0=1$, geriye Örnek 8.5'in serisi kalır, yani $\dfrac{h}{L}x$ &#10003;</li>
+                                    <li>$u_{t}$'de her terim $\sin\dfrac{n\pi ct}{L}$ taşır, $t=0$'da sıfırdır &nbsp;→&nbsp; durgun başlangıç &#10003;</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Müzikal okuma</h3>
+                        <div class="highlight">
+                            <p><strong>Her $n$ bir nota.</strong> $n$. terimin titreşim frekansı:</p>
+                            $$f_{n}=\frac{n\,c}{2L}$$
+                            <ul style="margin-left: 1rem;">
+                                <li>$n=1$ → <strong>temel frekans</strong> (fundamental), telin verdiği asıl nota</li>
+                                <li>$n=2,3,4,\dots$ → <strong>harmonikler</strong>, temel frekansın <span class="vurgu">tam katları</span></li>
+                            </ul>
+                            <p>Bir gitar telinin "do" mu "re" mi verdiğini $f_{1}=\dfrac{c}{2L}$ belirler; <strong>hangi harmoniklerin ne kadar güçlü olduğu</strong> ise $A_{n}$ katsayılarıdır — yani <span class="vurgu">telin nasıl çekildiği.</span> Aynı notayı çalan gitar ile keman farklı duyulur çünkü $A_{n}$ dağılımları farklıdır. Buna <strong>tını (timbre)</strong> denir.</p>
+                            <p><strong>Perdeyi değiştirmenin üç yolu</strong>, formülden doğrudan okunur:</p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$L$'yi küçült (parmakla bas) → frekans artar</li>
+                                <li>$c=\sqrt{T/\rho}$ içinde $T$'yi artır (akort burgusu) → frekans artar</li>
+                                <li>Daha kalın tel ($\rho$ büyük) → frekans düşer</li>
+                            </ul>
+                        </div>
+                        <p><strong>Isı denklemiyle karşılaştırma.</strong> Aynı özfonksiyonlar, <span class="vurgu">bambaşka zaman davranışı:</span></p>
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th></th><th>Isı</th><th>Dalga</th></tr>
+                            <tr><td>$T$ denklemi</td><td>$T'+k\lambda T=0$</td><td>$T''+c^{2}\lambda T=0$</td></tr>
+                            <tr><td>Zaman çözümü</td><td>$e^{-k\lambda_{n}t}$</td><td>$\cos,\sin$</td></tr>
+                            <tr><td>Yüksek $n$</td><td><span class="vurgu">Çok hızlı söner</span> ($n^{2}$)</td><td><span class="vurgu">Hiç sönmez</span>, daha hızlı titrer</td></tr>
+                            <tr><td>$t\to\infty$</td><td>$u\to 0$</td><td>Salınım sürer</td></tr>
+                        </table>
+                        </div>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">d'Alembert çözümü — ikinci bir bakış</span>
+                            </div>
+                            <p>Dalga denkleminin <span class="vurgu">seriye hiç girmeyen</span> kapalı bir çözümü de vardır. Sonsuz uzun bir tel için (sınır yok):</p>
+                            $$\boxed{\;u(x,t)=\frac{1}{2}\Big[f(x+ct)+f(x-ct)\Big]+\frac{1}{2c}\int_{x-ct}^{x+ct}g(s)\,ds\;}$$
+                            <p><strong>Okunuşu:</strong> başlangıç şekli <span class="vurgu">ikiye bölünür</span>; yarısı sola, yarısı sağa $c$ hızıyla kayar. $f(x-ct)$ sağa giden dalga, $f(x+ct)$ sola giden dalga.</p>
+                            <p>Bu, 8.2'deki "hiperbolik denklemler süreksizliği bozmadan taşır" ifadesinin <span class="vurgu">somut hâlidir</span>: $f$'nin şekli hiç değişmez, yalnız yer değiştirir. Isı denkleminde böyle bir formül yoktur, çünkü orada şekil korunmaz.</p>
+                            <p><strong>Sınırlı telde de kullanılabilir</strong> ama $f$ ve $g$'nin <span class="vurgu">tek ve $2L$ periyotlu</span> genişletilmesi gerekir; uçlardan yansıyan dalgalar böyle temsil edilir. Seri çözümüyle aynı sonucu verir.</p>
+                            <p><strong>Hangisini kullanmalı:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>Sınırlı bölge + Fourier katsayısı isteniyor → <span class="vurgu">seri çözümü</span> $(8.14)$</li>
+                                <li>Sonsuz/yarı-sonsuz tel, ya da "dalga nereye gitti" tipi soru → <span class="vurgu">d'Alembert</span></li>
+                            </ul>
+                            <p>Hoca d'Alembert'i işlemeyebilir; ders notu geldiğinde <span class="vurgu">kontrol edin.</span></p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-laplace" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Konu</span>
+                            8.7 &nbsp;Laplace Denklemi — Eliptik Denklemin Temsilcisi
+                        </div>
+                        $$\boxed{\;u_{xx}+u_{yy}=0\;} \tag{8.17}$$
+                        <p>Bu denklemin <span class="vurgu">zaman değişkeni yoktur.</span> Bir <strong>denge durumunu</strong> tarif eder: ısı denkleminde $t\to\infty$ giderken $u_{t}\to 0$ olur ve geriye tam olarak $(8.17)$ kalır.</p>
+                        <p>Çözümlerine <strong>harmonik fonksiyonlar</strong> denir. Denklem elektrostatik potansiyel, kararlı sıcaklık dağılımı, sıkıştırılamaz akış ve kütleçekim potansiyeli problemlerinde ortaya çıkar.</p>
+                        <p><strong>Yan koşullar:</strong> zaman olmadığı için başlangıç koşulu da yoktur. Bunun yerine <span class="vurgu">bölgenin bütün kenarında</span> sınır koşulu verilir.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Dikdörtgen bölgede çözüm</h3>
+                        <p>$0&lt;x&lt;a$, $0&lt;y&lt;b$ dikdörtgeni. Üç kenar sıfır, bir kenarda verilen fonksiyon:</p>
+                        $$u(0,y)=0,\qquad u(a,y)=0,\qquad u(x,0)=0,\qquad u(x,b)=f(x)$$
+                        <p><strong>Adım 1–3 — Ayır.</strong> $u=X(x)Y(y)$:</p>
+                        $$X''Y+XY''=0\;\Longrightarrow\;\frac{X''}{X}=-\frac{Y''}{Y}=-\lambda$$
+                        <p><strong>Adım 4 — İki ADD.</strong></p>
+                        $$X''+\lambda X=0,\qquad Y''-\lambda Y=0$$
+                        <div class="highlight">
+                            <p><strong>İşaretlere dikkat — burada bir seçim var.</strong> $X$ denkleminde $+\lambda$, $Y$ denkleminde $-\lambda$ çıktı. Hangi değişkene $+\lambda$ vereceğimizi <span class="vurgu">sınır koşulları belirler:</span></p>
+                            <p>$x$ yönünde <strong>iki tarafta da sıfır</strong> koşulu var ($u(0,y)=u(a,y)=0$). Bu, $(8.7)$'nin özdeğer problemidir ve <span class="vurgu">salınımlı çözüm gerektirir</span> — yani $X$'in sinüs olması gerekir. Bu yüzden $+\lambda$ ona verilir.</p>
+                            <p>$y$ yönünde ise bir uçta sıfır, öbür uçta $f$ var; orada salınım değil <span class="vurgu">üstel/hiperbolik davranış</span> gerekir.</p>
+                            <p>$+\lambda$'yı yanlış değişkene verirseniz sinüsler $y$'de çıkar ve sınır koşulları sağlanamaz. <span class="vurgu">Önce hangi yönde iki homojen koşul var, ona bakın.</span></p>
+                        </div>
+                        <p><strong>$X$ denklemi.</strong> $X(0)=X(a)=0$ ile birlikte, yine $(8.8)$:</p>
+                        $$\lambda_{n}=\left(\frac{n\pi}{a}\right)^{2},\qquad X_{n}(x)=\sin\frac{n\pi x}{a}$$
+                        <p><strong>$Y$ denklemi.</strong> $Y''-\lambda_{n}Y=0$, kökler $\pm\dfrac{n\pi}{a}$ — <span class="vurgu">reel ve farklı</span>, yani üstel çözüm:</p>
+                        $$Y_{n}(y)=c_{1}e^{\frac{n\pi y}{a}}+c_{2}e^{-\frac{n\pi y}{a}}$$
+                        <p>$Y(0)=0$ koşulunu uygulamak için hiperbolik biçim daha kullanışlıdır:</p>
+                        $$Y_{n}(y)=c_{1}\cosh\frac{n\pi y}{a}+c_{2}\sinh\frac{n\pi y}{a}$$
+                        <p>$Y(0)=0\;\Rightarrow\;c_{1}\cosh 0=c_{1}=0$ &nbsp;(çünkü $\cosh 0=1$, $\sinh 0=0$). Geriye:</p>
+                        $$Y_{n}(y)=\sinh\frac{n\pi y}{a}$$
+                        <p><strong>Adım 5 — Süperpozisyon.</strong></p>
+                        $$u(x,y)=\sum_{n=1}^{\infty}c_{n}\sin\frac{n\pi x}{a}\sinh\frac{n\pi y}{a} \tag{8.18}$$
+                        <p><strong>Katsayılar.</strong> Son sınır koşulu $u(x,b)=f(x)$:</p>
+                        $$\sum_{n=1}^{\infty}\underbrace{c_{n}\sinh\frac{n\pi b}{a}}_{\text{Fourier katsayısı}}\sin\frac{n\pi x}{a}=f(x)$$
+                        <p>Köşeli kısım, $f$'nin sinüs katsayısıdır:</p>
+                        $$c_{n}\sinh\frac{n\pi b}{a}=\frac{2}{a}\int_{0}^{a}f(x)\sin\frac{n\pi x}{a}\,dx$$
+                        $$\boxed{\;c_{n}=\frac{2}{a\,\sinh\dfrac{n\pi b}{a}}\int_{0}^{a}f(x)\sin\frac{n\pi x}{a}\,dx\;} \tag{8.19}$$
+                        <hr>
+                        <div class="question-block">
+                            <p class="question-text"><strong>Örnek 8.10.</strong> &nbsp; $a=b=\pi$ olan bir kare levhanın üç kenarı $0$ derecede, üst kenarı $u(x,\pi)=T_{0}$ sıcaklığında tutuluyor. Kararlı sıcaklık dağılımını bulunuz.</p>
+                            <button class="toggle-btn" onclick="toggleAnswer(this)">Cevabı Göster</button>
+                            <div class="answer">
+                                <p><strong>Adım 1 — Çözüm biçimi.</strong> $(8.18)$'de $a=\pi$:</p>
+                                $$u(x,y)=\sum_{n=1}^{\infty}c_{n}\sin\left(nx\right)\sinh\left(ny\right)$$
+                                <p><strong>Adım 2 — Katsayılar.</strong> $f(x)=T_{0}$ sabit; sinüs açılımını Örnek 8.6'da bulmuştuk ($L=\pi$ ile):</p>
+                                $$\frac{2}{\pi}\int_{0}^{\pi}T_{0}\sin\left(nx\right)dx=\frac{2T_{0}}{n\pi}\Big(1-(-1)^{n}\Big)=\begin{cases}\dfrac{4T_{0}}{n\pi},&amp; n\text{ tek}\\[2mm] 0,&amp; n\text{ çift}\end{cases}$$
+                                <p>$(8.19)$'a göre bunu $\sinh\left(n\pi\right)$'ye böleriz:</p>
+                                $$c_{n}=\frac{4T_{0}}{n\pi\sinh\left(n\pi\right)}\quad (n\text{ tek}),\qquad c_{n}=0\quad (n\text{ çift})$$
+                                <p><strong>Adım 3 — Çözüm.</strong></p>
+                                $$\boxed{\;u(x,y)=\frac{4T_{0}}{\pi}\sum_{n\text{ tek}}\frac{\sin\left(nx\right)\sinh\left(ny\right)}{n\,\sinh\left(n\pi\right)}\;}$$
+                                <p><strong>Kontroller.</strong></p>
+                                <ul style="margin-left: 1rem;">
+                                    <li>$x=0$ ve $x=\pi$'de $\sin\left(nx\right)=0$ &#10003;</li>
+                                    <li>$y=0$'da $\sinh 0=0$ &#10003;</li>
+                                    <li>$y=\pi$'de $\dfrac{\sinh\left(n\pi\right)}{\sinh\left(n\pi\right)}=1$, geriye $T_{0}$'ın sinüs açılımı kalır &#10003;</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Harmonik fonksiyonların iki özelliği</h3>
+                        <div class="highlight">
+                            <p><strong>1. Ortalama değer özelliği.</strong> Bir harmonik fonksiyonun herhangi bir noktadaki değeri, o noktayı merkez alan <span class="vurgu">her çemberin üzerindeki ortalamasına eşittir.</span></p>
+                            <p><strong>2. Maksimum ilkesi.</strong> Bir harmonik fonksiyon, maksimum ve minimum değerlerini <span class="vurgu">daima bölgenin sınırında</span> alır; iç bölgede tepe ya da çukur oluşturamaz.</p>
+                            <p><strong>Fiziksel okunuşu:</strong> ısı kaynağı olmayan bir levhada, en sıcak nokta <span class="vurgu">kenarda olmak zorundadır.</span> İçeride bir yerin çevresinden sıcak olması, oraya dışarıdan ısı verilmesini gerektirir — ki $(8.17)$ bunu yasaklar (kaynak terimi olsaydı denklem Poisson olurdu).</p>
+                            <p><strong>Pratik faydası — sonuç kontrolü:</strong> bulduğunuz $u$, sınır değerlerinin <span class="vurgu">dışına çıkıyorsa hata vardır.</span> Örnek 8.10'da bütün sınır değerleri $0$ ile $T_{0}$ arasındaydı; çözümün her yerde bu aralıkta kalması gerekir.</p>
+                        </div>
+                        <p><strong>Birden çok kenarda koşul varsa?</strong> Dört kenarda da sıfırdan farklı değer verilmişse problem <span class="vurgu">dörde bölünür:</span> her seferinde bir kenar canlı, diğer üçü sıfır. Dört çözüm ayrı ayrı bulunup <span class="vurgu">toplanır</span> (süperpozisyon, 7.8). Her biri yukarıdaki hesabın aynısıdır, yalnız roller değişir.</p>
+                        <hr>
+                        <div class="claude-oneri">
+                            <div class="claude-oneri-bas">
+                                <span class="claude-oneri-rozet">Claude önerisi</span>
+                                <span class="claude-oneri-baslik">Üç denklem tek tabloda — bölümün özeti</span>
+                            </div>
+                            <p>Üçü de <span class="vurgu">aynı özfonksiyonları</span> kullanır; fark yalnızca ikinci ADD'dedir:</p>
+                            <div class="tablo-sar">
+                            <table>
+                                <tr><th></th><th>Isı</th><th>Dalga</th><th>Laplace</th></tr>
+                                <tr><td>Denklem</td><td>$u_{t}=k\,u_{xx}$</td><td>$u_{tt}=c^{2}u_{xx}$</td><td>$u_{xx}+u_{yy}=0$</td></tr>
+                                <tr><td>Sınıf</td><td>Parabolik</td><td>Hiperbolik</td><td>Eliptik</td></tr>
+                                <tr><td>$X$ denklemi</td><td>$X''+\lambda X=0$</td><td>$X''+\lambda X=0$</td><td>$X''+\lambda X=0$</td></tr>
+                                <tr><td>İkinci ADD</td><td>$T'+k\lambda T=0$</td><td>$T''+c^{2}\lambda T=0$</td><td>$Y''-\lambda Y=0$</td></tr>
+                                <tr><td>Kökler</td><td>tek, reel negatif</td><td><span class="vurgu">sanal</span></td><td><span class="vurgu">reel, zıt işaretli</span></td></tr>
+                                <tr><td>İkinci çözüm</td><td>$e^{-k\lambda_{n}t}$</td><td>$\cos,\sin$</td><td>$\cosh,\sinh$</td></tr>
+                                <tr><td>Davranış</td><td>Söner</td><td>Salınır</td><td>Üstel büyür/azalır</td></tr>
+                            </table>
+                            </div>
+                            <p><strong>Ezberlenecek tek şey:</strong> $X''+\lambda X=0$ ile $X(0)=X(L)=0$ probleminin cevabı $(8.8)$. Üç denklemde de aynısı çıkıyor.</p>
+                            <p><strong>İkinci ADD'nin türünü mertebeden okuyun:</strong></p>
+                            <ul style="margin-left: 1rem;">
+                                <li>$t$'ye göre <strong>birinci</strong> türev → birinci mertebeden ADD → <span class="vurgu">üstel</span> → sönüm</li>
+                                <li>$t$'ye göre <strong>ikinci</strong> türev, işaret $\lambda$ ile <strong>aynı</strong> → sanal kök → <span class="vurgu">trigonometrik</span> → salınım</li>
+                                <li>İkinci türev, işaret $\lambda$ ile <strong>zıt</strong> → reel kök → <span class="vurgu">hiperbolik</span> → büyüme</li>
+                            </ul>
+                            <p><strong>$\sinh$ mi $\cosh$ mu?</strong> Sınır koşulunun sıfır olduğu yere bakın: $Y(0)=0$ ise $\sinh$ (çünkü $\sinh 0=0$), $Y'(0)=0$ ise $\cosh$. Koşul $y=b$'de sıfırsa argümanı kaydırın: $\sinh\dfrac{n\pi(b-y)}{a}$.</p>
+                        </div>
+                    </div>
+
+                    <div id="kdd-formul-karti" class="section konu">
+                        <div class="section-title">
+                            <span class="badge">Özet</span>
+                            8.8 &nbsp;Bölüm 8 Formül Kartı
+                        </div>
+                        <div class="highlight">
+                            <p><strong>Tek sayfalık özet.</strong> Aşağıdakiler bölümün tamamının işlem yükünü taşır. Ders notu geldiğinde <span class="vurgu">hocanın gösterimiyle karşılaştırıp güncelleyin.</span></p>
+                        </div>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Sınıflandırma</h3>
+                        $$A\,u_{xx}+B\,u_{xy}+C\,u_{yy}+\dots=0,\qquad \Delta=B^{2}-4AC$$
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>$\Delta&lt;0$</th><th>$\Delta=0$</th><th>$\Delta&gt;0$</th></tr>
+                            <tr><td>Eliptik — Laplace</td><td>Parabolik — ısı</td><td>Hiperbolik — dalga</td></tr>
+                        </table>
+                        </div>
+                        <p>$B=0$ ise: $A$, $C$ aynı işaret → eliptik; zıt → hiperbolik; biri sıfır → parabolik.</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Ana özdeğer problemi</h3>
+                        $$X''+\lambda X=0$$
+                        <div class="tablo-sar">
+                        <table>
+                            <tr><th>Sınır koşulu</th><th>Özdeğerler</th><th>Özfonksiyonlar</th></tr>
+                            <tr><td>$X(0)=X(L)=0$</td><td>$\lambda_{n}=\left(\dfrac{n\pi}{L}\right)^{2}$, &nbsp;$n\ge 1$</td><td>$\sin\dfrac{n\pi x}{L}$</td></tr>
+                            <tr><td>$X'(0)=X'(L)=0$</td><td>$\lambda_{n}=\left(\dfrac{n\pi}{L}\right)^{2}$, &nbsp;$n\ge 0$</td><td>$\cos\dfrac{n\pi x}{L}$</td></tr>
+                        </table>
+                        </div>
+                        <p>$\lambda&lt;0$ ve $\lambda=0$ durumları <span class="vurgu">yalnız aşikâr çözüm verir</span> (Dirichlet koşulunda).</p>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Fourier katsayıları</h3>
+                        <p>Tam seri, $(-L,L)$:</p>
+                        $$a_{n}=\frac{1}{L}\int_{-L}^{L}f\cos\frac{n\pi x}{L}dx,\qquad b_{n}=\frac{1}{L}\int_{-L}^{L}f\sin\frac{n\pi x}{L}dx$$
+                        <p>Yarım aralık, $(0,L)$ — <span class="vurgu">çarpan $2/L$:</span></p>
+                        $$b_{n}=\frac{2}{L}\int_{0}^{L}f\sin\frac{n\pi x}{L}dx,\qquad a_{n}=\frac{2}{L}\int_{0}^{L}f\cos\frac{n\pi x}{L}dx$$
+                        <p>Sık çıkan iki sonuç:</p>
+                        $$f(x)=x\;\Longrightarrow\;b_{n}=\frac{2L(-1)^{n+1}}{n\pi},\qquad f(x)=T_{0}\;\Longrightarrow\;b_{n}=\frac{2T_{0}}{n\pi}\Big(1-(-1)^{n}\Big)$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Üç denklemin çözümü</h3>
+                        <p><strong>Isı:</strong> $u_{t}=k\,u_{xx}$, &nbsp;$u(0,t)=u(L,t)=0$, &nbsp;$u(x,0)=f(x)$</p>
+                        $$u=\sum_{n=1}^{\infty}b_{n}\sin\frac{n\pi x}{L}e^{-k\left(\frac{n\pi}{L}\right)^{2}t},\qquad b_{n}=\frac{2}{L}\int_{0}^{L}f\sin\frac{n\pi x}{L}dx$$
+                        <p><strong>Dalga:</strong> $u_{tt}=c^{2}u_{xx}$, &nbsp;$u(x,0)=f(x)$, &nbsp;$u_{t}(x,0)=g(x)$</p>
+                        $$u=\sum_{n=1}^{\infty}\left[A_{n}\cos\frac{n\pi ct}{L}+B_{n}\sin\frac{n\pi ct}{L}\right]\sin\frac{n\pi x}{L}$$
+                        $$A_{n}=\frac{2}{L}\int_{0}^{L}f\sin\frac{n\pi x}{L}dx,\qquad B_{n}=\frac{2}{n\pi c}\int_{0}^{L}g\sin\frac{n\pi x}{L}dx$$
+                        <p>d'Alembert (sınırsız tel): &nbsp;$u=\dfrac{1}{2}\big[f(x+ct)+f(x-ct)\big]+\dfrac{1}{2c}\displaystyle\int_{x-ct}^{x+ct}g\,ds$</p>
+                        <p><strong>Laplace:</strong> $u_{xx}+u_{yy}=0$ dikdörtgende, &nbsp;$u(x,b)=f(x)$, diğer üç kenar $0$</p>
+                        $$u=\sum_{n=1}^{\infty}c_{n}\sin\frac{n\pi x}{a}\sinh\frac{n\pi y}{a},\qquad c_{n}=\frac{2}{a\sinh\frac{n\pi b}{a}}\int_{0}^{a}f\sin\frac{n\pi x}{a}dx$$
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Çözüm sırası (her problemde aynı)</h3>
+                        <ol>
+                            <li>$u=XT$ koy, ayır, $-\lambda$'ya eşitle</li>
+                            <li>Sınır koşullarını $u$'dan $X$'e aktar</li>
+                            <li>$\lambda&lt;0$, $\lambda=0$, $\lambda&gt;0$ üçünü de ele — <span class="vurgu">bu adım puanlıdır</span></li>
+                            <li>İkinci ADD'yi çöz (üstel / trigonometrik / hiperbolik)</li>
+                            <li>Süperpozisyon + Fourier ile başlangıç koşulunu sağlat</li>
+                            <li>Kontrol: sınırlarda ve $t=0$'da yerine koy</li>
+                        </ol>
+                        <hr>
+                        <h3 style="margin: 1.25rem 0 0.75rem; color: #4a5568;">Sık kullanılan değerler</h3>
+                        $$\cos n\pi=(-1)^{n},\qquad \sin n\pi=0,\qquad \sinh 0=0,\qquad \cosh 0=1$$
+                        $$1-(-1)^{n}=\begin{cases}2,&amp; n\text{ tek}\\ 0,&amp; n\text{ çift}\end{cases}$$
+                    </div>
+
+
+                    <!-- ######################################################## -->
                     <!-- BÖLÜM 89 — Vize — Çıkmış Sorular ve Çözümleri -->
                     <!-- ######################################################## -->
 
@@ -20915,7 +21746,7 @@
         <button type="button" class="pp-kapat" aria-label="Kapat">&times;</button>
     </div>
 
-<script defer src="arama.js?v=9d194fe8"></script>
+<script defer src="arama.js?v=48fac6fa"></script>
     <script src="app.js?v=cd7965ae"></script>
     <script src="arama-ui.js"></script>
 </body>

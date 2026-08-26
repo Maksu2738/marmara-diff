@@ -3,8 +3,11 @@ id: ozel-dd-bessel-p
 menu: 6.3 Bessel — İkinci Tür ve p. Mertebe
 tip: konu
 baslik: 6.3 &nbsp;İkinci Tür Bessel Fonksiyonu ve p. Mertebeden Bessel Denklemi
-defterde: yok
 ---
+
+[KUTU]
+**Bu sayfanın iki yarısı farklı kaynaklardan.** Aşağıdaki $Y_{0}$ kısmı ==kitaptandır==; hocanın ders notunda geçmez. Buna karşılık ikinci yarıdaki **$p$. mertebeden Bessel denklemi ve $J_{p}$ türetimi ders notunda birebir vardır** — bkz. "★ Ders Notu — $J_p$ ve Neumann $N_p$" sayfası.
+[/KUTU]
 
 ### $Y_{0}$ — ikinci tür Bessel fonksiyonu
 

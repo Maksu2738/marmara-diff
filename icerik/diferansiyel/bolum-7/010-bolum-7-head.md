@@ -15,6 +15,10 @@ baslik: BÖLÜM 7: Lineer Sistemler ve Diferansiyel Operatörler
 
 **7.3 Operatör yöntemi.** Sabit katsayılı sistemleri çözmek için sembolik bir yöntem: bilinmeyenlerden birini yok edip geriye tek bilinmeyenli, bildiğimiz türden bir denklem bırakıyoruz.
 
+**7.6 ve sonrası — ★ hocanın ders notu.** 7.5'ten sonra bölüm ikinci kez, bu kez ==hocanın kendi anlatımıyla== başlıyor. Ders notunun "Chapter 7: Differential Operators" bölümü operatörü bir *araç* olarak değil ==başlı başına bir konu== olarak ele alıyor: operatör nedir (7.6), fonksiyonlara nasıl etki eder (7.7), lineerlik (7.8), denklem çözme (7.9), komütatör (7.10), homojen olmayan denklemler (7.11), yok ediciler (7.12), birinci mertebeye indirgeme (7.13) ve özfonksiyonlar (7.14).
+
+İki anlatım çelişmiyor; hocanınki daha geneldir ve yukarıdaki $D$ gösterimini kapsar.
+
 [KUTU]
 **Yöntemin özü tek cümlede:** Lineer cebirde iki bilinmeyenli denklem sistemini çözerken bir bilinmeyeni yok ederiz. Burada da aynısını yapıyoruz — tek fark, katsayıların sayı değil ==diferansiyel operatör== olması. Operatörler polinom gibi davrandığı için aynı eleme hamlesi işe yarıyor.
 [/KUTU]
